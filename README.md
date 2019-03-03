@@ -18,16 +18,16 @@ The specs are rather badly documented. I have managed to glean the following dat
 
 ## Currently known Bluetooth LE (BLE) handles and data format
 So far, I have identified the following BLE UUIDs/handles
-* Button: Notification handle 0x002c reads a hex value 01 upon button press
-* Device name: Handle 0x2a00 (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
-* Device/System ID: Handle 0x0012 (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
-* To start a scan, write 01ba020000 to handle 0x0029 (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle 0x0025. In Gatttool, the command is
+* Button: Notification handle `0x002c` reads a hex value `01` upon button press
+* Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
+* Device/System ID: Handle `0x0012` (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
+* To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`. In Gatttool, the command is
 
 ```bash
     char-write-cmd 0x0029 01ba020000
 ```
 	
-* The scanning handle (0x0029, see above) accepts additional messages. The app sends the following before scanning. I have no clue what they mean:
+* The scanning handle (`0x0029`, see above) accepts additional messages. The app sends the following before scanning. I have no clue what they mean:
 
 ```
     01ba050000
@@ -44,13 +44,13 @@ I captured BLE data on Linux using gatttool, with the following command:
     sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
 ```
 
-Where xx:xx:xx:xx:xx:xx stands for your SCiO's MAC address
+Where `xx:xx:xx:xx:xx:xx` stands for your SCiO's MAC address
 
 According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
 
 Raw ble messages containing data are structured as follows:
 * Byte 1 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
-* Byte 2 of the first line of a message (ID = 01) is a command, "ba" (hex) or "-70" (int) to identify the message as scanned data
+* Byte 2 of the first line of a message (ID = `01`) is a command, "ba" (hex) or "-70" (int) to identify the message as scanned data
 * Bytes 3 and 4 of the first line contain the coded message length.
 * Bytes 5-20 of the first line are data
 * All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
