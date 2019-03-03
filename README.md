@@ -58,11 +58,15 @@ Raw ble messages containing data are structured as follows:
 
 ## Currently unknown
 The following commands have been identified and can be used to read or write commands. For writing messages, I have currently no idea which handle they need to be written to, not what the messages need to contain
-* The SCiO reads its own and the object's temperature. The handle is currently unknown but the message ID is (int) 4
-* Response spectrum values have message ID (int) 2
-* The LED can be set using message ID (int) 11
-* To reset the device, message ID (int) -125
-* To change the device name, message ID (int) -111
+
+| Command (int) | hex | Meaning            | handle & message format |
+| ------------- |-----| -------------------|-----------------|
+| -70           | ba  | Incoming data      | see above |
+| 4             |     | Object temperature | ? |
+| 11            |     | Set LED status     | ? |
+| -125          |     | Reset device       | ? |
+| -111          |     | Change device name | ? |
+
 
 ## License
 
