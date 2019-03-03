@@ -27,11 +27,13 @@ So far, I have identified the following BLE UUIDs/handles
 	
 * The scanning handle (0x0029, see above) accepts additional messages. The app sends the following before scanning. I have no clue what they mean:
 
+```
     01ba050000
     01ba0e0000
     01ba0b0900000000000000000000
     01ba040000
 	01ba020000 // This is the actual scanning command
+```
 
 ## Data format
 I captured BLE data on Linux using gatttool, with the following command:
