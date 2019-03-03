@@ -23,7 +23,8 @@ for line in content:
         print("is the first line")
         if(hex2int(line[1],8) == data_msg):
             print("data coming in")
-        overallLength = (hex2int(line[2],8) & 255) | ((hex2int(line[3],8) & 255) << 8)
+        command = hex2int(line[2],8)
+        overallLength = (hex2int(line[3],8) & 255) | ((hex2int(line[4],8) & 255) << 8)
         print("Rest length: ", restLength)
         print("Overall length: ",overallLength)
         restLength = overallLength
