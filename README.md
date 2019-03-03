@@ -23,7 +23,9 @@ So far, I have identified the following BLE UUIDs/handles
 * Device/System ID: Handle 0x0012 (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
 * To start a scan, write 01ba020000 to handle 0x0029 (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle 0x0025. In Gatttool, the command is
 
+```bash
     char-write-cmd 0x0029 01ba020000
+```
 	
 * The scanning handle (0x0029, see above) accepts additional messages. The app sends the following before scanning. I have no clue what they mean:
 
@@ -38,8 +40,10 @@ So far, I have identified the following BLE UUIDs/handles
 ## Data format
 I captured BLE data on Linux using gatttool, with the following command:
 
+```bash
     sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
-	
+```
+
 Where xx:xx:xx:xx:xx:xx stands for your SCiO's MAC address
 
 According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
