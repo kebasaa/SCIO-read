@@ -1,4 +1,4 @@
-# Read the i spectrometer built by [Consumer Physics](https://www.consumerphysics.com/)
+# Read the SCiO spectrometer built by [Consumer Physics](https://www.consumerphysics.com/)
 
 In this small project, I'm trying to create a Python library to read the SCiO scans directly. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future also some code to make it work. Any input and help is appreciated.
 
@@ -22,8 +22,11 @@ So far, I have identified the following BLE UUIDs/handles
 * Device name: Handle 0x2a00 (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
 * Device/System ID: Handle 0x0012 (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
 * To start a scan, write 01ba020000 to handle 0x0029 (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle 0x0025. In Gatttool, the command is
+
     char-write-cmd 0x0029 01ba020000
+	
 * The scanning handle (0x0029, see above) accepts additional messages. The app sends the following before scanning. I have no clue what they mean:
+
     01ba050000
     01ba0e0000
     01ba0b0900000000000000000000
@@ -32,7 +35,9 @@ So far, I have identified the following BLE UUIDs/handles
 
 ## Data format
 I captured BLE data on Linux using gatttool, with the following command:
+
     sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
+	
 Where xx:xx:xx:xx:xx:xx stands for your SCiO's MAC address
 
 According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
