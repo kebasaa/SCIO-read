@@ -53,23 +53,24 @@ Where `xx:xx:xx:xx:xx:xx` stands for your SCiO's MAC address
 According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
 
 Raw ble messages containing data are structured as follows:
-* Byte 1 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
-* Byte 2 of the first line of a message (ID = `01`) is a command, "ba" (hex) or "-70" (int) to identify the message as scanned data
+* Byte 0 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
+* Byte 1 of the first line of a message (ID = `01`) is a protocol identifier, "ba" (hex) or "-70" (int) to identify the message as using the protocol of scanned data
+* Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement
 * Bytes 3 and 4 of the first line contain the coded message length.
-* Bytes 5-20 of the first line are data
+* Bytes 5-19 of the first line are data
 * All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
 * Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
 
 ## Currently unknown
 The following commands have been identified and can be used to read or write commands. For writing messages, I have currently no idea which handle they need to be written to, not what the messages need to contain
 
-| Command (int) | hex | Meaning            | handle & message format |
-| ------------- |-----| -------------------|-----------------|
-| -70           | ba  | Incoming data      | see above |
-| 4             |     | Object temperature | ? |
-| 11            |     | Set LED status     | ? |
-| -125          |     | Reset device       | ? |
-| -111          |     | Change device name | ? |
+| Command (int) | hex | Meaning                | handle & message format |
+| ------------- |-----| -----------------------|-----------------|
+| -70           | ba  | Incoming data protocol | see above |
+| 4             |     | Object temperature     | ? |
+| 11            |     | Set LED status         | ? |
+| -125          |     | Reset device           | ? |
+| -111          |     | Change device name     | ? |
 
 
 ## License
