@@ -74,6 +74,6 @@ The following commands have been identified and can be used to read or write com
 
 This software is distributed under the GPL version 3.
 
-### Device
+### Logos and icons
 
-The device was built by [Consumer Physics](https://www.consumerphysics.com/).
+All logos and icons are trademark of [Consumer Physics](https://www.consumerphysics.com/).
