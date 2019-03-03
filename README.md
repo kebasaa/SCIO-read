@@ -2,6 +2,10 @@
 
 In this small project, I'm trying to create a Python library to read the SCiO scans directly. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future also some code to make it work. Any input and help is appreciated.
 
+## Hardware
+
+Sparkfun published a hardware teardown of the SCiO device: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-). Also, a reddit channel is available for discussing the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
+
 ## Measurement principles
 The SCiO illuminates the sample with a light and measures the reflected light in a number of wavebands. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, I'm trying to gain access raw data so I don't care too much about the online tools. 
 
