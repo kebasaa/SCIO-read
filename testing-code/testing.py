@@ -14,14 +14,14 @@ with open(fname) as f:
 content = [x.strip().split() for x in content]
 
 # Define protocol
-PROTOCOL_MESSAGE_CONST = -70 # defines which message to look for
+PROTOCOL_MESSAGE = -70 # defines which message to look for
 
 restLength = 0
 
 for line in content:
     if(hex2int(line[0],8) == 1):
         print("is the first line")
-        if(hex2int(line[1],8) == PROTOCOL_MESSAGE_CONST):
+        if(hex2int(line[1],8) == PROTOCOL_MESSAGE):
             print("data coming in")
         command = hex2int(line[2],8)
         overallLength = (hex2int(line[3],8) & 255) | ((hex2int(line[4],8) & 255) << 8)
