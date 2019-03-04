@@ -68,7 +68,7 @@ The following commands have been identified and can be used to read or write com
 | ------------- |-----| -----------------------|-----------------|
 | -70           | ba  | Incoming data protocol | see above |
 | 2             | 02  | Data type: spectrum    | part of protocol above |
-| 4             | 04  | Object temperature     | ? |
+| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object |
 | 5             | 05  | Battery state          | ? |
 | 11            | 0b  | Set LED status         | ? |
 | 14            | 0e  | Read for WR            | ? |
