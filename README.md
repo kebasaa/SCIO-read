@@ -67,6 +67,7 @@ The following commands have been identified and can be used to read or write com
 | Command (int) | hex | Meaning                | handle & message format |
 | ------------- |-----| -----------------------|-----------------|
 | -70           | ba  | Incoming data protocol | see above |
+| 2             | 02  | Data type: spectrum    | part of protocol above |
 | 4             |     | Object temperature     | ? |
 | 11            |     | Set LED status         | ? |
 | -125          |     | Reset device           | ? |
