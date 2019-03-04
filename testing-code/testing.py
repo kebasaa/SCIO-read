@@ -39,4 +39,5 @@ for line in content:
         restLength-=1;
     if (restLength <= 0):
         print("done")
+# After this, the data is read as integers and nothing was done with it. I still need to figure out conversion to a proper spectrum
 print("Rest length: ", restLength)
