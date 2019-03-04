@@ -10,7 +10,7 @@ fname="./example-data/file1.txt"
 
 with open(fname) as f:
     content = f.readlines()
-# you may also want to remove whitespace characters like `\n` at the end of each line
+# remove whitespace characters like `\n` at the end of each line & split by space characters
 content = [x.strip().split() for x in content]
 
 # Define protocol
