@@ -2,6 +2,8 @@
 
 In this small project, I'm trying to hack the SCiO spectrometer in order to create a Python library to read scans directly. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future also some code to make it work. Any input and help is appreciated.
 
+**IMPORTANT, NEED HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. This means that I **need an example JSON or CSV file**, provided by someone with a developer license. Without this, it may be impossible to hack the device. Please provide this if you have it!
+
 ## Hardware
 
 Sparkfun published a hardware teardown of the SCiO device: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-). Also, a reddit channel is available for discussing the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
@@ -53,7 +55,6 @@ Where `xx:xx:xx:xx:xx:xx` stands for your SCiO's MAC address
 According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
 
 Raw ble messages containing data are structured as follows:
-* The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. Unfortunately, this means that without an example JSON or CSV file provided by someone with a developer license, it may be impossible to hack it.
 * Byte 0 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
 * Byte 1 of the first line of a message (ID = `01`) is a protocol identifier, "ba" (hex) or "-70" (int) to identify the message as using the protocol of scanned data
 * Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement
