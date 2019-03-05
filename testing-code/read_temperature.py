@@ -1,4 +1,4 @@
-
+# Convert a hex value to a signed int
 def hex2int(hexstr,bits):
     value = int(hexstr,16)
     if value & (1 << (bits-1)):
@@ -23,17 +23,21 @@ with open(fname) as f:
 content = [x.strip().split() for x in content]
 
 # Define protocol
-PROTOCOL_MESSAGE = -70 # defines which message to look for
+PROTOCOL_MESSAGE = -70 # defines which protocol to use
 
 restLength = 0
 data = [ ]
 
 for line in content:
     if(hex2int(line[0],8) == 1):
-        print("is the first line")
+        # Only do the following if this is the 1st line of a message
         if(hex2int(line[1],8) == PROTOCOL_MESSAGE):
+		    # If the protocol is wrong, this doesn't apply
             print("data coming in")
+		# Convert to signed int to identify what the data contains
         command = hex2int(line[2],8)
+		# command == 2 is data, command == 4 is temperature, etc.
+		# Calculate the length of the data in bytes
         overallLength = (hex2int(line[3],8) & 255) | ((hex2int(line[4],8) & 255) << 8)
         print("Rest length: ", restLength)
         print("Overall length: ",overallLength)
@@ -41,7 +45,7 @@ for line in content:
         startingByte = 5
     else:
         startingByte = 1
-    # Now read the data
+    # Now read the data into an arrayf length "overallLength"
     #print("Package number: ", hex2int(line[0],8))
     rest = min(20, overallLength + 5)
     for i in range(startingByte, rest):
@@ -52,9 +56,10 @@ for line in content:
 # After this, the data is read as integers and nothing was done with it. I still need to figure out conversion to a proper spectrum
 print("Rest length: ", restLength)
 
+# Calculate the temperatures
 cmosTemperature = (getU32(data,0) - 375.22) / 1.4092;
 chipTemperature = getU32(data, 4) / 100;
-objectTemperature = getU32(data, 8) / 100;
+objectTemperature = getU32(data, 8) / 100; # Seems like this is not actually measured. It always reads 0.0
 print("CMOS T: ", cmosTemperature)
 print("Chip T: ", chipTemperature)
 print("Obj. T: ", objectTemperature)

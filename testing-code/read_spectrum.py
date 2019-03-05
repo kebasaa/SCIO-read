@@ -14,7 +14,7 @@ with open(fname) as f:
 content = [x.strip().split() for x in content]
 
 # Define protocol
-PROTOCOL_MESSAGE = -70 # defines which message to look for
+PROTOCOL_MESSAGE = -70 # defines which protocol to use
 
 restLength = 0
 data = [ ]
