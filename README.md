@@ -60,6 +60,7 @@ Raw ble messages containing data are structured as follows:
 * Bytes 5-19 of the first line are data
 * All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
 * Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
+* Some example temperature readings are also available in the folder "example-data"
 
 ## Currently unknown
 The following commands have been identified and can be used to read or write commands. For writing messages, I have currently no idea which handle they need to be written to, not what the messages need to contain
