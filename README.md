@@ -67,7 +67,7 @@ Raw ble messages containing data are structured as follows:
 * Some example temperature readings are also available in the folder "example-data"
 
 ## Currently unknown
-The following commands have been identified and can be used to read or write commands. For writing messages, I have currently no idea which handle they need to be written to, not what the messages need to contain
+The meaning of the hex raw data is currently unknown. Some of the commands were identified, but not completely. I have currently no idea which handle they need to be written to, not what the messages need to contain
 
 | Command (int) | hex | Meaning                | handle & message format |
 | ------------- |-----| -----------------------|-----------------|
