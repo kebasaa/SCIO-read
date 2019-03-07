@@ -20,6 +20,7 @@ In order to achieve good results, large databases of materials and their propert
 ## Device specifications
 The specs are rather badly documented. I have managed to glean the following data so far though:
 * Scans in NIR, range of 700-1100nm according to Consumer Physics, or 740-1070nm according to a [scientific research paper on ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
+* [Another paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) claims that the device creates 331 variables from 740nm to 1070nm.
 * Bandwidth: unknown
 
 ## Currently known Bluetooth LE (BLE) handles and data format
