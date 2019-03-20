@@ -64,6 +64,7 @@ Raw ble messages containing data are structured as follows:
 * Bytes 5-19 of the first line are data
 * All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
 * Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
+* A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
 * Some example temperature readings are also available in the folder "example-data"
 
 ## Currently unknown
