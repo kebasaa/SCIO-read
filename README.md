@@ -68,6 +68,22 @@ Raw ble messages containing data are structured as follows:
 * A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
 * Some example temperature readings are also available in the folder "example-data"
 
+## Instructions for reading raw data with gatttool
+
+1. On Linux, install _gatttool_ and _hcitool_. I'm using Ubuntu, to install:
+
+    sudo apt-get install bluez
+
+2. Run hcitool to find out what your SCIO's MAC address is. It will have a name like SCiOmyScio:
+
+    sudo hcitool lescan
+
+3. Run gatttool with your SCIO's MAC address to collect your own data. This will store it in "file1.txt". Replace xx:xx:xx:xx:xx:xx with the MAC address you found in step 2
+
+    sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
+
+4. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
+
 ## Currently unknown
 The meaning of the hex raw data is currently unknown. Some of the commands were identified, but not completely. I have currently no idea which handle they need to be written to, not what the messages need to contain
 
