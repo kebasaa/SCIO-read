@@ -76,19 +76,23 @@ Raw ble messages containing data are structured as follows:
     sudo apt-get install bluez
 ```
 
-2. Run hcitool to find out what your SCIO's MAC address is. It will have a name like _SCiOmyScio_ or whatever you named it:
+2. Turn on your SCIO with a long press on the button
+
+3. Run hcitool to find out what your SCIO's MAC address is. It will have a name like _SCiOmyScio_ or whatever you named it:
 
 ```bash
     sudo hcitool lescan
 ```
 
-3. Run gatttool with your SCIO's MAC address to collect your own data. This will store it in "file1.txt". Replace xx:xx:xx:xx:xx:xx with the MAC address you found in step 2
+3. Run gatttool with your SCIO's MAC address to collect your own data. This will store it in "file1.txt". Replace xx:xx:xx:xx:xx:xx with the MAC address you found in step 3. During the scan, the SCIO indicator light will be yellow.
 
 ```bash
     sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
 ```
 
-4. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
+4. Stop saving data to your file with _Ctrl+C_ after the indicator light of the SCIO goes back to blue.
+
+5. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
 
 ## Currently unknown
 The meaning of the hex raw data is currently unknown. Some of the commands were identified, but not completely. I have currently no idea which handle they need to be written to, not what the messages need to contain
