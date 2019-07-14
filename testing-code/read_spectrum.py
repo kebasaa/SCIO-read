@@ -6,7 +6,7 @@ def hex2int(hexstr,bits):
     return value
 
 
-fname="./example-data/file1.txt"
+fname="../example-data/file1.txt"
 
 with open(fname) as f:
     content = f.readlines()
@@ -18,6 +18,8 @@ PROTOCOL_MESSAGE = -70 # defines which protocol to use
 
 restLength = 0
 data = [ ]
+
+k = 0
 
 for line in content:
     if(hex2int(line[0],8) == 1):
@@ -36,10 +38,14 @@ for line in content:
     #print("Package number: ", hex2int(line[0],8))
     rest = min(20, overallLength + 5)
     for i in range(startingByte, rest):
-        data.append(hex2int(line[i],8))
+        print(k)
+        k = k + 1
+        data.append(hex2int(line[i],5))
         restLength-=1;
-    if (restLength <= 0):
-        print("done")
+        if (restLength <= 0):
+            print("done")
+            break
 # After this, the data is read as integers and nothing was done with it. I still need to figure out conversion to a proper spectrum
 print("Rest length: ", restLength)
 print(data)
+print(len(data))
