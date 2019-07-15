@@ -15,7 +15,7 @@ def getU32(data, index):
     dat = data[index:(index+4)]
     return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) )
 
-fname="./example-data/temp1.txt"
+fname="../example-data/temp1.txt"
 
 with open(fname) as f:
     content = f.readlines()
@@ -30,6 +30,7 @@ data = [ ]
 
 for line in content:
     if(hex2int(line[0],8) == 1):
+        temp = [ ]
         # Only do the following if this is the 1st line of a message
         if(hex2int(line[1],8) == PROTOCOL_MESSAGE):
 		    # If the protocol is wrong, this doesn't apply
@@ -46,21 +47,20 @@ for line in content:
     else:
         startingByte = 1
     # Now read the data into an arrayf length "overallLength"
-    #print("Package number: ", hex2int(line[0],8))
     rest = min(20, overallLength + 5)
     for i in range(startingByte, rest):
-        data.append(hex2int(line[i],8))
+        temp.append(hex2int(line[i],8))
         restLength-=1;
     if (restLength <= 0):
-        print(data)
+        data.append(temp)
 # After this, the data is read as integers and nothing was done with it. I still need to figure out conversion to a proper spectrum
 print("Rest length: ", restLength)
+print(data)
 
 # Calculate the temperatures
-cmosTemperature = (getU32(data,0) - 375.22) / 1.4092;
-chipTemperature = getU32(data, 4) / 100;
-objectTemperature = getU32(data, 8) / 100; # Seems like this is not actually measured. It always reads 0.0
+cmosTemperature = (getU32(data[0],0) - 375.22) / 1.4092;
+chipTemperature = getU32(data[0], 4) / 100;
+objectTemperature = getU32(data[0], 8) / 100; # Seems like this is not actually measured. It always reads 0.0
 print("CMOS T: ", cmosTemperature)
 print("Chip T: ", chipTemperature)
 print("Obj. T: ", objectTemperature)
-
