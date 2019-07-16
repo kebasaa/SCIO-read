@@ -24,6 +24,8 @@ with open(fname) as f:
 # remove whitespace characters like `\n` at the end of each line & split by space characters
 content = [x.strip().split() for x in content]
 
+print("Read and organise the incoming data stream")
+print("------------------------------------------")
 # Define protocol
 PROTOCOL_MESSAGE = -70 # defines which protocol to use
 
@@ -33,13 +35,13 @@ data = [ ]
 for line in content:
     if(hex2int(line[0],8) == 1):
         temp = [ ]
-        print("is the first line")
+        print("Reading first line of data")
         if(hex2int(line[1],8) == PROTOCOL_MESSAGE):
-            print("data coming in")
+            print("    Identified as spectral data")
         command = hex2int(line[2],8)
         overallLength = (hex2int(line[3],8) & 255) | ((hex2int(line[4],8) & 255) << 8)
-        print("Rest length: ", restLength)
-        print("Overall length: ",overallLength)
+        print("    Rest length: ", restLength)
+        print("    Overall length: ",overallLength)
         restLength = overallLength
         startingByte = 5
     else:
@@ -51,27 +53,32 @@ for line in content:
         temp.append(hex2int(line[i],8))
         restLength-=1;
     if (restLength <= 0):
-        print("done")
+        print("    Done")
         data.append(temp)
-        break
 # After this, the data is read as integers and nothing was done with it. I still need to figure out conversion to a proper spectrum
-print("Rest length: ", restLength)
-print(data)
+print("    Rest length: ", restLength)
+#print(data)
 
-print(len(data))
+print("")
+print("Converting to floating point values")
+print("-----------------------------------")
+print("    Data contains " + str(len(data)) + " parts")
 df = [ ]
 for i in range(len(data)):
+    print("Measurement part " + str(i))
     temp = [ ]
-    print(int(len(data[i])))
+    print("    Total # of hex values: " + str(int(len(data[i]))))
     startingByte = 1
     if(int(len(data[i])) == 1800):
         startingByte = 145
-    print(int((len(data[i])-startingByte)/5))
+        print("    Omitting # hex values: 145  (header)")
+    else: print("    Omitting # hex values: 1    (header)")
+    print("    Total # of bands     : " + str(int((len(data[i])-startingByte)/5)))
     for j in range(startingByte,int((len(data[i])-startingByte)/5)+startingByte):
         #print(data[i:(i+4)])
         #temp.append( data[index:(index+4)] )
         temp.append( getU32(data[i], j+4)  / 10000000000 )
     df.append(temp)
-print(df[0])
-print(df[1])
-print(df[2])
+#print(df[0])
+#print(df[1])
+#print(df[2])
