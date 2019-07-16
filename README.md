@@ -119,3 +119,9 @@ This software is distributed under the GPL version 3.
 ### Logos and icons
 
 All logos and icons are trademark of [Consumer Physics](https://www.consumerphysics.com/).
+
+## Credits
+My thanks go out to the following people:
+* Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
+* Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
+* My roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
