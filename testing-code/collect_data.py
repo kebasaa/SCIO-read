@@ -1,10 +1,45 @@
 '''
-DO NOT USE. THIS DOES NOT WORK
+DO NOT USE. THIS DOES NOT WORK YET
+----------------------------------
 
+This script searches for a SCIO spectrometer.
+When found, it connects to the device, waits
+for tue button to be pressed and then performs
+a scan.
+The scan's data will be saved in a sub-
+directory called "scans" as a raw hex data
+file (in JSON, containing also the temperature
+of the SCIO before & after the scan) and as
+a decoded CSV. HOW TO DECODE IS NOT CLEAR YET!
 
-Using bleak
-pip3 install bleak
+Uses the following libraries:
+- bleak (https://github.com/hbldh/bleak),
+  which supports Windows 10, Linux & Mac
+  Install using: pip3 install bleak
+- asyncio, a dependency of bleak
 '''
+
+# Wait until the user is ready
+print("+-----------+")
+print("| SCIO scan |")
+print("+-----------+")
+print("\nPlease turn on your SCIO")
+input("    Press Enter to continue")
+print("    Searching for SCIO...")
+
+# HERE: search for device
+scio_name = "scioMyScio"
+print("    SCIO device discovered: " + scio_name)
+
+print("\nCalibration: Please put the SCIO in its box")
+input("    Press Enter to continue")
+# HERE: Do calibration
+print("    Calibrating...")
+
+print("\nDevice ready")
+print("    Push the SCIO button to scan\n")
+# HERE: perform scan, then save to file
+
 
 import asyncio
 from bleak import discover
@@ -16,6 +51,9 @@ async def run():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(run())
+print(devices)
+
+
 
 import asyncio
 
