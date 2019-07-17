@@ -29,28 +29,28 @@ from bleak import BleakClient
 def searchScio():
     async def run():
         devices = await discover()
+        for d in devices:
+            if("Scio" in d.name):
+                scio_mac_addr = d.address
+                scio_name = d.name
+        return(scio_name, scio_mac_addr)
 
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(run())
-    print(devices)
-    for d in devices:
-        print(d)
-    #return(scio_name, scio_mac_addr)
-    return(d)
+    scio_name, scio_mac_addr = loop.run_until_complete(run())
+    return(scio_name, scio_mac_addr)
 
-def scioScan(scio_mac_addr):
+async def scioScan(scio_mac_addr):
     scio_mac_addr = "B4:99:4C:59:66:01"
     MODEL_NBR_UUID = "00002a29-0000-1000-8000-00805f9b34fb"
 
     temp_handle = 0x0029
     temp_cmd = b"01ba040000"
 
-    async def run(scio_mac_addr, loop):
-        async with BleakClient(scio_mac_addr, loop=loop) as client:
-            model_number = await client.read_gatt_char(MODEL_NBR_UUID)
-            print("Model Number: {0}".format("".join(map(chr, model_number))))
-            write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
-            print(write_test)
+    async with BleakClient(scio_mac_addr, loop=loop) as client:
+        model_number = await client.read_gatt_char(MODEL_NBR_UUID)
+        print("Model Number: {0}".format("".join(map(chr, model_number))))
+        write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
+        print(write_test)
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run(scio_mac_addr, loop))
@@ -63,12 +63,10 @@ print("+-----------+")
 print("| SCIO scan |")
 print("+-----------+")
 print("\nPlease turn on your SCIO")
-input("    Press Enter to continue")
+#input("    Press Enter to continue")
 print("    Searching for SCIO...")
-	
-#scio_name = searchScio()
 
-scio_name = "scioMyScio"
+scio_name, scio_mac_addr = searchScio()
 print("    SCIO device discovered: " + scio_name)
 
 print("\nCalibration: Please put the SCIO in its box")
