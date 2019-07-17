@@ -19,6 +19,44 @@ Uses the following libraries:
 - asyncio, a dependency of bleak
 '''
 
+import asyncio
+from bleak import discover
+from bleak import BleakClient
+
+# Functions performing scans
+
+def searchScio():
+    async def run():
+        devices = await discover()
+
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run())
+    print(devices)
+    for d in devices:
+        print(d)
+    #return(scio_name, scio_mac_addr)
+    return(d)
+
+def scioScan(scio_mac_addr):
+    scio_mac_addr = "B4:99:4C:59:66:01"
+    MODEL_NBR_UUID = "00002a29-0000-1000-8000-00805f9b34fb"
+
+    temp_handle = 0x0029
+    temp_cmd = b"01ba040000"
+
+    async def run(scio_mac_addr, loop):
+        async with BleakClient(scio_mac_addr, loop=loop) as client:
+            model_number = await client.read_gatt_char(MODEL_NBR_UUID)
+            print("Model Number: {0}".format("".join(map(chr, model_number))))
+            write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
+            print(write_test)
+
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run(scio_mac_addr, loop))
+	
+	#return(data)
+
+
 # Wait until the user is ready
 print("+-----------+")
 print("| SCIO scan |")
@@ -26,8 +64,9 @@ print("+-----------+")
 print("\nPlease turn on your SCIO")
 input("    Press Enter to continue")
 print("    Searching for SCIO...")
+	
+#scio_name = searchScio()
 
-# HERE: search for device
 scio_name = "scioMyScio"
 print("    SCIO device discovered: " + scio_name)
 
@@ -37,9 +76,27 @@ input("    Press Enter to continue")
 print("    Calibrating...")
 
 print("\nDevice ready")
-print("    Push the SCIO button to scan\n")
-# HERE: perform scan, then save to file
+print("    Push the SCIO button to scan")
+# HERE: wait for button press, perform scan, then save to file
+print("    Scanning...")
+#scioScan(scio_mac_addr)
+print("    Saving raw hex data...")
+print("    Decoding & saving spectrum...")
 
+# Alternative:
+print("\nDevice ready")
+input("    Press Enter to scan")
+# HERE: perform scan, then save to file
+print("    Scanning...")
+print("    Saving raw hex data...")
+print("    Decoding & saving spectrum...")
+
+print("")
+
+
+
+
+# OLD STUFF
 
 import asyncio
 from bleak import discover
@@ -53,13 +110,7 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(run())
 print(devices)
 
-
-
-import asyncio
-
-from bleak import BleakClient
-
-
+# Look at services
 async def print_services(mac_addr: str, loop: asyncio.AbstractEventLoop):
     async with BleakClient(mac_addr, loop=loop) as client:
         svcs = await client.get_services()
@@ -68,31 +119,10 @@ async def print_services(mac_addr: str, loop: asyncio.AbstractEventLoop):
             print(s)
 
 
-mac_addr = "B4:99:4C:59:66:01"
+scio_mac_addr = "B4:99:4C:59:66:01"
 loop = asyncio.get_event_loop()
-loop.run_until_complete(print_services(mac_addr, loop))
+loop.run_until_complete(print_services(scio_mac_addr, loop))
 
-
-
-
-import asyncio
-from bleak import BleakClient
-
-address = "B4:99:4C:59:66:01"
-MODEL_NBR_UUID = "00002a29-0000-1000-8000-00805f9b34fb"
-
-temp_handle = 0x0029
-temp_cmd = b"01ba040000"
-
-async def run(address, loop):
-    async with BleakClient(address, loop=loop) as client:
-        model_number = await client.read_gatt_char(MODEL_NBR_UUID)
-        print("Model Number: {0}".format("".join(map(chr, model_number))))
-        write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
-        print(write_test)
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(run(address, loop))
 
 
 
