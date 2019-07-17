@@ -17,6 +17,7 @@ Uses the following libraries:
   which supports Windows 10, Linux & Mac
   Install using: pip3 install bleak
 - asyncio, a dependency of bleak
+- http://www.pyinstaller.org/
 '''
 
 import asyncio
