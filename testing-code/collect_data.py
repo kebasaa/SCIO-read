@@ -30,9 +30,10 @@ from bleak import BleakClient
 
 def searchScio():
     async def run():
+        name_alternatives = ['scio', 'Scio']
         devices = await discover()
         for d in devices:
-            if("Scio" in d.name):
+            if any(x in d.name for x in name_alternatives): #if("Scio" in d.name):
                 scio_mac_addr = d.address
                 scio_name = d.name
         return(scio_name, scio_mac_addr)
@@ -42,7 +43,6 @@ def searchScio():
     return(scio_name, scio_mac_addr)
 
 async def scioScan(scio_mac_addr):
-    scio_mac_addr = "B4:99:4C:59:66:01"
     MODEL_NBR_UUID = "00002a29-0000-1000-8000-00805f9b34fb"
 
     temp_handle = 0x0029
@@ -71,10 +71,10 @@ print("    Searching for SCIO...")
 scio_name, scio_mac_addr = searchScio()
 print("    SCIO device discovered: " + scio_name)
 
-print("\nCalibration: Please put the SCIO in its box")
-input("    Press Enter to continue")
-# HERE: Do calibration
-print("    Calibrating...")
+#print("\nCalibration: Please put the SCIO in its box")
+#input("    Press Enter to continue")
+#scioCalibration(scio_mac_addr)
+#print("    Calibrating...")
 
 print("\nDevice ready")
 print("    Push the SCIO button to scan")
