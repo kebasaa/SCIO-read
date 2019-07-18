@@ -61,6 +61,7 @@ print(data)
 cmosTemperature = (getU32(data[0],0) - 375.22) / 1.4092;
 chipTemperature = getU32(data[0], 4) / 100;
 objectTemperature = getU32(data[0], 8) / 100; # Seems like this is not actually measured. It always reads 0.0
+
 print("CMOS T: ", cmosTemperature)
 print("Chip T: ", chipTemperature)
 print("Obj. T: ", objectTemperature)
