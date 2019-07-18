@@ -23,10 +23,24 @@ Uses the following libraries:
 '''
 
 import asyncio
+import json
 from bleak import discover
 from bleak import BleakClient
 
 # Functions performing scans
+
+def write_config(scio_name, scio_mac_addr):
+    config["scio_name"] = scio_name
+    config["scio_mac"] = scio_mac_addr
+    with open('settings.json', 'w') as cfile:
+        cfile.write(json.dumps(config))
+		
+def read_config():
+    with open('settings.json') as config_file:
+        config = json.load(config_file)
+    scio_name = config["scio_name"]
+    scio_mac_addr = config["scio_mac"]
+    return(scio_name, scio_mac_addr)
 
 def searchScio():
     async def run():
@@ -65,11 +79,14 @@ print("+-----------+")
 print("| SCIO scan |")
 print("+-----------+")
 print("\nPlease turn on your SCIO")
-#input("    Press Enter to continue")
-print("    Searching for SCIO...")
-
-scio_name, scio_mac_addr = searchScio()
-print("    SCIO device discovered: " + scio_name)
+load_settings = input("    Do you want to load saved settings? [y/n] (If no: automatic (slow) search for device)")
+if(load_settings == "y"):
+    scio_name, scio_mac_addr = read_config()
+else:
+    print("    Searching for SCIO...")
+    scio_name, scio_mac_addr = searchScio()
+    print("    SCIO device discovered: " + scio_name)
+    write_config(scio_name, scio_mac_addr)
 
 #print("\nCalibration: Please put the SCIO in its box")
 #input("    Press Enter to continue")
