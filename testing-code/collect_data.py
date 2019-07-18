@@ -2,6 +2,8 @@
 DO NOT USE. THIS DOES NOT WORK YET
 ----------------------------------
 
+Run using python3 collect_data.py
+
 This script searches for a SCIO spectrometer.
 When found, it connects to the device, waits
 for tue button to be pressed and then performs
