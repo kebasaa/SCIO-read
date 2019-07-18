@@ -79,7 +79,8 @@ print("+-----------+")
 print("| SCIO scan |")
 print("+-----------+")
 print("\nPlease turn on your SCIO")
-load_settings = input("    Do you want to load saved settings? [y/n] (If no: automatic (slow) search for device)")
+print("    Do you want to load saved settings? [y/n]")
+load_settings = input("    (If no: automatic (slow) search for device): ")
 if(load_settings == "y"):
     scio_name, scio_mac_addr = read_config()
 else:
