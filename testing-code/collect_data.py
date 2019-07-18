@@ -47,7 +47,7 @@ def searchScio():
         name_alternatives = ['scio', 'Scio']
         devices = await discover()
         for d in devices:
-            if any(x in d.name for x in name_alternatives): #if("Scio" in d.name):
+            if any(x in d.name for x in name_alternatives):
                 scio_mac_addr = d.address
                 scio_name = d.name
         return(scio_name, scio_mac_addr)
