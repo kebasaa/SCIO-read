@@ -63,6 +63,7 @@ async def scioScan(scio_mac_addr):
     temp_cmd = b"01ba040000"
 
     async with BleakClient(scio_mac_addr, loop=loop) as client:
+        x = await client.is_connected()
         model_number = await client.read_gatt_char(MODEL_NBR_UUID)
         print("Model Number: {0}".format("".join(map(chr, model_number))))
         write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
