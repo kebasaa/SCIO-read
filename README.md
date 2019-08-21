@@ -70,7 +70,27 @@ Raw ble messages containing data are structured as follows:
 * A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
 * Some example temperature readings are also available in the folder "example-data"
 
-## Instructions for reading raw data with gatttool
+## Instructions for reading raw data
+
+### Through USB on the console
+
+1. Connect the SCIO to your computer with a USB cable, and turn it on
+
+2. On Linux, open the console and type
+
+```bash
+    cat /dev/ttyACM0 | hexdump -C
+```
+
+3. In a second console window, type your command with a \x between each byte, for example for the temperature reading type
+
+```bash
+    echo -n -e "\x01\xba\x04\x00\x00" > /dev/ttyACM0
+```
+
+4. You will now see the reading in the first console window
+
+### Through bluetooth with gatttool
 
 1. On Linux, install _gatttool_ and _hcitool_. I'm using Ubuntu, to install:
 
@@ -126,4 +146,5 @@ All logos and icons are trademark of [Consumer Physics](https://www.consumerphys
 My thanks go out to the following people:
 * Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
 * Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
+* Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
 * My roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
