@@ -27,16 +27,15 @@ import re
 import os
 import argparse
 
-#import serial
+import serial
 
 # Functions performing scans
 
-def main_fct(calibrate, input, outfile):
+def main_fct(calibrate, input_method, outfile):
     if(calibrate):
         print("We were told to calibrate")
-    print("Input through:    " + input)
+    print("Input through:    " + input_method)
     print("Output file name: " + outfile)
-    print("")
     
     # Check the platform
     # https://dzone.com/articles/linux-system-mining-python
@@ -51,18 +50,34 @@ def main_fct(calibrate, input, outfile):
         for device in glob.glob('/dev/*'):
             for pattern in ['ttyACM*']:
                 if re.compile(pattern).match(os.path.basename(device)):
-                    print('Device:: {0}'.format(device))
+                    print('Device:           {0}'.format(device))
                     scio_dev = device
         if scio_dev == "":
             print("If no ttyACM is detected: Is the SCIO on?")
             quit()
+        # TODO: Add a check or manufacturer to determine that this is really the scio and not some arduino
+        return(scio_dev)
+    
+    scio_device = find_scio_dev()
     
     # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
-    #ser = serial.Serial("/dev/ttyACM0")
-    #ser_bytes = ser.readline()
-    #ser.flushInput()
+    ser = serial.Serial(scio_device)
+    print(ser.isOpen())
+    msg = b"\x01\xba\x04\x00\x00" # read temperature
+
+    ser.write(msg)
+    s = ser.read(16) # For temperature, I expect 16 hex values
+    print(s)
+    ser.close()
     
-    find_scio_dev()
+    ser = serial.Serial(scio_device)
+    #msg = b"\x01\xba\x0b\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" # turn off leds
+    #ser.write(msg)
+    msg = b"\x01\xba\x02\x00\x00" # scan
+    ser.write(msg)
+    s = ser.read(2*1800+1656+12) # For temperature, I expect 16 hex values
+    print(s)
+    ser.close()
 
     # Start instructions for scanning
     print("\nPlease turn on your SCIO")
