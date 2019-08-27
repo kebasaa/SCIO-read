@@ -27,55 +27,9 @@ import re
 import os
 import argparse
 
-import serial
+#import serial
 
 # Functions performing scans
-
-def write_config(scio_name, scio_mac_addr):
-    config["scio_name"] = scio_name
-    config["scio_mac"] = scio_mac_addr
-    with open('settings.json', 'w') as cfile:
-        cfile.write(json.dumps(config))
-		
-def read_config():
-    with open('settings.json') as config_file:
-        config = json.load(config_file)
-    scio_name = config["scio_name"]
-    scio_mac_addr = config["scio_mac"]
-    return(scio_name, scio_mac_addr)
-
-def searchScio():
-    async def run():
-        name_alternatives = ['scio', 'Scio']
-        devices = await discover()
-        for d in devices:
-            if any(x in d.name for x in name_alternatives):
-                scio_mac_addr = d.address
-                scio_name = d.name
-        return(scio_name, scio_mac_addr)
-
-    loop = asyncio.get_event_loop()
-    scio_name, scio_mac_addr = loop.run_until_complete(run())
-    return(scio_name, scio_mac_addr)
-
-async def scioScan(scio_mac_addr):
-    MODEL_NBR_UUID = "00002a29-0000-1000-8000-00805f9b34fb"
-
-    temp_handle = 0x0029
-    temp_cmd = b"01ba040000"
-
-    async with BleakClient(scio_mac_addr, loop=loop) as client:
-        x = await client.is_connected()
-        model_number = await client.read_gatt_char(MODEL_NBR_UUID)
-        print("Model Number: {0}".format("".join(map(chr, model_number))))
-        write_test = await client.write_gatt_descriptor(temp_handle, temp_cmd) #https://bleak.readthedocs.io/en/latest/api.html
-        print(write_test)
-
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(run(scio_mac_addr, loop))
-	
-	#return(data)
-
 
 def main_fct(calibrate, input, outfile):
     if(calibrate):
@@ -93,21 +47,27 @@ def main_fct(calibrate, input, outfile):
         quit()
     
     def find_scio_dev():
+        scio_dev = ""
         for device in glob.glob('/dev/*'):
             for pattern in ['ttyACM*']:
                 if re.compile(pattern).match(os.path.basename(device)):
                     print('Device:: {0}'.format(device))
-                    print("If no ttyACM is detected: Is the SCIO on?")
+                    scio_dev = device
+        if scio_dev == "":
+            print("If no ttyACM is detected: Is the SCIO on?")
+            quit()
     
     # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
-    ser = serial.Serial("/dev/ttyACM0")
-    ser_bytes = ser.readline()
-    ser.flushInput()
+    #ser = serial.Serial("/dev/ttyACM0")
+    #ser_bytes = ser.readline()
+    #ser.flushInput()
+    
+    find_scio_dev()
 
     # Start instructions for scanning
     print("\nPlease turn on your SCIO")
     print("    Do you want to load saved settings? [y/n]")
-    load_settings = input("    (If no: automatic (slow) search for device): ")
+    load_settings = input("    \(If no: automatic \(slow\) search for device\): ")
     if(load_settings == "y"):
         scio_name, scio_mac_addr = read_config()
     else:
@@ -148,8 +108,9 @@ if __name__ == '__main__':
                         default = False, help='calibrate the SCIO (no output created)')
     parser.add_argument('-i', '--input', dest='method',
                         default = 'usb', help='[bt/usb] input through USB or Bluetooth')
-    parser.add_argument('-o','--output-file', dest='file',
+    parser.add_argument('-o','--output-file', dest='filename',
                         default = 'scio-scan', help='name of the output files')
 
     args = parser.parse_args()
-    main_fct(args.calibrate, args.method, args.file)
+    main_fct(args.calibrate, args.method, args.filename)
+ 
