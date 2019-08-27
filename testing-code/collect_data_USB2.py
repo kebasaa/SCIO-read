@@ -27,6 +27,8 @@ import re
 import os
 import argparse
 
+import serial
+
 # Functions performing scans
 
 def write_config(scio_name, scio_mac_addr):
@@ -96,6 +98,11 @@ def main_fct(calibrate, input, outfile):
                 if re.compile(pattern).match(os.path.basename(device)):
                     print('Device:: {0}'.format(device))
                     print("If no ttyACM is detected: Is the SCIO on?")
+    
+    # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
+    ser = serial.Serial("/dev/ttyACM0")
+    ser_bytes = ser.readline()
+    ser.flushInput()
 
     # Start instructions for scanning
     print("\nPlease turn on your SCIO")
@@ -134,7 +141,7 @@ def main_fct(calibrate, input, outfile):
 
 
 if __name__ == '__main__':
-
+    # https://dzone.com/articles/linux-system-mining-python
     parser = argparse.ArgumentParser(description='SCIO Scanning Utility')
 
     parser.add_argument('-c','--calibrate', action='store_true',dest='calibrate',
