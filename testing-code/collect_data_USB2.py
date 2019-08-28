@@ -30,6 +30,38 @@ import argparse
 import serial
 
 # Functions performing scans
+def read_temperature(scio_dev):
+    # This reads the temperature
+    import struct
+    
+    # Open serial connection
+    try:
+        ser = serial.Serial(scio_dev)
+    except OSError as error:
+        print(error)
+        quit()
+    # Check if it the serial port is open
+    #print(ser.isOpen()) # debug
+    msg = b"\x01\xba\x04\x00\x00" # message needed to read the temperature
+    ser.write(msg)                # write the message to the serial device
+    s = ser.read(16)              # Read the response. I expect 16 hex values
+    # TODO read until the end of the message automatically. The message encodes the number of values!!!
+    #print(s) # debug
+    ser.close()
+    
+    # Convert bytes to unsigned int
+    temp = struct.unpack('<bbHlll',s) # convert bytes to unsigned int
+    print(temp)
+
+    # Convert to temperatures
+    cmosTemperature = (temp[3] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
+    chipTemperature = temp[4] / 100
+    objectTemperature = temp[5]
+    print("CMOS T: ", cmosTemperature)
+    print("Chip T: ", chipTemperature)
+    print("Obj. T: ", objectTemperature)
+    return(cmosTemperature, chipTemperature, objectTemperature)
+    
 
 def main_fct(calibrate, input_method, outfile):
     if(calibrate):
@@ -61,14 +93,13 @@ def main_fct(calibrate, input_method, outfile):
     scio_device = find_scio_dev()
     
     # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
-    ser = serial.Serial(scio_device)
-    print(ser.isOpen())
-    msg = b"\x01\xba\x04\x00\x00" # read temperature
-
-    ser.write(msg)
-    s = ser.read(16) # For temperature, I expect 16 hex values
-    print(s)
-    ser.close()
+    try: # Make sure to close the serial port if it was still open
+        ser.close()
+    except:
+        pass
+    
+    print(read_temperature(scio_device))
+    #hex(temp) ##convert int to string which is hexadecimal expression
     
     ser = serial.Serial(scio_device)
     #msg = b"\x01\xba\x0b\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" # turn off leds
@@ -76,7 +107,7 @@ def main_fct(calibrate, input_method, outfile):
     msg = b"\x01\xba\x02\x00\x00" # scan
     ser.write(msg)
     s = ser.read(2*1800+1656+12) # For temperature, I expect 16 hex values
-    print(s)
+    #print(s)
     ser.close()
 
     # Start instructions for scanning
