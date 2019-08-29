@@ -22,6 +22,12 @@ Uses the following libraries:
 import json
 import platform
 
+import logging
+log = logging.getLogger('root')
+log.setLevel(logging.DEBUG)
+#logging.basicConfig(format='[%(asctime)s] %(levelname)8s %(module)15s: %(message)s')
+logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt='%y-%m-%y %H:%M:%S')
+
 import glob
 import re
 import os
@@ -68,7 +74,7 @@ def read_temperature(scio_dev):
     try:
         ser = serial.Serial(scio_dev)
     except OSError as error:
-        print(error)
+        log.error(error)
         quit()
     # Check if it the serial port is open
     #print(ser.isOpen()) # debug
@@ -76,18 +82,26 @@ def read_temperature(scio_dev):
     ser.write(msg)                # write the message to the serial device
     #s = ser.read(16)              # Read the response. I expect 16 hex values
     s = ser.read(1)
-    message_type    = struct.unpack('<b',s)
-    print(message_type[0])
+    message_type    = struct.unpack('<b',s)[0]
+    if(message_type != -70):
+        log.debug("Wrong message type: " + str(message_type))
     s = ser.read(1)
-    message_content = struct.unpack('<b',s)
-    print(message_content[0])
+    message_content = struct.unpack('<b',s)[0]
+    if(message_content == 4):
+        log.debug("Receiving temperature data: " + str(message_content))
+    elif(message_content == 2):
+        log.debug("Receiving scan data: " + str(message_content))
+    else:
+        log.debug("Receiving unknown message: " + str(message_content))
     s = ser.read(2)
-    message_length = struct.unpack('<H',s)
-    print(message_length[0])
-    s = ser.read(message_length[0])
+    message_length = struct.unpack('<H',s)[0]
+    log.debug("Number of bytes: " + str(message_length))
+    log.debug("Number of longs: " + str(message_length/4))
+    # Read the number of values specified by the message length
+    s = ser.read(message_length)
     ser.close()
     
-    num_vars = message_length[0] / 4
+    num_vars = message_length / 4 # divide by 4 because we are dealing with longs
     data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
     print(data_struct)
     # Convert bytes to unsigned int
@@ -104,16 +118,17 @@ def read_temperature(scio_dev):
 
 def main_fct(calibrate, input_method, outfile):
     if(calibrate):
-        print("We were told to calibrate")
-    print("Input through:    " + input_method)
-    print("Output file name: " + outfile)
+        log.debug("We were told to calibrate")
+    log.info("Input/output")
+    log.info("--> Input through:    " + input_method)
+    log.info("--> Output file name: " + outfile)
     
     # Check the platform
     # https://dzone.com/articles/linux-system-mining-python
     if(platform.uname().system != 'Linux'):
-        print("WARNING: This program only works on Linux.")
-        print("         You are running " + platform.uname().system + ".")
-        print("Exiting...")
+        log.error("This program only works on Linux.")
+        log.error("--> You are running " + platform.uname().system + ".")
+        log.error("--> Exiting...")
         quit()
     
     def find_scio_dev():
