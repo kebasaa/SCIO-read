@@ -34,7 +34,6 @@ import os
 import argparse
 
 import serial
-from serial.tools import list_ports_common
 
 # Functions performing scans
 def read_temperature_simple(scio_dev):
@@ -165,20 +164,19 @@ def read_data(scio_dev, command):
     s = ser.read(message_length) # Scan data consists of 3x these messages! #################### 
     ser.close()
     
-    def decode_temperature(msg, message_length):
-        num_vars = message_length / 4 # divide by 4 because we are dealing with longs
-        data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
-        # Convert bytes to unsigned int
-        message_data = struct.unpack(data_struct ,s)
-        # Convert to temperatures
-        cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
-        chipTemperature = (message_data[1] - 375.22) / 100 # The subtraction is added by me. Not true it should be there
-        objectTemperature = message_data[2]
-        return(cmosTemperature, chipTemperature, objectTemperature)
-        
-    cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
+    num_vars = message_length / 4 # divide by 4 because we are dealing with longs
+    data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
+    print(data_struct)
+    # Convert bytes to unsigned int
+    print(s)
+    message_data = struct.unpack(data_struct ,s)
+    print(message_data)
+
+    # Convert to temperatures
+    cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
+    chipTemperature = (message_data[1] - 375.22) / 100 # The subtraction is added by me. Not true it should be there
+    objectTemperature = message_data[2]
     return(cmosTemperature, chipTemperature, objectTemperature)
-    
     
 
 def main_fct(calibrate, input_method, outfile):
@@ -199,15 +197,12 @@ def main_fct(calibrate, input_method, outfile):
                     if re.compile(pattern).match(os.path.basename(device)):
                         print('Device:           {0}'.format(device))
                         scio_dev = device
-                        manufacturer = self.read_line(device, 'manufacturer')
-                        product = self.read_line(device, 'product')
-                        print(manufacturer)
-                        print(product)
         elif(platform.uname().system == 'Windows'):
             # TODO: Add check in case multiple COM ports are available #######################
             import serial.tools.list_ports as port_list
             if(port_list.comports()):
                 scio_dev = port_list.comports()[0][0]
+                print(port_list.ListPortInfo.name())
         else:
             log.error("This program currently only works on Linux & Windows.")
             log.error("--> You are running " + platform.uname().system + ".")
