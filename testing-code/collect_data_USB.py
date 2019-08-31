@@ -35,87 +35,6 @@ import argparse
 
 import serial
 from serial.tools import list_ports_common
-
-# Functions performing scans
-def read_temperature_simple(scio_dev):
-    # This reads the temperature
-    import struct
-    
-    # Open serial connection
-    try:
-        ser = serial.Serial(scio_dev)
-    except OSError as error:
-        print(error)
-        quit()
-    # Check if it the serial port is open
-    #print(ser.isOpen()) # debug
-    msg = b"\x01\xba\x04\x00\x00" # message needed to read the temperature
-    ser.write(msg)                # write the message to the serial device
-    s = ser.read(16)              # Read the response. I expect 16 hex values
-    # TODO read until the end of the message automatically. The message encodes the number of values!!!
-    #print(s) # debug
-    ser.close()
-    
-    # Convert bytes to unsigned int
-    #temp = struct.unpack('<bbHlll',s) # convert bytes to unsigned int
-    temp = struct.unpack('<bbHlll',s)
-    print(temp)
-
-    # Convert to temperatures
-    cmosTemperature = (temp[3] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
-    chipTemperature = (temp[4] - 375.22) / 100 # The subtraction is added by me. Not true it should be there
-    objectTemperature = temp[5]
-    return(cmosTemperature, chipTemperature, objectTemperature)
-
-def read_temperature(scio_dev):
-    # This reads the temperature
-    import struct
-    
-    # Open serial connection
-    try:
-        ser = serial.Serial(scio_dev)
-    except OSError as error:
-        log.error(error)
-        quit()
-    # Check if it the serial port is open
-    #print(ser.isOpen()) # debug
-    msg = b"\x01\xba\x04\x00\x00" # message needed to read the temperature
-    ser.write(msg)                # write the message to the serial device
-    #s = ser.read(16)              # Read the response. I expect 16 hex values
-    s = ser.read(1)
-    message_type    = struct.unpack('<b',s)[0]
-    if(message_type != -70):
-        log.debug("Wrong message type: " + str(message_type))
-    s = ser.read(1)
-    message_content = struct.unpack('<b',s)[0]
-    if(message_content == 4):
-        log.debug("Receiving temperature data: " + str(message_content))
-    elif(message_content == 2):
-        log.debug("Receiving scan data: " + str(message_content))
-    else:
-        log.debug("Receiving unknown message: " + str(message_content))
-    s = ser.read(2)
-    message_length = struct.unpack('<H',s)[0]
-    log.debug("Number of bytes: " + str(message_length))
-    log.debug("Number of longs: " + str(message_length/4))
-    # Read the number of values specified by the message length
-    s = ser.read(message_length)
-    ser.close()
-    
-    num_vars = message_length / 4 # divide by 4 because we are dealing with longs
-    data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
-    print(data_struct)
-    # Convert bytes to unsigned int
-    print(s)
-    message_data = struct.unpack(data_struct ,s)
-    print(message_data)
-
-    # Convert to temperatures
-    cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
-    chipTemperature = (message_data[1] - 375.22) / 100 # The subtraction is added by me. Not true it should be there
-    objectTemperature = message_data[2]
-    return(cmosTemperature, chipTemperature, objectTemperature)
-    
     
 def read_data(scio_dev, command):
     # This reads the temperature
@@ -229,7 +148,7 @@ def main_fct(calibrate, input_method, outfile):
         pass
     
     #cmosTemperature, chipTemperature, objectTemperature = read_temperature_simple(scio_device)
-    cmosTemperature, chipTemperature, objectTemperature = read_temperature(scio_device)
+    cmosTemperature, chipTemperature, objectTemperature = read_data(scio_device, "read_temperature")
     print("CMOS T: ", cmosTemperature)
     print("Chip T: ", chipTemperature)
     print("Obj. T: ", objectTemperature)
