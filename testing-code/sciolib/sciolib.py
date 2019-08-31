@@ -29,13 +29,22 @@ import glob
 import re
 import os
 
+# Exceptions / Assert errors
+import sys
+
 # Reading the SCIO through USB serial port
 import serial
 from serial.tools import list_ports_common
 
-READ_DATA = 2
-READ_TEMPERATURE = 4
-PROTOCOL = -70
+# encode & decode data
+import struct
+
+READ_DATA = 2        #02
+READ_TEMPERATURE = 4 #04
+READ_BATTERY = 5     #05
+SET_READY = 14       #0e
+SET_LED = 11         #0b
+PROTOCOL = -70       #ba
 
 def find_scio_dev():
     scio_dev = ""
@@ -68,12 +77,21 @@ def find_scio_dev():
     # TODO: Add a check or manufacturer to determine that this is really the scio and not some arduino
     log.info("Using port: " + scio_dev)
     return(scio_dev)
+    
+def protocol_message(cmd):
+    byte_command = b"" # empty initialisation
+    if(cmd == SET_LED):
+        # Setting the LED colour is special (longer command)
+        byte_command = struct.pack('<bbbbbbbbbbbbbbb',1,PROTOCOL,cmd,9,0,0,0,0,0,0,0,0,0,0)
+    else:
+        byte_command = struct.pack('<bbbbb',1,PROTOCOL,cmd,0,0)
+    return(byte_command)
 
 def read_data(scio_dev, command):
-    # This reads the temperature
-    #import protocol message definitions
-    # e.g. data = -70, temperature = 4, etc ################
-    import struct
+    # This reads or writes data
+    
+    # Create the message
+    byte_msg = protocol_message(READ_TEMPERATURE)
     
     # Open serial connection
     try:
@@ -81,44 +99,38 @@ def read_data(scio_dev, command):
     except OSError as error:
         log.error(error)
         quit()
-
-    def protocol_message(command):
-        byte_command = b"" # empty initialisation
-        if(command == "read_temperature"):  # TODO: take from imported protocol
-        # message needed to read the temperature
-        # I could even build the command from [1, -70, 4, 0, 0] by replacing -70 & 4 #################
-            cmd = READ_TEMPERATURE
-        elif(command == "read_data"):
-            cmd = READ_DATA
-        byte_command = struct.pack('<bbbbb',1,PROTOCOL,cmd,0,0)
-        print(byte_command)
-        return(byte_command)
-
-    msg = protocol_message(command)
+    
     # write the message to the serial device
-    ser.write(msg)
+    ser.write(byte_msg)
 
     # Start reading the response
     s = ser.read(1)
     message_type    = struct.unpack('<b',s)[0]
-    if(message_type != -70):
-        log.debug("Wrong message type: " + str(message_type))
-        #raise error  #######################
+    
+    # Error check
+    assert (message_type == PROTOCOL), 'Wrong message type: {}'.format(message_type)
+    
+    # Data type
     s = ser.read(1)
     message_content = struct.unpack('<b',s)[0]
-    if(message_content == 4):
+    if(message_content == READ_TEMPERATURE):
         log.debug("Receiving temperature data: " + str(message_content))
-    elif(message_content == 2):
+    elif(message_content == READ_DATA):
         log.debug("Receiving scan data: " + str(message_content))
     else:
         log.debug("Receiving unknown message: " + str(message_content))
+    
+    # Data length
     s = ser.read(2)
     message_length = struct.unpack('<H',s)[0]
+    
+    # Debug
     log.debug("Number of bytes: " + str(message_length))
     log.debug("Number of longs: " + str(message_length/4))
     log.debug("Number of variables (5 bytes each): " + str(message_length/5))
+    
     # Read the number of values specified by the message length
-    s = ser.read(message_length) # Scan data consists of 3x these messages! #################### 
+    s = ser.read(message_length)
     ser.close()
     
     def decode_temperature(msg, message_length):
