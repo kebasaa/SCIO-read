@@ -33,6 +33,10 @@ import os
 import serial
 from serial.tools import list_ports_common
 
+READ_DATA = 2
+READ_TEMPERATURE = 4
+PROTOCOL = -70
+
 def find_scio_dev():
     scio_dev = ""
     # Check the platform
@@ -49,7 +53,7 @@ def find_scio_dev():
                     print(manufacturer)
                     print(product)
     elif(platform.uname().system == 'Windows'):
-        # TODO: Add check in case multiple COM ports are available #######################
+        # TODO: Add check in case multiple COM ports are available
         import serial.tools.list_ports as port_list
         if(port_list.comports()):
             scio_dev = port_list.comports()[0][0]
@@ -83,7 +87,11 @@ def read_data(scio_dev, command):
         if(command == "read_temperature"):  # TODO: take from imported protocol
         # message needed to read the temperature
         # I could even build the command from [1, -70, 4, 0, 0] by replacing -70 & 4 #################
-            byte_command = b"\x01\xba\x04\x00\x00"
+            cmd = READ_TEMPERATURE
+        elif(command == "read_data"):
+            cmd = READ_DATA
+        byte_command = struct.pack('<bbbbb',1,PROTOCOL,cmd,0,0)
+        print(byte_command)
         return(byte_command)
 
     msg = protocol_message(command)
