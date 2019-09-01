@@ -50,17 +50,20 @@ def main_fct(calibrate, input_method, outfile):
         pass
     
     #cmosTemperature, chipTemperature, objectTemperature = read_temperature_simple(scio_device)
-    cmosTemperature, chipTemperature, objectTemperature = scio.read_data(scio_device, "read_temperature")
+    cmosTemperature, chipTemperature, objectTemperature = scio.read_data(scio_device, 4) # 4 = read temperature
     print("CMOS T: ", cmosTemperature)
     print("Chip T: ", chipTemperature)
     print("Obj. T: ", objectTemperature)
+
+    scio.read_data(scio_device, 2) # 2 = read data
+    
     #hex(temp) ##convert int to string which is hexadecimal expression
     
     
     #msg = b"\x01\xba\x0b\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" # turn off leds
     #ser.write(msg)
     
-
+    '''
     # Start instructions for scanning
     print("\nPlease turn on your SCIO")
     print("    Do you want to load saved settings? [y/n]")
@@ -93,7 +96,7 @@ def main_fct(calibrate, input_method, outfile):
     print("    Scanning...")
     print("    Saving raw hex data...")
     print("    Decoding & saving spectrum...")
-
+    '''
     print("")
 
 

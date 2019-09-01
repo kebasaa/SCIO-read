@@ -91,7 +91,8 @@ def read_data(scio_dev, command):
     # This reads or writes data
     
     # Create the message
-    byte_msg = protocol_message(READ_TEMPERATURE)
+    #byte_msg = protocol_message(READ_TEMPERATURE)
+    byte_msg = protocol_message(command)
     
     # Open serial connection
     try:
@@ -117,17 +118,28 @@ def read_data(scio_dev, command):
         log.debug("Receiving temperature data: " + str(message_content))
     elif(message_content == READ_DATA):
         log.debug("Receiving scan data: " + str(message_content))
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        s = ser.read(message_length)
+        # End msg 1
+        s = ser.read(1)
+        message_type    = struct.unpack('<b',s)[0]
+        s = ser.read(1)
+        message_content = struct.unpack('<b',s)[0]
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        s = ser.read(message_length)
+        # End msg 3
+        s = ser.read(1)
+        message_type    = struct.unpack('<b',s)[0]
+        s = ser.read(1)
+        message_content = struct.unpack('<b',s)[0]
     else:
         log.debug("Receiving unknown message: " + str(message_content))
     
     # Data length
     s = ser.read(2)
     message_length = struct.unpack('<H',s)[0]
-    
-    # Debug
-    log.debug("Number of bytes: " + str(message_length))
-    log.debug("Number of longs: " + str(message_length/4))
-    log.debug("Number of variables (5 bytes each): " + str(message_length/5))
     
     # Read the number of values specified by the message length
     s = ser.read(message_length)
@@ -145,8 +157,21 @@ def read_data(scio_dev, command):
         return(cmosTemperature, chipTemperature, objectTemperature)
         
     def decode_data(msg, message_length):
-        num_vars = message_length / 4 # divide by 4 because we are dealing with longs
-        data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
+        # Debug
+        log.debug("Number of bytes: " + str(message_length))
+        log.debug("Number of longs (+145, header 332 bytes): " + str((message_length-145)/4))
+        log.debug("Number of variables (5 bytes each), header 1 byte: " + str((message_length-1)/5))
+        # NOTE: Only looking at part 3 (1656 bytes) withe the assumption that some 332 bytes encode something else
+        #num_vars = (message_length -476) / 4 # divide by 4 because we are dealing with longs
+        #data_struct = '<' + '4x472b' + str(int(num_vars)) + 'l'
+        #https://stackoverflow.com/questions/7949912/how-to-unpack-6-bytes-as-single-integer-using-struct-in-python
+        header = 332
+        footer = 332 - header
+        num_vars = (message_length - header - footer) / 4 # divide by 4 because we are dealing with longs
+        data_struct = '<' + str(int(header)) + 'b' + str(int(num_vars)) + 'f' + str(int(footer)) + 'b'
+        print(struct.unpack('<1656s',s))
+
+        #data_struct = '<' + str(int(num_vars)) + 'd' + str(int(header)) + 'b'
         # Convert bytes to unsigned int
         message_data = struct.unpack(data_struct ,s)
         return(message_data)
@@ -155,7 +180,7 @@ def read_data(scio_dev, command):
         cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
         return(cmosTemperature, chipTemperature, objectTemperature)
     elif(message_content == READ_DATA):
-        decode_data(msg, message_length)
+        print(decode_data(s, message_length))
         log.debug("Data done")
     else:
         log.debug("Receiving unknown message: " + str(message_content))
