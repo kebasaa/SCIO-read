@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="SCIO grammar" start="id:17" author="Jonathan" fileextension="scio">
+        <description>Grammar for SCIO files</description>
+        <structure name="SCIO file" id="17" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structure name="header" id="18" length="5" alignment="0" fillcolor="00FF51"/>
+            <structure name="variables" id="20" length="5" alignment="0" repeatmax="1655" endian="little" fillcolor="00C8FF"/>
+        </structure>
+    </grammar>
+</ufwb>
