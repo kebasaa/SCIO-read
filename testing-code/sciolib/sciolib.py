@@ -144,14 +144,19 @@ def read_data(scio_dev, command):
         objectTemperature = message_data[2]
         return(cmosTemperature, chipTemperature, objectTemperature)
         
-    def decode_data():
-        ser = serial.Serial(scio_device)
-        msg = b"\x01\xba\x02\x00\x00" # scan
-        ser.write(msg)
-        s = ser.read(2*1800+1656+12) # For temperature, I expect 16 hex values
-        #print(s)
-        ser.close()
+    def decode_data(msg, message_length):
+        num_vars = message_length / 4 # divide by 4 because we are dealing with longs
+        data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
+        # Convert bytes to unsigned int
+        message_data = struct.unpack(data_struct ,s)
+        return(message_data)
         
-    cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
-    return(cmosTemperature, chipTemperature, objectTemperature)
+    if(message_content == READ_TEMPERATURE):
+        cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
+        return(cmosTemperature, chipTemperature, objectTemperature)
+    elif(message_content == READ_DATA):
+        decode_data(msg, message_length)
+        log.debug("Data done")
+    else:
+        log.debug("Receiving unknown message: " + str(message_content))
     
