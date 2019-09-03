@@ -176,6 +176,20 @@ def read_data(scio_dev, command):
         message_data = struct.unpack(data_struct ,s)
         return(message_data)
         
+    def bin5(b,k):
+        """ Returns binary integer from bytes k,k+1,...,k+4 in b."""
+        b0 = b[k  ]
+        b1 = b[k+1]
+        b2 = b[k+2]
+        b3 = b[k+3]
+        b4 = b[k+4]
+        if b0<0: b0 += 256
+        if b1<0: b1 += 256
+        if b2<0: b2 += 256
+        if b3<0: b3 += 256
+        if b4<0: b4 += 256
+        return(b0*65536.0+b1*256.0+b2+b3/256.0+b4/65536.0)
+        
     if(message_content == READ_TEMPERATURE):
         cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
         return(cmosTemperature, chipTemperature, objectTemperature)
