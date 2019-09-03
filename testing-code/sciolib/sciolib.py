@@ -177,6 +177,7 @@ def read_data(scio_dev, command):
         return(message_data)
         
     def bin5(b,k):
+        #https://www.thethingsnetwork.org/docs/devices/bytes.html
         """ Returns binary integer from bytes k,k+1,...,k+4 in b."""
         b0 = b[k  ]
         b1 = b[k+1]
