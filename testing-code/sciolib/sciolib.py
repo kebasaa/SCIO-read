@@ -118,6 +118,7 @@ def read_data(scio_dev, command):
         log.debug("Receiving temperature data: " + str(message_content))
     elif(message_content == READ_DATA):
         log.debug("Receiving scan data: " + str(message_content))
+        # get rid of first 2 sets to get 
         s = ser.read(2)
         message_length = struct.unpack('<H',s)[0]
         s = ser.read(message_length)
@@ -145,7 +146,7 @@ def read_data(scio_dev, command):
     s = ser.read(message_length)
     ser.close()
     
-    def decode_temperature(msg, message_length):
+    def decode_temperature(msg, message_length): #f
         num_vars = message_length / 4 # divide by 4 because we are dealing with longs
         data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
         # Convert bytes to unsigned int
