@@ -178,7 +178,7 @@ def read_data(scio_dev, command):
             return unpacked
         '''
         def getU40(data, index):
-            dat = data[index:(index+4)]
+            dat = data[index:(index+5)]
             return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
         
         def unpackU40(data):
