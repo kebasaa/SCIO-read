@@ -91,7 +91,7 @@ def read_data(scio_dev, command):
     # This reads or writes data
     
     # Relevant functions
-    def decode_temperature(msg, message_length):
+    def decode_temperature(msg, message_length): #f
         num_vars = message_length / 4 # divide by 4 because we are dealing with longs
         data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
         # Convert bytes to unsigned int
@@ -101,16 +101,6 @@ def read_data(scio_dev, command):
         chipTemperature = (message_data[1]) / 100
         objectTemperature = message_data[2]
         return(cmosTemperature, chipTemperature, objectTemperature)
-    
-    def getU40(data, index):
-        dat = data[index:(index+5)]
-        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
-        
-    def unpackU40(data, header):
-        temp = [ ]
-        for j in range( int((len(data)-header)/5) ):
-            temp.append( getU40(data, j*5+header) / 100000000)
-        return(temp)
     
     # Send reading command
     # - - - - - - - - - - -
@@ -144,36 +134,106 @@ def read_data(scio_dev, command):
     message_content = struct.unpack('<b',s)[0]
     if(message_content == READ_TEMPERATURE):
         log.debug("Receiving temperature data: " + str(message_content))
-        # Data length
-        s = ser.read(2)
-        message_length = struct.unpack('<H',s)[0]
-        # Read the number of values specified by the message length
-        s = ser.read(message_length)
-        ser.close()
-        # decode that data
-        cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
-        return(cmosTemperature, chipTemperature, objectTemperature)
     elif(message_content == READ_DATA):
-        df = [ ]
         log.debug("Receiving scan data: " + str(message_content))
         # get rid of first 2 sets to get
         for i in range(3):
-            log.debug("--> Part: " + str(i+1))
-            if(i > 0):
-                s = ser.read(1)
-                message_type    = struct.unpack('<b',s)[0]
-                s = ser.read(1)
-                message_content = struct.unpack('<b',s)[0]
-            s = ser.read(2)
-            message_length = struct.unpack('<H',s)[0]
-            s = ser.read(message_length)
-            # decode
-            header = 145
-            if(i == 2):
-                header = 0
-            df.append( unpackU40(s, header) )
-        ser.close()
+            print(i)
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        s = ser.read(message_length)
+        # End msg 1
+        s = ser.read(1)
+        message_type    = struct.unpack('<b',s)[0]
+        s = ser.read(1)
+        message_content = struct.unpack('<b',s)[0]
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        s = ser.read(message_length)
+        # End msg 3
+        s = ser.read(1)
+        message_type    = struct.unpack('<b',s)[0]
+        s = ser.read(1)
+        message_content = struct.unpack('<b',s)[0]
     else:
         log.debug("Receiving unknown message: " + str(message_content))
+    
+    # Data length
+    s = ser.read(2)
+    message_length = struct.unpack('<H',s)[0]
+    
+    # Read the number of values specified by the message length
+    s = ser.read(message_length)
+    ser.close()
+
         
-    print(df)
+    def decode_data(msg, message_length):
+        # Debug
+        log.debug("Number of bytes: " + str(message_length))
+        log.debug("Number of longs (+145, header 332 bytes): " + str((message_length-145)/4))
+        log.debug("Number of variables (5 bytes each), header 1 byte: " + str((message_length-1)/5))
+        '''
+        import numpy as np
+
+        def read_uint10(byte_buf):
+            data = np.frombuffer(byte_buf, dtype=np.uint8)
+            # 5 bytes contain 4 10-bit pixels (5x8 == 4x10)
+            b1, b2, b3, b4, b5 = np.reshape(data, (data.shape[0]//5, 5)).astype(np.uint16).T
+            o1 = (b1 << 2) + (b2 >> 6)
+            o2 = ((b2 % 64) << 4) + (b3 >> 4)
+            o3 = ((b3 % 16) << 6) + (b4 >> 2)
+            o4 = ((b4 % 4) << 8) + b5
+
+            unpacked =  np.reshape(np.concatenate((o1[:, None], o2[:, None], o3[:, None], o4[:, None]), axis=1),  4*o1.shape[0])
+            return unpacked
+        '''
+        def getU40(data, index):
+            dat = data[index:(index+5)]
+            return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
+        
+        def unpackU40(data):
+            temp = [ ]
+            for j in range(int(len(data)/5)):
+                temp.append( getU40(data, j*5) / 1000000000)
+            return(temp)
+        print( unpackU40(s) )
+        
+        # NOTE: Only looking at part 3 (1656 bytes) withe the assumption that some 332 bytes encode something else
+        #num_vars = (message_length -476) / 4 # divide by 4 because we are dealing with longs
+        #data_struct = '<' + '4x472b' + str(int(num_vars)) + 'l'
+        #https://stackoverflow.com/questions/7949912/how-to-unpack-6-bytes-as-single-integer-using-struct-in-python
+        header = 332
+        footer = 332 - header
+        num_vars = (message_length - header - footer) / 4 # divide by 4 because we are dealing with longs
+        data_struct = '<' + str(int(header)) + 'b' + str(int(num_vars)) + 'f' + str(int(footer)) + 'b'
+        #print(struct.unpack('<1656s',s))
+
+        #data_struct = '<' + str(int(num_vars)) + 'd' + str(int(header)) + 'b'
+        # Convert bytes to unsigned int
+        message_data = struct.unpack(data_struct ,s)
+        return(message_data)
+        
+    def bin5(b,k):
+        #https://www.thethingsnetwork.org/docs/devices/bytes.html
+        """ Returns binary integer from bytes k,k+1,...,k+4 in b."""
+        b0 = b[k  ]
+        b1 = b[k+1]
+        b2 = b[k+2]
+        b3 = b[k+3]
+        b4 = b[k+4]
+        if b0<0: b0 += 256
+        if b1<0: b1 += 256
+        if b2<0: b2 += 256
+        if b3<0: b3 += 256
+        if b4<0: b4 += 256
+        return(b0*65536.0+b1*256.0+b2+b3/256.0+b4/65536.0)
+        
+    if(message_content == READ_TEMPERATURE):
+        cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
+        return(cmosTemperature, chipTemperature, objectTemperature)
+    elif(message_content == READ_DATA):
+        decode_data(s, message_length)
+        log.debug("Data done")
+    else:
+        log.debug("Receiving unknown message: " + str(message_content))
+    
