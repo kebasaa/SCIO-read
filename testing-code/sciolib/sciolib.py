@@ -176,4 +176,6 @@ def read_data(scio_dev, command):
     else:
         log.debug("Receiving unknown message: " + str(message_content))
         
-    print(df)
+    #print(df[0])
+    #print(df[2])
+    print( [n/d for n, d in zip(df[0], df[2])] )
