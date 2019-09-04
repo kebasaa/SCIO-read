@@ -17,6 +17,7 @@ For example, if you know the basic spectra of a watermelon, and then see that as
 
 In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans.
 
+
 ## Device specifications
 The specs are rather badly documented. I have managed to glean the following data so far though:
 * Scans in NIR, range of 700-1100nm according to Consumer Physics, or 740-1070nm according to a [scientific research paper on ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
@@ -47,7 +48,7 @@ So far, I have identified the following BLE UUIDs/handles
 ```
 
 ## Data format
-I captured BLE data on Linux using gatttool, with the following command:
+I captured the BLE data on Linux using gatttool, with the following command:
 
 ```bash
     sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt

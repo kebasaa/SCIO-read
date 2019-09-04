@@ -17,6 +17,10 @@ a decoded CSV. HOW TO DECODE IS NOT CLEAR YET!
 Uses the following libraries:
 - Json
 - http://www.pyinstaller.org/
+
+TODO
+encode binary to base64, store in json
+
 '''
 
 # To read settings file
