@@ -184,11 +184,8 @@ def read_data(scio_dev, command):
         def unpackU40(data):
             temp = [ ]
             for j in range(int(len(data)/5)):
-                temp.append( getU40(data, j*5))
+                temp.append( getU40(data, j*5) / 100000000)
             return temp
-        header = 0
-        footer = 0 - header
-        num_vars = (message_length - header - footer) / 5
         print( unpackU40(s) )
         
         # NOTE: Only looking at part 3 (1656 bytes) withe the assumption that some 332 bytes encode something else
@@ -199,7 +196,7 @@ def read_data(scio_dev, command):
         footer = 332 - header
         num_vars = (message_length - header - footer) / 4 # divide by 4 because we are dealing with longs
         data_struct = '<' + str(int(header)) + 'b' + str(int(num_vars)) + 'f' + str(int(footer)) + 'b'
-        print(struct.unpack('<1656s',s))
+        #print(struct.unpack('<1656s',s))
 
         #data_struct = '<' + str(int(num_vars)) + 'd' + str(int(header)) + 'b'
         # Convert bytes to unsigned int
@@ -225,7 +222,7 @@ def read_data(scio_dev, command):
         cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
         return(cmosTemperature, chipTemperature, objectTemperature)
     elif(message_content == READ_DATA):
-        print(decode_data(s, message_length))
+        decode_data(s, message_length)
         log.debug("Data done")
     else:
         log.debug("Receiving unknown message: " + str(message_content))
