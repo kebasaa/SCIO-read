@@ -57,10 +57,10 @@ def find_scio_dev():
                 if re.compile(pattern).match(os.path.basename(device)):
                     print('Device:           {0}'.format(device))
                     scio_dev = device
-                    manufacturer = self.read_line(device, 'manufacturer')
-                    product = self.read_line(device, 'product')
-                    print(manufacturer)
-                    print(product)
+                    #manufacturer = self.read_line(device, 'manufacturer')
+                    #product = self.read_line(device, 'product')
+                    #print(manufacturer)
+                    #print(product)
     elif(platform.uname().system == 'Windows'):
         # TODO: Add check in case multiple COM ports are available
         import serial.tools.list_ports as port_list
@@ -162,6 +162,35 @@ def read_data(scio_dev, command):
         log.debug("Number of bytes: " + str(message_length))
         log.debug("Number of longs (+145, header 332 bytes): " + str((message_length-145)/4))
         log.debug("Number of variables (5 bytes each), header 1 byte: " + str((message_length-1)/5))
+        '''
+        import numpy as np
+
+        def read_uint10(byte_buf):
+            data = np.frombuffer(byte_buf, dtype=np.uint8)
+            # 5 bytes contain 4 10-bit pixels (5x8 == 4x10)
+            b1, b2, b3, b4, b5 = np.reshape(data, (data.shape[0]//5, 5)).astype(np.uint16).T
+            o1 = (b1 << 2) + (b2 >> 6)
+            o2 = ((b2 % 64) << 4) + (b3 >> 4)
+            o3 = ((b3 % 16) << 6) + (b4 >> 2)
+            o4 = ((b4 % 4) << 8) + b5
+
+            unpacked =  np.reshape(np.concatenate((o1[:, None], o2[:, None], o3[:, None], o4[:, None]), axis=1),  4*o1.shape[0])
+            return unpacked
+        '''
+        def getU40(data, index):
+            dat = data[index:(index+4)]
+            return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
+        
+        def unpackU40(data):
+            temp = [ ]
+            for j in range(int(len(data)/5)):
+                temp.append( getU40(data, j*5))
+            return temp
+        header = 0
+        footer = 0 - header
+        num_vars = (message_length - header - footer) / 5
+        print( unpackU40(s) )
+        
         # NOTE: Only looking at part 3 (1656 bytes) withe the assumption that some 332 bytes encode something else
         #num_vars = (message_length -476) / 4 # divide by 4 because we are dealing with longs
         #data_struct = '<' + '4x472b' + str(int(num_vars)) + 'l'
