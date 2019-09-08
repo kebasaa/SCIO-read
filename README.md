@@ -1,3 +1,5 @@
+[![GitHub](https://img.shields.io/github/license/kebasaa/SCIO-read)](https://www.gnu.org/licenses/gpl-3.0)
+
 # Read the SCiO spectrometer built by [Consumer Physics](https://www.consumerphysics.com/)
 
 In this small project, I'm trying to hack the SCiO spectrometer in order to create a Python library to read scans directly. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future also some code to make it work. Any input and help is appreciated.
