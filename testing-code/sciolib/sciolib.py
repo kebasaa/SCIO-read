@@ -111,6 +111,18 @@ def read_data(scio_dev, command):
         for j in range( int(data_length/5) ):
             temp.append( getU40(data, j*5+header) / 100000000)
         return(temp)
+        
+    def getU40_le(data, index):
+        dat = data[index:(index+5)]
+        return float( ((( int(dat[4] & 255)) + (( int(dat[3] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[1] & 255)) << 24) + (( int(dat[0] & 255)) << 32) )
+        
+    def unpackU40_le(data, header):
+        temp = [ ]
+        footer = 145 - header
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40_le(data, j*5+header) / 100000000)
+        return(temp)
     
     # Send reading command
     # - - - - - - - - - - -
@@ -169,7 +181,7 @@ def read_data(scio_dev, command):
             message_length = struct.unpack('<H',s)[0]
             s = ser.read(message_length)
             # decode
-            header = 0
+            header = 145
             if(i == 2):
                 header = 0
             df.append( unpackU40(s, header) )
@@ -177,29 +189,28 @@ def read_data(scio_dev, command):
         ser.close()
     else:
         log.debug("Receiving unknown message: " + str(message_content))
-    
-    # tests
-    print(len(raw_df))
-    for part in range(len(raw_df)):
-        header = 0
-        if(part == 2):
-            header = 0
-        df = [ ]
-        df.append( unpackU40(raw_df[part], header) )
-        #for h in range(3):
-            #df.append( unpackU40(s, h) )
-        print(df)
-        print("---------------")
-    #print(df[0])
-    #print(df[2])
-    reflectance = [n/d for n, d in zip(df[0], df[2])]
-    #print(reflectance)
-    #print(all(i <= 1.0 for i in reflectance))
-    solution = False
-    if(all(i <= 1.0 for i in reflectance)):
-        solution = True
-        print("Solution with header " + str(header))
-    #header = header + 1
         
+    #print(df)
+    print([n/d for n, d in zip(df[0], df[2])])
     # DEBUG
+    # Function to decode
+    def decode(raw_df, header):
+        df = [ ]
+        for part in range(len(raw_df)):
+            if(part == 2):
+                header = 0
+            df.append( unpackU40_le(raw_df[part], header) )
+        return(df)
+    # iterate over possible number of headers in order to find solution
+    solution = False
+    for h in range(145):
+        #print("Header: " + str(h))
+        df = decode(raw_df,h)
+        reflectance = [n/d for n, d in zip(df[0], df[2])]
+        if(all(i <= 1.0 for i in reflectance)):
+            solution = True
+            print("Solution with header " + str(header))
+    if(not solution):
+        print("No solution found")
+
     
