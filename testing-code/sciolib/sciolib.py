@@ -88,109 +88,118 @@ def protocol_message(cmd):
     return(byte_command)
 
 def read_data(scio_dev, command):
-    solution = False
-    #header = 0
-    for header in range(145):
-        # This reads or writes data
-        print("Header: " + str(header))
+    # Relevant functions
+    def decode_temperature(msg, message_length):
+        num_vars = message_length / 4 # divide by 4 because we are dealing with longs
+        data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
+        # Convert bytes to unsigned int
+        message_data = struct.unpack(data_struct ,s)
+        # Convert to temperatures
+        cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
+        chipTemperature = (message_data[1]) / 100
+        objectTemperature = message_data[2]
+        return(cmosTemperature, chipTemperature, objectTemperature)
     
-        # Relevant functions
-        def decode_temperature(msg, message_length):
-            num_vars = message_length / 4 # divide by 4 because we are dealing with longs
-            data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
-            # Convert bytes to unsigned int
-            message_data = struct.unpack(data_struct ,s)
-            # Convert to temperatures
-            cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
-            chipTemperature = (message_data[1]) / 100
-            objectTemperature = message_data[2]
-            return(cmosTemperature, chipTemperature, objectTemperature)
-        
-        def getU40(data, index):
-            dat = data[index:(index+5)]
-            return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
+    def getU40(data, index):
+        dat = data[index:(index+5)]
+        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
             
-        def unpackU40(data, header):
-            temp = [ ]
-            footer = 145 - header
-            data_length = len(data) - header - footer
-            for j in range( int(data_length/5) ):
-                temp.append( getU40(data, j*5+header) / 100000000)
-            return(temp)
+    def unpackU40(data, header):
+        temp = [ ]
+        footer = 145 - header
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40(data, j*5+header) / 100000000)
+        return(temp)
     
-        # Send reading command
-        # - - - - - - - - - - -
+    # Send reading command
+    # - - - - - - - - - - -
     
-        # Create the message
-        #byte_msg = protocol_message(READ_TEMPERATURE)
-        byte_msg = protocol_message(command)
+    # Create the message
+    #byte_msg = protocol_message(READ_TEMPERATURE)
+    byte_msg = protocol_message(command)
     
-        # Open serial connection
-        try:
-            ser = serial.Serial(scio_dev)
-        except OSError as error:
-            log.error(error)
-            quit()
-        
-        # write the message to the serial device
-        ser.write(byte_msg)
-
-        # Read the response
-        # - - - - - - - - - - -
+    # Open serial connection
+    try:
+        ser = serial.Serial(scio_dev)
+    except OSError as error:
+        log.error(error)
+        quit()
     
-        # Start reading the response
-        s = ser.read(1)
-        message_type    = struct.unpack('<b',s)[0]
+    # write the message to the serial device
+    ser.write(byte_msg)
     
-        # Error check
-        assert (message_type == PROTOCOL), 'Wrong message type: {}'.format(message_type)
+    # Read the response
+    # - - - - - - - - - - -
     
-        # Data type
-        s = ser.read(1)
-        message_content = struct.unpack('<b',s)[0]
-        if(message_content == READ_TEMPERATURE):
-            log.debug("Receiving temperature data: " + str(message_content))
-            # Data length
+    # Start reading the response
+    s = ser.read(1)
+    message_type    = struct.unpack('<b',s)[0]
+    
+    # Error check
+    assert (message_type == PROTOCOL), 'Wrong message type: {}'.format(message_type)
+    
+    # Data type
+    s = ser.read(1)
+    message_content = struct.unpack('<b',s)[0]
+    if(message_content == READ_TEMPERATURE):
+        log.debug("Receiving temperature data: " + str(message_content))
+        # Data length
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        # Read the number of values specified by the message length
+        s = ser.read(message_length)
+        ser.close()
+        # decode that data
+        cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
+        return(cmosTemperature, chipTemperature, objectTemperature)
+    elif(message_content == READ_DATA):
+        df = [ ]
+        raw_df = [ ]
+        log.debug("Receiving scan data: " + str(message_content))
+        # get rid of first 2 sets to get
+        for i in range(3):
+            log.debug("--> Part: " + str(i+1))
+            if(i > 0):
+                s = ser.read(1)
+                message_type    = struct.unpack('<b',s)[0]
+                s = ser.read(1)
+                message_content = struct.unpack('<b',s)[0]
             s = ser.read(2)
             message_length = struct.unpack('<H',s)[0]
-            # Read the number of values specified by the message length
             s = ser.read(message_length)
-            ser.close()
-            # decode that data
-            cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
-            return(cmosTemperature, chipTemperature, objectTemperature)
-        elif(message_content == READ_DATA):
-            df = [ ]
-            log.debug("Receiving scan data: " + str(message_content))
-            # get rid of first 2 sets to get
-            for i in range(3):
-                log.debug("--> Part: " + str(i+1))
-                if(i > 0):
-                    s = ser.read(1)
-                    message_type    = struct.unpack('<b',s)[0]
-                    s = ser.read(1)
-                    message_content = struct.unpack('<b',s)[0]
-                s = ser.read(2)
-                message_length = struct.unpack('<H',s)[0]
-                s = ser.read(message_length)
-                # decode
-                #header = 0
-                if(i == 2):
-                    header = 0
-                df.append( unpackU40(s, header) )
-            ser.close()
-        else:
-            log.debug("Receiving unknown message: " + str(message_content))
-        
-        #print(df[0])
-        #print(df[2])
-        reflectance = [n/d for n, d in zip(df[0], df[2])]
-        #print(reflectance)
-        #print(all(i <= 1.0 for i in reflectance))
-        if(all(i <= 1.0 for i in reflectance)):
-            solution = True
-            print("Solution with header " + str(header))
-        #header = header + 1
+            # decode
+            header = 0
+            if(i == 2):
+                header = 0
+            df.append( unpackU40(s, header) )
+            raw_df.append(s)
+        ser.close()
+    else:
+        log.debug("Receiving unknown message: " + str(message_content))
+    
+    # tests
+    print(len(raw_df))
+    for part in range(len(raw_df)):
+        header = 0
+        if(part == 2):
+            header = 0
+        df = [ ]
+        df.append( unpackU40(raw_df[part], header) )
+        #for h in range(3):
+            #df.append( unpackU40(s, h) )
+        print(df)
+        print("---------------")
+    #print(df[0])
+    #print(df[2])
+    reflectance = [n/d for n, d in zip(df[0], df[2])]
+    #print(reflectance)
+    #print(all(i <= 1.0 for i in reflectance))
+    solution = False
+    if(all(i <= 1.0 for i in reflectance)):
+        solution = True
+        print("Solution with header " + str(header))
+    #header = header + 1
         
     # DEBUG
     
