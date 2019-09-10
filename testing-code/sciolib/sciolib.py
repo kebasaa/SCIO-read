@@ -97,7 +97,7 @@ def read_data(scio_dev, command):
         # Convert to temperatures
         cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
         chipTemperature = (message_data[1]) / 100
-        objectTemperature = message_data[2]
+        objectTemperature = message_data[2] / 100
         return(cmosTemperature, chipTemperature, objectTemperature)
     
     def getU40(data, index):
