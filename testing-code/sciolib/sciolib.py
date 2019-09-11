@@ -102,7 +102,7 @@ def json_write(scandf, filename):
     # Write data to JSON file
     import json
     with open(filename, 'w') as outfile:
-        json.dump(jsondata, outfile)
+        json.dump(jsondata, outfile, indent=4)
         
 def json_read(filename):
     outdf = [ ]
