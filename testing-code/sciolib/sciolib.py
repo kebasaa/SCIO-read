@@ -77,6 +77,55 @@ def find_scio_dev():
     # TODO: Add a check or manufacturer to determine that this is really the scio and not some arduino
     log.info("Using port: " + scio_dev)
     return(scio_dev)
+
+def encode_b64(bytestring):
+    # Encode and decode data as base64 (to store until we know what to do with it)
+    import base64
+    urlSafeEncodedBytes = base64.urlsafe_b64encode(bytestring)
+    urlSafeEncodedStr = str(urlSafeEncodedBytes, "utf-8")
+    return(urlSafeEncodedStr)
+
+def decode_b64(b64string):
+    # Encode and decode data as base64 (to store until we know what to do with it)
+    import base64
+    bytestring = base64.urlsafe_b64decode(b64string)
+    return(bytestring)
+
+def json_write(scandf, filename):
+    jsondata = {}
+    jsondata['scan'] = []
+    jsondata['scan'].append({
+        'part1': encode_b64(scandf[0]),
+        'part2': encode_b64(scandf[1]),
+        'part3': encode_b64(scandf[2])
+    })
+    # Write data to JSON file
+    import json
+    with open(filename, 'w') as outfile:
+        json.dump(jsondata, outfile)
+        
+def json_read(filename):
+    outdf = [ ]
+    import json
+    with open(filename) as json_file:
+        jsondata = json.load(json_file)
+        for p in jsondata['scan']:
+            outdf.append(decode_b64(p['part1']))
+            outdf.append(decode_b64(p['part2']))
+            outdf.append(decode_b64(p['part3']))
+    return(outdf)
+
+    jsondata = {}
+    jsondata['scan'] = []
+    jsondata['scan'].append({
+        'part1': encode_b64(raw_df[0]),
+        'part2': encode_b64(raw_df[1]),
+        'part3': encode_b64(raw_df[2])
+    })
+    # Write data to JSON file
+    import json
+    with open(filename, 'w') as outfile:
+        json.dump(jsondata, outfile)
     
 def protocol_message(cmd):
     byte_command = b"" # empty initialisation
@@ -193,7 +242,12 @@ def read_data(scio_dev, command):
     #print(df)
     print([n/d for n, d in zip(df[0], df[2])])
     # DEBUG
-    # Function to decode
+    # This will save the data to JSON temporarily. In the end, I'll want to be able to save decoded data
+    from pathlib import Path
+    json_dir = str(Path.home())
+    json_write(raw_df, json_dir + "/scio_scan.json")
+    
+    # Function to try to decode
     def decode(raw_df, header):
         df = [ ]
         for part in range(len(raw_df)):
