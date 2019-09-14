@@ -53,19 +53,31 @@ def main_fct(calibrate, input_method, outfile):
     except:
         pass
     
-    #cmosTemperature, chipTemperature, objectTemperature = read_temperature_simple(scio_device)
-    temperature_df = scio.read_data(scio_device, 4) # 4 = read temperature
-    log.info("CMOS T: {:.3f}".format(temperature_df[0])) # cmosTemperature, chipTemperature, objectTemperature
-    log.info("Chip T: {:.3f}".format(temperature_df[1]))
-    log.info("Obj. T: {:.3f}".format(temperature_df[2]))
-
-    scio.read_data(scio_device, 2) # 2 = read data
+    # Read temperature before scanning
+    temp_before_df = scio.read_data(scio_device, 4) # 4 = read temperature
+    log.info("CMOS T: {:.3f}".format(temp_before_df[0])) # cmosTemperature, chipTemperature, objectTemperature
+    log.info("Chip T: {:.3f}".format(temp_before_df[1]))
+    log.info("Obj. T: {:.3f}".format(temp_before_df[2]))
     
-    #hex(temp) ##convert int to string which is hexadecimal expression
+    # Scan and decode
+    scan_raw_df = scio.read_data(scio_device, 2) # 2 = read data
+    scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
     
+    # Read temperature after scanning
+    temp_after_df = scio.read_data(scio_device, 4)
     
-    #msg = b"\x01\xba\x0b\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" # turn off leds
-    #ser.write(msg)
+    # Path to output file within home directory
+    if len(outfile) > 1:
+        log.debug("write output") #blah = sys.argv[1]
+    else:
+        log.debug("no output")
+        
+    from pathlib import Path
+    json_dir = str(Path.home())
+    log.debug("Writing raw scan to: " + json_dir + "/scio_scan.json")
+    # Save file
+    scio.save_json(temp_before_df, temp_after_df, scan_raw_df, json_dir + "/scio_scan.json") # outfile from 
+    
     
     '''
     # Start instructions for scanning

@@ -91,19 +91,6 @@ def decode_b64(b64string):
     bytestring = base64.urlsafe_b64decode(b64string)
     return(bytestring)
 
-def json_write(scandf, filename):
-    jsondata = {}
-    jsondata['scan'] = []
-    jsondata['scan'].append({
-        'part1': encode_b64(scandf[0]),
-        'part2': encode_b64(scandf[1]),
-        'part3': encode_b64(scandf[2])
-    })
-    # Write data to JSON file
-    import json
-    with open(filename, 'w') as outfile:
-        json.dump(jsondata, outfile, indent=4)
-        
 def json_read(filename):
     outdf = [ ]
     import json
@@ -150,30 +137,6 @@ def read_data(scio_dev, command):
         temperature_df = [cmosTemperature, chipTemperature, objectTemperature]
         return(temperature_df)
     
-    def getU40(data, index):
-        dat = data[index:(index+5)]
-        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
-            
-    def unpackU40(data, header):
-        temp = [ ]
-        footer = 145 - header
-        data_length = len(data) - header - footer
-        for j in range( int(data_length/5) ):
-            temp.append( getU40(data, j*5+header) / 100000000)
-        return(temp)
-        
-    def getU40_le(data, index):
-        dat = data[index:(index+5)]
-        return float( ((( int(dat[4] & 255)) + (( int(dat[3] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[1] & 255)) << 24) + (( int(dat[0] & 255)) << 32) )
-        
-    def unpackU40_le(data, header):
-        temp = [ ]
-        footer = 145 - header
-        data_length = len(data) - header - footer
-        for j in range( int(data_length/5) ):
-            temp.append( getU40_le(data, j*5+header) / 100000000)
-        return(temp)
-    
     # Send reading command
     # - - - - - - - - - - -
     
@@ -216,7 +179,6 @@ def read_data(scio_dev, command):
         temperature_df = decode_temperature(s, message_length)
         return(temperature_df)  # cmosTemperature, chipTemperature, objectTemperature
     elif(message_content == READ_DATA):
-        df = [ ]
         raw_df = [ ]
         log.debug("Receiving scan data: " + str(message_content))
         # get rid of first 2 sets to get
@@ -230,11 +192,6 @@ def read_data(scio_dev, command):
             s = ser.read(2)
             message_length = struct.unpack('<H',s)[0]
             s = ser.read(message_length)
-            # decode
-            header = 145
-            if(i == 2):
-                header = 0
-            df.append( unpackU40(s, header) )
             raw_df.append(s)
         ser.close()
         return(raw_df)
@@ -243,12 +200,33 @@ def read_data(scio_dev, command):
         
     # This divides one list by another
     #print([n/d for n, d in zip(df[0], df[2])])
-    # DEBUG
-    # This will save the data to JSON temporarily. In the end, I'll want to be able to save decoded data
-    from pathlib import Path
-    json_dir = str(Path.home())
-    log.debug("Writing raw scan to: " + json_dir + "/scio_scan.json")
-    json_write(raw_df, json_dir + "/scio_scan.json")
+    
+def decode_data(raw_df):
+    # 40-bit decoding functions
+    def getU40(data, index):
+        dat = data[index:(index+5)]
+        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
+            
+    def unpackU40(data, header):
+        temp = [ ]
+        footer = 145 - header
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40(data, j*5+header) / 100000000)
+        return(temp)
+        
+    def getU40_le(data, index):
+        dat = data[index:(index+5)]
+        return float( ((( int(dat[4] & 255)) + (( int(dat[3] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[1] & 255)) << 24) + (( int(dat[0] & 255)) << 32) )
+        
+    def unpackU40_le(data, header):
+        temp = [ ]
+        footer = 145 - header
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40_le(data, j*5+header) / 100000000)
+        return(temp)
+        
     
     # Function to try to decode
     def decode(raw_df, header):
@@ -258,6 +236,7 @@ def read_data(scio_dev, command):
                 header = 0
             df.append( unpackU40_le(raw_df[part], header) )
         return(df)
+        
     # iterate over possible number of headers in order to find solution
     solution = False
     for h in range(145):
@@ -270,4 +249,25 @@ def read_data(scio_dev, command):
     if(not solution):
         print("No solution found")
 
+def save_json(temp_before_df, temp_after_df, scan_df, filename):
+    # This will save the data to JSON temporarily. In the end, I'll want to be able to save decoded data
     
+    # create the json file
+    jsondata = {}
+    jsondata['scan'] = []
+    jsondata['scan'].append({
+        't_cmos_before': temp_before_df[0], # cmosTemperature, chipTemperature, objectTemperature
+        't_chip_before': temp_before_df[1],
+        't_obj_before':  temp_before_df[2],
+        't_cmos_before': temp_after_df[0],
+        't_chip_before': temp_after_df[1],
+        't_obj_before':  temp_after_df[2],
+        'part1': encode_b64(scan_df[0]),
+        'part2': encode_b64(scan_df[1]),
+        'part3': encode_b64(scan_df[2])
+    })
+    
+    # Write data to JSON file
+    import json
+    with open(filename, 'w') as outfile:
+        json.dump(jsondata, outfile, indent=4)
