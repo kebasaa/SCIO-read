@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import logging
 log = logging.getLogger('root')
 log.setLevel(logging.DEBUG)
-logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt='%y-%m-%y %H:%M:%S')
+logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 # To identify the OS
 import platform
@@ -147,7 +147,8 @@ def read_data(scio_dev, command):
         cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
         chipTemperature = (message_data[1]) / 100
         objectTemperature = message_data[2] / 100
-        return(cmosTemperature, chipTemperature, objectTemperature)
+        temperature_df = [cmosTemperature, chipTemperature, objectTemperature]
+        return(temperature_df)
     
     def getU40(data, index):
         dat = data[index:(index+5)]
@@ -212,8 +213,8 @@ def read_data(scio_dev, command):
         s = ser.read(message_length)
         ser.close()
         # decode that data
-        cmosTemperature, chipTemperature, objectTemperature = decode_temperature(s, message_length)
-        return(cmosTemperature, chipTemperature, objectTemperature)
+        temperature_df = decode_temperature(s, message_length)
+        return(temperature_df)  # cmosTemperature, chipTemperature, objectTemperature
     elif(message_content == READ_DATA):
         df = [ ]
         raw_df = [ ]
@@ -236,15 +237,17 @@ def read_data(scio_dev, command):
             df.append( unpackU40(s, header) )
             raw_df.append(s)
         ser.close()
+        return(raw_df)
     else:
         log.debug("Receiving unknown message: " + str(message_content))
         
-    #print(df)
-    print([n/d for n, d in zip(df[0], df[2])])
+    # This divides one list by another
+    #print([n/d for n, d in zip(df[0], df[2])])
     # DEBUG
     # This will save the data to JSON temporarily. In the end, I'll want to be able to save decoded data
     from pathlib import Path
     json_dir = str(Path.home())
+    log.debug("Writing raw scan to: " + json_dir + "/scio_scan.json")
     json_write(raw_df, json_dir + "/scio_scan.json")
     
     # Function to try to decode

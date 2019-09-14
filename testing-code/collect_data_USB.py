@@ -33,7 +33,7 @@ import logging
 log = logging.getLogger('root')
 log.setLevel(logging.DEBUG)
 #logging.basicConfig(format='[%(asctime)s] %(levelname)8s %(module)15s: %(message)s')
-logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt='%y-%m-%y %H:%M:%S')
+logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 # The SCIO library
 import sciolib.sciolib as scio
@@ -54,10 +54,10 @@ def main_fct(calibrate, input_method, outfile):
         pass
     
     #cmosTemperature, chipTemperature, objectTemperature = read_temperature_simple(scio_device)
-    cmosTemperature, chipTemperature, objectTemperature = scio.read_data(scio_device, 4) # 4 = read temperature
-    print("CMOS T: ", cmosTemperature)
-    print("Chip T: ", chipTemperature)
-    print("Obj. T: ", objectTemperature)
+    temperature_df = scio.read_data(scio_device, 4) # 4 = read temperature
+    log.info("CMOS T: {:.3f}".format(temperature_df[0])) # cmosTemperature, chipTemperature, objectTemperature
+    log.info("Chip T: {:.3f}".format(temperature_df[1]))
+    log.info("Obj. T: {:.3f}".format(temperature_df[2]))
 
     scio.read_data(scio_device, 2) # 2 = read data
     
