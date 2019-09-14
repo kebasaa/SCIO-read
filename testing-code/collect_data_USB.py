@@ -18,9 +18,6 @@ Uses the following libraries:
 - Json
 - http://www.pyinstaller.org/
 
-TODO
-encode binary to base64, store in json
-
 '''
 
 # To read settings file
@@ -38,46 +35,57 @@ logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt=
 # The SCIO library
 import sciolib.sciolib as scio
 
-def main_fct(calibrate, input_method, outfile):
-    if(calibrate):
+def main_fct(calibrate, infile, outfile, protocol, raw):
+    if(calibrate): # DEBUG!!!
         log.debug("We were told to calibrate")
     log.info("Input/output")
-    log.info("--> Input through:    " + input_method)
-    log.info("--> Output file name: " + outfile)
-    
-    scio_device = scio.find_scio_dev()
-    
-    # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
-    try: # Make sure to close the serial port if it was still open
-        ser.close()
-    except:
-        pass
-    
-    # Read temperature before scanning
-    temp_before_df = scio.read_data(scio_device, 4) # 4 = read temperature
-    log.info("CMOS T: {:.3f}".format(temp_before_df[0])) # cmosTemperature, chipTemperature, objectTemperature
-    log.info("Chip T: {:.3f}".format(temp_before_df[1]))
-    log.info("Obj. T: {:.3f}".format(temp_before_df[2]))
-    
-    # Scan and decode
-    scan_raw_df = scio.read_data(scio_device, 2) # 2 = read data
-    scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
-    
-    # Read temperature after scanning
-    temp_after_df = scio.read_data(scio_device, 4)
-    
-    # Path to output file within home directory
-    if len(outfile) > 1:
-        log.debug("write output") #blah = sys.argv[1]
-    else:
-        log.debug("no output")
         
+    # Find the home folder (temporary)
     from pathlib import Path
     json_dir = str(Path.home())
-    log.debug("Writing raw scan to: " + json_dir + "/scio_scan.json")
-    # Save file
-    scio.save_json(temp_before_df, temp_after_df, scan_raw_df, json_dir + "/scio_scan.json") # outfile from 
     
+    # Check if we need to scan
+    if(infile is not None):
+        log.info("--> Input through:    " + json_dir + "/" + infile)
+        # TODO
+        json_df = scio.raw_read(json_dir + "/" + infile)
+        scan_raw_df = json_df[7:10] # Element 10 is not included...
+    else:
+        log.info("--> Input through:    " + protocol)
+        log.info("--> Output file name: " + outfile)
+        
+        # Try to find the device
+        scio_device = scio.find_scio_dev()
+    
+        # https://makersportal.com/blog/2018/2/25/python-datalogger-reading-the-serial-output-from-arduino-to-analyze-data-using-pyserial
+        try: # Make sure to close the serial port if it was still open
+            ser.close()
+        except:
+            pass
+    
+        # Read temperature before scanning
+        temp_before_df = scio.read_data(scio_device, 4) # 4 = read temperature
+        log.info("CMOS T: {:.3f}".format(temp_before_df[0])) # cmosTemperature, chipTemperature, objectTemperature
+        log.info("Chip T: {:.3f}".format(temp_before_df[1]))
+        log.info("Obj. T: {:.3f}".format(temp_before_df[2]))
+    
+        # Scan and decode
+        scan_raw_df = scio.read_data(scio_device, 2) # 2 = read data
+    
+        # Read temperature after scanning
+        temp_after_df = scio.read_data(scio_device, 4)
+    
+        # Path to output file within home directory
+        if(outfile == "scio-scan"):
+            # The default file name was given!
+            log.info("WARNING! The default file was used. Any existing previous file will be overwritten!")
+            
+        # Save the file
+        log.debug("Writing raw scan to: " + json_dir + "/" + outfile + ".json")
+        # Saves the raw data. In the end, I'll want to save the scan as a CSV
+        scio.raw_write(temp_before_df, temp_after_df, scan_raw_df, json_dir + "/" + outfile + ".json")
+    
+    scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
     
     '''
     # Start instructions for scanning
@@ -122,11 +130,15 @@ if __name__ == '__main__':
 
     parser.add_argument('-c','--calibrate', action='store_true',dest='calibrate',
                         default = False, help='calibrate the SCIO (no output created)')
-    parser.add_argument('-i', '--input', dest='method',
-                        default = 'usb', help='[bt/usb] input through USB or Bluetooth')
-    parser.add_argument('-o','--output-file', dest='filename',
+    parser.add_argument('-i','--input-file', dest='infile',
+                        help='name of the input raw JSON file')
+    parser.add_argument('-o','--output-file', dest='outfile',
                         default = 'scio-scan', help='name of the output files')
-
+    parser.add_argument('-p', '--protocol', dest='protocol',
+                        default = 'usb', help='[bt/usb] input through USB or Bluetooth')
+    parser.add_argument('-r','--raw-save', action='store_true',dest='raw',
+                        default = True, help='save the raw scan') # Temporary. Change to false once we're confident in the decoding
+                        
     args = parser.parse_args()
-    main_fct(args.calibrate, args.method, args.filename)
+    main_fct(args.calibrate, args.infile, args.outfile, args.protocol, args.raw)
  
