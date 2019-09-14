@@ -89,7 +89,9 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
     
     log.info("Trying to decode data")
     scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
-    print(scan_df)
+    #print(scan_df) #DEBUG
+    log.debug("Number of scans in data:  " + str(len(scan_df)))
+    log.debug("Number of variables/scan: " + str(len(scan_df[0])))
     print("")
 
 

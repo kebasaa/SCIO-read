@@ -262,12 +262,13 @@ def decode_data(raw_df):
     # iterate over possible number of headers in order to find solution
     solution = False
     for h in range(145):
-        #print("Header: " + str(h))
+        reflectance = [ ]
         df = decode(raw_df,h)
-        reflectance = [n/d for n, d in zip(df[0], df[2])]
-        if(all(i <= 1.0 for i in reflectance)):
+        reflectance.append([n/d for n, d in zip(df[0], df[2])])
+        reflectance.append([n/d for n, d in zip(df[1], df[2])])
+        if(all(i <= 1.0 for i in reflectance[0])):
             solution = True
-            print("Solution with header " + str(header))
+            log.debug("Solution with header " + str(header))
     if(not solution):
-        print("No solution found")
+        log.debug("No solution found")
     return(reflectance)
