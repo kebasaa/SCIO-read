@@ -232,6 +232,8 @@ def decode_data(raw_df):
     def unpackU40(data, header):
         temp = [ ]
         footer = 145 - header
+        if(len(data) == 1656):
+            footer = 0;
         data_length = len(data) - header - footer
         for j in range( int(data_length/5) ):
             temp.append( getU40(data, j*5+header) / 100000000)
@@ -244,19 +246,20 @@ def decode_data(raw_df):
     def unpackU40_le(data, header):
         temp = [ ]
         footer = 145 - header
+        if(len(data) == 1656):
+            footer = 0;
         data_length = len(data) - header - footer
         for j in range( int(data_length/5) ):
             temp.append( getU40_le(data, j*5+header) / 100000000)
         return(temp)
         
-    
     # Function to try to decode
     def decode(raw_df, header):
         df = [ ]
         for part in range(len(raw_df)):
             if(part == 2):
                 header = 0
-            df.append( unpackU40_le(raw_df[part], header) )
+            df.append( unpackU40(raw_df[part], header) )
         return(df)
         
     # iterate over possible number of headers in order to find solution
@@ -271,4 +274,8 @@ def decode_data(raw_df):
             log.debug("Solution with header " + str(header))
     if(not solution):
         log.debug("No solution found")
+    print("-------")
+    print(len(df[0]))
+    print(len(df[1]))
+    print(len(df[2]))
     return(reflectance)
