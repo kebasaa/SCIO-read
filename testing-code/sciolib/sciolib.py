@@ -270,3 +270,4 @@ def decode_data(raw_df):
             print("Solution with header " + str(header))
     if(not solution):
         print("No solution found")
+    return(reflectance)
