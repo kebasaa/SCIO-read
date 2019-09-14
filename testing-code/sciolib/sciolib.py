@@ -91,28 +91,50 @@ def decode_b64(b64string):
     bytestring = base64.urlsafe_b64decode(b64string)
     return(bytestring)
 
-def json_read(filename):
-    outdf = [ ]
+def raw_read(filename):
     import json
+    
+    outdf = [ ]
     with open(filename) as json_file:
         jsondata = json.load(json_file)
         for p in jsondata['scan']:
+            outdf.append(p['timestamp'])
+            outdf.append(p['t_cmos_before'])
+            outdf.append(p['t_chip_before'])
+            outdf.append(p['t_obj_before'])
+            outdf.append(p['t_cmos_after'])
+            outdf.append(p['t_chip_after'])
+            outdf.append(p['t_obj_after'])
             outdf.append(decode_b64(p['part1']))
             outdf.append(decode_b64(p['part2']))
             outdf.append(decode_b64(p['part3']))
     return(outdf)
-
+        
+def raw_write(temp_before_df, temp_after_df, scan_df, filename):
+    # Saves a single scan as raw data to JSON
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # create the json file
     jsondata = {}
     jsondata['scan'] = []
     jsondata['scan'].append({
-        'part1': encode_b64(raw_df[0]),
-        'part2': encode_b64(raw_df[1]),
-        'part3': encode_b64(raw_df[2])
+        'timestamp': timestamp,
+        't_cmos_before': temp_before_df[0], # cmosTemperature, chipTemperature, objectTemperature
+        't_chip_before': temp_before_df[1],
+        't_obj_before':  temp_before_df[2],
+        't_cmos_after': temp_after_df[0],
+        't_chip_after': temp_after_df[1],
+        't_obj_after':  temp_after_df[2],
+        'part1': encode_b64(scan_df[0]),
+        'part2': encode_b64(scan_df[1]),
+        'part3': encode_b64(scan_df[2])
     })
+    
     # Write data to JSON file
     import json
     with open(filename, 'w') as outfile:
-        json.dump(jsondata, outfile)
+        json.dump(jsondata, outfile, indent=4)
     
 def protocol_message(cmd):
     byte_command = b"" # empty initialisation
@@ -248,26 +270,3 @@ def decode_data(raw_df):
             print("Solution with header " + str(header))
     if(not solution):
         print("No solution found")
-
-def save_json(temp_before_df, temp_after_df, scan_df, filename):
-    # This will save the data to JSON temporarily. In the end, I'll want to be able to save decoded data
-    
-    # create the json file
-    jsondata = {}
-    jsondata['scan'] = []
-    jsondata['scan'].append({
-        't_cmos_before': temp_before_df[0], # cmosTemperature, chipTemperature, objectTemperature
-        't_chip_before': temp_before_df[1],
-        't_obj_before':  temp_before_df[2],
-        't_cmos_before': temp_after_df[0],
-        't_chip_before': temp_after_df[1],
-        't_obj_before':  temp_after_df[2],
-        'part1': encode_b64(scan_df[0]),
-        'part2': encode_b64(scan_df[1]),
-        'part3': encode_b64(scan_df[2])
-    })
-    
-    # Write data to JSON file
-    import json
-    with open(filename, 'w') as outfile:
-        json.dump(jsondata, outfile, indent=4)
