@@ -274,8 +274,4 @@ def decode_data(raw_df):
             log.debug("Solution with header " + str(header))
     if(not solution):
         log.debug("No solution found")
-    print("-------")
-    print(len(df[0]))
-    print(len(df[1]))
-    print(len(df[2]))
     return(reflectance)
