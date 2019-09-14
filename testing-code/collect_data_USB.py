@@ -88,6 +88,9 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
         # Saves the raw data. In the end, I'll want to save the scan as a CSV
         scio.raw_write(temp_before_df, temp_after_df, scan_raw_df, json_dir + "/" + outfile + ".json")
     
+    #print(scio.read_data(scio_device, 1)) # Read device ID
+    print(scio.read_data(scio_device, -124)) # Read BLE ID
+    
     log.info("Trying to decode data")
     scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
     #print(scan_df) #DEBUG

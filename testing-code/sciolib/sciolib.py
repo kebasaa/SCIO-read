@@ -45,6 +45,8 @@ READ_BATTERY = 5     #05
 SET_READY = 14       #0e
 SET_LED = 11         #0b
 PROTOCOL = -70       #ba
+READ_BLE_ID = -124
+READ_DEV_ID = 1
 
 def find_scio_dev():
     scio_dev = ""
@@ -72,7 +74,7 @@ def find_scio_dev():
         log.error("--> Exiting...")
         quit()
     if scio_dev == "":
-        print("If no ttyACM (Linux) or COM (Windows) is detected: Is the SCIO on?")
+        print("No ttyACM (Linux) or COM (Windows) was detected: Is the SCIO on?")
         quit()
     # TODO: Add a check or manufacturer to determine that this is really the scio and not some arduino
     log.info("Using port: " + scio_dev)
@@ -149,15 +151,46 @@ def read_data(scio_dev, command):
     # Relevant functions
     def decode_temperature(msg, message_length):
         num_vars = message_length / 4 # divide by 4 because we are dealing with longs
-        data_struct = '<' + str(int(num_vars)) + 'l' # This is '<3l' or '<lll'
+        data_struct = '<' + str(int(num_vars)) + 'L' # This is '<3l' or '<lll'
         # Convert bytes to unsigned int
-        message_data = struct.unpack(data_struct ,s)
+        message_data = struct.unpack(data_struct, msg)
         # Convert to temperatures
         cmosTemperature = (message_data[0] - 375.22) / 1.4092 # Does this make sense? It's from the disassembled Android app...
         chipTemperature = (message_data[1]) / 100
         objectTemperature = message_data[2] / 100
         temperature_df = [cmosTemperature, chipTemperature, objectTemperature]
         return(temperature_df)
+    
+    def decode_dev_id(msg, message_length):
+        print(message_length)
+        print(msg)
+        print(len(msg))
+        #data_struct = '<8s8sH'
+        data_struct = '<H'
+        dev_df = struct.unpack(data_struct, msg[16:18])
+        print(dev_df)
+        return(dev_df)
+    
+    def decode_ble_id(msg, message_length):
+        #print(message_length)
+        print(msg)
+        print(msg[0:8])
+        print(msg[8:10]) # BLE firmware version
+        print(msg[10:50].decode("utf-8") ) # Unknown ID
+        print(msg[50:66].decode("utf-8") ) # device name
+        print(msg[66:131].decode("utf-8") ) # i2s tag
+        #data_struct = '<8sL16s64s'
+        data_struct = '<8sH40s16s64s'
+        ble_df = list(struct.unpack(data_struct, msg))
+        ble_df[2] = ble_df[2].decode("utf-8").strip()
+        ble_df[3] = ble_df[3].decode("utf-8").strip('\x00')
+        ble_df[4] = ble_df[4].decode("utf-8").strip()
+        data_struct = '<8B'
+        ble_df = struct.unpack(data_struct, msg[0:8])
+        print(list(map(chr, ble_df)))
+        #print(''.join(r'\x%02X' % ord(ch) for ch in msg[0:8] ))
+        print(ble_df)
+        return(ble_df)
     
     # Send reading command
     # - - - - - - - - - - -
@@ -216,6 +249,22 @@ def read_data(scio_dev, command):
             raw_df.append(s)
         ser.close()
         return(raw_df)
+    elif(message_content == READ_DEV_ID):
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        # Read the number of values specified by the message length
+        s = ser.read(message_length)
+        ser.close()
+        # decode that data
+        dev_df = decode_dev_id(s, message_length)
+    elif(message_content == READ_BLE_ID):
+        s = ser.read(2)
+        message_length = struct.unpack('<H',s)[0]
+        # Read the number of values specified by the message length
+        s = ser.read(message_length)
+        ser.close()
+        # decode that data
+        ble_df = decode_ble_id(s, message_length)
     else:
         log.debug("Receiving unknown message: " + str(message_content))
         
