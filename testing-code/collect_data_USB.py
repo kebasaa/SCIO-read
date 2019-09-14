@@ -48,6 +48,7 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
     if(infile is not None):
         # Input comes from a file
         log.info("--> Input through:    " + json_dir + "/" + infile)
+        log.info("--> Output file name: " + "N/A")
         # Read the raw json file
         json_df = scio.raw_read(json_dir + "/" + infile)
         scan_raw_df = json_df[7:10] # Element 10 is not included...
