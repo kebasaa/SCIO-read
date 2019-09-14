@@ -163,7 +163,6 @@ def read_data(scio_dev, command):
     # - - - - - - - - - - -
     
     # Create the message
-    #byte_msg = protocol_message(READ_TEMPERATURE)
     byte_msg = protocol_message(command)
     
     # Open serial connection
