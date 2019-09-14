@@ -46,11 +46,13 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
     
     # Check if we need to scan
     if(infile is not None):
+        # Input comes from a file
         log.info("--> Input through:    " + json_dir + "/" + infile)
-        # TODO
+        # Read the raw json file
         json_df = scio.raw_read(json_dir + "/" + infile)
         scan_raw_df = json_df[7:10] # Element 10 is not included...
     else:
+        # We have to scan (Only USB currently works)
         log.info("--> Input through:    " + protocol)
         log.info("--> Output file name: " + outfile)
         
@@ -85,42 +87,9 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
         # Saves the raw data. In the end, I'll want to save the scan as a CSV
         scio.raw_write(temp_before_df, temp_after_df, scan_raw_df, json_dir + "/" + outfile + ".json")
     
+    log.info("Trying to decode data")
     scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
-    
-    '''
-    # Start instructions for scanning
-    print("\nPlease turn on your SCIO")
-    print("    Do you want to load saved settings? [y/n]")
-    load_settings = input("    \(If no: automatic \(slow\) search for device\): ")
-    if(load_settings == "y"):
-        scio_name, scio_mac_addr = read_config()
-    else:
-        print("    Searching for SCIO...")
-        scio_name, scio_mac_addr = searchScio()
-        print("    SCIO device discovered: " + scio_name)
-        write_config(scio_name, scio_mac_addr)
-
-    print("\nCalibration: Please put the SCIO in its box")
-    #input("    Press Enter to continue")
-    #scioCalibration(scio_mac_addr)
-    #print("    Calibrating...")
-
-    print("\nDevice ready")
-    print("    Push the SCIO button to scan")
-    # HERE: wait for button press, perform scan, then save to file
-    print("    Scanning...")
-    #scioScan(scio_mac_addr)
-    print("    Saving raw hex data...")
-    print("    Decoding & saving spectrum...")
-
-    # Alternative:
-    print("\nDevice ready")
-    input("    Press Enter to scan")
-    # HERE: perform scan, then save to file
-    print("    Scanning...")
-    print("    Saving raw hex data...")
-    print("    Decoding & saving spectrum...")
-    '''
+    print(scan_df)
     print("")
 
 
