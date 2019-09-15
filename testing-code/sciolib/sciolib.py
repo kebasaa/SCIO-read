@@ -325,8 +325,35 @@ def decode_data(raw_df):
                 header = 0
             df.append( unpackU32(raw_df[part], header) ) #df.append( unpackU40(raw_df[part], header) )
         return(df)
+
+    def unpackU32b(data, header, footer):
+        # Unpacks with an offset
+        temp = [ ]
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/4) ):
+            temp.append( getU32(data, j*4+header) )
+        return(temp)
         
     # iterate over possible number of headers in order to find solution
+    num_vars = 331
+    var_size = 4
+    diff_scan = len(raw_df[0]) - num_vars*var_size
+    diff_cal =  len(raw_df[2]) - num_vars*var_size
+    solution = False
+    for i in range(diff_scan):
+        for j in range(diff_cal):
+            #if(solution):
+            #    break
+            print(i, diff_scan - i, j, diff_cal - j)
+            df = [ ]
+            df.append(unpackU32b(raw_df[0], j, diff_scan - j)) # scan
+            df.append(unpackU32b(raw_df[2], i, diff_cal - i))  # calibration
+            reflectance = [n/d for n, d in zip(df[0], df[1])]
+            if(all(k <= 1.0 for k in reflectance)):
+                solution = True
+                log.debug("Solution with scan header " + str(i) + " and cal. header " + str(j))
+                break
+        
     solution = False
     for h in range(332): #range(145):
         reflectance = [ ]
