@@ -273,8 +273,24 @@ def read_data(scio_dev, command):
     
 def decode_data(raw_df):
     # 40-bit decoding functions
+    def getU32(data, index):
+        dat = data[index:(index+4)]
+        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) )
+            
+    def unpackU32(data, header):
+        # Assuming 414 bands (4*414=1656). It is possible that the SCIO has more bands, but is noisy on both ends
+        temp = [ ]
+        footer = 476 - header
+        if(len(data) == 1656):
+            footer = 332 - header;
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/4) ):
+            temp.append( getU32(data, j*4+header) )
+        return(temp)
+        
+    # 40-bit decoding functions
     def getU40(data, index):
-        dat = data[index:(index+5)]
+        dat = data[index:(index+4)]
         return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
             
     def unpackU40(data, header):
@@ -307,12 +323,12 @@ def decode_data(raw_df):
         for part in range(len(raw_df)):
             if(part == 2):
                 header = 0
-            df.append( unpackU40(raw_df[part], header) )
+            df.append( unpackU32(raw_df[part], header) ) #df.append( unpackU40(raw_df[part], header) )
         return(df)
         
     # iterate over possible number of headers in order to find solution
     solution = False
-    for h in range(145):
+    for h in range(332): #range(145):
         reflectance = [ ]
         df = decode(raw_df,h)
         reflectance.append([n/d for n, d in zip(df[0], df[2])])
@@ -322,4 +338,5 @@ def decode_data(raw_df):
             log.debug("Solution with header " + str(header))
     if(not solution):
         log.debug("No solution found")
+    print(reflectance)
     return(reflectance)
