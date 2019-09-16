@@ -335,7 +335,7 @@ def decode_data(raw_df):
         temp = [ ]
         data_length = len(data) - header - footer
         for j in range( int(data_length/4) ):
-            temp.append( getU32_le(data, j*4+header) )
+            temp.append( getU32(data, j*4+header) )
         return(temp)
         
     # iterate over possible number of headers in order to find solution
