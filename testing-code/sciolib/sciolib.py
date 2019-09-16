@@ -276,6 +276,10 @@ def decode_data(raw_df):
     def getU32(data, index):
         dat = data[index:(index+4)]
         return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) )
+        
+    def getU32_le(data, index):
+        dat = data[index:(index+4)]
+        return float( ((( int(dat[3] & 255)) + (( int(dat[2] & 255)) << 8)) + (( int(dat[1] & 255)) << 16)) + (( int(dat[0] & 255)) << 24) )
             
     def unpackU32(data, header):
         # Assuming 414 bands (4*414=1656). It is possible that the SCIO has more bands, but is noisy on both ends
@@ -331,14 +335,16 @@ def decode_data(raw_df):
         temp = [ ]
         data_length = len(data) - header - footer
         for j in range( int(data_length/4) ):
-            temp.append( getU32(data, j*4+header) )
+            temp.append( getU32_le(data, j*4+header) )
         return(temp)
         
     # iterate over possible number of headers in order to find solution
     num_vars = 331
     var_size = 4
     diff_scan = len(raw_df[0]) - num_vars*var_size
+    print("diff_scan: " + str(diff_scan))
     diff_cal =  len(raw_df[2]) - num_vars*var_size
+    print("diff_cal:  " + str(diff_cal))
     solution = False
     for i in range(diff_scan):
         for j in range(diff_cal):
@@ -346,8 +352,8 @@ def decode_data(raw_df):
             #    break
             print(i, diff_scan - i, j, diff_cal - j)
             df = [ ]
-            df.append(unpackU32b(raw_df[0], j, diff_scan - j)) # scan
-            df.append(unpackU32b(raw_df[2], i, diff_cal - i))  # calibration
+            df.append(unpackU32b(raw_df[0], j, diff_cal - j)) # scan
+            df.append(unpackU32b(raw_df[2], i, diff_scan - i))  # calibration
             reflectance = [n/d for n, d in zip(df[0], df[1])]
             if(all(k <= 1.0 for k in reflectance)):
                 solution = True
