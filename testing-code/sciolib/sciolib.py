@@ -337,8 +337,44 @@ def decode_data(raw_df):
         for j in range( int(data_length/4) ):
             temp.append( getU32(data, j*4+header) )
         return(temp)
+    
+        
+    def getU64(data, index):
+        dat = data[index:(index+8)]
+        out = struct.unpack('<Q', dat)
+        return(out[0])
+    
+    def unpackU64(data, header, footer):
+        # Unpacks with an offset
+        temp = [ ]
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/8) ):
+            temp.append( getU64(data, j*8+header) )
+        return(temp)
         
     # iterate over possible number of headers in order to find solution
+    # U64
+    num_vars = 207
+    var_size = 8
+    diff_scan = len(raw_df[0]) - num_vars*var_size
+    print("diff_scan: " + str(diff_scan))
+    diff_cal =  len(raw_df[2]) - num_vars*var_size
+    print("diff_cal:  " + str(diff_cal))
+    solution = False
+    for i in range(diff_scan+1):
+        #if(solution):
+        #    break
+        print(i, diff_scan - i)
+        df = [ ]
+        df.append(unpackU64(raw_df[0], i, diff_scan - i)) # scan
+        df.append(unpackU64(raw_df[2], 0, 0))  # calibration
+        reflectance = [n/d for n, d in zip(df[0], df[1])]
+        if(all(k <= 1.0 for k in reflectance)):
+            solution = True
+            log.debug("Solution with scan header " + str(i) )
+            break
+    
+    # U32
     num_vars = 331
     var_size = 4
     diff_scan = len(raw_df[0]) - num_vars*var_size
@@ -346,8 +382,8 @@ def decode_data(raw_df):
     diff_cal =  len(raw_df[2]) - num_vars*var_size
     print("diff_cal:  " + str(diff_cal))
     solution = False
-    for i in range(diff_scan):
-        for j in range(diff_cal):
+    for i in range(diff_scan+1):
+        for j in range(diff_cal+1):
             #if(solution):
             #    break
             print(i, diff_scan - i, j, diff_cal - j)
