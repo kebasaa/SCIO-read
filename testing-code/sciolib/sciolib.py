@@ -507,12 +507,13 @@ def decode_data2(raw_df, cal_df):
             print(i, diff_scan - i, j, diff_cal - j)
             df = [ ]
             df.append(unpackU64(raw_df[0], i, diff_scan - i)) # scan
-            df.append(unpackU64(cal_df[0], i, diff_cal - i))  # calibration # shourld be j
+            df.append(unpackU64(cal_df[0], j, diff_cal - j))  # calibration # shourld be j
             reflectance = [n/d for n, d in zip(df[0], df[1])]
             if(all(k <= 1.0 for k in reflectance)):
                 solution = True
                 log.debug("Solution with scan header " + str(i) )
                 break
+    print("U40 not found")
     
     # U32
     num_vars = 331
@@ -529,7 +530,7 @@ def decode_data2(raw_df, cal_df):
             print(i, diff_scan - i, j, diff_cal - j)
             df = [ ]
             df.append(unpackU32b(raw_df[0], j, diff_cal - j)) # scan
-            df.append(unpackU32b(raw_df[0], i, diff_scan - i))  # calibration
+            df.append(unpackU32b(cal_df[0], i, diff_scan - i))  # calibration
             reflectance = [n/d for n, d in zip(df[0], df[1])]
             if(all(k <= 1.0 for k in reflectance)):
                 solution = True
