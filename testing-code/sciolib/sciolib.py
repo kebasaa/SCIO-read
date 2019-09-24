@@ -47,6 +47,7 @@ SET_LED = 11         #0b
 PROTOCOL = -70       #ba
 READ_BLE_ID = -124
 READ_DEV_ID = 1
+#RESET_LED = 50 # Does this work?
 
 def find_scio_dev():
     scio_dev = ""
