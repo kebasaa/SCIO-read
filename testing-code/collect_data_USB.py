@@ -35,7 +35,7 @@ logging.basicConfig(format='[%(asctime)s] %(levelname)8s: %(message)s', datefmt=
 # The SCIO library
 import sciolib.sciolib as scio
 
-def main_fct(calibrate, infile, outfile, protocol, raw):
+def main_fct(calibrate, infile, outfile, calfile, protocol, raw):
     if(calibrate): # DEBUG!!!
         log.debug("We were told to calibrate")
     log.info("Input/output")
@@ -92,10 +92,10 @@ def main_fct(calibrate, infile, outfile, protocol, raw):
     #print(scio.read_data(scio_device, -124)) # Read BLE ID
     
     log.info("Trying to decode data")
-    scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
+    #scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
     #print(scan_df) #DEBUG
-    log.debug("Number of scans in data:  " + str(len(scan_df)))
-    log.debug("Number of variables/scan: " + str(len(scan_df[0])))
+    #log.debug("Number of scans in data:  " + str(len(scan_df)))
+    #log.debug("Number of variables/scan: " + str(len(scan_df[0])))
     print("")
 
 
@@ -105,6 +105,8 @@ if __name__ == '__main__':
 
     parser.add_argument('-c','--calibrate', action='store_true',dest='calibrate',
                         default = False, help='calibrate the SCIO (no output created)')
+    parser.add_argument('-f','--calibration-file', action='store_true',dest='calfile',
+                        default = False, help='Calibration file of the SCIO')
     parser.add_argument('-i','--input-file', dest='infile',
                         help='name of the input raw JSON file')
     parser.add_argument('-o','--output-file', dest='outfile',
@@ -115,5 +117,5 @@ if __name__ == '__main__':
                         default = True, help='save the raw scan') # Temporary. Change to false once we're confident in the decoding
                         
     args = parser.parse_args()
-    main_fct(args.calibrate, args.infile, args.outfile, args.protocol, args.raw)
+    main_fct(args.calibrate, args.infile, args.outfile, args.calfile, args.protocol, args.raw)
  
