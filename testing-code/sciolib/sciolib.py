@@ -409,3 +409,143 @@ def decode_data(raw_df):
         log.debug("No solution found")
     print(reflectance)
     return(reflectance)
+
+def decode_data2(raw_df, cal_df):
+    # 40-bit decoding functions
+    def getU32(data, index):
+        dat = data[index:(index+4)]
+        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) )
+        
+    def getU32_le(data, index):
+        dat = data[index:(index+4)]
+        return float( ((( int(dat[3] & 255)) + (( int(dat[2] & 255)) << 8)) + (( int(dat[1] & 255)) << 16)) + (( int(dat[0] & 255)) << 24) )
+            
+    def unpackU32(data, header):
+        # Assuming 414 bands (4*414=1656). It is possible that the SCIO has more bands, but is noisy on both ends
+        temp = [ ]
+        footer = 476 - header
+        if(len(data) == 1656):
+            footer = 332 - header;
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/4) ):
+            temp.append( getU32(data, j*4+header) )
+        return(temp)
+        
+    # 40-bit decoding functions
+    def getU40(data, index):
+        dat = data[index:(index+4)]
+        return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) + (( int(dat[4] & 255)) << 32) )
+            
+    def unpackU40(data, header):
+        temp = [ ]
+        footer = 145 - header
+        if(len(data) == 1656):
+            footer = 0;
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40(data, j*5+header) / 100000000)
+        return(temp)
+        
+    def getU40_le(data, index):
+        dat = data[index:(index+5)]
+        return float( ((( int(dat[4] & 255)) + (( int(dat[3] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[1] & 255)) << 24) + (( int(dat[0] & 255)) << 32) )
+        
+    def unpackU40_le(data, header):
+        temp = [ ]
+        footer = 145 - header
+        if(len(data) == 1656):
+            footer = 0;
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/5) ):
+            temp.append( getU40_le(data, j*5+header) / 100000000)
+        return(temp)
+        
+    # Function to try to decode
+    def decode(raw_df, header):
+        df = [ ]
+        for part in range(len(raw_df)):
+            if(part == 2):
+                header = 0
+            df.append( unpackU32(raw_df[part], header) ) #df.append( unpackU40(raw_df[part], header) )
+        return(df)
+
+    def unpackU32b(data, header, footer):
+        # Unpacks with an offset
+        temp = [ ]
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/4) ):
+            temp.append( getU32(data, j*4+header) )
+        return(temp)
+    
+        
+    def getU64(data, index):
+        dat = data[index:(index+8)]
+        out = struct.unpack('<Q', dat)
+        return(out[0])
+    
+    def unpackU64(data, header, footer):
+        # Unpacks with an offset
+        temp = [ ]
+        data_length = len(data) - header - footer
+        for j in range( int(data_length/8) ):
+            temp.append( getU64(data, j*8+header) )
+        return(temp)
+        
+    # iterate over possible number of headers in order to find solution
+    # U64
+    num_vars = 331
+    var_size = 5
+    diff_scan = len(raw_df[0]) - num_vars*var_size
+    print("diff_scan: " + str(diff_scan))
+    diff_cal =  len(cal_df[0]) - num_vars*var_size
+    print("diff_cal:  " + str(diff_cal))
+    solution = False
+    for i in range(diff_scan+1):
+        for j in range(diff_cal+1):
+            #if(solution):
+            #    break
+            print(i, diff_scan - i, j, diff_cal - j)
+            df = [ ]
+            df.append(unpackU64(raw_df[0], i, diff_scan - i)) # scan
+            df.append(unpackU64(cal_df[0], i, diff_cal - i))  # calibration # shourld be j
+            reflectance = [n/d for n, d in zip(df[0], df[1])]
+            if(all(k <= 1.0 for k in reflectance)):
+                solution = True
+                log.debug("Solution with scan header " + str(i) )
+                break
+    
+    # U32
+    num_vars = 331
+    var_size = 4
+    diff_scan = len(raw_df[0]) - num_vars*var_size
+    print("diff_scan: " + str(diff_scan))
+    diff_cal =  len(cal_df[0]) - num_vars*var_size
+    print("diff_cal:  " + str(diff_cal))
+    solution = False
+    for i in range(diff_scan+1):
+        for j in range(diff_cal+1):
+            #if(solution):
+            #    break
+            print(i, diff_scan - i, j, diff_cal - j)
+            df = [ ]
+            df.append(unpackU32b(raw_df[0], j, diff_cal - j)) # scan
+            df.append(unpackU32b(raw_df[0], i, diff_scan - i))  # calibration
+            reflectance = [n/d for n, d in zip(df[0], df[1])]
+            if(all(k <= 1.0 for k in reflectance)):
+                solution = True
+                log.debug("Solution with scan header " + str(i) + " and cal. header " + str(j))
+                break
+        
+    solution = False
+    for h in range(332): #range(145):
+        reflectance = [ ]
+        df = decode(raw_df,h)
+        reflectance.append([n/d for n, d in zip(df[0], df[2])])
+        reflectance.append([n/d for n, d in zip(df[1], df[2])])
+        if(all(i <= 1.0 for i in reflectance[0])):
+            solution = True
+            log.debug("Solution with header " + str(header))
+    if(not solution):
+        log.debug("No solution found")
+    print(reflectance)
+    return(reflectance)
