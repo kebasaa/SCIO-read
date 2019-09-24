@@ -91,8 +91,16 @@ def main_fct(calibrate, infile, outfile, calfile, protocol, raw):
     #print(scio.read_data(scio_device, 1)) # Read device ID
     #print(scio.read_data(scio_device, -124)) # Read BLE ID
     
+    if(calfile is not None):
+        # read calibration file
+        log.info("--> Calibration file name: " + "N/A")
+        # Read the raw json file
+        json_df = scio.raw_read(json_dir + "/" + calfile)
+        scan_cal_df = json_df[7:10] # Element 10 is not included...
+    
     log.info("Trying to decode data")
     #scan_df = scio.decode_data(scan_raw_df) # DOES NOT YET WORK
+    scan_df = scio.decode_data2(scan_raw_df, scan_cal_df)
     #print(scan_df) #DEBUG
     #log.debug("Number of scans in data:  " + str(len(scan_df)))
     #log.debug("Number of variables/scan: " + str(len(scan_df[0])))
@@ -103,10 +111,10 @@ if __name__ == '__main__':
     # https://dzone.com/articles/linux-system-mining-python
     parser = argparse.ArgumentParser(description='SCIO Scanning Utility')
 
-    parser.add_argument('-c','--calibrate', action='store_true',dest='calibrate',
+    parser.add_argument('-d','--do-calibration', action='store_true',dest='calibrate',
                         default = False, help='calibrate the SCIO (no output created)')
-    parser.add_argument('-f','--calibration-file', action='store_true',dest='calfile',
-                        default = False, help='Calibration file of the SCIO')
+    parser.add_argument('-c','--calibration-file', dest='calfile',
+                        help='Calibration file of the SCIO')
     parser.add_argument('-i','--input-file', dest='infile',
                         help='name of the input raw JSON file')
     parser.add_argument('-o','--output-file', dest='outfile',
