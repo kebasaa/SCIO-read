@@ -338,9 +338,8 @@ def decode_data(raw_df):
         temp = [ ]
         data_length = len(data) - header - footer
         for j in range( int(data_length/4) ):
-            temp.append( getU32(data, j*4+header) )
+            temp.append( getU32b(data, j*4+header) ) # Was getU32(
         return(temp)
-    
         
     def getU64(data, index):
         dat = data[index:(index+8)]
@@ -418,6 +417,11 @@ def decode_data2(raw_df, cal_df):
     def getU32(data, index):
         dat = data[index:(index+4)]
         return float( ((( int(dat[0] & 255)) + (( int(dat[1] & 255)) << 8)) + (( int(dat[2] & 255)) << 16)) + (( int(dat[3] & 255)) << 24) )
+        
+    def getU32b(data, index):
+        dat = data[index:(index+4)]
+        out = struct.unpack('<q', dat)
+        return(out[0])
         
     def getU32_le(data, index):
         dat = data[index:(index+4)]
@@ -516,6 +520,7 @@ def decode_data2(raw_df, cal_df):
                 solution = True
                 log.debug("Solution with scan header " + str(i) )
                 break
+            break # DEBUG
     print("U40 not found")
     
     # U32
@@ -539,13 +544,24 @@ def decode_data2(raw_df, cal_df):
                 solution = True
                 log.debug("Solution with scan header " + str(i) + " and cal. header " + str(j))
                 break
+            break # DEBUG
         
+    diff = len(raw_df[0]) - num_vars*var_size
     solution = False
-    for h in range(332): #range(145):
+    for h in range(1, diff+1): #range(145):
+        df = [ ]
+        df.append(unpackU32b(raw_df[0], i, diff - i)) # scan
+        df.append(unpackU32b(cal_df[0], i, diff - i))  # calibration
+        df.append(unpackU32b(raw_df[1], i, diff - i)) # scan
+        df.append(unpackU32b(cal_df[1], i, diff - i))  # calibration
         reflectance = [ ]
-        df = decode(raw_df,h)
-        reflectance.append([n/d for n, d in zip(df[0], df[2])])
-        reflectance.append([n/d for n, d in zip(df[1], df[2])])
+        reflectance.append([n/d for n, d in zip(df[0], df[1])])
+        reflectance.append([n/d for n, d in zip(df[2], df[3])])
+        temp = [ ]
+        temp.append([(a+b)/2 for a, b in zip(df[0], df[2])])
+        temp.append([(a+b)/2 for a, b in zip(df[1], df[3])])
+        reflectance = [ ]
+        reflectance.append([n/d for n, d in zip(temp[0], temp[1])])
         if(all(i <= 1.0 for i in reflectance[0])):
             solution = True
             log.debug("Solution with header " + str(header))
