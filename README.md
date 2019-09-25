@@ -79,10 +79,10 @@ Raw ble messages containing data are structured as follows:
 
 1. Connect the SCIO to your computer with a USB cable, and turn it on
 
-2. On Linux, open the console and type
+2. On Linux, open the console and type to read data to "file.txt"
 
 ```bash
-    cat /dev/ttyACM0 | hexdump -C
+    cat /dev/ttyACM0 | hexdump -C > file.txt
 ```
 
 3. In a second console window, type your command with a \x between each byte, for example for the temperature reading type
@@ -91,7 +91,7 @@ Raw ble messages containing data are structured as follows:
     echo -n -e "\x01\xba\x04\x00\x00" > /dev/ttyACM0
 ```
 
-4. You will now see the reading in the first console window
+4. Wait a moment, until the SCIO stops blinking. Then go to the first console window and hit Ctrl+C to stop reading from the serial port. You will now have your readings in "file.txt"
 
 ### Through bluetooth with gatttool
 
