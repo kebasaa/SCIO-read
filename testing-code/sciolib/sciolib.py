@@ -507,7 +507,7 @@ def decode_data2(raw_df, cal_df):
         for j in range(diff_cal+1):
             #if(solution):
             #    break
-            print(i, diff_scan - i, j, diff_cal - j)
+            print("U40", i, diff_scan - i, j, diff_cal - j)
             df = [ ]
             df.append(unpackU64(raw_df[0], i, diff_scan - i)) # scan
             df.append(unpackU64(cal_df[0], j, diff_cal - j))  # calibration # shourld be j
@@ -526,11 +526,11 @@ def decode_data2(raw_df, cal_df):
     diff_cal =  len(cal_df[0]) - num_vars*var_size
     print("diff_cal:  " + str(diff_cal))
     solution = False
-    for i in range(diff_scan+1):
-        for j in range(diff_cal+1):
+    for i in range(1, diff_scan+1):
+        for j in range(1, diff_cal+1):
             #if(solution):
             #    break
-            print(i, diff_scan - i, j, diff_cal - j)
+            print("U32", i, diff_scan - i, j, diff_cal - j)
             df = [ ]
             df.append(unpackU32b(raw_df[0], j, diff_cal - j)) # scan
             df.append(unpackU32b(cal_df[0], i, diff_scan - i))  # calibration
