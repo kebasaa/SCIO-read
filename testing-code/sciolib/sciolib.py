@@ -48,6 +48,8 @@ PROTOCOL = -70       #ba
 READ_BLE_ID = -124
 READ_DEV_ID = 1
 #RESET_LED = 50 # Does this work?
+# The 3 readings are: sample, sampleDark, sampleGradient
+# Whitereference is the scan of the box
 
 def find_scio_dev():
     scio_dev = ""
