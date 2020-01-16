@@ -6,7 +6,7 @@ Run using python3 collect_data.py
 
 This script searches for a SCIO spectrometer.
 When found, it connects to the device, waits
-for tue button to be pressed and then performs
+for the button to be pressed and then performs
 a scan.
 The scan's data will be saved in a sub-
 directory called "scans" as a raw hex data
