@@ -1,0 +1,1 @@
+App version older than 1.2 is required to create a log
