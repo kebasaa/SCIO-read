@@ -1,0 +1,13 @@
+name: scio
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - numpy
+  - pandas
+  - pyserial
+  - scipy
+  - pip:
+    - plotnine
+prefix: C:\Users\Jonathan\.conda\envs\scio
