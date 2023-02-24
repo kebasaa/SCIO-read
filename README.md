@@ -28,7 +28,7 @@ In order to achieve good results, large databases of materials and their propert
 ## Device specifications
 The specs are rather badly documented. I have managed to glean the following data so far though:
 - Scans in NIR, range of 700-1100nm according to Consumer Physics, or 740-1070nm according to a [scientific research paper on ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
-- Another recent paper (2022) also claims the spectral range of 740-1070nm  https://doi.org/10.1002/ppj2.20040
+- Another [recent scientific paper (2022)](https://doi.org/10.1002/ppj2.20040) also claims the spectral range of 740-1070nm  
 - According to [the user nicholas73](https://news.ycombinator.com/item?id=13939068), there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm. Also, they are purposefully sending encrypted/encoded(?) data to your phone, which is then sent to their server ([dancsi](https://news.ycombinator.com/item?id=13941019)).
 - [Another paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) claims that the device creates 331 variables from 740nm to 1070nm.
 - Bandwidth: unknown
