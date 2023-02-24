@@ -7,9 +7,9 @@ In this small project, I'm trying to hack the SCiO spectrometer in order to crea
 **IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. This means that I **need an example JSON or CSV file**, provided by someone with a developer license. Without this, it may be impossible to hack the device. Please provide this if you have it!
 
 ## Changelog
-* 2020-05-29 Moved everything to jupyter notebooks:
-  * **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
-  * **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
+- 2020-05-29 Moved everything to jupyter notebooks:
+  - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
+  - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
 
 ## Hardware
 
@@ -35,16 +35,16 @@ The specs are rather badly documented. I have managed to glean the following dat
 
 ## Currently known Bluetooth LE (BLE) handles and data format
 So far, I have identified the following BLE UUIDs/handles
-* Button: Notification handle `0x002c` reads a hex value `01` upon button press
-* Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
-* Device/System ID: Handle `0x0012` (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
-* To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`. In Gatttool, the command is
+- Button: Notification handle `0x002c` reads a hex value `01` upon button press
+- Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
+- Device/System ID: Handle `0x0012` (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
+- To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`. In Gatttool, the command is
 
 ```bash
     char-write-cmd 0x0029 01ba020000
 ```
 	
-* The scanning handle (`0x0029`, see above) accepts a number of messages. The app sends the following before & after scanning:
+- The scanning handle (`0x0029`, see above) accepts a number of messages. The app sends the following before & after scanning:
 
 ```
     01ba050000 // inquire battery status
@@ -69,15 +69,15 @@ According to "Consumer Physics", the SCiO app with a developer license (which I 
 It appears that for every scan, the SCIO measures twice. It probably then takes the mean between the 2 scans. Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them). Calibration is done by scanning the calibration box, and comparing a scan with that calibration scan.
 
 Raw ble messages containing data are structured as follows:
-* Byte 0 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
-* Byte 1 of the first line of a message (ID = `01`) is a protocol identifier, "ba" (hex) or "-70" (int) to identify the message as using the protocol of scanned data
-* Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement
-* Bytes 3 and 4 of the first line contain the coded message length.
-* Bytes 5-19 of the first line are data
-* All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
-* Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
-* A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
-* Some example temperature readings are also available in the folder "example-data"
+- Byte 0 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
+- Byte 1 of the first line of a message (ID = `01`) is a protocol identifier, "ba" (hex) or "-70" (int) to identify the message as using the protocol of scanned data
+- Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement
+- Bytes 3 and 4 of the first line contain the coded message length.
+- Bytes 5-19 of the first line are data
+- All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
+- Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
+- A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
+- Some example temperature readings are also available in the folder "example-data"
 
 ## Instructions for reading raw data
 
@@ -153,7 +153,7 @@ All logos and icons are trademark of [Consumer Physics](https://www.consumerphys
 
 ## Credits
 My thanks go out to the following people:
-* Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
-* Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
-* Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
-* My roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
+- Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
+- Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
+- Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
+- My roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
