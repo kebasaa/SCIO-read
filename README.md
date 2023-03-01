@@ -136,9 +136,10 @@ The meaning of the hex raw data is currently unknown. Some of the commands were 
 | 5             | 05  | Battery state          | ? |
 | 11            | 0b  | Set LED status         | ? |
 | 14            | 0e  | Read for WR            | ? |
-| -108          | 94? | File list (but what files?) | ? |
-| -125          | 83? | Reset device           | ? |
-| -111          | 91? | Change device name     | ? |
+| -108          | 94  | File list (but what files?) | ? |
+| -121          | 87  | File header            | ? |
+| -125          | 83  | Reset device           | ? |
+| -111          | 91  | Change device name     | ? |
 
 ## SCiO app data transmission
 
