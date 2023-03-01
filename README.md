@@ -7,6 +7,7 @@ In this small project, I'm trying to hack the SCiO spectrometer in order to crea
 **IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. This means that I **need an example JSON or CSV file**, provided by someone with a developer license. Without this, it may be impossible to hack the device. Please provide this if you have it!
 
 ## Changelog
+- 2023-03-01 Creating a class for interaction with the hardware:
 - 2020-05-29 Moved everything to jupyter notebooks:
   - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
   - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
