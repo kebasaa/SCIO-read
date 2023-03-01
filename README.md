@@ -140,6 +140,21 @@ The meaning of the hex raw data is currently unknown. Some of the commands were 
 | -125          | 83? | Reset device           | ? |
 | -111          | 91? | Change device name     | ? |
 
+## SCiO app data transmission
+
+The device always transmits both the data and the calibration to the SCIO server:
+- sample and sample_dark (This starts with base64: AAAAA)
+- sample_white and sample_white_dark (Starts with base64: AAAAA)
+- sample_white_gradient and sample_gradient (Starts with base64: bgAAA)
+
+Additionally, the app transmits a lot of data, including data that does not seem relevant but should be private
+- "device_id":"8032AB45611198F1"
+- "sampled_at":"2021-10-20T10:58:58.729+03:00"
+- "sampled_white_at":"2021-10-20T10:53:18.334+03:00"
+- "scio_edition":"scio_edition"
+- "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (THIS IS SCARY!)
+- "mobile_mac_address":"------" (SCARY AGAIN!)
+- "i2s_tag_config":"20150812-e:PRODUCTION" (in my case, seems to be a hardware version)
 
 ## License
 
