@@ -2,21 +2,24 @@
 
 # Read the SCiO spectrometer built by [Consumer Physics](https://www.consumerphysics.com/)
 
-In this small project, I'm trying to hack the SCiO spectrometer in order to create a Python library to read scans directly. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future also some code to make it work. Any input and help is appreciated.
+In this small project, I'm trying to create a Python library to scan and interpret data from the the SCiO spectrometer. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future the code will work. Any input and help is appreciated.
 
-**IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. This means that I **need an example JSON or CSV file**, provided by someone with a developer license. Without this, it may be impossible to hack the device. Please provide this if you have it!
+**IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. However, it is unclear how the 1800 bytes of the sample reading, 1800 bytes of sampleDark and 1656 bytes of sampleGradient are turned into 331 float values representing a normalised reflectance spectrum from 0-1. If you have any insights, please let me know.
 
 ## Changelog
 - 2023-03-01 Creating a class for interaction with the hardware:
+  - Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
   - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
   - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
 
-## Hardware
+## Documentation of the SCiO device
+
+### Hardware
 
 Sparkfun published a hardware teardown of the SCiO device: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-). Also, a reddit channel is available for discussing the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
 
-## Measurement principles
+### Measurement principles
 The SCiO illuminates the sample with a light and measures the reflected light in a number of wavebands. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, I'm trying to gain access raw data so I don't care too much about the online tools. 
 
 Consumer Physics describes the process as follows in their forum: he spectrometer breaks down the light to its spectrum (the spectra), which includes all the information required to detect the result of this interaction between the illuminated light and the molecules in the sample. This means that SCiO analyses the overall spectra that is received and, comparing it to different algorithms and information provided, identifies or evaluates it.
@@ -26,7 +29,7 @@ For example, if you know the basic spectra of a watermelon, and then see that as
 In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans.
 
 
-## Device specifications
+### Device specifications
 The specs are rather badly documented. I have managed to glean the following data so far though:
 - Scans in NIR, range of 700-1100nm according to Consumer Physics, or 740-1070nm according to a [scientific research paper on ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
 - Another [recent scientific paper (2022)](https://doi.org/10.1002/ppj2.20040) also claims the spectral range of 740-1070nm  
@@ -34,7 +37,7 @@ The specs are rather badly documented. I have managed to glean the following dat
 - [Another paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) claims that the device creates 331 variables from 740nm to 1070nm.
 - Bandwidth: unknown
 
-## Currently known Bluetooth LE (BLE) handles and data format
+### Currently known Bluetooth LE (BLE) handles and data format
 So far, I have identified the following BLE UUIDs/handles
 - Button: Notification handle `0x002c` reads a hex value `01` upon button press
 - Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
@@ -56,7 +59,7 @@ So far, I have identified the following BLE UUIDs/handles
     01ba040000 // inquire device temperature after
 ```
 
-## Data format
+### Data format
 I captured the BLE data on Linux using gatttool, with the following command:
 
 ```bash
@@ -80,9 +83,9 @@ Raw ble messages containing data are structured as follows:
 - A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
 - Some example temperature readings are also available in the folder "example-data"
 
-## Instructions for reading raw data
+### Instructions for reading raw data
 
-### Through USB on the console
+#### Through USB on the console
 
 1. Connect the SCIO to your computer with a USB cable, and turn it on
 
@@ -100,7 +103,7 @@ Raw ble messages containing data are structured as follows:
 
 4. Wait a moment, until the SCIO stops blinking. Then go to the first console window and hit Ctrl+C to stop reading from the serial port. You will now have your readings in "file.txt"
 
-### Through bluetooth with gatttool
+#### Through bluetooth with gatttool
 
 1. On Linux, install _gatttool_ and _hcitool_. I'm using Ubuntu, to install:
 
@@ -126,7 +129,7 @@ Raw ble messages containing data are structured as follows:
 
 6. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
 
-## Currently unknown
+### Currently unknown
 The meaning of the hex raw data is currently unknown. Some of the commands were identified, but not completely. I have currently no idea which handle they need to be written to, not what the messages need to contain
 
 | Command (int) | hex | Meaning                | handle & message format |
@@ -142,7 +145,7 @@ The meaning of the hex raw data is currently unknown. Some of the commands were 
 | -125          | 83  | Reset device           | ? |
 | -111          | 91  | Change device name     | ? |
 
-## SCiO app data transmission
+### SCiO app data transmission
 
 The device always transmits both the data and the calibration to the SCIO server:
 - sample and sample_dark (This starts with base64: AAAAA)
@@ -170,6 +173,7 @@ All logos and icons are trademark of [Consumer Physics](https://www.consumerphys
 
 ## Credits
 My thanks go out to the following people:
+- Github user [earwickerh](https://github.com/earwickerh) for suggestions on decoding the scan data.
 - Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
 - Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
 - Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
