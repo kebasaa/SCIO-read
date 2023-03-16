@@ -136,14 +136,16 @@ The meaning of the hex raw data is currently unknown. Some of the commands were 
 | ------------- |-----| -----------------------|-----------------|
 | -70           | ba  | Incoming data protocol | see above |
 | 2             | 02  | Data type: spectrum    | part of protocol above |
-| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object |
-| 5             | 05  | Battery state          | ? |
+| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object (always 0) |
+| 5             | 05  | Battery state          | contains charge %, battery health, voltage, etc. |
 | 11            | 0b  | Set LED status         | ? |
 | 14            | 0e  | Read for WR            | ? |
-| -108          | 94  | File list (but what files?) | ? |
-| -121          | 87  | File header            | ? |
-| -125          | 83  | Reset device           | ? |
-| -111          | 91  | Change device name     | ? |
+| -108          | 94  | File list (likely firmware) | file identifiers as integers |
+| -111          | 91  | Set device name        |   |
+| -121          | 87  | File header            | file headers as integers |
+| -123          | 85  | BLE status             |   |
+| -124          | 84  | BLE ID                 |   |
+| -125          | 83  | Reset device           |   |
 
 ### SCiO app data transmission
 
@@ -177,4 +179,4 @@ My thanks go out to the following people:
 - Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
 - Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
 - Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
-- My roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
+- My previous roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
