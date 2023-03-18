@@ -8,34 +8,51 @@ In this small project, I'm trying to create a Python library to scan and interpr
 
 ## Changelog
 - 2023-03-01 Creating a class for interaction with the hardware:
-  - Read the device metadata and trigger a scan through USB
+  - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
   - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
   - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
 
 ## Documentation of the SCiO device
 
-### Hardware
+### Hardware & device specifications
 
-Sparkfun published a hardware teardown of the SCiO device: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-). Also, a reddit channel is available for discussing the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
+The specs are rather badly documented. The following information is known so far:
 
-### Measurement principles
-The SCiO illuminates the sample with a light and measures the reflected light in a number of wavebands. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, I'm trying to gain access raw data so I don't care too much about the online tools. 
+- Scans cover the **near-infrared (NIR) range**, most likely at a 1nm bandwidth:
+  - The range of **740-1070nm** is claimed by multiple scientific publications:
+    - [Erikson et al., 2019, 700 IEEE Robotics And Automation Letters](https://ieeexplore.ieee.org/abstract/document/8610196), also see [ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
+    - [Hershberger et al., 2022, The Plant Phenome Journal](https://doi.org/10.1002/ppj2.20040)
+    - [Kosmowski & Worku, 2018, PLoS One](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) stated that there are 331 datapoints from 740nm to 1070nm.
+  - Consumer Physics claims a range of **700-1100nm** (in their own forums, when they were still available), confirmed by the following sources:
+    - [Forum user savorypiano](https://news.ycombinator.com/item?id=13939068) stated that there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm.
+- Data recorded by the SCiO is sent through the phone to the Consumper Physics servers
+  - Scan data is apparently **encrypted** ([dancsi](https://news.ycombinator.com/item?id=13941019))
+  - Scan data contains the following (where "white" denotes the calibration):
+    - sample and sample_dark (This starts with base64: AAAAA, 1800 bytes long): Raw spectral data representing light reflected from the sample (or calibration target)
+    - sample_white and sample_white_dark (Starts with base64: AAAAA, 1800 bytes long): Raw spectral data from the SCIO's internal dark current reference, i.e. the background signal when there is no light
+    - sample_white_gradient and sample_gradient (Starts with base64: bgAAA, 1656 bytes long): Raw spectral data from the SCIO's internal white reference when measuring a known white reference
+  - Metadata contains the following information, with example data:
+    - "device_id":"8032AB45611198F1"
+    - "sampled_at":"2021-10-20T10:58:58.729+03:00" (Timestampe of current scan)
+    - "sampled_white_at":"2021-10-20T10:53:18.334+03:00" (Timestampe of calibration scan)
+    - "scio_edition":"scio_edition"
+    - "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (This information is supposed to be private and should not matter for scan analysis, but it is transferred)
+    - "mobile_mac_address":"------" (Phone MAC address. Again, this information should be private and doesn't matter for scan analysis)
+    - "i2s_tag_config":"20150812-e:PRODUCTION" (Seems to be a hardware version)
+- **Hardware teardown** documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
+- Reddit channel dedicated to the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
 
-Consumer Physics describes the process as follows in their forum: he spectrometer breaks down the light to its spectrum (the spectra), which includes all the information required to detect the result of this interaction between the illuminated light and the molecules in the sample. This means that SCiO analyses the overall spectra that is received and, comparing it to different algorithms and information provided, identifies or evaluates it.
+### Measurement principle: Identifying samples
 
-For example, if you know the basic spectra of a watermelon, and then see that as the watermelon gets sweeter, meaning it has more sugar content, the spectra gradually changes in a specific manner, you will be able to build an algorithm in accordance. In recognizing the existence of a specific material, such as ginger, in a sample, you will need to see if the reflectance of the material changes in a specific manner when the ginger is present.  Thus, you will need two samples of the material – with and without ginger.
+The SCiO illuminates the sample with a light and measures the reflected light in a number of wavelengths. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, the code and documentation in this repository is trying to gain access raw scan data for research purposes, i.e. access to the online tools is not an aim.
 
-In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans.
+Consumer Physics described the process as follows in their forum: _The spectrometer breaks down the light to its spectrum (the spectra), which includes all the information required to detect the result of this interaction between the illuminated light and the molecules in the sample. This means that SCiO analyses the overall spectra that is received and, comparing it to different algorithms and information provided, identifies or evaluates it._
 
+_For example, if you know the basic spectra of a watermelon, and then see that as the watermelon gets sweeter, meaning it has more sugar content, the spectrum gradually changes in a specific manner, you will be able to build an algorithm in accordance. In recognizing the existence of a specific material, such as ginger, in a sample, you will need to see if the reflectance of the material changes in a specific manner when the ginger is present. Thus, you will need two samples of the material – with and without ginger._
 
-### Device specifications
-The specs are rather badly documented. I have managed to glean the following data so far though:
-- Scans in NIR, range of 700-1100nm according to Consumer Physics, or 740-1070nm according to a [scientific research paper on ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
-- Another [recent scientific paper (2022)](https://doi.org/10.1002/ppj2.20040) also claims the spectral range of 740-1070nm  
-- According to [the user nicholas73](https://news.ycombinator.com/item?id=13939068), there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm. Also, they are purposefully sending encrypted/encoded(?) data to your phone, which is then sent to their server ([dancsi](https://news.ycombinator.com/item?id=13941019)).
-- [Another paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) claims that the device creates 331 variables from 740nm to 1070nm.
-- Bandwidth: unknown
+_In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans._
+
 
 ### Currently known Bluetooth LE (BLE) handles and data format
 So far, I have identified the following BLE UUIDs/handles
@@ -153,15 +170,6 @@ The device always transmits both the data and the calibration to the SCIO server
 - sample and sample_dark (This starts with base64: AAAAA)
 - sample_white and sample_white_dark (Starts with base64: AAAAA)
 - sample_white_gradient and sample_gradient (Starts with base64: bgAAA)
-
-Additionally, the app transmits a lot of data, including data that does not seem relevant but should be private
-- "device_id":"8032AB45611198F1"
-- "sampled_at":"2021-10-20T10:58:58.729+03:00"
-- "sampled_white_at":"2021-10-20T10:53:18.334+03:00"
-- "scio_edition":"scio_edition"
-- "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (THIS IS SCARY!)
-- "mobile_mac_address":"------" (SCARY AGAIN!)
-- "i2s_tag_config":"20150812-e:PRODUCTION" (in my case, seems to be a hardware version)
 
 ## License
 
