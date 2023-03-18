@@ -30,18 +30,18 @@ The specs are rather badly documented. The following information is known so far
 
 - Scans cover the **near-infrared (NIR) range**, most likely at a 1nm bandwidth:
   - The range of **740-1070nm** is claimed by multiple scientific publications:
-    - [Erikson et al., 2019, 700 IEEE Robotics And Automation Letters](https://ieeexplore.ieee.org/abstract/document/8610196), also see [ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
-    - [Hershberger et al., 2022, The Plant Phenome Journal](https://doi.org/10.1002/ppj2.20040)
-    - [Kosmowski & Worku, 2018, PLoS One](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) stated that there are 331 datapoints from 740nm to 1070nm.
+    - [Erikson et al., 2019; IEEE Robotics And Automation Letters](https://ieeexplore.ieee.org/abstract/document/8610196), also see [ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
+    - [Hershberger et al., 2022; The Plant Phenome Journal](https://doi.org/10.1002/ppj2.20040)
+    - [Kosmowski & Worku, 2018; PLoS One](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) stated that there are 331 datapoints from 740nm to 1070nm.
   - Consumer Physics claims a range of **700-1100nm** (in their own forums, when they were still available), confirmed by the following sources:
     - [Forum user savorypiano](https://news.ycombinator.com/item?id=13939068) stated that there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm.
 - Data recorded by the SCiO is sent through the phone to the Consumper Physics servers
-  - Scan data is apparently **encrypted** ([dancsi](https://news.ycombinator.com/item?id=13941019))
+  - Scan data is apparently **encrypted** ([Forum user dancsi](https://news.ycombinator.com/item?id=13941019))
   - Scan data contains the following (where "white" denotes the calibration):
     - sample and sample_dark (This starts with base64: AAAAA, 1800 bytes long): Raw spectral data representing light reflected from the sample (or calibration target)
     - sample_white and sample_white_dark (Starts with base64: AAAAA, 1800 bytes long): Raw spectral data from the SCIO's internal dark current reference, i.e. the background signal when there is no light
     - sample_white_gradient and sample_gradient (Starts with base64: bgAAA, 1656 bytes long): Raw spectral data from the SCIO's internal white reference when measuring a known white reference
-  - Metadata contains the following information, with example data:
+  - Metadata contains the following information (with example data):
     - "device_id":"8032AB45611198F1"
     - "sampled_at":"2021-10-20T10:58:58.729+03:00" (Timestampe of current scan)
     - "sampled_white_at":"2021-10-20T10:53:18.334+03:00" (Timestampe of calibration scan)
@@ -56,7 +56,7 @@ The specs are rather badly documented. The following information is known so far
 
 The SCiO illuminates the sample with a light and measures the reflected light in a number of wavelengths. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, the code and documentation in this repository is trying to gain access raw scan data for research purposes, i.e. access to the online tools is not an aim.
 
-According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
+According to Consumer Physics, the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
 
 It appears that for every scan, the SCIO measures twice. It probably then takes the mean between the 2 scans. Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them). Calibration is done by scanning the calibration box, and comparing a scan with that calibration scan.
 
