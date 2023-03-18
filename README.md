@@ -6,14 +6,23 @@ In this small project, I'm trying to create a Python library to scan and interpr
 
 **IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. However, it is unclear how the 1800 bytes of the sample reading, 1800 bytes of sampleDark and 1656 bytes of sampleGradient are turned into 331 float values representing a normalised reflectance spectrum from 0-1. If you have any insights, please let me know.
 
+**DISCLAIMER**: All this code is experimental. I am trying to reverse-engineer the device in order to read the reflectance spectrum, but any help is appreciated! Scan data can't currently be fully decoded, this is an area where help is particularly appreciated
+
 ## Changelog
 - 2023-03-01 Creating a class for interaction with the hardware:
   - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
   - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
   - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
+  
+## Usage of the code in this repository
+
+1. Connect the SCiO to your computer (currently supports Windows) through USB
+2. Run the code in *01_scio_usb.ipynb* to calibrate and scan. This can save files with raw data
 
 ## Documentation of the SCiO device
+
+The following is an attempt to document as much as possible of the SCiO's functioning for the reverse-engineering effort. Any additional information is appreciated.
 
 ### Hardware & device specifications
 
@@ -37,15 +46,21 @@ The specs are rather badly documented. The following information is known so far
     - "sampled_at":"2021-10-20T10:58:58.729+03:00" (Timestampe of current scan)
     - "sampled_white_at":"2021-10-20T10:53:18.334+03:00" (Timestampe of calibration scan)
     - "scio_edition":"scio_edition"
-    - "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (This information is supposed to be private and should not matter for scan analysis, but it is transferred)
+    - "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (This information should be private and should not matter for scan analysis, but it is transferred)
     - "mobile_mac_address":"------" (Phone MAC address. Again, this information should be private and doesn't matter for scan analysis)
     - "i2s_tag_config":"20150812-e:PRODUCTION" (Seems to be a hardware version)
 - **Hardware teardown** documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
 - Reddit channel dedicated to the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
 
-### Measurement principle: Identifying samples
+### Measurement principle
 
 The SCiO illuminates the sample with a light and measures the reflected light in a number of wavelengths. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, the code and documentation in this repository is trying to gain access raw scan data for research purposes, i.e. access to the online tools is not an aim.
+
+According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
+
+It appears that for every scan, the SCIO measures twice. It probably then takes the mean between the 2 scans. Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them). Calibration is done by scanning the calibration box, and comparing a scan with that calibration scan.
+
+### Sample identification
 
 Consumer Physics described the process as follows in their forum: _The spectrometer breaks down the light to its spectrum (the spectra), which includes all the information required to detect the result of this interaction between the illuminated light and the molecules in the sample. This means that SCiO analyses the overall spectra that is received and, comparing it to different algorithms and information provided, identifies or evaluates it._
 
@@ -53,19 +68,16 @@ _For example, if you know the basic spectra of a watermelon, and then see that a
 
 _In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans._
 
+## SCiO communication protocol and BLE (Bluetooth LE) handles
 
-### Currently known Bluetooth LE (BLE) handles and data format
-So far, I have identified the following BLE UUIDs/handles
+### BLE handles
+
+The following BLE UUIDs/handles have been identified so far
 - Button: Notification handle `0x002c` reads a hex value `01` upon button press
 - Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
 - Device/System ID: Handle `0x0012` (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
-- To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`. In Gatttool, the command is
-
-```bash
-    char-write-cmd 0x0029 01ba020000
-```
-	
-- The scanning handle (`0x0029`, see above) accepts a number of messages. The app sends the following before & after scanning:
+- To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`.
+- The scanning handle (`0x0029`, see above) accepts a number of messages (protocol see below). The app sends the following before & after scanning:
 
 ```
     01ba050000 // inquire battery status
@@ -76,31 +88,44 @@ So far, I have identified the following BLE UUIDs/handles
     01ba040000 // inquire device temperature after
 ```
 
-### Data format
-I captured the BLE data on Linux using gatttool, with the following command:
+### USB control
 
-```bash
-    sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
-```
+Commands can be sent to the USB port by sending bytes corresponding to the above commands sent to the BLE scanning handle described above, using the same protocol.
 
-Where `xx:xx:xx:xx:xx:xx` stands for your SCiO's MAC address
+### Data protocol
 
-According to "Consumer Physics", the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
+Raw response messages from the SCiO are structured as follows:
+- Only for BLE (not USB): Byte 0 of every message of a scan is an ID (typically `01`), coming in 3 batches, from 01-5f, 01-5f and 01-58
+- Byte 1 of the first line of a message (`ba` or integer -70) is a protocol identifier, to inform the app what protocol the following data is
+- Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement. More commands, see table below
+- Bytes 3 and 4 of the first line contain the coded message length, in "short" format
+- For BLE: Bytes 5-19 of the first line are data
+- All subsequent lines in BLE data: Byte 1 is the line ID (from 01-5f, 01-5f and 01-58 for sample, sampleDark and sampleGradient, respectively), bytes 2-20 are data
+- For USB: All remaining bytes are data
 
-It appears that for every scan, the SCIO measures twice. It probably then takes the mean between the 2 scans. Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them). Calibration is done by scanning the calibration box, and comparing a scan with that calibration scan.
+| Command (int) | hex | Meaning                | handle & message format |
+| ------------- |-----| -----------------------|-----------------|
+| -70           | ba  | Incoming data protocol | see above |
+| 2             | 02  | Data type: spectrum    | part of protocol above |
+| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object (always 0) |
+| 5             | 05  | Battery state          | contains charge %, battery health, voltage, etc. |
+| 11            | 0b  | Set LED status         | ? |
+| 14            | 0e  | Read for WR            | ? |
+| -108          | 94  | File list (likely firmware) | file identifiers as integers |
+| -111          | 91  | Set device name        |   |
+| -121          | 87  | File header            | file headers as integers |
+| -123          | 85  | BLE status             |   |
+| -124          | 84  | BLE ID                 |   |
+| -125          | 83  | Reset device           |   |
 
-Raw ble messages containing data are structured as follows:
-- Byte 0 of every message of a scan is an ID, coming in 3 batches, from 01-5f, 01-5f and 01-58
-- Byte 1 of the first line of a message (ID = `01`) is a protocol identifier, "ba" (hex) or "-70" (int) to identify the message as using the protocol of scanned data
-- Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement
-- Bytes 3 and 4 of the first line contain the coded message length.
-- Bytes 5-19 of the first line are data
-- All subsequent lines: Byte 1 is the line ID (as above), bytes 2-20 are data
-- Find some example scans in the folder "example-data" along with the SCiO app's output spectrum of the same materials (images)
-- A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen will be added to "example-data"
-- Some example temperature readings are also available in the folder "example-data"
 
-### Instructions for reading raw data
+How the raw scan data can be decoded is currently still unknown.
+
+To help with the reverse-engineering effort, the following data is available:
+- Some example scans are available in the folder "example-data" along with the SCiO app's output spectrum of the same materials (as screenshots)
+- A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen are available in the folder "example-data"
+
+### Instructions for reading raw data (without the script in this repository)
 
 #### Through USB on the console
 
@@ -145,31 +170,6 @@ Raw ble messages containing data are structured as follows:
 5. Stop saving data to your file with _Ctrl+C_ after the indicator light of the SCIO goes back to blue.
 
 6. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
-
-### Currently unknown
-The meaning of the hex raw data is currently unknown. Some of the commands were identified, but not completely. I have currently no idea which handle they need to be written to, not what the messages need to contain
-
-| Command (int) | hex | Meaning                | handle & message format |
-| ------------- |-----| -----------------------|-----------------|
-| -70           | ba  | Incoming data protocol | see above |
-| 2             | 02  | Data type: spectrum    | part of protocol above |
-| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object (always 0) |
-| 5             | 05  | Battery state          | contains charge %, battery health, voltage, etc. |
-| 11            | 0b  | Set LED status         | ? |
-| 14            | 0e  | Read for WR            | ? |
-| -108          | 94  | File list (likely firmware) | file identifiers as integers |
-| -111          | 91  | Set device name        |   |
-| -121          | 87  | File header            | file headers as integers |
-| -123          | 85  | BLE status             |   |
-| -124          | 84  | BLE ID                 |   |
-| -125          | 83  | Reset device           |   |
-
-### SCiO app data transmission
-
-The device always transmits both the data and the calibration to the SCIO server:
-- sample and sample_dark (This starts with base64: AAAAA)
-- sample_white and sample_white_dark (Starts with base64: AAAAA)
-- sample_white_gradient and sample_gradient (Starts with base64: bgAAA)
 
 ## License
 
