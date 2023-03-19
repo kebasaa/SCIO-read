@@ -11,7 +11,7 @@ In this small project, I'm trying to create a Python library to scan and interpr
 ## Changelog
 
 - 2023-03-19 Attempts at decoding the data
-  - **03_scio_analyse_devel.ipynb**: Read the device metadata and trigger a scan through USB
+  - **03_scio_analyse_devel.ipynb**: Decode the data (initial attempts)
 - 2023-03-01 Creating a class for interaction with the hardware:
   - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
