@@ -9,6 +9,9 @@ In this small project, I'm trying to create a Python library to scan and interpr
 **DISCLAIMER**: All this code is experimental. I am trying to reverse-engineer the device in order to read the reflectance spectrum, but any help is appreciated! Scan data can't currently be fully decoded, this is an area where help is particularly appreciated
 
 ## Changelog
+
+- 2023-03-19 Attempts at decoding the data
+  - **03_scio_analyse_devel.ipynb**: Read the device metadata and trigger a scan through USB
 - 2023-03-01 Creating a class for interaction with the hardware:
   - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
@@ -19,6 +22,7 @@ In this small project, I'm trying to create a Python library to scan and interpr
 
 1. Connect the SCiO to your computer (currently supports Windows) through USB
 2. Run the code in *01_scio_usb.ipynb* to calibrate and scan. This can save files with raw data
+3. Run *03_scio_analyse_devel.ipynb* to attempt to decode the data
 
 ## Documentation of the SCiO device
 
