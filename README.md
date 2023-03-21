@@ -6,10 +6,14 @@ In this small project, I'm trying to create a Python library to scan and interpr
 
 **IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. However, it is unclear how the 1800 bytes of the sample reading, 1800 bytes of sampleDark and 1656 bytes of sampleGradient are turned into 331 float values representing a normalised reflectance spectrum from 0-1. If you have any insights, please let me know.
 
+Further: It appears that the raw bytes reported by the SCiO don't correspond to the Base64 string sent to the Consumer Physics server. There might be some encryption happening in between these stages, can someone help decrypt it based on this information? See *02_extract_log_scan.ipynb* to obtain the data from log files or check the folder *01_rawdata/log_extracted/*
+
 **DISCLAIMER**: All this code is experimental. I am trying to reverse-engineer the device in order to read the reflectance spectrum, but any help is appreciated! Scan data can't currently be fully decoded, this is an area where help is particularly appreciated
 
 ## Changelog
 
+- 2023-03-21 Extract data from log files
+  - **02_extract_log_scan.ipynb**: Extract and store data from log files
 - 2023-03-19 Attempts at decoding the data
   - **03_scio_analyse_devel.ipynb**: Decode the data (initial attempts)
 - 2023-03-01 Creating a class for interaction with the hardware:
@@ -22,7 +26,8 @@ In this small project, I'm trying to create a Python library to scan and interpr
 
 1. Connect the SCiO to your computer (currently supports Windows) through USB
 2. Run the code in *01_scio_usb.ipynb* to calibrate and scan. This can save files with raw data
-3. Run *03_scio_analyse_devel.ipynb* to attempt to decode the data
+3. You can extract scan data from logs using *02_extract_log_scan.ipynb*. What is interesting is that the raw bytes reported by the SCiO don't correspond to the Base64 string sent to the server. Is some encryption happening in between these stages?
+4. Run *03_scio_analyse_devel.ipynb* to attempt to decode the data
 
 ## Documentation of the SCiO device
 
