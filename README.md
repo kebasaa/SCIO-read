@@ -60,6 +60,7 @@ The specs are rather badly documented. The following information is known so far
     - "i2s_tag_config":"20150812-e:PRODUCTION" (Seems to be a hardware version)
 - **Hardware teardown** documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
 - Reddit channel dedicated to the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
+- Old versions of the SCiO app (I believe around the 1.2 releases) created log files that could be found in one of the folders on the phone. These log files contain the raw data and spectrum returned by the Consumer Physics server. For these versions, see [APKpure](https://apkpure.com/scio-pocket-molecular-sensor/com.consumerphysics.consumer/versions)
 
 ### Measurement principle
 
