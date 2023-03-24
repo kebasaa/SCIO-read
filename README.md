@@ -193,7 +193,6 @@ All logos and icons are trademark of [Consumer Physics](https://www.consumerphys
 
 ## Credits
 My thanks go out to the following people:
-- Github user [earwickerh](https://github.com/earwickerh) for suggestions on decoding the scan data.
 - Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
 - Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
 - Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
