@@ -15,7 +15,7 @@ Further: It appears that the raw bytes reported by the SCiO don't correspond to 
 - 2023-03-21 Extract data from log files
   - **02_extract_log_scan.ipynb**: Extract and store data from log files
 - 2023-03-19 Attempts at decoding the data
-  - **03_scio_analyse_devel.ipynb**: Decode the data (initial attempts)
+  - **03_scio_analyse_devel.ipynb**: Decode the data (initial unsuccessful attempts)
 - 2023-03-01 Creating a class for interaction with the hardware:
   - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
 - 2020-05-29 Moved everything to jupyter notebooks:
