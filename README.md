@@ -132,7 +132,7 @@ Raw response messages from the SCiO are structured as follows:
 How the raw scan data can be decoded is currently still unknown.
 
 To help with the reverse-engineering effort, the following data is available:
-- Some example scans are available in the folder "example-data" along with the SCiO app's output spectrum of the same materials (as screenshots)
+- Some example scans are available in the folder "01_rawdata" along with the SCiO app's output spectrum of the same materials (as screenshots)
 - A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen are available in the folder "example-data"
 
 ### Instructions for reading raw data (without the script in this repository)
