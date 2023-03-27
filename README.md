@@ -58,7 +58,9 @@ The specs are rather badly documented. The following information is known so far
     - "mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----" (This information should be private and should not matter for scan analysis, but it is transferred)
     - "mobile_mac_address":"------" (Phone MAC address. Again, this information should be private and doesn't matter for scan analysis)
     - "i2s_tag_config":"20150812-e:PRODUCTION" (Seems to be a hardware version)
-- **Hardware teardown** documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
+- **Hardware**:
+  - Teadown, documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
+  - Blog in [image-sensors-world.wordpress.com](http://image-sensors-world.blogspot.com/2017/03/mobile-spectrometer-reverse-engineering.html) claiming that the SCiO has a 1.2 MPx monochromatic CMOS sensor from ON Semiconductor, combined with a Fabry-Perot filter.
 - Reddit channel dedicated to the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
 - Old versions of the SCiO app (I believe around the 1.2 releases) created log files that could be found in one of the folders on the phone. These log files contain the raw data and spectrum returned by the Consumer Physics server. For these versions, see [APKpure](https://apkpure.com/scio-pocket-molecular-sensor/com.consumerphysics.consumer/versions)
 
