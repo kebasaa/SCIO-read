@@ -47,9 +47,9 @@ The specs are rather badly documented. The following information is known so far
 - Data recorded by the SCiO is sent through the phone to the Consumper Physics servers
   - Scan data is apparently **encrypted** ([Forum user dancsi](https://news.ycombinator.com/item?id=13941019))
   - Scan data contains the following (where "white" denotes the calibration):
-    - sample and sample_dark (This starts with base64: AAAAA, 1800 bytes long): Raw spectral data representing light reflected from the sample (or calibration target)
-    - sample_white and sample_white_dark (Starts with base64: AAAAA, 1800 bytes long): Raw spectral data from the SCIO's internal dark current reference, i.e. the background signal when there is no light
-    - sample_white_gradient and sample_gradient (Starts with base64: bgAAA, 1656 bytes long): Raw spectral data from the SCIO's internal white reference when measuring a known white reference
+    - sample and sample_dark (This starts with base64: `AAAAA`, 1800 bytes long): Raw spectral data representing light reflected from the sample (or calibration target)
+    - sample_white and sample_white_dark (Starts with base64: `AAAAA`, 1800 bytes long): Raw spectral data from the SCIO's internal dark current reference, i.e. the background signal when there is no light
+    - sample_white_gradient and sample_gradient (Starts with base64: `bgAAA`, 1656 bytes long): Raw spectral data from the SCIO's internal white reference when measuring a known white reference
   - Metadata contains the following information (with example data):
     - `"device_id":"8032AB45611198F1"`
     - `"sampled_at":"2021-10-20T10:58:58.729+03:00"` (Timestamp of current scan)
@@ -108,7 +108,7 @@ Commands can be sent to the USB port by sending bytes corresponding to the above
 
 Raw response messages from the SCiO are structured as follows:
 - Only for BLE (not USB): Byte 0 of every message of a scan is an ID (typically `01`), coming in 3 batches, from 01-5f, 01-5f and 01-58
-- Byte 1 of the first line of a message (`ba` or integer -70) is a protocol identifier, to inform the app what protocol the following data is
+- Byte 1 of the first line of a message (`ba` or integer `-70`) is a protocol identifier, to inform the app what protocol the following data is
 - Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement. More commands, see table below
 - Bytes 3 and 4 of the first line contain the coded message length, in "short" format
 - For BLE: Bytes 5-19 of the first line are data
