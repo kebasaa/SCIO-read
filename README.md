@@ -44,6 +44,7 @@ The specs are rather badly documented. The following information is known so far
     - [Erikson et al., 2019; IEEE Robotics And Automation Letters](https://ieeexplore.ieee.org/abstract/document/8610196), also see [ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
     - [Hershberger et al., 2022; The Plant Phenome Journal](https://doi.org/10.1002/ppj2.20040)
     - [Kosmowski & Worku, 2018; PLoS One](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) stated that there are 331 datapoints from 740nm to 1070nm.
+	- [Barri et al. 2019](https://doi.org/10.1016/j.measurement.2019.107212) ([Full PDF here](https://www.researchgate.net/publication/337026218_Smartphone-Based_Molecular_Sensing_for_Advanced_Characterization_of_Asphalt_Concrete_Materials)) used the device to identify asphalt samples and show a disassembled SCiO in their publication, but claim a range of 740-1040nm (at least for the light source). They also provide more details on the mathematical functions applied to obtain reflectance, with shown final reflectance values ranging from -7e-4 to 2e-4
   - Consumer Physics claims a range of **700-1100nm** (in their own forums, when they were still available), confirmed by the following sources:
     - [Forum user savorypiano](https://news.ycombinator.com/item?id=13939068) stated that there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm.
 - Data recorded by the SCiO is sent through the phone to the Consumper Physics servers
