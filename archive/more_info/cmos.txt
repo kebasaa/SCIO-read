@@ -1,0 +1,16 @@
+4x3, 1.2MPx from ON semiconductors. Maybe this: https://www.onsemi.com/pdf/datasheet/mt9m034-d.pdf
+If so: The onsemi MT9M034 is a 1/3−inch CMOS digital image sensor with an active−pixel array of 1280 (H) x 960 (V).
+Programmable through two−wire serial interface.
+The default mode output is a 960p−resolution image at 45 frames per second (fps). In linear mode, it outputs 12−bit raw data. In high dynamic
+range mode, it outputs 12−bit compressed data using parallel output.
+The MT9M034 pixel array is configured as 1412 columns
+by 1028 rows
+
+Assume 1280x960
+3 lines of 1280px or 4 lines of 960px would yield all the necessary data
+
+3x1280 = 3840
+4x960  = 3840
+
+I have 1656 or 1800 bytes
+However: 3840/2 = 1920, too many values

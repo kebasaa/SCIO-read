@@ -1,0 +1,470 @@
+{
+ "schema": "scio-key-repeatability/1",
+ "scope": "serial-pairs",
+ "scans": 4,
+ "unique_keys": 1144,
+ "hit_threshold": 0.5,
+ "hits": [],
+ "best": {
+  "label": "ble_id+case_serial.join.forward.sha256_16",
+  "repeatability": 0.11998370003263578,
+  "initial_pair": 0.11998370003263578,
+  "view": "u32be",
+  "offset": 0,
+  "mode": "CFB",
+  "iv": "header8_zero8"
+ },
+ "top_candidates": [
+  {
+   "label": "ble_id+case_serial.join.forward.sha256_16",
+   "repeatability": 0.11998370003263578,
+   "initial_pair": 0.11998370003263578,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment+firmware_version.dash.forward.sha512_16",
+   "repeatability": 0.11990411691058386,
+   "initial_pair": 0.11990411691058386,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "case_serial+firmware_version.join.reverse.repeat16",
+   "repeatability": 0.11981382018423012,
+   "initial_pair": 0.11981382018423012,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial+case_serial.colon.forward.sha256_16",
+   "repeatability": 0.11978347996530317,
+   "initial_pair": 0.11978347996530317,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "serial_fragment+ble_fw_version.colon.forward.sha256_24",
+   "repeatability": 0.11970424843809277,
+   "initial_pair": 0.11970424843809277,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "case_serial+firmware_version.pipe.forward.repeat16",
+   "repeatability": 0.11970042966287442,
+   "initial_pair": 0.11970042966287442,
+   "view": "u32le",
+   "offset": 12,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "ble_id+case_serial.dash.forward.sha256_16",
+   "repeatability": 0.11956174744404471,
+   "initial_pair": 0.11956174744404471,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "ble_id+serial_fragment.join.forward.sha512_32",
+   "repeatability": 0.11952306933675715,
+   "initial_pair": 0.11952306933675715,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment+firmware_version.join.forward.repeat16",
+   "repeatability": 0.11951452550645747,
+   "initial_pair": 0.11951452550645747,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial_fragment+case_serial.dash.reverse.sha512_32",
+   "repeatability": 0.11949612392461426,
+   "initial_pair": 0.11949612392461426,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment+ble_fw_version.dash.reverse.sha1_20_pad24",
+   "repeatability": 0.11935616768874724,
+   "initial_pair": 0.11935616768874724,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment+ble_fw_version.dash.forward.sha512_16",
+   "repeatability": 0.11932779401066816,
+   "initial_pair": 0.11932779401066816,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "aptina_field+serial_fragment.colon.forward.md5",
+   "repeatability": 0.11919510421178812,
+   "initial_pair": 0.11919510421178812,
+   "view": "u16le",
+   "offset": 16,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "serial_fragment+case_serial.join.reverse.sha512_16",
+   "repeatability": 0.11917098945312726,
+   "initial_pair": 0.11917098945312726,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "ble_id+case_serial.pipe.forward.sha256_24",
+   "repeatability": 0.11911239767616384,
+   "initial_pair": 0.11911239767616384,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "device_id+case_serial.pipe.reverse.sha512_16",
+   "repeatability": 0.11909065910435358,
+   "initial_pair": 0.11909065910435358,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "ble_id+serial_fragment.dash.forward.sha1_20_pad24",
+   "repeatability": 0.11892362753668262,
+   "initial_pair": 0.11892362753668262,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial+case_serial.pipe.reverse.sha256",
+   "repeatability": 0.1188814547247195,
+   "initial_pair": 0.1188814547247195,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "ble_id+serial_fragment.pipe.reverse.md5",
+   "repeatability": 0.11882377101939684,
+   "initial_pair": 0.11882377101939684,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "aptina_field+serial_fragment.pipe.forward.sha512_32",
+   "repeatability": 0.11857834739871126,
+   "initial_pair": 0.11857834739871126,
+   "view": "u32le",
+   "offset": 12,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "ble_id+serial_fragment.join.forward.sha512_24",
+   "repeatability": 0.11852556336313202,
+   "initial_pair": 0.11852556336313202,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment+case_serial.join.forward.sha256_16",
+   "repeatability": 0.11850867180796563,
+   "initial_pair": 0.11850867180796563,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment+case_serial.colon.reverse.sha1_20_pad24",
+   "repeatability": 0.1185080132102758,
+   "initial_pair": 0.1185080132102758,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "case_serial+firmware_version.colon.forward.sha512_32",
+   "repeatability": 0.11843945217024096,
+   "initial_pair": 0.11843945217024096,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment+firmware_version.pipe.forward.zeropad16",
+   "repeatability": 0.11843116973286957,
+   "initial_pair": 0.11843116973286957,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment+ble_fw_version.dash.reverse.sha512_24",
+   "repeatability": 0.11841936614391059,
+   "initial_pair": 0.11841936614391059,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "aptina_field+serial_fragment.pipe.forward.sha512_16",
+   "repeatability": 0.11832189835780584,
+   "initial_pair": 0.11832189835780584,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment+case_serial.colon.reverse.sha1_16",
+   "repeatability": 0.11803540514625814,
+   "initial_pair": 0.11803540514625814,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "case_serial+firmware_version.join.reverse.sha1_16",
+   "repeatability": 0.11785233917091635,
+   "initial_pair": 0.11785233917091635,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "serial+case_serial.dash.forward.sha256_16",
+   "repeatability": 0.11777609569259864,
+   "initial_pair": 0.11777609569259864,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "case_serial+firmware_version.join.reverse.sha512_32",
+   "repeatability": 0.1175522912772535,
+   "initial_pair": 0.1175522912772535,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "ble_id+serial_fragment.colon.forward.sha256",
+   "repeatability": 0.11753552208252542,
+   "initial_pair": 0.11753552208252542,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment+firmware_version.pipe.reverse.repeat16",
+   "repeatability": 0.1174790999449439,
+   "initial_pair": 0.1174790999449439,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment+firmware_version.join.reverse.sha512_24",
+   "repeatability": 0.11746407895674715,
+   "initial_pair": 0.11746407895674715,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CTR",
+   "iv": "first_block"
+  },
+  {
+   "label": "device_id+case_serial.pipe.reverse.sha512_32",
+   "repeatability": 0.11745991490345202,
+   "initial_pair": 0.11745991490345202,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "ble_id+serial_fragment.dash.forward.sha1_16",
+   "repeatability": 0.1174369180401331,
+   "initial_pair": 0.1174369180401331,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "ble_id+case_serial.colon.reverse.sha256_24",
+   "repeatability": 0.11734395534275102,
+   "initial_pair": 0.11734395534275102,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial_fragment+case_serial.pipe.reverse.sha256",
+   "repeatability": 0.11712560790818108,
+   "initial_pair": 0.11712560790818108,
+   "view": "u32le",
+   "offset": 12,
+   "mode": "CTR",
+   "iv": "first_block"
+  },
+  {
+   "label": "aptina_field+case_serial.colon.forward.md5",
+   "repeatability": 0.11692914048809835,
+   "initial_pair": 0.11692914048809835,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "serial_fragment+firmware_version.dash.reverse.sha1_16",
+   "repeatability": 0.11691925421142653,
+   "initial_pair": 0.11691925421142653,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CTR",
+   "iv": "first_block"
+  },
+  {
+   "label": "ble_id+serial_fragment.join.reverse.md5",
+   "repeatability": 0.11666657389473872,
+   "initial_pair": 0.11666657389473872,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial+serial_fragment.pipe.reverse.sha1_16",
+   "repeatability": 0.11662841400204627,
+   "initial_pair": 0.11662841400204627,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "serial+serial_fragment.colon.reverse.md5",
+   "repeatability": 0.11657647412663567,
+   "initial_pair": 0.11657647412663567,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment+ble_fw_version.pipe.reverse.zeropad16",
+   "repeatability": 0.11650706130303344,
+   "initial_pair": 0.11650706130303344,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "device_id+serial_fragment.join.reverse.sha512_16",
+   "repeatability": 0.11621398119718941,
+   "initial_pair": 0.11621398119718941,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial+serial_fragment.pipe.forward.sha1_16",
+   "repeatability": 0.11598665154463052,
+   "initial_pair": 0.11598665154463052,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial+serial_fragment.pipe.forward.sha256",
+   "repeatability": 0.11562683739257715,
+   "initial_pair": 0.11562683739257715,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "CFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "case_serial+firmware_version.pipe.forward.zeropad16",
+   "repeatability": 0.11562382125040259,
+   "initial_pair": 0.11562382125040259,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "serial+case_serial.join.forward.sha256_16",
+   "repeatability": 0.11551978930183948,
+   "initial_pair": 0.11551978930183948,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "dsp_id+case_serial.dash.reverse.sha256_24",
+   "repeatability": 0.11551225462689402,
+   "initial_pair": 0.11551225462689402,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "OFB",
+   "iv": "first_block"
+  }
+ ],
+ "conclusion": "no enumerated AES identifier key produced repeatable plaintext"
+}

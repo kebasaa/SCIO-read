@@ -1,0 +1,17 @@
+/.ipynb_checkpoints
+**/.ipynb_checkpoints
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest_tmp_*/
+# Captured device data and recovered firmware stay local (may be device-specific
+# or contain identifiers); share deliberately, not by default.
+/01_rawdata/device_files/
+.scio_token
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+local_private/

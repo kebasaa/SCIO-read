@@ -1,0 +1,4 @@
+Blackfin BF512
+
+Lockbox uses SHA-1 and ECC to implement ECDSA
+JTAG compatible

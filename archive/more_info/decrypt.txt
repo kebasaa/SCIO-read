@@ -1,0 +1,65 @@
+Nice to see you're still tinkering with this. In the readme it says: "Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them)." Not sure if that's up to date, but hope the below is helpful.
+
+sample: This is the raw spectral data from the sample. It represents the light that is reflected off the sample and detected by the SCIO.
+
+sampleDark: This is the raw spectral data from the SCIO's internal dark current reference. It represents the background signal that is detected when there is no light present.
+
+sampleGradient: This is the raw spectral data from the SCIO's internal white reference. It represents the signal detected when the SCIO is measuring a known white reference
+
+To calculate the reflectance values of the sample, you need to subtract the sampleDark data from the sample data and divide the result by the difference between the sampleGradient data and the sampleDark data. This is expressed by the equation R = (S - D) / (G - D), where R is the reflectance value, S is the sample data, D is the sampleDark data, and G is the sampleGradient data.
+
+Let's take -bark.txt sample:
+
+  Header: 01 ba 02 90 01 8f 1c 07 34 02 00 02 8e
+  Sample: 06 36 7b 2e 4f 3d 1c 0e 06 04 04 06 12 ...
+  SampleDark: 05 34 75 26 48 36 1c 0c 05 04 05 05 0d ...
+  SampleGradient: 0b 4f 9c 3e 6c 4c 28 11 0a 09 0a 0c ...
+
+Packet 2:
+  Header: 02 ba 02 90 01 8f 1c 07 34 02 00 02 8f
+  Sample: 06 37 7c 2f 4f 3e 1c 0d 07 04 04 05 12 ...
+  SampleDark: 05 34 75 26 48 36 1c 0c 05 04 05 05 0d ...
+  SampleGradient: 0b 4f 9c 3e 6c 4c 28 11 0a 09 0a 0c ...
+
+Each packet consists of a header and three data sections: sample, sampleDark, and sampleGradient. The header contains information about the packet, including a packet identifier (01 or 02), the protocol identifier (ba), and the length of the data sections (in this case, 02 90).The sample, sampleDark, and sampleGradient data sections are each 400 bytes long and contain spectral data measured by the SCIO spectrometer.
+
+To calculate reflectance values from the sample, sampleDark, and sampleGradient data, you need to perform the following steps:
+
+Subtract the sampleDark data from the sample data to obtain the corrected sample signal.
+Subtract the sampleDark data from the sampleGradient data to obtain the corrected gradient signal.
+Divide the corrected sample signal by the corrected gradient signal to obtain the reflectance values.
+
+The example code below should extract the data from the log, converts these arrays to numpy arrays of integers and performs the reflectance calculation using numpy array operations.
+
+import numpy as np
+
+# Load the raw data from the log file
+with open("log_20200604-bark.txt", "r") as f:
+    data = f.readlines()
+
+# Parse the data into packets
+packets = []
+for line in data:
+    if line.startswith("Packet"):
+        packets.append(line.strip().split(": ")[1])
+
+# Extract the sample, sampleDark, and sampleGradient data from the packets
+header = packets[0].split(" ")[2:]
+sample = packets[1].split(" ")[1:]
+sampleDark = packets[2].split(" ")[1:]
+sampleGradient = packets[3].split(" ")[1:]
+
+# Convert the data from hex strings to numpy arrays of integers
+sample = np.array([int(x, 16) for x in sample])
+sampleDark = np.array([int(x, 16) for x in sampleDark])
+sampleGradient = np.array([int(x, 16) for x in sampleGradient])
+
+# Perform the reflectance calculation
+correctedSample = sample - sampleDark
+correctedGradient = sampleGradient - sampleDark
+reflectance = correctedSample / correctedGradient
+
+# Print the first 10 reflectance values
+print(reflectance[:10])
+
+The reflectance values will be in units of "counts per second"...

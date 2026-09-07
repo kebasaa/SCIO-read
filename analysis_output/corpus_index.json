@@ -1,0 +1,2630 @@
+{
+  "schema": "scio-corpus-index/1",
+  "records": [
+    {
+      "record_id": "17819ccacc6bfda26967",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143721.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "e3509882abdb2129ff1b878187cd7c891d6ae4d4eb671bc78e26c54eb8b52885",
+        "sample_dark": "1dcc828698ad79b151f46e81ece0b35dd26d233e5bc75994715df775f44e0448",
+        "sample_gradient": "f7a70423afb8fe020c24cba6b465cf08fcf28e1d54f84f0a592528cb0dc3d46c",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "ac23d3769957e26d466e",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143729.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "2aff9e2cd4b6a72528eeb811d953295616579ec41e57c50f24019f4488901a38",
+        "sample_dark": "62a60ca2910b94a778e482fac66fae32efdb1919aeddbfece0d5d92f92b23fbe",
+        "sample_gradient": "d85aacae3cd1cd74039cb3646704ceab2076c49a70e9aa8f16845fa09a09c22e",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "f81d32d0c43663c2f3ed",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143739.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "30bac8d5db63fbe0d893a4c579d0c8aeeef827adb6af604c991b6929aeed8769",
+        "sample_dark": "9ebe7dd272a1bd17cce0735b4199c67fce1be0e00260e7d2c4562b8aaf0ab172",
+        "sample_gradient": "21fa52b948026e9922342abe1fde0d0261ccd40f5aa44e70deb57e2a5d61f777",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "bbf0fc158fb23fe4a900",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143746.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "3a4827bf38dbe35a82e7e6a67ca03d3d246a7123a4bbc708daea64f079951897",
+        "sample_dark": "94e8bc4c1e3d3baab1a544dfe9e378120dc1dfdd17707149c1f5d9b0fb781808",
+        "sample_gradient": "82bb41fdfbb0aac79503d7e1cf9477488124030e19cdc95df07db63773e18d8e",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "8cc3808759707a80d0f4",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143757.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "0e5b4d8277b16f567ffca79d934ac849e1d1f9eca8c0cc7bdc5e7813b37d9b63",
+        "sample_dark": "161b06f2ce835dc62058b75680ccb6ad82b2480023840ac5e2e2fbaff73cbf6d",
+        "sample_gradient": "69927e9a2dd65f4df72c0ac0fb05613b4e5a155348608a67710b05041a330946",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "05b4652fc4479330b6cf",
+      "path": "01_rawdata/log_extracted/bark/scan_from_log_20200604_143806.json",
+      "source": "app_log_fixture",
+      "label": "bark",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "da9dc883254ca7d47725a625c29fc29056b0bf6d5713650c60a8885bd64753d9",
+        "sample_dark": "4ce5908132cec9bd5269477ec020ba4e0fe6da13c8277c4a9cb02d2f5f004a06",
+        "sample_gradient": "4cd3ec38726e5b566c36800c0f6d2bd2f9e9bdbc9068aee9ad5d4f2b3cb68baf",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "3131ccfcbbcf03eab942",
+      "path": "01_rawdata/log_extracted/calibrationbox/scan_from_log_20200604_143337.json",
+      "source": "app_log_fixture",
+      "label": "calibrationbox",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "6d1fcfbc5c3a6d96adb08923b66013e1423cd144ad92f3101ce529eb61ad3958",
+        "sample_dark": "b8e8f675f644ef9224b5b079fe9b04012a1bf439965c71ccbcee210287eb3e43",
+        "sample_gradient": "7ceff50e1a25f2974b277314dd28640a314a95155e596d9ba578075015536b6d",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "bd0139980a197c583595",
+      "path": "01_rawdata/log_extracted/rock/scan_from_log_20200604_143955.json",
+      "source": "app_log_fixture",
+      "label": "rock",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "4d5fe2d3e48aebc19065b053271abc9e9ae943e1c4fe294a2fa43997d7d022b8",
+        "sample_dark": "396cbdd45a53256319be2596368a3bfb3c706ad973dfa239a8d7f8e19588b822",
+        "sample_gradient": "8f779b9293eeff7eba4dfebbebbcaec25416ec9b94a859e3a0c9b20c0982195f",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "21c56b0d4360613f2103",
+      "path": "01_rawdata/log_extracted/rock/scan_from_log_20200604_144005.json",
+      "source": "app_log_fixture",
+      "label": "rock",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "1e129c2d7ce85e801a940c0ea01e0d7a07a5eebb2fc6c13b8ded894bcfb0963b",
+        "sample_dark": "abdb5a0e18016df5287ed3a25220f2018a874fcb5c39610f4d667a8cb8fa9b3e",
+        "sample_gradient": "89000b50ff01b001f287d3959f38f589ee7a7f20557f30184a9a704d3d4e1207",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "d0901a3e51333111fd8a",
+      "path": "01_rawdata/log_extracted/rock/scan_from_log_20200604_144012.json",
+      "source": "app_log_fixture",
+      "label": "rock",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "64fb3cad9ac34458d0a427190af8bed4c6d58d5bfc983c47d2a6482a03fe0826",
+        "sample_dark": "fa5b1a5c8d7de30a53151f236363be25be664a59fc09f9ad269c59ec21e5b5d2",
+        "sample_gradient": "a60363658ef2edbfc083e0603eafa85e991d5e30fc24af9d26897bf582b3753c",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "b40c451a377abd910a17",
+      "path": "01_rawdata/log_extracted/rock/scan_from_log_20200604_144021.json",
+      "source": "app_log_fixture",
+      "label": "rock",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "a26086a9bef408fb3ca9ef53af1fd1825c1aa52331c1029473dabba847f65a27",
+        "sample_dark": "e58251c4c30e0ee9fc080796d386275d226cf7483c76103724dc502b47a78651",
+        "sample_gradient": "e4f544f82e907b9dce5f9653e929ef0d00b136deef55849ab460fe02cc1d464e",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "c67ab732567bc1027d1a",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105858.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "2421a740a6b7e7f7595185850235ff6609723e084fe9f4a2d5119eda30028a2e",
+        "sample_dark": "9b8bdce1748b6154d43c44cb749c0b84801a22fb639d0d9aaf3224404d9113cb",
+        "sample_gradient": "2afe52fe41a2e2978abcfbe0e55b080c66cf353f288f426380b4c35879c940a2",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "03c437971ae016ebbabc",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105907.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "cbdfc1b3a754c2a3c56eedfe6140831dca9f3e09f4cb4b491b997677e12e5df7",
+        "sample_dark": "5a0664299f697315d873f67f2a5e10323e09e020849d1af79393d96393422a08",
+        "sample_gradient": "a7c27f5bc22961ecd73d6f9ddd55808f055525604f3b94bb49c1ee7ee5ec65dc",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "3e3011633053eff3750b",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105914.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "e20ee900875e1af605d7973c3ea4c19b97169727a295c4f85718e9db1e0c92cf",
+        "sample_dark": "42ed33268ab4bbf0f3f356145480d31825278d5ee4bef47e8c78a7b8b3a2c61c",
+        "sample_gradient": "07dd88ce223d5534f6391ad040baa13f881f974a2f2662aef887193cbd8033a7",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "6d7604701e0d1558d330",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105921.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "4f41c035749cbcb3ddf48f82294544ef1d0f6a995f2216b8b7747d3ca57afd9a",
+        "sample_dark": "63a05685dac386483e61f27ebd5d989837539d563e0a4d832d36c5553446d33e",
+        "sample_gradient": "cf6c7187cfcbd2f1fcac199284cbf2450a009a601d41cfc44575ddd492b619e5",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "d2137898efd7d0a0aafa",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105928.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "81269881a093b42d982203d390338b8e3e294d6e63531805591627f83e75d06d",
+        "sample_dark": "aca5053fc7ce464153dab7e08319b1ec3198532dc20024422c9f8de9c647ce01",
+        "sample_gradient": "2af40d089303f0a2efb65306d6e89cc7fe70e9582279d92817f57ca4ff1a88b2",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "b10a2b4831e40191951a",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105935.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "08648bee3d023896c24b3c40f0f8bba11154d920f2d969f121b9317bc228ef8e",
+        "sample_dark": "ed8094771b61fb83985b9566af049cf96b87cf8ec67f630d17b7be85a7694321",
+        "sample_gradient": "f02b8d62ef5eea603a508af1e0d6bb9947c6294615571de854a735b66603b80e",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "e8168fce3f12d1f3527a",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105943.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "ddf22290c44978d1c2df334cb30445329c20740f69c6f1a2cd94b6efd013752d",
+        "sample_dark": "2577b512fa2902dc0ab9959bf89482d9f4cd0905c4b827d6821c969a431bfc0b",
+        "sample_gradient": "30e1593c093cb0258647938a3a765613fdaccd1859a0c8bccfe36e945b56e77f",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "fe8da2afdbecf221f652",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105949.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "d3521a798598a16880c0e5cfa580fbe9e5aba7f4989d49f2bc1c33785849a085",
+        "sample_dark": "5fa196288fb252291d454d4be8e8cc0343a11b9ca0ea590b0c303ca7c2b8e413",
+        "sample_gradient": "d955fe368f5b75d97a39053dcd3d6b0322309964abc2945d81873d87908b3e3b",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "c7195edc59d50c6c374f",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_105957.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "5aca84ef8984cf741f9a7a439bd9fa270849609a04b4276dda5a7e3892532b31",
+        "sample_dark": "e0644fb8ad182741c33d86080b9591b03809a4dcaf1b79aa757ca0ce2ea75b2c",
+        "sample_gradient": "4131757b7170fcf203461363bb3ca2b2e33b352c6b57e768715185f555e20969",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "a9bc6aa135a77c8c9dee",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_110004.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "0f22d101f33d96a4b1a4e80582c94c5761da861803a0cabdb4c9e91bb394e012",
+        "sample_dark": "92c5af280ab9cb666fe0975003c15890d781cd9336f84ba7b6a74b467eeef86b",
+        "sample_gradient": "6b1d2288a4beb31a28f4cc58f9a7af17fe46d417a62902deb4c0c734880aecb9",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "9d34ad9198580d347a6e",
+      "path": "01_rawdata/log_extracted/skin/scan_from_log_20211020_110011.json",
+      "source": "app_log_fixture",
+      "label": "skin",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "414ca071b6c9b23920a576b905211a028242e3a9f7fd9515c9c1a8add46a4ea2",
+        "sample_dark": "052f5a68e40edb2ef2bbff3ee1975c91a9504ac9e038e83fe9fef6da733129e7",
+        "sample_gradient": "5e2ac123a0d2626606b78b358888e82b95ec235f5700d53a0b69d7141bab4050",
+        "sample_white": "d5615daf448a80f3122bb0653f41defbccf05742159ffdb038d3768a2dd3ea10",
+        "sample_white_dark": "d29428deaa3eb037aee94bdcd30e20e47ba435dd31d5f64cdeba3c56c8f2e00d",
+        "sample_white_gradient": "34f3c7c9e98185d3560bac3ecb02cc0266460ec4bb50a1e8b64fdac9861df768"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "bbf7aee705bf8436bc00",
+      "path": "01_rawdata/log_extracted/soilcrust/scan_from_log_20200604_143557.json",
+      "source": "app_log_fixture",
+      "label": "soilcrust",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "88f72ff5af1d35ea75454addd13740522b5707e2c54b565517cc9bd87606f831",
+        "sample_dark": "061bc6966908b0983f95c5c77ea0352f06023bc3529688ecff82c1cd1cb31d24",
+        "sample_gradient": "bb655a2fbdfdeca69c2ae7c37601468cd6db28944cd877f303ad30d8dafc9f6e",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "49771da9c4be7e360743",
+      "path": "01_rawdata/log_extracted/soilcrust/scan_from_log_20200604_143614.json",
+      "source": "app_log_fixture",
+      "label": "soilcrust",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "cf196f789cdd0538a5beb6aebf14ee5b912fb16dd041b22c55ec47a1eaa447ea",
+        "sample_dark": "768f5f474ce00a21ae4848371c0843fa02d67bbd095cf873e1a24dbadf803795",
+        "sample_gradient": "75eec8a3924dedd221e8d9b7f2d16df1472284d6582905ed028c57648e6b3670",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "57b619c2707192dec1e5",
+      "path": "01_rawdata/log_extracted/soilcrust/scan_from_log_20200604_143624.json",
+      "source": "app_log_fixture",
+      "label": "soilcrust",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "96841201c4d8ec6c35113112a9edd61c4f78c0e4857ab5456d186112181e2476",
+        "sample_dark": "89736490182392e2008abd96638f861bb9dda84780ac0bc63ebc1d30a2cde0a2",
+        "sample_gradient": "459e94c1656491b24ca18de04c4135e0771a11334195365930ea666a82a8ff7f",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "150d53b6cf52fe34eb8e",
+      "path": "01_rawdata/log_extracted/soilcrust/scan_from_log_20200604_143633.json",
+      "source": "app_log_fixture",
+      "label": "soilcrust",
+      "device": {
+        "address": "B4:99:4C:59:66:01",
+        "version": 0,
+        "numberOfCommandsPerSpectrum": 3,
+        "isDisableGradientSampling": false
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656,
+        "sample_white": 1800,
+        "sample_white_dark": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "b4568ef6ab150ffee3dfff38f8a0caf325ea0d9f40369c74b87e03120c3a263a",
+        "sample_dark": "81d71515b58d2ae21c3b42c1e2dcd04b8ca1814b9edef10cbe834119bf439407",
+        "sample_gradient": "6c21dccc4b11a4c636731d82388c3ec42c6429730ae4f3c1a51b6ee82f032945",
+        "sample_white": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+        "sample_white_dark": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+        "sample_white_gradient": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b"
+      },
+      "spectrum_points": 331,
+      "wavelength_points": 331
+    },
+    {
+      "record_id": "3a0552335529a0f93e27",
+      "path": "01_rawdata/scan_json/scan_20260907_185028_current_static_001.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:28.614+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "f45781ee822a7da08138004e066c9f0728d2ab60827bdac6a9ddd265e26b58ae",
+        "sample": "69d0fe70d4fe7969ccc6958ac087364731697fabc092f27dcd7a13799e113795",
+        "sample_gradient": "aa14821695760b656a177fa28688752dc05e2c3bd02442b7269851eea08b4e17"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "50039d3cdd6ef289a180",
+      "path": "01_rawdata/scan_json/scan_20260907_185030_current_static_002.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:30.747+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "0d2cf7bab99f8c97e3bf3bf0dc71aa69f2d23395d19a34c6b9af99ca9b004084",
+        "sample": "af21741f9c4595082bf1559147428e02f7621c5bda55da64fd484064b4a51c5c",
+        "sample_gradient": "1710046317cb8947b97d46ce34cc2a39bc8c87a00a43ab6c9b19d59741ddc3a6"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "39874b85aa9e9374e4c2",
+      "path": "01_rawdata/scan_json/scan_20260907_185032_current_static_003.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:32.877+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "f8ef900405f19f5dd9aba0d4177d09c56f73e43790b991bb540b926409164463",
+        "sample": "08ac3de6bb9c3e9abf2e185bf88c3662fa1c7e8b60172968d6c6fe82d13aa81b",
+        "sample_gradient": "6a0bdfc3878d706e08b299e7ca4d92467b44256e89ee8acccf45bb74d9440d68"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "5eacdbd0f5ec4dc6dfd0",
+      "path": "01_rawdata/scan_json/scan_20260907_185035_current_static_004.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:35.007+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "e2f51f79699f0a28e65df570b31903258731e201c649d31e8fcac130c1a0c31c",
+        "sample": "e3fc03049ef440406bb20697e2def579fc58ca3c897a79dab54692b11f9113eb",
+        "sample_gradient": "fb1cb6b8ddec19192e768897a78cb8a001638a6a21bf949ea7edd1e2777d1f0e"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "91d74dc2913cdffba49c",
+      "path": "01_rawdata/scan_json/scan_20260907_185037_current_static_005.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:37.134+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "68c6e271953424e006bf34a113d00504d108be9ff07b1f92b160e4f3500d7c3e",
+        "sample": "e491bc000501a3cdedb2902e52fce7b7318ae2c51db4c0668079771b289fc3ea",
+        "sample_gradient": "0b399b69d1d2652b65f0965960cceef0e24d8b6438b8bc3b3b46f3f0e57da626"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "8091af8e6bb76ac5cdc4",
+      "path": "01_rawdata/scan_json/scan_20260907_185039_current_static_006.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:39.267+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "a76ceb1532675cc427c3aecfbd8bc63bcc8ad2f74a4591b8ea4b8e5d4878e694",
+        "sample": "e5f53ebda441ebfcec6e4b62f1827b68a05d5934609ddce7e2938815ffae7c31",
+        "sample_gradient": "c57c76f6a7b5ecf6201fc6080561095af0b180743bd3b0e84c07757f070e3f6e"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "5afa3b1829af421c4d0f",
+      "path": "01_rawdata/scan_json/scan_20260907_185041_current_static_007.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:41.394+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "894b656c2f0ab28e4086238ec61f6db95e79172d2f0201ac4d0c74b6279d6e77",
+        "sample": "5eaae56b2e83adba5f6a19255b095d9906fa157566285b1c0d2bdb9bcff368e5",
+        "sample_gradient": "d26c3d52eac31eea41fb793ccae3dce4d7e9a88928ed827a58de84a385538bd0"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "9ca68c2d33641572ca2c",
+      "path": "01_rawdata/scan_json/scan_20260907_185043_current_static_008.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:43.524+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "e339ba8c569c7e301463f32be6babeb7ebb065244c042955e6f928d6197154de",
+        "sample": "685ab970e331a12c1c5d2b518aabe35b3bc63418c53d658843132eaa1486bc16",
+        "sample_gradient": "e64080f224781bb20637a4206d23c2e0bfb4386b29e249c8ddbcd333cfa7608d"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "2c52679b1795f7d2130d",
+      "path": "01_rawdata/scan_json/scan_20260907_185045_current_static_009.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:45.659+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "329572142b8d8382a21f90a6987f35082c9fe290e020e22827355b3801b2c4a3",
+        "sample": "7510c48ec574a07408dfe0744ff86eab4294550f1837598b2d132a364f7e4646",
+        "sample_gradient": "b4ad2c1350f7b9c1021c65d12718847a068cd52f8371d6b80b35641ed2abbc6e"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "3f8dac7c4de1f6869c92",
+      "path": "01_rawdata/scan_json/scan_20260907_185047_current_static_010.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:47.784+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "736a6989b535cd734148af22dbc830063b8cf6a897d377a02a039948a0af1007",
+        "sample": "551db33ddcb84cf7cadd6b3169fd58b9580e0267ed956820f08818cd147d3b90",
+        "sample_gradient": "b4b40b5446e2d46e0ba30bd3a44e3af459501df17ae52fadd13205b255cfe180"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "ca7af68353e29a269901",
+      "path": "01_rawdata/scan_json/scan_20260907_185049_current_static_011.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:49.916+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "a656e88605c78aaf5748ed2f5020917734c3c9d851f5fd5c2dea40240c182df7",
+        "sample": "b436be5c3cc50910216680c05a8ebc70fc11db05c9d5bf4dd90dd3ca4747fb5a",
+        "sample_gradient": "ce94e1c8fbce3c7c952383b7739ec2a96391d520b6f224d0294e8d51e236463f"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "30fb5baa69970b442994",
+      "path": "01_rawdata/scan_json/scan_20260907_185052_current_static_012.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:52.045+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "edf625cba9b27fd8aeaa7b968806da711544b26bf332e7c8bc02e7cad17b1ccb",
+        "sample": "4fe6a3dd0a2b2e5ac0307670ab87d25826bd8725cd18937e94990bb496950bbc",
+        "sample_gradient": "d715bfd30ce98a6256370e024f4252e2340560dba92862afd99b1603fdef9bde"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "8c7c6b10326468c72771",
+      "path": "01_rawdata/scan_json/scan_20260907_185054_current_static_013.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:54.173+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "fb33d3a1b81adf513af8d2273325d24dc4d41dd9976d1bfc7761fd4c2d51f358",
+        "sample": "836374f961c99b407e001f66994ec68154b60a37f1120da636bddc988f4e0683",
+        "sample_gradient": "b87b8fa7d9ef322cd6a0843698b0140b10e7706bcbfa9b91c6fd5b6bb16a5d06"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "af75683cd295b0d2b6f2",
+      "path": "01_rawdata/scan_json/scan_20260907_185056_current_static_014.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:56.302+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "101a571acce11a429681559f1f69ed3468a72995e3d97f8c328e6b0edbd24578",
+        "sample": "e26782d6d36313cc26240b37a8564d70592e1bf5671556f96263d2b6c98c6773",
+        "sample_gradient": "b3f4fc67117c9b792065b581a205dad43bec92f4a696be4961485158f8be9dbb"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "35e5cd5d42885e0c4f05",
+      "path": "01_rawdata/scan_json/scan_20260907_185058_current_static_015.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:50:58.458+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "46cc58ec1e7634125968f64ea79dee72a7c4c8dd92f90f52a985a258ed874b20",
+        "sample": "ab6ff2fe72a87473641d61d636b669971ae29de3bf0f8349320cbb2ca92ecdc5",
+        "sample_gradient": "4eeb24f7f3f605b56b49fbff5d3d09e6ddf1d2048c0c554de1684c9084fc9525"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "d1b5f44a13a287d312f3",
+      "path": "01_rawdata/scan_json/scan_20260907_185100_current_static_016.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:00.587+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "4c945c0aa6af5a589bd7c7a2516d53f81c54a86ffc80ba867ddff023b691f5b1",
+        "sample": "cdd0d28750f4b4ba934bb8004413d609b6f0cd8e8c26de2b5cf4a82f47cbf4da",
+        "sample_gradient": "c27c5e25470fdcc1523338a144d2d51828717de56bdae056549bdbd9b004693d"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "cdb211f3be422621daae",
+      "path": "01_rawdata/scan_json/scan_20260907_185102_current_static_017.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:02.720+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "2bec42020e970e731984ee6c317551d6a35de3f9ef84c6e0c2124488bfb8145c",
+        "sample": "6d0e3f450ae26cc89e6574cb8ea26059b2ac228aa6dce120467d8f0f01022a38",
+        "sample_gradient": "7e380917a91cc6a465ccb99e3dea4d64f758ba4a041bd24befdbe81831b431bb"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "93e2e6b38fd9d064e5f5",
+      "path": "01_rawdata/scan_json/scan_20260907_185104_current_static_018.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:04.849+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "20e675501babecd3da9477b183ea897c0025287eb1907e79d68f3370b3c2dab3",
+        "sample": "465ba8a01c3f61a70230d0190f000597aac07c982bec615e05204a440fd9c7df",
+        "sample_gradient": "8e3c85a384cef8c7862784b69e791e26ae94597b731d8ff88785e92898e2e94f"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "ebcdad56d4603df11c6d",
+      "path": "01_rawdata/scan_json/scan_20260907_185106_current_static_019.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:06.977+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "e3cf71d9b63f7795d3fc75c5e2f0bd90b9a674513cc5180f362e20a4501f9356",
+        "sample": "4d8c263c5e03a11543177ff2a96325d4f687b8ef63af53f0ab6827d9017a854c",
+        "sample_gradient": "086006e8103c7416af5caa9f7f04f2796b4f33329c3ada1734f91c55d0b2cccd"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "9096f237decbe54e833c",
+      "path": "01_rawdata/scan_json/scan_20260907_185109_current_static_020.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:09.105+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "422277e700887c01c2d875951c35cd0eb4e1008fdd3839c9a7efd8dbf49b5f48",
+        "sample": "7b09d063e7ed4d45e5141850d8df53344716f8f10a45fbf81dfabdb4359068d2",
+        "sample_gradient": "15494a0f7cd4bb420202a27d09a0bc8e3e7451682771b4b71a579637907cf8b7"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "706f418c0a4554cf26f9",
+      "path": "01_rawdata/scan_json/scan_20260907_185111_current_static_021.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:11.234+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "3ccbe06d96efd15223178ee2cc334f03b0fd9c7e8f5c23235772bbafa056d35d",
+        "sample": "45ebf2ca0d9eb72ac8272412981d850dcc677f710b5000d8541aa29fd4bf7868",
+        "sample_gradient": "e38dd67f877ba70a887a36480ba6e447f7a0ccf9bac3a0349080b82f75320c35"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "0016f781ba01b20b6b84",
+      "path": "01_rawdata/scan_json/scan_20260907_185113_current_static_022.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:13.362+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "eb94fc7a421e57e16a17555058d7eb599b711774587cbaf4d4d688fd462d67aa",
+        "sample": "82d120aa0d56af0968837321b1381ac71590f6cb772cd0261aa930afb4652be9",
+        "sample_gradient": "8b3e4018b93a92db390b4633358cc3327ad33ee80a914800b811550dc854cb25"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "1c9eb143e261aca702e9",
+      "path": "01_rawdata/scan_json/scan_20260907_185115_current_static_023.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:15.491+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "0407032501e81fa9146bf90228f278a2e42587b5bfe8385ae2cca554915b6a75",
+        "sample": "0b6f43a5fe2c73d0aaa86bd5b3622416b16bc8c5401f6aac8ab49781c050303f",
+        "sample_gradient": "0e192e1d68d158ae2e211313b18fac1ba35086d57f00f53d80adf8e6990fd877"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "c402dbf33ee1c61c37ff",
+      "path": "01_rawdata/scan_json/scan_20260907_185117_current_static_024.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:17.620+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "e3f8284818f4fc8f72b0bc351a367d48574a166acd2c0d33334b30dd08e1498d",
+        "sample": "4708e90853834eb42e0fcfcbd27c02c8c2d173c9126996e4fbb37d30e45a18d3",
+        "sample_gradient": "20cd2ffa79fd981e7eb4a96315a69f279a2c99722d49b7b492964419a5d68ca1"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "b24e6710a892a842d6bb",
+      "path": "01_rawdata/scan_json/scan_20260907_185119_current_static_025.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:19.750+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "74360cae86976475290176d01a499e497e440931ddbc223ddb824a34233baae9",
+        "sample": "5b2e90006d742e85c13df61660a3fe71ff1866d81228d1507f22345cebe99f0f",
+        "sample_gradient": "9683df476c329a00762c670ca26d8798bc7f03d591b884fd5b4d70af88f0429a"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "93b73c4277ed0d8551b0",
+      "path": "01_rawdata/scan_json/scan_20260907_185121_current_static_026.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:21.878+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "6be82a18a8c8e52d9d5f8064ae91c679a178847ff6d4fb5ae5c9ebc7f318febc",
+        "sample": "fa1eda54fb464beb5ce8f5aa6cb808698530562ea7612dce4258aa07563cc0fa",
+        "sample_gradient": "06c489b5d24bc9e6100247b86fdd3e23f3613548ebd6f02857cd5811441fab94"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "f78264b2e714dda86336",
+      "path": "01_rawdata/scan_json/scan_20260907_185124_current_static_027.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:24.008+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "7e78233cb9413fb9b20c417480a3a6a09fed0e8aeb12b46b7c24fc7afd69590e",
+        "sample": "eb640313a9b640fd6b36116bef900b030f5b0abb40060f1f3fdeaf2465fcc793",
+        "sample_gradient": "50fdb9c0258724d0fb485598ee008a2b5550ea2f5e19cbfc410cb16f25e6db3f"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "56ed3597bb12c82714e1",
+      "path": "01_rawdata/scan_json/scan_20260907_185126_current_static_028.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:26.136+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "bf778ed6fc0c89603ee595598295d4efeb4d805dd219ed12349377283a7e6d8d",
+        "sample": "faabd835d87332ff0ff6e13b8136ffb2146da25557f022f4d0b19737d21db5e4",
+        "sample_gradient": "51e8c76e26904aefede37c605df6011d728f473ad51b737228d3b3f2ee53c0f0"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "93f84341790df50105e4",
+      "path": "01_rawdata/scan_json/scan_20260907_185128_current_static_029.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:28.268+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "2fde213549a847acfa8f3d290141091dbc1b174bc95432332f490bfc40b9d224",
+        "sample": "a012da670661ab1bb3fe7c9d85c9f08de53e300648ca1b96b4d31a2d30e8a18a",
+        "sample_gradient": "4294302ed47fe1e01c27aca11e174e45ef1ca21546e20aab3580d5bc8694b5ff"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "83338cf2100a66e57778",
+      "path": "01_rawdata/scan_json/scan_20260907_185130_current_static_030.json",
+      "source": "capture",
+      "label": "current_static",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_serial_fragment": "DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": ""
+      },
+      "sampled_at": "2026-09-07T18:51:30.383+02:00",
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "37ffaee30c576e413be0484b925fee3907bcf76bbd42585bda81282b2a786474",
+        "sample": "7ebc13e8af62827b6a90a52ea274261575e06e98f33415a67cfb3a108a67c0a9",
+        "sample_gradient": "1e6090aa55b384afac3622e45ed6d599714cb6eb9e80e10ad5205e50def716a4"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "e63395a3f0f3e74681df",
+      "path": "01_rawdata/scan_json/scan_20260907_burst1.json",
+      "source": "capture",
+      "label": "burst",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:58:26.940+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "d87970e4f207467f055f6821a33bcc18e0c8e2c8673443ce4e8fe3513d8a894c",
+        "sample": "ec542f4bc52c7dee035073a236d61faf3a4f56599d365f48c48f99cf63121688",
+        "sample_gradient": "ff4e74a82a1fbd5590f4a66ee576dba554634e169c81cacb0d78b94fa6a30bda"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "07934e8d964a5df555d3",
+      "path": "01_rawdata/scan_json/scan_20260907_burst2.json",
+      "source": "capture",
+      "label": "burst",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:58:29.421+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "f588a15805cfda56e71d7828f34a9dfe1f956b79e3d3dc7e4004b4c178e67977",
+        "sample": "1bd80d98adaf0f719318fb0ca03f4f88df923579c16c4c7558850469c07b7057",
+        "sample_gradient": "9a12fd88a166a1e2cfec79e75bddf8eaa6587381f7a4b1dc2dd5c656dcffed06"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "d0c10a6cd271971eadb6",
+      "path": "01_rawdata/scan_json/scan_20260907_burst3.json",
+      "source": "capture",
+      "label": "burst",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:58:31.900+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "09edb15ff6b13484e00860e0b997faffb6ad318939dd7657f72acae2df22cb6c",
+        "sample": "1c9083eca36d0ee88cb287c4cb01a4be121738e4e494d57d3162602a7c39bd77",
+        "sample_gradient": "17ff1a4f691e88a86da434ba0595b16a9919599cbaa39284a57e2e65483f6540"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "485ed642236a54b7c4cb",
+      "path": "01_rawdata/scan_json/scan_20260907_burst4.json",
+      "source": "capture",
+      "label": "burst",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:58:34.382+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "11d52ef098b42d87dae18d526f052f1a637224bc81bf01c6ff4d6890a238748c",
+        "sample": "d82b2ce3cb82e426ecab2c084b7e4947cc25ec3b47af23681e427921503e5501",
+        "sample_gradient": "c78a17e162347ca3ca9e2ef582c286c557b921cdb1f7476f7425fdd4df58b97e"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "2f95ec5bb536c2ec3607",
+      "path": "01_rawdata/scan_json/scan_20260907_burst5.json",
+      "source": "capture",
+      "label": "burst",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:58:36.862+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "be3c80ead954da700ce461c27977cf8f9dcb26050a5ff8a26dc163d1c305bd2a",
+        "sample": "ba124dc08a9cc37e6336f28f8c3970c4e7a9dba4addd06a5a38e175bed01514f",
+        "sample_gradient": "624d24c971a527c5ab226efcf43d02d194f649871eec9f28f3be1347463b964d"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "24dc158220a72e67495d",
+      "path": "01_rawdata/scan_json/scan_20260907_hand.json",
+      "source": "capture",
+      "label": "hand",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:55:13.385+02:00",
+      "calibration_id": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_dark": 1800,
+        "sample": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_dark": "3bae2ee2708b81673b69b95ac35321d15014711d7a3b27dba7aea8904484017f",
+        "sample": "f8338d20771b635d9c9d370ecd5d875f7d246b280cd38f975c612c9b068d2bf9",
+        "sample_gradient": "4159937eb3cde26fef133a2cf2e5eb633b2670f4a10fc73a69039cfc07e3e7a2"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "84ee004768bf1a8a5dca",
+      "path": "01_rawdata/scan_json/scan_calibrationbox1.json",
+      "source": "white_reference",
+      "label": "calibration",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "164ecc837cc0e79333bc6466421b9e535678d49c2abaf79dea7c813ebde63db2",
+        "sample_dark": "28fd6dd1523ac3d88d18cf448536fd584c32d3d8313e1880f4f91f96bbcb1155",
+        "sample_gradient": "c646bbff111278af8efe7b0f0bc7b1d7bc3f565ef204fc33e5801e828aef0c8b"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "76f336e432d2be641622",
+      "path": "01_rawdata/scan_json/scan_calibrationbox2.json",
+      "source": "white_reference",
+      "label": "calibration",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "34b19068d2bd77b7cda61835f7265ca141862cebf6bc1af558c97d4f36fd8e93",
+        "sample_dark": "2031eaab9b44c2d880577f7ceb70a308ea3a3f021531d800c59ea8cf518d7c20",
+        "sample_gradient": "0547d430e97800cc1bd431af743fce588b9c14a58329ffba99779e9ac4dad908"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "d2a48249a9e1a42a374d",
+      "path": "01_rawdata/scan_json/scan_calibrationbox3.json",
+      "source": "white_reference",
+      "label": "calibration",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "57bfc7b78d1b7a62602150bee634b718ae94d5258ee5a0de1c776e62b6ef4fca",
+        "sample_dark": "88d456cc7e9e8c1d975c1cac2358f8c91226b4675ad7fb986d90f0111a372b4a",
+        "sample_gradient": "b01b0e4717b50771d62b2a31bc823856fbdd90e634c746d2692899eea96c9b21"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "d922b81e1fde3d7df6c2",
+      "path": "01_rawdata/scan_json/scan_calibrationbox4.json",
+      "source": "white_reference",
+      "label": "calibration",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "e387ddeb844bf681d28e9ba48fba269f511a2f1cb7185e39eeea35f35fbb2527",
+        "sample_dark": "31ee0be3f67f47f752d023134574368f4c3a819e75f04ebac79b797dbd6cb64a",
+        "sample_gradient": "ffd3c04cbab9b4f6aa6573bcab5aaad24b9fcaab12f41a71d9a87617ad87528b"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "1a5f3fdde5ed1fe06884",
+      "path": "01_rawdata/scan_json/scan_calibrationbox5.json",
+      "source": "white_reference",
+      "label": "calibration",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "262d164c4e5e957292fcdf752bb5f103704e42d649d2fce1c81fa8b5e6c96d35",
+        "sample_dark": "8323c8a16c36287e97c121168bae79793cdecd85cc875697ab3a18bf19be3678",
+        "sample_gradient": "7f4151737700fd89764d796de4881f3f68fb2bb49a9846952a64b2e75d8ef84d"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "740aca52b6e3fb650470",
+      "path": "01_rawdata/scan_json/scan_dark1.json",
+      "source": "capture",
+      "label": "dark",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "7a16359c560eca579c5ab84904803bdaf791910f575278ec113d3a33b2299842",
+        "sample_dark": "3934373c0c6ff9e6175dc1ab59488ceee44673abee0fd360258f5f815c5c3a53",
+        "sample_gradient": "bdafcfbe1e038674aa596358d208620fc3b8039e2074e3b20232b181785c7132"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "99882171221986dea4de",
+      "path": "01_rawdata/scan_json/scan_dark2.json",
+      "source": "capture",
+      "label": "dark",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "910dc03e4d649f013c465c0913e89642120a1125983b51c187aaa45541bbee6e",
+        "sample_dark": "f0a457004fc6e109298406c2c82a94f15b202123974edba9aeac73f95b385171",
+        "sample_gradient": "ab3b9b22fa1df1b17a2b44120016a6aef5619107e7db88cf98d1900e20d83ad4"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "48784a593302a04dc53e",
+      "path": "01_rawdata/scan_json/scan_dark3.json",
+      "source": "capture",
+      "label": "dark",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "786fe234696c823455d9d94134cdbc2132b78271b5c4b40f5d9132d20a8d8c96",
+        "sample_dark": "70cc9e307f3124dc37be64a6ad55110bbfd897b733dd93ce03efc53d3363b945",
+        "sample_gradient": "69078af87fdf61e07416c5911235829ebf4e6404b0e059aa4a8939712ea6fd8f"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "bfe879ccb9674afc147f",
+      "path": "01_rawdata/scan_json/scan_dark4.json",
+      "source": "capture",
+      "label": "dark",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "95168334f3fb19e25d18d4d8bb214f7d6803c3fc388b023947941ea33ed695f2",
+        "sample_dark": "94e4ab5a3d12ecdaae706ccad99225a9228b9a0d56382f33847d801847e73e08",
+        "sample_gradient": "bb4ae2389062a728e3549d946f6f9adf120a3939582aef8bd39f006e035fc812"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "f8bc315b8d9e9d885ac4",
+      "path": "01_rawdata/scan_json/scan_dark5.json",
+      "source": "capture",
+      "label": "dark",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "1870f5ccaacff420309947fba26102ece6b7f3cb19333b0399651a70a23f808d",
+        "sample_dark": "7808dcabd91805150816cce0caf8029d2dca0196ad9a1c9c4c444a3f1d93a090",
+        "sample_gradient": "39a14b4aba01f540308249cc99c92fb413a827d32dcc84fc8bd8a7207a875df2"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "2ae3035e3185714e35e8",
+      "path": "01_rawdata/scan_json/scan_mirror1.json",
+      "source": "capture",
+      "label": "mirror",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "466f4da9badf7c735bdad705bf2e354bfe8aac95b5264a7138cb4fc2d886acc9",
+        "sample_dark": "8277936e033e10d2417cc85586eb3e7e4b847ba9645a139e595f3c8e5c4eef44",
+        "sample_gradient": "5d2fb38059066a1dfaff84707e84e3e6bf238caeb5750cee566c9de9928f5fdc"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "27f1285c7d0f231c6ad1",
+      "path": "01_rawdata/scan_json/scan_mirror2.json",
+      "source": "capture",
+      "label": "mirror",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "7e68d942f34cd5c2bee8f84ec6ed598699e77f568f007fa820956837339cd58d",
+        "sample_dark": "3520c671cacbe4b619eba01e12ab3d2eddd93f856faca68fe94853d288e43790",
+        "sample_gradient": "84f6f12aebf6df13f97b6d96a7a0e7cd8f497f6ed6312e74bdb73b9a97eda864"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "debdaceb2c62b6cb9503",
+      "path": "01_rawdata/scan_json/scan_mirror3.json",
+      "source": "capture",
+      "label": "mirror",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "2efe85b675099c0718ddb001e2d27a7107f2a4be9f69803b699c8f32f10d75d8",
+        "sample_dark": "481c4690c662849aa24abbb6ebe38faac9d49fa6b80b0ae61a54e2731ba26331",
+        "sample_gradient": "37205a6fd7ed6de5de102a78b98deb00a0be433160dd99f2079fae8abbb6cc06"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "79b8c3c535ee31af45e6",
+      "path": "01_rawdata/scan_json/scan_wood1.json",
+      "source": "capture",
+      "label": "wood",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "accb37f928034e936336c179af78e2747a19a6b2674141ac8c47eb9f51d8aa26",
+        "sample_dark": "cad1cc05012e446db4b4c47255ff17476bf0ebef7b6b7d1cd74d4193f764be67",
+        "sample_gradient": "9b4ad728bafc79890ce9acbc8b824d328d2c0ecba0ab50006578a9ee35ec4ec2"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "bd3e671e1730443a4f6e",
+      "path": "01_rawdata/scan_json/scan_wood2.json",
+      "source": "capture",
+      "label": "wood",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "01f7646c2d73176702032c235d1a1c5568f516af2e7ca7b934344b7f0ef8af39",
+        "sample_dark": "0862e4c30732e3e2847f180b77e1d0baefc403ca9ef64628668aa07a36f56d97",
+        "sample_gradient": "91dbe8dc1ae8bdc6541c1e00c212b82b66c6e849cada94f9dde7c15cfd9d449c"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "daaeabd5b783cea56fd2",
+      "path": "01_rawdata/scan_json/scan_wood3.json",
+      "source": "capture",
+      "label": "wood",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "5465a281dc2d56bea038afda342ebccb00ead63d8755901531fc01a828c96a53",
+        "sample_dark": "fb4103c2859d306d470e452496a780494a34027c5c0077b3425511c0f532d780",
+        "sample_gradient": "292b3031044a09af3fc9a209f042a329c7d744ac521ac0cf511250fc4151fd6e"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "46905a7232852165ef16",
+      "path": "01_rawdata/scan_json/scan_wood4.json",
+      "source": "capture",
+      "label": "wood",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "28fcdd8bea9595e34d09f3ab2be01d0c150b634729563bdf25a20bc7ad127d99",
+        "sample_dark": "1974e9c5c1c75917f9774ca37f4de1526e8ebbd1a74aa538fa6449a682cb89a9",
+        "sample_gradient": "6380a700f67afb400d5876542dbcac80ed43b7b1c598d9c31f4149de32f1c9a1"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "5acdeae5a422411d0854",
+      "path": "01_rawdata/scan_json/scan_wood5.json",
+      "source": "capture",
+      "label": "wood",
+      "device": {
+        "deviceBleId": "01665900004c99b4",
+        "bleFWVersion": 125,
+        "serial_number": "CPPCA0031C6PF0516009W6404386A1DF1816004A",
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "deviceDspId": "e24da26b2304c2c0",
+        "aptinaId": "00004c8e3238c8e18032ab45611198f1",
+        "firmwareVersion": 147
+      },
+      "sampled_at": null,
+      "calibration_id": null,
+      "warnings": [],
+      "blob_sizes": {
+        "sample": 1800,
+        "sample_dark": 1800,
+        "sample_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample": "341d79c61fd916de6532b722f3f642ccdf5797e6abd68963c75f86acbd663586",
+        "sample_dark": "ff9d407ab5425a2498755e9c236c3e7e3f4b41741a5310e8ba4a8e14ebaee195",
+        "sample_gradient": "dac927c9809b84d1afb86c5751de85d07f57ebbc6dddb9b9ceb07e02b65fcf6c"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "037886896ab0dc258e0f",
+      "path": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_20260907_155425.json",
+      "source": "capture",
+      "label": "wr_8032AB45611198F1_20260907_155425",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:54:25.622+02:00",
+      "calibration_id": "2026-09-07T15:54:25.622+02:00",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_white_dark": 1800,
+        "sample_white": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_white_dark": "b3f32abbe3bd0d9c614a4326178a671a7db2e6450792c982593b4550cc93a3e4",
+        "sample_white": "69c29a80ea43f40eedf94093996669e6394e52493de3479a770e6e54bb8b94f8",
+        "sample_white_gradient": "78579f1d462ed251348519164fb6e6a56a42489e59f12e1022f74082df7245f1"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    },
+    {
+      "record_id": "037886896ab0dc258e0f",
+      "path": "01_rawdata/scan_json_calibration/wr_8032AB45611198F1_latest.json",
+      "source": "capture",
+      "label": "wr_8032AB45611198F1_latest",
+      "device": {
+        "dsp_id": "e24da26b2304c2c0",
+        "aptina_field": "328045ab1161f198",
+        "device_id": "8032AB45611198F1",
+        "firmware_version": 147,
+        "ble_id": "01665900004c99b4",
+        "ble_fw_version": 125,
+        "device_name": "myScio",
+        "i2s_tag_config": "20150812-e:PRODUCTION"
+      },
+      "sampled_at": "2026-09-07T15:54:25.622+02:00",
+      "calibration_id": "2026-09-07T15:54:25.622+02:00",
+      "warnings": [],
+      "blob_sizes": {
+        "sample_white_dark": 1800,
+        "sample_white": 1800,
+        "sample_white_gradient": 1656
+      },
+      "blob_sha256": {
+        "sample_white_dark": "b3f32abbe3bd0d9c614a4326178a671a7db2e6450792c982593b4550cc93a3e4",
+        "sample_white": "69c29a80ea43f40eedf94093996669e6394e52493de3479a770e6e54bb8b94f8",
+        "sample_white_gradient": "78579f1d462ed251348519164fb6e6a56a42489e59f12e1022f74082df7245f1"
+      },
+      "spectrum_points": null,
+      "wavelength_points": null
+    }
+  ],
+  "errors": []
+}

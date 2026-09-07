@@ -1,0 +1,521 @@
+{
+ "schema": "scio-embedded-cipher-hypothesis/1",
+ "scans": 6,
+ "unique_keys": 198,
+ "transforms_per_key": 8,
+ "hit_threshold": 0.5,
+ "hits": [],
+ "best": {
+  "label": "serial_fragment.hex_wswap.md5",
+  "cipher": "TEA",
+  "endian": "little",
+  "mode": "ECB",
+  "repeatability": 0.11998241351470829,
+  "initial_pair": 0.11998241351470829,
+  "view": "u32be",
+  "offset": 16
+ },
+ "top_candidates": [
+  {
+   "label": "serial_fragment.hex_wswap.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11998241351470829,
+   "initial_pair": 0.11998241351470829,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.hex_rev.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11861337836399541,
+   "initial_pair": 0.11861337836399541,
+   "view": "u32le",
+   "offset": 16
+  },
+  {
+   "label": "device_id.ascii.sha256_16 | device_id.ascii_upper.sha256_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11749630327660944,
+   "initial_pair": 0.11749630327660944,
+   "view": "u32le",
+   "offset": 8
+  },
+  {
+   "label": "ble_id.hex.zeropad16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.11688598821557873,
+   "initial_pair": 0.11688598821557873,
+   "view": "u32be",
+   "offset": 0
+  },
+  {
+   "label": "device_name.ascii_lower.sha1_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.11633727830324807,
+   "initial_pair": 0.11633727830324807,
+   "view": "u32be",
+   "offset": 12
+  },
+  {
+   "label": "ble_id.hex_rev.md5",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.1163165758237063,
+   "initial_pair": 0.1163165758237063,
+   "view": "u32be",
+   "offset": 8
+  },
+  {
+   "label": "aptina_field.ascii.sha512_16 | aptina_field.ascii_lower.sha512_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11575747562107748,
+   "initial_pair": 0.11575747562107748,
+   "view": "u32le",
+   "offset": 12
+  },
+  {
+   "label": "aptina_field.ascii_upper.sha1_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11558268473262122,
+   "initial_pair": 0.11558268473262122,
+   "view": "u32be",
+   "offset": 4
+  },
+  {
+   "label": "aptina_field.hex_rev.sha256_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11552133203964544,
+   "initial_pair": 0.11552133203964544,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "aptina_field.ascii.sha1_16 | aptina_field.ascii_lower.sha1_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11435632607554257,
+   "initial_pair": 0.11435632607554257,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "device_id.hex_rev.sha1_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.11407511375147308,
+   "initial_pair": 0.11407511375147308,
+   "view": "u32le",
+   "offset": 16
+  },
+  {
+   "label": "dsp_id.hex_wswap.sha256_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.11404210489353755,
+   "initial_pair": 0.11404210489353755,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "serial.ascii_lower.sha256_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.11354163601310371,
+   "initial_pair": 0.11354163601310371,
+   "view": "u16be",
+   "offset": 12
+  },
+  {
+   "label": "dsp_id.hex.sha1_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.11270763259927144,
+   "initial_pair": 0.11270763259927144,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.hex_wswap.zeropad16 | device_id.hex.zeropad16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.11212594341314792,
+   "initial_pair": 0.11212594341314792,
+   "view": "u32le",
+   "offset": 8
+  },
+  {
+   "label": "serial.ascii.sha1_16 | serial.ascii_upper.sha1_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.11073763989518333,
+   "initial_pair": 0.11073763989518333,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "device_id.hex_rev.zeropad16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.11027488784511941,
+   "initial_pair": 0.11027488784511941,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.hex_wswap.md5 | device_id.hex.md5",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10965177024709147,
+   "initial_pair": 0.10965177024709147,
+   "view": "u32be",
+   "offset": 4
+  },
+  {
+   "label": "aptina_field.hex_wswap.sha1_16 | device_id.hex.sha1_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10935523536187113,
+   "initial_pair": 0.10935523536187113,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.ascii_upper.sha256_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.1093127208800515,
+   "initial_pair": 0.1093127208800515,
+   "view": "u32be",
+   "offset": 8
+  },
+  {
+   "label": "ble_id.hex.sha256_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10912329817467763,
+   "initial_pair": 0.10912329817467763,
+   "view": "u32le",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.hex_wswap.sha256_16 | device_id.hex.sha256_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10909069881687233,
+   "initial_pair": 0.10909069881687233,
+   "view": "u32be",
+   "offset": 12
+  },
+  {
+   "label": "serial_fragment.hex_rev.sha512_16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.10853430489156372,
+   "initial_pair": 0.10853430489156372,
+   "view": "u32le",
+   "offset": 12
+  },
+  {
+   "label": "aptina_field.ascii_upper.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.10710395291259564,
+   "initial_pair": 0.10710395291259564,
+   "view": "u32be",
+   "offset": 12
+  },
+  {
+   "label": "device_name.ascii_lower.sha256_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10569153200920603,
+   "initial_pair": 0.10569153200920603,
+   "view": "u32be",
+   "offset": 0
+  },
+  {
+   "label": "case_serial.ascii.sha512_16 | case_serial.ascii_upper.sha512_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10511714560403503,
+   "initial_pair": 0.10511714560403503,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "ble_id.hex_wswap.sha512_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10466430260857681,
+   "initial_pair": 0.10466430260857681,
+   "view": "u32le",
+   "offset": 4
+  },
+  {
+   "label": "firmware_version.ascii.sha512_16 | firmware_version.ascii_lower.sha512_16 | firmware_version.ascii_upper.sha512_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.1044953565272367,
+   "initial_pair": 0.1044953565272367,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "ble_id.hex.sha1_16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10402443513402637,
+   "initial_pair": 0.10402443513402637,
+   "view": "u32le",
+   "offset": 8
+  },
+  {
+   "label": "ble_id.hex.md5",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10390933503278757,
+   "initial_pair": 0.10390933503278757,
+   "view": "u32le",
+   "offset": 8
+  },
+  {
+   "label": "device_id.ascii.md5 | device_id.ascii_upper.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10198219773346376,
+   "initial_pair": 0.10198219773346376,
+   "view": "u32le",
+   "offset": 4
+  },
+  {
+   "label": "dsp_id.ascii.raw | dsp_id.ascii_lower.raw",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10158917484290735,
+   "initial_pair": 0.10158917484290735,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "ble_id.hex_wswap.md5",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.10141682536324313,
+   "initial_pair": 0.10141682536324313,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.ascii.md5 | aptina_field.ascii_lower.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.1010255675386538,
+   "initial_pair": 0.1010255675386538,
+   "view": "u32be",
+   "offset": 0
+  },
+  {
+   "label": "dsp_id.hex_rev.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.10084393902393995,
+   "initial_pair": 0.10084393902393995,
+   "view": "u32be",
+   "offset": 12
+  },
+  {
+   "label": "ble_id.ascii_upper.sha1_16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10056916419830547,
+   "initial_pair": 0.10056916419830547,
+   "view": "u32le",
+   "offset": 16
+  },
+  {
+   "label": "serial_fragment.hex_wswap.sha512_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.10048316545212779,
+   "initial_pair": 0.10048316545212779,
+   "view": "u32le",
+   "offset": 4
+  },
+  {
+   "label": "ble_id.hex_wswap.repeat16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.10045089453874323,
+   "initial_pair": 0.10045089453874323,
+   "view": "u32be",
+   "offset": 0
+  },
+  {
+   "label": "device_name.ascii.sha256_16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.10020263213304813,
+   "initial_pair": 0.10020263213304813,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "case_serial.hex.md5",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.09961763140880482,
+   "initial_pair": 0.09961763140880482,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "aptina_field.hex.zeropad16 | device_id.hex_wswap.zeropad16",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.09888001560701594,
+   "initial_pair": 0.09888001560701594,
+   "view": "u16le",
+   "offset": 16
+  },
+  {
+   "label": "case_serial.hex_wswap.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.09854335861732703,
+   "initial_pair": 0.09854335861732703,
+   "view": "u32le",
+   "offset": 0
+  },
+  {
+   "label": "aptina_field.hex.sha256_16 | device_id.hex_wswap.sha256_16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.09850847083413888,
+   "initial_pair": 0.1463328684078465,
+   "view": "u32le",
+   "offset": 16
+  },
+  {
+   "label": "aptina_field.hex.sha1_16 | device_id.hex_wswap.sha1_16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.09844201163150054,
+   "initial_pair": 0.09844201163150054,
+   "view": "u16be",
+   "offset": 0
+  },
+  {
+   "label": "case_serial.ascii_lower.md5",
+   "cipher": "TEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.09821076222591024,
+   "initial_pair": 0.09821076222591024,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "case_serial.hex_wswap.repeat16",
+   "cipher": "XTEA",
+   "endian": "big",
+   "mode": "CBC-zero",
+   "repeatability": 0.09728185857211395,
+   "initial_pair": 0.09728185857211395,
+   "view": "u32le",
+   "offset": 8
+  },
+  {
+   "label": "dsp_id.ascii_upper.raw",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "CBC-zero",
+   "repeatability": 0.0972299606510846,
+   "initial_pair": 0.0972299606510846,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "device_name.ascii_upper.sha512_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.09683971765915951,
+   "initial_pair": 0.09683971765915951,
+   "view": "u16be",
+   "offset": 8
+  },
+  {
+   "label": "ble_fw_version.ascii.repeat16 | ble_fw_version.ascii_lower.repeat16 | ble_fw_version.ascii_upper.repeat16",
+   "cipher": "TEA",
+   "endian": "big",
+   "mode": "ECB",
+   "repeatability": 0.0956564961331242,
+   "initial_pair": 0.0956564961331242,
+   "view": "u32be",
+   "offset": 16
+  },
+  {
+   "label": "ble_id.ascii.sha512_16 | ble_id.ascii_lower.sha512_16",
+   "cipher": "XTEA",
+   "endian": "little",
+   "mode": "ECB",
+   "repeatability": 0.09513658169523617,
+   "initial_pair": 0.09513658169523617,
+   "view": "u32le",
+   "offset": 12
+  }
+ ],
+ "conclusion": "no enumerated TEA/XTEA identifier key produced repeatable plaintext"
+}

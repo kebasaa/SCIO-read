@@ -1,0 +1,18 @@
+{
+ "timestamp": "2026-09-07T16:53:07",
+ "label": "READ_DEVICE_STATUS(0x00)",
+ "command": 0,
+ "payload_hex": "",
+ "request_hex": "03ba000000",
+ "ok": true,
+ "response_command": 0,
+ "response_len": 8,
+ "response_hex": "0000000001000000",
+ "response_ascii": "........",
+ "response_u32le": [
+  0,
+  1
+ ],
+ "elapsed_s": 0.0,
+ "note": ""
+}

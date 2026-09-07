@@ -1,0 +1,20 @@
+{
+ "timestamp": "2026-09-07T16:54:13",
+ "label": "READ_FILE_HEADER(0x87) file=102 id_off16_len256",
+ "command": 135,
+ "payload_hex": "660000001000000000010000",
+ "request_hex": "2fba870c00660000001000000000010000",
+ "ok": true,
+ "response_command": 135,
+ "response_len": 16,
+ "response_hex": "660000008c0000000300000013350000",
+ "response_ascii": "f............5..",
+ "response_u32le": [
+  102,
+  140,
+  3,
+  13587
+ ],
+ "elapsed_s": 0.007,
+ "note": ""
+}

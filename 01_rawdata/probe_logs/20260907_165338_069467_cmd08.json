@@ -1,0 +1,15 @@
+{
+ "timestamp": "2026-09-07T16:53:36",
+ "label": "PARAMETER_GET(0x08) id=89 shape=<I",
+ "command": 8,
+ "payload_hex": "59000000",
+ "request_hex": "12ba08040059000000",
+ "ok": false,
+ "response_command": null,
+ "response_len": null,
+ "response_hex": "",
+ "response_ascii": "",
+ "response_u32le": null,
+ "elapsed_s": 2.007,
+ "note": "timeout (no response)"
+}

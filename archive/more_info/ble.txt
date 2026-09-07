@@ -1,0 +1,59 @@
+MAC: B4:99:4C:59:66:01
+
+700-1100nm
+Web guess: ~740nm to ~900nm @ 13nm band width
+Paper (https://arxiv.org/pdf/1805.04051.pdf): 740-1,070 nm
+Normalised intensity 0-1, dimensionality: 331, i.e. 1nm bandwidth, but I have 278 rows, so maybe 1.2nm bandwidth?
+
+Generic access 0x1800
+
+Unknown service:
+00003490-0000-1000-8000-00805f9b34fb
+
+3491 with
+0x2902
+0x2901
+
+3492
+0x2901
+
+3493      0x01 = button was pushed
+0x2902
+0x2901
+
+
+Inside 0x1800
+0x2a00 = dev name
+char-read-uuid 00002a00-0000-1000-8000-00805f9b34fb
+char-read-hnd 0x0003
+
+Inside 0x180a
+handle: 0x0012, uuid: 00002a23-0000-1000-8000-00805f9b34fb = system ID in hex
+0x2a29 = Manufacturer name 0x001e
+
+
+
+# From the sniffed packages
+#----------------------------
+
+# Scan and read
+handle: 0x0029, uuid: 00003492-0000-1000-8000-00805f9b34fb
+write 01ba020000
+char-write-cmd 0x0029 01ba020000
+The answer comes in on notification handle 0x0025
+
+# Calibrate???
+
+char-write-cmd 0x0029 01ba050000 // What's this?
+char-write-cmd 0x0029 01ba0e0000 // Start calibration???
+char-write-cmd 0x0029 01ba0b0900000000000000000000 // end calibration
+char-write-cmd 0x0029 01ba040000 // Do sth
+char-write-cmd 0x0029 01ba020000 // Finally, scan
+
+
+# Button press
+notification handle reades 0x002c value: 01
+
+
+
+sudo gatttool -i hci0 -b B4:99:4C:59:66:01 --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt

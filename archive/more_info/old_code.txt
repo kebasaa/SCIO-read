@@ -1,0 +1,49 @@
+async def read_response_as_raw(self):
+        try:
+            # Start reading the response
+            s = self.client.read(1)
+        except Exception as e:
+            logging.error(f'Failed to read command from {self.address}: {e}')
+            raise
+        response_type = struct.unpack('<b',s)[0]
+        full_resp = s
+        # Error check
+        assert (response_type == self.cmd_base_protocol), 'Wrong response type: {}'.format(response_type)
+        # Read data
+        s = self.client.read(1)
+        response_content = struct.unpack('<b',s)[0]
+        full_resp = full_resp + s
+        s = self.client.read(2)
+        response_length = struct.unpack('<H',s)[0]
+        full_resp = full_resp + s
+        # Read the number of values specified by the response length
+        response_data = self.client.read(response_length)
+        full_resp = full_resp + response_data
+        return(full_resp)
+
+    async def scan_as_hex(self):
+        byte_cmd = self.create_command(self.cmd_scan)
+        await self.send_command(byte_cmd)
+        # Read scan
+        rawdata = []
+        for i in range(3):
+            full_resp = await self.read_response_as_raw()
+            rawdata.append(full_resp)
+        # Parse response (Store as base64 strings)
+        hex_data = {'sample':          rawdata[0].hex(),
+                    'sample_dark':     rawdata[1].hex(),
+                    'sample_gradient': rawdata[2].hex()}
+        print(hex_data)
+        # Now interpret
+        import numpy as np
+        sample = np.array(struct.unpack('<bbH4x400I196x',rawdata[0]))
+        sampleDark = np.array(struct.unpack('<bbH4x400I196x',rawdata[1]))
+        sampleGradient = np.array(struct.unpack('<bbH4x400I52x',rawdata[2]))
+        print('sample', sample)
+        print('sampleDark', sampleDark)
+        print('sampleGradient', sampleGradient)
+        correctedSample = sample - sampleDark
+        correctedGradient = sampleGradient - sampleDark
+        reflectance = correctedSample / correctedGradient
+        print('Reflectance', reflectance)
+        return(hex_data)

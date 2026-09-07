@@ -1,0 +1,18 @@
+{
+ "schema": "scio-key-hypothesis-run/1",
+ "run_date": "2026-09-07",
+ "source": "01_rawdata/scan_json",
+ "cipher_hypothesis": "AES",
+ "unique_candidate_keys": 2111,
+ "named_derivations": 2226,
+ "screening_threshold": 0.6,
+ "hits": 0,
+ "best": {
+  "score": 0.083,
+  "derivation": "serial+i2s.pipe.forward.sha256",
+  "mode": "CFB",
+  "iv_scheme": "header8_zero8",
+  "numeric_view": "u32be"
+ },
+ "conclusion": "Negative for the enumerated identifier/serial/version AES hypotheses only; the packet transform remains unresolved."
+}

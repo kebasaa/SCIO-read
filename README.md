@@ -1,214 +1,282 @@
 [![GitHub](https://img.shields.io/github/license/kebasaa/SCIO-read)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Read the SCiO spectrometer built by [Consumer Physics](https://www.consumerphysics.com/)
+# Reading the SCiO spectrometer (Consumer Physics)
 
-In this small project, I'm trying to create a Python library to scan and interpret data from the the SCiO spectrometer. As I'm not very experienced, this is first going to be a documentation effort of the device, and hopefully in the future the code will work. Any input and help is appreciated.
+Tools to talk to a [Consumer Physics SCiO](https://www.consumerphysics.com/)
+near-infrared spectrometer over USB, capture its raw scans, and work toward
+decoding them **offline**. The SCiO is now end-of-life: Consumer Physics
+de-activated accounts and its servers no longer analyse this device. The scan
+encoding is unresolved: packing, compression, obfuscation and encryption are
+all hypotheses. The goal is to identify that transform from local evidence and
+recover repeatable wavelength-indexed spectra without the server.
 
-**IMPORTANT, I NEED YOUR HELP:** The SCiO sends raw measurements to a server online as bytes coded in Base64. The server then returns the data as JSON. However, it is unclear how the 1800 bytes of the sample reading, 1800 bytes of sampleDark and 1656 bytes of sampleGradient are turned into 331 float values representing a normalised reflectance spectrum from 0-1. If you have any insights, please let me know.
+Contributions - especially firmware blobs extracted from an old phone, or
+Blackfin reverse-engineering - are very welcome. See
+[How you can help](#how-you-can-help).
 
-Further: It appears that the raw bytes reported by the SCiO don't correspond to the Base64 string sent to the Consumer Physics server. There might be some encryption happening in between these stages, can someone help decrypt it based on this information? See *02_extract_log_scan.ipynb* to obtain the data from log files or check the folder *01_rawdata/log_extracted/*
+## Status
 
-**DISCLAIMER**: All this code is experimental. I am trying to reverse-engineer the device in order to read the reflectance spectrum, but any help is appreciated! Scan data can't currently be fully decoded, this is an area where help is particularly appreciated
+| Capability | State |
+|---|---|
+| Command the SCiO over USB, read metadata, temperature, battery | **Works** (`07_scio_capture.ipynb`) |
+| Capture and store raw scans + white reference | **Works** |
+| Convert a raw scan into a spectrum offline | **Researching**: the opaque transform is not yet identified |
+| Convert via the Consumer Physics server | **Dead**: device is EOL, accounts de-activated, server refuses these scans |
+
+`analyze_scio.py` builds a canonical corpus and hypothesis-neutral diagnostics.
+The current 82-record/324-blob report rejects direct raster/image layouts,
+common weak PRNG/stream transforms, and the enumerated AES/TEA/XTEA keys derived
+from serials and hardware IDs. These are bounded negative results, not proof of
+encryption or proof that no image-domain data exists behind the opaque layer.
+
+## Quick start
+
+1. Create the environment (or use any env with the listed packages):
+   ```bash
+   conda env create -f scio_env.yml   # numpy, pandas, scipy, matplotlib, pyserial, cryptography, jupyterlab, pytest
+   ```
+2. Turn the SCiO on (long press until it blinks blue) and connect USB.
+3. Run `07_scio_capture.ipynb` to read the device and capture a white reference
+   and a sample scan. Raw scans are saved under `01_rawdata/`.
+4. To attempt decoding, run `08_scio_keyrecovery.ipynb` (or `recover_key.py`)
+   after obtaining the DSP firmware from an old phone.
+5. Run `analyze_scio.py` or `10_scio_evidence_pipeline.ipynb` to rebuild the
+   corpus/evidence reports. Offline checks: `pytest tests/`.
+6. `repeatability_key_search.py` and `embedded_cipher_search.py` reproduce the
+   unchanged-target AES and TEA/XTEA identifier-key tests.
+
+On Windows the SCiO appears as a Texas Instruments CDC serial port (VID:PID
+`0451:16AA`); on Linux it is a `/dev/ttyACM*` device.
+
+**If the SCiO enumerates but never answers** (commands time out waiting for the
+`0xBA` marker), it is in its idle/charging state: the light pulses slowly
+between light and dark blue instead of glowing steadily. Power-cycle it -
+unplug USB, long-press to turn it off, long-press to turn it on until the light
+is steady, then reconnect USB. It then responds to commands normally. This is a
+device-state issue, not a serial-settings one.
+
+## How the SCiO actually works
+
+This section replaces earlier guesses in this repo with what was verified from
+the device data and the decompiled apps.
+
+1. **Optics.** A diffuser and a Fabry-Perot-style optical filter with several
+   sub-filters of different centre wavelengths sit in front of a lens and a
+   micro-lens array. Light of each wavelength lands as a ring/spot of a
+   characteristic radius, so wavelength is encoded as position on the sensor
+   (US patents [US9377396B2](https://patents.google.com/patent/US9377396B2) and
+   [US10330531B2](https://patents.google.com/patent/US10330531B2)).
+2. **CMOS sensor.** An ON Semiconductor MT9M034 (1280x960, 12-bit) captures the
+   image.
+3. **DSP binning.** A Blackfin BF512 DSP reduces the image to a compact vector
+   using **per-device tables**: `deadPixelsIndices`, `centers`, `bins`,
+   `nPixelsPerBin`. Their version is the `i2s_tag_config` string (e.g.
+   `20150812-e:PRODUCTION`); the server called this the `compression_version`.
+   "i2s" = *image-to-spectrum*.
+4. **Opaque encoding.** Each scan sends three blobs—dark, sample, gradient—with
+   an observed 8-byte prefix (`u32 type`, `u32 unclassified value`) and a
+   high-entropy body. Body sizes are multiples of 16 on the available firmware.
+   This is compatible with packed data, compression, obfuscation or encryption;
+   it does not prove AES, a nonce, a per-device key, or Lockbox usage.
+5. **Transport.** The phone received the three blobs over BLE/USB, base64-encoded
+   them verbatim, and POSTed them (plus the stored white reference) to
+   `api.consumerphysics.com`.
+6. **Server (now gone).** The server undid the opaque encoding and binning and
+   returned a 331-point reflectance spectrum on a linear axis
+   (`{start: 740, steps: 1, num_WL: 331}` -> 740-1070 nm). Nothing in any app
+   ever computed a spectrum locally.
+
+### Corrections to earlier notes in this repo
+
+- *"The raw bytes don't match the base64 sent to the server."* They do match.
+  The confusion came from two things: the three responses arrive as
+  **dark, sample, gradient** (index 0 is dark, not sample), and the old USB
+  notebook used URL-safe base64 while the app/logs use standard base64.
+- *"No clue what sample / dark / gradient mean."* Dark = exposure with the
+  illumination off (baseline), sample = illuminated exposure, gradient = a third
+  exposure (header type `0x6E`) the server model also used.
+- *"12 filters x 27 nm = 331 bands."* Coincidence; the 331 points come from the
+  server's `num_WL`, not from the optics arithmetic.
+- *"R = S / C."* A conceptual sketch only; the server combined all six blobs
+  (sample/dark/gradient and the white-reference triplet) with the per-device
+  tables. The technical-support export establishes the final spectral-domain
+  relationship exactly: `spectrum = sample_raw / wr_raw`. Converting each raw
+  triplet into those spectral-domain vectors remains unresolved.
+- *"It measures twice and averages."* One scan command returns two or three
+  response blobs (by firmware version), not two averaged scans.
+
+## Protocol reference
+
+Frames in both directions: `[seq, 0xBA, cmd, len_lo, len_hi, payload...]`
+(`0xBA` is the protocol marker; length is little-endian uint16). Over BLE each
+20-byte notification is additionally prefixed with the sequence byte and there
+is **no CRC**; over USB the whole frame arrives on the serial stream.
+
+| Cmd | Hex | Meaning | Response |
+|---|---|---|---|
+| READ_DEVICE_STATUS | 0x00 | status | status payload |
+| READ_DEVICE_ID | 0x01 | identifiers | dsp id `[0:8]`, aptina id `[16:24]` (16-bit words byte-swapped -> `device_id`), fw `u16@24` |
+| SAMPLE_SPECTRUM | 0x02 | scan | 2 responses (fw < 136) or 3: dark, sample, gradient |
+| READ_TEMPERATURE | 0x04 | temperature | 3x `u32` LE; cmos `(x-375.22)/1.4092` C, chip `x/100`, object `x/100` |
+| READ_BATTERY_STATE | 0x05 | battery | charge% `u16`, health% `u8`, status `u8`, charging `u16`, mV `u16/1000` |
+| READ_BLE_ID | 0x84 | BLE info | ble id `[0:8]`, ble fw `u16@8`, name `str(50,16)`, **i2s tag** `str(66,64)` |
+| READ_FILE_HEADER | 0x87 | file header | 16 B = `u32` **type, size, version, checksum** (all LE). Payload `<I file_id` only (no offset/length) |
+| READ_FILE_LIST | 0x94 | file list | 8-byte `(u32 type, u32 version)` entries; handler keeps only types 87-95 |
+
+**Declared by the firmware but never sent by any app** (behaviour unknown; probed
+read-only by `09_scio_probe.ipynb`): `READ_EVENT_LOG` 0x06, `PARAMETER_GET` 0x08,
+`BIST` 0x09. The file-list handler reserves the id band 87-95, so a few opcodes
+in that range (e.g. 0x88, 0x8A-0x8F, 0x93, 0x95) are unclaimed and are probed too.
+
+Write / state commands - `PARAMETER_SET` 0x07, `SET_INDICATION_LED` 0x0B,
+`READY_FOR_WR` 0x0E, `CLEAR_READY_FOR_WR` 0x11, `FILE_DOWNLOAD` 0x81,
+`RESET_DEVICE` 0x83, `WRITE_USER_DEVICE_NAME` 0x91, `WRITE_BLE` 0x9A - **are never
+sent by this project** and the USB transport / probe refuse them unless you
+explicitly opt in.
+
+### Can the firmware be pulled over USB?
+
+**No, not with any command the apps know how to issue.** Every device→host
+response is small and structured (spectrum, battery, temperature, ids, file list,
+file header). `FILE_DOWNLOAD` (0x81) is host→device only; `READ_FILE_HEADER`
+(0x87) returns only the 16-byte header and its request has no offset/length to
+stream a body. There is no memory/flash/file-body read command and no raw-opcode
+API in the SDK. The only untested surface is the three declared-but-unused
+opcodes above and the reserved band; `09_scio_probe.ipynb` probes them safely.
+
+**Probed on real hardware (fw 147): confirmed negative.** `READ_EVENT_LOG`,
+`PARAMETER_GET` (all ids/shapes) and `BIST` return nothing; extended
+`READ_FILE_HEADER` is ignored (still 16 bytes, no body); `READ_DEVICE_STATUS`
+returns a trivial `{0,1}`. So pulling `dsp_op` (32628 bytes on this unit) needs
+hardware - see below. The probe did confirm exact file sizes/checksums, which a
+flash or JTAG dump can be validated against.
+
+Scan blob body sizes depend on the i2s generation: `-e` firmware gives
+1800/1800/1656 bytes (dark/sample/gradient), older `-o` gives 1800/1800/1416.
+
+### Bluetooth LE (reference)
+
+This project uses USB, but the SCiO speaks the same `0xBA` command protocol over
+BLE, and the handles below are preserved for future BLE work. The vendor GATT
+service is `00003490-0000-1000-8000-00805f9b34fb`, with:
+
+| Role | UUID | Handle (this unit) |
+|---|---|---|
+| Control (write commands) | `00003492-…` | `0x0029` |
+| Reporter (scan-data notifications) | `00003491-…` | replies on `0x0025` |
+| Button pressed (notification) | `00003493-…` | `0x002c` reads `0x01` on press |
+
+Standard characteristics: device name `0x2a00` (`00002a00-…`, handle `0x0003`);
+system id `00002a23-…` (handle `0x0012`); manufacturer name `0x2a29` (handle
+`0x001e`), under services `0x1800`/`0x180a`. Each of `3491`/`3492`/`3493` carries
+CCCD/`0x2902` and `0x2901` descriptors.
+
+Over BLE, a command is written to the control characteristic and the response
+arrives as 20-byte notifications on the reporter (each prefixed with the sequence
+byte, unlike USB). Example scan/calibration sequence seen on the wire (write to
+handle `0x0029`):
+
+```
+01ba050000                    # read battery state
+01ba0e0000                    # ready for white reference
+01ba0b0900000000000000000000  # set indication LED (9-byte payload)
+01ba040000                    # read temperature
+01ba020000                    # sample spectrum (the scan) -> replies on 0x0025
+```
+
+With BlueZ you can drive it directly, e.g.:
+
+```bash
+sudo gatttool -i hci0 -b <MAC> --char-write-req -a 0x0029 -n 01ba020000 --listen
+```
+
+The `05_scio_ble_devel.ipynb` notebook has an unfinished `bleak`-based attempt;
+a working BLE transport would reassemble the sequence-prefixed notifications into
+`[0xBA, cmd, len, data]` frames (see `scio/protocol.py`).
+
+## Calibration (white reference)
+
+A white reference is the same `SAMPLE_SPECTRUM` command taken with the SCiO in
+its cover / on a known white surface. It is stored and reused; the app
+recalibrated when it was too old, too many scans had passed, or the CMOS
+temperature had drifted. `scio.store.calibration_status` mirrors that logic;
+`07_scio_capture.ipynb` writes `scio-wr/1` files under
+`01_rawdata/scan_json_calibration/`.
+
+## The opaque-transform problem and bounded key hypothesis
+
+If statistical evidence supports encryption, one testable branch is:
+
+1. **Get the DSP firmware** (`dsp_op`) and the binning tables. They are not on
+   the server any more, but both SCiO apps cached them in Android
+   SharedPreferences on the phone (see below).
+2. **Triage** the artifact (`scio.firmware.triage`): a valid Blackfin LDR image
+   is analysable; a high-entropy artifact remains opaque and needs more evidence.
+3. **Find the cipher** (`scio.keyrecover.find_signatures`): locate the AES
+   S-box / round constants (or XTEA/ChaCha) in `dsp_op`.
+4. **Test firmware-derived keys** (`scio.keyrecover.recover`): 16/24/32-byte
+   constants near the cipher code, plus standard derivations of the device
+   identifiers, are decrypted against real scans and scored by a plaintext
+   oracle (a candidate may turn the body into a smooth numeric vector),
+   corroborated across several blobs. **No key spaces are
+   brute-forced** - only constants actually present in the firmware are tried.
+5. **Validate**: decrypt a fixture that also has the server's stored spectrum
+   and confirm the derived reflectance matches it.
+
+Run it: `python recover_key.py --scans 01_rawdata/scan_json --firmware 01_rawdata/device_files`.
+
+## How you can help
+
+- **Firmware blobs from an old phone.** If you have (or can borrow) a phone that
+  ran the SCiO or SCiO Lab app, extract its cached firmware:
+  - rooted: copy `/data/data/com.consumerphysics.consumer/shared_prefs/` (or
+    `...researcher`);
+  - no root: `adb backup -f scio.ab -noapk com.consumerphysics.consumer`.
+  Point `08_scio_keyrecovery.ipynb` at it. The key files are `dsp_op` (id 92)
+  and the tables `centers`/`bins`/`nPixelsPerBin`/`deadPixelsIndices` (100-103).
+- **Blackfin reverse-engineering.** If `dsp_op` is plaintext, disassembly of the
+  BF512 code to find the cipher and key derivation is the fastest route.
+- **Hardware.** JTAG/OTP readout of the BF512, or a logic-analyser tap on the
+  CMOS-to-DSP bus (captures unencrypted pixels), are the fallback options
+  documented in [`documentation/firmware_notes.md`](documentation/firmware_notes.md).
+
+## Repository layout
+
+| Path | What |
+|---|---|
+| `scio/` | Python package: capture, corpus, evidence, candidate transforms, validation |
+| `07_scio_capture.ipynb` | Connect over USB, capture white reference + scans |
+| `08_scio_keyrecovery.ipynb` | Load firmware, run key recovery, validate, decode |
+| `recover_key.py` | Command-line key recovery |
+| `repeatability_key_search.py` | AES search scored by unchanged-target repeatability |
+| `embedded_cipher_search.py` | Bounded TEA/XTEA identifier-key search |
+| `tests/test_offline.py` | Offline tests (no hardware) |
+| `01_rawdata/` | Captured scans, white references, and `log_extracted/` fixtures (raw scan + the server spectrum, for regression) |
+| `02_extract_log_scan.ipynb` | Extract scans from old app log files |
+| `03/04/06_*.ipynb` | Earlier decoding attempts (superseded by `08`) |
+| `09_scio_probe.ipynb` | Safe read-only probing of undocumented USB opcodes |
+| `10_scio_evidence_pipeline.ipynb` | Canonical corpus and transform evidence report |
+| `capture_matrix.py` | Labeled read-only replicate capture utility |
+| `analyze_flash_dump.py` | Compare/carve independently acquired SPI or JTAG dumps |
+| `documentation/EVIDENCE.md` | Fact/hypothesis ledger and acceptance gates |
+| `documentation/HARDWARE_ACQUISITION.md` | Read-only SPI/JTAG acquisition procedure |
+| `documentation/HANDOFF.md` | Onboarding for another programmer taking over |
+| `documentation/` | Datasheets, patents, `firmware_notes.md` |
+| `archive/` | Superseded scripts/notebooks kept for history |
+
+## License and credits
+
+Software under GPL v3. Logos and icons are trademarks of Consumer Physics.
+
+Thanks to GitHub users [AndreySamokhin](https://github.com/AndreySamokhin),
+[onoff0](https://github.com/onoff0), [franklin02](https://github.com/franklin02)
+and [JanBessai](https://github.com/JanBessai) for earlier reverse-engineering
+help, and to everyone still trying to keep the SCiO usable.
 
 ## Changelog
 
-- 2023-03-21 Extract data from log files
-  - **02_extract_log_scan.ipynb**: Extract and store data from log files
-- 2023-03-19 Attempts at decoding the data
-  - **03_scio_analyse_devel.ipynb**: Decode the data (initial unsuccessful attempts)
-- 2023-03-01 Creating a class for interaction with the hardware:
-  - **01_scio_scan.ipynb**: Read the device metadata and trigger a scan through USB
-- 2020-05-29 Moved everything to jupyter notebooks:
-  - **01_scio_scan.ipynb** identifies the device, then performs a scan and saves the raw binary data (encoded as base64) into a .json file.
-  - **02_analyse.ipynb** is used to analyse the rawdata and convert it to actual numbers. It does not fully work yet
-  
-## Usage of the code in this repository
-
-1. Connect the SCiO to your computer (currently supports Windows) through USB
-2. Run the code in *01_scio_usb.ipynb* to calibrate and scan. This can save files with raw data
-3. You can extract scan data from logs using *02_extract_log_scan.ipynb*. What is interesting is that the raw bytes reported by the SCiO don't correspond to the Base64 string sent to the server. Is some encryption happening in between these stages?
-4. Run *03_scio_analyse_devel.ipynb* to attempt to decode the data
-
-**NOTE:** Base64 data generated from parsed log files is different from that generated by scans. The Base64 type generated by scans is urlsafe, while the one in the log files is not.
-
-## Documentation of the SCiO device
-
-The following is an attempt to document as much as possible of the SCiO's functioning for the reverse-engineering effort. Any additional information is appreciated.
-
-### Hardware & device specifications
-
-The specs are rather badly documented. The following information is known so far:
-
-- Scans cover the **near-infrared (NIR) range**, most likely at a 1nm bandwidth:
-  - The **740-1070nm** range makes logical. US patent [US9377396B2](https://patents.google.com/patent/US9377396B2) describes the main operating principle of the SCiO spectrometer, as follows:
-    - Diffuse light impinges upon an optical filter which has a relatively narrow bandpass (about 27nm)
-    - A part of the light passes through the filter, then through a convex lens, and finally through a micro-lens array
-    - As a result, a series of circles appear on a CMOS matrix (each circle corresponds to a particular wavelength)
-    - The SCiO spectrometer has 12 filters, each on one of 12 independent regions on the CMOS matrix.
-    - As a result, $12 · 27 = 331$ bands.
-  - The range of **740-1070nm** is confirmed by multiple scientific publications:
-    - [Erikson et al., 2019; IEEE Robotics And Automation Letters](https://ieeexplore.ieee.org/abstract/document/8610196), also see [ArXiv](https://arxiv.org/pdf/1805.04051.pdf)
-    - [Hershberger et al., 2022; The Plant Phenome Journal](https://doi.org/10.1002/ppj2.20040)
-    - [Kosmowski & Worku, 2018; PLoS One](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862431/) stated that there are 331 datapoints from 740nm to 1070nm.
-	- [Barri et al. 2019; Measurement](https://doi.org/10.1016/j.measurement.2019.107212) ([Full PDF here](https://www.researchgate.net/publication/337026218_Smartphone-Based_Molecular_Sensing_for_Advanced_Characterization_of_Asphalt_Concrete_Materials)) used the device to identify asphalt samples and show a disassembled SCiO in their publication, but claim a range of 740-1040nm (at least for the light source). They also provide more details on the mathematical functions applied to obtain reflectance, with shown final reflectance values ranging from -7e-4 to 2e-4
-  - Consumer Physics claims a range of **700-1100nm** (in their own forums, when they were still available), confirmed by the following sources:
-    - [Forum user savorypiano](https://news.ycombinator.com/item?id=13939068) stated that there were 400 datapoints corresponding to 1 nm spaced wavelengths from 700-1100 nm.
-- Data recorded by the SCiO is sent through the phone to the Consumper Physics servers
-  - Scan data is apparently **encrypted** ([Forum user dancsi](https://news.ycombinator.com/item?id=13941019))
-  - Scan data contains the following (where "white" denotes the calibration):
-    - sample and sample_dark (This starts with base64: `AAAAA`, 1800 bytes long): Raw spectral data representing light reflected from the sample (or calibration target)
-    - sample_white and sample_white_dark (Starts with base64: `AAAAA`, 1800 bytes long): Raw spectral data from the SCIO's internal dark current reference, i.e. the background signal when there is no light
-    - sample_white_gradient and sample_gradient (Starts with base64: `bgAAA`, 1656 bytes long): Raw spectral data from the SCIO's internal white reference when measuring a known white reference
-  - Metadata contains the following information (with example data):
-    - `"device_id":"8032AB45611198F1"`
-    - `"sampled_at":"2021-10-20T10:58:58.729+03:00"` (Timestamp of current scan)
-    - `"sampled_white_at":"2021-10-20T10:53:18.334+03:00"` (Timestamp of calibration scan)
-    - `"scio_edition":"scio_edition"`
-    - `"mobile_GPS":{"longitude":-----,"latitude":----,"locality":"-----","country":"-----","admin_area":"-----","address_line":"-----"` (This information should be private and should not matter for scan analysis, but it is transferred)
-    - `"mobile_mac_address":"------"` (Phone MAC address. Again, this information should be private and doesn't matter for scan analysis)
-    - `"i2s_tag_config":"20150812-e:PRODUCTION"` (Seems to be a hardware version)
-- **Hardware**:
-  - Teadown, documented by Sparkfun: [https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-)
-  - Blog in [image-sensors-world.wordpress.com](http://image-sensors-world.blogspot.com/2017/03/mobile-spectrometer-reverse-engineering.html) claiming that the SCiO has a 1.2 MPx monochromatic CMOS sensor from ON Semiconductor, combined with a Fabry-Pérot filter.
-- Reddit channel dedicated to the device: [https://www.reddit.com/r/scio/](https://www.reddit.com/r/scio/)
-- Old versions of the SCiO app (I believe around the 1.2 releases) created log files that could be found in one of the folders on the phone. These log files contain the raw data and spectrum returned by the Consumer Physics server. For these versions, see [APKpure](https://apkpure.com/scio-pocket-molecular-sensor/com.consumerphysics.consumer/versions)
-  - There is an SDK available as well, see [APKpure](https://apkpure.com/the-lab-dev-toolkit-for-scio/com.consumerphysics.researcher/versions)
-
-### Measurement principle
-
-The SCiO illuminates the sample with a light and measures the reflected light in a number of wavelengths. This measured spectrum is then used in large online databases to identify the content of the sample. Obviously, the code and documentation in this repository is trying to gain access raw scan data for research purposes, i.e. access to the online tools is not an aim.
-
-Based on US patent [US9377396B2](https://patents.google.com/patent/US9377396B2), each resulting scan is likely a file to be an image, not a spectrum directly. Another US patent, [US10330531B2](https://patents.google.com/patent/US10330531B2), confirms that the raw data is both compressed and encrypted: *"… the compressed encrypted raw data signal can be transmitted via Bluetooth to the handheld device. Compression of raw data may be necessary since raw intensity data will generally be too large to transmit via Bluetooth in real time. … The data generated by the optical system described herein typically contains symmetries that allow significant compression of the raw data into much more compact data structures"*. This data is analysed by the online server in order to provide a spectrum.
-
-According to Consumer Physics, the SCiO app with a developer license (which I don't have) can output raw data as CSV divided into three parts: The spectrum, wr_raw and sample_raw (from their forums). The first part is the reflectance spectrum (R) – how much of the light is reflected back by the sample. The second part is the raw signal from the sample (S), and the third is the raw signal from the calibration (C). In order to calculate reflectance, the equation is: R=S/C.
-
-It appears that for every scan, the SCIO measures twice. It probably then takes the mean between the 2 scans. Every SCIO bluetooth LE message contains 3 parts: sample, sampleDark and sampleGradient (No clue so far what that those mean or how to convert them). Calibration is done by scanning the calibration box, and comparing a scan with that calibration scan.
-
-### Sample identification
-
-Consumer Physics described the process as follows in their forum: _The spectrometer breaks down the light to its spectrum (the spectra), which includes all the information required to detect the result of this interaction between the illuminated light and the molecules in the sample. This means that SCiO analyses the overall spectra that is received and, comparing it to different algorithms and information provided, identifies or evaluates it._
-
-_For example, if you know the basic spectra of a watermelon, and then see that as the watermelon gets sweeter, meaning it has more sugar content, the spectrum gradually changes in a specific manner, you will be able to build an algorithm in accordance. In recognizing the existence of a specific material, such as ginger, in a sample, you will need to see if the reflectance of the material changes in a specific manner when the ginger is present. Thus, you will need two samples of the material – with and without ginger._
-
-_In order to achieve good results, large databases of materials and their properties are necessary. Usually, machine learning assists the identification. For example for tomatoes, 40 samples are recommended as a rule of thumb as a properly sized collection for a feasibility test. However, a comprehensive application should be based on hundreds of samples and thousands of scans._
-
-## SCiO communication protocol and BLE (Bluetooth LE) handles
-
-### BLE handles
-
-The following BLE UUIDs/handles have been identified so far
-- Button: Notification handle `0x002c` reads a hex value `01` upon button press
-- Device name: Handle `0x2a00` (equivalent to UUID 00002a00-0000-1000-8000-00805f9b34fb)
-- Device/System ID: Handle `0x0012` (uuid: 00002a23-0000-1000-8000-00805f9b34fb)
-- To start a scan, write `01ba020000` to handle `0x0029` (uuid 00003492-0000-1000-8000-00805f9b34fb). The answer comes in on notification handle `0x0025`.
-- The scanning handle (`0x0029`, see above) accepts a number of messages (protocol see below). The app sends the following before & after scanning:
-
-```
-    01ba050000 // inquire battery status
-    01ba0e0000 // Ready for WR
-    01ba0b0900000000000000000000  // set LED (is this a colour?)
-    01ba040000 // inquire device temperature before
-    01ba020000 // This is the actual scanning command
-    01ba040000 // inquire device temperature after
-```
-
-### USB control
-
-Commands can be sent to the USB port by sending bytes corresponding to the above commands sent to the BLE scanning handle described above, using the same protocol.
-
-### Data protocol
-
-Raw response messages from the SCiO are structured as follows:
-- Only for BLE (not USB): Byte 0 of every message of a scan is an ID (typically `01`), coming in 3 batches, from 01-5f, 01-5f and 01-58
-- Byte 1 of the first line of a message (`ba` or integer `-70`) is a protocol identifier, to inform the app what protocol the following data is
-- Byte 2 (ID = `02`) defines that the incoming data is a spectral measurement. More commands, see table below
-- Bytes 3 and 4 of the first line contain the coded message length, in "short" format
-- For BLE: Bytes 5-19 of the first line are data
-- All subsequent lines in BLE data: Byte 1 is the line ID (from 01-5f, 01-5f and 01-58 for sample, sampleDark and sampleGradient, respectively), bytes 2-20 are data
-- For USB: All remaining bytes are data
-
-| Command (int) | hex | Meaning                | handle & message format |
-| ------------- |-----| -----------------------|-----------------|
-| -70           | ba  | Incoming data protocol | see above |
-| 2             | 02  | Data type: spectrum    | part of protocol above |
-| 4             | 04  | Temperature     | contains tempeature of chip, cmos sensor (by Aptina) & object (always 0) |
-| 5             | 05  | Battery state          | contains charge %, battery health, voltage, etc. |
-| 11            | 0b  | Set LED status         | ? |
-| 14            | 0e  | Read for WR            | ? |
-| -108          | 94  | File list (likely firmware) | file identifiers as integers |
-| -111          | 91  | Set device name        |   |
-| -121          | 87  | File header            | file headers as integers |
-| -123          | 85  | BLE status             |   |
-| -124          | 84  | BLE ID                 |   |
-| -125          | 83  | Reset device           |   |
-
-
-How the raw scan data can be decoded is currently still unknown.
-
-To help with the reverse-engineering effort, the following data is available:
-- Some example scans are available in the folder "01_rawdata" along with the SCiO app's output spectrum of the same materials (as screenshots)
-- A specific calibration plate was scanned with a device called the PolyPen, which has a spectral overlap with the SCiO. The scan of the calibration plate using both the SCiO and the PolyPen are available in the folder "example-data"
-
-### Instructions for reading raw data (without the script in this repository)
-
-#### Through USB on the console
-
-1. Connect the SCIO to your computer with a USB cable, and turn it on
-
-2. On Linux, open the console and type to read data to "file.txt"
-
-```bash
-    cat /dev/ttyACM0 | hexdump -C > file.txt
-```
-
-3. In a second console window, type your command with a \x between each byte, for example for the temperature reading type
-
-```bash
-    echo -n -e "\x01\xba\x04\x00\x00" > /dev/ttyACM0
-```
-
-4. Wait a moment, until the SCIO stops blinking. Then go to the first console window and hit Ctrl+C to stop reading from the serial port. You will now have your readings in "file.txt"
-
-#### Through bluetooth with gatttool
-
-1. On Linux, install _gatttool_ and _hcitool_. I'm using Ubuntu, to install:
-
-```bash
-    sudo apt-get install bluez
-```
-
-2. Turn on your SCIO with a long press on the button
-
-3. Run hcitool to find out what your SCIO's MAC address is. It will have a name like _SCiOmyScio_ or whatever you named it:
-
-```bash
-    sudo hcitool lescan
-```
-
-4. Run gatttool with your SCIO's MAC address to collect your own data. This will store it in "file1.txt". Replace xx:xx:xx:xx:xx:xx with the MAC address you found in step 3. During the scan, the SCIO indicator light will be yellow.
-
-```bash
-    sudo gatttool -i hci0 -b xx:xx:xx:xx:xx:xx --char-write-req -a 0x0029 -n 01ba020000 --listen > file1.txt
-```
-
-5. Stop saving data to your file with _Ctrl+C_ after the indicator light of the SCIO goes back to blue.
-
-6. In a text editor, edit your file1.txt: Remove the first line saying _"Characteristic value was written successfully"_ and in the beginning of each line remove _"Notification handle = 0x0025 value: "_. Then save the file
-
-## License
-
-### Software
-
-This software is distributed under the GPL version 3.
-
-### Logos and icons
-
-All logos and icons are trademark of [Consumer Physics](https://www.consumerphysics.com/).
-
-## Credits
-My thanks go out to the following people:
-- Github user [AndreySamokhin](https://github.com/AndreySamokhin) for pointing out problems with Base64 and Hex data extraction from logs, and for figuring out the operating principles of the device based on 2 US patents.
-- Github user [onoff0](https://github.com/onoff0) for some ideas regarding decoding. This lead me to try [Hexinator](https://hexinator.com/)
-- Github user [franklin02](https://github.com/franklin02) for providing example scans, including details about the precision (14 decimals!) and number of bands
-- Github user [JanBessai](https://github.com/JanBessai) for information on reading SCIO data through USB
-- My previous roommate D for ideas about data structure. It really helped uncover that the SCIO sends a header in the first 2 messages of each scan
+- 2026-09: Added an evidence-led offline pipeline. Earlier encryption, nonce,
+  Lockbox and key-location conclusions are now tracked as hypotheses pending
+  cross-scan and held-out spectral validation.
+- 2023-03: Log extraction and initial (unsuccessful) decoding attempts.
+- 2020-05: Moved to Jupyter notebooks; USB scan capture.

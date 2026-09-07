@@ -1,0 +1,15 @@
+{
+ "timestamp": "2026-09-07T16:56:55",
+ "label": "opcode(0x8F)",
+ "command": 143,
+ "payload_hex": "",
+ "request_hex": "11ba8f0000",
+ "ok": false,
+ "response_command": null,
+ "response_len": null,
+ "response_hex": "",
+ "response_ascii": "",
+ "response_u32le": null,
+ "elapsed_s": 2.008,
+ "note": "timeout (no response)"
+}

@@ -1,0 +1,15 @@
+{
+ "timestamp": "2026-09-07T16:56:57",
+ "label": "opcode(0x95)",
+ "command": 149,
+ "payload_hex": "",
+ "request_hex": "15ba950000",
+ "ok": true,
+ "response_command": 149,
+ "response_len": 0,
+ "response_hex": "",
+ "response_ascii": "",
+ "response_u32le": [],
+ "elapsed_s": 0.003,
+ "note": ""
+}

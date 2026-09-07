@@ -1,0 +1,109 @@
+{
+ "schema": "scio-live-file-audit/1",
+ "captured_local_date": "2026-09-07",
+ "port": "COM5",
+ "firmware_version": 147,
+ "windows_usb": {
+  "hardware_id": "USB\\VID_0451&PID_16AA&REV_0009",
+  "bus_description": "CP SCIO USB CDC",
+  "class": "CDC ACM serial",
+  "driver": "usbser.inf",
+  "additional_interfaces_observed": false
+ },
+ "method": "read-only READ_FILE_LIST and READ_FILE_HEADER; direct serial check for trailing frames",
+ "headers": {
+  "87": {
+   "type": 87,
+   "size": 119233,
+   "version": 125,
+   "checksum": 12925168
+  },
+  "90": {
+   "type": 90,
+   "size": 7284,
+   "version": 17,
+   "checksum": 688456
+  },
+  "91": {
+   "type": 91,
+   "size": 14600,
+   "version": 12,
+   "checksum": 1548938
+  },
+  "92": {
+   "type": 92,
+   "size": 32628,
+   "version": 147,
+   "checksum": 4151168
+  },
+  "99": {
+   "type": 99,
+   "size": 32,
+   "version": 0,
+   "checksum": 0
+  },
+  "100": {
+   "type": 100,
+   "size": 1714,
+   "version": 3,
+   "checksum": 97267
+  },
+  "101": {
+   "type": 101,
+   "size": 96,
+   "version": 3,
+   "checksum": 6080
+  },
+  "102": {
+   "type": 102,
+   "size": 140,
+   "version": 3,
+   "checksum": 13587
+  },
+  "103": {
+   "type": 103,
+   "size": 1166,
+   "version": 3,
+   "checksum": 36371
+  }
+ },
+ "empty_header_ids": [
+  89
+ ],
+ "invalid_id_sentinels": [
+  {
+   "ids": [
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+   ],
+   "data_hex": "020aa1021013ffffffffff02101bffff"
+  },
+  {
+   "ids": [
+    88
+   ],
+   "data_hex": "7409120ad5e0f509a3e0f50ae5093333"
+  }
+ ],
+ "repeat_passes": 2,
+ "trailing_file_body_observed": false,
+ "interpretation": "No tested read-only file operation returned a firmware/table body. Fixed invalid-ID data is not an address-dependent read primitive. This does not prove that no unknown interface exists."
+}

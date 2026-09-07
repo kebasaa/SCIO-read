@@ -1,0 +1,470 @@
+{
+ "schema": "scio-key-repeatability/1",
+ "scope": "single",
+ "scans": 6,
+ "unique_keys": 373,
+ "hit_threshold": 0.5,
+ "hits": [],
+ "best": {
+  "label": "device_id.hex_rev.repeat16",
+  "repeatability": 0.1199802191710366,
+  "initial_pair": 0.1199802191710366,
+  "view": "u32be",
+  "offset": 16,
+  "mode": "CBC",
+  "iv": "zero"
+ },
+ "top_candidates": [
+  {
+   "label": "device_id.hex_rev.repeat16",
+   "repeatability": 0.1199802191710366,
+   "initial_pair": 0.1199802191710366,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "ble_id.hex.sha512_32",
+   "repeatability": 0.11977095849143919,
+   "initial_pair": 0.11977095849143919,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "case_serial.hex.sha512_24",
+   "repeatability": 0.1194077564153082,
+   "initial_pair": 0.1194077564153082,
+   "view": "u16be",
+   "offset": 8,
+   "mode": "CFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "case_serial.hex_wswap.sha256_16",
+   "repeatability": 0.11936751882673148,
+   "initial_pair": 0.11936751882673148,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "aptina_field.ascii_upper.raw",
+   "repeatability": 0.11927188302846664,
+   "initial_pair": 0.11927188302846664,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "ble_id.hex_rev.sha512_32",
+   "repeatability": 0.11896607443287721,
+   "initial_pair": 0.11896607443287721,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "aptina_field.hex_wswap.md5 | device_id.hex.md5",
+   "repeatability": 0.11887410561434338,
+   "initial_pair": 0.11887410561434338,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "ble_id.hex.sha512_16",
+   "repeatability": 0.11826051940590074,
+   "initial_pair": 0.11826051940590074,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "ble_id.ascii_upper.sha512_16",
+   "repeatability": 0.11800225370619846,
+   "initial_pair": 0.11800225370619846,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "case_serial.hex_wswap.sha1_16",
+   "repeatability": 0.11777916649391881,
+   "initial_pair": 0.11777916649391881,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "device_name.ascii_lower.sha256_16",
+   "repeatability": 0.11709773169213566,
+   "initial_pair": 0.11709773169213566,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "first_block"
+  },
+  {
+   "label": "serial.ascii.sha512_16 | serial.ascii_upper.sha512_16",
+   "repeatability": 0.11619507827009193,
+   "initial_pair": 0.11619507827009193,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "device_id.ascii.sha1_16 | device_id.ascii_upper.sha1_16",
+   "repeatability": 0.11562834836458023,
+   "initial_pair": 0.11562834836458023,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment.hex_rev.sha256_24",
+   "repeatability": 0.11548942265628427,
+   "initial_pair": 0.11548942265628427,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CTR",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment.hex_wswap.zeropad16",
+   "repeatability": 0.11462441015572461,
+   "initial_pair": 0.11462441015572461,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "device_id.ascii.sha256_24 | device_id.ascii_upper.sha256_24",
+   "repeatability": 0.11457654389943601,
+   "initial_pair": 0.11457654389943601,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CFB",
+   "iv": "zero"
+  },
+  {
+   "label": "case_serial.ascii_lower.sha1_16",
+   "repeatability": 0.11453350681057387,
+   "initial_pair": 0.11453350681057387,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CTR",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial.ascii_lower.sha512_24",
+   "repeatability": 0.11452668211471052,
+   "initial_pair": 0.11452668211471052,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment.ascii.md5 | serial_fragment.ascii_upper.md5",
+   "repeatability": 0.11451757416362557,
+   "initial_pair": 0.11451757416362557,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "serial_fragment.ascii_lower.zeropad16",
+   "repeatability": 0.11444968098233167,
+   "initial_pair": 0.11444968098233167,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "case_serial.ascii_lower.sha256_24",
+   "repeatability": 0.11421188616002191,
+   "initial_pair": 0.11421188616002191,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "CTR",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment.hex_wswap.sha512_16",
+   "repeatability": 0.11405667101007366,
+   "initial_pair": 0.11405667101007366,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "aptina_field.ascii_upper.sha256_24",
+   "repeatability": 0.11397428570659826,
+   "initial_pair": 0.11397428570659826,
+   "view": "u16le",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "firmware_version.ascii.sha512_16 | firmware_version.ascii_lower.sha512_16 | firmware_version.ascii_upper.sha512_16",
+   "repeatability": 0.11390774124954872,
+   "initial_pair": 0.11390774124954872,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment.ascii_lower.sha1_16",
+   "repeatability": 0.1138755710348093,
+   "initial_pair": 0.1138755710348093,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "dsp_id.ascii.sha256 | dsp_id.ascii_lower.sha256",
+   "repeatability": 0.11382355777508202,
+   "initial_pair": 0.11382355777508202,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "dsp_id.hex_rev.sha1_16",
+   "repeatability": 0.1134708208994998,
+   "initial_pair": 0.1134708208994998,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial_fragment.hex_wswap.repeat16",
+   "repeatability": 0.11338143984932122,
+   "initial_pair": 0.11338143984932122,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial.ascii.sha256 | serial.ascii_upper.sha256",
+   "repeatability": 0.11318832048137022,
+   "initial_pair": 0.11318832048137022,
+   "view": "u32le",
+   "offset": 0,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "serial_fragment.hex_wswap.md5",
+   "repeatability": 0.11306134531194897,
+   "initial_pair": 0.11306134531194897,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "CTR",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "firmware_version.ascii.sha512_24 | firmware_version.ascii_lower.sha512_24 | firmware_version.ascii_upper.sha512_24",
+   "repeatability": 0.1123341220917089,
+   "initial_pair": 0.1123341220917089,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment.hex.sha256_16",
+   "repeatability": 0.11228066066428839,
+   "initial_pair": 0.11228066066428839,
+   "view": "u32be",
+   "offset": 8,
+   "mode": "CBC",
+   "iv": "zero"
+  },
+  {
+   "label": "device_id.ascii_lower.sha512_24",
+   "repeatability": 0.11224800562050839,
+   "initial_pair": 0.11224800562050839,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "aptina_field.hex_wswap.sha1_16 | device_id.hex.sha1_16",
+   "repeatability": 0.11214654407581505,
+   "initial_pair": 0.11214654407581505,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "serial_fragment.ascii_lower.sha256",
+   "repeatability": 0.11195788621332661,
+   "initial_pair": 0.11195788621332661,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "header8_zero8"
+  },
+  {
+   "label": "device_id.ascii_lower.sha1_20_pad24",
+   "repeatability": 0.1114684857015297,
+   "initial_pair": 0.1114684857015297,
+   "view": "u32le",
+   "offset": 16,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "case_serial.ascii_lower.sha512_24",
+   "repeatability": 0.11094187439910862,
+   "initial_pair": 0.11094187439910862,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "aptina_field.ascii.sha512_32 | aptina_field.ascii_lower.sha512_32",
+   "repeatability": 0.11090859343108071,
+   "initial_pair": 0.11090859343108071,
+   "view": "u32be",
+   "offset": 12,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "dsp_id.ascii.md5 | dsp_id.ascii_lower.md5",
+   "repeatability": 0.11068089878410253,
+   "initial_pair": 0.11068089878410253,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "serial.ascii.sha512_24 | serial.ascii_upper.sha512_24",
+   "repeatability": 0.11058651606748597,
+   "initial_pair": 0.11058651606748597,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CFB",
+   "iv": "zero"
+  },
+  {
+   "label": "device_id.hex_rev.md5",
+   "repeatability": 0.11021060773454987,
+   "initial_pair": 0.11021060773454987,
+   "view": "u32be",
+   "offset": 0,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "aptina_field.hex_rev.sha512_24",
+   "repeatability": 0.11016725426977096,
+   "initial_pair": 0.11016725426977096,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "CFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "case_serial.ascii_lower.sha1_20_pad24",
+   "repeatability": 0.11002174321405951,
+   "initial_pair": 0.11002174321405951,
+   "view": "u32be",
+   "offset": 16,
+   "mode": "OFB",
+   "iv": "first_block"
+  },
+  {
+   "label": "device_name.ascii_upper.repeat16",
+   "repeatability": 0.1098572039992259,
+   "initial_pair": 0.1098572039992259,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CTR",
+   "iv": "header8_x2"
+  },
+  {
+   "label": "aptina_field.ascii.raw | aptina_field.ascii_lower.raw",
+   "repeatability": 0.10984752670502206,
+   "initial_pair": 0.10984752670502206,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "CTR",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "ble_fw_version.ascii.sha1_16 | ble_fw_version.ascii_lower.sha1_16 | ble_fw_version.ascii_upper.sha1_16",
+   "repeatability": 0.10961959965224925,
+   "initial_pair": 0.10961959965224925,
+   "view": "u32le",
+   "offset": 8,
+   "mode": "CTR",
+   "iv": "first_block"
+  },
+  {
+   "label": "firmware_version.ascii.sha1_16 | firmware_version.ascii_lower.sha1_16 | firmware_version.ascii_upper.sha1_16",
+   "repeatability": 0.10957749184913429,
+   "initial_pair": 0.10957749184913429,
+   "view": "u32le",
+   "offset": 4,
+   "mode": "ECB",
+   "iv": "zero"
+  },
+  {
+   "label": "dsp_id.hex_wswap.sha1_20_pad24",
+   "repeatability": 0.10938923087419286,
+   "initial_pair": 0.10938923087419286,
+   "view": "u32le",
+   "offset": 12,
+   "mode": "CFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "serial_fragment.hex_wswap.sha512_32",
+   "repeatability": 0.10907807885421619,
+   "initial_pair": 0.10907807885421619,
+   "view": "u32be",
+   "offset": 4,
+   "mode": "OFB",
+   "iv": "zero8_header8"
+  },
+  {
+   "label": "dsp_id.hex.sha256_24",
+   "repeatability": 0.10905675241523716,
+   "initial_pair": 0.10905675241523716,
+   "view": "u32le",
+   "offset": 12,
+   "mode": "OFB",
+   "iv": "first_block"
+  }
+ ],
+ "conclusion": "no enumerated AES identifier key produced repeatable plaintext"
+}

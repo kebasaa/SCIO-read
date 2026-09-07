@@ -3,11 +3,15 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python>=3.10
   - jupyterlab
   - numpy
   - pandas
-  - pyserial
   - scipy
-  - pip:
-    - plotnine
-prefix: C:\Users\Jonathan\.conda\envs\scio
+  - matplotlib
+  - pyserial
+  - cryptography
+  - pytest
+  - pip
+# The `tp` conda env on this machine already satisfies these and is what the
+# notebooks were developed against.

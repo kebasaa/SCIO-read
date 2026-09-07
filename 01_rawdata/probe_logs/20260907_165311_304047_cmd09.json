@@ -1,0 +1,15 @@
+{
+ "timestamp": "2026-09-07T16:53:09",
+ "label": "BIST(0x09)",
+ "command": 9,
+ "payload_hex": "",
+ "request_hex": "05ba090000",
+ "ok": false,
+ "response_command": null,
+ "response_len": null,
+ "response_hex": "",
+ "response_ascii": "",
+ "response_u32le": null,
+ "elapsed_s": 2.004,
+ "note": "timeout (no response)"
+}

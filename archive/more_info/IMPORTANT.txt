@@ -1,0 +1,260 @@
+TLS_RSA_WITH_AES_128_CBC_SHA256("TLS_RSA_WITH_AES_128_CBC_SHA256", 60, 5246, 7, 21),
+    TLS_RSA_WITH_AES_256_CBC_SHA256("TLS_RSA_WITH_AES_256_CBC_SHA256", 61, 5246, 7, 21),
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256("TLS_DHE_DSS_WITH_AES_128_CBC_SHA256", 64, 5246, 7, 21),
+    TLS_DHE_RSA_WITH_AES_128_CBC_SHA256("TLS_DHE_RSA_WITH_AES_128_CBC_SHA256", 103, 5246, 7, 21),
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256("TLS_DHE_DSS_WITH_AES_256_CBC_SHA256", 106, 5246, 7, 21),
+    TLS_DHE_RSA_WITH_AES_256_CBC_SHA256("TLS_DHE_RSA_WITH_AES_256_CBC_SHA256", 107, 5246, 7, 21),
+    TLS_DH_anon_WITH_AES_128_CBC_SHA256("TLS_DH_anon_WITH_AES_128_CBC_SHA256", 108, 5246, 7, 21),
+    TLS_DH_anon_WITH_AES_256_CBC_SHA256("TLS_DH_anon_WITH_AES_256_CBC_SHA256", 109, 5246, 7, 21),
+    TLS_RSA_WITH_AES_128_GCM_SHA256("TLS_RSA_WITH_AES_128_GCM_SHA256", 156, 5288, 8, 21),
+
+
+# The app just creates an avg temp for each reading from before and after
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\common\utils
+Mathutils
+- has calculation of inf in spectrum, maybe shows how to decode spectrum
+
+Most info from:
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection
+
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection\utils
+- in GattAtributs:
+public class GattAttributes {
+    public static final String CHARACTERISTIC_BUTTON_PRESSED = "00003493-0000-1000-8000-00805f9b34fb";
+    public static final String CHARACTERISTIC_CONTROL = "00003492-0000-1000-8000-00805f9b34fb";
+    public static final String CHARACTERISTIC_REPORTER = "00003491-0000-1000-8000-00805f9b34fb";
+    public static final String SCIO_SERVICE = "00003490-0000-1000-8000-00805f9b34fb";
+}
+} else if (SCiOBLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+    if ("00003493-0000-1000-8000-00805f9b34fb".equals(intent.getStringExtra(SCiOBLeService.EXTRA_UUID))) {
+
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection\services
+ScioBLEService.java
+Scio service is: 00003490-0000-1000-8000-00805f9b34fb
+Notification reporter: 00003491-0000-1000-8000-00805f9b34fb
+Scan characteristic: 00003492-0000-1000-8000-00805f9b34fb
+button press: 00003493-0000-1000-8000-00805f9b34fb
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection\protocol
+
+# COMMANDS
+public class Commands {
+    public static final byte BIST = (byte) 9;
+    public static final byte CLEAR_READY_FOR_WR = (byte) 17;
+    public static final byte FILE_DOWNLOAD = (byte) -127;
+    public static final byte PARAMETER_GET = (byte) 8;
+    public static final byte PARAMETER_SET = (byte) 7;
+    public static final byte PROTOCOL_MESSAGE_CONST = (byte) -70;
+    public static final byte READY_FOR_WR = (byte) 14;
+    public static final byte READ_BATTERY_STATE = (byte) 5;
+    public static final byte READ_BLE = (byte) -101;
+    public static final byte READ_BLE_ID = (byte) -124;
+    public static final byte READ_BLE_STATUS = (byte) -123;
+    public static final byte READ_DEVICE_ID = (byte) 1;
+    public static final byte READ_DEVICE_STATUS = (byte) 0;
+    public static final byte READ_EVENT_LOG = (byte) 6;
+    public static final byte READ_FILE_HEADER = (byte) -121;
+    public static final byte READ_FILE_LIST = (byte) -108;
+    public static final byte READ_TEMPERATURE = (byte) 4;
+    public static final byte RESET_DEVICE = (byte) -125;
+    public static final byte RESPONSE_ACK = (byte) 11;
+    public static final byte RESPONSE_BATTERY_STATE = (byte) 5;
+    public static final byte RESPONSE_BIST_REPLY = (byte) 9;
+    public static final byte RESPONSE_BLE_ID = (byte) -124;
+    public static final byte RESPONSE_CONFIGURATION_VALUES = (byte) 3;
+    public static final byte RESPONSE_DEVICE_ID = (byte) 1;
+    public static final byte RESPONSE_DEVICE_STATUS = (byte) 0;
+    public static final byte RESPONSE_READ_FILE_LIST = (byte) -108;
+    public static final byte RESPONSE_SPECTRUM_VALUES = (byte) 2;
+    public static final byte RESPONSE_TECHNICIAN_VALUES = (byte) 4;
+    public static final byte SAMPLE_SPECTRUM = (byte) 2;
+    public static final byte SET_INDICATION_LED = (byte) 11;
+    public static final byte SET_SAMPLE_SETTINGS = (byte) 3;
+    public static final byte WRITE_BLE = (byte) -102;
+    public static final byte WRITE_USER_DEVICE_NAME = (byte) -111;
+}
+
+# FIRMWARE
+public enum FirmwareFiles {
+    no_file(0),
+    ble(89),
+    dsp_boot(90),
+    dsp_dec(91),
+    dsp_op(92),
+    deadPixelsIndices(100),
+    centers(101),
+    bins(102),
+    nPixelsPerBin(103);
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection\protocol
+DeviceIdResponseCommandHandler.java
+# DEVICE ID (DONE)
+           String deviceDspId = rc.getDataAsHex(0, 8);
+            String aptinaId = rc.getDataAsHex(16, 8);
+            this.firmwareVersion = rc.getU16(24);
+            StringBuilder sb = new StringBuilder(aptinaId.length());
+            for (int i = 0; i < aptinaId.length(); i += 4) {
+                sb.append(aptinaId.charAt(i + 2)).append(aptinaId.charAt(i + 3));
+                sb.append(aptinaId.charAt(i)).append(aptinaId.charAt(i + 1));
+            }
+
+# BLE ID (DONE)
+
+                String deviceBleId = rc.getDataAsHex(0, 8);
+                int bleFWVersion = rc.getU16(8);
+                String deviceName = rc.getDataAsString(50, 16);
+                String i2sTag = rc.getDataAsString(66, 64);
+                if (i2sTag != null) {
+                    i2sTag = i2sTag.replaceAll("\u0000", "").trim();
+                }
+
+
+
+# Data handlers
+   public byte[] getData() {
+        return this.data;
+    }
+
+    public byte getU8(int index) {
+        return this.data[index];
+    }
+
+    public int getU16(int index) {
+        return (getU8(index + 1) << 8) | (getU8(index) & 255);
+    }
+
+    public long getU32(int index) {
+        byte[] by = Arrays.copyOfRange(this.data, index, index + 4);
+        return (((((long) by[0]) & 255) + ((((long) by[1]) & 255) << 8)) + ((((long) by[2]) & 255) << 16)) + ((((long) by[3]) & 255) << 24);
+    }
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\scioconnection\services
+# BLE tasks (SCIOBleService.java)
+public boolean performClearReadyForWR(ResponseCommandHandler responseCommandHandler) {
+        responseCommandHandler.setWriteType(1);
+        return performCommand(Commands.CLEAR_READY_FOR_WR, responseCommandHandler);
+    }
+
+    public boolean performReadDeviceId(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 1, responseCommandHandler);
+    }
+
+    public boolean performWhiteReference(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 2, responseCommandHandler);
+    }
+
+    public boolean performSpectrum(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 2, responseCommandHandler);
+    }
+
+    public boolean performReadStatus(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 0, responseCommandHandler);
+    }
+
+    public boolean performReadBattery(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 5, responseCommandHandler);
+    }
+
+    public boolean performReadTemperature(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) 4, responseCommandHandler);
+    }
+
+    public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) -108, responseCommandHandler);
+    }
+
+    public boolean performReadFileHeader(int fileType, ResponseCommandHandler responseCommandHandler) {
+        responseCommandHandler.setRequestedCommandData(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(fileType).array());
+        return performCommand(Commands.READ_FILE_HEADER, responseCommandHandler);
+    }
+
+    public boolean performReadDeviceBleId(ResponseCommandHandler responseCommandHandler) {
+        return performCommand((byte) -124, responseCommandHandler);
+    }
+
+    public boolean performResetDevice(ResponseCommandHandler responseCommandHandler) {
+        return performCommand(Commands.RESET_DEVICE, responseCommandHandler);
+    }
+
+    public boolean performResetLed(ResponseCommandHandler responseCommandHandler) {
+        try {
+            responseCommandHandler.setRequestedCommandData(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0});
+            return performCommand((byte) 11, responseCommandHandler);
+        } catch (Throwable e) {
+            log.m11d("failed to perform write user device name command", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean performWriteBle(int seconds, ResponseCommandHandler responseCommandHandler) {
+        responseCommandHandler.setRequestedCommandData(new byte[]{(byte) 0, (byte) 0, (byte) (seconds >>> 0), (byte) (seconds >>> 8)});
+        return performCommand(Commands.WRITE_BLE, responseCommandHandler);
+    }
+
+    public boolean performSetParameter(int parameter, int value, ResponseCommandHandler responseCommandHandler) {
+        responseCommandHandler.setRequestedCommandData(new byte[]{(byte) (parameter >>> 0), (byte) (parameter >>> 8), (byte) (value >>> 0), (byte) (value >>> 8)});
+        return performCommand((byte) 7, responseCommandHandler);
+    }
+
+    public boolean performReadBle(ResponseCommandHandler responseCommandHandler) {
+        return performCommand(Commands.READ_BLE, responseCommandHandler);
+    }
+
+    public boolean performReadBleStatus(ResponseCommandHandler responseCommandHandler) {
+        return performCommand(Commands.READ_BLE_STATUS, responseCommandHandler);
+    }
+
+    public boolean performWriteUserDeviceName(String name, ResponseCommandHandler responseCommandHandler) {
+        try {
+            byte[] nameArr;
+            byte[] tmp = name.getBytes("US-ASCII");
+            if (tmp.length > 16) {
+                nameArr = Arrays.copyOf(tmp, 16);
+            } else {
+                nameArr = tmp;
+            }
+            responseCommandHandler.setRequestedCommandData(nameArr);
+            return performCommand(Commands.WRITE_USER_DEVICE_NAME, responseCommandHandler);
+        } catch (Throwable e) {
+            log.m11d("failed to perform write user device name command", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {
+        responseCommandHandler.setRequestedCommandData(data);
+        responseCommandHandler.setMsgSequance((byte) msgSeq);
+        responseCommandHandler.setWriteType(1);
+        responseCommandHandler.setIsAllowTimeout(false);
+        return performCommand(Commands.FILE_DOWNLOAD, responseCommandHandler);
+    }
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\sdk\config
+ScioDevicePreferences.java
+Indicates a 256-bit key using AptinaID
+
+<SCIO_DECOMPILED_ROOT>\com.consumerphysics.researcher_2017-09-19_source_from_JADX\sources\com\consumerphysics\android\sdk\sciosdk
+ScioInternalDevice.java
+private void handleReadBatteryInternal(final Task task) {
+getU16(0), rc.getU8(2), rc.getU8(3), rc.getU16(4), ((float) rc.getU16(6)) / 1000.0f);
+
+
+If message > 1600 bytes, the last 200 are something else
+
+Check if it's UTF-8:
+ while (true) {
+                int read = is.read(bytes);
+                if (read == -1) {
+                    break;
+                }
+                if (count == 0 && bytes[0] == (byte) -17 && bytes[1] == (byte) -69 && bytes[2] == (byte) -65) {
+                    isUTF8 = true;
+                    baos.write(bytes, 3, read - 3);
+                } else {
+                    baos.write(bytes, 0, read);
+                }
+                count += read;
+            }
