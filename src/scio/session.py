@@ -286,8 +286,8 @@ def _fixture_record(path: Path, white_hint: dict | None) -> dict | None:
                      "thresholds_source": "not recorded (app-era capture)", "report": None},
         provenance={"source": "log_extracted fixture", "converted_from": portable_path(path),
                     "notes": ["White reference is the one the app itself paired with this scan.",
-                              "mobile_mac_address is NOT carried over: the original request body "
-                              "contained a real phone MAC."]},
+                              "mobile_mac_address is not carried over; canonical records use the "
+                              "synthetic 02:00:00:00:00:00 that build_scan_payload sends."]},
         spectrum={"source": "Consumer Physics server, at capture time",
                   "reflectance": spec} if spec else None,
     )

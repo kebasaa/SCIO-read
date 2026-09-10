@@ -128,10 +128,11 @@ Where the 97 records came from:
   `read_device_info` retries and sets `i2s_tag_missing`; check it.
 - **Base64 must be standard, 76-col wrapped** - not URL-safe.
 - **Access tokens expire in ~14 s.** Fetch one per request.
-- **Never publish a real phone MAC or a home-directory path.** The 2020 log
-  fixtures contain a real phone MAC; canonical records deliberately do not
-  propagate it, and `tools/check_public_safety.py` guards this. Run it before
-  pushing.
+- **Never publish a credential or a home-directory path.**
+  `tools/check_public_safety.py` guards this, and `tools/pre-commit` runs it on
+  every commit - install it once per clone with
+  `cp tools/pre-commit .git/hooks/pre-commit`. Canonical records use the
+  synthetic MAC `02:00:00:00:00:00` and carry no location field.
 - Calibration files are **never overwritten** - same-minute saves get `_2`,
   "latest" is computed by sorting. Don't add a `_latest` copy back.
 

@@ -476,14 +476,10 @@ All twelve fields are required unless noted:
 | `sample_white_gradient` | base64, optional |
 | `widget_scan_attributes` | `[]` |
 
-**What the phone app also sent, and this project does not.** Captured request
-bodies from 2021 carry a `mobile_GPS` object - `latitude`, `longitude`,
-`locality`, `country`, `admin_area`, `address_line` - i.e. the user's precise
-location with every single scan, alongside the phone's real MAC address. Neither
-is required: the server accepts scans without `mobile_GPS`, and
-`mobile_mac_address` is satisfied by the placeholder `02:00:00:00:00:00`. This
-project sends neither and does not copy them into canonical records. If you
-publish raw app logs, they are in there - check before you push.
+One further field appears in captured request bodies but is **not required**:
+`mobile_GPS` (`latitude`, `longitude`, `locality`, `country`, `admin_area`,
+`address_line`), which the phone app attached to every scan. The server accepts
+scans without it, so this project does not send it.
 
 Base64 must be **standard alphabet, `=`-padded, newline every 76 characters** -
 Android's `Base64.DEFAULT`. URL-safe base64 is rejected.
