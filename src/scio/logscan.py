@@ -12,12 +12,12 @@ talked to a SCiO. Each contains, interleaved:
 * sometimes the server's ``POST spectroscan2`` reply with the 331-point
   spectrum.
 
-This is the logic of ``02_extract_log_scan.ipynb`` turned into a library, with
-one deliberate change: the notebook only wrote a scan when the **server reply**
-was present, so scans the app never got an answer for were silently dropped.
-Here every scan whose request body is complete is returned, and
-``spectrum`` is simply ``None`` when the log has no reply. That is what makes
-the previously unmined logs usable.
+This is the logic of ``archive/notebooks/02_extract_log_scan.ipynb`` turned into a
+library, with one deliberate change: the notebook only wrote a scan when the
+**server reply** was present, so scans the app never got an answer for were
+silently dropped. Here every scan whose request body is complete is returned, and
+``spectrum`` is simply ``None`` when the log has no reply. That is what makes the
+previously unmined logs usable.
 
 The request body is authoritative: it is what the app actually sent, so its
 base64 is used verbatim rather than re-derived from the on-the-wire hex.

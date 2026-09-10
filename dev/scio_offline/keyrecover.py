@@ -314,5 +314,5 @@ def recover(scans: list[dict], firmware_blobs: dict | None = None,
                              "remain unresolved. No identifier/firmware candidate passed the oracle.")
     else:
         result.conclusion = ("firmware looks like plaintext but no automatic key candidate worked; "
-                             "disassemble dsp_op (see notebook 08) and add the constant/derivation found.")
+                             "disassemble dsp_op (see dev/notebooks/02_scio_keyrecovery.ipynb) and add the constant/derivation found.")
     return result

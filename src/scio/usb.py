@@ -1,6 +1,7 @@
 """USB (CDC serial) transport for the SCiO, read-only / capture use.
 
-Ported from the ``scio_usb`` class in ``01_scio_usb.ipynb`` with the bugs fixed:
+Ported from the ``scio_usb`` class in ``archive/notebooks/01_scio_usb.ipynb``
+with the bugs fixed:
 
 * a real serial read timeout (a missing response no longer hangs the kernel);
 * :meth:`ScioUSB._read_response` hunts for the ``0xBA`` marker and resyncs

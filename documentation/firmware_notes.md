@@ -251,3 +251,34 @@ and the error was silently swallowed. The server hard-rejects an empty tag, so t
 were unusable. Fixed in two places: `replay_all_scans.py` falls back to the white reference's
 tag (it is a per-device constant), and `ScioUSB.read_device_info()` now retries the BLE-ID
 read and sets an explicit `i2s_tag_missing` flag so a capture cannot quietly become unusable.
+
+## Decompilation provenance and one closed dead end (recorded 2026-09-10)
+
+Salvaged from `archive/notebooks/01_scio_usb.ipynb` before that notebook was archived,
+because it was the only place either fact was written down.
+
+**Which decompilation the protocol facts came from.** The command table, the `perform*` method
+names and the framing were read out of
+
+```text
+SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk  (decompiled)
+```
+
+i.e. **consumer app v1.2.6.476**. Later builds referenced elsewhere in this repo
+(consumer 1.3.8.554, Lab 1.3.12.144) were used for the *calibration* logic, which changed
+between the two - see the white-reference section above. If a protocol detail ever looks
+wrong, check which build it came from first. The app symbols themselves now live in the
+README's command tables.
+
+**Dead end - do not re-investigate.** The notebook recorded this line, found in the same
+decompilation, as a possible key derivation:
+
+```java
+String base64 = ByteString.encodeUtf8(this.key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").sha1().base64();
+```
+
+It is **not** SCiO cryptography. The file is
+`sources/okhttp3/internal/ws/RealWebSocket.java`, the GUID is the fixed WebSocket handshake
+magic string from **RFC 6455 §1.3**, and `this.key` is the per-connection `Sec-WebSocket-Key`.
+Every Android app that bundles OkHttp contains it verbatim. It has nothing to do with the scan
+blobs, the DSP, or the device key.

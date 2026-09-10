@@ -410,9 +410,10 @@ def convert_legacy(scan_dir=store.SCAN_DIR, out_dir=SCANS_DIR, fixture_dir=store
 def extract_logs(log_dir=store.LOG_DIR, out_dir=SCANS_DIR) -> list[Path]:
     """Convert scans still sitting inside the raw logcat dumps.
 
-    ``02_extract_log_scan.ipynb`` only wrote out scans the server had answered,
-    so scans with no reply in the log were never extracted. This takes all of
-    them, and skips any whose sample blob already exists as a canonical record.
+    ``archive/notebooks/02_extract_log_scan.ipynb`` only wrote out scans the server
+    had answered, so scans with no reply in the log were never extracted. This
+    takes all of them, and skips any whose sample blob already exists as a
+    canonical record.
     """
     out_dir = Path(out_dir)
     seen = {rec["raw"]["sample"]["hex"] for rec in _iter_records(out_dir) if "sample" in rec.get("raw", {})}

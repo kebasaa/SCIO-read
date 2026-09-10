@@ -41,10 +41,10 @@ today must still be convertible the day someone breaks the offline path.
 
 ```bash
 conda env create -f scio_env.yml      # or: conda activate tp
-jupyter lab 10_scio_scan_to_spectrum.ipynb
+jupyter lab 01_scio_scan_to_spectrum.ipynb
 ```
 
-Notebook `10_scio_scan_to_spectrum.ipynb` is the whole workflow: name the scan,
+Notebook `01_scio_scan_to_spectrum.ipynb` is the whole workflow: name the scan,
 connect, capture, upload, plot. Everything it does is a call into `src/scio/`:
 
 ```python
@@ -62,8 +62,16 @@ Raw records land in `01_rawdata/scans/`, spectra in `02_processed_data/`.
 `session.process_pending()` uploads a backlog whenever you next have a
 connection.
 
-Notebooks: `07` capture and device health, `09` safe read-only opcode probing,
-`10` the full workflow. Offline-decoding research is in `dev/notebooks/`.
+Three notebooks, numbered by role - `01` is the one to open:
+
+| notebook | what it is for |
+|---|---|
+| `01_scio_scan_to_spectrum.ipynb` | the full workflow: annotate, connect, capture, upload, plot |
+| `02_scio_device_health.ipynb` | identifiers, battery, temperature, firmware file headers |
+| `03_scio_probe.ipynb` | read-only probing of undocumented opcodes |
+
+All three import only `scio`; offline-decoding research is in `dev/notebooks/`,
+and superseded notebooks are in `archive/notebooks/`.
 
 **The device must be fully awake.** A steady blue LED means it answers commands.
 A slow light/dark pulse means it is idle or charging, and its USB endpoint goes
@@ -116,10 +124,17 @@ With BlueZ:
 sudo gatttool -i hci0 -b <MAC> --char-write-req -a 0x0029 -n 01ba020000 --listen
 ```
 
-`05_scio_ble_devel.ipynb` holds an unfinished `bleak` attempt. A working BLE
-transport only needs to reassemble the sequence-prefixed notifications into
-`[0xBA, cmd, len, data]` frames; the parsers in `scio/protocol.py` then apply
-unchanged.
+`archive/notebooks/05_scio_ble_devel.ipynb` holds an unfinished `bleak` attempt.
+**Why it failed, so the next attempt does not repeat it:** it wrote the command to
+the control characteristic and then called `read_gatt_char` on that *same*
+characteristic to get the answer. Replies never arrive there - they arrive as
+notifications on the **reporter** characteristic, which must be subscribed to
+first. (It also wrote the ASCII string `"01ba040000"` rather than the five bytes
+`bytes.fromhex("01ba040000")`, so the device received garbage either way.)
+
+A working BLE transport only needs to subscribe to the reporter and reassemble
+the sequence-prefixed 20-byte notifications into `[0xBA, cmd, len, data]` frames;
+the parsers in `src/scio/protocol.py` then apply unchanged.
 
 ### Framing (both directions, both transports)
 
@@ -150,20 +165,24 @@ Legend: **R** read-only (safe), **W** writes or changes device state (this
 project never sends these), **X** declared in the app but unimplemented on this
 firmware (147) - probed on hardware, logs in `01_rawdata/probe_logs/`.
 
+The **app symbol** column names the method or constant in the decompiled Android
+app that issues each command. Those names are the way back into the
+decompilation if you ever need to re-derive a layout; keep them.
+
 ### Read commands
 
-| cmd | name | request payload | response | notes |
-|---|---|---|---|---|
-| `0x00` | READ_DEVICE_STATUS | - | 8 B: two `u32` LE, observed `{0, 1}` | **R** |
-| `0x01` | READ_DEVICE_ID | - | ≥26 B, see below | **R** |
-| `0x02` | SAMPLE_SPECTRUM | - | 2 or 3 frames of blob data | **R** (capture; persists nothing) |
-| `0x04` | READ_TEMPERATURE | - | 12 B: three `u32` LE | **R** |
-| `0x05` | READ_BATTERY_STATE | - | 8 B, see below | **R** |
-| `0x84` | READ_BLE_ID | - | ≥130 B, see below | **R** |
-| `0x85` | READ_BLE_STATUS | - | ble status | **R** |
-| `0x87` | READ_FILE_HEADER | `<I` file_id | **exactly 16 B**: four `u32` LE | **R** |
-| `0x94` | READ_FILE_LIST | - | *n* × 8 B `(u32 type, u32 version)` | **R** |
-| `0x9B` | READ_BLE | - | ble config | **R** |
+| cmd | name | request payload | response | app symbol | notes |
+|---|---|---|---|---|---|
+| `0x00` | READ_DEVICE_STATUS | - | 8 B: two `u32` LE, observed `{0, 1}` | `CommandIDs.READ_DEVICE_STATUS` | **R** |
+| `0x01` | READ_DEVICE_ID | - | ≥26 B, see below | `performReadDeviceId` | **R** |
+| `0x02` | SAMPLE_SPECTRUM | - | 2 or 3 frames of blob data | `performSpectrum` | **R** (capture; persists nothing) |
+| `0x04` | READ_TEMPERATURE | - | 12 B: three `u32` LE | `performReadTemperature` | **R** |
+| `0x05` | READ_BATTERY_STATE | - | 8 B, see below | `performReadBattery` | **R** |
+| `0x84` | READ_BLE_ID | - | ≥130 B, see below | `performReadDeviceBleId` | **R** |
+| `0x85` | READ_BLE_STATUS | - | ble status | `CommandIDs.READ_BLE_STATUS` | **R** |
+| `0x87` | READ_FILE_HEADER | `<I` file_id | **exactly 16 B**: four `u32` LE | `performReadFileHeader`, via `SCiOBLeService.performReadFileHeader(int)` | **R** |
+| `0x94` | READ_FILE_LIST | - | *n* × 8 B `(u32 type, u32 version)` | `performReadFileList`, via `SCiOBLeService.performReadFileList()` | **R** |
+| `0x9B` | READ_BLE | - | ble config | `CommandIDs.READ_BLE` | **R** |
 
 **`0x01` READ_DEVICE_ID**
 
@@ -202,6 +221,12 @@ truncated value. `parse_temperature` returns `cmos_t`, `cmos_t_app` and
 | `4` | `u16` | charging status |
 | `6` | `u16` | voltage, mV (divide by 1000) |
 
+An early notebook read the charging status as `0` = not charging, `4` = full,
+`6` = battery error, anything else = charging. Treat that as an **unverified
+hypothesis**: the code carrying it masked the byte with `& 3` before comparing
+against 4 and 6, so its own branches were unreachable and the mapping was never
+exercised. `parse_battery` returns the raw value and interprets nothing.
+
 **`0x84` READ_BLE_ID**
 
 | offset | size | field |
@@ -229,26 +254,26 @@ entries covering the 87-95 band.
 
 Never sent by this project. `ScioUSB` refuses them unless `allow_write=True`.
 
-| cmd | name | notes |
-|---|---|---|
-| `0x03` | SET_SAMPLE_SETTINGS | unused by the app |
-| `0x07` | PARAMETER_SET | **W** |
-| `0x0B` | SET_INDICATION_LED | **W**, 9-byte payload |
-| `0x0E` | READY_FOR_WR | **W**, LED/UX hint so the device button can trigger a white reference; firmware ≥ 144 |
-| `0x11` | CLEAR_READY_FOR_WR | **W**, counterpart of `0x0E` |
-| `0x81` | FILE_DOWNLOAD | **W**, host->device **only** - it uploads firmware, it does not read it |
-| `0x83` | RESET_DEVICE | **W**, disruptive |
-| `0x91` | WRITE_USER_DEVICE_NAME | **W** |
-| `0x9A` | WRITE_BLE | **W** |
+| cmd | name | app symbol | notes |
+|---|---|---|---|
+| `0x03` | SET_SAMPLE_SETTINGS | - | unused by the app |
+| `0x07` | PARAMETER_SET | `CommandIDs.PARAMETER_SET` | **W** |
+| `0x0B` | SET_INDICATION_LED | - | **W**, 9-byte payload |
+| `0x0E` | READY_FOR_WR | `performReadyForWR` | **W**, LED/UX hint so the device button can trigger a white reference; firmware ≥ 144 |
+| `0x11` | CLEAR_READY_FOR_WR | `performClearReadyForWR` | **W**, counterpart of `0x0E` |
+| `0x81` | FILE_DOWNLOAD | `performFileDownload` | **W**, host->device **only** - it uploads firmware, it does not read it |
+| `0x83` | RESET_DEVICE | `CommandIDs.RESET_DEVICE` | **W**, disruptive |
+| `0x91` | WRITE_USER_DEVICE_NAME | `CommandIDs.WRITE_USER_DEVICE_NAME` | **W** |
+| `0x9A` | WRITE_BLE | `CommandIDs.WRITE_BLE` | **W** |
 
 ### Declared but unimplemented (firmware 147)
 
 All probed on real hardware:
 
-| cmd | name | observed |
+| cmd | name (app symbol) | observed |
 |---|---|---|
-| `0x06` | READ_EVENT_LOG | **X** no response |
-| `0x08` | PARAMETER_GET | **X** no response |
+| `0x06` | READ_EVENT_LOG (`CommandIDs.READ_EVENT_LOG`) | **X** no response |
+| `0x08` | PARAMETER_GET (`CommandIDs.PARAMETER_GET`) | **X** no response |
 | `0x09` | BIST (built-in self test) | **X** no response |
 | `0x88`, `0x89`, `0x93`, `0x95` | reserved band | valid frame returned, **empty body** |
 | `0x8A`-`0x8F` | reserved band | no response |
@@ -503,14 +528,16 @@ Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
 | path | contents |
 |---|---|
 | `src/scio/` | the working library: `protocol`, `usb`, `probe`, `store`, `cloud`, `credentials`, `session`, `logscan`, `corpus`, `reference`, `paths` |
-| `dev/` | offline-decoding research (`scio_offline`, scripts, notebooks, its own tests) - see [`dev/README.md`](dev/README.md) |
+| `01`-`03` notebooks | the three live notebooks (see [§1](#1-quick-start)) |
+| `dev/` | offline-decoding research (`scio_offline`, scripts, `notebooks/`, its own tests) - see [`dev/README.md`](dev/README.md) |
+| `dev/notebooks/superseded/` | earlier decoding attempts, each labelled superseded, kept as the exploration record |
 | `tools/` | `replay_all_scans.py`, `analyze_scan.py`, `check_public_safety.py` |
 | `tests/` | offline tests for the working pipeline (`pytest tests/`) |
 | `01_rawdata/scans/` | **canonical `scio-scan/2` records** - self-contained, ready to process |
 | `01_rawdata/` (rest) | the original captures, untouched: `log_files/`, `log_extracted/`, `scan_json/`, `scan_json_calibration/`, `device_files/`, `probe_logs/` |
 | `02_processed_data/` | records **plus** their spectra, and the replay experiment |
 | `documentation/` | RE log, hardware acquisition guide, handoff, datasheets, patents |
-| `archive/` | earlier notebooks and notes, kept for provenance |
+| `archive/` | superseded notebooks (`notebooks/`), scripts and raw notes (`more_info/`), frozen - see [`archive/README.md`](archive/README.md) |
 
 `01_rawdata/scans/` holds 97 records: 26 from 2020/2021 app logs (each carrying
 the spectrum the server returned at the time - a genuine regression target), 17

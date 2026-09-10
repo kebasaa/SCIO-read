@@ -19,7 +19,18 @@ PATTERNS = {
     "Unix user-home path": re.compile(r"/(?:Users|home)/[^/\s]+/"),
     "credential in URL": re.compile(r"https?://[^/\s:@]+:[^/\s@]+@", re.I),
     "bearer token": re.compile(r"Authorization[^\r\n]{0,40}Bearer\s+[A-Za-z0-9._~-]{16,}", re.I),
-    "credential log field": re.compile(r"^(?:Password|Token):\s*[A-Za-z0-9._~-]{16,}", re.I | re.M),
+    # Not anchored to a real line start: inside a .ipynb every source line is a
+    # quoted, indented JSON string, so `^Token:` never matched and a real
+    # (long-expired) token sat in a notebook undetected. Match after any
+    # whitespace/quote run instead.
+    "credential log field": re.compile(
+        r"(?:^|[\s\"'\\])(?:Password|Token|Bearer):?\s*[A-Za-z0-9._~-]{20,}", re.I | re.M
+    ),
+    # `d['Token'] = '...'` / `token: "..."` - the assignment form the pattern
+    # below misses because it only knows password/client_secret/access_token.
+    "token assignment": re.compile(
+        r"['\"]?\b(?:token|api_?key|auth)\b['\"]?\s*\]?\s*[=:]\s*['\"][A-Za-z0-9._~-]{20,}['\"]", re.I
+    ),
     "token-bearing request id": re.compile(r"X-Request-ID:\s*\d+-[A-Za-z0-9._~-]{16,}", re.I),
     "literal secret assignment": re.compile(
         r"(?:password|client_secret|access_token)\s*[=:]\s*['\"][^'\"\r\n]{8,}['\"]", re.I

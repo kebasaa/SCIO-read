@@ -9,7 +9,7 @@ and is never stored or printed.
 
 It logs in, asks the server for an upgrade while reporting outdated versions, and
 saves any returned blobs (dsp_op, dsp_boot, dsp_dec, centers, bins, ...) to
-01_rawdata/device_files/ as *.bin. Then analyse with notebook 08 / recover_key.py.
+01_rawdata/device_files/ as *.bin. Then analyse with dev/notebooks/02_scio_keyrecovery.ipynb / recover_key.py.
 """
 
 from __future__ import annotations
@@ -116,7 +116,7 @@ def _process(new_version: dict) -> int:
         print("\nTriage:")
         for name, t in firmware.triage(blobs).items():
             print(f"  {name:20s} {t['size']:7d} B  entropy {t['entropy']:.2f}  {t['verdict']}")
-    print("\nNext: run 08_scio_keyrecovery.ipynb or:")
+    print("\nNext: run dev/notebooks/02_scio_keyrecovery.ipynb or:")
     print("  python recover_key.py --scans 01_rawdata/scan_json --firmware 01_rawdata/device_files")
     return 0
 

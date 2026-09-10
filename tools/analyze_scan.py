@@ -59,7 +59,7 @@ def main() -> int:
         except Exception as e:
             print(f"  skip {Path(f).name}: {e}")
     if not scans:
-        print("No loadable new-format scans. Capture with 07_scio_capture.ipynb first.")
+        print("No loadable new-format scans. Capture with 01_scio_scan_to_spectrum.ipynb first.")
         return 2
     device = scans[0]["device"]
     device_id = device["device_id"]

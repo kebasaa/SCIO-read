@@ -72,8 +72,11 @@ its USB endpoint goes silent or vanishes entirely. Unplug, long-press off,
 long-press on until steady blue, replug. It re-idles on its own after a period
 without commands, so keep traffic flowing during a session.
 
-Notebooks: `10_scio_scan_to_spectrum.ipynb` (the workflow), `07_scio_capture.ipynb`
-(connect/health/raw capture), `09_scio_probe.ipynb` (read-only opcode probing).
+Notebooks, numbered by role: `01_scio_scan_to_spectrum.ipynb` (the workflow),
+`02_scio_device_health.ipynb` (identifiers, battery, temperature, firmware file
+headers), `03_scio_probe.ipynb` (read-only opcode probing). All three import only
+`scio`; offline-decoding notebooks are in `dev/notebooks/`, and superseded ones in
+`archive/notebooks/` (frozen - see [`../archive/README.md`](../archive/README.md)).
 
 ## The data rules
 

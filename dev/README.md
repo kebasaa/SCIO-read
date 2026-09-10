@@ -25,12 +25,18 @@ validation against a stored server spectrum.
 
 ```
 dev/
-  scio_offline/     the research modules (import as `scio_offline`)
-  scripts/          CLI drivers; import `_bootstrap` first, which fixes sys.path + cwd
-  notebooks/        exploratory notebooks 03, 04, 06, 08, 10 (evidence pipeline)
-  tests/            pytest for this strand only
-  analysis_output/  generated reports, safe to delete and regenerate
+  scio_offline/          the research modules (import as `scio_offline`)
+  scripts/               CLI drivers; import `_bootstrap` first, which fixes sys.path + cwd
+  notebooks/
+    01_scio_evidence_pipeline.ipynb   corpus inventory + neutral transform statistics
+    02_scio_keyrecovery.ipynb         the current key-recovery attempt
+    superseded/                       earlier attempts, each labelled, kept as the record
+  tests/                 pytest for this strand only
+  analysis_output/       generated reports, safe to delete and regenerate
 ```
+
+The root notebooks (`01`-`03`) deliberately import **only** `scio`, never
+`scio_offline` - the same separation `pytest tests/` enforces for the code.
 
 Modules:
 
@@ -82,6 +88,27 @@ What is left is hardware, and it is cheap:
 3. **An old phone that never finished a firmware upgrade** - the consumer app
    deletes the cached blobs only after a *completed* upgrade. `firmware.py`
    already knows how to extract them.
+
+## Two hypotheses worth writing down
+
+Salvaged from `archive/notebooks/01_scio_usb.ipynb` before it was archived; both are
+recorded here so nobody re-derives them from scratch, and so nobody mistakes them for
+findings.
+
+**1. `AptinaId` as an AES-256 key.** The Aptina id is 32 hex characters - 128 bits as bytes,
+but 32 *characters* if taken as an ASCII string, which is exactly an AES-256 key length. That
+coincidence is the reason device identifiers are in the candidate set at all.
+`keyrecover.py` already tests id-derived keys (raw, ASCII, and standard KDFs over them) and
+none has ever validated. The rationale was never written down, only the code - so if you are
+tempted to "try the Aptina id", it has been tried.
+
+**2. The reflectance formula is not a decoding shortcut.** `archive/more_info/decrypt.txt`
+gives `R = (S - D) / (G - D)` over sample / dark / gradient. That is almost certainly the
+right *physics*, and it is how the spectrum is computed - **from decrypted per-pixel data**.
+Applying it to the ciphertext bytes is meaningless, and an early notebook did exactly that on
+three magic u32s and got a number. Note also that `decrypt.txt` is an unverified third-party
+note: it claims the three sections are "400 bytes long", where the measured sizes are
+1800/1800/1656. Treat its arithmetic as plausible and its specifics as wrong.
 
 ## The bar for success
 

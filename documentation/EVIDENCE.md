@@ -116,7 +116,7 @@ The exact headers and sentinel groups are preserved in
 
 ## Controlled capture matrix
 
-Using `07_scio_capture.ipynb`, preserve raw bytes and capture:
+Using `02_scio_device_health.ipynb`, preserve raw bytes and capture:
 
 1. 30 scans of one unmoved target under unchanged conditions.
 2. 10 white-reference scans without repositioning.
