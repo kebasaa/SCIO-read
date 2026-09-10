@@ -38,9 +38,9 @@ or alter the boot-mode straps.
 7. Analyze both dumps:
 
    ```powershell
-   <USER_HOME>\.conda\envs\tp\python.exe analyze_flash_dump.py `
+   <USER_HOME>\.conda\envs\tp\python.exe dev\scripts\analyze_flash_dump.py `
      dump_a.bin dump_b.bin `
-     --output analysis_output\flash_dump_report.json `
+     --output dev\analysis_output\flash_dump_report.json `
      --extract-dir 01_rawdata\device_files\flash_carved
    ```
 
@@ -68,7 +68,7 @@ is IEEE 1149.1.
    a scan. A runtime dump may reveal decoded tables, firmware code, or transient
    transform keys even when the boot image is opaque.
 5. Preserve the raw dumps unchanged and analyze them with
-   `analyze_flash_dump.py`; separately run `scio.firmware.triage_blob` on carved
+   `analyze_flash_dump.py`; separately run `scio_offline.firmware.triage_blob` on carved
    `dsp_op` candidates.
 
 ## Exact validation targets for this unit
@@ -92,7 +92,7 @@ with that magnitude, but it requires header adjacency as stronger evidence.
 
 1. Keep the original dumps immutable and work on copies.
 2. Run LDR parsing, entropy profiling, string extraction and cipher-signature
-   searches already implemented in `scio.firmware` and `scio.keyrecover`.
+   searches already implemented in `scio_offline.firmware` and `scio_offline.keyrecover`.
 3. If `dsp_op` is a plaintext Blackfin LDR, disassemble it and trace the code
    handling the sample command and the four image-to-spectrum tables.
 4. If it remains opaque, prioritize a during-scan JTAG SRAM capture over more

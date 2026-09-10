@@ -25,7 +25,7 @@ The apps handled files named `ble`, `dsp_boot`, `dsp_dec`, `dsp_op`,
 stored upgrade payloads in SharedPreferences as Base64 containing a four-byte
 little-endian checksum followed by a body.
 
-`scio.firmware` can scan such XML/backup artifacts, extract bodies, compare
+`scio_offline.firmware` can scan such XML/backup artifacts, extract bodies, compare
 checksums with device headers, detect Blackfin LDR structure, and report
 entropy. A high-entropy result is reported as opaque; it is not automatically
 called encrypted or Lockbox-protected.
@@ -39,7 +39,7 @@ them only in application data.
 
 ## Bounded cryptographic hypothesis
 
-Only after evidence supports encryption, `scio.keyrecover` can test:
+Only after evidence supports encryption, `scio_offline.keyrecover` can test:
 
 - AES modes and explicit IV constructions already represented in the code;
 - constants close to cipher signatures in a recovered artifact;
@@ -101,7 +101,7 @@ u8/u12/u16 raster projections have no repeatable pixel structure, so a plain
 image payload is not supported. Identifier-derived AES/TEA/XTEA searches using
 cross-scan plaintext repeatability, and bounded LCG/xorshift/MT/SHA-counter
 stream transforms, also produced no hit. See `EVIDENCE.md` and the JSON reports
-under `analysis_output/` for exact candidate counts and scores.
+under `dev/analysis_output/` for exact candidate counts and scores.
 
 ## Current software-only route
 
@@ -112,3 +112,142 @@ under `analysis_output/` for exact candidate counts and scores.
 5. Implement only a transform that generalizes across held-out sessions.
 6. If cryptographic opacity is established without local key/implementation,
    record the exact blocker instead of generating a plausible-looking curve.
+
+## Cloud firmware-download route (2026-09-09)
+
+Tested whether the firmware/tables can be pulled from the Consumer Physics server
+the way the app did (`GET /v1/device/{bleId}/firmware-upgrade?...&compression_version={i2s}`),
+tooling in `src/scio/cloud.py` + `download_firmware.py`.
+
+- **The APKs do NOT contain the firmware.** Verified by content: no firmware-named
+  entries, no base64 run >=600 chars in any dex (a `dsp_op` would be ~43.5k chars),
+  and `FirmwareUpgradeModel` is only ever populated from the server's `new_version`
+  JSON. Only `assets/mock/*` (sample scans) and UI media are bundled.
+- **The server is alive and the endpoints work.** Auth: `auth.consumerphysics.com/oauth`
+  is up. `/oauth/token` `grant_type=client_credentials` -> 400 `unsupported_grant_type`
+  (no app-level token). `/oauth/login` (password flow) is the only token source.
+- **Account status blocks it.** With the owner's real credentials, login returns
+  **HTTP 403 `user_status: inactive` / `OperationForbidden`** (a wrong password gives
+  401 `InvalidUserCredentials`, so the credentials are valid - the account is
+  deactivated). The OAuth server will not issue a bearer token to an inactive
+  account, and `firmware-upgrade` returns 401 without one.
+
+**Conclusion:** the cloud route is technically intact but gated on an *active*
+account. It opens if (a) the account is reactivated, or (b) any other active SCiO
+account is used (the endpoint is keyed by BLE id; device-ownership enforcement
+untested). `download_firmware.py --token <bearer>` fetches and archives the blobs
+the moment any valid token is available; it caches the raw response so a download
+is needed only once.
+
+### Login-free acquisition: exhausted (2026-09-09)
+
+Checked every route that needs no account, all negative:
+- APKs: firmware not bundled (content scan; no base64 blob, `FirmwareUpgradeModel`
+  is server-fed only).
+- Local BLE capture `__scio/btsnoop_hci.log`: a scan session (1147 notifications on
+  reporter handle 0x0025), not a firmware upgrade - no `FILE_DOWNLOAD` (0x81) traffic;
+  no firmware bytes. App logs show `new_version:null` (device was up to date).
+- Server unauthenticated: `firmware-upgrade` returns 401 with no token and with a
+  bogus bearer (token is validated); v2/v3 and guessed firmware paths 404; `aws-api`
+  host DNS dead. No public/CDN mirror.
+
+A valid bearer token from an ACTIVE account is required. Remaining login-free
+source would be an old phone's SharedPreferences cache (no server call) or hardware.
+
+### Internet search for the blobs (2026-09-09): none public
+
+Searched GitHub/GitLab, Reddit, forums and the vendor site. No public copy of any
+firmware/table blob exists: no SharedPreferences dump, no `dsp_op`/`.ldr`, no
+per-device tables. The only SCiO RE project online is this repo (kebasaa/SCIO-read).
+The brand is alive as scionir.com; dev.scionir.com offers only Android/iOS Mobile
+SDKs, which are cloud-dependent (scans upload to the SCiO Cloud) - no firmware, no
+offline decoder, no calibration files. Raw-spectra export needs a paid Researcher
+Kit and still goes through the cloud. Conclusion: no login-free public source.
+
+## White reference / calibration: who decides? (verified 2026-09-10)
+
+**The white-reference requirement is 100% client-side policy. The server supplies
+thresholds but never rejects a scan for a stale white reference.**
+
+Client logic (`ScioInternalDevice.isCalibrationNeeded()`), in order; each rule is
+**disabled when its threshold is `<= 0`**:
+
+1. Cup gate -> `NO_NEED` (SCiO Cup only).
+2. `NEVER` if no WR stored (timestamp < 0, WR sample/dark null) or i2s tag / Aptina id null.
+   The WR *gradient* is not required.
+3. `TIME_THRESHOLD` if `time > 0 && now - wr_ts > time_ms`.
+4. `EXCEED_SCANS_LIMIT` if `scans > 0 && scans_since_wr >= scans`.
+5. `TEMP_THRESHOLD` if `temp > 0 && |last_scan_temp - wr_temp| > temp`.
+6. else `NO_NEED`.
+
+The scan flow enforces it: `SCAN_1` reads temperature, then aborts the scan and calls
+`onNeedCalibrate()` if the status is not `NO_NEED`.
+
+### Endpoints (probed live, responses verbatim)
+
+`GET /v1/device/calibration_thresholds?device_id=<APTINA_ID>` (Bearer token; the id is
+**case-sensitive** - lowercase returns 404 `ObjectNotFound`):
+
+```json
+{"thresholds":{"scan_diff":1000000000,"time_diff":1000000000,"temp_diff":10000}}
+```
+
+`time_diff` is in **minutes** (the app stores it `x 60 x 1000` as ms); every field is parsed
+with a default of 0, and **0 disables that rule**. `min_scans_for_new_batch` is absent here
+(and is parsed but never read by the app - recorded as unused).
+
+**These values are effectively infinite** (1e9 minutes ~ 1900 years, 1e9 scans, 10000 degC),
+so on this device *no* time/scans/temperature rule can ever fire: **a white reference is
+needed only when none exists**. This matches the 2021 log (`10000.0`) and the fact that newer
+app builds (consumer 1.3.8.554, Lab 1.3.12.144) deleted the threshold logic entirely.
+
+`POST /v1/device/{aptina_id}/user_calibration` (also `/v2/...`) with `sampled_white_at`,
+`sample_white`, `sample_white_dark`, `sample_white_gradient`, `i2s_tag_config`:
+
+```json
+{"calibration":{"is_valid":true,"calibration_id":"d4712d24-..."},"_type":"POST deviceusercalibration"}
+```
+
+A **quality** check on the WR blob (advisory: the app stores the WR before calling this, is
+gated by the `calibration_validation` rollout flag, and skips it when offline). It returns an
+undocumented `calibration_id` UUID. Our stored 2026-09-07 WR validates as `is_valid: true`.
+
+### Temperature fidelity (matters for the temperature rule)
+
+The app decodes the Aptina/CMOS temperature with a **double integer truncation**:
+`(long)((float)((long)(raw - 375.22)) / 1.4092f)` - always a whole number. E.g. raw `404`
+gives the app `19`, where the exact float is `20.42`. The WR temperature it compares against
+is the **mean of the before/after** app values. `scio.protocol.parse_temperature` now returns
+`cmos_t` (float), `cmos_t_app` (the app value, used for the decision) and `raw_u32`.
+
+### Replay experiment: does the server ever demand a new white reference? (2026-09-10)
+
+Replayed **every scan in this repository** through `POST /v2/consumer/spectro-scan`, each with
+its own white reference, 20 s apart (`replay_all_scans.py`; one self-contained JSON record per
+scan under `02_processed_data/replay_experiment/`).
+
+| set | n | WR age at scan | WR age today | result |
+|---|---:|---|---|---|
+| `log_extracted` fixtures (2020 bark/rock/soilcrust/calibrationbox, 2021 skin) | 26 | 0.01-0.11 h | 1786-2289 days | **all accepted, 331 pts** |
+| captured 2026 scans (hand, burst, 30-scan static series) | 36 | 2.7-2.9 h | ~3 days | **all accepted, 331 pts** |
+| **cross-pairs** (deliberate mismatch) | 2 | +2286 d / **-2286 d** | - | **both accepted, 331 pts** |
+
+**62/62 + 2/2 accepted, 0 rejected.** The server returned a full spectrum for white references
+over six years old, and even for a scan paired with a white reference recorded *after* it
+(negative age). It performs **no age, staleness or ordering check** on `sampled_white_at`.
+
+**Conclusion: the server never decides that a new white reference is needed.** It supplies
+thresholds (all effectively infinite for this device) and the *client* applies them. With the
+live values, only the `NEVER` branch can fire, i.e. **a WR is required solely when none
+exists**. `sampled_white_at` is metadata; the WR blobs themselves are of course used to
+compute the spectrum.
+
+#### Side finding: 30 captured scans had an empty `i2s_tag_config`
+
+The first pass failed 3 scans with
+`400 InvalidUsage: "i2s_tag_config: ... is not a valid i2s tag config"`. Cause: 30 of the 54
+captured scans stored an **empty** i2s tag because the BLE-ID read had failed at capture time
+and the error was silently swallowed. The server hard-rejects an empty tag, so those scans
+were unusable. Fixed in two places: `replay_all_scans.py` falls back to the white reference's
+tag (it is a per-device constant), and `ScioUSB.read_device_info()` now retries the BLE-ID
+read and sets an explicit `i2s_tag_missing` flag so a capture cannot quietly become unusable.

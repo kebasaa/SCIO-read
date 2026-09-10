@@ -1,0 +1,7 @@
+{
+ "label": "v1_thresholds_lowercase",
+ "method": "GET",
+ "url": "https://api.consumerphysics.com/v1/device/calibration_thresholds?device_id=8032ab45611198f1",
+ "status": 404,
+ "body": "{\"object_type\":\"device\",\"error_type\":\"ObjectNotFound\",\"http_status\":404,\"message\":\"The object referred to does not exist.\"}\n"
+}

@@ -1,0 +1,5 @@
+{
+ "url": "https://api.consumerphysics.com/v2/device/8032AB45611198F1/user_calibration",
+ "status": 200,
+ "body": "{\"calibration\":{\"is_valid\":true,\"calibration_id\":\"45f448e7-9c51-4b47-bbab-c52b464109f2\"},\"_type\":\"POST deviceusercalibration2\"}\n"
+}

@@ -1,282 +1,547 @@
-[![GitHub](https://img.shields.io/github/license/kebasaa/SCIO-read)](https://www.gnu.org/licenses/gpl-3.0)
+<!-- markdownlint-disable MD013 -->
 
-# Reading the SCiO spectrometer (Consumer Physics)
+# The SCiO spectrometer: a technical reference
 
-Tools to talk to a [Consumer Physics SCiO](https://www.consumerphysics.com/)
-near-infrared spectrometer over USB, capture its raw scans, and work toward
-decoding them **offline**. The SCiO is now end-of-life: Consumer Physics
-de-activated accounts and its servers no longer analyse this device. The scan
-encoding is unresolved: packing, compression, obfuscation and encryption are
-all hypotheses. The goal is to identify that transform from local evidence and
-recover repeatable wavelength-indexed spectra without the server.
+The Consumer Physics **SCiO** is a pocket near-infrared spectrometer, sold
+2015-2019 and now discontinued. It has no offline mode: the device emits opaque
+blobs and a vendor server turns them into spectra. This repository documents the
+device end-to-end - transport, framing, every command, the data formats, the
+calibration rules and the server API - and provides a working Python
+implementation, so that a SCiO you own stays usable.
 
-Contributions - especially firmware blobs extracted from an old phone, or
-Blackfin reverse-engineering - are very welcome. See
-[How you can help](#how-you-can-help).
+Two paths exist:
 
-## Status
-
-| Capability | State |
+| | status |
 |---|---|
-| Command the SCiO over USB, read metadata, temperature, battery | **Works** (`07_scio_capture.ipynb`) |
-| Capture and store raw scans + white reference | **Works** |
-| Convert a raw scan into a spectrum offline | **Researching**: the opaque transform is not yet identified |
-| Convert via the Consumer Physics server | **Dead**: device is EOL, accounts de-activated, server refuses these scans |
+| **Capture -> vendor server -> spectrum** | **works.** Verified against 2020/2021 stored spectra to ~1e-15. Needs an active Consumer Physics account. |
+| **Capture -> spectrum, offline** | **unsolved.** The blobs are encrypted on the device's DSP; see [`dev/README.md`](dev/README.md). |
 
-`analyze_scio.py` builds a canonical corpus and hypothesis-neutral diagnostics.
-The current 82-record/324-blob report rejects direct raster/image layouts,
-common weak PRNG/stream transforms, and the enumerated AES/TEA/XTEA keys derived
-from serials and hardware IDs. These are bounded negative results, not proof of
-encryption or proof that no image-domain data exists behind the opaque layer.
+Capture itself needs **no network**. A scan is written as a self-contained
+record and can be converted to a spectrum later, from anywhere. That separation
+is the point: the server may be switched off at any time, and a record captured
+today must still be convertible the day someone breaks the offline path.
 
-## Quick start
+---
 
-1. Create the environment (or use any env with the listed packages):
-   ```bash
-   conda env create -f scio_env.yml   # numpy, pandas, scipy, matplotlib, pyserial, cryptography, jupyterlab, pytest
-   ```
-2. Turn the SCiO on (long press until it blinks blue) and connect USB.
-3. Run `07_scio_capture.ipynb` to read the device and capture a white reference
-   and a sample scan. Raw scans are saved under `01_rawdata/`.
-4. To attempt decoding, run `08_scio_keyrecovery.ipynb` (or `recover_key.py`)
-   after obtaining the DSP firmware from an old phone.
-5. Run `analyze_scio.py` or `10_scio_evidence_pipeline.ipynb` to rebuild the
-   corpus/evidence reports. Offline checks: `pytest tests/`.
-6. `repeatability_key_search.py` and `embedded_cipher_search.py` reproduce the
-   unchanged-target AES and TEA/XTEA identifier-key tests.
+## Contents
 
-On Windows the SCiO appears as a Texas Instruments CDC serial port (VID:PID
-`0451:16AA`); on Linux it is a `/dev/ttyACM*` device.
+1. [Quick start](#1-quick-start)
+2. [Transport](#2-transport)
+3. [Command reference](#3-command-reference)
+4. [Scan data anatomy](#4-scan-data-anatomy)
+5. [Firmware and calibration files](#5-firmware-and-calibration-files)
+6. [White reference and calibration](#6-white-reference-and-calibration)
+7. [Server API](#7-server-api)
+8. [Practical gotchas](#8-practical-gotchas)
+9. [Repository layout](#9-repository-layout)
 
-**If the SCiO enumerates but never answers** (commands time out waiting for the
-`0xBA` marker), it is in its idle/charging state: the light pulses slowly
-between light and dark blue instead of glowing steadily. Power-cycle it -
-unplug USB, long-press to turn it off, long-press to turn it on until the light
-is steady, then reconnect USB. It then responds to commands normally. This is a
-device-state issue, not a serial-settings one.
+---
 
-## How the SCiO actually works
+## 1. Quick start
 
-This section replaces earlier guesses in this repo with what was verified from
-the device data and the decompiled apps.
+```bash
+conda env create -f scio_env.yml      # or: conda activate tp
+jupyter lab 10_scio_scan_to_spectrum.ipynb
+```
 
-1. **Optics.** A diffuser and a Fabry-Perot-style optical filter with several
-   sub-filters of different centre wavelengths sit in front of a lens and a
-   micro-lens array. Light of each wavelength lands as a ring/spot of a
-   characteristic radius, so wavelength is encoded as position on the sensor
-   (US patents [US9377396B2](https://patents.google.com/patent/US9377396B2) and
-   [US10330531B2](https://patents.google.com/patent/US10330531B2)).
-2. **CMOS sensor.** An ON Semiconductor MT9M034 (1280x960, 12-bit) captures the
-   image.
-3. **DSP binning.** A Blackfin BF512 DSP reduces the image to a compact vector
-   using **per-device tables**: `deadPixelsIndices`, `centers`, `bins`,
-   `nPixelsPerBin`. Their version is the `i2s_tag_config` string (e.g.
-   `20150812-e:PRODUCTION`); the server called this the `compression_version`.
-   "i2s" = *image-to-spectrum*.
-4. **Opaque encoding.** Each scan sends three blobs—dark, sample, gradient—with
-   an observed 8-byte prefix (`u32 type`, `u32 unclassified value`) and a
-   high-entropy body. Body sizes are multiples of 16 on the available firmware.
-   This is compatible with packed data, compression, obfuscation or encryption;
-   it does not prove AES, a nonce, a per-device key, or Lockbox usage.
-5. **Transport.** The phone received the three blobs over BLE/USB, base64-encoded
-   them verbatim, and POSTed them (plus the stored white reference) to
-   `api.consumerphysics.com`.
-6. **Server (now gone).** The server undid the opaque encoding and binning and
-   returned a 331-point reflectance spectrum on a linear axis
-   (`{start: 740, steps: 1, num_WL: 331}` -> 740-1070 nm). Nothing in any app
-   ever computed a spectrum locally.
+Notebook `10_scio_scan_to_spectrum.ipynb` is the whole workflow: name the scan,
+connect, capture, upload, plot. Everything it does is a call into `src/scio/`:
 
-### Corrections to earlier notes in this repo
+```python
+import sys; sys.path.insert(0, "src")
+from scio import credentials, session, usb
 
-- *"The raw bytes don't match the base64 sent to the server."* They do match.
-  The confusion came from two things: the three responses arrive as
-  **dark, sample, gradient** (index 0 is dark, not sample), and the old USB
-  notebook used URL-safe base64 while the app/logs use standard base64.
-- *"No clue what sample / dark / gradient mean."* Dark = exposure with the
-  illumination off (baseline), sample = illuminated exposure, gradient = a third
-  exposure (header type `0x6E`) the server model also used.
-- *"12 filters x 27 nm = 331 bands."* Coincidence; the 331 points come from the
-  server's `num_WL`, not from the optics arithmetic.
-- *"R = S / C."* A conceptual sketch only; the server combined all six blobs
-  (sample/dark/gradient and the white-reference triplet) with the per-device
-  tables. The technical-support export establishes the final spectral-domain
-  relationship exactly: `spectrum = sample_raw / wr_raw`. Converting each raw
-  triplet into those spectral-domain vectors remains unresolved.
-- *"It measures twice and averages."* One scan command returns two or three
-  response blobs (by firmware version), not two averaged scans.
+dev  = usb.ScioUSB("COM5").open()
+path = session.capture(dev, "bark", comment="north-facing trunk")   # offline
+dev.close()
 
-## Protocol reference
+out = session.process(path, credentials.get_token())                # online, later
+```
 
-Frames in both directions: `[seq, 0xBA, cmd, len_lo, len_hi, payload...]`
-(`0xBA` is the protocol marker; length is little-endian uint16). Over BLE each
-20-byte notification is additionally prefixed with the sequence byte and there
-is **no CRC**; over USB the whole frame arrives on the serial stream.
+Raw records land in `01_rawdata/scans/`, spectra in `02_processed_data/`.
+`session.process_pending()` uploads a backlog whenever you next have a
+connection.
 
-| Cmd | Hex | Meaning | Response |
-|---|---|---|---|
-| READ_DEVICE_STATUS | 0x00 | status | status payload |
-| READ_DEVICE_ID | 0x01 | identifiers | dsp id `[0:8]`, aptina id `[16:24]` (16-bit words byte-swapped -> `device_id`), fw `u16@24` |
-| SAMPLE_SPECTRUM | 0x02 | scan | 2 responses (fw < 136) or 3: dark, sample, gradient |
-| READ_TEMPERATURE | 0x04 | temperature | 3x `u32` LE; cmos `(x-375.22)/1.4092` C, chip `x/100`, object `x/100` |
-| READ_BATTERY_STATE | 0x05 | battery | charge% `u16`, health% `u8`, status `u8`, charging `u16`, mV `u16/1000` |
-| READ_BLE_ID | 0x84 | BLE info | ble id `[0:8]`, ble fw `u16@8`, name `str(50,16)`, **i2s tag** `str(66,64)` |
-| READ_FILE_HEADER | 0x87 | file header | 16 B = `u32` **type, size, version, checksum** (all LE). Payload `<I file_id` only (no offset/length) |
-| READ_FILE_LIST | 0x94 | file list | 8-byte `(u32 type, u32 version)` entries; handler keeps only types 87-95 |
+Notebooks: `07` capture and device health, `09` safe read-only opcode probing,
+`10` the full workflow. Offline-decoding research is in `dev/notebooks/`.
 
-**Declared by the firmware but never sent by any app** (behaviour unknown; probed
-read-only by `09_scio_probe.ipynb`): `READ_EVENT_LOG` 0x06, `PARAMETER_GET` 0x08,
-`BIST` 0x09. The file-list handler reserves the id band 87-95, so a few opcodes
-in that range (e.g. 0x88, 0x8A-0x8F, 0x93, 0x95) are unclaimed and are probed too.
+**The device must be fully awake.** A steady blue LED means it answers commands.
+A slow light/dark pulse means it is idle or charging, and its USB endpoint goes
+silent or disappears. Fix: unplug, long-press off, long-press on until steady
+blue, replug. It re-idles by itself after a period without commands.
 
-Write / state commands - `PARAMETER_SET` 0x07, `SET_INDICATION_LED` 0x0B,
-`READY_FOR_WR` 0x0E, `CLEAR_READY_FOR_WR` 0x11, `FILE_DOWNLOAD` 0x81,
-`RESET_DEVICE` 0x83, `WRITE_USER_DEVICE_NAME` 0x91, `WRITE_BLE` 0x9A - **are never
-sent by this project** and the USB transport / probe refuse them unless you
-explicitly opt in.
+---
 
-### Can the firmware be pulled over USB?
+## 2. Transport
 
-**No, not with any command the apps know how to issue.** Every device→host
-response is small and structured (spectrum, battery, temperature, ids, file list,
-file header). `FILE_DOWNLOAD` (0x81) is host→device only; `READ_FILE_HEADER`
-(0x87) returns only the 16-byte header and its request has no offset/length to
-stream a body. There is no memory/flash/file-body read command and no raw-opcode
-API in the SDK. The only untested surface is the three declared-but-unused
-opcodes above and the reserved band; `09_scio_probe.ipynb` probes them safely.
+### USB CDC
 
-**Probed on real hardware (fw 147): confirmed negative.** `READ_EVENT_LOG`,
-`PARAMETER_GET` (all ids/shapes) and `BIST` return nothing; extended
-`READ_FILE_HEADER` is ignored (still 16 bytes, no body); `READ_DEVICE_STATUS`
-returns a trivial `{0,1}`. So pulling `dsp_op` (32628 bytes on this unit) needs
-hardware - see below. The probe did confirm exact file sizes/checksums, which a
-flash or JTAG dump can be validated against.
+The SCiO enumerates as a Texas Instruments CDC serial port, **VID:PID
+`0451:16AA`**. Baud rate is irrelevant (it is a USB CDC device, not a real UART);
+DTR/RTS handling does not matter. Responses arrive as one contiguous frame.
 
-Scan blob body sizes depend on the i2s generation: `-e` firmware gives
-1800/1800/1656 bytes (dark/sample/gradient), older `-o` gives 1800/1800/1416.
+### Bluetooth LE
 
-### Bluetooth LE (reference)
-
-This project uses USB, but the SCiO speaks the same `0xBA` command protocol over
-BLE, and the handles below are preserved for future BLE work. The vendor GATT
-service is `00003490-0000-1000-8000-00805f9b34fb`, with:
+The same `0xBA` command protocol runs over BLE. This project uses USB, but the
+BLE facts are recorded here because they are hard to rediscover. Vendor GATT
+service `00003490-0000-1000-8000-00805f9b34fb`:
 
 | Role | UUID | Handle (this unit) |
 |---|---|---|
 | Control (write commands) | `00003492-…` | `0x0029` |
 | Reporter (scan-data notifications) | `00003491-…` | replies on `0x0025` |
-| Button pressed (notification) | `00003493-…` | `0x002c` reads `0x01` on press |
+| Button pressed (notification) | `00003493-…` | `0x002c`, reads `0x01` on press |
 
-Standard characteristics: device name `0x2a00` (`00002a00-…`, handle `0x0003`);
-system id `00002a23-…` (handle `0x0012`); manufacturer name `0x2a29` (handle
-`0x001e`), under services `0x1800`/`0x180a`. Each of `3491`/`3492`/`3493` carries
-CCCD/`0x2902` and `0x2901` descriptors.
+Standard characteristics: device name `0x2a00` (handle `0x0003`), system id
+`00002a23-…` (`0x0012`), manufacturer name `0x2a29` (`0x001e`), under services
+`0x1800`/`0x180a`. Each of `3491`/`3492`/`3493` carries CCCD (`0x2902`) and
+`0x2901` descriptors.
 
-Over BLE, a command is written to the control characteristic and the response
-arrives as 20-byte notifications on the reporter (each prefixed with the sequence
-byte, unlike USB). Example scan/calibration sequence seen on the wire (write to
-handle `0x0029`):
+A command is written to the control characteristic; the response arrives as
+20-byte notifications on the reporter, **each prefixed with the sequence byte**
+(unlike USB, where the frame is contiguous). A real scan sequence, written to
+handle `0x0029`:
 
-```
+```text
 01ba050000                    # read battery state
 01ba0e0000                    # ready for white reference
 01ba0b0900000000000000000000  # set indication LED (9-byte payload)
 01ba040000                    # read temperature
-01ba020000                    # sample spectrum (the scan) -> replies on 0x0025
+01ba020000                    # sample spectrum -> replies on 0x0025
 ```
 
-With BlueZ you can drive it directly, e.g.:
+With BlueZ:
 
 ```bash
 sudo gatttool -i hci0 -b <MAC> --char-write-req -a 0x0029 -n 01ba020000 --listen
 ```
 
-The `05_scio_ble_devel.ipynb` notebook has an unfinished `bleak`-based attempt;
-a working BLE transport would reassemble the sequence-prefixed notifications into
-`[0xBA, cmd, len, data]` frames (see `scio/protocol.py`).
+`05_scio_ble_devel.ipynb` holds an unfinished `bleak` attempt. A working BLE
+transport only needs to reassemble the sequence-prefixed notifications into
+`[0xBA, cmd, len, data]` frames; the parsers in `scio/protocol.py` then apply
+unchanged.
 
-## Calibration (white reference)
+### Framing (both directions, both transports)
 
-A white reference is the same `SAMPLE_SPECTRUM` command taken with the SCiO in
-its cover / on a known white surface. It is stored and reused; the app
-recalibrated when it was too old, too many scans had passed, or the CMOS
-temperature had drifted. `scio.store.calibration_status` mirrors that logic;
-`07_scio_capture.ipynb` writes `scio-wr/1` files under
-`01_rawdata/scan_json_calibration/`.
+```text
+[seq, 0xBA, cmd, len_lo, len_hi, payload...]
+```
 
-## The opaque-transform problem and bounded key hypothesis
+| field | size | meaning |
+|---|---|---|
+| `seq` | 1 B | sequence counter; `0x01` for a first/only packet |
+| `0xBA` | 1 B | protocol marker (`-70` as a signed Java byte) |
+| `cmd` | 1 B | command id, see below |
+| `len` | 2 B | payload length, **little-endian uint16** |
+| `payload` | `len` B | command-specific |
 
-If statistical evidence supports encryption, one testable branch is:
+**There is no CRC or checksum.** A response reuses the same layout, so a reader
+should hunt for the `0xBA` marker and resynchronise rather than assume alignment
+- `scio.usb.ScioUSB._read_response` does exactly that.
 
-1. **Get the DSP firmware** (`dsp_op`) and the binning tables. They are not on
-   the server any more, but both SCiO apps cached them in Android
-   SharedPreferences on the phone (see below).
-2. **Triage** the artifact (`scio.firmware.triage`): a valid Blackfin LDR image
-   is analysable; a high-entropy artifact remains opaque and needs more evidence.
-3. **Find the cipher** (`scio.keyrecover.find_signatures`): locate the AES
-   S-box / round constants (or XTEA/ChaCha) in `dsp_op`.
-4. **Test firmware-derived keys** (`scio.keyrecover.recover`): 16/24/32-byte
-   constants near the cipher code, plus standard derivations of the device
-   identifiers, are decrypted against real scans and scored by a plaintext
-   oracle (a candidate may turn the body into a smooth numeric vector),
-   corroborated across several blobs. **No key spaces are
-   brute-forced** - only constants actually present in the firmware are tried.
-5. **Validate**: decrypt a fixture that also has the server's stored spectrum
-   and confirm the derived reflectance matches it.
+Some commands answer with **several** frames back to back: `SAMPLE_SPECTRUM`
+returns two or three, one per blob.
 
-Run it: `python recover_key.py --scans 01_rawdata/scan_json --firmware 01_rawdata/device_files`.
+---
 
-## How you can help
+## 3. Command reference
 
-- **Firmware blobs from an old phone.** If you have (or can borrow) a phone that
-  ran the SCiO or SCiO Lab app, extract its cached firmware:
-  - rooted: copy `/data/data/com.consumerphysics.consumer/shared_prefs/` (or
-    `...researcher`);
-  - no root: `adb backup -f scio.ab -noapk com.consumerphysics.consumer`.
-  Point `08_scio_keyrecovery.ipynb` at it. The key files are `dsp_op` (id 92)
-  and the tables `centers`/`bins`/`nPixelsPerBin`/`deadPixelsIndices` (100-103).
-- **Blackfin reverse-engineering.** If `dsp_op` is plaintext, disassembly of the
-  BF512 code to find the cipher and key derivation is the fastest route.
-- **Hardware.** JTAG/OTP readout of the BF512, or a logic-analyser tap on the
-  CMOS-to-DSP bus (captures unencrypted pixels), are the fallback options
-  documented in [`documentation/firmware_notes.md`](documentation/firmware_notes.md).
+Legend: **R** read-only (safe), **W** writes or changes device state (this
+project never sends these), **X** declared in the app but unimplemented on this
+firmware (147) - probed on hardware, logs in `01_rawdata/probe_logs/`.
 
-## Repository layout
+### Read commands
 
-| Path | What |
+| cmd | name | request payload | response | notes |
+|---|---|---|---|---|
+| `0x00` | READ_DEVICE_STATUS | - | 8 B: two `u32` LE, observed `{0, 1}` | **R** |
+| `0x01` | READ_DEVICE_ID | - | ≥26 B, see below | **R** |
+| `0x02` | SAMPLE_SPECTRUM | - | 2 or 3 frames of blob data | **R** (capture; persists nothing) |
+| `0x04` | READ_TEMPERATURE | - | 12 B: three `u32` LE | **R** |
+| `0x05` | READ_BATTERY_STATE | - | 8 B, see below | **R** |
+| `0x84` | READ_BLE_ID | - | ≥130 B, see below | **R** |
+| `0x85` | READ_BLE_STATUS | - | ble status | **R** |
+| `0x87` | READ_FILE_HEADER | `<I` file_id | **exactly 16 B**: four `u32` LE | **R** |
+| `0x94` | READ_FILE_LIST | - | *n* × 8 B `(u32 type, u32 version)` | **R** |
+| `0x9B` | READ_BLE | - | ble config | **R** |
+
+**`0x01` READ_DEVICE_ID**
+
+| offset | size | field |
+|---|---|---|
+| `[0:8]` | 8 B | DSP id (hex, lowercase) |
+| `[8:16]` | 8 B | unclassified |
+| `[16:24]` | 8 B | Aptina id, stored with **16-bit words byte-swapped** |
+| `[24:26]` | 2 B | firmware version, `u16` LE |
+
+`device_id` - the value the server wants - is the Aptina field with each 4-hex-char
+group `abcd` rewritten as `cdab`, then **uppercased**:
+`328045ab1161f198` -> `8032AB45611198F1`.
+
+**`0x04` READ_TEMPERATURE** - three `u32` little-endian words:
+
+```text
+cmos_t = (w0 - 375.22) / 1.4092        # Aptina CMOS sensor, degC
+chip_t = w1 / 100.0                    # DSP chip, degC
+obj_t  = w2 / 100.0                    # object; 0.0 on this unit
+```
+
+The Android app truncates to integer **twice**:
+`cmos_t_app = trunc(trunc(raw - 375.22) / 1.4092)`, so raw `404` gives **19**,
+not `20.42`. This matters: the calibration temperature rule compares the
+truncated value. `parse_temperature` returns `cmos_t`, `cmos_t_app` and
+`raw_u32` so nothing is lost.
+
+**`0x05` READ_BATTERY_STATE**
+
+| offset | type | field |
+|---|---|---|
+| `0` | `u16` | charge % |
+| `2` | `u8` | health % |
+| `3` | `u8` | health status |
+| `4` | `u16` | charging status |
+| `6` | `u16` | voltage, mV (divide by 1000) |
+
+**`0x84` READ_BLE_ID**
+
+| offset | size | field |
+|---|---|---|
+| `[0:8]` | 8 B | BLE id (hex) |
+| `[8:10]` | 2 B | BLE firmware version, `u16` |
+| `[40:50]` | 10 B | device serial fragment (NUL-padded string) |
+| `[50:66]` | 16 B | user device name |
+| `[66:130]` | 64 B | **`i2s_tag_config`**, e.g. `20150812-e:PRODUCTION` |
+
+The i2s ("image to spectrum") tag identifies the binning-table generation and is
+**mandatory** in every server request. A dropped BLE-ID read leaves it empty and
+silently produces unusable scans, so `read_device_info` retries and flags
+`i2s_tag_missing`.
+
+**`0x87` READ_FILE_HEADER** - request `struct.pack("<I", file_id)`. The response
+is **always 16 bytes**: `(type, size, version, checksum)` as four `u32` LE.
+Appending an offset/length to the request is ignored - there is no readback path
+(see [§5](#5-firmware-and-calibration-files)).
+
+**`0x94` READ_FILE_LIST** - a flat array of 8-byte `(u32 file_type, u32 version)`
+entries covering the 87-95 band.
+
+### Write / state-changing commands
+
+Never sent by this project. `ScioUSB` refuses them unless `allow_write=True`.
+
+| cmd | name | notes |
+|---|---|---|
+| `0x03` | SET_SAMPLE_SETTINGS | unused by the app |
+| `0x07` | PARAMETER_SET | **W** |
+| `0x0B` | SET_INDICATION_LED | **W**, 9-byte payload |
+| `0x0E` | READY_FOR_WR | **W**, LED/UX hint so the device button can trigger a white reference; firmware ≥ 144 |
+| `0x11` | CLEAR_READY_FOR_WR | **W**, counterpart of `0x0E` |
+| `0x81` | FILE_DOWNLOAD | **W**, host->device **only** - it uploads firmware, it does not read it |
+| `0x83` | RESET_DEVICE | **W**, disruptive |
+| `0x91` | WRITE_USER_DEVICE_NAME | **W** |
+| `0x9A` | WRITE_BLE | **W** |
+
+### Declared but unimplemented (firmware 147)
+
+All probed on real hardware:
+
+| cmd | name | observed |
+|---|---|---|
+| `0x06` | READ_EVENT_LOG | **X** no response |
+| `0x08` | PARAMETER_GET | **X** no response |
+| `0x09` | BIST (built-in self test) | **X** no response |
+| `0x88`, `0x89`, `0x93`, `0x95` | reserved band | valid frame returned, **empty body** |
+| `0x8A`-`0x8F` | reserved band | no response |
+
+---
+
+## 4. Scan data anatomy
+
+`SAMPLE_SPECTRUM` (`0x02`) returns one frame per blob. How many depends on the
+firmware (`DeviceInfo.java`):
+
+- firmware < 136 -> **2** frames (dark, sample);
+- firmware ≥ 153 with gradient sampling disabled -> **2**;
+- otherwise -> **3** (dark, sample, gradient).
+
+**Wire order is dark, sample, gradient.**
+
+Sizes depend on the i2s generation:
+
+| i2s tag | sample | dark | gradient |
+|---|---|---|---|
+| `…-e:…` (this unit) | 1800 B | 1800 B | 1656 B |
+| `…-o:…` (older) | 1800 B | 1800 B | 1416 B |
+
+Each blob is:
+
+```text
+[0:4]   u32 LE  type      0x00 for sample and dark, 0x6E (110) for gradient
+[4:8]   u32 LE  varies per scan - a nonce/IV counter is the leading hypothesis,
+                but this is NOT proven
+[8:]            body: an exact multiple of 16 bytes, ~7.9 bits of entropy per byte
+```
+
+The first `u32` of the **sample** response frame doubles as a status word (`0`
+on a healthy scan).
+
+What is established about the body: it is high-entropy, AES-block-aligned, and
+repeated scans of a physically unchanged target share **no** ciphertext blocks -
+so it is not ECB, and something per-scan varies. What is *not* established: the
+cipher, the mode, the key location, or whether compression or packing is applied
+first. See [`dev/README.md`](dev/README.md) for the full negative result.
+
+---
+
+## 5. Firmware and calibration files
+
+`READ_FILE_LIST` / `READ_FILE_HEADER` expose the device's stored files.
+
+A `READ_FILE_HEADER` response is `(type, size, version, checksum)`. Read from
+this fw-147 unit (`01_rawdata/device_files/`):
+
+| id | name | size | version | checksum |
+|---|---|---|---|---|
+| 87 | `ble_runtime` | 119233 B | 125 | 12925168 |
+| 89 | `ble` | *absent* (`0xFFFFFFFF` in every word) | | |
+| 90 | `dsp_boot` | 7284 B | 17 | 688456 |
+| 91 | `dsp_dec` | 14600 B | 12 | 1548938 |
+| 92 | **`dsp_op`** | **32628 B** | 147 | 4151168 |
+| 100 | `deadPixelsIndices` | 1714 B | 3 | 97267 |
+| 101 | `centers` | 96 B | 3 | 6080 |
+| 102 | `bins` | 140 B | 3 | 13587 |
+| 103 | `nPixelsPerBin` | 1166 B | 3 | 36371 |
+
+`dsp_op`'s version equals the device firmware version, and the three table files
+share version 3. Use the size and checksum to validate any flash dump.
+
+The 2017 Android enum calls the BLE image type **89**; this fw-147 device reports
+type **87** as a 119233-byte BLE image. Both observations are kept in
+`protocol.FIRMWARE_FILES` rather than reconciled away.
+
+**Only headers can be read back. Bodies cannot.** `FILE_DOWNLOAD` (`0x81`) writes
+to the device; `READ_FILE_HEADER` returns 16 bytes and ignores any offset. There
+is no other candidate opcode - the reserved band was probed exhaustively. This is
+why offline decoding is blocked: `dsp_op` contains the image-to-spectrum code and
+presumably the key, and the only ways to obtain it are an external SPI-flash dump,
+BF512 JTAG, or a phone that cached it (see
+[`documentation/HARDWARE_ACQUISITION.md`](documentation/HARDWARE_ACQUISITION.md)).
+
+Both SCiO apps cached these files in Android SharedPreferences
+(`/data/data/com.consumerphysics.consumer/shared_prefs/`) as base64 with a 4-byte
+little-endian checksum prefix, listed in a `firmware.file.names` string-set. The
+consumer app deletes them after a **completed** upgrade, so a phone that never
+finished one is the best candidate. `dev/scio_offline/firmware.py` extracts them.
+
+---
+
+## 6. White reference and calibration
+
+A white reference (WR) is the same `SAMPLE_SPECTRUM` command taken with the SCiO
+in its cover, on the white surface inside. It is stored, reused across scans, and
+sent to the server with **every** scan.
+
+### The client decides, not the server
+
+This was verified both by reading the decompiled apps and by testing the live
+API. `isCalibrationNeeded()` walks these rules in order, each skipped when its
+threshold is `<= 0`:
+
+| result | condition |
 |---|---|
-| `scio/` | Python package: capture, corpus, evidence, candidate transforms, validation |
-| `07_scio_capture.ipynb` | Connect over USB, capture white reference + scans |
-| `08_scio_keyrecovery.ipynb` | Load firmware, run key recovery, validate, decode |
-| `recover_key.py` | Command-line key recovery |
-| `repeatability_key_search.py` | AES search scored by unchanged-target repeatability |
-| `embedded_cipher_search.py` | Bounded TEA/XTEA identifier-key search |
-| `tests/test_offline.py` | Offline tests (no hardware) |
-| `01_rawdata/` | Captured scans, white references, and `log_extracted/` fixtures (raw scan + the server spectrum, for regression) |
-| `02_extract_log_scan.ipynb` | Extract scans from old app log files |
-| `03/04/06_*.ipynb` | Earlier decoding attempts (superseded by `08`) |
-| `09_scio_probe.ipynb` | Safe read-only probing of undocumented USB opcodes |
-| `10_scio_evidence_pipeline.ipynb` | Canonical corpus and transform evidence report |
-| `capture_matrix.py` | Labeled read-only replicate capture utility |
-| `analyze_flash_dump.py` | Compare/carve independently acquired SPI or JTAG dumps |
-| `documentation/EVIDENCE.md` | Fact/hypothesis ledger and acceptance gates |
-| `documentation/HARDWARE_ACQUISITION.md` | Read-only SPI/JTAG acquisition procedure |
-| `documentation/HANDOFF.md` | Onboarding for another programmer taking over |
-| `documentation/` | Datasheets, patents, `firmware_notes.md` |
-| `archive/` | Superseded scripts/notebooks kept for history |
+| `NEVER` | no WR stored, or missing i2s tag / device id |
+| `TIME_THRESHOLD` | WR older than `time_diff` |
+| `EXCEED_SCANS_LIMIT` | `scans_since_calibration >= scan_diff` |
+| `TEMP_THRESHOLD` | \|current CMOS temp − WR temp\| > `temp_diff` |
+| `NO_NEED` | otherwise |
+
+Mirrored exactly by `store.calibration_status` / `store.calibration_report`. The
+temperature compared is the app's **double-truncated** value (see `0x04` above),
+and the WR temperature is the mean of its before/after readings.
+
+Thresholds come from the server but are only advice:
+
+```http
+GET /v1/device/calibration_thresholds?device_id=<DEVICE_ID>
+-> {"thresholds": {"time_diff": …, "scan_diff": …, "temp_diff": …,
+                   "min_scans_for_new_batch": …}}
+```
+
+`time_diff` is in **minutes**. For this device the live values are
+`time_diff = 1e9`, `scan_diff = 1e9`, `temp_diff = 10000` - every rule
+effectively disabled, so **a white reference is needed only when none exists**.
+`min_scans_for_new_batch` is parsed by the app but never read by
+`isCalibrationNeeded`; it is stored, labelled unused.
+
+**The server never rejects a scan for a stale white reference.** 62 stored scans
+plus 2 deliberately mismatched cross-pairs were replayed, including a WR 2289
+days old and a pairing whose WR post-dates its scan. All 64 returned spectra. The
+experiment is in `02_processed_data/replay_experiment/`; the tool is
+`tools/replay_all_scans.py`.
+
+There is a separate, purely advisory quality check:
+
+```http
+POST /v1/device/{device_id}/user_calibration
+-> {"calibration": {"is_valid": true, "calibration_id": "<uuid>"}}
+```
+
+The app stores the WR *before* calling it, and a `false` verdict never un-stores
+it.
+
+### Storage
+
+White references are written as `YYYYMMDD_HHMM_calibration.json`, with the same
+timestamp inside. **They are never overwritten**: a same-minute save becomes
+`..._calibration_2.json`, and "latest" is computed by sorting, so the whole
+calibration history is preserved. Legacy `wr_*.json` files are still read.
+
+Every canonical scan record embeds its own WR blobs, temperatures and thresholds,
+so a single scan file is self-contained.
+
+---
+
+## 7. Server API
+
+Base: `https://api.consumerphysics.com`. Requests carry
+`X-SCiO-Client-Version: Android 1.3.8.554`.
+
+### Login (OAuth implicit flow)
+
+```text
+POST /oauth/login       (email + password)
+  -> 302 /oauth/authorize
+  -> 302 <redirect_uri>#access_token=<token>&expires_in=14&…
+```
+
+Tokens are **short-lived** - `expires_in=14`. Fetch a fresh one per request;
+`session.process_pending` does. Credentials are asked for once and stored in
+`.scio_credentials.enc` (Fernet, PBKDF2-HMAC-SHA256 with 200 000 iterations, key
+derived from `getpass.getuser() | platform.node()`), which is gitignored and does
+not travel between machines.
+
+An inactive account returns `HTTP 403 {"user_status": "inactive"}`. That is an
+account state, not a bug - Consumer Physics can reactivate it.
+
+### Scan -> spectrum
+
+```http
+POST /v2/consumer/spectro-scan
+```
+
+All twelve fields are required unless noted:
+
+| field | value |
+|---|---|
+| `device_id` | uppercase 16 hex, from `0x01` |
+| `sampled_at` | ISO 8601 with offset and milliseconds |
+| `sampled_white_at` | ditto, from the white reference |
+| `scio_edition` | `"scio_edition"` |
+| `i2s_tag_config` | e.g. `20150812-e:PRODUCTION` - **rejected if empty** |
+| `mobile_mac_address` | required; this project sends `02:00:00:00:00:00` |
+| `sample` | base64 blob |
+| `sample_dark` | base64 blob |
+| `sample_white` | base64 blob |
+| `sample_white_dark` | base64 blob |
+| `sample_gradient` | base64, optional (3-frame firmware) |
+| `sample_white_gradient` | base64, optional |
+| `widget_scan_attributes` | `[]` |
+
+Base64 must be **standard alphabet, `=`-padded, newline every 76 characters** -
+Android's `Base64.DEFAULT`. URL-safe base64 is rejected.
+
+Response:
+
+```json
+{"_type": "POST spectroscan2",
+ "spectrum": [ …331 floats… ],
+ "wavelengths": {"start": 740, "steps": 1, "num_WL": 331}}
+```
+
+giving reflectance at **740-1070 nm in 1 nm steps**.
+
+Error taxonomy seen in the apps and on the wire: `invalid_scan`, `low_signal`,
+`high_ambient`, `material_unknown`, `novelty`, `InvalidUsage` (a malformed or
+missing field), plus plain HTTP `401`/`403` for auth and transient `502`s.
+
+### Firmware upgrade
+
+```http
+GET /v1/device/{ble_id}/firmware-upgrade?…
+-> {"new_version": null}     # device already up to date
+```
+
+The only firmware-serving endpoint, and it serves nothing for a current device.
+Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
+
+---
+
+## 8. Practical gotchas
+
+- **`device_id` must be UPPERCASE.** Lowercase returns HTTP 404 - proven, see
+  `01_rawdata/probe_logs/calibration_v1_thresholds_lowercase.json`.
+- **An empty `i2s_tag_config` is rejected outright** (`InvalidUsage`). Thirty
+  scans in this repository were captured with an empty tag because a single BLE-ID
+  read dropped; they were unusable until the tag was filled in from the device's
+  white reference. `read_device_info` now retries and flags the failure.
+- **Base64 must be standard, not URL-safe.** One legacy group in this repo stored
+  URL-safe unpadded base64; the canonical records re-encode from the
+  authoritative hex.
+- **The device must be steady blue.** Pulsing = idle/charging = silent USB.
+  Power-cycle it.
+- **Access tokens expire in seconds.** Fetch one per request.
+- **The white-reference decision is yours, not the server's.** If you care about
+  photometric accuracy, take a fresh WR; the server will happily accept a
+  six-year-old one and return a meaningless number.
+- **A smooth curve is not a decoded spectrum.** Random bytes read as float32 look
+  smooth. Validation requires agreement with a held-out server spectrum.
+
+---
+
+## 9. Repository layout
+
+| path | contents |
+|---|---|
+| `src/scio/` | the working library: `protocol`, `usb`, `probe`, `store`, `cloud`, `credentials`, `session`, `logscan`, `corpus`, `reference`, `paths` |
+| `dev/` | offline-decoding research (`scio_offline`, scripts, notebooks, its own tests) - see [`dev/README.md`](dev/README.md) |
+| `tools/` | `replay_all_scans.py`, `analyze_scan.py`, `check_public_safety.py` |
+| `tests/` | offline tests for the working pipeline (`pytest tests/`) |
+| `01_rawdata/scans/` | **canonical `scio-scan/2` records** - self-contained, ready to process |
+| `01_rawdata/` (rest) | the original captures, untouched: `log_files/`, `log_extracted/`, `scan_json/`, `scan_json_calibration/`, `device_files/`, `probe_logs/` |
+| `02_processed_data/` | records **plus** their spectra, and the replay experiment |
+| `documentation/` | RE log, hardware acquisition guide, handoff, datasheets, patents |
+| `archive/` | earlier notebooks and notes, kept for provenance |
+
+`01_rawdata/scans/` holds 97 records: 26 from 2020/2021 app logs (each carrying
+the spectrum the server returned at the time - a genuine regression target), 17
+more recovered from logs that were never mined, 18 from a 2023 USB series, and 36
+from 2026. The canonical records are **additional copies**; every original file
+is byte-identical to what it was before.
+
+Scans converted from the 2023 series have **no white reference of their own** and
+borrow a later one. The server returns a spectrum, but it is not a calibrated
+measurement, and every such record says so in `provenance.notes`.
+
+### Tests
+
+```bash
+pytest tests/          # working pipeline - passes with dev/ deleted
+pytest dev/tests/      # offline-decoding research
+```
+
+The two suites are deliberately independent; that is what keeps the strands
+decoupled.
+
+---
 
 ## License and credits
 
-Software under GPL v3. Logos and icons are trademarks of Consumer Physics.
+Code under this repository's LICENSE. SCiO, Consumer Physics and related marks
+belong to their owners. This is independent interoperability work on hardware the
+author owns, using the vendor's own documented API and the author's own account.
 
-Thanks to GitHub users [AndreySamokhin](https://github.com/AndreySamokhin),
-[onoff0](https://github.com/onoff0), [franklin02](https://github.com/franklin02)
-and [JanBessai](https://github.com/JanBessai) for earlier reverse-engineering
-help, and to everyone still trying to keep the SCiO usable.
-
-## Changelog
-
-- 2026-09: Added an evidence-led offline pipeline. Earlier encryption, nonce,
-  Lockbox and key-location conclusions are now tracked as hypotheses pending
-  cross-scan and held-out spectral validation.
-- 2023-03: Log extraction and initial (unsuccessful) decoding attempts.
-- 2020-05: Moved to Jupyter notebooks; USB scan capture.
+Facts here were established from: the decompiled Android apps (consumer and
+researcher/Lab), live probing of a fw-147 device over USB, captured app logs, the
+live server API, the Sparkfun SCiO teardown, and the ADSP-BF512 datasheet.
+Corrections are welcome - especially anything that turns a stated hypothesis into
+a fact, or refutes one.

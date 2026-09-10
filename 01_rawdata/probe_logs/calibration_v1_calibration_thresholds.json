@@ -1,0 +1,7 @@
+{
+ "label": "v1_calibration_thresholds",
+ "method": "GET",
+ "url": "https://api.consumerphysics.com/v1/device/calibration_thresholds?device_id=8032AB45611198F1",
+ "status": 200,
+ "body": "{\"thresholds\":{\"scan_diff\":1000000000,\"time_diff\":1000000000,\"temp_diff\":10000}}\n"
+}

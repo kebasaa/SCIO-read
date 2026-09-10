@@ -112,7 +112,7 @@ Together with the decompiled host-to-device-only download path, this gives no
 evidence for a USB firmware-body read operation. Guessed non-empty reserved
 commands were not sent because their state-changing behavior is unknown.
 The exact headers and sentinel groups are preserved in
-`analysis_output/live_device_file_audit.json`.
+`dev/analysis_output/live_device_file_audit.json`.
 
 ## Controlled capture matrix
 

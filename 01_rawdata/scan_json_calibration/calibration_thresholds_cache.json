@@ -1,0 +1,15 @@
+{
+ "8032AB45611198F1": {
+  "time_ms": 60000000000000,
+  "scans": 1000000000,
+  "temperature": 10000.0,
+  "batch_unused": 0,
+  "raw": {
+   "scan_diff": 1000000000,
+   "time_diff": 1000000000,
+   "temp_diff": 10000
+  },
+  "source": "server",
+  "fetched_at": "2026-09-10T09:19:11.166+02:00"
+ }
+}
