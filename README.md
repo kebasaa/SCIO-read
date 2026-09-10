@@ -572,8 +572,27 @@ decoupled.
 
 ## License and credits
 
-Code under this repository's LICENSE. SCiO, Consumer Physics and related marks
-belong to their owners. This is independent interoperability work on hardware the
+**This repository is licensed under the GNU General Public License v3.0** - see
+[`LICENSE`](LICENSE) for the full text. That covers everything written here: the
+`scio` and `scio_offline` libraries, the notebooks, the tools, the tests and this
+documentation.
+
+**Not covered by the GPL, and not ours to license:**
+
+- **Consumer Physics documents and trademarks.** SCiO, Consumer Physics and
+  related names, logos and marks belong to their owners. The patents reproduced
+  under `documentation/` ([`US9377396.pdf`](documentation/US9377396.pdf),
+  [`US10330531.pdf`](documentation/US10330531.pdf)) are their filings, included
+  for reference only.
+- **Other third-party documents**, likewise reference-only: the Analog Devices
+  [`ADSP-BF512.pdf`](documentation/ADSP-BF512.pdf) datasheet, and the notes in
+  `archive/more_info/` that came from other people.
+- **Captured device data** under `01_rawdata/` is measurement output from the
+  author's own unit, not third-party material - it is shared under the same GPL
+  as the rest.
+
+Nothing here redistributes Consumer Physics firmware, application code or
+decompiled sources. This is independent interoperability work on hardware the
 author owns, using the vendor's own documented API and the author's own account.
 
 Facts here were established from: the decompiled Android apps (consumer and
