@@ -42,11 +42,15 @@ PATTERNS = {
 }
 
 
-def candidate_names() -> list[str]:
-    result = subprocess.run(
-        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
-        cwd=ROOT, check=True, capture_output=True,
-    )
+def candidate_names(staged_only: bool = False) -> list[str]:
+    if staged_only:
+        # Only what this commit actually introduces. The full scan walks ~1500
+        # files including the 97 canonical scan records and takes ~40 s, which is
+        # too slow for a pre-commit hook - and a slow hook is a bypassed hook.
+        cmd = ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM", "-z"]
+    else:
+        cmd = ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"]
+    result = subprocess.run(cmd, cwd=ROOT, check=True, capture_output=True)
     return [item.decode("utf-8", "surrogateescape")
             for item in result.stdout.split(b"\0") if item]
 
@@ -55,18 +59,28 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cached", action="store_true",
                         help="scan the exact staged snapshot instead of working files")
+    parser.add_argument("--staged-only", action="store_true",
+                        help="scan only files this commit adds or modifies (fast; for hooks)")
     args = parser.parse_args(argv)
+    if args.staged_only:
+        args.cached = True
     temp_index = None
     scan_root = ROOT
     if args.cached:
         temp_index = tempfile.TemporaryDirectory(prefix="scio-public-safety-")
-        subprocess.run(
-            ["git", "checkout-index", "--all", f"--prefix={temp_index.name}{os.sep}"],
-            cwd=ROOT, check=True, capture_output=True,
-        )
+        checkout = ["git", "checkout-index", f"--prefix={temp_index.name}{os.sep}"]
+        names = candidate_names(args.staged_only)
+        if args.staged_only:
+            if not names:
+                print("Public-safety check: nothing staged.")
+                return 0
+            checkout += ["--"] + names
+        else:
+            checkout.append("--all")
+        subprocess.run(checkout, cwd=ROOT, check=True, capture_output=True)
         scan_root = Path(temp_index.name)
     findings = []
-    for relative in candidate_names():
+    for relative in candidate_names(args.staged_only):
         path = scan_root / relative
         if relative == Path(__file__).name or not path.is_file():
             continue

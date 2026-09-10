@@ -310,6 +310,10 @@ Each blob is:
 The first `u32` of the **sample** response frame doubles as a status word (`0`
 on a healthy scan).
 
+Handy check when reading base64 by eye: sample / dark / white / white-dark all
+begin `AAAAA` (leading `u32` = 0), while the two gradient blobs begin `bgAAA`
+(`0x6E`). A blob whose base64 starts with anything else is not a SCiO scan blob.
+
 What is established about the body: it is high-entropy, AES-block-aligned, and
 repeated scans of a physically unchanged target share **no** ciphertext blocks -
 so it is not ECB, and something per-scan varies. What is *not* established: the
@@ -471,6 +475,15 @@ All twelve fields are required unless noted:
 | `sample_gradient` | base64, optional (3-frame firmware) |
 | `sample_white_gradient` | base64, optional |
 | `widget_scan_attributes` | `[]` |
+
+**What the phone app also sent, and this project does not.** Captured request
+bodies from 2021 carry a `mobile_GPS` object - `latitude`, `longitude`,
+`locality`, `country`, `admin_area`, `address_line` - i.e. the user's precise
+location with every single scan, alongside the phone's real MAC address. Neither
+is required: the server accepts scans without `mobile_GPS`, and
+`mobile_mac_address` is satisfied by the placeholder `02:00:00:00:00:00`. This
+project sends neither and does not copy them into canonical records. If you
+publish raw app logs, they are in there - check before you push.
 
 Base64 must be **standard alphabet, `=`-padded, newline every 76 characters** -
 Android's `Base64.DEFAULT`. URL-safe base64 is rejected.

@@ -1,0 +1,30 @@
+#!/bin/sh
+# Refuse a commit that would publish a credential or a home-directory path.
+#
+# Install (per clone; .git/hooks is not version-controlled):
+#     cp tools/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+#
+# Bypass only with a reason you can say out loud:  git commit --no-verify
+
+# Git's hook environment often lacks the shell's PATH, so find an interpreter
+# rather than assuming `python` resolves. Order: an explicit override, the
+# project's conda env, then the usual names.
+for candidate in "$SCIO_PYTHON" "$HOME/.conda/envs/tp/python.exe" python3 python py; do
+    [ -n "$candidate" ] || continue
+    if command -v "$candidate" >/dev/null 2>&1; then
+        PY="$candidate"
+        break
+    fi
+done
+
+if [ -z "$PY" ]; then
+    echo "pre-commit: no Python interpreter found, so the credential scan did not run."
+    echo "  Set SCIO_PYTHON=/path/to/python, or commit with --no-verify if you are sure."
+    exit 1                      # fail closed: an unrun check is not a passing check
+fi
+
+"$PY" tools/check_public_safety.py --staged-only || {
+    echo ""
+    echo "pre-commit: refusing to commit. Redact the finding above, or re-run with --no-verify."
+    exit 1
+}

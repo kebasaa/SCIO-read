@@ -18,3 +18,17 @@ local_private/
 
 # Cached encrypted SCiO account credentials (never commit)
 .scio_credentials.enc
+
+# Consumer Physics tokens and any file that holds one. Access tokens are
+# short-lived (expires_in=14) so they should never be persisted at all - the
+# encrypted credential store above is the only sanctioned place. Content that
+# slips past these path rules is caught by tools/check_public_safety.py, which
+# tools/pre-commit runs on every commit.
+*.token
+*token.txt
+*token.json
+scio_token*
+*_access_token*
+oauth_*.json
+# Jupyter checkpoints: byte-stale duplicates that have carried a token before.
+.ipynb_checkpoints/
