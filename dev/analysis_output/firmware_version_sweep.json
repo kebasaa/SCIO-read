@@ -1,0 +1,426 @@
+{
+ "schema": "scio-firmware-probe/2",
+ "ran_at": "2026-09-11T22:51:08.984+02:00",
+ "control_status": null,
+ "results": [
+  {
+   "label": "dsp_op_0x92",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x92"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x90",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x90"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x80",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x80"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x64",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x64"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x50",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x50"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x40",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x40"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x20",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x20"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x10",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x10"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x08",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x08"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x04",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x04"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x02",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x02"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x01",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x01"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_0x00",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x00"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x10",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x10",
+    "0x5A": "0x10",
+    "0x5B": "0x10",
+    "0x5C": "0x10"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x08",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x08",
+    "0x5A": "0x08",
+    "0x5B": "0x08",
+    "0x5C": "0x08"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x04",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x04",
+    "0x5A": "0x04",
+    "0x5B": "0x04",
+    "0x5C": "0x04"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x02",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x02",
+    "0x5A": "0x02",
+    "0x5B": "0x02",
+    "0x5C": "0x02"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x01",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x01",
+    "0x5A": "0x01",
+    "0x5B": "0x01",
+    "0x5C": "0x01"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "all_0x00",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x00",
+    "0x5A": "0x00",
+    "0x5B": "0x00",
+    "0x5C": "0x00"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_decimal_1",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "1"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  },
+  {
+   "label": "dsp_op_negative",
+   "ble_id_case": "upper",
+   "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "-0x01"
+   },
+   "compression_version": "20150812-e:PRODUCTION",
+   "client": "Android 1.3.8.554",
+   "status": 200,
+   "new_version_is_null": true,
+   "new_version_keys": null,
+   "payload_sizes": null,
+   "saved": null,
+   "response_head": "{\"new_version\":null,\"_type\":\"GET firmwareupgrade\"}\n"
+  }
+ ],
+ "checksum_endpoint": [
+  {
+   "label": "real_checksums",
+   "body": {
+    "bins_checksum": "13587",
+    "centers_checksum": "6080",
+    "dead_pixels_indices_checksum": "97267",
+    "n_pixels_per_bin_checksum": "36371",
+    "compression_version": "20150812-e:PRODUCTION"
+   },
+   "status": 200,
+   "response": "{\"needs_params_upgrade\":false,\"_type\":\"POST devicefirmwareparamschecksum\"}\n"
+  },
+  {
+   "label": "wrong_checksums",
+   "body": {
+    "bins_checksum": "1",
+    "centers_checksum": "1",
+    "dead_pixels_indices_checksum": "1",
+    "n_pixels_per_bin_checksum": "1",
+    "compression_version": "20150812-e:PRODUCTION"
+   },
+   "status": 200,
+   "response": "{\"needs_params_upgrade\":false,\"_type\":\"POST devicefirmwareparamschecksum\"}\n"
+  },
+  {
+   "label": "wrong_other_generation",
+   "body": {
+    "bins_checksum": "1",
+    "centers_checksum": "1",
+    "dead_pixels_indices_checksum": "1",
+    "n_pixels_per_bin_checksum": "1",
+    "compression_version": "20150812-o:PRODUCTION"
+   },
+   "status": 200,
+   "response": "{\"needs_params_upgrade\":false,\"_type\":\"POST devicefirmwareparamschecksum\"}\n"
+  }
+ ],
+ "verdict": "server_offers_nothing",
+ "finding": "The firmware/table backing store appears decommissioned while analysis still works. firmware-upgrade returns new_version: null for every claimed version from current down to 0x00, for each file alone and all together, in both id casings, with and without compression_version, across four generations, and under an older client string. firmware-params-checksum answers needs_params_upgrade: false even for deliberately wrong checksums - so the server is not comparing against a known-good set, it simply has nothing.",
+ "captured_reference_request": "01_rawdata/log_files/log_20211020_calibration.txt:72 - the app's own request, which also returned new_version: null in 2021."
+}

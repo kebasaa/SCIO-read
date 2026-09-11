@@ -428,3 +428,42 @@ expectation of 2.35, so the fixed 1792 B is not a buffer holding a shorter strea
 **Limit.** This excludes standard image codecs. A proprietary DCT or wavelet coder that does
 not byte-stuff would emit a headerless, random-looking stream that neither this test nor the
 generic codec sweep would catch. Encryption remains not excluded for the usual reason.
+
+### Firmware/table download: re-probed properly, server has nothing (2026-09-11)
+
+Re-opened because the earlier attempt could have failed for fixable reasons. A **real captured
+request** in `01_rawdata/log_files/log_20211020_calibration.txt:72` gave the exact format:
+
+    GET /v1/device/01665900004C99B4/firmware-upgrade
+        ?versions=[{"key":"0x57","value":"0x7D"},{"key":"0x5A","value":"0x11"},
+                   {"key":"0x5B","value":"0x0C"},{"key":"0x5C","value":"0x93"}]
+        &compression_version=20150812-e:PRODUCTION
+    -> {"_type":"GET firmwareupgrade","new_version":null}
+
+Two things that request corrected: the app sends the BLE id **uppercase** (ours was lowercase,
+and this API 404s on a lowercase `device_id`), and the values are the device's *current* file
+versions - 0x7D=125 ble, 0x11=17 dsp_boot, 0x0C=12 dsp_dec, 0x93=147 dsp_op - matching the
+`READ_FILE_HEADER` table exactly. So `null` in 2021 only ever meant "up to date".
+
+**32 requests, all HTTP 200, all `new_version: null`.** Varied: id casing; every claimed dsp_op
+version on a ladder from 0x92 down to 0x00 with the other three held current; all four files
+together from 0x10 down to 0x00; decimal `"1"` and negative `"-0x01"` spellings; the four table
+ids (0x64-0x67) added to `versions`, which the app never does; `compression_version` omitted;
+four generations (`-e`, `-o`, bare, `20150712`); and an older `X-SCiO-Client-Version`.
+
+**The decisive datum is the other half of the handshake.**
+`POST /v1/device/{ble}/firmware-params-checksum` (requires `Content-Type: application/json`;
+form encoding returns 415) is how the app reports the four table checksums, and a
+`needs_params_upgrade: true` is what triggers a table push. It answers **false even for
+deliberately wrong checksums** (all `"1"`) and for a different generation. The server is not
+comparing against a known-good set - it has nothing to compare with.
+
+**Conclusion: the firmware/table backing store is decommissioned while analysis still runs.**
+`spectro-scan` returns spectra in the same sessions in which `firmware-upgrade` returns null.
+No claimed version, generation, casing, client string or spelling changes that. This route is
+closed for a reason no client-side change can address.
+
+`dev/scripts/probe_firmware_versions.py` (`--sweep` for the version ladder) keeps the probe
+reproducible, and **writes anything the server ever offers straight to
+`dev/recovered_firmware/`** - raw response first, decoded bodies second, never overwriting -
+so a future run that does get blobs cannot lose them.
