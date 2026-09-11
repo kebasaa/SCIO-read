@@ -1,0 +1,30 @@
+{
+ "schema": "scio-i2s-oracle/1",
+ "ran_at": "2026-09-10T23:42:29.849+02:00",
+ "tag_label": "scan2_letter_o",
+ "i2s_tag_config": "20150812-o:PRODUCTION",
+ "tag_provenance": "is the 500 scan-specific or tag-specific?",
+ "source_record": "01_rawdata\\scans\\20200604143642_20200604_soil_crust_log04.json",
+ "scan_uid": "490b1d741e2043bb838901f8e99fa9b9",
+ "device_id": "8032AB45611198F1",
+ "sampled_at": "2020-06-04T14:36:42.308+03:00",
+ "payload_fingerprint": {
+  "device_id": "8032AB45611198F1",
+  "i2s_tag_config": "20150812-o:PRODUCTION",
+  "mobile_mac_address": "02:00:00:00:00:00",
+  "sample": 2432,
+  "sample_dark": 2432,
+  "sample_gradient": 2238,
+  "sample_white": 2432,
+  "sample_white_dark": 2432,
+  "sample_white_gradient": 2238,
+  "sampled_at": 29,
+  "sampled_white_at": 29,
+  "scio_edition": "scio_edition",
+  "widget_scan_attributes": []
+ },
+ "response": null,
+ "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n",
+ "spectrum": null,
+ "reference_spectrum": null
+}

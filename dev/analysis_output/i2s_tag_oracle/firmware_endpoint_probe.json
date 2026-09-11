@@ -1,0 +1,42 @@
+[
+ {
+  "label": "real",
+  "compression_version": "20150812-e:PRODUCTION",
+  "probed_at": "2026-09-10T23:43:32.060+02:00",
+  "new_version_keys": [],
+  "payload_sizes": {},
+  "empty": true
+ },
+ {
+  "label": "letter_o",
+  "compression_version": "20150812-o:PRODUCTION",
+  "probed_at": "2026-09-10T23:44:02.437+02:00",
+  "new_version_keys": [],
+  "payload_sizes": {},
+  "empty": true
+ },
+ {
+  "label": "no_letter",
+  "compression_version": "20150812:PRODUCTION",
+  "probed_at": "2026-09-10T23:44:31.612+02:00",
+  "new_version_keys": [],
+  "payload_sizes": {},
+  "empty": true
+ },
+ {
+  "label": "older_date",
+  "compression_version": "20150712:PRODUCTION",
+  "probed_at": "2026-09-10T23:45:01.593+02:00",
+  "new_version_keys": [],
+  "payload_sizes": {},
+  "empty": true
+ },
+ {
+  "label": "omitted",
+  "compression_version": null,
+  "probed_at": "2026-09-10T23:45:32.436+02:00",
+  "new_version_keys": [],
+  "payload_sizes": {},
+  "empty": true
+ }
+]

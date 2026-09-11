@@ -1,0 +1,83 @@
+{
+ "per_scan": [
+  {
+   "scan": "b7fc970dc17042abb70248d66917e19b",
+   "determinism_max_diff": 0.0,
+   "tags": [
+    {
+     "tag": "20150812-E:PRODUCTION",
+     "label": "case_letter_upper",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    },
+    {
+     "tag": "20150812-e:production",
+     "label": "case_suffix_lower",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    },
+    {
+     "tag": "20150812-e:PRODUCTION",
+     "label": "control",
+     "ok": true,
+     "error": null
+    },
+    {
+     "tag": "20150812-e:PRODUCTION",
+     "label": "control_repeat",
+     "ok": true,
+     "error": null
+    },
+    {
+     "tag": "",
+     "label": "empty",
+     "ok": false,
+     "error": "spectro-scan HTTP 400: {\"error_type\":\"InvalidUsage\",\"http_status\":400,\"message\":\"i2s_tag_config:The parameter 'i2s_tag_config' is not a valid i2s tag config\"}\n"
+    },
+    {
+     "tag": "not-a-tag",
+     "label": "garbage",
+     "ok": false,
+     "error": "spectro-scan HTTP 400: {\"error_type\":\"InvalidUsage\",\"http_status\":400,\"message\":\"i2s_tag_config:The parameter 'i2s_tag_config' is not a valid i2s tag config\"}\n"
+    },
+    {
+     "tag": "20150812-a:PRODUCTION",
+     "label": "letter_a",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    },
+    {
+     "tag": "20150812-o:PRODUCTION",
+     "label": "letter_o",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    },
+    {
+     "tag": "20150812:PRODUCTION",
+     "label": "no_letter",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    },
+    {
+     "tag": "20150712:PRODUCTION",
+     "label": "older_date",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    }
+   ]
+  },
+  {
+   "scan": "490b1d741e2043bb838901f8e99fa9b9",
+   "determinism_max_diff": null,
+   "tags": [
+    {
+     "tag": "20150812-o:PRODUCTION",
+     "label": "scan2_letter_o",
+     "ok": false,
+     "error": "spectro-scan HTTP 500: {\"message\":\"Server error. Try again later.\"}\n"
+    }
+   ]
+  }
+ ],
+ "conclusion": "Only the device's own tag is accepted; every substitute is rejected. The server validates the tag, so no chosen-binning oracle is reachable through this endpoint."
+}

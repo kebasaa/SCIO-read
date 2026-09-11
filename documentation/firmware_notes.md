@@ -282,3 +282,42 @@ It is **not** SCiO cryptography. The file is
 magic string from **RFC 6455 §1.3**, and `this.key` is the per-connection `Sec-WebSocket-Key`.
 Every Android app that bundles OkHttp contains it verbatim. It has nothing to do with the scan
 blobs, the DSP, or the device key.
+
+## i2s tag as a chosen-binning oracle: negative (2026-09-10)
+
+Full write-up in [`../dev/README.md`](../dev/README.md); tool
+`dev/scripts/i2s_tag_oracle.py`; raw records in `dev/analysis_output/i2s_tag_oracle/`.
+
+**Question.** The i2s tag selects the image-to-spectrum generation, and the client
+passes it through without parsing or validating it. Would the same ciphertext under
+a different tag come back binned differently? If so, overlapping binnings could be
+subtracted toward per-pixel plaintext - known-plaintext material, which this
+project has never had.
+
+**Answer: no.** Only `20150812-e:PRODUCTION` - this unit's own tag - is processable.
+Four well-formed alternatives (`-o` and bare `20150812`, both real tags from
+`ScioMockDevice`; `20150712:PRODUCTION` from `FakeJson`; and an invented `-a`)
+all return **HTTP 500**. Malformed tags return **HTTP 400 InvalidUsage**
+("not a valid i2s tag config"). Case variants of the working tag (`-E`,
+`:production`) also 500, so matching is an exact, case-sensitive string lookup
+rather than parsing. The 500 is tag-specific, not scan-specific: a second scan
+behaves identically.
+
+Two findings worth keeping regardless:
+
+1. **The analysis endpoint is bit-deterministic.** Two identical requests returned
+   byte-identical 331-point spectra (`max|diff| = 0.000e+00`), and the control
+   matched the 2020 stored spectrum to `5.107e-15`. Any future differential probe
+   of this API therefore has a zero noise floor - worth knowing before designing
+   one.
+2. **The validator and the analyser fail differently.** Shape is checked up front
+   (400); generation is not, and an unknown generation crashes the analyser (500,
+   unhandled). So the tag is a composite key into per-device table data, not a
+   caller-steerable selector.
+
+**Also closed: the firmware endpoint will not hand over the binning tables.**
+`GET /v1/device/{ble_id}/firmware-upgrade?compression_version=...` returns
+`centers`/`bins`/`nPixelsPerBin`/`deadPixelsIndices` as base64 when it thinks a
+device needs them. Probed with all-zero file versions under the real tag, each
+substitute, and with the parameter omitted: `new_version` is empty in all five
+cases - consistent with the earlier `download_firmware.py` result.

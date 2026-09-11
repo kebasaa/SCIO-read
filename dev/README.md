@@ -89,6 +89,63 @@ What is left is hardware, and it is cheap:
    deletes the cached blobs only after a *completed* upgrade. `firmware.py`
    already knows how to extract them.
 
+## Closed avenue: the i2s tag is not a chosen-binning oracle
+
+Tested 2026-09-10, `dev/scripts/i2s_tag_oracle.py`, results in
+`dev/analysis_output/i2s_tag_oracle/`.
+
+**The idea.** The i2s tag (`i2s_tag_config`, which the firmware endpoint calls
+`compression_version`) selects the image-to-spectrum generation: which
+`centers`/`bins`/`nPixelsPerBin` tables apply and which reconstruction algorithm
+runs. The client never parses or validates it - it is an opaque 64-byte string
+read from the device and passed straight through - so an arbitrary tag can be
+sent with otherwise byte-identical blobs. If the server returned a *different*
+spectrum for the same ciphertext under a different tag, each spectrum would be a
+different projection of the same hidden pixel vector: overlapping binnings can be
+subtracted against each other to recover finer detail, and in the limit per-pixel
+plaintext. That would have been the first known-plaintext material this project
+has ever had.
+
+**It does not work.** One tag, one decode:
+
+| tag | provenance | result |
+|---|---|---|
+| `20150812-e:PRODUCTION` | this device's own | **200**, 331-point spectrum |
+| `20150812-o:PRODUCTION` | `ScioMockDevice`, consumer 1.3.8.554 / Lab 1.3.12.144 | 500 |
+| `20150812:PRODUCTION` | `ScioMockDevice`, 1.1.0.320 / 1.2.6.476 / researcher 2017 | 500 |
+| `20150712:PRODUCTION` | `FakeJson.FAKE_WHITE_CHOCOLATE_SCAN` - a different generation | 500 |
+| `20150812-a:PRODUCTION` | invented probe | 500 |
+| `20150812-E:PRODUCTION` | control-tag, letter upper-cased | 500 |
+| `20150812-e:production` | control-tag, suffix lower-cased | 500 |
+| `not-a-tag`, `` (empty) | malformed | 400 `InvalidUsage`, "not a valid i2s tag config" |
+
+What that tells us, which is worth keeping even though the answer is no:
+
+- **The server is bit-deterministic.** Two identical requests returned
+  byte-identical spectra (`max|diff| = 0`). The noise floor is exactly zero, so
+  any future differential experiment against this API has a clean baseline. The
+  control also reproduced the spectrum the server returned for the same scan in
+  2020 to `5.1e-15`.
+- **Two distinct failure modes.** Malformed tags are rejected by a validator
+  (400, specific message). Well-formed tags of another generation pass validation
+  and then **crash the analysis** (500, generic "Server error"). So the tag is not
+  checked against the device up front - it is used as an **exact-string key** into
+  something that only exists for this device's own generation. Case-sensitivity
+  confirms the literal-lookup reading: `-E` and `:production` both 500.
+- **The generation letter is not a free parameter.** It behaves as part of a
+  composite key, not a selector the caller can steer.
+
+**The firmware endpoint is closed too.** `GET /v1/device/{ble_id}/firmware-upgrade`
+returns the table payloads themselves (`centers`, `bins`, `nPixelsPerBin`,
+`deadPixelsIndices` as base64 + 4-byte checksum), which would have given the
+pixel->band mapping outright. Probed with all-zero file versions - so the server
+should consider every file outdated - under the real tag, each substitute tag, and
+with the parameter omitted: `new_version` is **empty in all five cases**.
+
+**Do not retry either of these.** If you want a second binning of one ciphertext
+you need tables for another generation, and neither endpoint will part with them.
+The remaining routes are still the hardware ones below.
+
 ## Two hypotheses worth writing down
 
 Salvaged from `archive/notebooks/01_scio_usb.ipynb` before it was archived; both are
