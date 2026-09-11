@@ -1,0 +1,73 @@
+{
+ "schema": "scio-compression-sweep/1",
+ "ran_at": "2026-09-11T22:02:38.792+02:00",
+ "unique_bodies": 300,
+ "codec_screen": {
+  "raw_deflate": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "zlib": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "gzip": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "bz2": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "lzma_auto": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "lzma_raw": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "brotli": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "rle8": {
+   "false_positive_rate": 0.0,
+   "usable": true
+  },
+  "delta_u16": {
+   "false_positive_rate": 0.9375,
+   "usable": false
+  }
+ },
+ "codecs_used": [
+  "brotli",
+  "bz2",
+  "gzip",
+  "lzma_auto",
+  "lzma_raw",
+  "raw_deflate",
+  "rle8",
+  "zlib"
+ ],
+ "codecs_excluded": [
+  "delta_u16"
+ ],
+ "byte_offsets": [
+  0,
+  32
+ ],
+ "bit_offsets": [
+  0,
+  7
+ ],
+ "total_trials": 633600,
+ "bodies_producing_any_output": 300,
+ "scored_hits": 0,
+ "corroborated_hits": [],
+ "verdict": "compression_not_demonstrated",
+ "encryption_hypothesis": "not_excluded",
+ "encryption_reason": "No software test can exclude encryption: the device could encrypt and the server decrypt, and the Android client is a verified byte-for-byte pass-through that would look identical either way.",
+ "limits": "Rules out known codecs at any byte/bit alignment. A proprietary range or arithmetic coder emits a headerless stream indistinguishable from random and would not be found by any sweep over standard formats.",
+ "elapsed_s": 6030.3
+}

@@ -85,6 +85,48 @@ Established this session, so nobody re-measures them:
   whole number of 12-bit words (1194.667), and `nPixelsPerBin` at 1166 B **cannot**
   hold 331 fixed-width per-band counts - 331 is prime and does not divide 1166.
 
+## What the transform looks like (2026-09-11)
+
+Three measurements, each from a different direction, agree. Raw numbers in
+`dev/analysis_output/transform_class.json` and `compression_sweep.json`.
+
+**1. Output length never depends on content.** Across 97 captures of dark frames,
+a white calibration box, bark, soil crust, skin, rock and a hand, the sample body
+is *always exactly* 1792 B, the dark body 1792, the gradient 1648. Not one byte of
+variation. **Entropy coding cannot do this** - a Huffman, arithmetic or range coder
+spends bits in proportion to input information, so a dark frame and a lit one come
+out different lengths. Any compression here must therefore be **fixed-rate**.
+
+**2. Scene information content leaves no trace.** Mean body entropy by scene:
+dark 7.8980, calibration box 7.8937, static series 7.8933, everything else 7.8951
+bits/byte - a spread of **0.0046**. A dark frame carries far less information than
+a lit scene and comes out indistinguishable.
+
+**3. There is no coder header.** The first 8/16/32/64 bytes sit at 96-99 % of the
+entropy ceiling for their length, against a tail of 7.89. A container magic, a
+Huffman table or a coder preamble would all show a low-entropy head. None does.
+
+**4. Eight known codecs, 633,600 trials, nothing.** Raw DEFLATE, zlib, gzip, bz2,
+lzma (auto and raw), brotli and RLE, at every byte offset 0-32 **and** every bit
+offset 0-7, keeping the partial output a truncated-but-real stream still emits,
+across all 300 unique bodies: **zero plausible decodes**, zero corroborated.
+
+The harness was proven in both directions first - it recovers real compression at
+byte offset 7 and at bit offset 3, and stays silent on random input - so this
+negative means something. Its stated limit still holds: a proprietary range or
+arithmetic coder emits a headerless stream indistinguishable from random and no
+sweep over standard formats would find it.
+
+**Conclusion: fixed-rate, whitened, positionally featureless, header-free.** That
+is consistent with encryption *and* with a rate-filling proprietary coder, and the
+corpus cannot separate them. The verdict stays `undetermined`; claiming either
+would overstate the evidence.
+
+What would actually settle it: `dsp_op` via an SPI-flash dump; the four binning
+tables; or SDK credentials for `/v1/external_sdk/intermediate_scan`, which is
+**live** (401 on POST, 405 on GET - a route that distinguishes methods is a
+registered route) and sits by name between the blob and the spectrum.
+
 ## Layout
 
 ```
@@ -117,6 +159,7 @@ Modules:
 | `repeatability` | cross-capture screening: does a candidate key give *consistent* plaintext? |
 | `pipeline` | the guard - refuses to export a spectrum from an unvalidated decode |
 | `compression_hypothesis` | known codecs at every byte **and bit** offset, with partial-output tolerance; screens each codec against random input first and excludes any that "finds" structure in noise |
+| `transform_class` | what *class* of transform is this? Size-invariance, entropy-by-scene and coder-header tests, emitting a verdict that structurally cannot say "encryption ruled out" |
 | `validation` | **the gate**: score a candidate decoder against all 92 records whose true spectrum we hold. Self-checked in both directions - truth must pass, noise must fail |
 
 ## Running it

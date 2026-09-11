@@ -1,0 +1,277 @@
+{
+ "schema": "scio-transform-class/1",
+ "ran_at": "2026-09-11T22:04:26.552+02:00",
+ "unique_bodies": 300,
+ "size_invariance": {
+  "per_role": {
+   "sample": {
+    "n_bodies": 97,
+    "distinct_lengths": [
+     1792
+    ],
+    "content_dependent": false
+   },
+   "sample_dark": {
+    "n_bodies": 97,
+    "distinct_lengths": [
+     1792
+    ],
+    "content_dependent": false
+   },
+   "sample_gradient": {
+    "n_bodies": 97,
+    "distinct_lengths": [
+     1648
+    ],
+    "content_dependent": false
+   },
+   "sample_white": {
+    "n_bodies": 3,
+    "distinct_lengths": [
+     1792
+    ],
+    "content_dependent": false
+   },
+   "sample_white_dark": {
+    "n_bodies": 3,
+    "distinct_lengths": [
+     1792
+    ],
+    "content_dependent": false
+   },
+   "sample_white_gradient": {
+    "n_bodies": 3,
+    "distinct_lengths": [
+     1648
+    ],
+    "content_dependent": false
+   }
+  },
+  "length_ever_depends_on_content": false,
+  "implication": "Length is fixed per (generation, role) across every scene in the corpus. Entropy coding spends bits in proportion to input information and cannot produce a constant length for a dark frame and a bright one alike, so any compression here must be fixed-rate."
+ },
+ "entropy_by_scene": {
+  "per_scene": {
+   "calibration_box": {
+    "n": 38,
+    "min": 7.871569682468634,
+    "mean": 7.893675648126329,
+    "max": 7.9166650163950125
+   },
+   "dark": {
+    "n": 10,
+    "min": 7.881249670129932,
+    "mean": 7.8979905053400845,
+    "max": 7.913504041937777
+   },
+   "other": {
+    "n": 86,
+    "min": 7.870784729188886,
+    "mean": 7.895055090639053,
+    "max": 7.9221549925199275
+   },
+   "static_series": {
+    "n": 60,
+    "min": 7.8657443820273745,
+    "mean": 7.893348731207755,
+    "max": 7.917778064192004
+   }
+  },
+  "mean_entropy_spread": 0.004641774132329246,
+  "implication": "Scene information content leaves no trace in output entropy (spread 0.0046 bits/byte). A variable-rate coder would leak it."
+ },
+ "coder_header_scan": {
+  "per_role": {
+   "sample": {
+    "first_8": {
+     "head_mean": 2.961340206185567,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 0.9871134020618557,
+     "tail_mean": 7.893297831063387
+    },
+    "first_16": {
+     "head_mean": 3.945389892073348,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 0.986347473018337,
+     "tail_mean": 7.892732235140235
+    },
+    "first_32": {
+     "head_mean": 4.875230601638163,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9750461203276325,
+     "tail_mean": 7.8918912765957465
+    },
+    "first_64": {
+     "head_mean": 5.758453799513695,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9597422999189491,
+     "tail_mean": 7.889612035266309
+    }
+   },
+   "sample_dark": {
+    "first_8": {
+     "head_mean": 2.966494845360825,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 0.988831615120275,
+     "tail_mean": 7.894335328525226
+    },
+    "first_16": {
+     "head_mean": 3.932503294135204,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 0.983125823533801,
+     "tail_mean": 7.893822273956447
+    },
+    "first_32": {
+     "head_mean": 4.8785375161054585,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9757075032210917,
+     "tail_mean": 7.89284197929713
+    },
+    "first_64": {
+     "head_mean": 5.766957985647629,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9611596642746049,
+     "tail_mean": 7.890815703095915
+    }
+   },
+   "sample_gradient": {
+    "first_8": {
+     "head_mean": 2.9768041237113403,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 0.9922680412371134,
+     "tail_mean": 7.8862197868471595
+    },
+    "first_16": {
+     "head_mean": 3.9402352528980904,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 0.9850588132245226,
+     "tail_mean": 7.885719673615254
+    },
+    "first_32": {
+     "head_mean": 4.868458839393106,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9736917678786211,
+     "tail_mean": 7.884654370660766
+    },
+    "first_64": {
+     "head_mean": 5.753785556924882,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9589642594874803,
+     "tail_mean": 7.881897752977927
+    }
+   },
+   "sample_white": {
+    "first_8": {
+     "head_mean": 2.9166666666666665,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 0.9722222222222222,
+     "tail_mean": 7.8870000690517585
+    },
+    "first_16": {
+     "head_mean": 3.9583333333333335,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 0.9895833333333334,
+     "tail_mean": 7.886913676258899
+    },
+    "first_32": {
+     "head_mean": 4.833333333333333,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9666666666666666,
+     "tail_mean": 7.886336387107964
+    },
+    "first_64": {
+     "head_mean": 5.75,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9583333333333334,
+     "tail_mean": 7.883122990946294
+    }
+   },
+   "sample_white_dark": {
+    "first_8": {
+     "head_mean": 2.9166666666666665,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 0.9722222222222222,
+     "tail_mean": 7.893089298492335
+    },
+    "first_16": {
+     "head_mean": 3.9166666666666665,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 0.9791666666666666,
+     "tail_mean": 7.8931178319902395
+    },
+    "first_32": {
+     "head_mean": 4.895833333333333,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9791666666666666,
+     "tail_mean": 7.891362690570452
+    },
+    "first_64": {
+     "head_mean": 5.723856510371594,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9539760850619324,
+     "tail_mean": 7.890147030166939
+    }
+   },
+   "sample_white_gradient": {
+    "first_8": {
+     "head_mean": 3.0,
+     "head_ceiling": 3.0,
+     "head_fraction_of_ceiling": 1.0,
+     "tail_mean": 7.883100672399965
+    },
+    "first_16": {
+     "head_mean": 4.0,
+     "head_ceiling": 4.0,
+     "head_fraction_of_ceiling": 1.0,
+     "tail_mean": 7.8819248415625465
+    },
+    "first_32": {
+     "head_mean": 4.9375,
+     "head_ceiling": 5.0,
+     "head_fraction_of_ceiling": 0.9875,
+     "tail_mean": 7.881377148896065
+    },
+    "first_64": {
+     "head_mean": 5.762969921852464,
+     "head_ceiling": 6.0,
+     "head_fraction_of_ceiling": 0.9604949869754106,
+     "tail_mean": 7.877346170659819
+    }
+   }
+  },
+  "implication": "A container or coder table would show a head well below its entropy ceiling. Compare head_fraction_of_ceiling against ~1.0."
+ },
+ "verdict": "undetermined",
+ "compression": {
+  "status": "not_demonstrated",
+  "for": [
+   "The vendor's API calls the i2s tag compression_version; the parameter carrying it is named i2sTag in the un-obfuscated 2017 build.",
+   "It travels with the four binning-table checksums.",
+   "The app ships UnsupportedCompressionConversion - you re-bin between binning tables, you do not convert between encryptions.",
+   "The gradient body length changes with generation (1648 B on -e, 1408 B on -o) while the sample's does not."
+  ],
+  "against": [
+   "A 633,600-trial sweep of eight known codecs at every byte offset 0-32 and every bit offset 0-7, keeping partial output, produced zero plausible decodes on 300 unique bodies.",
+   "Output length never depends on content, so any compression must be fixed-rate - which excludes ordinary entropy coding.",
+   "A fixed-width packing of sensor counts would leave positional structure; zero of 1792 offsets deviates beyond 4 sigma."
+  ]
+ },
+ "encryption": {
+  "status": "not_excluded",
+  "why_not_excludable": "The device could encrypt and the server decrypt. The Android client is a verified byte-for-byte pass-through, so it would contain no crypto either way. No artefact reachable by software sits on that path.",
+  "for": [
+   "Fixed-length, fully whitened output with no positional structure is what encryption produces."
+  ],
+  "against": [
+   "No crypto primitive applied to scan data exists in any of eight decompiled app trees (weak: the client would look identical either way).",
+   "The claim's original basis was a misread SharedPreferences helper, getKeyPerAptinaId."
+  ]
+ },
+ "note_on_avalanche": "The 0.49986 bit distance between captures of an unchanged target is NOT evidence for encryption over compression. The 2.1 % spectral agreement it rests on is measured after binning ~2.7 pixels per band; per-pixel noise differs everywhere, and entropy coders avalanche on any input difference.",
+ "what_would_settle_it": [
+  "dsp_op (32628 B) via an external SPI-flash dump - the code itself.",
+  "The four binning tables, which would fix the pixel->band geometry.",
+  "SDK credentials for /v1/external_sdk/intermediate_scan, which is live (401 on POST, 405 on GET) and sits between the blob and the spectrum."
+ ],
+ "conclusion": "Fixed-rate, whitened, positionally featureless. That is consistent with encryption and with a rate-filling proprietary coder, and the corpus cannot separate them. Reporting either as established would overstate the evidence."
+}

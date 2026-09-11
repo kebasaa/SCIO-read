@@ -12,6 +12,7 @@ evidence      neutral statistical diagnostics of opaque payloads
 image_hypothesis / stream_hypothesis / embedded_cipher_hypothesis / repeatability
 pipeline      end-to-end guard: refuses to export an unvalidated decode
 compression_hypothesis  known codecs at every byte/bit alignment, self-screening
+transform_class  what class of transform is it? (verdict artifact)
 validation    score a candidate decoder against the 92 known spectra
 """
 
@@ -27,6 +28,7 @@ from . import (  # noqa: F401
     pipeline,
     repeatability,
     stream_hypothesis,
+    transform_class,
     validation,
 )
 

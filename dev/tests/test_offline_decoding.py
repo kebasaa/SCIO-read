@@ -28,6 +28,7 @@ from scio_offline import (
     pipeline,
     repeatability,
     stream_hypothesis,
+    transform_class,
     validation,
 )
 
@@ -258,3 +259,28 @@ def test_shift_bits_is_a_real_bit_shift():
     assert compression_hypothesis.shift_bits(b"\xff\x00", 0) == b"\xff\x00"
     assert compression_hypothesis.shift_bits(b"\x0f\xf0", 4) == b"\xff\x00"
     assert len(compression_hypothesis.shift_bits(bytes(1792), 3)) == 1792
+
+
+def test_transform_class_cannot_report_encryption_ruled_out():
+    """The verdict schema must not be able to overstate what software can show.
+
+    No test reachable from here can exclude encryption - the device could encrypt
+    and the server decrypt - so the artifact is built so that conclusion is not
+    expressible, rather than merely discouraged by a comment.
+    """
+    rep = transform_class.run()
+    assert rep["verdict"] in {"undetermined", "compression_supported", "compression_refuted"}
+    assert rep["encryption"]["status"] == "not_excluded"
+    assert "why_not_excludable" in rep["encryption"]
+    # the size argument is the load-bearing one; assert it was actually measured
+    assert rep["size_invariance"]["length_ever_depends_on_content"] is False
+    for role in ("sample", "sample_dark", "sample_gradient"):
+        assert rep["size_invariance"]["per_role"][role]["distinct_lengths"] in ([1792], [1648])
+
+
+def test_scene_information_leaves_no_trace_in_entropy():
+    """A dark frame carries far less information than a lit scene."""
+    rep = transform_class.run()
+    per = rep["entropy_by_scene"]["per_scene"]
+    assert {"dark", "calibration_box"} <= set(per)
+    assert rep["entropy_by_scene"]["mean_entropy_spread"] < 0.05
