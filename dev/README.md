@@ -11,15 +11,79 @@ of it, and `pytest tests/` must pass with `dev/` deleted.
 ## The problem
 
 A scan is three blobs (dark, sample, gradient - 1800/1800/1656 B on `-e`
-firmware). Each is an 8-byte plaintext header (`u32` type, `u32` per-scan value)
-followed by a body that is an exact multiple of the AES block size and carries
-~7.9 bits of entropy per byte. Repeated scans of an unchanged target share **no**
-ciphertext blocks, so the body is not ECB and something per-scan varies. The
-conversion happens on the device's Blackfin BF512 DSP, whose firmware
-(`dsp_op`, 32628 B on this unit) we do not have and cannot read back over USB.
+firmware). Each is an 8-byte plaintext header (`u32` status/type, `u32` per-blob
+value) followed by a body that is a multiple of 16 bytes and carries ~7.9 bits of
+entropy per byte. The conversion happens on the device's Blackfin BF512 DSP, whose
+firmware (`dsp_op`, 32628 B on this unit) we do not have and cannot read back.
 
 Nothing here has recovered a key, and no candidate decode has ever survived
 validation against a stored server spectrum.
+
+## Read this before forming a theory
+
+**The transform's class is undetermined, and this directory spent years assuming
+otherwise.** The assumption that the body is *encrypted* traces to one line in
+`archive/more_info/IMPORTANT.txt:237` - "Indicates a 256-bit key using AptinaID" -
+written against `ScioDevicePreferences.java`. The code it describes is:
+
+```java
+private String getKeyPerAptinaId(String str) {
+    String aptinaId = getAptinaId();
+    if (aptinaId == null) return str;
+    return "***." + aptinaId + "." + str;
+}
+```
+
+That is a **SharedPreferences key** - a string used to namespace a stored value
+per device - not a cryptographic key. The misreading seeded both the project's
+"the blobs are encrypted" framing and the AptinaId-as-AES-256 hypothesis below.
+Removing the basis for a claim is not the same as refuting it, so:
+
+**Compression is now the leading hypothesis.** The vendor calls the i2s tag
+`compression_version`; in the un-obfuscated 2017 researcher build the parameter
+carrying that value is literally named `i2sTag`, passed in the same call as the
+four binning-table checksums; and the app ships an `UnsupportedCompressionConversion`
+error string. You cannot convert between encryptions; you can re-bin between
+binning tables. The gradient blob's length also changes with the generation
+(1656 B on `-e`, 1416 B on `-o`) while the sample's does not.
+
+**Encryption is not excluded, and cannot be excluded by software.** The device
+could encrypt and the server decrypt. The Android client is a verified
+byte-for-byte pass-through - BLE frames to `Base64.encodeToString` to JSON to
+POST, with no arithmetic on the bytes anywhere - so it would contain no crypto
+*either way*. A sweep for crypto primitives across all eight decompiled trees
+(~1,500 files) finds none, but that only rules out **client-side** crypto, which
+nobody proposed. Absence of evidence is close to worthless here.
+
+The asymmetry that follows governs how to report results: **a compression hit
+would be decisive; a compression miss is not.** Nothing in this directory may
+conclude "therefore it is encrypted" - only "compression not demonstrated".
+
+## Measured facts about the corpus (97 scans, 300 unique bodies)
+
+Established this session, so nobody re-measures them:
+
+- **No reuse of the second header word anywhere.** 300 unique bodies map
+  one-to-one onto 300 unique values. The nine apparent collisions are the three
+  white references stored in 19/24/54 records each. Differential attacks that need
+  a repeated nonce have no foothold.
+- **That word looks like a fresh 32-bit random draw per blob** - not a counter
+  (18/29 ascending in a burst 2.13 s apart), not time-correlated (|r| <= 0.11),
+  not derived from the body (0/291 across eight checksum candidates), three
+  independent draws per scan.
+- **Full avalanche on real near-identical input.** Thirty captures of one
+  unchanged target, spectra agreeing to 2.1 % worst case, give bodies at 0.49986
+  bit distance with 1/256 byte agreement and zero shared 16-byte blocks.
+  **Do not over-read this.** It is *not* evidence for encryption over compression:
+  the 2.1 % is measured after binning ~2.7 pixels per band, per-pixel noise differs
+  everywhere, and entropy coders avalanche on any input difference.
+- **No positional structure at all.** Zero of 1792 byte offsets deviate >4 sigma
+  from uniform; the pooled histogram is flat at chi-square 256.9 on df 255. This
+  refutes any *plaintext* array layout, including the `400 x u32 + trailer`
+  hypothesis in `archive/more_info/old_code.txt`.
+- Two arithmetic premises were wrong and are corrected: 1792 bytes is **not** a
+  whole number of 12-bit words (1194.667), and `nPixelsPerBin` at 1166 B **cannot**
+  hold 331 fixed-width per-band counts - 331 is prime and does not divide 1166.
 
 ## Layout
 
@@ -52,6 +116,8 @@ Modules:
 | `embedded_cipher_hypothesis` | look for cipher signatures embedded in firmware |
 | `repeatability` | cross-capture screening: does a candidate key give *consistent* plaintext? |
 | `pipeline` | the guard - refuses to export a spectrum from an unvalidated decode |
+| `compression_hypothesis` | known codecs at every byte **and bit** offset, with partial-output tolerance; screens each codec against random input first and excludes any that "finds" structure in noise |
+| `validation` | **the gate**: score a candidate decoder against all 92 records whose true spectrum we hold. Self-checked in both directions - truth must pass, noise must fail |
 
 ## Running it
 

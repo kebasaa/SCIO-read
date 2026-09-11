@@ -1,0 +1,80 @@
+{
+ "schema": "scio-endpoint-probe/1",
+ "ran_at": "2026-09-11T20:42:35.113+02:00",
+ "source_record": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+ "results": [
+  {
+   "label": "intermediate_scan_v1",
+   "method": "POST",
+   "url": "<API>/v1/external_sdk/intermediate_scan/widget/0",
+   "status": 401,
+   "response_keys": [
+    "message"
+   ],
+   "response_head": "{\"message\":\"The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.\"}\n"
+  },
+  {
+   "label": "intermediate_scan_nover",
+   "method": "POST",
+   "url": "<API>/external_sdk/intermediate_scan/widget/0",
+   "status": 404,
+   "response_keys": null,
+   "response_head": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n"
+  },
+  {
+   "label": "models_apply",
+   "method": "POST",
+   "url": "<API>/v1/sdk/models/apply",
+   "status": 401,
+   "response_keys": [
+    "message"
+   ],
+   "response_head": "{\"message\":\"The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.\"}\n"
+  },
+  {
+   "label": "aggregated_result",
+   "method": "GET",
+   "url": "<API>/v1/external_sdk/widget/0/aggregated-result",
+   "status": 405,
+   "response_keys": [
+    "message"
+   ],
+   "response_head": "{\"message\":\"The method is not allowed for the requested URL.\"}\n"
+  },
+  {
+   "label": "CONTROL_spectro_scan",
+   "method": "POST",
+   "url": "<API>/v2/consumer/spectro-scan",
+   "status": 200,
+   "response_keys": [
+    "_type",
+    "spectrum"
+   ],
+   "response_head": "{\"spectrum\":[1.050718719645175,1.0513830808785851,1.0521750183441492,1.052631618674048,1.0526552128595643,1.0523021886167099,1.0518956123520626,1.0516446702226763,1.051600380250085,1.0516912744497398,1.0517530516017102,1.0514001042228585,1.0509235116857627,1.0506452893557836,1.0506432098589957,1.050859212638396,1.051045902074302,1.051016001568581,1.05075031388032,1.0503459573145475,1.0499955401067"
+  }
+ ],
+ "control_ok": true,
+ "verdict": "routes_live_but_gated_by_different_credentials",
+ "limits": "The widget id is unknown (the app fills it from a workshop applet we do not have), so a 404 cannot distinguish 'route is dead' from 'route exists, wrong id'. The control request shows whether auth and payload were valid.",
+ "method_map": {
+  "/v1/external_sdk/intermediate_scan/widget/{id}": {
+   "POST": 401,
+   "GET": 405
+  },
+  "/v1/external_sdk/widget/{id}/aggregated-result": {
+   "POST": 401,
+   "GET": 405
+  },
+  "/v1/sdk/models/apply": {
+   "POST": 401
+  },
+  "/external_sdk/intermediate_scan/widget/{id} (no /v1)": {
+   "POST": 404
+  },
+  "/v2/consumer/spectro-scan (control)": {
+   "POST": 200
+  }
+ },
+ "finding": "The SDK routes are NOT dead. A path the server does not know returns Flask's HTML 404 page (proven by the no-/v1 variant); these return JSON 401 'could not verify that you are authorized' on POST and 405 'method not allowed' on GET. A route that distinguishes methods is a registered route. The same bearer token succeeds on the consumer endpoint in the same run, so the token is valid - the external_sdk surface simply wants a different credential class (an SDK/developer key), which a consumer account does not carry.",
+ "why_it_matters": "intermediate_scan is, by name and position, the single most promising endpoint in the whole API for offline decoding: it sits between the opaque blob and the 331-band spectrum. It is reachable and alive. The blocker is credentials for a company that no longer issues them, not a missing feature."
+}

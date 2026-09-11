@@ -9,6 +9,7 @@ Run with: ``pytest dev/tests/``
 """
 
 import struct
+import zlib
 from pathlib import Path
 
 import numpy as np
@@ -16,6 +17,7 @@ import pytest
 
 from scio import corpus, protocol, store
 from scio_offline import (
+    compression_hypothesis,
     decode,
     embedded_cipher_hypothesis,
     evidence,
@@ -26,6 +28,7 @@ from scio_offline import (
     pipeline,
     repeatability,
     stream_hypothesis,
+    validation,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -143,3 +146,115 @@ def test_pipeline_exports_only_validated_spectrum(tmp_path):
     spectrum = pipeline.make_spectrum(np.linspace(1, 2, 331), profile=profile)
     out = pipeline.export_spectrum(spectrum, tmp_path / "spectrum.csv")
     assert out.read_text().splitlines()[0].startswith("wavelength_nm,normalized")
+
+
+# --------------------------------------------------- validation harness (92 pairs)
+def test_validation_harness_brackets_truth_and_noise():
+    """A harness that cannot recognise a correct decode would reject a real result.
+
+    Bracketed from both sides on the real corpus: handing it the server's own
+    answer must pass at Pearson 1.0, and handing it noise must fail. Without both
+    halves the harness proves nothing about any candidate it later rejects.
+    """
+    pairs = validation.load_pairs()
+    assert len(pairs) >= 90, "expected ~92 (blobs, server spectrum) pairs on disk"
+    result = validation.self_check(pairs)
+    assert result["truth_passes"] is True
+    assert result["truth_median_r"] == pytest.approx(1.0)
+    assert result["noise_passes"] is False
+    assert result["harness_ok"] is True
+
+
+def test_validation_rejects_a_decoder_that_answers_on_almost_nothing():
+    """Solving one lucky scan is not a decode.
+
+    Without a coverage requirement, a decoder that answers on a single record
+    would take the median of one perfect score and "pass".
+    """
+    pairs = validation.load_pairs()[:20]
+    truth = validation.perfect_decoder(pairs)
+    answered = {"n": 0}
+
+    def only_first(blobs):
+        answered["n"] += 1
+        return truth(blobs) if answered["n"] == 1 else None
+
+    rep = validation.validate(only_first, pairs)
+    assert rep["answered"] == 1
+    assert rep["declined"] == 19
+    assert rep["gate"]["median_pearson_r"] == pytest.approx(1.0)   # the median lies
+    assert rep["passed"] is False                                  # the coverage gate does not
+
+
+# --------------------------------------------------- compression sweep
+def test_compression_screen_excludes_transforms_that_manufacture_structure():
+    """The cumulative sum of *anything* is a random walk, which scores as smooth.
+
+    This is the same trap as random bytes read as float32, and it must be caught
+    automatically rather than by remembering to blacklist it - otherwise the next
+    plausible-looking transform reintroduces it.
+    """
+    screen = compression_hypothesis.screen_codecs(n_random=16)
+    assert screen["delta_u16"]["usable"] is False
+    assert screen["delta_u16"]["false_positive_rate"] > 0.5
+    for codec in ("raw_deflate", "zlib", "gzip", "bz2", "lzma_auto"):
+        assert screen[codec]["usable"] is True, codec
+        assert screen[codec]["false_positive_rate"] == 0.0, codec
+    assert "delta_u16" not in compression_hypothesis.usable_codecs(screen)
+
+
+@pytest.mark.parametrize("codec,compress", [
+    ("raw_deflate", lambda b: (lambda d: d.compress(b) + d.flush())(
+        zlib.compressobj(9, zlib.DEFLATED, -15))),
+    ("zlib", lambda b: zlib.compress(b, 9)),
+    ("bz2", lambda b: __import__("bz2").compress(b)),
+    ("lzma_auto", lambda b: __import__("lzma").compress(b)),
+])
+def test_each_codec_round_trips_a_known_stream(codec, compress):
+    """A negative sweep must not be blamable on a broken decompressor."""
+    plain = bytes(range(256)) * 7            # 1792 B, compressible
+    assert compression_hypothesis.CODECS[codec](compress(plain)) == plain
+
+
+def test_sweep_finds_compression_at_byte_and_bit_offsets():
+    """Positive control: the sweep must recover a stream it is meant to find.
+
+    Includes a 3-bit shift, because a bit-packed stream need not start on a byte
+    boundary and the earlier three-decompressor test could never have found one.
+    """
+    x = np.linspace(0, 1, 896)
+    plain = (8000 * np.exp(-4 * x)).astype("<u2").tobytes()
+    d = zlib.compressobj(9, zlib.DEFLATED, -15)
+    raw = d.compress(plain) + d.flush()
+    live = compression_hypothesis.usable_codecs(
+        compression_hypothesis.screen_codecs(n_random=8))
+
+    def best(blob):
+        hits = [h for h in compression_hypothesis.sweep_body(blob, codecs=live) if h["ok"]]
+        return max(hits, key=lambda h: h["score"]) if hits else None
+
+    at_zero = best(raw)
+    assert at_zero and at_zero["codec"] == "raw_deflate"
+    assert at_zero["byte_offset"] == 0 and at_zero["bit_offset"] == 0
+
+    prefixed = best(b"\x01" * 7 + zlib.compress(plain, 9))
+    assert prefixed and prefixed["byte_offset"] == 7
+
+    shifted = best((int.from_bytes(raw, "big") >> 3).to_bytes(len(raw) + 1, "big"))
+    assert shifted and shifted["bit_offset"] == 3
+
+
+def test_sweep_reports_nothing_on_random_bytes():
+    """The trap test: a large search over noise must stay silent."""
+    rng = np.random.default_rng(7)
+    live = compression_hypothesis.usable_codecs(
+        compression_hypothesis.screen_codecs(n_random=8))
+    for _ in range(3):
+        noise = bytes(rng.integers(0, 256, 1792, dtype=np.uint8))
+        assert [h for h in compression_hypothesis.sweep_body(noise, codecs=live) if h["ok"]] == []
+
+
+def test_shift_bits_is_a_real_bit_shift():
+    assert compression_hypothesis.shift_bits(b"\xff\x00", 0) == b"\xff\x00"
+    assert compression_hypothesis.shift_bits(b"\x0f\xf0", 4) == b"\xff\x00"
+    assert len(compression_hypothesis.shift_bits(bytes(1792), 3)) == 1792

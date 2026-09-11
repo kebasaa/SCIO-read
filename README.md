@@ -14,7 +14,7 @@ Two paths exist:
 | | status |
 |---|---|
 | **Capture -> vendor server -> spectrum** | **works.** Verified against 2020/2021 stored spectra to ~1e-15. Needs an active Consumer Physics account. |
-| **Capture -> spectrum, offline** | **unsolved.** The blobs are encrypted on the device's DSP; see [`dev/README.md`](dev/README.md). |
+| **Capture -> spectrum, offline** | **unsolved.** The device applies an opaque, high-entropy, fixed-length transform whose *class is undetermined*; see [`dev/README.md`](dev/README.md). |
 
 Capture itself needs **no network**. A scan is written as a self-contained
 record and can be converted to a spectrum later, from anywhere. That separation
@@ -301,24 +301,49 @@ Sizes depend on the i2s generation:
 Each blob is:
 
 ```text
-[0:4]   u32 LE  type      0x00 for sample and dark, 0x6E (110) for gradient
-[4:8]   u32 LE  varies per scan - a nonce/IV counter is the leading hypothesis,
-                but this is NOT proven
+[0:4]   u32 LE  status / type   0x00 for sample and dark, 0x6E (110) for gradient
+[4:8]   u32 LE  varies per blob - see below; NOT proven to be a nonce
 [8:]            body: an exact multiple of 16 bytes, ~7.9 bits of entropy per byte
 ```
 
-The first `u32` of the **sample** response frame doubles as a status word (`0`
-on a healthy scan).
+The first word is what the vendor's own source calls **`status`**: the app reads
+it as `getU32(0)` of the *sample* blob (`ScioInternalDevice.java:1085`, 2017
+build), little-endian. `0` means a healthy scan. Why the gradient carries `0x6E`
+there is unexplained.
+
+The second word is, measured across the whole corpus, indistinguishable from a
+**fresh 32-bit random draw per blob**: 300 unique bodies map one-to-one onto 300
+unique values with no reuse anywhere; it is not a counter (18 of 29 ascending in a
+burst of scans 2.13 s apart), not correlated with time (|r| <= 0.11), and not
+derived from the body (0/291 across eight checksum candidates). Three independent
+draws per scan, one per blob.
 
 Handy check when reading base64 by eye: sample / dark / white / white-dark all
 begin `AAAAA` (leading `u32` = 0), while the two gradient blobs begin `bgAAA`
 (`0x6E`). A blob whose base64 starts with anything else is not a SCiO scan blob.
 
-What is established about the body: it is high-entropy, AES-block-aligned, and
-repeated scans of a physically unchanged target share **no** ciphertext blocks -
-so it is not ECB, and something per-scan varies. What is *not* established: the
-cipher, the mode, the key location, or whether compression or packing is applied
-first. See [`dev/README.md`](dev/README.md) for the full negative result.
+**What is established about the body.** It is high-entropy (7.89 bits/byte, on
+the random control), 16-byte aligned, fixed-length regardless of content, and
+statistically featureless: the pooled byte histogram is flat (chi-square 256.9 on
+df 255) and not one of the 1792 byte positions deviates more than 4 sigma from
+uniform. Thirty captures of a physically unchanged target, whose spectra agree to
+2.1 % worst case, produce bodies at 0.49986 bit distance from each other with no
+shared 16-byte block anywhere in the corpus.
+
+**What is not established: the class of the transform.** Full avalanche looks like
+encryption, but it does not discriminate - the 2.1 % agreement is measured *after*
+binning ~2.7 pixels per band, per-pixel sensor noise differs everywhere, and an
+entropy coder avalanches on any input difference too. Flat byte histograms are
+equally what good compression produces.
+
+Compression is currently the *leading* hypothesis, on the vendor's own vocabulary:
+the i2s tag is called `compression_version` in the API, the parameter carrying it
+is literally named `i2sTag` in the un-obfuscated 2017 build, and the app ships an
+`UnsupportedCompressionConversion` error - you cannot convert between encryptions.
+**Encryption is not excluded and cannot be**, by software: the device could
+encrypt and the server decrypt, and the Android client is a verified byte-for-byte
+pass-through that would look identical either way. See
+[`dev/README.md`](dev/README.md).
 
 ---
 

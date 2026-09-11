@@ -321,3 +321,73 @@ Two findings worth keeping regardless:
 device needs them. Probed with all-zero file versions under the real tag, each
 substitute, and with the parameter omitted: `new_version` is empty in all five
 cases - consistent with the earlier `download_firmware.py` result.
+
+## The transform's class is undetermined (2026-09-11)
+
+This file previously led with the encryption hypothesis. That framing is withdrawn, and the
+reason is worth stating because it was load-bearing for years.
+
+**Where the encryption claim came from.** `archive/more_info/IMPORTANT.txt:237` records
+"Indicates a 256-bit key using AptinaID" against `ScioDevicePreferences.java`. The code is
+`getKeyPerAptinaId()`, which returns `"***." + aptinaId + "." + name` - a **SharedPreferences
+key**, i.e. a string that namespaces a stored value per device. It is not a cryptographic key.
+That one line seeded the project's "the blobs are encrypted on the DSP" framing and the
+AptinaId-as-AES-256 candidate. `IMPORTANT.txt` is archived and frozen; the correction lives
+here and in `dev/README.md`.
+
+**What replaced it, and what did not.** Compression is now the leading hypothesis: the vendor's
+API calls the i2s tag `compression_version`, the parameter carrying it is named `i2sTag` in the
+un-obfuscated 2017 researcher build, it travels with the four binning-table checksums, and the
+app ships an `UnsupportedCompressionConversion` error - conversion between versions is a
+re-binning operation, not something you do to ciphertext.
+
+**Encryption is not excluded and cannot be excluded from this side of the wire.** The device
+could encrypt and the server decrypt. The Android client is a verified byte-for-byte
+pass-through, so it would contain no crypto either way; a sweep across all eight decompiled
+trees finds none, which rules out only *client-side* crypto. Any future note here must respect
+the asymmetry: a compression hit would be decisive, a compression miss is not, and no result
+may be written up as "therefore encrypted".
+
+### Corpus measurements behind this (97 scans, 300 unique bodies)
+
+| measurement | result |
+|---|---|
+| second header word reuse | **none** - 300 unique bodies map 1:1 onto 300 unique values |
+| is it a counter? | no - 18/29 ascending in a burst 2.13 s apart |
+| correlated with time? | no - abs(r) <= 0.11 |
+| derived from the body? | no - 0/291 across 8 checksum candidates |
+| static-target ciphertext distance | 0.49986 bit, 1/256 byte agreement, 0 shared 16-byte blocks |
+| positional bias | 0 of 1792 offsets beyond 4 sigma; pooled chi-square 256.9 on df 255 |
+
+The avalanche figure is **not** discriminating: the 2.1 % spectral agreement it is measured
+against is post-binning (~2.7 pixels per band), per-pixel noise differs everywhere, and entropy
+coders avalanche on any input difference.
+
+Two arithmetic premises were also wrong: 1792 bytes is not a whole number of 12-bit words
+(1194.667), and `nPixelsPerBin` at 1166 B cannot hold 331 fixed-width per-band counts - 331 is
+prime and does not divide 1166 at any width. The `400 x u32 + trailer` layout from
+`archive/more_info/old_code.txt` is refuted outright by the absence of positional structure.
+
+### The SDK endpoints are live, not dead
+
+`Config.API_V1_UPLOAD_SCAN = "/external_sdk/intermediate_scan/widget/%s"` is declared in every
+app build and never called. Probed with a valid consumer token:
+
+| route | POST | GET |
+|---|---|---|
+| `/v1/external_sdk/intermediate_scan/widget/{id}` | **401** | 405 |
+| `/v1/external_sdk/widget/{id}/aggregated-result` | **401** | 405 |
+| `/v1/sdk/models/apply` | **401** | - |
+| `/external_sdk/intermediate_scan/widget/{id}` (no `/v1`) | 404 (Flask HTML) | - |
+| `/v2/consumer/spectro-scan` (control) | **200** | - |
+
+A path the server does not know returns Flask's HTML 404; these return JSON 401 on POST and
+405 on GET. A route that distinguishes methods is a registered route. The same token succeeds
+on the consumer endpoint in the same run, so the credential is valid - the `external_sdk`
+surface simply wants a different credential class (an SDK/developer key) that a consumer
+account does not carry.
+
+This matters because `intermediate_scan` sits, by name and position, between the opaque blob
+and the 331-band spectrum. It is the most promising endpoint in the API for offline decoding,
+it is reachable, and the blocker is credentials from a company that no longer issues them.
+Raw results: `dev/analysis_output/intermediate_endpoint_probe.json`.
