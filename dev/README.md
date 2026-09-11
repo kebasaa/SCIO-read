@@ -117,10 +117,43 @@ negative means something. Its stated limit still holds: a proprietary range or
 arithmetic coder emits a headerless stream indistinguishable from random and no
 sweep over standard formats would find it.
 
-**Conclusion: fixed-rate, whitened, positionally featureless, header-free.** That
-is consistent with encryption *and* with a rate-filling proprietary coder, and the
-corpus cannot separate them. The verdict stays `undetermined`; claiming either
-would overstate the evidence.
+**5. Not a compressed image either.** The sensor is a CMOS imager, so a small
+compressed frame is a natural guess - and it is wrong for every standard codec.
+The decisive test needs no decoder: entropy-coded image formats must **byte-stuff**
+so a raw `0xFF` cannot be read as a marker, and the rule holds over the
+entropy-coded segment itself, **with or without a container**. That matters
+because an embedded coder would strip the header, producing a stream no decoder
+would accept.
+
+| rule | required if true | corpus | random |
+|---|---|---|---|
+| JPEG: byte after `0xFF` is `0x00` or a marker | ~1.0 | **0.0350** | 0.0430 |
+| JPEG-LS: byte after `0xFF` is `< 0x80` | ~1.0 | **0.4995** | 0.5000 |
+| JPEG 2000 (MQ): byte after `0xFF` is `<= 0x8F` | ~1.0 | **0.5659** | 0.5625 |
+
+Every rate sits on its random baseline. The detector was verified against a real
+JPEG first: a full file scores 0.60, and a **headerless entropy-coded segment -
+exactly the embedded-coder case - scores 1.0000**.
+
+Alongside that: no container magic (JPEG/PNG/GIF/BMP/TIFF/WebP/JP2/ZIP/RAR/7z)
+appears above chance **at any offset** - the earlier check only tested offset 0 -
+and PIL accepts nothing in 1,320 decode attempts across 40 bodies × 33 offsets.
+An image wrapped in a generic compressor is covered by point 4: the wrapper would
+have to decompress first, and none did.
+
+**There is also no padding.** If the fixed 1792 B were a buffer holding a shorter
+variable-length stream, the slack would show. Head and tail entropy match to three
+decimal places at every prefix length, and the longest constant-byte run in 300
+bodies is **3**, below the random expectation of 2.35.
+
+**Conclusion: fixed-rate, whitened, positionally featureless, header-free, and not
+any standard image codec.** That is consistent with encryption *and* with a
+rate-filling proprietary coder, and the corpus cannot separate them. The verdict
+stays `undetermined`; claiming either would overstate the evidence.
+
+The blind spot is the same in both sweeps: a proprietary DCT or wavelet coder that
+does not byte-stuff emits a headerless stream indistinguishable from random, and
+neither the codec sweep nor the stuffing test would see it.
 
 What would actually settle it: `dsp_op` via an SPI-flash dump; the four binning
 tables; or SDK credentials for `/v1/external_sdk/intermediate_scan`, which is
@@ -154,6 +187,7 @@ Modules:
 | `flashdump` | carve blobs out of an external SPI-flash image |
 | `evidence` | hypothesis-neutral statistics over every local capture |
 | `image_hypothesis` | is the body a raster frame? (negative) |
+| `image_codec_hypothesis` | is the body a *compressed* image? Byte-stuffing statistics test the whole JPEG family at once, headerless variants included (negative) |
 | `stream_hypothesis` | weak stream cipher / PRNG tests (negative) |
 | `embedded_cipher_hypothesis` | look for cipher signatures embedded in firmware |
 | `repeatability` | cross-capture screening: does a candidate key give *consistent* plaintext? |

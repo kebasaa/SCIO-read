@@ -391,3 +391,40 @@ This matters because `intermediate_scan` sits, by name and position, between the
 and the 331-band spectrum. It is the most promising endpoint in the API for offline decoding,
 it is reachable, and the blocker is credentials from a company that no longer issues them.
 Raw results: `dev/analysis_output/intermediate_endpoint_probe.json`.
+
+### Compressed-image hypothesis: excluded for every standard codec (2026-09-11)
+
+The sensor is a CMOS imager, so "the blob is a small compressed frame" is a natural guess.
+Tested properly for the first time; raw results in
+`dev/analysis_output/image_codec_hypothesis.json`.
+
+Two earlier efforts looked adjacent but did not cover it. `image_hypothesis` tested raw raster
+layouts (uncompressed), and its magic check used `blob.startswith(magic)` - offset 0 only, and
+it never invoked a decoder. The generic compression sweep covered an image wrapped in
+deflate/zlib/bz2/lzma/brotli, but not JPEG itself, whose entropy coding is Huffman over DCT
+coefficients rather than LZ.
+
+The decisive test needs no decoder. Entropy-coded image formats must **byte-stuff** so a raw
+`0xFF` cannot be mistaken for a marker, and each rule holds over the entropy-coded segment
+itself - **with or without a container**. That is the case that matters, because an embedded
+coder would strip the header.
+
+| rule | required if true | corpus | random |
+|---|---|---|---|
+| JPEG: byte after `0xFF` is `0x00` or a marker | ~1.0 | **0.0350** | 0.0430 |
+| JPEG-LS: byte after `0xFF` is `< 0x80` | ~1.0 | **0.4995** | 0.5000 |
+| JPEG 2000 (MQ): byte after `0xFF` is `<= 0x8F` | ~1.0 | **0.5659** | 0.5625 |
+
+Every rate sits on its random baseline. The detector was verified on a real JPEG first: a full
+file scores 0.60 (its header contains genuine markers) and a **headerless entropy-coded
+segment scores 1.0000**.
+
+Supporting negatives: no container magic (JPEG, PNG, GIF, BMP, TIFF, WebP, JP2, ZIP, RAR, 7z)
+above chance at **any** offset; PIL accepts nothing in 1,320 attempts over 40 bodies x 33
+offsets; and no padding anywhere - head and tail entropy agree to three decimals at every
+prefix length, and the longest constant-byte run across 300 bodies is 3, below the random
+expectation of 2.35, so the fixed 1792 B is not a buffer holding a shorter stream.
+
+**Limit.** This excludes standard image codecs. A proprietary DCT or wavelet coder that does
+not byte-stuff would emit a headerless, random-looking stream that neither this test nor the
+generic codec sweep would catch. Encryption remains not excluded for the usual reason.

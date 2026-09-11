@@ -8,12 +8,14 @@ see ``dev/README.md`` for why the strand stalled.
 Run with: ``pytest dev/tests/``
 """
 
+import io
 import struct
 import zlib
 from pathlib import Path
 
 import numpy as np
 import pytest
+from PIL import Image
 
 from scio import corpus, protocol, store
 from scio_offline import (
@@ -23,6 +25,7 @@ from scio_offline import (
     evidence,
     firmware,
     flashdump,
+    image_codec_hypothesis,
     image_hypothesis,
     keyrecover,
     pipeline,
@@ -284,3 +287,57 @@ def test_scene_information_leaves_no_trace_in_entropy():
     per = rep["entropy_by_scene"]["per_scene"]
     assert {"dark", "calibration_box"} <= set(per)
     assert rep["entropy_by_scene"]["mean_entropy_spread"] < 0.05
+
+
+# --------------------------------------------------- image codecs
+def test_stuffing_detector_fires_on_a_headerless_jpeg():
+    """Positive control, and it must be the *headerless* case.
+
+    An embedded coder would strip the JFIF container to save bytes, so the case
+    that matters is the bare entropy-coded segment - which no image decoder would
+    accept, and which only the byte-stuffing rule can detect. Without this control
+    a negative on the corpus would prove nothing.
+    """
+    rng = np.random.default_rng(0)
+    x = np.linspace(0, 1, 64)
+    img = (200 * np.exp(-3 * x)[None, :] * np.ones((64, 1))
+           + 8 * rng.standard_normal((64, 64))).clip(0, 255)
+    buf = io.BytesIO()
+    Image.fromarray(img.astype(np.uint8), "L").save(buf, "JPEG", quality=85)
+    jpeg = buf.getvalue()
+    ecs = jpeg[jpeg.index(b"\xff\xda") + 2:]          # entropy-coded segment only
+
+    assert image_codec_hypothesis.stuffing_statistics([ecs])["jpeg"]["observed"] == 1.0
+    assert image_codec_hypothesis.stuffing_statistics([ecs])["jpeg"]["consistent"] is True
+    assert image_codec_hypothesis.stuffing_statistics([jpeg])["jpeg"]["consistent"] is True
+
+
+def test_stuffing_detector_is_silent_on_random_bytes():
+    rng = np.random.default_rng(3)
+    bodies = [bytes(rng.integers(0, 256, 1792, dtype=np.uint8)) for _ in range(20)]
+    st = image_codec_hypothesis.stuffing_statistics(bodies)
+    for family in ("jpeg", "jpeg_ls", "jpeg2000"):
+        assert st[family]["consistent"] is False, family
+        assert st[family]["observed"] == pytest.approx(st[family]["random"], abs=0.05)
+
+
+def test_corpus_excludes_every_standard_image_codec():
+    """The real result: JPEG, JPEG-LS, JPEG 2000, and every container.
+
+    Checked here rather than only in a report, so that a future change which makes
+    the corpus look image-like cannot pass silently.
+    """
+    rep = image_codec_hypothesis.run()
+    assert rep["verdict"] == "standard_image_codecs_excluded"
+    st = rep["stuffing_statistics"]
+    assert st["conclusive"] is True
+    for family in ("jpeg", "jpeg_ls", "jpeg2000"):
+        assert st[family]["consistent"] is False, family
+    assert rep["marker_scan"]["any_excess"] is False
+    assert rep["decoder_sweep"]["accepted"] == []
+    assert rep["decoder_sweep"]["attempts"] >= 1000
+    # no slack in which a shorter stream could hide inside the fixed buffer
+    assert rep["padding_scan"]["padding_found"] is False
+    assert rep["padding_scan"]["longest_constant_run"]["max"] <= 8
+    # and it still may not claim the complement
+    assert rep["encryption_hypothesis"] == "not_excluded"

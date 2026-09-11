@@ -1,0 +1,162 @@
+{
+ "schema": "scio-image-codec/1",
+ "ran_at": "2026-09-11T22:12:17.722+02:00",
+ "unique_bodies": 300,
+ "stuffing_statistics": {
+  "ff_bytes": 2002,
+  "jpeg": {
+   "observed": 0.03496503496503497,
+   "random": 0.04296875,
+   "required": 1.0,
+   "consistent": false
+  },
+  "jpeg_ls": {
+   "observed": 0.4995004995004995,
+   "random": 0.5,
+   "required": 1.0,
+   "consistent": false
+  },
+  "jpeg2000": {
+   "observed": 0.5659340659340659,
+   "random": 0.5625,
+   "required": 1.0,
+   "consistent": false
+  },
+  "conclusive": true
+ },
+ "marker_scan": {
+  "per_marker": {
+   "JPEG SOI": {
+    "count": 0,
+    "random_expected": 0.03,
+    "excess": false
+   },
+   "JPEG EOI": {
+    "count": 7,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG SOF0": {
+    "count": 7,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG SOF2": {
+    "count": 7,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG DHT": {
+    "count": 6,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG SOS": {
+    "count": 12,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG DQT": {
+    "count": 6,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "JPEG2000 SOC": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "JP2 box": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "PNG": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "GIF": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "BMP": {
+    "count": 8,
+    "random_expected": 7.98,
+    "excess": false
+   },
+   "TIFF LE": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "TIFF BE": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "RIFF/WEBP": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "ZIP": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "RAR": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   },
+   "7z": {
+    "count": 0,
+    "random_expected": 0.0,
+    "excess": false
+   }
+  },
+  "any_excess": false
+ },
+ "decoder_sweep": {
+  "available": true,
+  "attempts": 1320,
+  "accepted": []
+ },
+ "padding_scan": {
+  "entropy_head_vs_tail": {
+   "64": {
+    "head_fraction_of_ceiling": 0.9598847897105744,
+    "tail_fraction_of_ceiling": 0.9605583693286829
+   },
+   "128": {
+    "head_fraction_of_ceiling": 0.9350227292123575,
+    "tail_fraction_of_ceiling": 0.9357451803263421
+   },
+   "256": {
+    "head_fraction_of_ceiling": 0.896590784685856,
+    "tail_fraction_of_ceiling": 0.896707859492927
+   },
+   "512": {
+    "head_fraction_of_ceiling": 0.9491803319887993,
+    "tail_fraction_of_ceiling": 0.9484706967420088
+   }
+  },
+  "longest_constant_run": {
+   "max": 3,
+   "mean": 2.013333333333333,
+   "random_expectation": 2.35
+  },
+  "padding_found": false
+ },
+ "families_excluded": [
+  "jpeg",
+  "jpeg_ls",
+  "jpeg2000"
+ ],
+ "verdict": "standard_image_codecs_excluded",
+ "reasoning": "Entropy-coded image formats must byte-stuff, and the rule holds over the entropy-coded segment with or without a container - so the byte following each 0xFF tests the whole family at once, headerless variants included. Measured rates sit on the random expectation, no container magic appears above chance at any offset, no decoder accepts the bytes at any offset, and there is no padding slack in which a shorter stream could hide.",
+ "limits": "Excludes JPEG, JPEG-LS, JPEG 2000, PNG, GIF, BMP, TIFF, WebP and generic archive containers. A proprietary DCT or wavelet coder that does not byte-stuff would not be caught - it emits a headerless stream that looks random, which is the same blind spot the generic compression sweep has.",
+ "encryption_hypothesis": "not_excluded"
+}

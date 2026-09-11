@@ -9,6 +9,7 @@ keyrecover    bounded key hypotheses and verification
 firmware      obtain/triage DSP firmware + calibration tables
 flashdump     carve blobs out of an external SPI flash image
 evidence      neutral statistical diagnostics of opaque payloads
+image_codec_hypothesis  is it a compressed image? (JPEG family, containers)
 image_hypothesis / stream_hypothesis / embedded_cipher_hypothesis / repeatability
 pipeline      end-to-end guard: refuses to export an unvalidated decode
 compression_hypothesis  known codecs at every byte/bit alignment, self-screening
@@ -23,6 +24,7 @@ from . import (  # noqa: F401
     evidence,
     firmware,
     flashdump,
+    image_codec_hypothesis,
     image_hypothesis,
     keyrecover,
     pipeline,
