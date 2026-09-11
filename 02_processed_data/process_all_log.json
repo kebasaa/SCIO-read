@@ -1,19 +1,404 @@
 {
  "schema": "scio-process-log/1",
- "ran_at": "2026-09-11T08:54:15.479+02:00",
+ "ran_at": "2026-09-11T09:29:54.273+02:00",
  "pause_s": 10.0,
- "attempted": 2,
- "succeeded": 2,
- "failed": 0,
+ "attempted": 79,
+ "succeeded": 74,
+ "failed": 5,
  "results": [
   {
-   "scan": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
-   "processed": "02_processed_data/20200604143457_20200604_dead_needles_log00_spectrum.json",
+   "scan": "01_rawdata/scans/20200604144021_rock_144021.json",
+   "processed": "02_processed_data/20200604144021_rock_144021_spectrum.json",
    "error": null
   },
   {
-   "scan": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
-   "processed": "02_processed_data/20200604143505_20200604_dead_needles_log01_spectrum.json",
+   "scan": "01_rawdata/scans/20211020105527_20211020_calibration_log00.json",
+   "processed": "02_processed_data/20211020105527_20211020_calibration_log00_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105544_20211020_calibration_log01.json",
+   "processed": "02_processed_data/20211020105544_20211020_calibration_log01_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105555_20211020_calibration_log02.json",
+   "processed": "02_processed_data/20211020105555_20211020_calibration_log02_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105604_20211020_calibration_log03.json",
+   "processed": "02_processed_data/20211020105604_20211020_calibration_log03_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105614_20211020_calibration_log04.json",
+   "processed": "02_processed_data/20211020105614_20211020_calibration_log04_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105622_20211020_calibration_log05.json",
+   "processed": "02_processed_data/20211020105622_20211020_calibration_log05_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105633_20211020_calibration_log06.json",
+   "processed": "02_processed_data/20211020105633_20211020_calibration_log06_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105642_20211020_calibration_log07.json",
+   "processed": "02_processed_data/20211020105642_20211020_calibration_log07_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105649_20211020_calibration_log08.json",
+   "processed": "02_processed_data/20211020105649_20211020_calibration_log08_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105656_20211020_calibration_log09.json",
+   "processed": "02_processed_data/20211020105656_20211020_calibration_log09_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105704_20211020_calibration_log10.json",
+   "processed": "02_processed_data/20211020105704_20211020_calibration_log10_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105713_20211020_calibration_log11.json",
+   "processed": "02_processed_data/20211020105713_20211020_calibration_log11_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105721_20211020_calibration_log12.json",
+   "processed": "02_processed_data/20211020105721_20211020_calibration_log12_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105858_skin_105858.json",
+   "processed": "02_processed_data/20211020105858_skin_105858_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105907_skin_105907.json",
+   "processed": "02_processed_data/20211020105907_skin_105907_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105914_skin_105914.json",
+   "processed": "02_processed_data/20211020105914_skin_105914_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105921_skin_105921.json",
+   "processed": "02_processed_data/20211020105921_skin_105921_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105928_skin_105928.json",
+   "processed": "02_processed_data/20211020105928_skin_105928_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105935_skin_105935.json",
+   "processed": "02_processed_data/20211020105935_skin_105935_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105943_skin_105943.json",
+   "processed": "02_processed_data/20211020105943_skin_105943_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105949_skin_105949.json",
+   "processed": "02_processed_data/20211020105949_skin_105949_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020105957_skin_105957.json",
+   "processed": "02_processed_data/20211020105957_skin_105957_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020110004_skin_110004.json",
+   "processed": "02_processed_data/20211020110004_skin_110004_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20211020110011_skin_110011.json",
+   "processed": "02_processed_data/20211020110011_skin_110011_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+   "processed": "02_processed_data/20230329143054_mirror1__mirror1_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+   "processed": "02_processed_data/20230329143116_mirror2__mirror2_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+   "processed": "02_processed_data/20230329143133_mirror3__mirror3_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+   "processed": "02_processed_data/20230330082305_calibrationbox1_tionbox1_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+   "processed": "02_processed_data/20230330082312_calibrationbox2_tionbox2_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+   "processed": "02_processed_data/20230330082317_calibrationbox3_tionbox3_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+   "processed": "02_processed_data/20230330082322_calibrationbox4_tionbox4_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+   "processed": "02_processed_data/20230330082326_calibrationbox5_tionbox5_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+   "processed": null,
+   "error": "spectro-scan HTTP 422: {\"extra_info\":\"low_signal\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n"
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+   "processed": null,
+   "error": "spectro-scan HTTP 422: {\"extra_info\":\"low_signal\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n"
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+   "processed": null,
+   "error": "spectro-scan HTTP 422: {\"extra_info\":\"low_signal\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n"
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+   "processed": null,
+   "error": "spectro-scan HTTP 422: {\"extra_info\":\"low_signal\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n"
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+   "processed": null,
+   "error": "spectro-scan HTTP 422: {\"extra_info\":\"low_signal\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n"
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+   "processed": "02_processed_data/20230330082626_wood1_an_wood1_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+   "processed": "02_processed_data/20230330082632_wood2_an_wood2_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+   "processed": "02_processed_data/20230330082636_wood3_an_wood3_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+   "processed": "02_processed_data/20230330082642_wood4_an_wood4_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+   "processed": "02_processed_data/20230330082647_wood5_an_wood5_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+   "processed": "02_processed_data/20260907155513_20260907_hand_60907_hand_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+   "processed": "02_processed_data/20260907155826_20260907_burst1_907_burst1_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+   "processed": "02_processed_data/20260907155829_20260907_burst2_907_burst2_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+   "processed": "02_processed_data/20260907155831_20260907_burst3_907_burst3_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+   "processed": "02_processed_data/20260907155834_20260907_burst4_907_burst4_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+   "processed": "02_processed_data/20260907155836_20260907_burst5_907_burst5_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+   "processed": "02_processed_data/20260907185028_current_static_static_001_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+   "processed": "02_processed_data/20260907185030_current_static_static_002_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+   "processed": "02_processed_data/20260907185032_current_static_static_003_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+   "processed": "02_processed_data/20260907185035_current_static_static_004_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+   "processed": "02_processed_data/20260907185037_current_static_static_005_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+   "processed": "02_processed_data/20260907185039_current_static_static_006_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+   "processed": "02_processed_data/20260907185041_current_static_static_007_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+   "processed": "02_processed_data/20260907185043_current_static_static_008_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+   "processed": "02_processed_data/20260907185045_current_static_static_009_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+   "processed": "02_processed_data/20260907185047_current_static_static_010_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+   "processed": "02_processed_data/20260907185049_current_static_static_011_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+   "processed": "02_processed_data/20260907185052_current_static_static_012_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+   "processed": "02_processed_data/20260907185054_current_static_static_013_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+   "processed": "02_processed_data/20260907185056_current_static_static_014_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+   "processed": "02_processed_data/20260907185058_current_static_static_015_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+   "processed": "02_processed_data/20260907185100_current_static_static_016_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+   "processed": "02_processed_data/20260907185102_current_static_static_017_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+   "processed": "02_processed_data/20260907185104_current_static_static_018_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+   "processed": "02_processed_data/20260907185106_current_static_static_019_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+   "processed": "02_processed_data/20260907185109_current_static_static_020_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+   "processed": "02_processed_data/20260907185111_current_static_static_021_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+   "processed": "02_processed_data/20260907185113_current_static_static_022_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+   "processed": "02_processed_data/20260907185115_current_static_static_023_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+   "processed": "02_processed_data/20260907185117_current_static_static_024_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+   "processed": "02_processed_data/20260907185119_current_static_static_025_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+   "processed": "02_processed_data/20260907185121_current_static_static_026_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+   "processed": "02_processed_data/20260907185124_current_static_static_027_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+   "processed": "02_processed_data/20260907185126_current_static_static_028_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+   "processed": "02_processed_data/20260907185128_current_static_static_029_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+   "processed": "02_processed_data/20260907185130_current_static_static_030_spectrum.json",
    "error": null
   }
  ]
