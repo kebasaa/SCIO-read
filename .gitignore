@@ -32,3 +32,9 @@ scio_token*
 oauth_*.json
 # Jupyter checkpoints: byte-stale duplicates that have carried a token before.
 .ipynb_checkpoints/
+CLAUDE.md
+
+# Kept on disk as a local reminder of the no-Claude-trailer rule, but
+# deliberately not tracked (see commit d37f3f5). The rule itself lives in the
+# assistant project memory, not in the repository.
+/CLAUDE.md
