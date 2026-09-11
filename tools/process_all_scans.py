@@ -2,7 +2,7 @@
 """Send every unprocessed canonical scan to the server and store its spectrum.
 
 Reads ``01_rawdata/scans/*.json`` (``scio-scan/2``), writes
-``02_processed_data/<scan>_spectrum.json`` plus a matching ``.csv``. Resumable:
+``02_processed_data/<scan>_spectrum.json`` (JSON only). Resumable:
 records that already have a processed counterpart are skipped, so an interrupted
 run can simply be re-run.
 

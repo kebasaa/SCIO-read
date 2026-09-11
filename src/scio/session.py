@@ -467,7 +467,12 @@ def _converted_sources(directory=SCANS_DIR) -> set[str]:
 
 # ------------------------------------------------------------------ processing
 def process(raw_path, token: str, out_dir=PROCESSED_DIR) -> Path:
-    """Send one canonical record to the server and write the record + its spectrum."""
+    """Send one canonical record to the server and write the record + its spectrum.
+
+    JSON only. The record carries the wavelength axis, the reflectance, the
+    annotation and the whole originating scan, so a CSV alongside it would be a
+    lossy second copy of the same numbers with a second format to keep in step.
+    """
     rec = load_record(raw_path)
     payload = to_payload(rec)
     resp = cloud.analyze_scan(token, payload)
@@ -491,16 +496,6 @@ def process(raw_path, token: str, out_dir=PROCESSED_DIR) -> Path:
     }
     path = Path(out_dir) / (Path(raw_path).stem + "_spectrum.json")
     path.write_text(json.dumps(out, indent=1), encoding="utf-8")
-    _write_csv(path.with_suffix(".csv"), wl, refl, rec)
-    return path
-
-
-def _write_csv(path: Path, wl, refl, rec: dict) -> Path:
-    ann = rec.get("annotation", {})
-    lines = [f"# name,{ann.get('name')}", f"# scan_id,{ann.get('scan_id')}",
-             f"# sampled_at,{rec.get('sampled_at')}", "wavelength_nm,reflectance"]
-    lines += [f"{w},{r!r}" for w, r in zip(wl, refl)]
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 

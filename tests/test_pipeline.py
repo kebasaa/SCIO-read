@@ -485,5 +485,7 @@ def test_process_pending_records_failures_without_stopping(tmp_path, monkeypatch
     assert out["schema"] == "scio-spectrum/1"
     assert out["spectrum"]["n_points"] == 331 and out["spectrum"]["range_nm"] == [740, 1070]
     assert out["scan"]["annotation"]["name"] == "good"   # the record travels with the result
-    assert (processed / (Path(ok[0]["processed"]).stem + ".csv")).exists()
+    # JSON only - the record already carries the axis, the reflectance and the
+    # whole originating scan, so a CSV would be a lossy second copy.
+    assert not list(processed.glob("*.csv"))
     assert len(session.pending(scans, processed)) == 1

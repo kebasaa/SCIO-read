@@ -109,15 +109,12 @@ def main() -> int:
             "response": resp,                      # full server response, verbatim
             "wavelength_nm": wl, "reflectance": refl,
         }, indent=1))
-        with (OUT_DIR / f"{name}_spectrum.csv").open("w", newline="") as f:
-            f.write("wavelength_nm,reflectance\n")
-            for w, r in zip(wl, refl):
-                f.write(f"{w},{r}\n")
         ok += 1
 
     print(f"\nSaved {ok} spectrum file(s) to {OUT_DIR}.")
     if ok:
-        print("Plot them in 07/08 or with: import pandas as pd; pd.read_csv(<file>).plot(x='wavelength_nm')")
+        print("Plot with: import json; d = json.load(open(<file>)); "
+              "plt.plot(d['wavelength_nm'], d['reflectance'])")
     return 0 if ok else 1
 
 

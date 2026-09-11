@@ -1,0 +1,20 @@
+{
+ "schema": "scio-process-log/1",
+ "ran_at": "2026-09-11T08:54:15.479+02:00",
+ "pause_s": 10.0,
+ "attempted": 2,
+ "succeeded": 2,
+ "failed": 0,
+ "results": [
+  {
+   "scan": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+   "processed": "02_processed_data/20200604143457_20200604_dead_needles_log00_spectrum.json",
+   "error": null
+  },
+  {
+   "scan": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+   "processed": "02_processed_data/20200604143505_20200604_dead_needles_log01_spectrum.json",
+   "error": null
+  }
+ ]
+}
