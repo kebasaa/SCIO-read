@@ -30,6 +30,7 @@ from scio_offline import (
     keyrecover,
     malleability,
     malleability_sim,
+    plaintext_oracles,
     pipeline,
     repeatability,
     stream_hypothesis,
@@ -491,3 +492,36 @@ def test_restricted_protocol_is_right_or_silent_on_every_known_transform():
             if vname == "plain" and mode not in ("delta", "adaptive"):
                 assert got == truth, (mode, got)
     assert not wrong, wrong
+
+
+# ------------------------------------------------------ order-independent oracle
+def test_dark_lane_oracle_separates_a_dark_decode_from_noise():
+    """A near-constant dark frame has a low-entropy byte lane; noise does not."""
+    rng = np.random.default_rng(0)
+    dark = (150 + rng.integers(-3, 4, 896)).clip(0, 16383).astype("<u2").tobytes()
+    noise = bytes(rng.integers(0, 256, 1792, dtype=np.uint8))
+    assert plaintext_oracles.dark_lane_score(dark) > 6.0
+    assert plaintext_oracles.dark_lane_score(noise) < 1.0
+    # permutation-invariant: shuffling whole pixels must not change the score
+    px = np.frombuffer(dark, dtype="<u2").copy()
+    rng.shuffle(px)
+    assert abs(plaintext_oracles.dark_lane_score(px.tobytes())
+               - plaintext_oracles.dark_lane_score(dark)) < 1e-9
+
+
+def test_screen_key_finds_the_right_key_and_rejects_wrong_ones():
+    from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+    rng = np.random.default_rng(1)
+    dark = (150 + rng.integers(-3, 4, 896)).clip(0, 16383).astype("<u2").tobytes()
+    key, hdr = bytes(rng.integers(0, 256, 16, dtype=np.uint8)), bytes(8)
+    ct = Cipher(algorithms.AES(key), modes.CTR(hdr + bytes(8))).encryptor().update(dark)
+    assert plaintext_oracles.screen_key(ct, key, hdr)["score"] > 6.0
+    assert plaintext_oracles.screen_key(ct, bytes(16), hdr)["score"] < 1.0
+
+
+def test_calibration_threshold_sits_above_the_random_mean():
+    rng = np.random.default_rng(2)
+    body = bytes(rng.integers(0, 256, 1792, dtype=np.uint8))
+    cal = plaintext_oracles.calibrate(body, bytes(8), n_random=80, search_size=90000)
+    assert cal["threshold"] >= cal["random_mean"]
+    assert 0.0 < cal["quantile"] < 1.0

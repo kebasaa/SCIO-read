@@ -1,0 +1,26 @@
+{
+ "schema": "scio-dark-rescreen/1",
+ "ran_at": "2026-09-30T15:16:48.491+02:00",
+ "keys": 3625,
+ "combos": 90625,
+ "dark_bodies": 97,
+ "calibration": {
+  "threshold": 0.30502026650862446,
+  "random_mean": 0.25699560326204074,
+  "random_max": 0.30503102094618395,
+  "n_random": 400,
+  "quantile": 0.9999944827586207,
+  "search_size": 90625
+ },
+ "best_first_pass": {
+  "label": "device_id+i2s.join.forward.sha256_16",
+  "score": 0.3171362775008397,
+  "mode": "CFB",
+  "iv": "zero"
+ },
+ "above_threshold_first_pass": 4,
+ "confirmed_across_all_bodies": [],
+ "verdict": "negative",
+ "meaning": "No identifier-derived key produces a low-entropy dark decode on all bodies. Consistent with the device-binding finding: the key is a device-held secret, not derivable from public identifiers.",
+ "elapsed_s": 29.9
+}

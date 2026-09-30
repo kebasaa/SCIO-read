@@ -30,6 +30,7 @@ from . import (  # noqa: F401
     image_hypothesis,
     keyrecover,
     malleability,
+    plaintext_oracles,
     malleability_sim,
     pipeline,
     repeatability,

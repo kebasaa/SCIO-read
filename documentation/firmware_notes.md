@@ -580,3 +580,19 @@ devices, so there is no global key to find and a blob cannot be moved between id
 gives 5 extra (blob, spectrum) pairs from other devices/generations, but - the oracle being
 closed and each device keyed separately - they only characterise; they cannot advance a decode.
 Do not retry: the binding is established.
+
+### Identifier-key re-screen under an order-independent oracle: negative (2026-09-30)
+
+The 3,625 identifier/serial/version-derived keys were re-run under a new dark-frame oracle
+(`dev/scio_offline/plaintext_oracles.py`; driver `dev/scripts/rescreen_dark.py`;
+`dev/analysis_output/dark_rescreen.json`). Unlike the earlier smoothness oracle, it is
+order-independent: a correct dark-frame decode leaves at least one near-constant byte lane, so it
+still fires if the pixels are emitted in a permuted order - the case the old oracle could miss.
+
+3,625 keys x 5 modes x 5 IV schemes = 90,625 combos, screened on one dark body, threshold
+calibrated on random keys at that search size (0.305; random mean 0.257, max 0.305), survivors
+escalated to all 97 dark bodies (score = min across bodies). **Negative:** best real key 0.317
+(`device_id+i2s.join.forward.sha256_16`), 4 keys cleared the first-pass threshold, none survived
+escalation. Best real ~ best random tail: a multiple-testing maximum, not a hit. Consistent with
+the device-binding finding - the key is a device-held secret, not a public-identifier derivation.
+Do not retry this key family; the remaining route is a hardware read.
