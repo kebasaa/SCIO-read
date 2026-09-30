@@ -302,28 +302,34 @@ enforces that, so they can be launched from anywhere.
 
 ## Why it stalled, and what would unstick it
 
-Every software-only route has been exhausted:
+Every software and server route has been exhausted:
 
-- **The cloud** returns firmware only through the upgrade endpoint, and the
-  device is up to date (`new_version: null`).
-- **The APKs** in the local decompilation set cache firmware in SharedPreferences
-  but ship none, and the current Flutter app's `libapp.so` is arm64 AOT.
-- **USB** has no readback path. `READ_FILE_HEADER` (0x87) returns 16 bytes and
-  ignores an appended offset/length; `FILE_DOWNLOAD` (0x81) is host->device only;
-  the declared-but-unimplemented opcodes do not answer. All probed on hardware -
-  logs in `01_rawdata/probe_logs/`.
+- **The cloud** returns firmware only through the upgrade endpoint, decommissioned
+  (`needs_params_upgrade:false` even for wrong checksums), and the newest app's
+  `scionir.com` backend is the same server.
+- **The server will not decode a modified blob**: each carries a device-bound signature
+  (`Bad_sample_signature`), so it cannot be turned into a decoding oracle, and a blob only
+  decodes under its own device_id. See the sections above.
+- **The APKs** cache firmware in SharedPreferences but ship none; the Flutter `libapp.so` is
+  arm64 AOT and holds no firmware. No firmware exists anywhere on the analysis machine.
+- **USB** has no readback path (`0x87` returns 16 bytes; `0x81` is host->device only).
+- **Identifier-derived keys** are negative under both the smoothness and the order-independent
+  dark-frame oracle.
 
-What is left is hardware, and it is cheap:
+What is left is a hardware read, and the full procedure with validation targets and safety
+rules is in **`documentation/HARDWARE_ACQUISITION.md`**. In brief:
 
-1. **Dump the external SPI flash** (~$15 CH341A + SOIC-8 clip). Gives
-   `dsp_boot`/`dsp_dec`/`dsp_op` as stored - possibly Lockbox-encrypted.
-   `dsp_op` is 32628 B on this unit; use that plus the header checksums to
-   validate a dump. See `documentation/HARDWARE_ACQUISITION.md`.
-2. **BF512 JTAG.** Halt the DSP mid-scan and read the key out of L1 SRAM.
-   Works even if the flash image is encrypted, unless OTP has disabled JTAG.
-3. **An old phone that never finished a firmware upgrade** - the consumer app
-   deletes the cached blobs only after a *completed* upgrade. `firmware.py`
-   already knows how to extract them.
+1. **External SPI flash** (~$15 CH341A + SOIC-8 clip): `dsp_boot`/`dsp_dec`/`dsp_op` as stored,
+   validated against this unit's header table (`dsp_op` 32628 B, checksum 4151168).
+2. **BF512 JTAG**: halt mid-scan, read the key from L1 SRAM; may be OTP-disabled.
+3. **CC2540** (the TI BLE/USB MCU that enumerates as `0451:16AA`, has hardware AES-128): the
+   signature and possibly the transform may be applied *here*, not on the DSP - so identify
+   what each chip holds before committing. Its debug port may be locked (do not erase to unlock).
+4. **Another owner's cached firmware** - no hardware needed; `firmware.py` extracts it from a
+   SharedPreferences dump or `adb backup`. Outreach text is in the hardware doc.
+
+Because the device signs each blob keyed to its identity, two secrets live in the device - the
+transform key and a per-device signing key - and a dump is the only way to reach either.
 
 ## Closed avenue: the i2s tag is not a chosen-binning oracle
 

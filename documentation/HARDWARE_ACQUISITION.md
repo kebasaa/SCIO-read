@@ -17,6 +17,20 @@ or alter the boot-mode straps.
 - JTAG signals are TCK, TMS, TDI, TDO, TRST and EMU. The processor must be
   halted for memory/register access.
 
+### Added 2026-09-30, after the server was fully characterised
+
+- **The server route is closed for good.** Firmware/table download is decommissioned
+  (`needs_params_upgrade:false` even for wrong checksums), the newest app's `scionir.com`
+  backend is the same server, no endpoint returns raw intensities, and no firmware exists
+  anywhere on the analysis machine. A hardware read is the only remaining source.
+- **The device signs each scan blob, keyed to its identity.** The server rejects any modified
+  blob with `400 Bad_sample_signature`, and a valid blob submitted under a different device_id
+  is rejected the same way, while it decodes under its own. So the device holds **two** secrets
+  worth recovering: the payload-transform key and a per-device signing key. Either or both may
+  be what makes offline decoding possible.
+- **Which chip applies the transform is not known.** It could be the BF512 DSP or the CC2540
+  BLE/USB MCU (see Route C). Identify both dumps' contents before assuming the DSP is the target.
+
 ## Route A - external SPI flash (first choice)
 
 1. Photograph both PCB faces sharply before touching anything. Include the
@@ -71,6 +85,28 @@ is IEEE 1149.1.
    `analyze_flash_dump.py`; separately run `scio_offline.firmware.triage_blob` on carved
    `dsp_op` candidates.
 
+## Route C - CC2540 BLE/USB MCU (consider before assuming the DSP)
+
+The Sparkfun teardown places a TI CC2540 on the board, and the USB VID `0451` is Texas
+Instruments, so the CC2540 - not the BF512 - is what enumerates as the USB CDC device and
+speaks the `0xBA` protocol. It has a hardware AES-128 engine and 256 KB of internal flash.
+This matters because the per-blob **signature** (and possibly the payload transform) could be
+applied by the CC2540 as the data passes through it, rather than by the DSP. If so, the CC2540's
+flash holds the signing/transform key and the DSP dump would not.
+
+- The CC2540 debug interface is a two-wire (DD/DC) protocol, read with a CC-Debugger or a
+  compatible flash-programming tool. Datasheet: `documentation/CC2540F256.pdf`.
+- Internal flash read-out is blocked when the debug-lock fuse is set; TI parts commonly ship
+  locked, and read-back then requires a full chip erase, which destroys the contents. **Do not
+  erase.** If the part is locked, treat this route as closed rather than erasing to unlock.
+- What to look for in an unlocked dump: an AES key schedule or 16/32-byte constants near the
+  code that drives the AES engine; the string/table handling for `i2s_tag_config`; and any
+  routine that computes the signature checked as `Bad_sample_signature`.
+- Decide the order by evidence, not assumption: dump whichever chip is cheapest/safest to reach
+  first, identify what each holds, and only then commit effort. A during-scan JTAG/SRAM capture
+  (Route B) can also reveal *which* chip touches the pixel data, by showing where it appears in
+  the clear.
+
 ## Exact validation targets for this unit
 
 | Name | Type | Size | Version | Header checksum |
@@ -100,3 +136,26 @@ with that magnitude, but it requires header adjacency as stronger evidence.
 5. A proposed decoder is accepted only when it recovers repeatable 331-point
    `sample_raw` and `wr_raw` vectors and reproduces archived
    `spectrum = sample_raw / wr_raw` results on held-out scans.
+   `dev/scio_offline/validation.validate()` scores a candidate `decoder(bytes) -> 331 floats`
+   against all 92 stored (blob, spectrum) pairs in seconds (self-checked: a perfect decoder
+   scores Pearson 1.0, noise fails). Wire the recovered decoder into it; do not accept a decode
+   on a single scan or by eye.
+
+## Route D - another owner's cached firmware (no hardware, no teardown)
+
+Both apps cached the firmware in Android SharedPreferences after an over-the-air upgrade, so any
+SCiO owner whose phone ran the app **and never completed a later upgrade** may still hold the
+blobs the server no longer serves. `dev/scio_offline/firmware.py` already extracts them from a
+SharedPreferences XML or an `adb backup`. This needs no hardware and no risk to this unit.
+
+Outreach text for the repo issue tracker / SCiO communities:
+
+> Looking for cached SCiO firmware to enable offline spectral decoding of a discontinued device.
+> If your phone ran the SCiO or SCiO Lab app, it may hold the device firmware and calibration
+> tables in app data (`/data/data/com.consumerphysics.*/shared_prefs/`, or an `adb backup`).
+> The files are `dsp_op`, `dsp_boot`, `dsp_dec`, and the tables `centers`, `bins`,
+> `nPixelsPerBin`, `deadPixelsIndices`. Even a single device's set would help. No account
+> details or personal data are needed - just those files.
+
+Note the author of `archive/more_info/decrypt.txt` describes an older 400-value-generation unit
+and is a natural first contact.
