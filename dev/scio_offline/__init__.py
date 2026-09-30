@@ -6,6 +6,8 @@ path is ``scio`` under ``src/``. See ``dev/README.md``.
 
 decode        candidate transforms, spectral normalization helpers
 keyrecover    bounded key hypotheses and verification
+malleability  chosen-ciphertext probing of the server: tamper, delta, classify
+malleability_sim  simulated servers used to validate that classifier
 firmware      obtain/triage DSP firmware + calibration tables
 flashdump     carve blobs out of an external SPI flash image
 evidence      neutral statistical diagnostics of opaque payloads
@@ -27,6 +29,8 @@ from . import (  # noqa: F401
     image_codec_hypothesis,
     image_hypothesis,
     keyrecover,
+    malleability,
+    malleability_sim,
     pipeline,
     repeatability,
     stream_hypothesis,

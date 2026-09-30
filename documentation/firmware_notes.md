@@ -467,3 +467,42 @@ closed for a reason no client-side change can address.
 reproducible, and **writes anything the server ever offers straight to
 `dev/recovered_firmware/`** - raw response first, decoded bodies second, never overwriting -
 so a future run that does get blobs cannot lose them.
+
+### Chosen-ciphertext probing of the server: A0 calibration (2026-09-30)
+
+Until now the server was only ever used to *produce* spectra. It also decodes whatever it is
+sent, deterministically, so editing a blob and watching which bands move can expose the
+structure of the transform from outside the wire (`dev/scio_offline/malleability.py`; driver
+`dev/scripts/ciphertext_oracle.py`; records in `dev/analysis_output/ciphertext_oracle/`).
+
+**The classifier was validated before it touched the server.** A simulated server (banded
+overlapping binning, scrambled pixel order, masked bits, dead pixels, an `InvalidScan` range
+check, a global-normalisation variant; ten transforms from AES-CTR/OFB/CFB/CBC/ECB through a
+seed-XOR PRNG stream, a DCT block coder, delta coding and an adaptive Rice decoder to a
+whole-body tag) was crossed with every variant. Over **900 runs** - 360 during tuning, **540 on
+seeds never used to tune** - it returned **zero wrong labels**; wherever it could not tell, it said
+`undetermined`. The validation found and forced the fixes to four real errors (CBC read as ECB
+because binning overlap contaminates the neighbouring pixel; a lossy DCT coder read as ECB
+because rounding breaks exact bit-doubling; Rice-code remainder bits read as a stream cipher;
+and a two-flip probe wrongly counted as evidence about where damage ends). Its label set has no
+member meaning "encryption excluded".
+
+**A0 (valid inputs only, 6 requests): PARTIAL, nothing refuted.**
+
+| identity | result |
+|---|---|
+| control reproduces the stored 2020 answer | confirmed, 5.1e-15 |
+| swapping the white reference changes R by the same per-band factor on two scans | confirmed, 2.7e-15: **R is separable, R = g(S, D) / (W - Wd)** |
+| `sampled_at` + 1 ms | confirmed, exactly unchanged: timestamps are not a tweak |
+| not served from a cache | confirmed |
+| swap `sample` and `sample_dark` gives exactly -R | **untestable**: HTTP 422 `InvalidScan` / `high_ambient` |
+| the same body in both slots gives exactly 0 | **untestable**: same 422 |
+
+**New finding: the server validates the decoded data before any arithmetic.** A dark level
+comparable to the sample is refused as `high_ambient`. That is a plaintext-dependent check sitting in
+front of the division, and a rejection is itself one bit about the decoded plaintext.
+
+Consequence for the tampering phases: block-cipher-like garbling will probably be rejected
+(out-of-range pixels), so it would classify as `undetermined` - never as any cipher. Small
+bit-local flips stay inside the valid range and remain fully informative. The plan's gate
+("an identity failing stops Phase A") was deliberately not relaxed unilaterally.

@@ -1,0 +1,26 @@
+{
+ "schema": "scio-ciphertext-oracle/1",
+ "phase": "a0",
+ "label": "same_body_both_slots",
+ "ran_at": "2026-09-30T14:36:28.136+02:00",
+ "changes": "sample_dark := sample (whole blob)",
+ "expect": "R = 0 exactly",
+ "status": 422,
+ "body": "spectro-scan HTTP 422: {\"extra_info\":\"high_ambient\",\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support.\"}\n",
+ "spectrum": null,
+ "fingerprint": {
+  "device_id": "21ebedf5de2e",
+  "i2s_tag_config": "3d4c031fce4e",
+  "mobile_mac_address": "c248c629af1f",
+  "sample": "6e186b4e1d46",
+  "sample_dark": "6e186b4e1d46",
+  "sample_gradient": "3087916756bb",
+  "sample_white": "1f0a8b0a198d",
+  "sample_white_dark": "a9d3bc0edab0",
+  "sample_white_gradient": "c1918ee2c173",
+  "sampled_at": "9a3b045e1c05",
+  "sampled_white_at": "a35d2fd3326f",
+  "scio_edition": "758515e0780f",
+  "widget_scan_attributes": "4f53cda18c2b"
+ }
+}

@@ -193,6 +193,7 @@ Modules:
 | `repeatability` | cross-capture screening: does a candidate key give *consistent* plaintext? |
 | `pipeline` | the guard - refuses to export a spectrum from an unvalidated decode |
 | `compression_hypothesis` | known codecs at every byte **and bit** offset, with partial-output tolerance; screens each codec against random input first and excludes any that "finds" structure in noise |
+| `malleability` / `malleability_sim` | **chosen-ciphertext probing of the live server**: flip a bit in a blob, read which bands move. The classifier separates stream / block-transform / delta / ECB / CBC-CFB / adaptive-coder and can answer `undetermined`, but has no label meaning "encryption excluded". Validated against a simulated server, not the real one |
 | `transform_class` | what *class* of transform is this? Size-invariance, entropy-by-scene and coder-header tests, emitting a verdict that structurally cannot say "encryption ruled out" |
 | `validation` | **the gate**: score a candidate decoder against all 92 records whose true spectrum we hold. Self-checked in both directions - truth must pass, noise must fail |
 

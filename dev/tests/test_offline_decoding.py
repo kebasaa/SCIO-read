@@ -28,6 +28,8 @@ from scio_offline import (
     image_codec_hypothesis,
     image_hypothesis,
     keyrecover,
+    malleability,
+    malleability_sim,
     pipeline,
     repeatability,
     stream_hypothesis,
@@ -341,3 +343,103 @@ def test_corpus_excludes_every_standard_image_codec():
     assert rep["padding_scan"]["longest_constant_run"]["max"] <= 8
     # and it still may not claim the complement
     assert rep["encryption_hypothesis"] == "not_excluded"
+
+
+# ------------------------------------------------------ ciphertext-oracle classifier
+def _sim_label(mode, seed, **kw):
+    rng = np.random.default_rng(100 + seed)
+    srv = malleability_sim.SimServer(mode, seed=seed, **kw)
+    obs, _ = malleability.run_protocol(srv, srv.make_payload(rng))
+    return malleability.classify(obs)
+
+
+def test_tamper_flips_exactly_one_bit_and_nothing_else():
+    rng = np.random.default_rng(0)
+    srv = malleability_sim.SimServer("ctr", seed=0)
+    payload = srv.make_payload(rng)
+    t = malleability.tamper_bit(payload, "sample", 803, 5)
+    a, b = malleability.get_blob(payload, "sample"), malleability.get_blob(t, "sample")
+    assert [i for i in range(len(a)) if a[i] != b[i]] == [malleability.HEADER + 803]
+    assert a[malleability.HEADER + 803] ^ b[malleability.HEADER + 803] == 1 << 5
+    assert all(t[k] == payload[k] for k in payload if k != "sample")      # other blobs untouched
+
+
+def test_delta_keeps_signs_and_treats_unchanged_as_exactly_unchanged():
+    base = [1.0, 2.0, 3.0]
+    d = malleability.delta(base, [1.0, 2.0 + 1e-9, 3.0 - 1e-9])
+    assert d["changed"] == [1, 2]
+    assert d["delta"][1] > 0 > d["delta"][2]                 # sign = sign of the plaintext change
+    assert malleability.delta(base, list(base))["n_changed"] == 0
+    assert malleability.delta(base, None)["error"] is True
+
+
+def test_classifier_is_right_or_silent_on_every_known_transform():
+    """The project's rule: may say 'undetermined', must never say the wrong thing.
+
+    Every mode, three post-processing variants (clean; wide kernel + scrambled pixel order;
+    everything at once - banded binning, scramble, masked bits, dead pixels and a range check
+    that rejects garbled input), two seeds. On the clean server every label must be *right*,
+    not merely not-wrong.
+    """
+    variants = {"plain": {}, "wide+permute": {"binning": "wide", "permute": True},
+                "everything": {"binning": "wide", "permute": True, "mask_top": True,
+                               "dead": 40, "range_check": True}}
+    wrong = []
+    for mode in malleability_sim.MODES:
+        truth = malleability_sim.TRUTH[mode]
+        for vname, kw in variants.items():
+            for seed in (1, 2):
+                got = _sim_label(mode, seed, **kw)["label"]
+                if got not in (truth, "undetermined"):
+                    wrong.append((mode, vname, seed, got))
+                if vname == "plain":
+                    assert got == truth, (mode, seed, got)
+    assert not wrong, wrong
+
+
+def test_classifier_blind_modes_drawn_from_a_seed_it_cannot_see():
+    """The mode and post-processing are drawn from a seed the classifier code never sees."""
+    rng = np.random.default_rng(2026)
+    modes = list(malleability_sim.MODES)
+    flags = ["binning", "permute", "mask_top", "range_check", "dead"]
+    wrong = []
+    for seed in range(20, 28):
+        mode = modes[int(rng.integers(len(modes)))]
+        kw = {}
+        for f in flags:
+            if rng.random() < 0.4:
+                kw[f] = {"binning": "wide", "dead": 30}.get(f, True)
+        got = _sim_label(mode, seed, **kw)["label"]
+        if got not in (malleability_sim.TRUTH[mode], "undetermined"):
+            wrong.append((mode, kw, got))
+    assert not wrong, wrong
+
+
+def test_all_rejected_is_undetermined_never_authenticated():
+    """Diffusion, a MAC tag and a range check are indistinguishable from outside."""
+    v = _sim_label("auth", 1)
+    assert v["label"] == "undetermined" and v["evidence"]["errors"] == v["evidence"]["n_probes"]
+    assert malleability.classify([])["label"] == "undetermined"
+
+
+def test_classifier_cannot_express_encryption_excluded():
+    """No label means 'not encrypted': no client-side probe could justify one."""
+    assert set(malleability.LABELS) == {
+        "stream", "block_transform", "delta_coding", "ecb_like", "chained_block",
+        "adaptive_stream", "undetermined"}
+    for label in malleability.LABELS:
+        assert "not_encrypted" not in label and "excluded" not in label
+
+
+def test_global_normalisation_defeats_the_classifier_safely():
+    """A server that normalises the whole spectrum moves every band on every flip."""
+    for mode in ("ctr", "ecb", "cbc"):
+        assert _sim_label(mode, 1, normalise=True)["label"] == "undetermined", mode
+
+
+def test_protocol_is_fixed_data_shared_by_simulator_and_real_server():
+    specs = malleability.protocol()
+    ids = [s["id"] for s in specs]
+    assert len(ids) == len(set(ids)) == 52                      # budget the plan assumes
+    assert {s["kind"] for s in specs} == {"ladder", "pair", "sweep", "map"}
+    assert all(len(s["flips"]) in (1, 2) for s in specs)

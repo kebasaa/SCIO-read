@@ -1,0 +1,44 @@
+{
+ "schema": "scio-ciphertext-oracle-verdict/2",
+ "phase": "a0",
+ "ran_at": "2026-09-30T14:38:26.229+02:00",
+ "baseline": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+ "identities": {
+  "control reproduces the 2020 answer": {
+   "state": "confirmed",
+   "detail": "max|diff| = 5.107e-15"
+  },
+  "swap sample<->dark gives -R": {
+   "state": "untestable",
+   "detail": "HTTP 422 InvalidScan/high_ambient: a dark level comparable to the sample is refused before any arithmetic"
+  },
+  "same body in both slots gives 0": {
+   "state": "untestable",
+   "detail": "HTTP 422 InvalidScan/high_ambient: a dark level comparable to the sample is refused before any arithmetic"
+  },
+  "white swap: R'/R same for 2 scans": {
+   "state": "confirmed",
+   "detail": "max spread = 2.665e-15  (R is separable: R = g(S,D) / (W - Wd))"
+  },
+  "sampled_at +1 ms leaves R unchanged": {
+   "state": "confirmed",
+   "detail": "max|diff| = 0.000e+00  (timestamps are not a tweak)"
+  },
+  "not served from a cache": {
+   "state": "confirmed",
+   "detail": "the white-swapped baseline differs from the control by 0.046 (relative)"
+  }
+ },
+ "confirmed": 4,
+ "refuted": 0,
+ "untestable": 2,
+ "outcome": "partial",
+ "gate_passed": null,
+ "established": [
+  "R is separable: R = g(S, D) / (W - Wd) per band (white-swap ratio agrees to 1e-15).",
+  "Timestamps are not a tweak or a cache key.",
+  "The server is not serving a cache."
+ ],
+ "new_finding": "The server validates the DECODED data before doing arithmetic. Putting a dark level comparable to the sample in front of it (swap, or the same body twice) returns InvalidScan / high_ambient (HTTP 422). So tampered requests that produce out-of-range plaintext will be rejected rather than reported, and a rejection is a plaintext-dependent bit in its own right.",
+ "implication": "Block-cipher-like garbling is likely to be rejected, so it will classify as 'undetermined' - not as any cipher. Small bit-local flips (a stream's) stay inside the valid range and remain fully informative."
+}
