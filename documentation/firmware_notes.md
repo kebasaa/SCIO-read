@@ -596,3 +596,47 @@ escalated to all 97 dark bodies (score = min across bodies). **Negative:** best 
 escalation. Best real ~ best random tail: a multiple-testing maximum, not a hit. Consistent with
 the device-binding finding - the key is a device-held secret, not a public-identifier derivation.
 Do not retry this key family; the remaining route is a hardware read.
+
+### Key architecture: stable across firmware, and the per-device vs master-key question (2026-09-30)
+
+Reasoning recorded so a future dump is checked against it; this is inference from observed
+behaviour plus normal design practice, not a measurement.
+
+**A firmware update almost certainly does not change the key.** Key material and code are
+normally stored separately: the updatable files are code and tables (`dsp_op`, `dsp_boot`,
+`dsp_dec`, `centers`/`bins`/`nPixelsPerBin`/`deadPixelsIndices`), while a per-device secret is
+normally factory-provisioned into protected storage (OTP fuses, Lockbox, or a dedicated region)
+that updates do not rewrite. Empirical support: blobs from our device spanning 2020 -> 2026 all
+still decode today under the same `device_id`; had an update rotated the key, the server would
+have to retain every historical key version to decode the old blobs. Simpler reading: the key is
+stable, and what an update changes is the transform/binning **generation** - exactly what
+`i2s_tag_config` ("compression_version") tracks (`-e` / `-o` / dates).
+
+Corollary for acquisition: if the key lives in protected storage separate from the code image, a
+plain SPI-flash read of `dsp_op` may yield the algorithm but not the secret. The key then needs a
+JTAG-during-scan SRAM capture or an OTP read (Route B), not just Route A.
+
+**Per-device vs master key is undetermined from outside.** Three architectures all produce the
+device-bound signature we observed (wrong `device_id` -> `Bad_sample_signature`) and the
+foreign-blob result (each device decodes only under its own id):
+
+- **A - unique per-device secret**, server keeps a table. A dump of our unit decodes only our unit.
+- **B - one global/master key** with `device_id` mixed in as IV/tweak/associated-data. Changing the
+  id breaks the signature even though the underlying key is global. A dump of *any* SCiO would
+  decode *all* of them (supply each device_id). The jackpot, and plausible for a 2014-era consumer
+  device that may have baked in a shared secret rather than provisioning per unit.
+- **C - master on the server only**, per-device `K = KDF(master, device_id)`; the device holds only
+  its own derived K. A dump decodes only that unit; the master is unreachable from any device.
+
+**The concrete test, which we can already run offline the moment any device secret surfaces.** We
+hold intact, signed blobs from FIVE devices: ours (`01_rawdata/scans/`, device
+`8032AB45611198F1`) plus four others extracted to `dev/analysis_output/foreign_scans/`
+(`E027C2A6CF9435D6`, `1026A4DD1BB7158B`, `503E5732B5EF1F35`, across generations `20150812`,
+`20150812-o`, `20150712`). When any key is recovered - from our unit or a community member's -
+apply it to the *other* devices' blobs:
+
+- decodes other devices too  -> scenario B, a global key; the whole platform is solved at once.
+- decodes only its own device -> scenario A or C.
+
+This raises the value of the other-owner route (under B, someone else's dump decodes ours) and
+means only ONE successful dump is ever needed to find out which world we are in.
