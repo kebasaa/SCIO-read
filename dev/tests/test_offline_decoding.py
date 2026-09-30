@@ -443,3 +443,51 @@ def test_protocol_is_fixed_data_shared_by_simulator_and_real_server():
     assert len(ids) == len(set(ids)) == 52                      # budget the plan assumes
     assert {s["kind"] for s in specs} == {"ladder", "pair", "sweep", "map"}
     assert all(len(s["flips"]) in (1, 2) for s in specs)
+
+
+def test_restricted_protocol_flips_only_small_amounts():
+    """After A0 the server is known to reject out-of-range decoded data, so the pilot must
+    stay within a few counts: ladder bits 0-4 of the low lane, and bit 0 elsewhere."""
+    specs = malleability.restricted_protocol(lane=0)
+    assert len({s["id"] for s in specs}) == len(specs)
+    for s in specs:
+        for off, bit in s["flips"]:
+            lane_low = (off % 2 == 0)
+            if s["kind"] == "ladder":
+                assert lane_low and bit <= 4, s["id"]             # at most 16 counts
+            else:
+                assert bit <= 3, s["id"]                          # never a high bit
+    assert len(specs) == 15 + 1 + 16 + 10 == 42
+    assert all(s["kind"] != "ladder" or s["flips"][0][0] % 2 == 1
+               for s in malleability.restricted_protocol(lane=1))   # shifted onto the odd lane
+
+
+def test_pick_lane_reads_a_clean_2_to_the_8_ratio_or_declines():
+    def obs(scale):
+        o = malleability.Observation("x", "lane", {}, 200, [0.0], "", {})
+        o.d = {"delta": np.array([0.0, scale, 0.0]), "changed": [1], "n_changed": 1}
+        return o
+    assert malleability.pick_lane(obs(1.0), obs(256.0)) == 0      # even byte is the low lane
+    assert malleability.pick_lane(obs(256.0), obs(1.0)) == 1      # big-endian layout
+    assert malleability.pick_lane(obs(5.0), obs(6.0)) is None     # garble: do not guess
+    bad = malleability.Observation("x", "lane", {}, 422, None, "", {})
+    assert malleability.pick_lane(bad, obs(1.0)) is None
+
+
+def test_restricted_protocol_is_right_or_silent_on_every_known_transform():
+    variants = {"plain": {}, "everything": {"binning": "wide", "permute": True,
+                                            "mask_top": True, "dead": 40, "range_check": True}}
+    wrong = []
+    for mode in malleability_sim.MODES:
+        truth = malleability_sim.TRUTH[mode]
+        for vname, kw in variants.items():
+            rng = np.random.default_rng(300)
+            srv = malleability_sim.SimServer(mode, seed=5, **kw)
+            obs, _ = malleability.run_protocol(srv, srv.make_payload(rng),
+                                               specs=malleability.restricted_protocol())
+            got = malleability.classify(obs)["label"]
+            if got not in (truth, "undetermined"):
+                wrong.append((mode, vname, got))
+            if vname == "plain" and mode not in ("delta", "adaptive"):
+                assert got == truth, (mode, got)
+    assert not wrong, wrong

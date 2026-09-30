@@ -8,6 +8,7 @@ structure of the transform from outside the wire; see ``dev/scio_offline/malleab
 for what each outcome means and how the classifier was validated.
 
     python dev/scripts/ciphertext_oracle.py a0        # valid inputs only, ~6 requests
+    python dev/scripts/ciphertext_oracle.py pilot     # small in-range flips only, ~45 requests
     python dev/scripts/ciphertext_oracle.py status    # what has been recorded / budget left
 
 Phases are gated. **A0 sends no corrupted data** and establishes that the server's transfer
@@ -307,6 +308,97 @@ def report_a0(base, stored, R, swap, zero, swapped, ts) -> int:
     return 0 if gate else (2 if gate is False else 4)
 
 
+# ============================================================================ pilot
+MAX_CONSECUTIVE_REJECTIONS = 8
+
+
+def _observation(spec_id, kind, params, rec, baseline):
+    from scio_offline import malleability as M
+    o = M.Observation(spec_id, kind, params, rec["status"], rec["spectrum"], rec["body"])
+    o.d = M.delta(baseline, rec["spectrum"])
+    return o
+
+
+def phase_pilot() -> int:
+    """Restricted pilot: small in-range flips only, chosen after A0.
+
+    A0 found that the server validates decoded data before any arithmetic, so a flip that
+    pushes a pixel out of range is rejected rather than reported. Everything here stays
+    within a few counts. Block-cipher-like garbling will still be rejected, and the
+    classifier reads that as ``undetermined`` - never as any cipher.
+
+    ~45 requests: control, two lane probes, then the 42-probe restricted protocol.
+    """
+    from scio_offline import malleability as M
+
+    verdict_a0 = OUT_DIR / "A0_VERDICT.json"
+    if not verdict_a0.exists():
+        raise Halt("run a0 first")
+    a0 = json.loads(verdict_a0.read_text(encoding="utf-8"))
+    if a0.get("refuted"):
+        raise Halt("A0 refuted an identity; tampered probes would not be interpretable")
+
+    run = Runner("pilot")
+    base = load(BASELINE_SCAN)
+    payload = session.to_payload(base)
+
+    ctl = run.send("control", payload, changes="none (untampered, this session)",
+                   expect="equals the stored 2020 spectrum")
+    if ctl["spectrum"] is None:
+        raise Halt(f"control failed ({ctl['status']}): {ctl['body'][:120]}")
+    R = np.asarray(ctl["spectrum"], float)
+    stored = stored_spectrum(base)
+    if stored is not None and float(np.max(np.abs(R - stored))) > 1e-10:
+        raise Halt("control no longer reproduces the stored answer; results would be stale")
+
+    def probe(spec):
+        p = M.tamper_bits(payload, spec["role"], spec["flips"])
+        rec = run.send(spec["id"], p, changes=f"{spec['role']}: flip {spec['flips']}",
+                       expect="see malleability.py")
+        return rec, _observation(spec["id"], spec["kind"],
+                                 {"flips": spec["flips"], "role": spec["role"]}, rec, R)
+
+    # ---- which byte of a pixel is the low-weight lane?
+    lane_obs = [probe(s)[1] for s in M.lane_probe_specs()]
+    lane = M.pick_lane(*lane_obs)
+    print(f"lane probes: even={lane_obs[0].status} odd={lane_obs[1].status} -> "
+          f"{'low lane = byte ' + str(lane) if lane is not None else 'undetermined, using 0'}")
+
+    obs, rejected_run = [], 0
+    for spec in M.restricted_protocol(lane=lane or 0):
+        rec, o = probe(spec)
+        obs.append(o)
+        rejected_run = rejected_run + 1 if rec["spectrum"] is None else 0
+        if rejected_run >= MAX_CONSECUTIVE_REJECTIONS:
+            print(f"{MAX_CONSECUTIVE_REJECTIONS} consecutive rejections: even tiny flips are "
+                  "refused, stopping rather than repeating a question already answered")
+            break
+
+    result = M.classify(obs)
+    n_ok = sum(1 for o in obs if o.status == 200)
+    print(f"\nprobes sent {len(obs)}  accepted {n_ok}  rejected {len(obs) - n_ok}")
+    print(f"CLASSIFICATION: {result['label']}  -  {result['why']}")
+    for k, v in result["evidence"].items():
+        print(f"    {k}: {v}")
+
+    out = OUT_DIR / "PILOT_VERDICT.json"
+    out.write_text(json.dumps({
+        "schema": "scio-ciphertext-oracle-verdict/2", "phase": "pilot", "ran_at": store.now_iso(),
+        "baseline": portable_path(base["_path"]),
+        "lane": lane, "probes_sent": len(obs), "accepted": n_ok, "rejected": len(obs) - n_ok,
+        "label": result["label"], "why": result["why"], "evidence": result["evidence"],
+        "rejection_bodies": sorted({o.body[:200] for o in obs if o.status != 200})[:3],
+        "encryption_hypothesis": "not_excluded",
+        "limits": ("A label describes locality and scaling of damage in the decoded output. It "
+                   "cannot separate CTR-with-a-secret-key from a keyless seeded generator, and "
+                   "nothing here can exclude encryption. `undetermined` covers diffusion, an "
+                   "authentication tag and a range check, which are indistinguishable from "
+                   "outside."),
+    }, indent=1), encoding="utf-8")
+    print(f"written: {out}")
+    return 0
+
+
 def status() -> int:
     n = Runner.used()
     print(f"requests recorded: {n}/{MAX_REQUESTS}")
@@ -321,6 +413,8 @@ def main(argv) -> int:
     try:
         if cmd == "a0":
             return phase_a0()
+        if cmd == "pilot":
+            return phase_pilot()
         if cmd == "status":
             return status()
         print(__doc__)

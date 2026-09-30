@@ -381,3 +381,60 @@ def classify(obs: list, *, n_bands: int = N_BANDS) -> dict:
         return verdict("chained_block", "a garbled block plus a linear change beside it: the "
                        "CBC/CFB family")
     return verdict("undetermined", "mixed response that matches no known class")
+
+
+# ------------------------------------------------- restricted (small-flip) protocol
+def lane_probe_specs(role: str = "sample") -> list:
+    """Two bit-0 flips in adjacent bytes: which one is the low-weight lane?
+
+    If the plaintext is little-endian u16 the even byte is the low lane and the odd byte
+    the high one, so the second flip should move the answer ~256x more than the first; a
+    big-endian layout reverses that. Both flips are tiny in the low lane and at most 256
+    counts in the high one, well inside the valid range.
+    """
+    a = BLOCK_A * 16 + 2
+    return [{"id": "lane_even", "kind": "lane", "flips": [(a, 0)], "role": role},
+            {"id": "lane_odd", "kind": "lane", "flips": [(a + 1, 0)], "role": role}]
+
+
+def pick_lane(lane_even, lane_odd) -> int | None:
+    """0 if the even byte is the low-weight lane, 1 if the odd one is, else None."""
+    ve, vo = _vec(lane_even), _vec(lane_odd)
+    if ve is None or vo is None:
+        return None
+    ne, no = float(np.linalg.norm(ve)), float(np.linalg.norm(vo))
+    if min(ne, no) <= TOL or max(ne, no) / min(ne, no) < 8.0:
+        return None                    # not a clean 2^8 lane ratio: do not guess
+    return 0 if ne < no else 1
+
+
+def restricted_protocol(role: str = "sample", lane: int = 0) -> list:
+    """The same probes as :func:`protocol`, using only small flips.
+
+    Motivated by A0: the server validates the decoded data before any arithmetic, so a flip
+    that pushes a pixel out of range is rejected rather than reported. Everything here stays
+    within a few counts of the true value: the ladder flips bits 0-4 of the LOW-weight lane
+    (at most 16 counts), and the sweep and damage map flip bit 0 only (1 count in the low
+    lane, 256 in the high). No probe here garbles a whole block on purpose - though a block
+    cipher will do that to it, and the answer is then a rejection, which the classifier reads
+    as ``undetermined``, never as a cipher.
+
+    ``lane`` shifts the ladder bytes onto the low-weight lane (see :func:`pick_lane`).
+    """
+    a0 = BLOCK_A * 16 + 2 + lane
+    c0 = BLOCK_A * 16 + 14 + lane
+    b0 = BLOCK_B * 16 + 2 + lane
+    specs = []
+    for tag, off in (("a", a0), ("c", c0), ("b", b0)):
+        for t in LADDER_BITS:
+            specs.append({"id": f"ladder_{tag}_b{t}", "kind": "ladder",
+                          "flips": [(off, t)], "role": role})
+    specs.append({"id": "pair_ab_b3", "kind": "pair",
+                  "flips": [(a0, 3), (b0, 3)], "role": role})
+    for k in range(16):
+        specs.append({"id": f"sweep_{k:02d}", "kind": "sweep",
+                      "flips": [(BLOCK_A * 16 + k, 0)], "role": role})
+    for off in DAMAGE_OFFSETS:
+        specs.append({"id": f"map_{off}_b0", "kind": "map",
+                      "flips": [(off, 0)], "role": role})
+    return specs
