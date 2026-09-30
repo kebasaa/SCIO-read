@@ -517,3 +517,41 @@ The Flutter SCiO Analyzer talks to `api.scionir.com` / `auth.scionir.com`. Probe
 the decommissioned firmware store is decommissioned for all of them, so there is nothing new to
 try there. No credential was sent to any scionir.com host. `GET /v1/configuration` with our
 consumer token is refused (401): the token lacks the collection/SDK scope.
+
+### Each scan blob is signed; the server rejects any modification (2026-09-30)
+
+Tested with `dev/scripts/ciphertext_oracle.py` (analysis in `dev/scio_offline/malleability.py`;
+records in `dev/analysis_output/ciphertext_oracle/`). The idea was to use the live server as a
+chosen-ciphertext oracle: change a blob, watch which spectrum bands move, and read off the
+transform's structure from outside. The classifier was validated first against a deliberately
+non-benign simulated server (900+ runs across ten transforms and every post-processing variant,
+zero wrong labels), so a result would have meant something.
+
+**A0 (valid inputs only, no modification) established:**
+- `R` is separable: `R = g(S, D) / (W - Wd)` per band (swapping in a different white reference
+  rescales every band by the same factor on two scans, agreeing to 1e-15).
+- Timestamps are not a tweak and not a cache key; the server is not serving a cache.
+- The server range-checks the *decoded* data: a dark level comparable to the sample is refused
+  as `422 InvalidScan / high_ambient` before any arithmetic.
+
+**The pilot then hit a wall that closes the whole approach.** Against a baseline whose untouched
+control returns `200`, **every modified blob - down to a single bit flipped in the low byte of
+one pixel - returns `400 {"error_type":"Bad_sample_signature"}`.** 8 of 8 modifications, plus 2
+lane probes, all `Bad_sample_signature`.
+
+So each blob carries a per-blob integrity signature that the server verifies **before** it
+decodes. The two gates, in order: signature (`400 Bad_sample_signature`) -> physics range
+(`422 high_ambient`) -> decode. Whole, unmodified blobs pass the signature (A0's white-swap of
+intact blobs returned `200`); any byte change fails it.
+
+**Consequences.**
+- **Do not retry blob modification against the server.** It is refused by design. The bit-flip /
+  chosen-ciphertext oracle, and the sign-of-delta plaintext-recovery route it would have enabled,
+  are dead. No altered blob is ever decoded, so the server cannot be made to reveal the
+  underlying data.
+- This is a positive structural fact, not only a dead end: the device holds a secret and signs
+  its output. That raises the prior that the payload transform is device-keyed (a key held in
+  the device) rather than public compression - not proof, since signed compression exists, but
+  it shifts the weight and it means the relevant secrets live in the device. It reinforces that
+  the remaining route is a hardware read (see the acquisition options above), not more software
+  or server work. The transform class remains `undetermined`.

@@ -1,0 +1,21 @@
+{
+ "schema": "scio-ciphertext-oracle-verdict/2",
+ "phase": "pilot",
+ "ran_at": "2026-09-30T14:52:10.323+02:00",
+ "baseline": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+ "lane": null,
+ "probes_sent": 8,
+ "accepted": 0,
+ "rejected": 8,
+ "label": "undetermined",
+ "why": "8/8 probes were rejected; diffusion, a tag and a range check cannot be told apart",
+ "evidence": {
+  "n_probes": 8,
+  "errors": 8
+ },
+ "rejection_bodies": [
+  "spectro-scan HTTP 400: {\"spectrum\":\"sample\",\"error_type\":\"Bad_sample_signature\",\"http_status\":400,\"message\":\"There is a problem with your scan, try again.\"}\n"
+ ],
+ "encryption_hypothesis": "not_excluded",
+ "limits": "A label describes locality and scaling of damage in the decoded output. It cannot separate CTR-with-a-secret-key from a keyless seeded generator, and nothing here can exclude encryption. `undetermined` covers diffusion, an authentication tag and a range check, which are indistinguishable from outside."
+}

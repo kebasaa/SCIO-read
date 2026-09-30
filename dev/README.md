@@ -215,27 +215,32 @@ The apps embed real scan blobs from **four other devices and older generations**
 bundled "results" are hand-edited (a cheese and a white-chocolate spectrum are bit-identical
 across different devices).
 
-### New: the server can be used as a chosen-ciphertext oracle
+### Tried and CLOSED: the server as a chosen-ciphertext oracle (do not retry)
 
-The server decodes whatever it is sent, deterministically, and reports band by band. Flipping
-one bit and watching which bands move, by how much and with what sign exposes the transform's
-structure from outside the wire. Because the binning is non-negative and (W - Wd) is positive,
-**the sign of the change equals the sign of the plaintext change**: flipping bit *t* of a pixel
-moves it +2^t if the bit was 0 and -2^t if it was 1, so in a bit-malleable transform each flip
-leaks one plaintext bit.
+The idea was to change a blob, watch which spectrum bands move, and read the transform's
+structure from outside. Had the transform been bit-malleable it would even have leaked
+plaintext: the binning is non-negative and (W - Wd) positive, so the sign of a band's change
+equals the sign of the plaintext change. `malleability.py` classifies the damage pattern and
+was validated against a deliberately non-benign simulated server first (900+ runs, 540 on
+held-out seeds, zero wrong labels), so a result would have meant something.
 
-`malleability.py` classifies the damage pattern and was validated against a simulated server
-before touching the real one (900+ runs, 540 on held-out seeds, zero wrong labels). **A0**
-(valid inputs only) confirmed that `R` is separable (`R = g(S, D) / (W - Wd)`, agreeing to
-1e-15), that timestamps are not a tweak and that nothing is cached - and found that the
-server **validates the decoded data before any arithmetic**: a dark level comparable to the
-sample is refused with `InvalidScan / high_ambient`.
+**It is closed by a per-blob signature.** Against a baseline whose untouched control returns
+`200`, **every modified blob - down to one flipped bit - returns
+`400 {"error_type":"Bad_sample_signature"}`** (8/8 in the pilot). The server verifies a per-blob
+integrity signature *before* it decodes. Two gates, in order: signature (`400`) -> physics range
+(`422 high_ambient`, found in A0) -> decode. Whole unmodified blobs pass the signature (A0's
+white-swap of intact blobs returned `200`); any byte change fails it. No altered blob is ever
+decoded, so there is no bit-flip oracle and no sign-of-delta plaintext route. **Do not send
+modified blobs to the server** - it is refused by design.
 
-What a positive result would and would not give: if the transform is a keyed cipher with a
-secret key, recovered plaintext or keystream yields known (input, output) pairs of that cipher
-and **no route to the key offline**. A decode is realistic only if the keystream turns out to
-be a keyless, seed-derived generator. CTR-with-a-secret-key and a keyless seeded PRNG cannot
-be separated by bit flips; only recovered keystream (linear complexity, recurrence tests) can.
+A0 did establish, with valid inputs only, that `R` is separable (`R = g(S, D) / (W - Wd)`,
+agreeing to 1e-15), that timestamps are inert and nothing is cached.
+
+**Why this matters beyond the dead end:** the device holds a secret and signs each blob. That
+raises the prior that the payload transform is device-keyed rather than public compression (not
+proof - signed compression exists), and it means the transform key and the signing key both live
+in the device. The class stays `undetermined`, but the practical conclusion is firm: the
+remaining route is a hardware read, not more software or server work.
 
 ## Layout
 
