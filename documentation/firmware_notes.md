@@ -506,3 +506,14 @@ Consequence for the tampering phases: block-cipher-like garbling will probably b
 (out-of-range pixels), so it would classify as `undetermined` - never as any cipher. Small
 bit-local flips stay inside the valid range and remain fully informative. The plan's gate
 ("an identity failing stops Phase A") was deliberately not relaxed unilaterally.
+
+### The newest app's backend is the same service (2026-09-30)
+
+The Flutter SCiO Analyzer talks to `api.scionir.com` / `auth.scionir.com`. Probed read-only
+(`dev/scripts/probe_new_host.py`, results in `dev/analysis_output/new_host_probe.json`):
+`api.consumerphysics.com`, `api.scionir.com`, `auth.scionir.com` and `lab.consumerphysics.com`
+**all resolve to 35.229.97.127 and answer identically** - `401 {"message":null}` on
+`/v1/client_version_status` and `/v1/rollout_config`, `404` on `/`. One backend, several names;
+the decommissioned firmware store is decommissioned for all of them, so there is nothing new to
+try there. No credential was sent to any scionir.com host. `GET /v1/configuration` with our
+consumer token is refused (401): the token lacks the collection/SDK scope.

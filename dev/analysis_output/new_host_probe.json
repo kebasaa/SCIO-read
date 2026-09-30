@@ -1,0 +1,88 @@
+{
+ "schema": "scio-new-host-probe/1",
+ "ran_at": "2026-09-30T14:41:46.003+02:00",
+ "dns": {
+  "api.consumerphysics.com": [
+   "35.229.97.127"
+  ],
+  "api.scionir.com": [
+   "35.229.97.127"
+  ],
+  "auth.scionir.com": [
+   "35.229.97.127"
+  ],
+  "lab.consumerphysics.com": [
+   "35.229.97.127"
+  ],
+  "dev.scionir.com": [
+   "54.90.203.245"
+  ]
+ },
+ "share_an_address": true,
+ "probes": [
+  {
+   "url": "https://api.consumerphysics.com/v1/client_version_status",
+   "status": 401,
+   "server": "gunicorn",
+   "content_type": "application/json",
+   "location": null,
+   "body": "{\"message\":null}\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.consumerphysics.com/v1/rollout_config",
+   "status": 401,
+   "server": "gunicorn",
+   "content_type": "application/json",
+   "location": null,
+   "body": "{\"message\":null}\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.consumerphysics.com/",
+   "status": 404,
+   "server": "gunicorn",
+   "content_type": "text/html; charset=utf-8",
+   "location": null,
+   "body": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.scionir.com/v1/client_version_status",
+   "status": 401,
+   "server": "gunicorn",
+   "content_type": "application/json",
+   "location": null,
+   "body": "{\"message\":null}\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.scionir.com/v1/rollout_config",
+   "status": 401,
+   "server": "gunicorn",
+   "content_type": "application/json",
+   "location": null,
+   "body": "{\"message\":null}\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.scionir.com/",
+   "status": 404,
+   "server": "gunicorn",
+   "content_type": "text/html; charset=utf-8",
+   "location": null,
+   "body": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+   "auth": "none"
+  },
+  {
+   "url": "https://api.consumerphysics.com/v1/configuration",
+   "status": 401,
+   "server": "gunicorn",
+   "content_type": "application/json",
+   "location": null,
+   "body": "{\"message\":\"The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.\"}\n",
+   "auth": "bearer (old host only)"
+  }
+ ],
+ "credentials_sent_to_scionir": false
+}

@@ -160,6 +160,83 @@ tables; or SDK credentials for `/v1/external_sdk/intermediate_scan`, which is
 **live** (401 on POST, 405 on GET - a route that distinguishes methods is a
 registered route) and sits by name between the blob and the spectrum.
 
+## Findings from the 2026-09-30 investigation
+
+What was looked at, what was found, and what **not** to redo. Raw material is in
+`dev/analysis_output/` (`ciphertext_oracle/`, `new_host_probe.json`).
+
+### Corrections to earlier statements
+
+1. **"No shared ciphertext blocks" does not exclude ECB or fixed-IV CBC.** Sensor noise makes
+   every plaintext block unique, so an ECB body would show no repeats either. Only a
+   chosen-ciphertext probe can separate them (see below).
+2. **The first header word is a *type/status* word.** The vendor's un-obfuscated 2017 source
+   names it `status` for the sample blob (`ScioInternalDevice.java:1085`, little-endian, which
+   is the house byte order). A constant `110` on gradients looks like a type tag, not a status.
+3. **"896 x u16" is a hypothesis from sizes, not a measurement**: 1792 = 896x2, 1648 = 824x2,
+   and the `-o` gradient 1408 = 704x2. Nothing measured confirms a width or a layout.
+4. **Consumer `spectro-scan` accepts a synthetic MAC and no GPS**, so neither is key material.
+
+### Closed: nothing returns raw band intensities
+
+Every app response is the reflectance ratio. The `sample_raw` / `wr_raw` columns in the
+tech-support CSV come from a web export on the `lab.` host, belong to a *different* device
+(`E036D39ADE70A12D`), and are non-integer floats - so they say nothing about plaintext bit
+width. There is no `*_raw` field anywhere in any decompiled parser. The un-obfuscated
+2017 researcher tree (`com.consumerphysics.researcher_2017-09-19_source_from_JADX`) is the
+canonical reference for endpoints and parameter names; the 2022/23 builds lost them to
+obfuscation.
+
+### Closed: the firmware is not on this machine
+
+60,157 files and 68,809 archive members under the decompilation folder (apk, xapk, zip, nested
+three deep), and 371,229 files outside it, were matched by **exact size** (each of the eight
+known sizes, +4, +8, and base64 lengths - including the 96 B and 140 B tables that an earlier
+"no run >= 600 chars" search would have missed), by checksum prefix, by Blackfin LDR signature
+and by toolchain strings. Zero real hits: every size match is coincidental (PNGs, XML,
+timezone files). The Flutter app's `libapp.so` has none of the firmware strings; its Java layer
+has only the file *names*, never payloads.
+
+### Closed: the newest app's backend is the same service
+
+The newest (Flutter) app talks to `api.scionir.com` / `auth.scionir.com`. Those, and
+`api.consumerphysics.com` and `lab.consumerphysics.com`, **all resolve to 35.229.97.127 and answer
+identically** (`401 {"message":null}` for the two version/rollout endpoints, `404` for `/`). It is
+one backend under several names, so the decommissioned firmware store is decommissioned for all
+of them. No credential was sent to any scionir.com host. (`dev.scionir.com` is a separate AWS
+address and looks like a content site; not pursued.) Our token is refused at
+`GET /v1/configuration` (401): it lacks the collection/SDK scope.
+
+### Extra ciphertext that exists but is not usable as truth
+
+The apps embed real scan blobs from **four other devices and older generations**
+(`ScioMockDevice`, `FakeJson`): tags `20150812`, `20150812-o`, `20150712`; gradient body
+**1408 B**; none of their second words occurs in our corpus. They are ciphertext only - the
+bundled "results" are hand-edited (a cheese and a white-chocolate spectrum are bit-identical
+across different devices).
+
+### New: the server can be used as a chosen-ciphertext oracle
+
+The server decodes whatever it is sent, deterministically, and reports band by band. Flipping
+one bit and watching which bands move, by how much and with what sign exposes the transform's
+structure from outside the wire. Because the binning is non-negative and (W - Wd) is positive,
+**the sign of the change equals the sign of the plaintext change**: flipping bit *t* of a pixel
+moves it +2^t if the bit was 0 and -2^t if it was 1, so in a bit-malleable transform each flip
+leaks one plaintext bit.
+
+`malleability.py` classifies the damage pattern and was validated against a simulated server
+before touching the real one (900+ runs, 540 on held-out seeds, zero wrong labels). **A0**
+(valid inputs only) confirmed that `R` is separable (`R = g(S, D) / (W - Wd)`, agreeing to
+1e-15), that timestamps are not a tweak and that nothing is cached - and found that the
+server **validates the decoded data before any arithmetic**: a dark level comparable to the
+sample is refused with `InvalidScan / high_ambient`.
+
+What a positive result would and would not give: if the transform is a keyed cipher with a
+secret key, recovered plaintext or keystream yields known (input, output) pairs of that cipher
+and **no route to the key offline**. A decode is realistic only if the keystream turns out to
+be a keyless, seed-derived generator. CTR-with-a-secret-key and a keyless seeded PRNG cannot
+be separated by bit flips; only recovered keystream (linear complexity, recurrence tests) can.
+
 ## Layout
 
 ```
