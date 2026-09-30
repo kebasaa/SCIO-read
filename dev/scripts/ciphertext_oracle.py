@@ -9,6 +9,7 @@ for what each outcome means and how the classifier was validated.
 
     python dev/scripts/ciphertext_oracle.py a0        # valid inputs only, ~6 requests
     python dev/scripts/ciphertext_oracle.py pilot     # small in-range flips only, ~45 requests
+    python dev/scripts/ciphertext_oracle.py foreign   # submit app-embedded mock blobs, intact
     python dev/scripts/ciphertext_oracle.py status    # what has been recorded / budget left
 
 Phases are gated. **A0 sends no corrupted data** and establishes that the server's transfer
@@ -399,6 +400,98 @@ def phase_pilot() -> int:
     return 0
 
 
+# ========================================================================== foreign
+FOREIGN_DIR = Path("dev/analysis_output/foreign_scans")
+OUR_DEVICE = "8032AB45611198F1"
+OUR_TAG = "20150812-e:PRODUCTION"
+
+
+def _foreign_payload(rec: dict, device_id: str, i2s: str, ts, wts) -> dict:
+    import base64
+    blobs = {k: base64.b64decode("".join(v.split())) for k, v in rec["blobs_b64"].items()}
+    scan = {"blobs": {k: blobs[k] for k in blobs if not k.startswith("sample_white")}}
+    white = {"blobs": {k: blobs[k] for k in blobs if k.startswith("sample_white")}}
+    return cloud.build_scan_payload(scan, white, device_id, i2s,
+                                    sampled_at=ts, sampled_white_at=wts)
+
+
+def phase_foreign() -> int:
+    """Submit the app-embedded mock/fake blobs, unmodified, under their own identity.
+
+    These are real, validly-signed captures from other devices and older generations. They are
+    sent intact - this is NOT a tamper/signature test - to learn two things the closed oracle
+    cannot: does another device's signed blob decode under our account (is decode device-bound?),
+    and does the older -o / 20150712 generation still decode at all. Timestamps are inert (A0),
+    so a borrowed timestamp is used wherever the mock carried none.
+    """
+    if not FOREIGN_DIR.exists() or not list(FOREIGN_DIR.glob("*.json")):
+        raise Halt("no foreign scans; run dev/scripts/extract_mock_scans.py first")
+    run = Runner("foreign")
+
+    # a borrowed, inert timestamp for mocks that carry none
+    base = session.to_payload(load(BASELINE_SCAN))
+    ts0, wts0 = base["sampled_at"], base["sampled_white_at"]
+
+    rows = []
+
+    def submit(label, rec, device_id, i2s, changes):
+        ts = rec.get("sampled_at") or ts0
+        wts = rec.get("sampled_white_at") or wts0
+        payload = _foreign_payload(rec, device_id, i2s, ts, wts)
+        r = run.send(label, payload, changes=changes, expect="intact foreign blob")
+        ok = r["spectrum"] is not None
+        et = ""
+        if not ok:
+            m = re.search(r'"error_type":"([^"]+)"', r["body"])
+            et = m.group(1) if m else f"HTTP {r['status']}"
+        rows.append({"label": label, "device_submitted": device_id, "i2s": i2s,
+                     "native_device": rec.get("device_id"), "native_i2s": rec.get("i2s_tag_config"),
+                     "status": r["status"], "ok": ok, "error_type": et,
+                     "n_bands": len(r["spectrum"]) if ok else None})
+        print(f"  {label:34s} {r['status']}  {'OK ' + str(len(r['spectrum'])) + ' bands' if ok else et}")
+        return r
+
+    scans = {p.stem: json.loads(p.read_text(encoding="utf-8"))
+             for p in sorted(FOREIGN_DIR.glob("*.json"))}
+
+    print("native identity (each mock under its own device_id + tag):")
+    for name, rec in scans.items():
+        submit(f"native__{name}", rec, rec.get("device_id") or OUR_DEVICE,
+               rec.get("i2s_tag_config") or OUR_TAG, "foreign blob, native device_id + tag")
+
+    # device-binding: one foreign blob under OUR device_id (id mismatch), then + OUR tag
+    probe = scans.get("fake_cheese_scan") or next(iter(scans.values()))
+    print("\ndevice-binding (the same foreign blob, our identity):")
+    submit("bind__our_id_native_tag", probe, OUR_DEVICE,
+           probe.get("i2s_tag_config") or OUR_TAG, "foreign blob, OUR device_id, native tag")
+    submit("bind__our_id_our_tag", probe, OUR_DEVICE, OUR_TAG,
+           "foreign blob, OUR device_id + OUR tag")
+
+    n_ok = sum(1 for r in rows if r["ok"])
+    decoded_devices = sorted({r["native_device"] for r in rows if r["ok"] and r["label"].startswith("native")})
+    bind = [r for r in rows if r["label"].startswith("bind")]
+    binding = ("device-bound: a foreign blob is refused under our device_id"
+               if bind and not any(r["ok"] for r in bind)
+               else "NOT device-bound: a foreign blob decoded under our device_id"
+               if any(r["ok"] for r in bind) else "inconclusive")
+
+    out = OUT_DIR / "FOREIGN_VERDICT.json"
+    out.write_text(json.dumps({
+        "schema": "scio-foreign-verdict/1", "ran_at": store.now_iso(),
+        "submitted": len(rows), "accepted": n_ok,
+        "generations_tried": sorted({r["native_i2s"] for r in rows}),
+        "devices_that_decoded_natively": decoded_devices,
+        "device_binding": binding,
+        "rows": rows,
+        "note": ("The chosen-ciphertext oracle is closed, so these only characterise: they cannot "
+                 "advance a decode. All blobs were submitted unmodified."),
+    }, indent=1), encoding="utf-8")
+    print(f"\naccepted {n_ok}/{len(rows)}  |  {binding}")
+    print(f"generations tried: {sorted({r['native_i2s'] for r in rows})}")
+    print(f"written: {out}")
+    return 0
+
+
 def status() -> int:
     n = Runner.used()
     print(f"requests recorded: {n}/{MAX_REQUESTS}")
@@ -415,6 +508,8 @@ def main(argv) -> int:
             return phase_a0()
         if cmd == "pilot":
             return phase_pilot()
+        if cmd == "foreign":
+            return phase_foreign()
         if cmd == "status":
             return status()
         print(__doc__)

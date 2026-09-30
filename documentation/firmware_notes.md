@@ -555,3 +555,28 @@ intact blobs returned `200`); any byte change fails it.
   it shifts the weight and it means the relevant secrets live in the device. It reinforces that
   the remaining route is a hardware read (see the acquisition options above), not more software
   or server work. The transform class remains `undetermined`.
+
+### The blob signature is device-bound; older generations still decode (2026-09-30)
+
+Follow-up to the signature finding, using the app-embedded mock/fake blobs - real, validly-signed
+captures from other devices shipped in `FakeJson.java` and `resources/assets/mock/`. Extracted
+with `dev/scripts/extract_mock_scans.py` (into `dev/analysis_output/foreign_scans/`, never
+`01_rawdata/`, with a synthetic MAC), submitted **unmodified** with
+`dev/scripts/ciphertext_oracle.py foreign` (results in
+`dev/analysis_output/ciphertext_oracle/FOREIGN_VERDICT.json`). This is not a tamper test - the
+blobs are intact.
+
+- **All 5 decoded natively** (`200`, 331 bands) under their own device_id + tag, across three
+  devices (`E027C2A6CF9435D6`, `1026A4DD1BB7158B`, `503E5732B5EF1F35`) and three generations
+  (`20150812`, `20150812-o`, `20150712`). So the server still decodes other devices' blobs and
+  older generations; the decommissioned part is only the firmware/table *download*, not analysis.
+- **The signature is device-bound.** The same foreign blob submitted under *our* device_id -
+  with the native tag, and with our tag - returns `400 Bad_sample_signature`. So the signature
+  the server checks is tied to the request's device_id (either it covers device_id, or it is
+  verified with a per-device key); a blob only decodes under the identity that produced it.
+
+Consequences: the server holds or derives per-device verification/decode material for arbitrary
+devices, so there is no global key to find and a blob cannot be moved between identities. This
+gives 5 extra (blob, spectrum) pairs from other devices/generations, but - the oracle being
+closed and each device keyed separately - they only characterise; they cannot advance a decode.
+Do not retry: the binding is established.

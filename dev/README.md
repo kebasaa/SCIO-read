@@ -236,11 +236,21 @@ modified blobs to the server** - it is refused by design.
 A0 did establish, with valid inputs only, that `R` is separable (`R = g(S, D) / (W - Wd)`,
 agreeing to 1e-15), that timestamps are inert and nothing is cached.
 
-**Why this matters beyond the dead end:** the device holds a secret and signs each blob. That
-raises the prior that the payload transform is device-keyed rather than public compression (not
-proof - signed compression exists), and it means the transform key and the signing key both live
-in the device. The class stays `undetermined`, but the practical conclusion is firm: the
-remaining route is a hardware read, not more software or server work.
+**The signature is device-bound.** The app-embedded mock blobs (real captures from three other
+devices and older generations, in `FakeJson.java` / `assets/mock/`) all decode natively when
+submitted unmodified under their own device_id + tag - `200`, 331 bands, generations `20150812`,
+`-o` and `20150712` alike. But the *same* foreign blob under our device_id returns
+`Bad_sample_signature`. So the signature is tied to the request's device_id; a blob only decodes
+under the identity that produced it, and the server holds or derives per-device material for
+arbitrary devices. (`dev/scripts/extract_mock_scans.py`, `ciphertext_oracle.py foreign`,
+`FOREIGN_VERDICT.json`.)
+
+**Why this matters beyond the dead end:** the device holds a secret and signs each blob, keyed to
+its identity. That raises the prior that the payload transform is device-keyed rather than public
+compression (not proof - signed compression exists); there is no global key to find; and the
+transform key and the signing key both live in the device. The class stays `undetermined`, but
+the practical conclusion is firm: the remaining route is a hardware read, not more software or
+server work.
 
 ## Layout
 

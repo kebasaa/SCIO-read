@@ -1,0 +1,97 @@
+{
+ "schema": "scio-foreign-verdict/1",
+ "ran_at": "2026-09-30T15:11:32.955+02:00",
+ "submitted": 7,
+ "accepted": 5,
+ "generations_tried": [
+  "20150712:PRODUCTION",
+  "20150812-o:PRODUCTION",
+  "20150812:PRODUCTION"
+ ],
+ "devices_that_decoded_natively": [
+  "1026A4DD1BB7158B",
+  "503E5732B5EF1F35",
+  "E027C2A6CF9435D6"
+ ],
+ "device_binding": "device-bound: a foreign blob is refused under our device_id",
+ "rows": [
+  {
+   "label": "native__asset_mock_o_generation",
+   "device_submitted": "503E5732B5EF1F35",
+   "i2s": "20150812-o:PRODUCTION",
+   "native_device": "503E5732B5EF1F35",
+   "native_i2s": "20150812-o:PRODUCTION",
+   "status": 200,
+   "ok": true,
+   "error_type": "",
+   "n_bands": 331
+  },
+  {
+   "label": "native__fake_cheese_scan",
+   "device_submitted": "E027C2A6CF9435D6",
+   "i2s": "20150812:PRODUCTION",
+   "native_device": "E027C2A6CF9435D6",
+   "native_i2s": "20150812:PRODUCTION",
+   "status": 200,
+   "ok": true,
+   "error_type": "",
+   "n_bands": 331
+  },
+  {
+   "label": "native__fake_dark_chocolate_scan",
+   "device_submitted": "E027C2A6CF9435D6",
+   "i2s": "20150812:PRODUCTION",
+   "native_device": "E027C2A6CF9435D6",
+   "native_i2s": "20150812:PRODUCTION",
+   "status": 200,
+   "ok": true,
+   "error_type": "",
+   "n_bands": 331
+  },
+  {
+   "label": "native__fake_pills_scan",
+   "device_submitted": "E027C2A6CF9435D6",
+   "i2s": "20150812:PRODUCTION",
+   "native_device": "E027C2A6CF9435D6",
+   "native_i2s": "20150812:PRODUCTION",
+   "status": 200,
+   "ok": true,
+   "error_type": "",
+   "n_bands": 331
+  },
+  {
+   "label": "native__fake_white_chocolate_scan",
+   "device_submitted": "1026A4DD1BB7158B",
+   "i2s": "20150712:PRODUCTION",
+   "native_device": "1026A4DD1BB7158B",
+   "native_i2s": "20150712:PRODUCTION",
+   "status": 200,
+   "ok": true,
+   "error_type": "",
+   "n_bands": 331
+  },
+  {
+   "label": "bind__our_id_native_tag",
+   "device_submitted": "8032AB45611198F1",
+   "i2s": "20150812:PRODUCTION",
+   "native_device": "E027C2A6CF9435D6",
+   "native_i2s": "20150812:PRODUCTION",
+   "status": 400,
+   "ok": false,
+   "error_type": "Bad_sample_signature",
+   "n_bands": null
+  },
+  {
+   "label": "bind__our_id_our_tag",
+   "device_submitted": "8032AB45611198F1",
+   "i2s": "20150812-e:PRODUCTION",
+   "native_device": "E027C2A6CF9435D6",
+   "native_i2s": "20150812:PRODUCTION",
+   "status": 400,
+   "ok": false,
+   "error_type": "Bad_sample_signature",
+   "n_bands": null
+  }
+ ],
+ "note": "The chosen-ciphertext oracle is closed, so these only characterise: they cannot advance a decode. All blobs were submitted unmodified."
+}

@@ -1,0 +1,26 @@
+{
+ "schema": "scio-ciphertext-oracle/1",
+ "phase": "foreign",
+ "label": "bind__our_id_native_tag",
+ "ran_at": "2026-09-30T15:11:20.552+02:00",
+ "changes": "foreign blob, OUR device_id, native tag",
+ "expect": "intact foreign blob",
+ "status": 400,
+ "body": "spectro-scan HTTP 400: {\"spectrum\":\"sample\",\"error_type\":\"Bad_sample_signature\",\"http_status\":400,\"message\":\"There is a problem with your scan, try again.\"}\n",
+ "spectrum": null,
+ "fingerprint": {
+  "device_id": "21ebedf5de2e",
+  "i2s_tag_config": "4e999e6f0db7",
+  "mobile_mac_address": "c248c629af1f",
+  "sample": "150dfab1d3ba",
+  "sample_dark": "7beef1d5d335",
+  "sample_gradient": "ce15f03d63b6",
+  "sample_white": "c5af3a93354b",
+  "sample_white_dark": "aa7f474d3dc2",
+  "sample_white_gradient": "acb156667882",
+  "sampled_at": "13ed5978ad07",
+  "sampled_white_at": "fd5f40984127",
+  "scio_edition": "758515e0780f",
+  "widget_scan_attributes": "4f53cda18c2b"
+ }
+}
