@@ -11,20 +11,14 @@ a white calibration box, bark, soil crust, skin, rock, a hand - the sample body 
 1648. Output length depends only on (generation, blob role). It never depends on
 content.
 
-Entropy coding cannot do that. A Huffman, arithmetic or range coder spends bits in
-proportion to the information in its input, so a dark frame and a bright one come
-out different lengths. So if the body is "compressed" in the vendor's sense, the
-coder must be **fixed-rate**: either lossy transform coding to a fixed bit budget,
-or a fixed-width packing.
+Fixed container size does NOT imply a fixed-rate internal codec. Variable-rate
+streams can be padded, stored in fixed buffers, or combined with other fields.
 
-But a fixed-width packing of sensor counts would leave positional structure - the
-high bits of a 12- or 16-bit pixel are far from uniform - and there is none: zero
-of 1792 byte offsets deviates more than 4 sigma from uniform, and the pooled
-histogram is flat at chi-square 256.9 on df 255.
+Finite-sample byte entropy and positional tests are diagnostics, not sufficient
+to identify compression, encryption, packing, or their absence.
 
-What survives both constraints is a fixed-rate transform whose output is
-whitened - which is what encryption is, and also what a rate-filling entropy coder
-would look like. This module records that, and declines to pick.
+The older fixed-rate exclusion in this module was overstated. Historical reports
+are retained; new reports use schema 2 and leave these alternatives open.
 """
 
 from __future__ import annotations
@@ -83,12 +77,11 @@ def size_invariance(by_role: dict) -> dict:
         "per_role": out,
         "length_ever_depends_on_content": any_varies,
         "implication": (
-            "Variable length would be the signature of entropy coding."
+            "Observed length varies; this alone does not identify a codec."
             if any_varies else
-            "Length is fixed per (generation, role) across every scene in the corpus. "
-            "Entropy coding spends bits in proportion to input information and cannot "
-            "produce a constant length for a dark frame and a bright one alike, so any "
-            "compression here must be fixed-rate."),
+            "Observed container length is fixed within each collected role. "
+            "Padding or a fixed buffer can hide variable-rate compression; "
+            "this does not establish a fixed-rate codec or exclude entropy coding."),
     }
 
 
@@ -105,8 +98,8 @@ def entropy_by_scene(by_scene: dict) -> dict:
         "per_scene": out,
         "mean_entropy_spread": spread,
         "implication": (
-            "Scene information content leaves no trace in output entropy "
-            "(spread {:.4f} bits/byte). A variable-rate coder would leak it."
+                "Observed mean byte-entropy spread is {:.4f} bits/byte. "
+                "This summary cannot distinguish compression from encryption."
             .format(spread) if spread is not None and spread < 0.05 else
             "Entropy varies with scene; worth investigating as a rate signal."),
     }
@@ -138,8 +131,8 @@ def coder_header_scan(by_role: dict, prefixes=(8, 16, 32, 64)) -> dict:
         out[role] = rows
     return {"per_role": out,
             "implication": (
-                "A container or coder table would show a head well below its entropy "
-                "ceiling. Compare head_fraction_of_ceiling against ~1.0.")}
+                "Prefix entropy is a finite-sample diagnostic, not proof of a "
+                "header, table, or their absence. Small prefixes require matched controls.")}
 
 
 def run(scans_dir=None) -> dict:
@@ -154,9 +147,8 @@ def run(scans_dir=None) -> dict:
     ent = entropy_by_scene(data["by_scene"])
     head = coder_header_scan(data["by_role"])
 
-    fixed_rate_only = not size["length_ever_depends_on_content"]
     return {
-        "schema": "scio-transform-class/1",
+        "schema": "scio-transform-class/2",
         "ran_at": store.now_iso(),
         "unique_bodies": sum(len(v) for v in data["by_role"].values()),
         "size_invariance": size,
@@ -169,53 +161,45 @@ def run(scans_dir=None) -> dict:
                 "The vendor's API calls the i2s tag compression_version; the parameter "
                 "carrying it is named i2sTag in the un-obfuscated 2017 build.",
                 "It travels with the four binning-table checksums.",
-                "The app ships UnsupportedCompressionConversion - you re-bin between "
-                "binning tables, you do not convert between encryptions.",
+                "UnsupportedCompressionConversion is an app label; its meaning alone "
+                "does not identify an algorithm or rule out layered encryption.",
                 "The gradient body length changes with generation (1648 B on -e, "
                 "1408 B on -o) while the sample's does not.",
             ],
             "against": [
-                "A 633,600-trial sweep of eight known codecs at every byte offset 0-32 "
-                "and every bit offset 0-7, keeping partial output, produced zero "
-                "plausible decodes on 300 unique bodies.",
-                "Output length never depends on content, so any compression must be "
-                "fixed-rate - which excludes ordinary entropy coding.",
-                "A fixed-width packing of sensor counts would leave positional "
-                "structure; zero of 1792 offsets deviates beyond 4 sigma.",
+                "See separately versioned codec experiments for bounded negative "
+                "results; this routine does not run a codec search.",
             ],
         },
         "encryption": {
             "status": "not_excluded",
             "why_not_excludable": (
                 "The device could encrypt and the server decrypt. The Android client is a "
-                "verified byte-for-byte pass-through, so it would contain no crypto either "
-                "way. No artefact reachable by software sits on that path."),
+                "pass-through in inspected Java methods. Native and firmware "
+                "coverage remains incomplete; software routes are not exhausted."),
             "for": [
-                "Fixed-length, fully whitened output with no positional structure is what "
-                "encryption produces.",
+                "High byte entropy is consistent with encryption but also with "
+                "other encodings; it is not proof of whitening.",
             ],
             "against": [
-                "No crypto primitive applied to scan data exists in any of eight "
-                "decompiled app trees (weak: the client would look identical either way).",
+                "No connected scan cipher was identified in inspected Java methods; "
+                "this does not establish absence across all supplied code.",
                 "The claim's original basis was a misread SharedPreferences helper, "
                 "getKeyPerAptinaId.",
             ],
         },
         "note_on_avalanche": (
-            "The 0.49986 bit distance between captures of an unchanged target is NOT "
-            "evidence for encryption over compression. The 2.1 % spectral agreement it "
-            "rests on is measured after binning ~2.7 pixels per band; per-pixel noise "
-            "differs everywhere, and entropy coders avalanche on any input difference."),
+            "Large bit distances between repeated captures do not by themselves "
+            "distinguish encryption from compression. Pixel count and binning ratio "
+            "have not been established; do not infer them from payload length."),
         "what_would_settle_it": [
-            "dsp_op (32628 B) via an external SPI-flash dump - the code itself.",
-            "The four binning tables, which would fix the pixel->band geometry.",
-            "SDK credentials for /v1/external_sdk/intermediate_scan, which is live "
-            "(401 on POST, 405 on GET) and sits between the blob and the spectrum.",
+            "Verified firmware implementation or code-connected decoder/calibration tables.",
+            "Independently matched intermediate vectors and opaque inputs.",
         ],
         "conclusion": (
-            "Fixed-rate, whitened, positionally featureless. That is consistent with "
-            "encryption and with a rate-filling proprietary coder, and the corpus cannot "
-            "separate them. Reporting either as established would overstate the evidence."),
+            "Measured container lengths and byte entropy do not establish the "
+            "transform class. Compression-only (including padded streams), encryption, "
+            "packing, and layered transformations remain unresolved."),
     }
 
 

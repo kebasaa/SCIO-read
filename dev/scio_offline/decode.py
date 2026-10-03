@@ -76,11 +76,14 @@ def decrypt(body: bytes, key: bytes, mode: str = "CBC", iv=None, header: bytes =
     if len(key) not in (16, 24, 32):
         raise ValueError("AES key must be 16, 24 or 32 bytes")
     body = bytes(body)
-    body = body[: len(body) - len(body) % 16]
+    if mode in ("ECB", "CBC") and len(body) % 16:
+        raise ValueError("block ciphertext must be a multiple of 16 bytes; refusing truncation")
     if isinstance(iv, str):
         scheme = iv
         iv = make_iv(scheme, header, body)
         if scheme == "first_block":
+            if len(body) < 32:
+                raise ValueError("embedded IV requires an IV and ciphertext")
             body = body[16:]
     if iv is None:
         iv = bytes(16)

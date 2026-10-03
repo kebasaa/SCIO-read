@@ -23,10 +23,13 @@ than it looks:
 
 This module fixes all four.
 
-**What a negative here does and does not mean.** It rules out *known* codecs at
-any alignment. It cannot rule out a proprietary coder: a range/arithmetic coder
+**Historical heuristic, not an exclusion test.** This implementation samples
+bounded offsets and uses a smoothness/length screen that may reject real compressed
+intermediates. Its `_partial` helper can lose output when a whole-chunk call raises.
+Use `compression_only.py` for bounded streaming probes that preserve partial output
+without requiring smoothness. Neither implementation rules out a proprietary coder: a range/arithmetic coder
 emits a headerless stream that is statistically indistinguishable from random, so
-no sweep over standard formats would ever find it. A hit would be decisive; a miss
+no sweep over standard formats would necessarily find it. A hit needs independent validation; a miss
 narrows the space and leaves both "a codec we did not guess" and "encryption"
 alive. See ``dev/README.md`` for why the second can never be closed from this side
 of the wire.

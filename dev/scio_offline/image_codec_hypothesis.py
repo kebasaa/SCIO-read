@@ -204,19 +204,20 @@ def run(scans_dir=None) -> dict:
         "marker_scan": markers,
         "decoder_sweep": decoders,
         "padding_scan": padding,
-        "families_excluded": families,
+        "direct_stuffing_rules_not_supported": families,
+        "families_excluded": [],
         "verdict": ("image_codec_supported" if supported
-                    else "standard_image_codecs_excluded"),
+                    else "direct_image_codec_not_demonstrated"),
         "reasoning": (
             "Entropy-coded image formats must byte-stuff, and the rule holds over the "
             "entropy-coded segment with or without a container - so the byte following "
             "each 0xFF tests the whole family at once, headerless variants included. "
-            "Measured rates sit on the random expectation, no container magic appears "
-            "above chance at any offset, no decoder accepts the bytes at any offset, and "
-            "there is no padding slack in which a shorter stream could hide."),
+            "These statistics concern the directly observed bodies. Container decoding "
+            "covers only the recorded subset and offsets, not every possible wrapper. "
+            "Padding statistics do not rule out randomized padding."),
         "limits": (
-            "Excludes JPEG, JPEG-LS, JPEG 2000, PNG, GIF, BMP, TIFF, WebP and generic "
-            "archive containers. A proprietary DCT or wavelet coder that does not "
+            "Does not exclude encryption followed by image decoding, custom wrappers, "
+            "omitted tables, or transformed marker bytes. A proprietary DCT or wavelet coder that does not "
             "byte-stuff would not be caught - it emits a headerless stream that looks "
             "random, which is the same blind spot the generic compression sweep has."),
         "encryption_hypothesis": "not_excluded",

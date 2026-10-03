@@ -11,10 +11,9 @@ value, so at least one byte-lane has very low entropy - regardless of pixel orde
 entropy is permutation-invariant. Under a wrong key the bytes are uniform (~8 bits/lane). So the
 score is ``8 - min-lane-entropy``: high for a correct dark decode, ~0 for noise.
 
-The threshold is not guessed. :func:`calibrate` runs random keys through the identical screen and
-sets the cutoff so the expected number of false positives over the *actual* search size is below
-``target_false_positives``. A candidate must beat that, and then survive escalation to every dark
-body (the score is the minimum across bodies, so a one-body fluke collapses).
+The score assumes unpacked low-count pixels. Compression or packing can defeat it.
+:func:`calibrate` reports an empirical random-key distribution, NOT a familywise
+false-positive guarantee. Independent confirmation is necessary but not sufficient.
 """
 
 from __future__ import annotations
@@ -50,8 +49,7 @@ def screen_key(body: bytes, key: bytes, header: bytes, *, modes=None, iv_schemes
     for mode in (modes or decode.MODES):
         for scheme in (iv_schemes or decode.IV_SCHEMES):
             try:
-                iv = decode.make_iv(scheme, header, body)
-                plain = decode.decrypt(body, key, mode=mode, iv=iv, header=header)
+                plain = decode.decrypt(body, key, mode=mode, iv=scheme, header=header)
             except Exception:
                 continue
             s = dark_lane_score(plain)
@@ -62,16 +60,21 @@ def screen_key(body: bytes, key: bytes, header: bytes, *, modes=None, iv_schemes
 
 def calibrate(body: bytes, header: bytes, *, n_random: int = 400, search_size: int,
               target_false_positives: float = 0.5, seed: int = 0, **kw) -> dict:
-    """Set the cutoff from random keys so expected FPs over the whole search < target.
+    """Measure a 99th-percentile heuristic cutoff, not an extreme-tail bound.
 
-    Screens ``n_random`` random 16-byte keys, takes the (1 - target/search_size) quantile of
-    their best scores as the threshold. A real candidate must exceed what random keys reach at
-    that rarity, which is what stops a best-of-N maximum from reading as a hit.
+    ``target_false_positives`` remains a compatibility argument, not a guarantee.
+    Search multiplicity and compression prevent interpreting a miss as exclusion.
     """
     rng = np.random.default_rng(seed)
     scores = np.array([screen_key(body, bytes(rng.integers(0, 256, 16, dtype=np.uint8)),
                                   header, **kw)["score"] for _ in range(n_random)])
-    q = max(0.0, 1.0 - target_false_positives / max(1, search_size))
+    # This is an empirical prescreen, NOT an estimate at 1/search_size rarity.
+    # Four hundred samples cannot resolve a one-in-90,000 tail probability.
+    q = 0.99
     return {"threshold": float(np.quantile(scores, q)),
             "random_mean": float(scores.mean()), "random_max": float(scores.max()),
-            "n_random": n_random, "quantile": q, "search_size": search_size}
+            "n_random": n_random, "quantile": q, "search_size": search_size,
+            "empirical_resolution": 1.0 / (n_random + 1),
+            "familywise_false_positive_control": False,
+            "limits": "Empirical heuristic only; independently confirm survivors. "
+                      "Compressed plaintext need not have a low-entropy lane."}

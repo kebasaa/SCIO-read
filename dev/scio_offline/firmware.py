@@ -177,10 +177,10 @@ _FLAGS = {0x8000: "FINAL", 0x4000: "FIRST", 0x2000: "INDIRECT", 0x1000: "IGNORE"
 def parse_ldr(data: bytes, max_blocks: int = 8192) -> dict:
     """Parse a Blackfin LDR boot stream; return blocks and a validity verdict.
 
-    A plaintext ``dsp_op`` is an LDR image: a chain of block headers whose code
+    One possible plaintext ``dsp_op`` layout is an LDR image: block headers whose code
     high byte is 0xAD, each followed by ``byte_count`` payload bytes (except
-    FILL blocks).  If the stream parses cleanly to a FINAL block, it is not
-    encrypted and can be disassembled.
+    FILL blocks). A structurally plausible stream is a lead, not firmware identity
+    or checksum validation. Other SCIO firmware generations may use other layouts.
     """
     blocks, off, n = [], 0, 0
     valid = False
@@ -194,12 +194,15 @@ def parse_ldr(data: bytes, max_blocks: int = 8192) -> dict:
         blocks.append({"offset": off, "address": addr, "count": count, "flags": names, "arg": arg})
         off += 16
         if not (flags & 0x0100):  # FILL blocks carry no payload
+            if count > len(data) - off:
+                break
             off += count
         n += 1
         if flags & 0x8000:  # FINAL
-            valid = True
+            valid = off == len(data)
             break
-    return {"valid_ldr": valid, "n_blocks": len(blocks), "blocks": blocks[:64], "consumed": off}
+    return {"valid_ldr": valid, "n_blocks": len(blocks), "blocks": blocks[:64], "consumed": off,
+            "checksum_verified": False, "firmware_identity_verified": False}
 
 
 def triage_blob(name: str, data: bytes) -> dict:

@@ -324,14 +324,15 @@ def test_stuffing_detector_is_silent_on_random_bytes():
         assert st[family]["observed"] == pytest.approx(st[family]["random"], abs=0.05)
 
 
-def test_corpus_excludes_every_standard_image_codec():
-    """The real result: JPEG, JPEG-LS, JPEG 2000, and every container.
+def test_corpus_direct_image_codec_not_demonstrated():
+    """A bounded negative on directly observed bytes, not on layered codecs.
 
     Checked here rather than only in a report, so that a future change which makes
     the corpus look image-like cannot pass silently.
     """
     rep = image_codec_hypothesis.run()
-    assert rep["verdict"] == "standard_image_codecs_excluded"
+    assert rep["verdict"] == "direct_image_codec_not_demonstrated"
+    assert rep["families_excluded"] == []
     st = rep["stuffing_statistics"]
     assert st["conclusive"] is True
     for family in ("jpeg", "jpeg_ls", "jpeg2000"):
