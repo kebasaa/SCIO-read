@@ -1,0 +1,38 @@
+{
+  "queries": [
+    {
+      "query": "control_before",
+      "command": 1,
+      "response_command": 1,
+      "bytes": 28,
+      "sha256": "e8ced6047c582b426cbb8fa516765d98033d5c85bc0f37fb0f0139d1950d9d28",
+      "firmware_version": 147,
+      "valid": true
+    },
+    {
+      "query": "power_saver",
+      "command": 155,
+      "response_command": 155,
+      "bytes": 4,
+      "sha256": "a9c3f3289588fa5782635676dfb0498938914a79febc34bdf881aaa888f3c70d",
+      "timer": {
+        "timeout_seconds": 360,
+        "app_display_minutes": 6,
+        "raw_hex": "00006801"
+      },
+      "valid": true
+    },
+    {
+      "query": "control_after",
+      "command": 1,
+      "response_command": 1,
+      "bytes": 28,
+      "sha256": "e8ced6047c582b426cbb8fa516765d98033d5c85bc0f37fb0f0139d1950d9d28",
+      "firmware_version": 147,
+      "valid": true
+    }
+  ],
+  "matching_awake_controls": true,
+  "timer_read_with_controls": true,
+  "limits": "Read-only ID/timer/ID sequence, no retries or scans. Identity bytes are hashed, not exported. Valid read does not validate setting writes, power-off timing, reset, or wake behavior."
+}

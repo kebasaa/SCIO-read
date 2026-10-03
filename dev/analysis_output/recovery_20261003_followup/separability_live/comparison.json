@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "comparisons": {
+    "compose_sw": {
+      "equivalent": true,
+      "max_absolute_error": 3.3306690738754696e-16,
+      "max_relative_error": 3.841421755587914e-16
+    },
+    "compose_sd": {
+      "equivalent": true,
+      "max_absolute_error": 2.220446049250313e-16,
+      "max_relative_error": 4.123314902551941e-16
+    },
+    "compose_swd": {
+      "equivalent": true,
+      "max_absolute_error": 4.440892098500626e-16,
+      "max_relative_error": 3.9436091457586937e-16
+    }
+  },
+  "limits": "Even agreement across all bands only supports separability for these intact inputs, endpoint and generation. Absolute sample/white scale remains unidentified."
+}

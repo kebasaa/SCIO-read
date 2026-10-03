@@ -1,0 +1,263 @@
+{
+  "binary_sha256": "faaa61e5c07e4a67e721c565da6d6c708a96741fd59a087a28824f1c566b4298",
+  "hits": [
+    {
+      "address": "0x31d53c",
+      "pool_offset": "0x9248",
+      "label": "i2s"
+    },
+    {
+      "address": "0x31d5c8",
+      "pool_offset": "0x9260",
+      "label": "firmwareFileVersions"
+    },
+    {
+      "address": "0x31d7ac",
+      "pool_offset": "0x92b0",
+      "label": "calibrationReading"
+    },
+    {
+      "address": "0x31d7e4",
+      "pool_offset": "0x92b0",
+      "label": "calibrationReading"
+    },
+    {
+      "address": "0x31d848",
+      "pool_offset": "0x92c8",
+      "label": "whiteReference"
+    },
+    {
+      "address": "0x31d880",
+      "pool_offset": "0x92c8",
+      "label": "whiteReference"
+    },
+    {
+      "address": "0x31da1c",
+      "pool_offset": "0x9248",
+      "label": "i2s"
+    },
+    {
+      "address": "0x31da34",
+      "pool_offset": "0x9260",
+      "label": "firmwareFileVersions"
+    },
+    {
+      "address": "0x31dab0",
+      "pool_offset": "0x92b0",
+      "label": "calibrationReading"
+    },
+    {
+      "address": "0x31daec",
+      "pool_offset": "0x92c8",
+      "label": "whiteReference"
+    },
+    {
+      "address": "0x31db74",
+      "pool_offset": "0x92e0",
+      "label": "sample"
+    },
+    {
+      "address": "0x31dbd4",
+      "pool_offset": "0x92f8",
+      "label": "sampleDark"
+    },
+    {
+      "address": "0x31dc34",
+      "pool_offset": "0x9310",
+      "label": "sampleGradient"
+    },
+    {
+      "address": "0x31dd7c",
+      "pool_offset": "0xd9d0",
+      "label": "sample_white"
+    },
+    {
+      "address": "0x31dd98",
+      "pool_offset": "0xd9d8",
+      "label": "sample_white_dark"
+    },
+    {
+      "address": "0x31ddb0",
+      "pool_offset": "0xd9e0",
+      "label": "sample_white_gradient"
+    },
+    {
+      "address": "0x568a4c",
+      "pool_offset": "0xb700",
+      "label": "spectrum"
+    },
+    {
+      "address": "0x568c08",
+      "pool_offset": "0x92e0",
+      "label": "sample"
+    },
+    {
+      "address": "0x568c38",
+      "pool_offset": "0x92e0",
+      "label": "sample"
+    },
+    {
+      "address": "0x568c68",
+      "pool_offset": "0x92e0",
+      "label": "sample"
+    },
+    {
+      "address": "0x6af78c",
+      "pool_offset": "0x236c0",
+      "label": "calibration"
+    },
+    {
+      "address": "0x6ce4ac",
+      "pool_offset": "0xb700",
+      "label": "spectrum"
+    },
+    {
+      "address": "0x6d7b2c",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0x6ff288",
+      "pool_offset": "0x8f28",
+      "label": "device_i2s"
+    },
+    {
+      "address": "0x971dd0",
+      "pool_offset": "0x8f28",
+      "label": "device_i2s"
+    },
+    {
+      "address": "0x971e0c",
+      "pool_offset": "0x8f28",
+      "label": "device_i2s"
+    },
+    {
+      "address": "0x9e122c",
+      "pool_offset": "0x23680",
+      "label": "i2s_tag_config"
+    },
+    {
+      "address": "0x9fa260",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0x9fa560",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0xa04fd0",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0xa099d0",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0xa0a114",
+      "pool_offset": "0x17440",
+      "label": "device_id"
+    },
+    {
+      "address": "0xa0a124",
+      "pool_offset": "0x33590",
+      "label": "scio_edition"
+    },
+    {
+      "address": "0xa0a12c",
+      "pool_offset": "0x33590",
+      "label": "scio_edition"
+    },
+    {
+      "address": "0xa0a1cc",
+      "pool_offset": "0xd9d0",
+      "label": "sample_white"
+    },
+    {
+      "address": "0xa0a1e8",
+      "pool_offset": "0xd9d8",
+      "label": "sample_white_dark"
+    },
+    {
+      "address": "0xa0a224",
+      "pool_offset": "0xd9e0",
+      "label": "sample_white_gradient"
+    },
+    {
+      "address": "0xa0a244",
+      "pool_offset": "0x92e0",
+      "label": "sample"
+    },
+    {
+      "address": "0xa0a260",
+      "pool_offset": "0x335a0",
+      "label": "sample_dark"
+    },
+    {
+      "address": "0xa0a298",
+      "pool_offset": "0x335a8",
+      "label": "sample_gradient"
+    },
+    {
+      "address": "0xa0a2c8",
+      "pool_offset": "0x23680",
+      "label": "i2s_tag_config"
+    },
+    {
+      "address": "0xa23088",
+      "pool_offset": "0x25588",
+      "label": "saveCalibration"
+    },
+    {
+      "address": "0xa230b8",
+      "pool_offset": "0x25590",
+      "label": "calibrate"
+    }
+  ],
+  "direct_callers": [
+    {
+      "address": "0x31d830",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x31d8d0",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x6aed14",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x6aed24",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x849cc4",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x849dec",
+      "target": "0x31db44"
+    },
+    {
+      "address": "0x970b44",
+      "target": "0x31dd48"
+    },
+    {
+      "address": "0x9e11fc",
+      "target": "0x31dd48"
+    },
+    {
+      "address": "0xa0a04c",
+      "target": "0xa0a09c"
+    },
+    {
+      "address": "0xa0a2b8",
+      "target": "0x6ff260"
+    }
+  ],
+  "limits": "Instruction-pattern references only, not function boundaries, runtime reachability or codec semantics."
+}

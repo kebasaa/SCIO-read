@@ -1,0 +1,36 @@
+{
+  "source": "SCiO+Analyzer_1.5.6_APKPure.xapk",
+  "sha256": "d8312aacaed1b07c55cc9dcee43a83593874bcd71bbd79e6064b7cfc36975c33",
+  "dex": [
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "d4e1036000f4a9051bdec5d3b51fad923c4b1c51febf6986a29aac779b3b9449",
+      "bytes": 8849052,
+      "path": "dev/private/analyzer_1_5_6_dex/input_0.dex"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "30908810516701267efcdf27b5c511a36402eb6eee361b38f14b3bc7ab7148a6",
+      "bytes": 8638596,
+      "path": "dev/private/analyzer_1_5_6_dex/input_1.dex"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes3.dex",
+      "sha256": "9a4354c45e4bc57af15deeaa033e2e1f54502b7efaeebbe272a0be6f1a7ec345",
+      "bytes": 9555552,
+      "path": "dev/private/analyzer_1_5_6_dex/input_2.dex"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes4.dex",
+      "sha256": "a3ad41dd5160a59e54be54691acfd6296d01aa15afbee841e4055ef49ecae558",
+      "bytes": 4304672,
+      "path": "dev/private/analyzer_1_5_6_dex/input_3.dex"
+    }
+  ],
+  "tool": {
+    "source": "https://github.com/skylot/jadx/releases/tag/v1.5.6",
+    "archive_sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974",
+    "version": "1.5.6"
+  },
+  "limits": "Extraction only. Tool and APK happen to have the same version number; they are independent products."
+}

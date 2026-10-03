@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "scope": "Exact supplied Analyzer 1.5.6 XAPK; input hashes in modern_dex_inputs.json",
+  "decompiler_result": {
+    "exit_code": 1,
+    "reported_error_count": 161,
+    "limits": "Whole-APK decompilation completed with errors. Inspected methods are narrower evidence; not exhaustive coverage."
+  },
+  "observations": [
+    {
+      "source": "android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "74a04166d7c12b43a5ea661e211c62cb7050165a00d9a5657b0026a2e8ca152d",
+      "lines": [
+        327
+      ],
+      "anchor": "this.responseCommandParser.add(bArr);",
+      "observation": "Reporter characteristic bytes are passed directly to the response parser."
+    },
+    {
+      "source": "android/scioconnection/protocol/ResponseCommandParser.java",
+      "sha256": "94d39d851009602b996dd8dfa4cae571b5e236ce0f013ce9a59909e83d0927ba",
+      "lines": [
+        121
+      ],
+      "anchor": "this.overallLength = (bArr[3] & 255) | ((bArr[4] & 255) << 8);",
+      "observation": "BLE first packet: sequence byte 1, marker 0xBA, command, U16LE payload length, then up to 15 payload bytes. Subsequent packets contribute up to 19 bytes after sequence. No payload decompression/decryption in this parser."
+    },
+    {
+      "source": "android/scioconnection/protocol/ResponseCommandParser.java",
+      "sha256": "94d39d851009602b996dd8dfa4cae571b5e236ce0f013ce9a59909e83d0927ba",
+      "lines": [
+        180
+      ],
+      "anchor": "responseCommand.setData(bArr);",
+      "observation": "Reassembled payload bytes become ResponseCommand.data without stripping the scan-specific header."
+    },
+    {
+      "source": "android/scioconnection/protocol/ResponseCommand.java",
+      "sha256": "5320076371558d1407feed7a8fe2716989bbe2536849088144ce19051083a3c3",
+      "lines": [
+        41
+      ],
+      "anchor": "return Base64.encodeToString(this.data, 0);",
+      "observation": "The exact modern APK directly Base64-encodes the entire response payload."
+    },
+    {
+      "source": "android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "f43b451d112f786a190890c5c1a8529f2e14772afca977beb3687cc0abeed8e2",
+      "lines": [
+        1403,
+        2102
+      ],
+      "anchor": "String dataAsBase65 = linkedList.get(0).getDataAsBase64();",
+      "observation": "Scan completion assigns response 0 to dark and response 1 to sample; optional response 2 is gradient. Sample U32 at offset zero is separately read as status, but remains in the Base64 payload."
+    },
+    {
+      "source": "android/sdk/model/ScioInternalReading.java",
+      "sha256": "2138366419710f9aabdc67bb9d10390604e3cf09e63462285e5e5fdd17915ac9",
+      "lines": [
+        69
+      ],
+      "anchor": "this.sampleGradient = str3;",
+      "observation": "Constructor keeps all three strings; associates device ID/i2s metadata and last white reference separately."
+    },
+    {
+      "source": "android/sdk/model/ScioReading.java",
+      "sha256": "55a2322015a6cd3d6df90128627e271c99e06502a9bfb14c5b80e1bae49957e5",
+      "lines": [
+        56
+      ],
+      "anchor": "this.sample = scioInternalReading.getSample();",
+      "observation": "Public reading copies sample/dark/gradient and metadata unchanged. Constructor does not copy the separate status field; verified in fallback output too."
+    },
+    {
+      "source": "scio_sdk/model/ScioReadingModel.java",
+      "sha256": "371719bb69d40dfce94618a25efd91789aee37170c695f7c84c31c6e367a922f",
+      "lines": [
+        44
+      ],
+      "anchor": "return new ScioReadingModel(scioReading.getSample(), scioReading.getDarkSample(), scioReading.getSampleGradient(), scioReading.getTimestamp());",
+      "observation": "Flutter bridge model copies strings to sample/sampleDark/sampleGradient plus timestamp; no separate status property."
+    },
+    {
+      "source": "scio_sdk/model/ScanResultModel.java",
+      "sha256": "eb3452b3a256a40f796edd6e8a33d784eb6c517573950959a9f11e118d782389",
+      "lines": [
+        26
+      ],
+      "anchor": "return new ObjectMapper().writeValueAsString(this);",
+      "observation": "Scan result serializes type and nullable reading as JSON, without numerical processing."
+    },
+    {
+      "source": "scio_sdk/ScioSdkPlugin.java",
+      "sha256": "204c9fcbf381914c1e2ee94a1e69e6f1e36e1696a59b00612755af899d3598b6",
+      "lines": [
+        1064
+      ],
+      "anchor": "return ScanResultModel.toJson(str, scioReading);",
+      "observation": "Scan success callback passes the JSON result through pending MethodChannel.Result.success; scanLightOff is separately emitted as an event. Do not conflate method result with event channel."
+    },
+    {
+      "source": "scio_sdk/model/ScioDeviceModel.java",
+      "sha256": "4e7dd3d8ba52e2f406d1b40502b4bdc09b4ffca9d9aa46900d801c5f87a1fa75",
+      "lines": [
+        60
+      ],
+      "anchor": "this.calibrationReading = scioReadingModel;",
+      "observation": "Device JSON has separate calibrationReading and whiteReference models plus id/i2s/firmware fields; the two reading concepts are not interchangeable."
+    },
+    {
+      "source": "android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "84adbcfb3f00afed7d3bf4033a0e3fa205f338d2f911dd8422a7e1acd34c557b",
+      "lines": [
+        40
+      ],
+      "anchor": "return Arrays.copyOfRange(rawData, 4, rawData.length);",
+      "observation": "Firmware file strings decode via Base64; first four decoded bytes are exposed separately as checksum, remainder as transfer body. This class contains no recovered firmware body or checksum algorithm."
+    },
+    {
+      "source": "android/scioconnection/protocol/FirmwareFiles.java",
+      "sha256": "4e81c15276d8875aadcc506086f6f223fa34dd5f246a4f6d6e6c84b4b4d41914",
+      "lines": [
+        10
+      ],
+      "anchor": "deadPixelsIndices(100),",
+      "observation": "Exact modern APK retains file enum ble=89, dsp_boot=90, dsp_dec=91, dsp_op=92, deadPixelsIndices=100, centers=101, bins=102, nPixelsPerBin=103."
+    },
+    {
+      "source": "scio_sdk/ScioSdkPlugin.java",
+      "sha256": "204c9fcbf381914c1e2ee94a1e69e6f1e36e1696a59b00612755af899d3598b6",
+      "lines": [
+        483
+      ],
+      "anchor": "int iIntValue = ((Integer) methodCall.argument(\"seconds\")).intValue();",
+      "observation": "Modern Flutter shutdown-timeout write explicitly accepts seconds, not minutes."
+    },
+    {
+      "source": "android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "f43b451d112f786a190890c5c1a8529f2e14772afca977beb3687cc0abeed8e2",
+      "lines": [
+        2735
+      ],
+      "anchor": "this.scioServiceConnection.getScioService().performWriteBle(((Integer) task.data).intValue(), new AnonymousClass27(task));",
+      "observation": "Modern writeBle task forwards the supplied integer without the older UI minute-to-second adjustment."
+    },
+    {
+      "source": "android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "74a04166d7c12b43a5ea661e211c62cb7050165a00d9a5657b0026a2e8ca152d",
+      "lines": [
+        875
+      ],
+      "anchor": "responseCommandHandler.setRequestedCommandData(new byte[]{0, 0, (byte) i, (byte) (i >>> 8)});",
+      "observation": "Writes timeout as 00 00 plus low 16 bits little-endian under WRITE_BLE (0x9A). Older signed-byte UI adjustment is not established as a firmware requirement. No write was tested."
+    },
+    {
+      "source": "android/sdk/sciosdk/mock/ScioMockDevice.java",
+      "sha256": "951351442169356c16066ed8e739bd778df478b3fa2aae58d17f150feb7d58f9",
+      "lines": [
+        31
+      ],
+      "anchor": "private static final String I2STAG = \"20150812-o:PRODUCTION\";",
+      "observation": "Mock constants: ID 503E5732B5EF1F35, address D0:B5:C2:97:83:42, BLE ID bleId, i2s 20150812-o:PRODUCTION, firmware 128, RSSI -31, temperatures 25, battery values 100/100/100/100/37. Reads assets/mock/{scan,wr}-{sample,dark,gradient}. These do not identify the connected device or separate Flutter fixture, and are not evidence of a cryptographic key."
+    }
+  ],
+  "fallback_status_check": {
+    "sha256": "29d42cea84a71f167e599d50619a9d6d6b1bef5bea36bc2674ea0aed753a26f1",
+    "constructor_copies_status": false
+  },
+  "mock_asset_inventory": [],
+  "native_spectrum_observations": [
+    {
+      "source": "dev/private/native_ranges/6ce400.txt",
+      "sha256": "4312836f256a67bb9e72ab95c93837f678a3d4614c844a5f86c06179c26a10f3",
+      "observation": "At 0x6ce4ac reads spectrum from a map, checks nullable List, maps with double type and closure at 0x6cf004. Source is a parsed response-like object; network caller not yet established."
+    },
+    {
+      "source": "dev/private/native_ranges/6cf004.txt",
+      "sha256": "88bc6496d88a257c532e3f550fd364b905325f70ae66b22f906d5f9993abd2d3",
+      "observation": "Closure checks input is num then dispatches one numeric method. No raw triplet input or wavelength reconstruction in this closure. toDouble interpretation is consistent with caller type but dispatch table not independently resolved."
+    }
+  ],
+  "conclusion": "Inspected Android producer path is BLE framing -> whole-payload Base64 -> copied strings -> JSON MethodChannel result. No numerical decode or cryptographic transform recovered. Encryption/compression remain unresolved."
+}

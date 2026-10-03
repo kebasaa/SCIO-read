@@ -1,0 +1,10 @@
+{
+  "plan": [
+    "READ_DEVICE_ID",
+    "READ_BLE",
+    "READ_DEVICE_ID"
+  ],
+  "writes": false,
+  "requests_maximum": 3,
+  "requires": "Exactly one awake SCIO USB device; --live is explicit."
+}

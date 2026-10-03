@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/commands/DeviceIdResponseCommandHandler.java",
+      "sha256": "150fb8f75ba32973d8df7461037a8e201463af7e9877ef27153e5e59e1f75faf",
+      "anchor": "String dataAsHex2 = responseCommand.getDataAsHex(16, 8);",
+      "matching_lines": [
+        17
+      ],
+      "observation": "Reads eight-byte IDs at offsets 0 and 16, U16 firmware at 24; swaps each pair of bytes of the second ID, not the entire ID."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/commands/BleIDResponseCommandHandler.java",
+      "sha256": "644fcf4ab08ed23f1ca1291f3f3b7d7785acd25b547e85ac6f6854fedfcbc016",
+      "anchor": "String dataAsString2 = responseCommand.getDataAsString(66, 64);",
+      "matching_lines": [
+        21
+      ],
+      "observation": "BLE ID offset 0 length 8, U16 firmware offset 8, name offset 50 length 16, I2S offset 66 length 64 with NUL removal and trim; no serial-fragment extraction here."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/commands/TemperatureResponseCommandHandler.java",
+      "sha256": "009785019c3e12fb459c83491c93fcaf1580db3298cbf572d24845bdf2c74925",
+      "anchor": "long u32 = (long)",
+      "matching_lines": [
+        43
+      ],
+      "observation": "Aptina expression truncates raw-375.22 before float division by 1.4092f, then truncates result. Chip/object U32 values use integer division by 100."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/CommandIDs.java",
+      "sha256": "c3ae06ed80a37a22385a6bcf4bed7d97998b58778f4b0425b8021591fd12af77",
+      "anchor": "public static final byte READ_FILE_HEADER = -121;",
+      "matching_lines": [
+        18
+      ],
+      "observation": "Signed Java command constant corresponds to unsigned 0x87. This is not the SDK internal task ID or a firmware file ID."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

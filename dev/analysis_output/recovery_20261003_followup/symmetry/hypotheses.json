@@ -1,0 +1,9 @@
+{
+  "maximum_analysis_requests": 8,
+  "minimum_spacing_seconds": 20,
+  "self_reference": "all ones",
+  "reciprocity": "reciprocal = 1 / historical control",
+  "sample_dark_additivity": "dark_s1 - historical sample-single = dark_s0 - historical control",
+  "dark_choice": "Original same-device white dark, not the previously rejected alternative sample dark.",
+  "limits": "No fresh holdout data. Failures constrain these intact combinations only. No absolute domain recovery."
+}

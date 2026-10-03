@@ -1,0 +1,22 @@
+{
+  "source": "SCiO+Analyzer_1.5.6_APKPure.xapk",
+  "sha256": "d8312aacaed1b07c55cc9dcee43a83593874bcd71bbd79e6064b7cfc36975c33",
+  "libraries": [
+    {
+      "member": "config.arm64_v8a.apk!lib/arm64-v8a/libapp.so",
+      "sha256": "faaa61e5c07e4a67e721c565da6d6c708a96741fd59a087a28824f1c566b4298",
+      "bytes": 10814368,
+      "extracted_to": "dev/private/flutter_1_5_6_arm64/libapp.so"
+    },
+    {
+      "member": "config.arm64_v8a.apk!lib/arm64-v8a/libflutter.so",
+      "sha256": "ccc767447963a34555c726c26cab467031370fbe6c2300b86c5c2921b6b0ec4b",
+      "bytes": 11057968,
+      "extracted_to": "dev/private/flutter_1_5_6_arm64/libflutter.so",
+      "dart_version_markers": [
+        "3.7.2"
+      ]
+    }
+  ],
+  "limits": "Only supplied local binaries extracted; no app execution, device interaction or upload."
+}

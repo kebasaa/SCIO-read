@@ -1,0 +1,176 @@
+{
+  "lab_decompilation": {
+    "tool": "JADX 1.5.6",
+    "classes_reported": 5084,
+    "exit_code": 1,
+    "reported_errors": 84,
+    "limits": "Partial overall decompilation. Reviewed methods have source anchors; other methods may need fallback instruction output."
+  },
+  "lab_observations": [
+    {
+      "file": "researcher/activities/QuickScanActivity.java",
+      "sha256": "f01886f6d5dd73ef062fcf19063aadc3d0d94fa36ca1102559b85d0156ec55d4",
+      "lines": [
+        575
+      ],
+      "finding": "QuickScan forwards sample/dark and stored white triplet plus i2s into request JSON. JPEG encoding here is for a separately attached photograph."
+    },
+    {
+      "file": "researcher/serverapi/SamplesProcessor.java",
+      "sha256": "1fc03596fdb1f48f2a0a59e83d2cef14acdf778d3e10fda234f56a23c84ec8a2",
+      "lines": [
+        73
+      ],
+      "finding": "QuickScan analysis calls server newRecord and takes returned RecordModel; not local raw-to-spectrum math."
+    },
+    {
+      "file": "common/serverapi/CommonServerAPI.java",
+      "sha256": "a6bde57f7ac12ab7124b247f72619bbd6b8b02553a73e5d6b896d057aac64b5b",
+      "lines": [
+        517
+      ],
+      "finding": "newRecord posts to /v3/collections/{id}/records. Endpoint discovered statically, not called."
+    },
+    {
+      "file": "common/model/ModelParser.java",
+      "sha256": "3ea4826679ec011f75013cec4011e045c62767a48311f9a7bf2fd0c264843110",
+      "lines": [
+        676
+      ],
+      "finding": "Record parser reads the server spectrum_reflectance array into Float values."
+    },
+    {
+      "file": "common/model/RecordModel.java",
+      "sha256": "0458378bad2d99e3f26736bebf789051894d6537cc8d12d9b1e3633d3633fd29",
+      "lines": [
+        141
+      ],
+      "finding": "getSpectrum and getSpectrumReflectance return the same stored array; no transform in getters."
+    },
+    {
+      "file": "researcher/serverapi/ProcessOfflineTestModel.java",
+      "sha256": "a3fef3958a4d388a00d9549470b5f91de586c747da307c65031fde2bd1e72e24",
+      "lines": [
+        72
+      ],
+      "finding": "Offline test records are sent to testModelMany; resulting spectrum and wavelengths are copied from the response. Offline name is not local decoding evidence."
+    },
+    {
+      "file": "researcher/serverapi/ServerAPI.java",
+      "sha256": "e0ea4a717d4b2eaff9c29fc29ad1112a0166fd2f6b5222a460d569ee6e92816e",
+      "lines": [
+        112
+      ],
+      "finding": "Builds server preprocessing request: Log, Derivative order 1, SelectWL 740..1070, SubtractAvg, x_step 2. These display/request settings do not redefine the 331-band truth axis."
+    },
+    {
+      "file": "android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "408840550722004fb67bc68fba3deb4dcb251b88f951c3af63efbd479c25e11b",
+      "lines": [
+        1396,
+        2066
+      ],
+      "finding": "Scan completion uses direct Base64 for dark/sample/optional gradient and separately reads sample status."
+    },
+    {
+      "file": "android/scioconnection/protocol/ResponseCommand.java",
+      "sha256": "34d03a1695a9769f2d1e0c0975e062e61c12d03abc4e79210135dd646ac79462",
+      "lines": [
+        41
+      ],
+      "finding": "Direct Android Base64 encoding of response bytes."
+    },
+    {
+      "file": "android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "5892fcefda322a1f44ffe20e8425b695a537f159bb67c2a37b7a67f2f7d7e432",
+      "lines": [
+        38
+      ],
+      "finding": "Firmware Base64 is split into first four checksum bytes and remaining transfer body; no recovered firmware body."
+    },
+    {
+      "file": "researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "43a831e2dfa1ca194896d41f0ac417a0bcdfa3a71c08dcb234f649faa86444d7",
+      "lines": [
+        232
+      ],
+      "finding": "Firmware upgrade uses cached model, sends body through file download, and clears cached firmware on completion. Not file readback."
+    },
+    {
+      "file": "android/scioconnection/protocol/FirmwareFiles.java",
+      "sha256": "58442db85c473f61266ec298548c7881d3b4bba2e85cac06f25d6b30079d37ea",
+      "lines": [
+        10
+      ],
+      "finding": "File IDs 89 BLE, 90 DSP boot, 91 DSP dec, 92 DSP op, 100 deadPixelsIndices, 101 centers, 102 bins, 103 nPixelsPerBin. No actual indices/tables recovered."
+    },
+    {
+      "file": "android/sdk/sciosdk/mock/ScioMockDevice.java",
+      "sha256": "0c5fb965cef1d65921b95ac4838830cb55944f36092a9c5a13ceda4b08d2fb5a",
+      "lines": [
+        32
+      ],
+      "finding": "Mock returns ID 503E5732B5EF1F35, BLE address D0:B5:C2:97:83:42, i2s 20150812-o:PRODUCTION, firmware 128 and loads six assets. Mock metadata is not validated physical capture identity or a key."
+    },
+    {
+      "file": "researcher/mock/MockScioService.java",
+      "sha256": "78f4e55b66522be59e5b31fd504bc6ff7983669cb439d29348f4eaa8939afaee",
+      "lines": [
+        79
+      ],
+      "finding": "Legacy service mock throws Not implemented for spectrum and white-reference operations. Its canned IDs/battery are not firmware evidence."
+    }
+  ],
+  "dart_format_sources": [
+    {
+      "name": "app_snapshot.cc",
+      "sha256": "d0bb85440e6c9030728087769a409af9a217f958d839337d0828db529e1a645a",
+      "source": "https://raw.githubusercontent.com/dart-lang/sdk/3.11.4/runtime/vm/app_snapshot.cc"
+    },
+    {
+      "name": "class_id.h",
+      "sha256": "636183f3d39827ea73e4b695c7e673ff5d52c520e4bfe98af898f449ec5e59a9",
+      "source": "https://raw.githubusercontent.com/dart-lang/sdk/3.11.4/runtime/vm/class_id.h"
+    },
+    {
+      "name": "datastream.h",
+      "sha256": "77fd03eceed4a65aaf4bac7d282421e7c29892952952a3290c6f5bbb11578f6e",
+      "source": "https://raw.githubusercontent.com/dart-lang/sdk/3.11.4/runtime/vm/datastream.h"
+    },
+    {
+      "name": "object.h",
+      "sha256": "25fb6f4a3f464f427a2497d4f6a87f477059c775f9c2e88ebb0968fc7521185e",
+      "source": "https://raw.githubusercontent.com/dart-lang/sdk/3.11.4/runtime/vm/object.h"
+    },
+    {
+      "name": "snapshot.h",
+      "sha256": "61b267465d5df66d8ca91802eec5b1e7be12eb01a597815c8db46e1ab15cfda8",
+      "source": "https://raw.githubusercontent.com/dart-lang/sdk/3.11.4/runtime/vm/snapshot.h"
+    }
+  ],
+  "analyzer_1_5_19": {
+    "binary_sha256": "9d46ae6000a652971848fecb894402727183ca07c986762198283564d9aecd9c",
+    "snapshot_probe": "Target-specific candidate RO strings/object pool, not full deserialization.",
+    "labels": [
+      {
+        "label": "sample_gradient_chars",
+        "pool_offset": "0xe20f",
+        "instruction": "0xc756cc"
+      },
+      {
+        "label": "sample_gradient_decoded_bytes",
+        "pool_offset": "0xe217",
+        "instruction": "0xc75778"
+      },
+      {
+        "label": "sample_gradient_preview",
+        "pool_offset": "0xe227",
+        "instruction": "0xc75904"
+      }
+    ],
+    "consumer": "0xc75364 reads diagnostic map fields and forwards invalid_scan_payload labels.",
+    "caller": "0xc744ec supplies phase background_single_scan_before_upload.",
+    "limits": "Origin of diagnostic map fields and numeric meaning of decoded_bytes unresolved. No demonstrated spectral unpack/decompress/decrypt routine."
+  },
+  "network_device_activity": "None; no SCIO server requests or device commands."
+}

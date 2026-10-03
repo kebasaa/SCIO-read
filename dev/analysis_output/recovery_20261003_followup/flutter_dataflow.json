@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "target_sha256": "faaa61e5c07e4a67e721c565da6d6c708a96741fd59a087a28824f1c566b4298",
+  "scope": "Supplied Analyzer 1.5.6 ARM64 only; static reviewed paths, not exhaustive app coverage.",
+  "observations": [
+    {
+      "id": "request_builder",
+      "source": "dev/private/flutter_1_5_6_analysis_native_v3/asm/synthetic_native.dart",
+      "sha256": "71f7f7b954880a9f1f6bfbcf5dcc8e89a5ee3fb8791ac26b67178ba7a9a28440",
+      "address": "0xa0a09c",
+      "anchor": "0xa0a240: r2 = \"sample\"",
+      "observation": "Loads sample object fields 0x7/0xb/0xf into sample/sample_dark/sample_gradient map values; corresponding white object fields become sample_white/sample_white_dark/sample_white_gradient. No numerical transform in this builder."
+    },
+    {
+      "id": "reading_parser",
+      "source": "dev/private/native_ranges/31db28.txt",
+      "sha256": "608c702e604519c3e9a6279702589c26346eebf4d341fa7f3bdbeab1c8e703a9",
+      "address": "0x31db44",
+      "anchor": "0x31dd14: stur w1, [x0, #0xb]",
+      "observation": "Reads sample/sampleDark/sampleGradient from an input map, checks String types, and stores them at offsets 0x7/0xb/0xf. Timestamp is separately converted and stored at 0x13. No blob transform in this parser."
+    },
+    {
+      "id": "white_serializer",
+      "source": "dev/private/native_ranges/31db28.txt",
+      "sha256": "608c702e604519c3e9a6279702589c26346eebf4d341fa7f3bdbeab1c8e703a9",
+      "address": "0x31dd48",
+      "anchor": "0x31de10: bl #0x304d28",
+      "observation": "Emits the three existing reading strings as sample_white/sample_white_dark/sample_white_gradient plus a separately formatted timestamp."
+    },
+    {
+      "id": "i2s_getter",
+      "source": "dev/private/native_ranges/6ff1b8.txt",
+      "sha256": "dcdf3d72a15b7ce7eff23f1536cad4af791ed4e4a768407cd9b6f64da501f965",
+      "address": "0x6ff260",
+      "anchor": "String: \"device_i2s\"",
+      "observation": "Reads device_i2s from stored state. Request builder calls this accessor before inserting i2s_tag_config. No key derivation shown by this path."
+    },
+    {
+      "id": "event_reading_parser",
+      "source": "dev/private/native_ranges/849bc4.txt",
+      "sha256": "63921d77d6f985ef3916e90d70ec8fae87d4dd95de38e465a7ddc6ee6547f988",
+      "address": "0x849cf8",
+      "anchor": "0x849dec: bl #0x31db44",
+      "observation": "Parses event type and nullable reading map, then delegates that reading to the string-preserving parser; also reads errorInfo."
+    },
+    {
+      "id": "embedded_success_event",
+      "source": "dev/private/native_ranges/849bc4.txt",
+      "sha256": "63921d77d6f985ef3916e90d70ec8fae87d4dd95de38e465a7ddc6ee6547f988",
+      "address": "0x849ca4",
+      "anchor": "0x849cc4: bl #0x31db44",
+      "observation": "Passes constant map at pp+0x385c8 to the same reading parser and combines it with a success enum. This is an app fixture, not a newly captured scan or spectral truth."
+    }
+  ],
+  "fixture": {
+    "pool_offset": "0x385c8",
+    "pool_sha256": "a97eec9287a7b2ca766b1b037d88086f5e68f1c9f327503313a7f8d1a2777cc0",
+    "blobs": {
+      "sample": {
+        "sha256": "c3ed64c7c5c2db30e1ee0eacae6f0e793ac7727ff43ab23f9be8dd2496ccd0df",
+        "bytes": 1800,
+        "header_u32le": [
+          0,
+          4283521849
+        ],
+        "base64": "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",
+        "already_in_corpus_manifest": false
+      },
+      "sample_dark": {
+        "sha256": "d34902d7a26d05580faa606ed60d2fe86172a0b90fd66383fabfc656d7387eab",
+        "bytes": 1800,
+        "header_u32le": [
+          0,
+          2067849408
+        ],
+        "base64": "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",
+        "already_in_corpus_manifest": false
+      },
+      "sample_gradient": {
+        "sha256": "4e837b3758cd6e0be7ae2a7ac63425bd4362041de7939325d44d96131170f690",
+        "bytes": 1416,
+        "header_u32le": [
+          0,
+          4011951567
+        ],
+        "base64": "AAAAAM+FIe/EYKvceDzOWH3FaoCj899BFBaaVhE04twieIo7EoIHx+gBqb2RV+HtSNI/1NSJmvJqW4NpJqJdQ8ZtYd4R6OMowRUjFnqHEF2WWPreyPsXHPcBEU++Qhp/jWXOh2btmL3bApM97ieo3MhXD/cYqC1Rk172DJFZJkyhaUmGgJoKssZrL83tH2GkdRNkAvc3TFDknfmUkGZe1LB3pWuB+1DEIQKHkCViW3w1XMtXyhTuEszVOilgQzPExnLwIOwu7vKzgxRNryFYcz2kIQRIm+p1ONwbeZqNmsEQXgl0zHwSPxtwvxqLE09giKRnpwWS22JAZ1jNlhiV5cDFGT0F3CUCxjs1X0Oenm0CtMrH74IAv36nNAFyUYnTPmBtA0y7nPHPMwMN9G4WP8CbkzTp1ARDqGw88F7Sp10QN9tL5Fr+65uIQX1p+bxMT32MXXc4BeolaeCqe9I/fx2CK1olkE2pcJKHhb4wpHmHwKawFv+nzFVx5Il1ICbWADcRQWXecnewfnnliB8vqF6Id0660xTTz3QY1nJalFCcX7Zr9tmP2FD8FUByZNxc6GVakCsDBBgh7XIJpkASbN0t7B3E4MRAabACL9Z1M5sR3ifgyDuTsWNV1x6AeRHDdkXBg2Ac5jC0DgRo3Tx5h2pm4pajIQj+FB0rP42x//3+YmlvjR1v+yCrdLUISdprluWbQn+bFI/71L8B+UUPY2ZJgntJ2f+eGSGiOPyNU/5QEv5WyyTjeb+Kb5vYeDCZcOZFEEU6Egd0XGHkSYvjr6RNxXt7eu2Ekm+QE79QFRedXAjqFaD4EvhwqHKEv147Py7Y9odJ+peDXlFBLDlp/pupLE3I32i9pvyvwWDBISZPosim2Ss02Pf46Jao7aOGf8bpFFeM/sm+mtX4Glc+exQN23q7cHScoW1mj0TkES0zFOnk1Pg/W8eRzWDd3YbJw7ZLB9AJDM0IqKlHst5BwnBc8mWqWyYnLdj85S1psNkVdqJ+CB5RAsNtXDcdhYoDblbE/K+2BMOEN+bBdNlL8X0frJ9VLbow+Qb9+8yLyfkfPSfLl6VVX1FPpVL9nu/lJ1Fdwg/en/6o1QuJBxq9y6C0N7eSoTTTsvttmW2HVz6cu3AoTreAyCztPrMZt6eejKbcI6n51/HmZemS2uEXEM3jbIv2ULHuj7/IP4BgpD75kNzmb/Wpqei8iL+vPudthN/++YPOAednaVJ1PcKLZ+48PsCn7zVkK2j3m6jwNiQMub+Qw/55IjIQJvbofyCpm0BlPdllJJ2iAlmNTtw6WCPaYCBwxd4KV5hSquZZ3pEg9KF9ZOpLHq2pLTlUsJ9IipeH3l7/B117OUQilY6RJZa/LW0/BDik268yud37ttFaWdzgQ/xLkCg7Y1J1KhwV/ZAKTAyi1WxysoIW7hy98D+qQQMthxnaXbqObtrcNs2XF9WD/tRHzHkqEN9SObA+fmAFoXkhtdvyVvlXozEzAeP2WLoTG8ljdrhH1EEcsnBuIm61KjVw3cFn3ZGSRGupfLGZhUIIZZLIDCE6/2bAqVQlj4RPfC01GEEkLfakZDDVtIeoQXZNdMyrLvl9rwkwlAYKFyrR1gumNxuk0te45WK48bC82wkYyG8Pk5vW2Xt2uQMBD6xXZEgbTo5DJvmb1BCifN0dRiPQ4qGYQeOAuCsBz3rPj634SxtNIT6sWVmpITeLLt9gI8xR9t5UR46lCfeNlgqQTt2ZU+o2+CRqaeBMZkcPP5afCS9+5uqoIOkBGhHN5GyZ0y6H/qw+/PBzSafZ9Xu57y3LOSc9YxUwvACoAVHmjSOi+K/oFg9Ia2CI4IzKjF2pG3ZGPtOEZ6o8F/Bjz5tz82KgG/9P2VnRwLB14ykNc2f5",
+        "already_in_corpus_manifest": false
+      }
+    },
+    "device_identity": "unknown",
+    "spectral_truth": null,
+    "limits": "Fixture timestamp and success enum do not establish physical capture, device identity or correct spectral output."
+  },
+  "remaining": "Trace native-platform producer and request consumer. Missing function metadata required bounded raw disassembly. Neither encryption nor compression is established or excluded."
+}

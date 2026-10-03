@@ -1,0 +1,12 @@
+{
+  "name": "sample_white_dark_word2",
+  "status": 400,
+  "response": {
+    "spectrum": "white dark",
+    "error_type": "Bad_sample_signature",
+    "http_status": 400,
+    "message": "There is a problem with your scan, try again."
+  },
+  "spectrum": null,
+  "finished_at": "2026-10-03T10:08:32.807+02:00"
+}

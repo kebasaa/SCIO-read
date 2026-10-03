@@ -1,0 +1,1075 @@
+{
+  "libraries": [
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "sha256": "9d46ae6000a652971848fecb894402727183ca07c986762198283564d9aecd9c",
+      "bytes": 13402716,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "address": 0,
+          "offset": 0,
+          "size": 0,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".note.gnu.build-id",
+          "type": 7,
+          "address": 276,
+          "offset": 276,
+          "size": 32,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynstr",
+          "type": 3,
+          "address": 308,
+          "offset": 308,
+          "size": 133,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynsym",
+          "type": 11,
+          "address": 444,
+          "offset": 444,
+          "size": 96,
+          "link": 2,
+          "entry_size": 16
+        },
+        {
+          "name": ".hash",
+          "type": 5,
+          "address": 540,
+          "offset": 540,
+          "size": 56,
+          "link": 3,
+          "entry_size": 4
+        },
+        {
+          "name": ".rodata",
+          "type": 1,
+          "address": 640,
+          "offset": 640,
+          "size": 3908832,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".eh_frame",
+          "type": 1,
+          "address": 3909472,
+          "offset": 3909472,
+          "size": 66,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".text",
+          "type": 1,
+          "address": 3915776,
+          "offset": 3915776,
+          "size": 9470968,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynamic",
+          "type": 6,
+          "address": 13402112,
+          "offset": 13402112,
+          "size": 48,
+          "link": 2,
+          "entry_size": 8
+        },
+        {
+          "name": ".bss",
+          "type": 1,
+          "address": 13402160,
+          "offset": 13402160,
+          "size": 24,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "address": 0,
+          "offset": 13402184,
+          "size": 90,
+          "link": 0,
+          "entry_size": 0
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_kDartVmSnapshotInstructions",
+          "value": 3915776,
+          "size": 28056
+        },
+        {
+          "name": "_kDartIsolateSnapshotInstructions",
+          "value": 3943872,
+          "size": 9442872
+        },
+        {
+          "name": "_kDartVmSnapshotData",
+          "value": 640,
+          "size": 29384
+        },
+        {
+          "name": "_kDartIsolateSnapshotData",
+          "value": 30080,
+          "size": 3879392
+        },
+        {
+          "name": "_kDartSnapshotBuildId",
+          "value": 276,
+          "size": 32
+        }
+      ],
+      "relevant_strings": [
+        {
+          "offset": 660,
+          "text": "78da37fed6bf1489361a312568249f3fproduct no-code_comments dwarf_stack_traces_mode dedup_instructions no-asan no-msan no-tsan no-shared_data arm android no-compressed-pointers"
+        },
+        {
+          "offset": 15428,
+          "text": "CompressedStackMaps"
+        },
+        {
+          "offset": 30100,
+          "text": "78da37fed6bf1489361a312568249f3fproduct no-code_comments dwarf_stack_traces_mode dedup_instructions no-asan no-msan no-tsan no-shared_data arm android no-compressed-pointers"
+        },
+        {
+          "offset": 2724503,
+          "text": "es de firmware incompat"
+        },
+        {
+          "offset": 2739092,
+          "text": "Error in header for PIZ-compressed data (invalid bitmap size)."
+        },
+        {
+          "offset": 2739540,
+          "text": "Only single frame JPEGs supported"
+        },
+        {
+          "offset": 2740348,
+          "text": "decompressLicenses"
+        },
+        {
+          "offset": 2743028,
+          "text": "firmwareFileVersionsr"
+        },
+        {
+          "offset": 2744956,
+          "text": "BmpCompression."
+        },
+        {
+          "offset": 2758668,
+          "text": "Invalid compression type: "
+        },
+        {
+          "offset": 2764012,
+          "text": "Error in Huffman-encoded data (invalid code table entry)."
+        },
+        {
+          "offset": 2795561,
+          "text": "o Do Firmware"
+        },
+        {
+          "offset": 2820828,
+          "text": "El espectro contiene valores muy peque"
+        },
+        {
+          "offset": 2834620,
+          "text": "Error in Huffman-encoded data (decoded data are longer than expected)."
+        },
+        {
+          "offset": 2837452,
+          "text": "Incomplete huffman data"
+        },
+        {
+          "offset": 2844844,
+          "text": "application/x-gca-compressedr"
+        },
+        {
+          "offset": 2853820,
+          "text": "application/x-rar-compressedr"
+        },
+        {
+          "offset": 2884100,
+          "text": "scio_i2s"
+        },
+        {
+          "offset": 2897676,
+          "text": "Error in header for Huffman-encoded data (invalid number of bits)."
+        },
+        {
+          "offset": 2902148,
+          "text": "decompressedr"
+        },
+        {
+          "offset": 2929060,
+          "text": "scio_firmware_version"
+        },
+        {
+          "offset": 2949644,
+          "text": "application/pgp-encrypted"
+        },
+        {
+          "offset": 2969972,
+          "text": "Invalid JPEG file"
+        },
+        {
+          "offset": 2975620,
+          "text": ".jpeg"
+        },
+        {
+          "offset": 2976140,
+          "text": "application/x-cfs-compressedr"
+        },
+        {
+          "offset": 2987004,
+          "text": " i2s="
+        },
+        {
+          "offset": 2989436,
+          "text": "IccProfileCompression."
+        },
+        {
+          "offset": 2997458,
+          "text": "n De firmware"
+        },
+        {
+          "offset": 3024348,
+          "text": "sample_whiter"
+        },
+        {
+          "offset": 3025828,
+          "text": "UnsupportedCompressionData"
+        },
+        {
+          "offset": 3039172,
+          "text": ") or compression ("
+        },
+        {
+          "offset": 3083596,
+          "text": "spectrometerr"
+        },
+        {
+          "offset": 3091060,
+          "text": ", i2s: "
+        },
+        {
+          "offset": 3092932,
+          "text": "firmware mismatch read="
+        },
+        {
+          "offset": 3099772,
+          "text": "notCompressed"
+        },
+        {
+          "offset": 3115388,
+          "text": "Compresso"
+        },
+        {
+          "offset": 3125972,
+          "text": "jpegr"
+        },
+        {
+          "offset": 3140036,
+          "text": ".JPEG"
+        },
+        {
+          "offset": 3160271,
+          "text": " todo el espectro. elige diferentes longitudes de onda m"
+        },
+        {
+          "offset": 3167300,
+          "text": "init:ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 3216564,
+          "text": "CompressedBitsPerPixel"
+        },
+        {
+          "offset": 3228612,
+          "text": "Invalid huffman table size"
+        },
+        {
+          "offset": 3251780,
+          "text": "application/x-ace-compressedr"
+        },
+        {
+          "offset": 3254892,
+          "text": "device_firmware_version"
+        },
+        {
+          "offset": 3261676,
+          "text": ", firmwareVersion: "
+        },
+        {
+          "offset": 3265324,
+          "text": "sample_gradient_decoded_bytes"
+        },
+        {
+          "offset": 3279988,
+          "text": "Incorrect length for uncompressed/hybrid encoding"
+        },
+        {
+          "offset": 3317852,
+          "text": ", firmwareFileVersions: "
+        },
+        {
+          "offset": 3329172,
+          "text": "InvalidFirmwareFileCode"
+        },
+        {
+          "offset": 3329564,
+          "text": "ZipEncryptionMode."
+        },
+        {
+          "offset": 3346076,
+          "text": "only single frame JPEGs supported"
+        },
+        {
+          "offset": 3349612,
+          "text": "writeEncrypted"
+        },
+        {
+          "offset": 3368268,
+          "text": "FirmwareParamsNotValidVersion"
+        },
+        {
+          "offset": 3370876,
+          "text": "sample_gradient_preview"
+        },
+        {
+          "offset": 3382460,
+          "text": "Compression"
+        },
+        {
+          "offset": 3394756,
+          "text": "BadChecksum"
+        },
+        {
+          "offset": 3412164,
+          "text": "compress"
+        },
+        {
+          "offset": 3413395,
+          "text": "metros de firmware n"
+        },
+        {
+          "offset": 3414852,
+          "text": "Error in Huffman-encoded data (unexpected end of code table data)."
+        },
+        {
+          "offset": 3441636,
+          "text": "CompressionType."
+        },
+        {
+          "offset": 3451836,
+          "text": "application/vnd.ms-cab-compressed"
+        },
+        {
+          "offset": 3473340,
+          "text": "compression"
+        },
+        {
+          "offset": 3476300,
+          "text": "Error in Huffman-encoded data (code table is longer than expected)."
+        },
+        {
+          "offset": 3491556,
+          "text": "ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 3496380,
+          "text": "Invalid point compression"
+        },
+        {
+          "offset": 3508388,
+          "text": "Unsupported compression: "
+        },
+        {
+          "offset": 3516252,
+          "text": "firmwareVersion"
+        },
+        {
+          "offset": 3560620,
+          "text": "Error in Huffman-encoded data (invalid code)."
+        },
+        {
+          "offset": 3561308,
+          "text": "UnsupportedCompressionConversion"
+        },
+        {
+          "offset": 3564788,
+          "text": "video/jpeg"
+        },
+        {
+          "offset": 3565348,
+          "text": "get:ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 3569748,
+          "text": "i2s_tag_config"
+        },
+        {
+          "offset": 3570484,
+          "text": "firmwareVersion="
+        },
+        {
+          "offset": 3585212,
+          "text": "sample_white_gradient"
+        },
+        {
+          "offset": 3593188,
+          "text": "application/x-lzh-compressedr"
+        },
+        {
+          "offset": 3615388,
+          "text": "InvalidOpticalHeadFirmwareParams"
+        },
+        {
+          "offset": 3616044,
+          "text": "application/x-dgc-compressedr"
+        },
+        {
+          "offset": 3629772,
+          "text": "JPEGInterchangeFormat"
+        },
+        {
+          "offset": 3630546,
+          "text": "n de datos contiene escaneos de dispositivos o versiones de firmware que no son compatibles y actualmente no se puede utilizar para compilar modelos."
+        },
+        {
+          "offset": 3641836,
+          "text": "sample_gradient"
+        },
+        {
+          "offset": 3665204,
+          "text": "Firmware Version"
+        },
+        {
+          "offset": 3669572,
+          "text": "readEncrypted"
+        },
+        {
+          "offset": 3683932,
+          "text": " checksum"
+        },
+        {
+          "offset": 3686300,
+          "text": "sample_white_dark"
+        },
+        {
+          "offset": 3689364,
+          "text": "compressed"
+        },
+        {
+          "offset": 3694012,
+          "text": "MixedI2SCompression"
+        },
+        {
+          "offset": 3696732,
+          "text": "ExrCompressorType."
+        },
+        {
+          "offset": 3702132,
+          "text": "JPEGProc"
+        },
+        {
+          "offset": 3713412,
+          "text": "metros del firmware no coinciden con ninguna versi"
+        },
+        {
+          "offset": 3733732,
+          "text": "insufficientEncryption"
+        },
+        {
+          "offset": 3735228,
+          "text": "Firmware parameters do not match any known version"
+        },
+        {
+          "offset": 3744508,
+          "text": "device_i2s"
+        },
+        {
+          "offset": 3762924,
+          "text": "Error in Huffman-encoded data (decoded data are shorter than expected)."
+        },
+        {
+          "offset": 3771180,
+          "text": "Invalid JPEGr"
+        },
+        {
+          "offset": 3787100,
+          "text": "Unknown JPEG marker r"
+        },
+        {
+          "offset": 3788540,
+          "text": "The data collection contains scans from incompatible devices or firmware versions and cannot currently be used to build models."
+        },
+        {
+          "offset": 3810484,
+          "text": "InvalidNumFirmwareFiles"
+        },
+        {
+          "offset": 3815452,
+          "text": "JPEGInterchangeFormatLength"
+        },
+        {
+          "offset": 3815548,
+          "text": "device_firmware_file_versionr"
+        },
+        {
+          "offset": 3820212,
+          "text": "B44 compression not yet supported."
+        },
+        {
+          "offset": 3821156,
+          "text": "image/jpeg"
+        },
+        {
+          "offset": 3825420,
+          "text": "HttpClientResponseCompressionState."
+        },
+        {
+          "offset": 3826132,
+          "text": "Unsupported Compression Type: "
+        },
+        {
+          "offset": 3828460,
+          "text": "sample_gradient_chars"
+        },
+        {
+          "offset": 3848148,
+          "text": "Error al preprocesar los espectros De la recopilaci"
+        },
+        {
+          "offset": 3849620,
+          "text": "Invalid Huffman Codes"
+        },
+        {
+          "offset": 3860532,
+          "text": "application/x-7z-compressed"
+        },
+        {
+          "offset": 3877228,
+          "text": "Incorrect length for compressed encoding"
+        }
+      ]
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk!lib/arm64-v8a/libapp.so",
+      "sha256": "faaa61e5c07e4a67e721c565da6d6c708a96741fd59a087a28824f1c566b4298",
+      "bytes": 10814368,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "address": 0,
+          "offset": 0,
+          "size": 0,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".note.gnu.build-id",
+          "type": 7,
+          "address": 456,
+          "offset": 456,
+          "size": 32,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynstr",
+          "type": 3,
+          "address": 488,
+          "offset": 488,
+          "size": 133,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynsym",
+          "type": 11,
+          "address": 624,
+          "offset": 624,
+          "size": 144,
+          "link": 2,
+          "entry_size": 24
+        },
+        {
+          "name": ".hash",
+          "type": 5,
+          "address": 768,
+          "offset": 768,
+          "size": 56,
+          "link": 3,
+          "entry_size": 4
+        },
+        {
+          "name": ".rodata",
+          "type": 1,
+          "address": 832,
+          "offset": 832,
+          "size": 2991024,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".eh_frame",
+          "type": 1,
+          "address": 2991856,
+          "offset": 2991856,
+          "size": 66,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".text",
+          "type": 1,
+          "address": 3014656,
+          "offset": 3014656,
+          "size": 7742208,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".dynamic",
+          "type": 6,
+          "address": 10813440,
+          "offset": 10813440,
+          "size": 96,
+          "link": 2,
+          "entry_size": 16
+        },
+        {
+          "name": ".bss",
+          "type": 1,
+          "address": 10813536,
+          "offset": 10813536,
+          "size": 32,
+          "link": 0,
+          "entry_size": 0
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "address": 0,
+          "offset": 10813568,
+          "size": 90,
+          "link": 0,
+          "entry_size": 0
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_kDartVmSnapshotInstructions",
+          "value": 3014656,
+          "size": 92688
+        },
+        {
+          "name": "_kDartIsolateSnapshotInstructions",
+          "value": 3107392,
+          "size": 7649472
+        },
+        {
+          "name": "_kDartVmSnapshotData",
+          "value": 832,
+          "size": 16176
+        },
+        {
+          "name": "_kDartIsolateSnapshotData",
+          "value": 17024,
+          "size": 2974832
+        },
+        {
+          "name": "_kDartSnapshotBuildId",
+          "value": 456,
+          "size": 32
+        }
+      ],
+      "relevant_strings": [
+        {
+          "offset": 852,
+          "text": "d91c0e6f35f0eb2e44124e8f42aa44a7product no-code_comments dwarf_stack_traces_mode dedup_instructions no-tsan no-msan arm64 android compressed-pointers"
+        },
+        {
+          "offset": 7917,
+          "text": "CompressedStackMaps"
+        },
+        {
+          "offset": 17044,
+          "text": "d91c0e6f35f0eb2e44124e8f42aa44a7product no-code_comments dwarf_stack_traces_mode dedup_instructions no-tsan no-msan arm64 android compressed-pointers"
+        },
+        {
+          "offset": 209015,
+          "text": "es de firmware incompat"
+        },
+        {
+          "offset": 216902,
+          "text": "Error in header for PIZ-compressed data (invalid bitmap size)."
+        },
+        {
+          "offset": 217060,
+          "text": "Only single frame JPEGs supported"
+        },
+        {
+          "offset": 217654,
+          "text": "decompressLicenses"
+        },
+        {
+          "offset": 219050,
+          "text": "firmwareFileVersions"
+        },
+        {
+          "offset": 220238,
+          "text": "BmpCompression."
+        },
+        {
+          "offset": 227010,
+          "text": "Invalid compression type: "
+        },
+        {
+          "offset": 229320,
+          "text": "Error in Huffman-encoded data (invalid code table entry)."
+        },
+        {
+          "offset": 244667,
+          "text": "o Do Firmware"
+        },
+        {
+          "offset": 256450,
+          "text": "El espectro contiene valores muy peque"
+        },
+        {
+          "offset": 264004,
+          "text": "Error in Huffman-encoded data (decoded data are longer than expected)."
+        },
+        {
+          "offset": 265301,
+          "text": "Incomplete huffman data"
+        },
+        {
+          "offset": 268556,
+          "text": "application/x-gca-compressed"
+        },
+        {
+          "offset": 273746,
+          "text": "application/x-rar-compressed"
+        },
+        {
+          "offset": 293940,
+          "text": "Error in header for Huffman-encoded data (invalid number of bits)."
+        },
+        {
+          "offset": 296112,
+          "text": "decompressed"
+        },
+        {
+          "offset": 322659,
+          "text": "application/pgp-encrypted"
+        },
+        {
+          "offset": 331400,
+          "text": "Invalid JPEG file"
+        },
+        {
+          "offset": 333336,
+          "text": ".jpeg"
+        },
+        {
+          "offset": 333547,
+          "text": "application/x-cfs-compressed"
+        },
+        {
+          "offset": 339463,
+          "text": "IccProfileCompression."
+        },
+        {
+          "offset": 343315,
+          "text": "n De firmware"
+        },
+        {
+          "offset": 361718,
+          "text": "sample_white"
+        },
+        {
+          "offset": 362393,
+          "text": "UnsupportedCompressionData"
+        },
+        {
+          "offset": 368677,
+          "text": ") or compression ("
+        },
+        {
+          "offset": 395942,
+          "text": "spectrometer"
+        },
+        {
+          "offset": 399892,
+          "text": ", i2s: "
+        },
+        {
+          "offset": 403835,
+          "text": "notCompressed"
+        },
+        {
+          "offset": 411364,
+          "text": "Compresso"
+        },
+        {
+          "offset": 423296,
+          "text": ".JPEG"
+        },
+        {
+          "offset": 434191,
+          "text": " todo el espectro. elige diferentes longitudes de onda m"
+        },
+        {
+          "offset": 437644,
+          "text": "init:ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 461832,
+          "text": "CompressedBitsPerPixel"
+        },
+        {
+          "offset": 467194,
+          "text": "Invalid huffman table size"
+        },
+        {
+          "offset": 477960,
+          "text": "application/x-ace-compressed"
+        },
+        {
+          "offset": 479491,
+          "text": "device_firmware_version"
+        },
+        {
+          "offset": 481949,
+          "text": ", firmwareVersion: "
+        },
+        {
+          "offset": 509891,
+          "text": ", firmwareFileVersions: "
+        },
+        {
+          "offset": 515463,
+          "text": "InvalidFirmwareFileCode"
+        },
+        {
+          "offset": 515677,
+          "text": "ZipEncryptionMode."
+        },
+        {
+          "offset": 523964,
+          "text": "only single frame JPEGs supported"
+        },
+        {
+          "offset": 534563,
+          "text": "FirmwareParamsNotValidVersion"
+        },
+        {
+          "offset": 540747,
+          "text": "Compression"
+        },
+        {
+          "offset": 546377,
+          "text": "BadChecksum"
+        },
+        {
+          "offset": 555814,
+          "text": "metros de firmware n"
+        },
+        {
+          "offset": 556300,
+          "text": "Error in Huffman-encoded data (unexpected end of code table data)."
+        },
+        {
+          "offset": 569711,
+          "text": "CompressionType."
+        },
+        {
+          "offset": 573919,
+          "text": "application/vnd.ms-cab-compressed"
+        },
+        {
+          "offset": 583369,
+          "text": "compression"
+        },
+        {
+          "offset": 584312,
+          "text": "Error in Huffman-encoded data (code table is longer than expected)."
+        },
+        {
+          "offset": 592022,
+          "text": "ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 600102,
+          "text": "Unsupported compression: "
+        },
+        {
+          "offset": 604457,
+          "text": "firmwareVersion"
+        },
+        {
+          "offset": 624841,
+          "text": "Error in Huffman-encoded data (invalid code)."
+        },
+        {
+          "offset": 625229,
+          "text": "UnsupportedCompressionConversion"
+        },
+        {
+          "offset": 626781,
+          "text": "video/jpeg"
+        },
+        {
+          "offset": 627052,
+          "text": "get:ENCRYPTED_SIZE"
+        },
+        {
+          "offset": 629069,
+          "text": "i2s_tag_config"
+        },
+        {
+          "offset": 637405,
+          "text": "sample_white_gradient"
+        },
+        {
+          "offset": 641285,
+          "text": "application/x-lzh-compressed"
+        },
+        {
+          "offset": 651950,
+          "text": "InvalidOpticalHeadFirmwareParams"
+        },
+        {
+          "offset": 652246,
+          "text": "application/x-dgc-compressed"
+        },
+        {
+          "offset": 659367,
+          "text": "JPEGInterchangeFormat"
+        },
+        {
+          "offset": 659623,
+          "text": "n de datos contiene escaneos de dispositivos o versiones de firmware que no son compatibles y actualmente no se puede utilizar para compilar modelos."
+        },
+        {
+          "offset": 664045,
+          "text": "sample_gradient"
+        },
+        {
+          "offset": 674969,
+          "text": "Firmware Version"
+        },
+        {
+          "offset": 684707,
+          "text": " checksum"
+        },
+        {
+          "offset": 686119,
+          "text": "sample_white_dark"
+        },
+        {
+          "offset": 687628,
+          "text": "compressed"
+        },
+        {
+          "offset": 689670,
+          "text": "MixedI2SCompression"
+        },
+        {
+          "offset": 690948,
+          "text": "ExrCompressorType."
+        },
+        {
+          "offset": 693458,
+          "text": "JPEGProc"
+        },
+        {
+          "offset": 698967,
+          "text": "metros del firmware no coinciden con ninguna versi"
+        },
+        {
+          "offset": 709482,
+          "text": "Firmware parameters do not match any known version"
+        },
+        {
+          "offset": 713567,
+          "text": "device_i2s"
+        },
+        {
+          "offset": 723512,
+          "text": "Error in Huffman-encoded data (decoded data are shorter than expected)."
+        },
+        {
+          "offset": 728118,
+          "text": "Invalid JPEG"
+        },
+        {
+          "offset": 736937,
+          "text": "Unknown JPEG marker "
+        },
+        {
+          "offset": 737660,
+          "text": "The data collection contains scans from incompatible devices or firmware versions and cannot currently be used to build models."
+        },
+        {
+          "offset": 748397,
+          "text": "InvalidNumFirmwareFiles"
+        },
+        {
+          "offset": 750509,
+          "text": "JPEGInterchangeFormatLength"
+        },
+        {
+          "offset": 750565,
+          "text": "device_firmware_file_version"
+        },
+        {
+          "offset": 752928,
+          "text": "B44 compression not yet supported."
+        },
+        {
+          "offset": 753408,
+          "text": "image/jpeg"
+        },
+        {
+          "offset": 755350,
+          "text": "HttpClientResponseCompressionState."
+        },
+        {
+          "offset": 755853,
+          "text": "Unsupported Compression Type: "
+        },
+        {
+          "offset": 767558,
+          "text": "Error al preprocesar los espectros De la recopilaci"
+        },
+        {
+          "offset": 768242,
+          "text": "Invalid Huffman Codes"
+        },
+        {
+          "offset": 773587,
+          "text": "application/x-7z-compressed"
+        }
+      ]
+    }
+  ],
+  "limits": "ELF sections, exported symbols and located strings, not recovered Dart object-pool references or control-flow. Generic crypto/codec names do not establish payload use."
+}

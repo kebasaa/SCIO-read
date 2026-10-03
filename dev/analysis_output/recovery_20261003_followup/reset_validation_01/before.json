@@ -1,0 +1,58 @@
+{
+  "identity": {
+    "sha256": "e8ced6047c582b426cbb8fa516765d98033d5c85bc0f37fb0f0139d1950d9d28",
+    "bytes": 28,
+    "firmware_version": 147
+  },
+  "timer": {
+    "sha256": "a9c3f3289588fa5782635676dfb0498938914a79febc34bdf881aaa888f3c70d",
+    "bytes": 4,
+    "timeout_seconds": 360,
+    "app_display_minutes": 6,
+    "raw_hex": "00006801"
+  },
+  "file_100": {
+    "sha256": "fc87e76b2c2bfefb9ad6e291ec362437088be06c29e94fac5ec289eae09337c8",
+    "bytes": 16,
+    "words": [
+      100,
+      1714,
+      3,
+      97267
+    ],
+    "checksum": 97267
+  },
+  "file_101": {
+    "sha256": "4a8e9694cfa59c9e4cecb412ff31dd670103d80a75539aea7a3ed7ef68a4f3c1",
+    "bytes": 16,
+    "words": [
+      101,
+      96,
+      3,
+      6080
+    ],
+    "checksum": 6080
+  },
+  "file_102": {
+    "sha256": "9644764042533a378bccc863c17988f9860eafa94242b986011a90dd3fc427f6",
+    "bytes": 16,
+    "words": [
+      102,
+      140,
+      3,
+      13587
+    ],
+    "checksum": 13587
+  },
+  "file_103": {
+    "sha256": "82abc214498b3f53f12b7eadce8877b46901736a35dfb44cd262932081277a69",
+    "bytes": 16,
+    "words": [
+      103,
+      1166,
+      3,
+      36371
+    ],
+    "checksum": 36371
+  }
+}

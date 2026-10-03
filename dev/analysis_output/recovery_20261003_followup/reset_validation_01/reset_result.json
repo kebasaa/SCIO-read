@@ -1,0 +1,7 @@
+{
+  "command": 131,
+  "payload_hex": "",
+  "maximum_attempts": 1,
+  "error_type": "ScioTimeout",
+  "warning": "No response does not prove reset failed; never resent."
+}

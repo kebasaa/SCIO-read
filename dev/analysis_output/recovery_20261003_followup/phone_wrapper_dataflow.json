@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "this.iSCiOClass = Class.forName(ANDROID_HARDWARE_ISCIO);",
+      "matching_lines": [
+        153
+      ],
+      "observation": "Loads android.hardware.ISCiO reflectively; obtains SCiO_service through ServiceManager and Stub.asInterface. Implementation is outside this wrapper."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "getMethod(\"getMessageSize\", Byte.TYPE)",
+      "matching_lines": [
+        204,
+        239
+      ],
+      "observation": "Both calibrate and scan query buffer sizes using byte selectors 1, 2, 3 before invoking takeSample with three byte arrays."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "getMethod(\"takeSample\", byte[].class, byte[].class, byte[].class)",
+      "matching_lines": [
+        210,
+        245
+      ],
+      "observation": "Returned arrays are Base64-encoded. Constructor order maps buffer 2 to sample, buffer 1 to dark, buffer 3 to gradient; no numeric decode here."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "return new TemperatureResponseCommandHandler.DeviceTemperature(25.0f, 25.0f, 25.0f);",
+      "matching_lines": [
+        274
+      ],
+      "observation": "This phone wrapper returns fixed 25-degree temperatures; calibrate stores fixed 20-degree before/after values. These constants are not measurements."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "return 128;",
+      "matching_lines": [
+        66
+      ],
+      "observation": "getFirmwareVersion returns fixed 128, not a device query. Do not infer actual firmware from this wrapper."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "getMethod(\"getID\", byte[].class)",
+      "matching_lines": [
+        301
+      ],
+      "observation": "Allocates 16-byte buffer; getID return count controls byte-to-hex conversion, then uppercase preference storage. Distinct from BLE handler word-swapping."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice.java",
+      "sha256": "be445b58669447c3d6847484a907df58c361f837796240279628fd2f5b477761",
+      "anchor": "getMethod(\"getI2STag\", new Class[0])",
+      "matching_lines": [
+        322
+      ],
+      "observation": "Obtains I2S string from service and caches it; no local key derivation in this method."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

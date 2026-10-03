@@ -1,0 +1,12 @@
+{
+  "name": "sample_dark_intact_substitution",
+  "status": 422,
+  "response": {
+    "extra_info": "high_ambient",
+    "error_type": "InvalidScan",
+    "http_status": 422,
+    "message": "Invalid scan, try again. If you receive this message frequently, contact support."
+  },
+  "spectrum": null,
+  "finished_at": "2026-10-03T10:14:10.131+02:00"
+}

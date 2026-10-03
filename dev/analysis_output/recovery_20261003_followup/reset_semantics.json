@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/sciosettings/RenameDeviceActivity.java",
+      "sha256": "c3dd220b1e95148f4d31677bc6a5ced5c05a482663c026cf39fd9e8b2fe37c2c",
+      "anchor": "RenameDeviceActivity.this.performReset(trim);",
+      "matching_lines": [
+        133,
+        145
+      ],
+      "observation": "Rename success invokes reset; performReset retains the requested name in app preferences. Supports intended restart semantics, not proof of device-side retention of every setting."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/sciosettings/RenameDeviceActivity.java",
+      "sha256": "c3dd220b1e95148f4d31677bc6a5ced5c05a482663c026cf39fd9e8b2fe37c2c",
+      "anchor": "on timeout - reset - good thing",
+      "matching_lines": [
+        188
+      ],
+      "observation": "Reset timeout is explicitly treated as an acceptable path to closing the activity; do not automatically resend a timed-out reset."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchor": "this.state = State.RESET_SECOND_SET;",
+      "matching_lines": [
+        374
+      ],
+      "observation": "Reset is a stage of the firmware update state machine after transfers, consistent with restarting to use updated files. Device implementation not recovered."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/onboarding/OnBoarding2ConnectActivity.java",
+      "sha256": "6dbdf7411ddc5e955234e07b098b47665049a4d31b9d6507aeafd459c958b6ea",
+      "anchor": "OnBoarding2ConnectActivity.this.scioDevice.resetDevice(new ResponseCommandHandler()",
+      "matching_lines": [
+        459
+      ],
+      "observation": "Onboarding invokes reset after rename, then checks calibration need and disconnects; not a documented factory-reset workflow."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

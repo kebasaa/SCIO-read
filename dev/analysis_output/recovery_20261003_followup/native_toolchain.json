@@ -1,0 +1,63 @@
+{
+  "blutter_source": "https://github.com/worawit/blutter",
+  "blutter_commit": "4a60ac648bf448c5a7596437243bcd0b9376fdf0",
+  "dart_source": "https://github.com/dart-lang/sdk",
+  "dart_requested_tag": "3.7.2",
+  "dart_commit": "9594995093f642957b780603c6435d9e7a61b923",
+  "compiler": "Existing Ubuntu GCC 13.3 via WSL; MSVC 18.9 confirmed as fallback",
+  "compiler_installed": false,
+  "system_packages_installed": false,
+  "dependency_archives": [
+    {
+      "file": "libcapstone-dev_4.0.2-5.1build1_amd64.deb",
+      "sha256": "13948880dc77094032d31792a502c73d5f72856f75043116dfd5b2ceabe070ea",
+      "bytes": 758978
+    },
+    {
+      "file": "libcapstone4_4.0.2-5.1build1_amd64.deb",
+      "sha256": "c2b92fa793412f00fe14f3a8e30bb73b1138d237bafda520f291db33ed475e0c",
+      "bytes": 655652
+    },
+    {
+      "file": "libicu-dev_74.2-1ubuntu3.1_amd64.deb",
+      "sha256": "612b98f4fcfc6ebc57a1b21c2695174694db5a0b7ff760b5d41032076c792398",
+      "bytes": 11892666
+    },
+    {
+      "file": "libicu74_74.2-1ubuntu3.1_amd64.deb",
+      "sha256": "c9a70989678660eed9a1e904c74fa043da8bec8e2036856fc16e31ced79b04f8",
+      "bytes": 10860078
+    },
+    {
+      "file": "libpkgconf3_1.8.1-2build1_amd64.deb",
+      "sha256": "fc3a57e8f931ec06cb7c51acc56878f1fec247ff02a7adcab26905c2faeb2792",
+      "bytes": 30652
+    },
+    {
+      "file": "ninja-build_1.11.1-2_amd64.deb",
+      "sha256": "6a17f76a0f75586f1292f6c61a9b07fd0dec963baf6a102b17673f601c6b323a",
+      "bytes": 128926
+    },
+    {
+      "file": "pkgconf-bin_1.8.1-2build1_amd64.deb",
+      "sha256": "7a812f05ee1610154b433e2ad54f6e4163fcbb306b9fb31afe959afb2e5e1545",
+      "bytes": 20730
+    },
+    {
+      "file": "pkgconf_1.8.1-2build1_amd64.deb",
+      "sha256": "834a58031069d97d7cfb8b2f5bfd5effc69cecf7f30cc362071875f1f8dc1828",
+      "bytes": 16790
+    },
+    {
+      "file": "python3-pyelftools_0.30-1_all.deb",
+      "sha256": "801be24d8499fbb44ad7710c9a212e2456c80691f16fa266eab6de35e82274d8",
+      "bytes": 117856
+    }
+  ],
+  "local_tool_changes": {
+    "blutter.py": "7ab1613c5bd787611a48d5733866ecf1292d381c8e4428d42c2d2fb6822bdd47",
+    "dartvm_fetch_build.py": "1556066636994162c843517f059950f6ef3daf184693d5de01529eaae2c80570"
+  },
+  "change_description": "Ninja build invocations limited to two jobs.",
+  "limits": "Source/dependency provenance, not a claim that build or analysis completed. All third-party binaries, source and analysis outputs stay ignored under dev/private."
+}

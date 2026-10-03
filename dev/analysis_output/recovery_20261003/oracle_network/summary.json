@@ -1,0 +1,250 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_word2",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_begin",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_middle",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_end",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_dark_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_6",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_dark_word2",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_dark_begin",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_dark_middle",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_dark_end",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_gradient_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_gradient_word2",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_12",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_gradient_begin",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_gradient_middle",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_gradient_end",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_word2",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_begin",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_18",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_middle",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_end",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_dark_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_dark_word2",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_dark_begin",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_dark_middle",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_24",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_dark_end",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_white_gradient_status",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_gradient_word2",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_gradient_begin",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_gradient_middle",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_gradient_end",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_30",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_boundary_23",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_boundary_24",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_boundary_39",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_boundary_40",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "sample_intact_substitution",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_dark_intact_substitution",
+      "status": 422,
+      "spectrum": false
+    },
+    {
+      "name": "control_36",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_gradient_intact_substitution",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_intact_substitution",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_dark_intact_substitution",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_white_gradient_intact_substitution",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "sample_swap_sum_xor_preserved",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

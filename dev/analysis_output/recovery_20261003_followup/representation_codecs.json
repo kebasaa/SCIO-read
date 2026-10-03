@@ -1,0 +1,4513 @@
+{
+  "cipher_step": null,
+  "protected_blob_count": 75,
+  "exploratory_blob_count": 225,
+  "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "observations": [
+    {
+      "blob_sha256": "6d1fcfbc5c3a6d96adb08923b66013e1423cd144ad92f3101ce529eb61ad3958",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "swap32",
+          "codec": "deflate",
+          "offset": 1,
+          "consumed_bytes": 14,
+          "trailer_bytes": 1777,
+          "output_bytes": 268,
+          "output_sha256": "4d5d5a3b2065598e66441d959ce06924abbdc81f8aca7816dfff958e10362f4a"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "b8e8f675f644ef9224b5b079fe9b04012a1bf439965c71ccbcee210287eb3e43",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample_dark",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7ceff50e1a25f2974b277314dd28640a314a95155e596d9ba578075015536b6d",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample_gradient",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 5,
+          "consumed_bytes": 11,
+          "trailer_bytes": 1632,
+          "output_bytes": 45,
+          "output_sha256": "f212dc822830894f1a4512297fc55912039680d4301d86bd774600370673e453"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "21519d025f4eac3063d209bb1cccb92a088da1ed3e23701ea809f40cc0d0d322",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample_white",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample_white",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample_white",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample_white",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample_white",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample_white",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample_white",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample_white",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample_white",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample_white",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample_white",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample_white",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample_white",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample_white",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample_white",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample_white",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample_white",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample_white",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample_white",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "85342c6fb6be697f5abf6f4eb4b6b9d06295839b93ca5e8da9cec783513b432d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample_white_dark",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample_white_dark",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample_white_dark",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample_white_dark",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample_white_dark",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample_white_dark",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample_white_dark",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample_white_dark",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample_white_dark",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample_white_dark",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample_white_dark",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample_white_dark",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample_white_dark",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample_white_dark",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample_white_dark",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample_white_dark",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample_white_dark",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample_white_dark",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample_white_dark",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a5645f55d6295ee4610dbc328467d9b4439b27a2175d62b44c9546dbf29f904b",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143337_calibrationbox_143337.json",
+          "role": "sample_white_gradient",
+          "record_id": "3131ccfcbbcf03eab9427be5479a5e8a69ed6dc8ec9630558a03316f4a58bb3a"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample_white_gradient",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample_white_gradient",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample_white_gradient",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample_white_gradient",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample_white_gradient",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample_white_gradient",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample_white_gradient",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample_white_gradient",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample_white_gradient",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample_white_gradient",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample_white_gradient",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample_white_gradient",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample_white_gradient",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample_white_gradient",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        },
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample_white_gradient",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample_white_gradient",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample_white_gradient",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        },
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample_white_gradient",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "af51be35af49021f52661b939d4e7b9037616e648ebad5bae3a6b65ddbd047b0",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f167f0f4860f60cf49f7d2e5396a1beba1b67bcea511717b2b3b8d5d50efd09d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample_dark",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3810f80bdf2c016f96b3e4dc63181f4c784c3e7865e583c0f0e29061e94c79af",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143457_20200604_dead_needles_log00.json",
+          "role": "sample_gradient",
+          "record_id": "62ce9b5f2187fcf2f4e2eb523f6bc1ee976b6a7aa4ddd8a060399da700d59fbb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "bd59d6805dc1a76f84c359f2716b515dc291548b2ab57e15c9a82908ce17ed12",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "14f8ea22224f60a6aa08f36975e932e86b4ada54da2e629b029fe9a4ededb414",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample_dark",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "07ad3320329eebda62e667bd12283d208fa90b7d2db53fb9bbb64bfb37c016f1",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143505_20200604_dead_needles_log01.json",
+          "role": "sample_gradient",
+          "record_id": "108f4cad5f47844f303d9de3beeff70aa30bbbe420b6d97a796601cef56970f7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ca364f82ae7b8f256ed70bd8675c3b4ee9a8bea1e73495becb1eb17707f3700d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5baa2865275b7ae9d1ad157189a14811b606c63d6308299714d2ffdb84a84110",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample_dark",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5cb04abee078534fc043d50aa51b042f46699312c32a73d2acd8f9e42916cdf2",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143513_20200604_dead_needles_log02.json",
+          "role": "sample_gradient",
+          "record_id": "68aa6aa6fc858166a4d028318983422be5bbfda3629de5376dfbcd13c4e89a20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "88f72ff5af1d35ea75454addd13740522b5707e2c54b565517cc9bd87606f831",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "061bc6966908b0983f95c5c77ea0352f06023bc3529688ecff82c1cd1cb31d24",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample_dark",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "bb655a2fbdfdeca69c2ae7c37601468cd6db28944cd877f303ad30d8dafc9f6e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143557_soilcrust_143557.json",
+          "role": "sample_gradient",
+          "record_id": "bbf7aee705bf8436bc00457076711016be86e36e73c586c67fd63e1f82f5d466"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "cf196f789cdd0538a5beb6aebf14ee5b912fb16dd041b22c55ec47a1eaa447ea",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "768f5f474ce00a21ae4848371c0843fa02d67bbd095cf873e1a24dbadf803795",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample_dark",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 29,
+          "consumed_bytes": 26,
+          "trailer_bytes": 1737,
+          "output_bytes": 76,
+          "output_sha256": "d16cf546654eb338516e9629b17c2c04567747e8f770806110cea1afdd772af5"
+        },
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 31,
+          "consumed_bytes": 24,
+          "trailer_bytes": 1737,
+          "output_bytes": 74,
+          "output_sha256": "e6940ed9993ecaf704805185df1223fad3c5d0b5b6605eebc9a2a18db3fbfee5"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "75eec8a3924dedd221e8d9b7f2d16df1472284d6582905ed028c57648e6b3670",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143614_soilcrust_143614.json",
+          "role": "sample_gradient",
+          "record_id": "49771da9c4be7e3607438a4b3b5e5064b740329bda0ff9ff0e32d33af49a1ab6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "96841201c4d8ec6c35113112a9edd61c4f78c0e4857ab5456d186112181e2476",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "89736490182392e2008abd96638f861bb9dda84780ac0bc63ebc1d30a2cde0a2",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample_dark",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "459e94c1656491b24ca18de04c4135e0771a11334195365930ea666a82a8ff7f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143624_soilcrust_143624.json",
+          "role": "sample_gradient",
+          "record_id": "57b619c2707192dec1e5e682d6d39f2d913fc2d3ed2161c5e890bc5195bf5fbc"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b4568ef6ab150ffee3dfff38f8a0caf325ea0d9f40369c74b87e03120c3a263a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "81d71515b58d2ae21c3b42c1e2dcd04b8ca1814b9edef10cbe834119bf439407",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample_dark",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "6c21dccc4b11a4c636731d82388c3ec42c6429730ae4f3c1a51b6ee82f032945",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143633_soilcrust_143633.json",
+          "role": "sample_gradient",
+          "record_id": "150d53b6cf52fe34eb8e27a1483e98b44c0701ca0665d944f94a8abd93f6a5b0"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "c407d30606b3fe688eb9e48ff1980a24e7ccc07d454174ced8898596a1d2b32d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "429b75050b63dffa073e7dd65d1351084b45a2d986d0766dac6399de2892c755",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample_dark",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5e9b49a5640eaa27cdc97c012f2759683eea067bdef9910640f8033d1e9cfb73",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143642_20200604_soil_crust_log04.json",
+          "role": "sample_gradient",
+          "record_id": "9a82b2c242b01ab7e387ea86fbdb05e5b84b2028cec1c904a1f1819da21b7d62"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e3509882abdb2129ff1b878187cd7c891d6ae4d4eb671bc78e26c54eb8b52885",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1dcc828698ad79b151f46e81ece0b35dd26d233e5bc75994715df775f44e0448",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample_dark",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f7a70423afb8fe020c24cba6b465cf08fcf28e1d54f84f0a592528cb0dc3d46c",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143721_bark_143721.json",
+          "role": "sample_gradient",
+          "record_id": "17819ccacc6bfda269671b5966f6aae384f7c2e4a2ef715f6db9c532bb4619a2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "2aff9e2cd4b6a72528eeb811d953295616579ec41e57c50f24019f4488901a38",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "62a60ca2910b94a778e482fac66fae32efdb1919aeddbfece0d5d92f92b23fbe",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample_dark",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "d85aacae3cd1cd74039cb3646704ceab2076c49a70e9aa8f16845fa09a09c22e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143729_bark_143729.json",
+          "role": "sample_gradient",
+          "record_id": "ac23d3769957e26d466eb655d8d012923ae304c89dc1285507403e216890dfed"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "30bac8d5db63fbe0d893a4c579d0c8aeeef827adb6af604c991b6929aeed8769",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "9ebe7dd272a1bd17cce0735b4199c67fce1be0e00260e7d2c4562b8aaf0ab172",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample_dark",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "21fa52b948026e9922342abe1fde0d0261ccd40f5aa44e70deb57e2a5d61f777",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143739_bark_143739.json",
+          "role": "sample_gradient",
+          "record_id": "f81d32d0c43663c2f3ed5c65a468bfc4daee898cc00040fc7aabd68a25aa33d7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3a4827bf38dbe35a82e7e6a67ca03d3d246a7123a4bbc708daea64f079951897",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "94e8bc4c1e3d3baab1a544dfe9e378120dc1dfdd17707149c1f5d9b0fb781808",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample_dark",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "82bb41fdfbb0aac79503d7e1cf9477488124030e19cdc95df07db63773e18d8e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143746_bark_143746.json",
+          "role": "sample_gradient",
+          "record_id": "bbf0fc158fb23fe4a900576084ac38f3b40d7abd24a6bac75da6af441981ded2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0e5b4d8277b16f567ffca79d934ac849e1d1f9eca8c0cc7bdc5e7813b37d9b63",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "161b06f2ce835dc62058b75680ccb6ad82b2480023840ac5e2e2fbaff73cbf6d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample_dark",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "69927e9a2dd65f4df72c0ac0fb05613b4e5a155348608a67710b05041a330946",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143757_bark_143757.json",
+          "role": "sample_gradient",
+          "record_id": "8cc3808759707a80d0f4c66783cea8d26511285e0fe060153cd32dd460a687c4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "da9dc883254ca7d47725a625c29fc29056b0bf6d5713650c60a8885bd64753d9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4ce5908132cec9bd5269477ec020ba4e0fe6da13c8277c4a9cb02d2f5f004a06",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample_dark",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4cd3ec38726e5b566c36800c0f6d2bd2f9e9bdbc9068aee9ad5d4f2b3cb68baf",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143806_bark_143806.json",
+          "role": "sample_gradient",
+          "record_id": "05b4652fc4479330b6cf0b4f0f2fb4105bc844a9ea7c605f67d7aa0af53f3e98"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4d5fe2d3e48aebc19065b053271abc9e9ae943e1c4fe294a2fa43997d7d022b8",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "396cbdd45a53256319be2596368a3bfb3c706ad973dfa239a8d7f8e19588b822",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample_dark",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "8f779b9293eeff7eba4dfebbebbcaec25416ec9b94a859e3a0c9b20c0982195f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604143955_rock_143955.json",
+          "role": "sample_gradient",
+          "record_id": "bd0139980a197c5835957520ca48cf3776cdbf21f0cf2d2d358d5e73a44142ce"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1e129c2d7ce85e801a940c0ea01e0d7a07a5eebb2fc6c13b8ded894bcfb0963b",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "abdb5a0e18016df5287ed3a25220f2018a874fcb5c39610f4d667a8cb8fa9b3e",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample_dark",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "89000b50ff01b001f287d3959f38f589ee7a7f20557f30184a9a704d3d4e1207",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144005_rock_144005.json",
+          "role": "sample_gradient",
+          "record_id": "21c56b0d4360613f2103ba82a910e0cf4ba60804e615ec214979d4e811f24dad"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "64fb3cad9ac34458d0a427190af8bed4c6d58d5bfc983c47d2a6482a03fe0826",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "fa5b1a5c8d7de30a53151f236363be25be664a59fc09f9ad269c59ec21e5b5d2",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample_dark",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a60363658ef2edbfc083e0603eafa85e991d5e30fc24af9d26897bf582b3753c",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144012_rock_144012.json",
+          "role": "sample_gradient",
+          "record_id": "d0901a3e51333111fd8a7893509a8510f1b41b17aa6992dfd12cd41befa43f80"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a26086a9bef408fb3ca9ef53af1fd1825c1aa52331c1029473dabba847f65a27",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e58251c4c30e0ee9fc080796d386275d226cf7483c76103724dc502b47a78651",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample_dark",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e4f544f82e907b9dce5f9653e929ef0d00b136deef55849ab460fe02cc1d464e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20200604144021_rock_144021.json",
+          "role": "sample_gradient",
+          "record_id": "b40c451a377abd910a17179a24cbe94b52fd97c8419936e6f78cf15e1020ba20"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "466f4da9badf7c735bdad705bf2e354bfe8aac95b5264a7138cb4fc2d886acc9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "8277936e033e10d2417cc85586eb3e7e4b847ba9645a139e595f3c8e5c4eef44",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample_dark",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5d2fb38059066a1dfaff84707e84e3e6bf238caeb5750cee566c9de9928f5fdc",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample_gradient",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b3f32abbe3bd0d9c614a4326178a671a7db2e6450792c982593b4550cc93a3e4",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample_white_dark",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample_white_dark",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample_white_dark",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample_white_dark",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample_white_dark",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample_white_dark",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample_white_dark",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample_white_dark",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample_white_dark",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample_white_dark",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample_white_dark",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample_white_dark",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample_white_dark",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample_white_dark",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample_white_dark",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample_white_dark",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample_white_dark",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample_white_dark",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample_white_dark",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample_white_dark",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample_white_dark",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample_white_dark",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample_white_dark",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample_white_dark",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample_white_dark",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample_white_dark",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample_white_dark",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample_white_dark",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample_white_dark",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample_white_dark",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample_white_dark",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample_white_dark",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample_white_dark",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample_white_dark",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample_white_dark",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample_white_dark",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample_white_dark",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample_white_dark",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample_white_dark",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample_white_dark",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample_white_dark",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample_white_dark",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample_white_dark",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample_white_dark",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample_white_dark",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample_white_dark",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample_white_dark",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample_white_dark",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample_white_dark",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample_white_dark",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample_white_dark",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample_white_dark",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample_white_dark",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample_white_dark",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "69c29a80ea43f40eedf94093996669e6394e52493de3479a770e6e54bb8b94f8",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample_white",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample_white",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample_white",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample_white",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample_white",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample_white",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample_white",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample_white",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample_white",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample_white",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample_white",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample_white",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample_white",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample_white",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample_white",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample_white",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample_white",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample_white",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample_white",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample_white",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample_white",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample_white",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample_white",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample_white",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample_white",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample_white",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample_white",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample_white",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample_white",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample_white",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample_white",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample_white",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample_white",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample_white",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample_white",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample_white",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample_white",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample_white",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample_white",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample_white",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample_white",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample_white",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample_white",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample_white",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample_white",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample_white",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample_white",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample_white",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample_white",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample_white",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample_white",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample_white",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample_white",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample_white",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "78579f1d462ed251348519164fb6e6a56a42489e59f12e1022f74082df7245f1",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143054_mirror1__mirror1.json",
+          "role": "sample_white_gradient",
+          "record_id": "2edbe626f093cd04f245abcc4e30eaea363c4aa5dc0f79903ae1e9c5652b5b56"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample_white_gradient",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        },
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample_white_gradient",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample_white_gradient",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample_white_gradient",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample_white_gradient",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample_white_gradient",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample_white_gradient",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample_white_gradient",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample_white_gradient",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample_white_gradient",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample_white_gradient",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample_white_gradient",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample_white_gradient",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample_white_gradient",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample_white_gradient",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample_white_gradient",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        },
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample_white_gradient",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample_white_gradient",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample_white_gradient",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample_white_gradient",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample_white_gradient",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample_white_gradient",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        },
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample_white_gradient",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample_white_gradient",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample_white_gradient",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample_white_gradient",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample_white_gradient",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample_white_gradient",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample_white_gradient",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample_white_gradient",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample_white_gradient",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample_white_gradient",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample_white_gradient",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample_white_gradient",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample_white_gradient",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample_white_gradient",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample_white_gradient",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample_white_gradient",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample_white_gradient",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample_white_gradient",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample_white_gradient",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample_white_gradient",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample_white_gradient",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample_white_gradient",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample_white_gradient",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample_white_gradient",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample_white_gradient",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample_white_gradient",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample_white_gradient",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample_white_gradient",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample_white_gradient",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample_white_gradient",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        },
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample_white_gradient",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7e68d942f34cd5c2bee8f84ec6ed598699e77f568f007fa820956837339cd58d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3520c671cacbe4b619eba01e12ab3d2eddd93f856faca68fe94853d288e43790",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample_dark",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "84f6f12aebf6df13f97b6d96a7a0e7cd8f497f6ed6312e74bdb73b9a97eda864",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143116_mirror2__mirror2.json",
+          "role": "sample_gradient",
+          "record_id": "485727e4ff0ef351e7720fc631a320ebeefd1e1fc670bd0bf23719d0ac82c769"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "2efe85b675099c0718ddb001e2d27a7107f2a4be9f69803b699c8f32f10d75d8",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "481c4690c662849aa24abbb6ebe38faac9d49fa6b80b0ae61a54e2731ba26331",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample_dark",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "37205a6fd7ed6de5de102a78b98deb00a0be433160dd99f2079fae8abbb6cc06",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230329143133_mirror3__mirror3.json",
+          "role": "sample_gradient",
+          "record_id": "81ef9c6ec899f995f585a7c0f9588dae66a364fb48f6a4cf8eff2cc619e3d6b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "164ecc837cc0e79333bc6466421b9e535678d49c2abaf79dea7c813ebde63db2",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "28fd6dd1523ac3d88d18cf448536fd584c32d3d8313e1880f4f91f96bbcb1155",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample_dark",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "c646bbff111278af8efe7b0f0bc7b1d7bc3f565ef204fc33e5801e828aef0c8b",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082305_calibrationbox1_tionbox1.json",
+          "role": "sample_gradient",
+          "record_id": "70e7bcb01cd6e3ff224b84ec937329555080e871d1dbb0cf7328ca81994f42ab"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "identity",
+          "codec": "deflate",
+          "offset": 22,
+          "consumed_bytes": 12,
+          "trailer_bytes": 1614,
+          "output_bytes": 73,
+          "output_sha256": "fcdb0e46c572b1a49fa834e7f1330d99fa1dffaba001b388eec1f8c2b606dffe"
+        },
+        {
+          "representation": "identity",
+          "codec": "deflate",
+          "offset": 25,
+          "consumed_bytes": 9,
+          "trailer_bytes": 1614,
+          "output_bytes": 70,
+          "output_sha256": "b34a3f8c994520d421cd8b25d8e09bf0920f209a31a7db0e054ffc2fa18e3b06"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "34b19068d2bd77b7cda61835f7265ca141862cebf6bc1af558c97d4f36fd8e93",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "2031eaab9b44c2d880577f7ceb70a308ea3a3f021531d800c59ea8cf518d7c20",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample_dark",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0547d430e97800cc1bd431af743fce588b9c14a58329ffba99779e9ac4dad908",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082312_calibrationbox2_tionbox2.json",
+          "role": "sample_gradient",
+          "record_id": "5469a42a94c622da6e5e16932ceb8b53e31c2ba973ac24c7071fb4fd6018af88"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "57bfc7b78d1b7a62602150bee634b718ae94d5258ee5a0de1c776e62b6ef4fca",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "88d456cc7e9e8c1d975c1cac2358f8c91226b4675ad7fb986d90f0111a372b4a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample_dark",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b01b0e4717b50771d62b2a31bc823856fbdd90e634c746d2692899eea96c9b21",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082317_calibrationbox3_tionbox3.json",
+          "role": "sample_gradient",
+          "record_id": "0a8900a2df2fdbc734308f0b335a2e81a682b804197beb7596c3d51df2e7ad4e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e387ddeb844bf681d28e9ba48fba269f511a2f1cb7185e39eeea35f35fbb2527",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "31ee0be3f67f47f752d023134574368f4c3a819e75f04ebac79b797dbd6cb64a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample_dark",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 9,
+          "consumed_bytes": 10,
+          "trailer_bytes": 1773,
+          "output_bytes": 56,
+          "output_sha256": "76431bb099a0c655e56080b1f56e571ffb23d4c9132f15a7524e461b8602187f"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "ffd3c04cbab9b4f6aa6573bcab5aaad24b9fcaab12f41a71d9a87617ad87528b",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082322_calibrationbox4_tionbox4.json",
+          "role": "sample_gradient",
+          "record_id": "c331bcea9f08f80b397f1b8f560157f8ac4e8c2d3675b6fc3fade209e1ecd8b5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "262d164c4e5e957292fcdf752bb5f103704e42d649d2fce1c81fa8b5e6c96d35",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "8323c8a16c36287e97c121168bae79793cdecd85cc875697ab3a18bf19be3678",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample_dark",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7f4151737700fd89764d796de4881f3f68fb2bb49a9846952a64b2e75d8ef84d",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082326_calibrationbox5_tionbox5.json",
+          "role": "sample_gradient",
+          "record_id": "88ac09fd08257ded23442a22f5548797eb000e2329f01fca9b658e36a56684bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1870f5ccaacff420309947fba26102ece6b7f3cb19333b0399651a70a23f808d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7808dcabd91805150816cce0caf8029d2dca0196ad9a1c9c4c444a3f1d93a090",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample_dark",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "39a14b4aba01f540308249cc99c92fb413a827d32dcc84fc8bd8a7207a875df2",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082403_dark5_an_dark5.json",
+          "role": "sample_gradient",
+          "record_id": "e5f2ffde431723d7fcffe63b490e272a91c14d928e784be596b6cb7571c08dee"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "95168334f3fb19e25d18d4d8bb214f7d6803c3fc388b023947941ea33ed695f2",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "94e4ab5a3d12ecdaae706ccad99225a9228b9a0d56382f33847d801847e73e08",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample_dark",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "bb4ae2389062a728e3549d946f6f9adf120a3939582aef8bd39f006e035fc812",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082408_dark4_an_dark4.json",
+          "role": "sample_gradient",
+          "record_id": "cc3ba7e5996a168d52ec0c38222613450b4048a10de8949d6556c8857a64afde"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "786fe234696c823455d9d94134cdbc2132b78271b5c4b40f5d9132d20a8d8c96",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "70cc9e307f3124dc37be64a6ad55110bbfd897b733dd93ce03efc53d3363b945",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample_dark",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "69078af87fdf61e07416c5911235829ebf4e6404b0e059aa4a8939712ea6fd8f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082413_dark3_an_dark3.json",
+          "role": "sample_gradient",
+          "record_id": "13b2df8caf9227ad4ccabdfa06915d1168fe3c4a5c91ddac9567bc5bc7959da7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "910dc03e4d649f013c465c0913e89642120a1125983b51c187aaa45541bbee6e",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f0a457004fc6e109298406c2c82a94f15b202123974edba9aeac73f95b385171",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample_dark",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ab3b9b22fa1df1b17a2b44120016a6aef5619107e7db88cf98d1900e20d83ad4",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082418_dark2_an_dark2.json",
+          "role": "sample_gradient",
+          "record_id": "6bbc1c0d7624145f73fb7a444af8c476f477da6df465aece881fc30abef63e6f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7a16359c560eca579c5ab84904803bdaf791910f575278ec113d3a33b2299842",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3934373c0c6ff9e6175dc1ab59488ceee44673abee0fd360258f5f815c5c3a53",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample_dark",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "bdafcfbe1e038674aa596358d208620fc3b8039e2074e3b20232b181785c7132",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082423_dark1_an_dark1.json",
+          "role": "sample_gradient",
+          "record_id": "5435033a555d67ecaaf658f6df3679510795e0b82d8dd12f687d269efacfa9ba"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "accb37f928034e936336c179af78e2747a19a6b2674141ac8c47eb9f51d8aa26",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "cad1cc05012e446db4b4c47255ff17476bf0ebef7b6b7d1cd74d4193f764be67",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample_dark",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "9b4ad728bafc79890ce9acbc8b824d328d2c0ecba0ab50006578a9ee35ec4ec2",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082626_wood1_an_wood1.json",
+          "role": "sample_gradient",
+          "record_id": "72424904abaa4fe5c6b1f6935e2ff1a4b36ec3c3aad6689e457246660a0e791a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "01f7646c2d73176702032c235d1a1c5568f516af2e7ca7b934344b7f0ef8af39",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0862e4c30732e3e2847f180b77e1d0baefc403ca9ef64628668aa07a36f56d97",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample_dark",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "91dbe8dc1ae8bdc6541c1e00c212b82b66c6e849cada94f9dde7c15cfd9d449c",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082632_wood2_an_wood2.json",
+          "role": "sample_gradient",
+          "record_id": "87c36bea17dc80982cfd4d55aa88eaa9e6d79340f6186fe91877b6802b4ce561"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5465a281dc2d56bea038afda342ebccb00ead63d8755901531fc01a828c96a53",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "fb4103c2859d306d470e452496a780494a34027c5c0077b3425511c0f532d780",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample_dark",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "292b3031044a09af3fc9a209f042a329c7d744ac521ac0cf511250fc4151fd6e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082636_wood3_an_wood3.json",
+          "role": "sample_gradient",
+          "record_id": "2996156fc0574d37f3b9759f19abfe3326588e2eccc359daf1c4a915fb7db6e2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "28fcdd8bea9595e34d09f3ab2be01d0c150b634729563bdf25a20bc7ad127d99",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1974e9c5c1c75917f9774ca37f4de1526e8ebbd1a74aa538fa6449a682cb89a9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample_dark",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "6380a700f67afb400d5876542dbcac80ed43b7b1c598d9c31f4149de32f1c9a1",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082642_wood4_an_wood4.json",
+          "role": "sample_gradient",
+          "record_id": "49fb16988dc0138779085fc81e2269502ab6af91afe55537be9e155f2e82d7bd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "341d79c61fd916de6532b722f3f642ccdf5797e6abd68963c75f86acbd663586",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ff9d407ab5425a2498755e9c236c3e7e3f4b41741a5310e8ba4a8e14ebaee195",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample_dark",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "dac927c9809b84d1afb86c5751de85d07f57ebbc6dddb9b9ceb07e02b65fcf6c",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20230330082647_wood5_an_wood5.json",
+          "role": "sample_gradient",
+          "record_id": "29d9fec7a746a2558331ddb0621870c2fb0eba835992221ff8bedff3d0a13acb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3bae2ee2708b81673b69b95ac35321d15014711d7a3b27dba7aea8904484017f",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample_dark",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f8338d20771b635d9c9d370ecd5d875f7d246b280cd38f975c612c9b068d2bf9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4159937eb3cde26fef133a2cf2e5eb633b2670f4a10fc73a69039cfc07e3e7a2",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155513_20260907_hand_60907_hand.json",
+          "role": "sample_gradient",
+          "record_id": "eb0ff35d3ead0649985ebf94de455f70763354a3f2c3d2401fed5623b76468a5"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "d87970e4f207467f055f6821a33bcc18e0c8e2c8673443ce4e8fe3513d8a894c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample_dark",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ec542f4bc52c7dee035073a236d61faf3a4f56599d365f48c48f99cf63121688",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ff4e74a82a1fbd5590f4a66ee576dba554634e169c81cacb0d78b94fa6a30bda",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155826_20260907_burst1_907_burst1.json",
+          "role": "sample_gradient",
+          "record_id": "7dfb6338054376e850d8a1ab73fd38e8619e4d3b1dc667071973017ba54bc527"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f588a15805cfda56e71d7828f34a9dfe1f956b79e3d3dc7e4004b4c178e67977",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample_dark",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1bd80d98adaf0f719318fb0ca03f4f88df923579c16c4c7558850469c07b7057",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "9a12fd88a166a1e2cfec79e75bddf8eaa6587381f7a4b1dc2dd5c656dcffed06",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155829_20260907_burst2_907_burst2.json",
+          "role": "sample_gradient",
+          "record_id": "a817faeb25f33ccdc03e31e45b82cacb56a7822af3b2545227b89354e97f73e6"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "09edb15ff6b13484e00860e0b997faffb6ad318939dd7657f72acae2df22cb6c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample_dark",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1c9083eca36d0ee88cb287c4cb01a4be121738e4e494d57d3162602a7c39bd77",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "17ff1a4f691e88a86da434ba0595b16a9919599cbaa39284a57e2e65483f6540",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155831_20260907_burst3_907_burst3.json",
+          "role": "sample_gradient",
+          "record_id": "f9a4797ddf30b1bc962aa33e65250e3f3cf99a4bc19796328b2abed61f018e2d"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "11d52ef098b42d87dae18d526f052f1a637224bc81bf01c6ff4d6890a238748c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample_dark",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "d82b2ce3cb82e426ecab2c084b7e4947cc25ec3b47af23681e427921503e5501",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "c78a17e162347ca3ca9e2ef582c286c557b921cdb1f7476f7425fdd4df58b97e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155834_20260907_burst4_907_burst4.json",
+          "role": "sample_gradient",
+          "record_id": "6f1eb69513cb89e6e80cca378f17c2def1f295bdae8e697954b5a658d851f469"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "be3c80ead954da700ce461c27977cf8f9dcb26050a5ff8a26dc163d1c305bd2a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample_dark",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ba124dc08a9cc37e6336f28f8c3970c4e7a9dba4addd06a5a38e175bed01514f",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "identity",
+          "codec": "deflate",
+          "offset": 24,
+          "consumed_bytes": 8,
+          "trailer_bytes": 1760,
+          "output_bytes": 159,
+          "output_sha256": "8ba9757129e4433abfb4f11abca04b52d95c12369d50da6f6fa83e01ebf388e2"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "624d24c971a527c5ab226efcf43d02d194f649871eec9f28f3be1347463b964d",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907155836_20260907_burst5_907_burst5.json",
+          "role": "sample_gradient",
+          "record_id": "e336c2b67d8f06f6e7feb5e4eddeb25bfaa6e711a96aac64ffb0ea477e94e2b4"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "f45781ee822a7da08138004e066c9f0728d2ab60827bdac6a9ddd265e26b58ae",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample_dark",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "69d0fe70d4fe7969ccc6958ac087364731697fabc092f27dcd7a13799e113795",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "aa14821695760b656a177fa28688752dc05e2c3bd02442b7269851eea08b4e17",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185028_current_static_static_001.json",
+          "role": "sample_gradient",
+          "record_id": "33756c9519a6947550d0439e705bbedca00e631af7cb709f30436a67d8c38947"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0d2cf7bab99f8c97e3bf3bf0dc71aa69f2d23395d19a34c6b9af99ca9b004084",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample_dark",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "af21741f9c4595082bf1559147428e02f7621c5bda55da64fd484064b4a51c5c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1710046317cb8947b97d46ce34cc2a39bc8c87a00a43ab6c9b19d59741ddc3a6",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185030_current_static_static_002.json",
+          "role": "sample_gradient",
+          "record_id": "08372bbcac32fc06b39a96fba8f58a3e3c95c667499ff182d0674f03c9fdb580"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "identity",
+          "codec": "deflate",
+          "offset": 22,
+          "consumed_bytes": 31,
+          "trailer_bytes": 1595,
+          "output_bytes": 262,
+          "output_sha256": "97f2a2e19a0eb86c326c67056b732517602e52c27e69d0989a4199b7e26db422"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "f8ef900405f19f5dd9aba0d4177d09c56f73e43790b991bb540b926409164463",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample_dark",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "swap16",
+          "codec": "deflate",
+          "offset": 4,
+          "consumed_bytes": 35,
+          "trailer_bytes": 1753,
+          "output_bytes": 154,
+          "output_sha256": "35d93ff408c5126c17a481c23f46ae380f19f40371feeea252e751716c6d9d72"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "08ac3de6bb9c3e9abf2e185bf88c3662fa1c7e8b60172968d6c6fe82d13aa81b",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "6a0bdfc3878d706e08b299e7ca4d92467b44256e89ee8acccf45bb74d9440d68",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185032_current_static_static_003.json",
+          "role": "sample_gradient",
+          "record_id": "2c00bb3529720d87b850a4d84ada72bdbec608dd91744c3b5865838485b0b096"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e2f51f79699f0a28e65df570b31903258731e201c649d31e8fcac130c1a0c31c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample_dark",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e3fc03049ef440406bb20697e2def579fc58ca3c897a79dab54692b11f9113eb",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "fb1cb6b8ddec19192e768897a78cb8a001638a6a21bf949ea7edd1e2777d1f0e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185035_current_static_static_004.json",
+          "role": "sample_gradient",
+          "record_id": "b74de56fead1bfc37f488033c3a203ee683497108eac2a97f246336c46848e48"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "68c6e271953424e006bf34a113d00504d108be9ff07b1f92b160e4f3500d7c3e",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample_dark",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e491bc000501a3cdedb2902e52fce7b7318ae2c51db4c0668079771b289fc3ea",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0b399b69d1d2652b65f0965960cceef0e24d8b6438b8bc3b3b46f3f0e57da626",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185037_current_static_static_005.json",
+          "role": "sample_gradient",
+          "record_id": "b52dfa77dd8e33f6c6a4ea2a91fb4f7cae4633036d52e19bf1a0d4a708a3ba58"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a76ceb1532675cc427c3aecfbd8bc63bcc8ad2f74a4591b8ea4b8e5d4878e694",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample_dark",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e5f53ebda441ebfcec6e4b62f1827b68a05d5934609ddce7e2938815ffae7c31",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "c57c76f6a7b5ecf6201fc6080561095af0b180743bd3b0e84c07757f070e3f6e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185039_current_static_static_006.json",
+          "role": "sample_gradient",
+          "record_id": "c70a7ce55dcca5dfb318449999018f906086d06753e26ce4bbaf3031dc94ab35"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "894b656c2f0ab28e4086238ec61f6db95e79172d2f0201ac4d0c74b6279d6e77",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample_dark",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5eaae56b2e83adba5f6a19255b095d9906fa157566285b1c0d2bdb9bcff368e5",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "d26c3d52eac31eea41fb793ccae3dce4d7e9a88928ed827a58de84a385538bd0",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185041_current_static_static_007.json",
+          "role": "sample_gradient",
+          "record_id": "420a5eeb42246f5e28b8bc0f4bcfbb8cc1b8fc3c3983411266a4faa2c31b617c"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e339ba8c569c7e301463f32be6babeb7ebb065244c042955e6f928d6197154de",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample_dark",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "685ab970e331a12c1c5d2b518aabe35b3bc63418c53d658843132eaa1486bc16",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e64080f224781bb20637a4206d23c2e0bfb4386b29e249c8ddbcd333cfa7608d",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185043_current_static_static_008.json",
+          "role": "sample_gradient",
+          "record_id": "15a2551ab6930c8fb01de0a3b9af594cff07d88821b35130c6dd7c4fac6384fe"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "329572142b8d8382a21f90a6987f35082c9fe290e020e22827355b3801b2c4a3",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample_dark",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7510c48ec574a07408dfe0744ff86eab4294550f1837598b2d132a364f7e4646",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b4ad2c1350f7b9c1021c65d12718847a068cd52f8371d6b80b35641ed2abbc6e",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185045_current_static_static_009.json",
+          "role": "sample_gradient",
+          "record_id": "534049080ece7f1554d2bde078c695a2559f6057fcda57619dc6d72a8924d30b"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "736a6989b535cd734148af22dbc830063b8cf6a897d377a02a039948a0af1007",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample_dark",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "551db33ddcb84cf7cadd6b3169fd58b9580e0267ed956820f08818cd147d3b90",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b4b40b5446e2d46e0ba30bd3a44e3af459501df17ae52fadd13205b255cfe180",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185047_current_static_static_010.json",
+          "role": "sample_gradient",
+          "record_id": "9a95ee9736379cc26fe648dbac17f1ec236eed1b98ce659a12769e28d31b8ca3"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a656e88605c78aaf5748ed2f5020917734c3c9d851f5fd5c2dea40240c182df7",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample_dark",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b436be5c3cc50910216680c05a8ebc70fc11db05c9d5bf4dd90dd3ca4747fb5a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ce94e1c8fbce3c7c952383b7739ec2a96391d520b6f224d0294e8d51e236463f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185049_current_static_static_011.json",
+          "role": "sample_gradient",
+          "record_id": "4aedc37450b47d4f271c8015f56a379b6705ad34d0179460880911c3a2c1e944"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "edf625cba9b27fd8aeaa7b968806da711544b26bf332e7c8bc02e7cad17b1ccb",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample_dark",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4fe6a3dd0a2b2e5ac0307670ab87d25826bd8725cd18937e94990bb496950bbc",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "d715bfd30ce98a6256370e024f4252e2340560dba92862afd99b1603fdef9bde",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185052_current_static_static_012.json",
+          "role": "sample_gradient",
+          "record_id": "a79d6ba6b9dd91a1ebd9d000d59fc25fef399e03c54dbb4860fab79c85fd652a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "fb33d3a1b81adf513af8d2273325d24dc4d41dd9976d1bfc7761fd4c2d51f358",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample_dark",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "836374f961c99b407e001f66994ec68154b60a37f1120da636bddc988f4e0683",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b87b8fa7d9ef322cd6a0843698b0140b10e7706bcbfa9b91c6fd5b6bb16a5d06",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185054_current_static_static_013.json",
+          "role": "sample_gradient",
+          "record_id": "14b52a5a08f623cc4b68e0edecb0e03fe7e897db0da98f773911a8e375786d14"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "swap32",
+          "codec": "deflate",
+          "offset": 5,
+          "consumed_bytes": 15,
+          "trailer_bytes": 1628,
+          "output_bytes": 213,
+          "output_sha256": "1d2ff6d40be22d2e95398d5060d9b437580d4820491371079775fd738c02c5a3"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "101a571acce11a429681559f1f69ed3468a72995e3d97f8c328e6b0edbd24578",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample_dark",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e26782d6d36313cc26240b37a8564d70592e1bf5671556f96263d2b6c98c6773",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "b3f4fc67117c9b792065b581a205dad43bec92f4a696be4961485158f8be9dbb",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185056_current_static_static_014.json",
+          "role": "sample_gradient",
+          "record_id": "041cf457c5c28cac462ca732ba4d857e8400f9704282f927026fcdc1fbf5fcfb"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "46cc58ec1e7634125968f64ea79dee72a7c4c8dd92f90f52a985a258ed874b20",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample_dark",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "ab6ff2fe72a87473641d61d636b669971ae29de3bf0f8349320cbb2ca92ecdc5",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4eeb24f7f3f605b56b49fbff5d3d09e6ddf1d2048c0c554de1684c9084fc9525",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185058_current_static_static_015.json",
+          "role": "sample_gradient",
+          "record_id": "f4152be65903e4f8035f438d7cc5db616e46ff5aec9ea8007303ee5116d18ee8"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4c945c0aa6af5a589bd7c7a2516d53f81c54a86ffc80ba867ddff023b691f5b1",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample_dark",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "cdd0d28750f4b4ba934bb8004413d609b6f0cd8e8c26de2b5cf4a82f47cbf4da",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "c27c5e25470fdcc1523338a144d2d51828717de56bdae056549bdbd9b004693d",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185100_current_static_static_016.json",
+          "role": "sample_gradient",
+          "record_id": "82716b58994852cbe563b02f8f459713ffdf1bf01af1bd4632ba8939889abf05"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "2bec42020e970e731984ee6c317551d6a35de3f9ef84c6e0c2124488bfb8145c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample_dark",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "6d0e3f450ae26cc89e6574cb8ea26059b2ac228aa6dce120467d8f0f01022a38",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "swap32",
+          "codec": "deflate",
+          "offset": 27,
+          "consumed_bytes": 41,
+          "trailer_bytes": 1724,
+          "output_bytes": 606,
+          "output_sha256": "928ff049fe41766bf3f3d6ca13b13b62aac25f11dd6ce311da26a10aa495a3a4"
+        }
+      ]
+    },
+    {
+      "blob_sha256": "7e380917a91cc6a465ccb99e3dea4d64f758ba4a041bd24befdbe81831b431bb",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185102_current_static_static_017.json",
+          "role": "sample_gradient",
+          "record_id": "663e941500248abcbee2b34c5319979ecbe21a0b345d0484406d590282bdab2e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "20e675501babecd3da9477b183ea897c0025287eb1907e79d68f3370b3c2dab3",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample_dark",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "465ba8a01c3f61a70230d0190f000597aac07c982bec615e05204a440fd9c7df",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "8e3c85a384cef8c7862784b69e791e26ae94597b731d8ff88785e92898e2e94f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185104_current_static_static_018.json",
+          "role": "sample_gradient",
+          "record_id": "a446dff3c225b93fe13204438b6bc5b4b1d6501864717cb775c4176d36cf3243"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e3cf71d9b63f7795d3fc75c5e2f0bd90b9a674513cc5180f362e20a4501f9356",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample_dark",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4d8c263c5e03a11543177ff2a96325d4f687b8ef63af53f0ab6827d9017a854c",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "086006e8103c7416af5caa9f7f04f2796b4f33329c3ada1734f91c55d0b2cccd",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185106_current_static_static_019.json",
+          "role": "sample_gradient",
+          "record_id": "9b114c60e7b1a5add5f1a7cc2f22c26577868b3fd4963e4706d1dd16d29f0126"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "422277e700887c01c2d875951c35cd0eb4e1008fdd3839c9a7efd8dbf49b5f48",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample_dark",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7b09d063e7ed4d45e5141850d8df53344716f8f10a45fbf81dfabdb4359068d2",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "15494a0f7cd4bb420202a27d09a0bc8e3e7451682771b4b71a579637907cf8b7",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185109_current_static_static_020.json",
+          "role": "sample_gradient",
+          "record_id": "19444e4aa3bf87b1b733f785e5042b7f1c3caadc673c2c6e5eebbfcc1a0db9c7"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "3ccbe06d96efd15223178ee2cc334f03b0fd9c7e8f5c23235772bbafa056d35d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample_dark",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "45ebf2ca0d9eb72ac8272412981d850dcc677f710b5000d8541aa29fd4bf7868",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e38dd67f877ba70a887a36480ba6e447f7a0ccf9bac3a0349080b82f75320c35",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185111_current_static_static_021.json",
+          "role": "sample_gradient",
+          "record_id": "697a9050dd8b7cabe00163f3cf1e3102d3815601d4d8a9fc11c46ddeb92ffd7e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "eb94fc7a421e57e16a17555058d7eb599b711774587cbaf4d4d688fd462d67aa",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample_dark",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "82d120aa0d56af0968837321b1381ac71590f6cb772cd0261aa930afb4652be9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "8b3e4018b93a92db390b4633358cc3327ad33ee80a914800b811550dc854cb25",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185113_current_static_static_022.json",
+          "role": "sample_gradient",
+          "record_id": "74cc8dd91dfd67e3d4f02c0cd54a015a482fbf2b986e184a2e97621e0fb33d39"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0407032501e81fa9146bf90228f278a2e42587b5bfe8385ae2cca554915b6a75",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample_dark",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0b6f43a5fe2c73d0aaa86bd5b3622416b16bc8c5401f6aac8ab49781c050303f",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "0e192e1d68d158ae2e211313b18fac1ba35086d57f00f53d80adf8e6990fd877",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185115_current_static_static_023.json",
+          "role": "sample_gradient",
+          "record_id": "a3d8fffcb3b9ecd3cc1261da3558008f7e6296fd331af563b4451d483acf0f7a"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "e3f8284818f4fc8f72b0bc351a367d48574a166acd2c0d33334b30dd08e1498d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample_dark",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4708e90853834eb42e0fcfcbd27c02c8c2d173c9126996e4fbb37d30e45a18d3",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "20cd2ffa79fd981e7eb4a96315a69f279a2c99722d49b7b492964419a5d68ca1",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185117_current_static_static_024.json",
+          "role": "sample_gradient",
+          "record_id": "3aff7bbe08c113db31a80f9feb0e933b88f10757890ed1ee897a323a9ed5c41f"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "74360cae86976475290176d01a499e497e440931ddbc223ddb824a34233baae9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample_dark",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "5b2e90006d742e85c13df61660a3fe71ff1866d81228d1507f22345cebe99f0f",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "9683df476c329a00762c670ca26d8798bc7f03d591b884fd5b4d70af88f0429a",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185119_current_static_static_025.json",
+          "role": "sample_gradient",
+          "record_id": "c052acd6920faa3dbbf08593523ed737ae42baaeea9950c149676c52ceb3bc42"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "6be82a18a8c8e52d9d5f8064ae91c679a178847ff6d4fb5ae5c9ebc7f318febc",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample_dark",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "fa1eda54fb464beb5ce8f5aa6cb808698530562ea7612dce4258aa07563cc0fa",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "06c489b5d24bc9e6100247b86fdd3e23f3613548ebd6f02857cd5811441fab94",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185121_current_static_static_026.json",
+          "role": "sample_gradient",
+          "record_id": "0ba91054816127e64c05a8bf79f4bf62575238db6c2455cf11be2909c8a4a3cd"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7e78233cb9413fb9b20c417480a3a6a09fed0e8aeb12b46b7c24fc7afd69590e",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample_dark",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "eb640313a9b640fd6b36116bef900b030f5b0abb40060f1f3fdeaf2465fcc793",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "50fdb9c0258724d0fb485598ee008a2b5550ea2f5e19cbfc410cb16f25e6db3f",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185124_current_static_static_027.json",
+          "role": "sample_gradient",
+          "record_id": "e5c036db686553b7927deb6e9461c120607f652b8f64bcbc703904039da12534"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "bf778ed6fc0c89603ee595598295d4efeb4d805dd219ed12349377283a7e6d8d",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample_dark",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "faabd835d87332ff0ff6e13b8136ffb2146da25557f022f4d0b19737d21db5e4",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "51e8c76e26904aefede37c605df6011d728f473ad51b737228d3b3f2ee53c0f0",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185126_current_static_static_028.json",
+          "role": "sample_gradient",
+          "record_id": "665a8b53250e9d334c577bed7e74e0baa1ebd18d2cc78f657ab521590806d00e"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "2fde213549a847acfa8f3d290141091dbc1b174bc95432332f490bfc40b9d224",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample_dark",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "a012da670661ab1bb3fe7c9d85c9f08de53e300648ca1b96b4d31a2d30e8a18a",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "4294302ed47fe1e01c27aca11e174e45ef1ca21546e20aab3580d5bc8694b5ff",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185128_current_static_static_029.json",
+          "role": "sample_gradient",
+          "record_id": "ef81a99e08d0f1493052db1c5bf277d94377884b304707f56a565351c5b212c2"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "37ffaee30c576e413be0484b925fee3907bcf76bbd42585bda81282b2a786474",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample_dark",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "7ebc13e8af62827b6a90a52ea274261575e06e98f33415a67cfb3a108a67c0a9",
+      "body_bytes": 1792,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "blob_sha256": "1e6090aa55b384afac3622e45ed6d599714cb6eb9e80e10ad5205e50def716a4",
+      "body_bytes": 1648,
+      "occurrences": [
+        {
+          "source": "01_rawdata/scans/20260907185130_current_static_static_030.json",
+          "role": "sample_gradient",
+          "record_id": "1fd5c0db867140990ce085dab508f295e9baa428f780f5505164d79f614e9677"
+        }
+      ],
+      "unique_configurations": 660,
+      "complete_streams": []
+    }
+  ],
+  "random_controls": [
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1648,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 23,
+          "consumed_bytes": 15,
+          "trailer_bytes": 1754,
+          "output_bytes": 56,
+          "output_sha256": "67725b6dcc4b2225e07f7353672f487afcddce59fd0a197eb4d717d65fe1893e"
+        },
+        {
+          "representation": "reverse_bits_per_byte",
+          "codec": "deflate",
+          "offset": 27,
+          "consumed_bytes": 11,
+          "trailer_bytes": 1754,
+          "output_bytes": 52,
+          "output_sha256": "38c2b30ff969137ea23518b57b72dc96e1bce044ac2b9c65dc46a7f8b90c805e"
+        }
+      ]
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "identity",
+          "codec": "deflate",
+          "offset": 32,
+          "consumed_bytes": 13,
+          "trailer_bytes": 1747,
+          "output_bytes": 36,
+          "output_sha256": "6af03835f660a349c22aa0f9424a7b80d59ba8300e3f4754873ad5e633bd7a8d"
+        }
+      ]
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": [
+        {
+          "representation": "swap16",
+          "codec": "deflate",
+          "offset": 5,
+          "consumed_bytes": 18,
+          "trailer_bytes": 1769,
+          "output_bytes": 75,
+          "output_sha256": "df4f5f0f15848d197e0b70570e8e2aa9de1b8c60a076a8034f049a6bce3eefca"
+        }
+      ]
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    },
+    {
+      "body_bytes": 1792,
+      "unique_configurations": 660,
+      "complete_streams": []
+    }
+  ],
+  "actual_configurations": 148500,
+  "limits": "Bounded representation/standard-codec probe; no proprietary format claim. Protected record hashes and shared blobs excluded; fresh captures and foreign samples not used. Stream completion alone is not intermediate or spectral validation. Fixed containers may include trailing bytes."
+}

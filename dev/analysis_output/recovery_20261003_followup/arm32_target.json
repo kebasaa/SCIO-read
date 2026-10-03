@@ -1,0 +1,19 @@
+{
+  "source": "SCiO+Analyzer_1.5.19_APKPure.xapk",
+  "sha256": "9de65104ac580d98a290cf2bf133c3ac0c82eb7e5f5d531e947d165923dbf925",
+  "libraries": [
+    {
+      "member": "config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "sha256": "9d46ae6000a652971848fecb894402727183ca07c986762198283564d9aecd9c",
+      "bytes": 13402716
+    },
+    {
+      "member": "config.armeabi_v7a.apk!lib/armeabi-v7a/libflutter.so",
+      "sha256": "1477c6da69a9fdeaa7f61a5e1e296c95d641dbf1966fee5c144abcc881c4247a",
+      "bytes": 8276324,
+      "dart_versions": [
+        "3.11.4"
+      ]
+    }
+  ]
+}

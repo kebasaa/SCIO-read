@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/sciosettings/PowerSaverActivity.java",
+      "sha256": "597349538e759c2ee22b79eca77f50408b23bf88101eeb875c090fee395fab6e",
+      "anchor": "final int u16 = linkedList.get(0).getU16(2) / 60;",
+      "matching_lines": [
+        215
+      ],
+      "observation": "Reads automatic-off seconds as U16 at READ_BLE response offset 2; displays integer minutes."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/sciosettings/PowerSaverActivity.java",
+      "sha256": "597349538e759c2ee22b79eca77f50408b23bf88101eeb875c090fee395fab6e",
+      "anchor": "byte b = (byte) (convert & 255);",
+      "matching_lines": [
+        156
+      ],
+      "observation": "After minutes*60, converts low byte to signed Java byte; if less than 15, adds another signed-byte cast of 15-b. This is not an unsigned clamp."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/sciosettings/PowerSaverActivity.java",
+      "sha256": "597349538e759c2ee22b79eca77f50408b23bf88101eeb875c090fee395fab6e",
+      "anchor": "getScioDevice().writeBle(convert, r0);",
+      "matching_lines": [
+        160
+      ],
+      "observation": "Writes encoded timer; success callback schedules resetDevice, not an immediate-off command."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchor": "responseCommandHandler.setRequestedCommandData(new byte[]{0, 0, (byte) (i >>> 0), (byte) (i >>> 8)});",
+      "matching_lines": [
+        746
+      ],
+      "observation": "WRITE_BLE payload is 00 00 followed by the low/high bytes of the seconds argument."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchor": "return performCommand(CommandIDs.RESET_DEVICE, responseCommandHandler);",
+      "matching_lines": [
+        732
+      ],
+      "observation": "Reset is opcode 0x83 with no payload set by this wrapper. No proof that reset means sustained power-off or that a powered-off device can receive it."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186",
+      "anchor": "private void disconnectDevice(boolean z)",
+      "matching_lines": [
+        1083
+      ],
+      "observation": "Disconnect clears tasks, unbinds service, and may destroy the host BLE service. Do not call disconnect a device shutdown command."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

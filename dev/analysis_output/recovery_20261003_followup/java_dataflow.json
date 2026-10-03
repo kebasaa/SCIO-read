@@ -1,0 +1,114 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchor": "public boolean performSpectrum",
+      "matching_lines": [
+        702
+      ],
+      "observation": "Capture wrapper sends command 2; it does not compute spectral values."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186",
+      "anchor": "String dataAsBase64 = linkedList.get(0).getDataAsBase64();",
+      "matching_lines": [
+        1165
+      ],
+      "observation": "Scan-completion path Base64-encodes complete response payloads: index 0 dark, index 1 sample, optional index 2 gradient; creates ScioInternalReading."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/ResponseCommand.java",
+      "sha256": "c7d9314210430a388a59cda05fee2a953cf127e9b0e731afe661675c89409c74",
+      "anchor": "public String getDataAsBase64()",
+      "matching_lines": [
+        39
+      ],
+      "observation": "Returns Base64.encodeToString(this.data, 0), without decrypting or decompressing."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/model/ScioInternalReading.java",
+      "sha256": "d53fdc763e8ded4fcd35e89ce82b9e9575ce1df72260171676816e21d15a6b14",
+      "anchor": "this.sample = str;",
+      "matching_lines": [
+        29
+      ],
+      "observation": "Constructor retains sample, dark and gradient strings; getters return these fields."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/model/ScioReading.java",
+      "sha256": "4a23c0719b167f94403551ef4636cb5d0c85766228e2d8053fdfcbc6e032132a",
+      "anchor": "this.sample = scioInternalReading.getSample();",
+      "matching_lines": [
+        19
+      ],
+      "observation": "Public reading copies strings from internal reading without numerical processing."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalCloud.java",
+      "sha256": "3a7944a2607a247cef8ca68e4d60505a771baf367c8f6565fa87f14eab795f07",
+      "anchor": "private String prepareAnalyzeJson(ScioReading scioReading, String str, String str2, Map",
+      "matching_lines": [
+        648
+      ],
+      "observation": "SDK analysis request inserts sample/dark/gradient and white equivalents directly from reading getters."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/serverapi/ServerAPI.java",
+      "sha256": "200c41c3b17a8d143241f89d0e2b5310c97bab52958671025c11b8d9d1008832",
+      "anchor": "public BaseServerResponse scanSpectroscan",
+      "matching_lines": [
+        211
+      ],
+      "observation": "Consumer spectro endpoint posts the supplied JSONObject to /v2/consumer/spectro-scan; no local decoder in this wrapper."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/background/workers/OfflineSampleScansAnalyzeWorker.java",
+      "sha256": "f30ac923f3657173a6bb217683f07ac51d508fd56b4a27c38b438b11f7db3235",
+      "anchor": "if (!NetworkUtils.isNetworkConnected",
+      "matching_lines": [
+        79
+      ],
+      "observation": "Offline-analysis worker returns without processing when network is unavailable; pending scans are uploaded/analyzed after connectivity resumes."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/serverapi/operations/SamplesOperationsManager.java",
+      "sha256": "b9191e5a027941d5fe745a72d91815d5d1a6df5c828d57f6002b224fde2970b8",
+      "anchor": "BaseServerResponse scan = new ServerAPI",
+      "matching_lines": [
+        126
+      ],
+      "observation": "Queued analysis path calls ServerAPI.scan and handles the returned model, rather than deriving reflectance locally."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "33f02e9d7384e34ace2a376cd8961e0944a81dd1b24b895c57551eba710a47b0",
+      "anchor": "private byte[] getRawData",
+      "matching_lines": [
+        33
+      ],
+      "observation": "Base64-decodes a server-provided file; first four bytes are exposed as checksum, remaining bytes as file data. This is not an embedded firmware asset."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchor": "this.upgradeState.data = this.fum.getByteData(next);",
+      "matching_lines": [
+        325
+      ],
+      "observation": "Update activity obtains file data from the response model and divides it into transfer messages."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchor": "public boolean performFileDownload",
+      "matching_lines": [
+        777
+      ],
+      "observation": "File-download wrapper supplies outbound bytes to FILE_DOWNLOAD; this is host-to-device writing, not firmware readback."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

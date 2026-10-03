@@ -1,0 +1,200 @@
+{
+  "device": {
+    "dsp_id": "e24da26b2304c2c0",
+    "aptina_field": "328045ab1161f198",
+    "device_id": "8032AB45611198F1",
+    "firmware_version": 147,
+    "ble_id": "01665900004c99b4",
+    "ble_fw_version": 125,
+    "device_serial_fragment": "DF1816004A",
+    "device_name": "myScio",
+    "i2s_tag_config": "",
+    "i2s_tag_missing": true
+  },
+  "queries": [
+    {
+      "query": "file_list",
+      "result": [
+        {
+          "file_type": 87,
+          "file_version": 125,
+          "name": "ble_runtime"
+        },
+        {
+          "file_type": 90,
+          "file_version": 17,
+          "name": "dsp_boot"
+        },
+        {
+          "file_type": 91,
+          "file_version": 12,
+          "name": "dsp_dec"
+        },
+        {
+          "file_type": 92,
+          "file_version": 147,
+          "name": "dsp_op"
+        },
+        {
+          "file_type": 100,
+          "file_version": 3,
+          "name": "deadPixelsIndices"
+        },
+        {
+          "file_type": 101,
+          "file_version": 3,
+          "name": "centers"
+        },
+        {
+          "file_type": 102,
+          "file_version": 3,
+          "name": "bins"
+        },
+        {
+          "file_type": 103,
+          "file_version": 3,
+          "name": "nPixelsPerBin"
+        }
+      ]
+    },
+    {
+      "query": "file_headers",
+      "result": {
+        "87": {
+          "words": [
+            87,
+            119233,
+            125,
+            12925168
+          ],
+          "checksum": 12925168,
+          "file_id": 87
+        },
+        "89": {
+          "words": [
+            4294967295,
+            4294967295,
+            4294967295,
+            4294967295
+          ],
+          "checksum": 4294967295,
+          "file_id": 89
+        },
+        "90": {
+          "words": [
+            90,
+            7284,
+            17,
+            688456
+          ],
+          "checksum": 688456,
+          "file_id": 90
+        },
+        "91": {
+          "words": [
+            91,
+            14600,
+            12,
+            1548938
+          ],
+          "checksum": 1548938,
+          "file_id": 91
+        },
+        "92": {
+          "words": [
+            92,
+            32628,
+            147,
+            4151168
+          ],
+          "checksum": 4151168,
+          "file_id": 92
+        },
+        "99": {
+          "words": [
+            99,
+            32,
+            0,
+            0
+          ],
+          "checksum": 0,
+          "file_id": 99
+        },
+        "100": {
+          "words": [
+            100,
+            1714,
+            3,
+            97267
+          ],
+          "checksum": 97267,
+          "file_id": 100
+        },
+        "101": {
+          "words": [
+            101,
+            96,
+            3,
+            6080
+          ],
+          "checksum": 6080,
+          "file_id": 101
+        },
+        "102": {
+          "words": [
+            102,
+            140,
+            3,
+            13587
+          ],
+          "checksum": 13587,
+          "file_id": 102
+        },
+        "103": {
+          "words": [
+            103,
+            1166,
+            3,
+            36371
+          ],
+          "checksum": 36371,
+          "file_id": 103
+        }
+      }
+    },
+    {
+      "query": "temperature",
+      "result": {
+        "cmos_t": 17.584445075219964,
+        "chip_t": 24.12,
+        "obj_t": 0.0,
+        "cmos_t_app": 17.0,
+        "raw_u32": [
+          400,
+          2412,
+          0
+        ]
+      }
+    },
+    {
+      "query": "battery",
+      "result": {
+        "charge_percent": 60,
+        "health_percent": 91,
+        "health_status": 2,
+        "charging_status": 58434,
+        "voltage_v": 4.029
+      }
+    },
+    {
+      "query": "ble_config",
+      "error_type": "ScioTimeout"
+    },
+    {
+      "query": "ble_status",
+      "result": "000000001004"
+    }
+  ],
+  "captures": [],
+  "limits": "Only allowlisted read/capture commands. No firmware, parameter, calibration or protection changes."
+}

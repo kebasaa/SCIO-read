@@ -1,0 +1,60 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "omit_sample_gradient",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "omit_white_gradient",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "omit_both_gradients",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_base",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "zero_both_gradients",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_peer",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "peer_sample_gradient_flip",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "peer_white_gradient_flip",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "peer_omit_both_gradients",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

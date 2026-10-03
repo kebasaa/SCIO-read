@@ -1,0 +1,78 @@
+{
+  "observations": [
+    {
+      "source": "common/model/ModelParser.java",
+      "sha256": "3ea4826679ec011f75013cec4011e045c62767a48311f9a7bf2fd0c264843110",
+      "lines": [
+        191
+      ],
+      "finding": "Update payload map is read from new_version; names mapped with FirmwareFiles.valueOf."
+    },
+    {
+      "source": "researcher/utils/Prefs.java",
+      "sha256": "c1d0f6c3606a21dcb5c4b2bddbd25bd679820876531ca3468e7591aa74e600b4",
+      "lines": [
+        327
+      ],
+      "finding": "Payloads stored under bare enum names; per-user firmware.file.names indexes the keys."
+    },
+    {
+      "source": "researcher/utils/Prefs.java",
+      "sha256": "c1d0f6c3606a21dcb5c4b2bddbd25bd679820876531ca3468e7591aa74e600b4",
+      "lines": [
+        322
+      ],
+      "finding": "Null update model removes index only, not old bare-name strings."
+    },
+    {
+      "source": "android/sdk/config/ScioDevicePreferences.java",
+      "sha256": "88ca2e46991c94c5e2aadb3fbc90f649c63c3db55608e04a7ba472563abd0836",
+      "lines": [
+        351
+      ],
+      "finding": "ScioFirmwareFiles stores version metadata, not update-body data."
+    },
+    {
+      "source": "android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "408840550722004fb67bc68fba3deb4dcb251b88f951c3af63efbd479c25e11b",
+      "lines": [
+        2412
+      ],
+      "finding": "Producer constructs JSON key/value entries from file-list response before storing version metadata."
+    },
+    {
+      "source": "android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "408840550722004fb67bc68fba3deb4dcb251b88f951c3af63efbd479c25e11b",
+      "lines": [
+        2467
+      ],
+      "finding": "Read-header callback exposes checksum word at offset 12, not file body."
+    },
+    {
+      "source": "researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "43a831e2dfa1ca194896d41f0ac417a0bcdfa3a71c08dcb234f649faa86444d7",
+      "lines": [
+        274
+      ],
+      "finding": "localChecksums gets U32LE from supplied four-byte prefix; not a checksum over body computed by the app."
+    },
+    {
+      "source": "researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "43a831e2dfa1ca194896d41f0ac417a0bcdfa3a71c08dcb234f649faa86444d7",
+      "lines": [
+        666
+      ],
+      "finding": "Downloaded table prefixes compared with device header words for IDs 100..103."
+    },
+    {
+      "source": "researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "43a831e2dfa1ca194896d41f0ac417a0bcdfa3a71c08dcb234f649faa86444d7",
+      "lines": [
+        327
+      ],
+      "finding": "Firmware transfer splits body into messages of at most 192 bytes; host-to-device path, not extraction command."
+    }
+  ],
+  "correction": "Earlier RECOVERY_STATUS cache handoff conflated ScioFirmwareFiles metadata with actual bodies and overstated deletion on completion. Corrected in place; earlier immutable reports preserved.",
+  "limits": "Exact Lab APK partial JADX output; targeted methods reviewed. No firmware body, checksum algorithm, table values, decompression or decryption recovered. No endpoint calls or device writes."
+}

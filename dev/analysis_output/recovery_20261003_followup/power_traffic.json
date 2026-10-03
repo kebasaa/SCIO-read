@@ -1,0 +1,28 @@
+{
+  "logs": [
+    {
+      "source": "btsnoop_hci.log",
+      "sha256": "d725d56025dc1ce818fc8db5d534f8c59f9873a6dedc27d2c38a206f6a5ccbb1",
+      "parser_counts": {
+        "records": 1692,
+        "acl_packets": 1349,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "complete_scio_frames": 62,
+      "power_frames": []
+    },
+    {
+      "source": "btsnoop_hci.log.last.log",
+      "sha256": "7a35699aa3cfddcaba3cd81597e794e708b882bea18e70e85d4c10f2bfc3ec6e",
+      "parser_counts": {
+        "records": 161,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "complete_scio_frames": 0,
+      "power_frames": []
+    }
+  ],
+  "limits": "Only complete reassembled frames for 0x83/0x9A/0x9B. Absence does not exclude support; capture duration, device state and missing traffic limit inference."
+}

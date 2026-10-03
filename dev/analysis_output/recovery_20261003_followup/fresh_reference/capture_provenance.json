@@ -1,0 +1,11 @@
+{
+  "source": "dev/analysis_output/recovery_20261003_followup/usb_white_cap_six.json",
+  "source_sha256": "b62192062c4c60be4a11523c346a99f6830b71a19c01d56d6a2664d04fe77e29",
+  "physical_target": "User confirmed stationary in calibration cap",
+  "white_reference_capture": 0,
+  "original_i2s_tag": "",
+  "request_i2s_tag": "20150812-e:PRODUCTION",
+  "tag_basis": "Historical same-device and firmware records; missing live tag preserved, not silently repaired.",
+  "timestamp_basis": "Capture-file modification time after batch; individual exposure times unavailable.",
+  "evaluation_policy": "Prospective reference set. Do not tune candidate algorithms to these response values."
+}

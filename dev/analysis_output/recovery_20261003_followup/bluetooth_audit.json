@@ -1,0 +1,675 @@
+{
+  "logs": [
+    {
+      "source": "btsnoop_hci.log",
+      "sha256": "d725d56025dc1ce818fc8db5d534f8c59f9873a6dedc27d2c38a206f6a5ccbb1",
+      "counts": {
+        "records": 1692,
+        "acl_packets": 1349,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "att_opcodes": {
+        "0a": 1,
+        "10": 2,
+        "11": 2,
+        "08": 15,
+        "01": 9,
+        "09": 7,
+        "04": 5,
+        "05": 4,
+        "12": 23,
+        "13": 23,
+        "1b": 1150,
+        "52": 4
+      },
+      "messages": [
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 338,
+          "end_record": 338,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 343,
+          "end_record": 344,
+          "bytes": 16,
+          "sha256": "18d56782d63a2cbdcab25b79aff025ced36141199eb41ab43fa273efe9b0e693"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 354,
+          "end_record": 354,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 360,
+          "end_record": 361,
+          "bytes": 16,
+          "sha256": "0653af05f9efc96631dbfe921969a313e642be92eb0b0cc40fc59bd4f0144eec"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 367,
+          "end_record": 367,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 370,
+          "end_record": 371,
+          "bytes": 16,
+          "sha256": "d4ba1ba7029807fecf1abf1b9832c2f6c1deb1105a2a8cc205e6b54f3d8ffafe"
+        },
+        {
+          "command": 14,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 374,
+          "end_record": 374,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 376,
+          "end_record": 376,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 377,
+          "end_record": 377,
+          "bytes": 9,
+          "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 382,
+          "end_record": 382,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 383,
+          "end_record": 383,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 386,
+          "end_record": 386,
+          "bytes": 12,
+          "sha256": "9b13f88f9954089ddfa63f5cdc466285603a7b5a3a4b2d81c1d31ac9dbd9e24d"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 387,
+          "end_record": 387,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 390,
+          "end_record": 484,
+          "bytes": 1800,
+          "sha256": "475677ccf696c66e847246c59aef486cf4cc2f03465a942364c65bec2fbd1fc0"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 485,
+          "end_record": 580,
+          "bytes": 1800,
+          "sha256": "4b19c96f5bd4c6e0d5978511777533231d3f1034d3ba6550e0384ea8a154997f"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 581,
+          "end_record": 668,
+          "bytes": 1656,
+          "sha256": "d688d77629ffa7ad8c5bbefb42e41f8a9ee27171498679c9916dc86b12e07e18"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 669,
+          "end_record": 669,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 672,
+          "end_record": 672,
+          "bytes": 12,
+          "sha256": "3d873327d49ee5656025c359c63404c831db8036aa54713db22dfb48830f1cf9"
+        },
+        {
+          "command": 17,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 673,
+          "end_record": 673,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 679,
+          "end_record": 679,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 682,
+          "end_record": 682,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 684,
+          "end_record": 685,
+          "bytes": 16,
+          "sha256": "3f07c53f54452a42baae7574caf58d36f8b23b256fef2b204b6505e68a6e5353"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 692,
+          "end_record": 692,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 695,
+          "end_record": 696,
+          "bytes": 16,
+          "sha256": "c1b5262ee59dbd02cb7310a180516e3a230d6fc73882a85877014a05b8aa7de4"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 702,
+          "end_record": 702,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 708,
+          "end_record": 708,
+          "bytes": 12,
+          "sha256": "d43907649d1150aa32677f055ec083f555585fb9c86b2c8bd1fb467573b52b17"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 709,
+          "end_record": 709,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 713,
+          "end_record": 811,
+          "bytes": 1800,
+          "sha256": "f72c81d2ed8c0acfdafa1685b3e57eb82d417de5aabb185fdefc0f26b1d4f0ae"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 812,
+          "end_record": 908,
+          "bytes": 1800,
+          "sha256": "8f7b48dfdb6f4c9cd77506421d30a3931f29a430af16a25e49b3bc73361be3dd"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 909,
+          "end_record": 998,
+          "bytes": 1656,
+          "sha256": "b82c5ef06f0be17474255ab0d4ec13cd4b1bce43e3e4888eadef3599cf62853b"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1009,
+          "end_record": 1009,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1014,
+          "end_record": 1015,
+          "bytes": 16,
+          "sha256": "b8e5774f440daab5a60a3998e6046057cbcbfd5f36cf3e382f8a2f8a3f052fac"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1021,
+          "end_record": 1021,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1024,
+          "end_record": 1025,
+          "bytes": 16,
+          "sha256": "5aca10ea0fc719adca06c50e2331dd0d815eec110e4e79dd2ac0da82ee2ba144"
+        },
+        {
+          "command": 14,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1028,
+          "end_record": 1028,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1030,
+          "end_record": 1030,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1035,
+          "end_record": 1035,
+          "bytes": 9,
+          "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1039,
+          "end_record": 1039,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1040,
+          "end_record": 1040,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1043,
+          "end_record": 1043,
+          "bytes": 12,
+          "sha256": "333a2f904052faf5ea11526fc9cac1080a88f81efad0dd0aa7dcdad658ee3f80"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1044,
+          "end_record": 1044,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1047,
+          "end_record": 1141,
+          "bytes": 1800,
+          "sha256": "ace8da2caa2eb8fa9b4bd69700fd48a20e000d2d4c81aea4456e74f6e31da7ea"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1142,
+          "end_record": 1237,
+          "bytes": 1800,
+          "sha256": "b4cbb2ce69bbd8dd28e05450685a3abb663a9bc06e2bd94eb8dec727af2bba7f"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1238,
+          "end_record": 1325,
+          "bytes": 1656,
+          "sha256": "a9d3b592e56ab568acb4457c8df59f3bd6815b328183125ee6df6676a7c5b46d"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1326,
+          "end_record": 1326,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1329,
+          "end_record": 1329,
+          "bytes": 12,
+          "sha256": "abac0c33ac2a166f8ab9bb955cfd58a557a16196cf3c28e6f76ce7a1eb2c7988"
+        },
+        {
+          "command": 17,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1330,
+          "end_record": 1330,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1336,
+          "end_record": 1336,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1339,
+          "end_record": 1340,
+          "bytes": 16,
+          "sha256": "05b3d764a2b95a773af16323dedd8894b62804d4b379d3575305438683e316a0"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1341,
+          "end_record": 1342,
+          "bytes": 16,
+          "sha256": "05b3d764a2b95a773af16323dedd8894b62804d4b379d3575305438683e316a0"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1348,
+          "end_record": 1348,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1351,
+          "end_record": 1352,
+          "bytes": 16,
+          "sha256": "403a736fa224ef8ae9f3e5b9b722fb3487d887bf38c8c39b1253743e4f6925ce"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1363,
+          "end_record": 1363,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1366,
+          "end_record": 1367,
+          "bytes": 16,
+          "sha256": "083c7d5d3d9e94b3d6e70f3198f5202b604b2ffaf0cdcc0d798330fb8b88509b"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1376,
+          "end_record": 1376,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1379,
+          "end_record": 1379,
+          "bytes": 12,
+          "sha256": "59755167e0d55f2ca2a013fb06098f3bb021ac970e9f8bad61df0144cbd155a3"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1380,
+          "end_record": 1380,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1383,
+          "end_record": 1477,
+          "bytes": 1800,
+          "sha256": "c5916080dbf7172bc81f72a824e99a9d042638156618783b6883010b0feac4e4"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1478,
+          "end_record": 1573,
+          "bytes": 1800,
+          "sha256": "8d250e05dd3bdd7718d848ba8d78226e547de229dc14af47b5ead1af2a0a3e9c"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1574,
+          "end_record": 1661,
+          "bytes": 1656,
+          "sha256": "3a3b1645d1c9f645eb4430e7ed91770931363b10dd4962834a103ed8a666f6e8"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1673,
+          "end_record": 1673,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1676,
+          "end_record": 1677,
+          "bytes": 16,
+          "sha256": "b559519c8089da4ef1af5d5d93fe72412a40f81d617324b450f5b1dba9dc9f25"
+        }
+      ],
+      "command_counts": {
+        "sent/05": 11,
+        "received/05": 12,
+        "sent/0e": 2,
+        "received/0b": 5,
+        "sent/0b": 2,
+        "sent/04": 6,
+        "received/04": 6,
+        "sent/02": 4,
+        "received/02": 12,
+        "sent/11": 2
+      }
+    },
+    {
+      "source": "btsnoop_hci.log.last.log",
+      "sha256": "7a35699aa3cfddcaba3cd81597e794e708b882bea18e70e85d4c10f2bfc3ec6e",
+      "counts": {
+        "records": 161,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "att_opcodes": {},
+      "messages": [],
+      "command_counts": {}
+    }
+  ],
+  "limits": "Only complete framed SCIO messages are exported. No firmware identification from a marker alone. Missing transfers in these finite logs do not exclude phone caches or other logs."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "sample_dark_begin",
+  "status": 400,
+  "response": {
+    "spectrum": "sample dark",
+    "error_type": "Bad_sample_signature",
+    "http_status": 400,
+    "message": "There is a problem with your scan, try again."
+  },
+  "spectrum": null,
+  "finished_at": "2026-10-03T10:02:56.374+02:00"
+}

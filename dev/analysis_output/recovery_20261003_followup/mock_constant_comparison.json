@@ -1,0 +1,125 @@
+{
+  "sources": [
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/researcher/mock/MockSamples.java",
+      "source_sha256": "306e6810b14516b650f2f609738a2bb77a73b1ecab8f78f040d1ff83bd623d44",
+      "constants": [
+        {
+          "name": "SAMPLE",
+          "sha256": "820e993c1d48ce29f096cbe398aa5c7b64cad054ba594fd6b6431bf92b711256",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_DARK",
+          "sha256": "1a22e53e444bc60da3eef1cf4b4afa498a1a5bc7840d918ccd574ed10574885c",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_GRADIENT",
+          "sha256": "c85f5f5c20cdd6b01c82133cf2d9001357e8ca0e1f28b62fec6fc0d0cb7ca01c",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR",
+          "sha256": "7d844a9a42d2c71f162b4132aef9b54ed26061e6ee351ba1695ac50e89f4ba66",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_DARK",
+          "sha256": "73f23f80fb1000cc72f07eff6ada22114f83e00a0a55938e65f1f9d7d5f0cc25",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_GRADIENT",
+          "sha256": "242c8d8719efdef7a3b3c9bb9bf94bf237909526b8f8f023c05f2f3234698698",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/researcher/mock/MockSamples.java",
+      "source_sha256": "306e6810b14516b650f2f609738a2bb77a73b1ecab8f78f040d1ff83bd623d44",
+      "constants": [
+        {
+          "name": "SAMPLE",
+          "sha256": "820e993c1d48ce29f096cbe398aa5c7b64cad054ba594fd6b6431bf92b711256",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_DARK",
+          "sha256": "1a22e53e444bc60da3eef1cf4b4afa498a1a5bc7840d918ccd574ed10574885c",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_GRADIENT",
+          "sha256": "c85f5f5c20cdd6b01c82133cf2d9001357e8ca0e1f28b62fec6fc0d0cb7ca01c",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR",
+          "sha256": "7d844a9a42d2c71f162b4132aef9b54ed26061e6ee351ba1695ac50e89f4ba66",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_DARK",
+          "sha256": "73f23f80fb1000cc72f07eff6ada22114f83e00a0a55938e65f1f9d7d5f0cc25",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_GRADIENT",
+          "sha256": "242c8d8719efdef7a3b3c9bb9bf94bf237909526b8f8f023c05f2f3234698698",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/researcher/mock/MockSamples.java",
+      "source_sha256": "e642ea87e597940b2b8c6a4d8210898be3dbdd1f5005d8ca552df97b4461bcea",
+      "constants": [
+        {
+          "name": "SAMPLE",
+          "sha256": "820e993c1d48ce29f096cbe398aa5c7b64cad054ba594fd6b6431bf92b711256",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_DARK",
+          "sha256": "1a22e53e444bc60da3eef1cf4b4afa498a1a5bc7840d918ccd574ed10574885c",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "SAMPLE_GRADIENT",
+          "sha256": "c85f5f5c20cdd6b01c82133cf2d9001357e8ca0e1f28b62fec6fc0d0cb7ca01c",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_DARK",
+          "sha256": "73f23f80fb1000cc72f07eff6ada22114f83e00a0a55938e65f1f9d7d5f0cc25",
+          "bytes": 1800,
+          "same_named_lab_constant": true
+        },
+        {
+          "name": "WR_GRADIENT",
+          "sha256": "242c8d8719efdef7a3b3c9bb9bf94bf237909526b8f8f023c05f2f3234698698",
+          "bytes": 1416,
+          "same_named_lab_constant": true
+        }
+      ]
+    }
+  ],
+  "limits": "Comparison of six allowlisted named constants in three supplied source files. Directory date is provenance labeling, not independently verified build date. Not a whole-repository deduplication or paired-spectrum recovery."
+}

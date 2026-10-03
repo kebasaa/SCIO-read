@@ -1,0 +1,183 @@
+{
+  "records": [
+    {
+      "name": "control_initial",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/00_request.json",
+      "request_sha256": "68f2758981b9c0d9acb546b16106094cc688fb135efd3118e787141ea8c9db1e",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/00_response.json",
+      "response_sha256": "25e97f2e0ce7d021273d72f4fb1860e15c59cfa53efdfae2abfa3fb9c8f25b5f",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_00",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/01_request.json",
+      "request_sha256": "e9c219d9c4e658bea05b351e3ba1041566ce5bbc34eda88769f00489b63ecbf3",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/01_response.json",
+      "response_sha256": "3d0d34671bf36370bab676b0ae5f643fcd3a746de140ae781007a782c202b350",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_01",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/02_request.json",
+      "request_sha256": "447b7b092e493decb4a7650503d8e701b0df6f3bfd64c3ff33b0a1ca146dcba7",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/02_response.json",
+      "response_sha256": "40255d606c2a98f69e5ec02aa9d6638633604651f67a5d91181b018c418e9526",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_02",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/03_request.json",
+      "request_sha256": "c97cc8167ac12dd45a3f7ddad59cba1018676a4c99f821c1a07b351e07d5dc6c",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/03_response.json",
+      "response_sha256": "de9c2217818b356c4de4cf1d0eadc094d7f4bc10cdf36b6150713dde233733e5",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_03",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/04_request.json",
+      "request_sha256": "8d8bfb8c8e69318f1f7bdf27c83fd15449052514537e6e484e84252c2ad35702",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/04_response.json",
+      "response_sha256": "eba83812ed6e5a84f38d7c803c5d2cc5b828fc2a28a1411d53cae97de484ce83",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_04",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/05_request.json",
+      "request_sha256": "e8efe341b784c73af1bb3164502e63e12a351a4ea6ee48b74e0acf6afcb7be4e",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/05_response.json",
+      "response_sha256": "82f00da65aa497d2fccb4088ff091eb4ba4906794a47a23f7c2aeb4661169296",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "fresh_cap_05",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/06_request.json",
+      "request_sha256": "acfee68953af8d1721ec3c81217454c072f7c57eff2757c866da22ec3ea2beaf",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/06_response.json",
+      "response_sha256": "dd2e98eb715a742df910eb89190d8d01302a7136873621923f4fc7bf79887137",
+      "finite_331_correct_axis": true
+    },
+    {
+      "name": "control_final",
+      "request": "dev/analysis_output/recovery_20261003_followup/fresh_reference/07_request.json",
+      "request_sha256": "3befca29a1851be31b2b56084b414ca75f47b8a86467177db39eb05d88ad7e9a",
+      "response": "dev/analysis_output/recovery_20261003_followup/fresh_reference/07_response.json",
+      "response_sha256": "d321a99653713db2ac983e3814526f71cd5d73d69c5e7861944cb5f10f22046e",
+      "finite_331_correct_axis": true
+    }
+  ],
+  "blobs": [
+    {
+      "capture": 0,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "62c0dda458dc3c9446e1302a0df8c46e7d45aa25858a2e4e130cd315c6600af4"
+    },
+    {
+      "capture": 0,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "e7a72183a89593783dba449919537ee502740dac8e53f0fba5b6b98193e4f3d9"
+    },
+    {
+      "capture": 0,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "373176a936b089e97c7c5b463ad118e62cc5676e91b3424be53976261cb961c6"
+    },
+    {
+      "capture": 1,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "30724901919d0a0b4fc19b74e24457075e9f5a9d5ff1576025ba299cce894b8f"
+    },
+    {
+      "capture": 1,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "0cb7c16eefbddd14551f337c637d5ccdbc491279d6e6f1557d57515ec58651c4"
+    },
+    {
+      "capture": 1,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "8a304f2a8a8bd112c585ac16ff1229d350298d727bd3229b1f16de71d874e068"
+    },
+    {
+      "capture": 2,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "5fa1b4ad66d938d488fa73489235d52e46bfbfc2f246857fe36d0a97db896a7c"
+    },
+    {
+      "capture": 2,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "5b39cf71caff924d03b266bbc0142867180f00fb710d59ed2066ab51e0c0590d"
+    },
+    {
+      "capture": 2,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "659d3aef2bc09b9233f807a4371d38e035c045b09eb966b405fd40830df845fd"
+    },
+    {
+      "capture": 3,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "418698f55e4333c64ad54b4550630b12ae712e1ee57c5849eee7198809e5511c"
+    },
+    {
+      "capture": 3,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "c980f1c68b60054eb9255fc905a825257a1a8f43d24e2a9ac25873320919025f"
+    },
+    {
+      "capture": 3,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "20d2d107eb5ad93aa0b9e7ebb6b82b11bc0650ff87610d02a20c651458abe3c0"
+    },
+    {
+      "capture": 4,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "a42853d3ceeda6f60d48eb766ef82795bb8a71aa41405bbae3899d2b19f8f305"
+    },
+    {
+      "capture": 4,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "6ee8c16946a5aa070b062b9aaa892d6db9550731589de564e5eca5d4647b96bd"
+    },
+    {
+      "capture": 4,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "d883eda283c0510b04830640878d0fb5ad8df44a760ee689dbe71b4f2031fa75"
+    },
+    {
+      "capture": 5,
+      "role": "sample_dark",
+      "bytes": 1800,
+      "sha256": "322b9d17eeb0b25791b7bbe8a386efa7af54887792878d881b773b4d58504927"
+    },
+    {
+      "capture": 5,
+      "role": "sample",
+      "bytes": 1800,
+      "sha256": "f40c300d06d4fe82fb42ea56670b653a39a9726a002c8760f6bd4b36e6b6d817"
+    },
+    {
+      "capture": 5,
+      "role": "sample_gradient",
+      "bytes": 1656,
+      "sha256": "e36cb319820d1b3cee7d93102e5783e918cef727d5d37ec95d65f93e8dbe3ec2"
+    }
+  ],
+  "unique_blob_count": 18,
+  "minimum_request_start_gap_seconds": 20.947,
+  "control_numerical_equivalence": true,
+  "production_input_changes": [],
+  "policy": "One acquisition/calibration group, not six independent calibration groups. All six spectra reserved for prospective confirmation. No fitting, rescaling, or vector inspection here."
+}

@@ -1,0 +1,15 @@
+{
+  "name": "current_control_final",
+  "versions": {
+    "0x57": "0x7D",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x93"
+  },
+  "started_unix": 1791061849.948991,
+  "status": 200,
+  "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+  "response_bytes": 51,
+  "new_version_is_null": true,
+  "files": []
+}

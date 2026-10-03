@@ -1,0 +1,66 @@
+{
+  "source": "01_rawdata/calibration_plate_Polypen.csv",
+  "source_sha256": "bb544932968de5ddbeb1f597eb3b5bd84fc7944d216211e571596a68bae2d803",
+  "source_header_row": 1,
+  "source_data_rows": [
+    2,
+    257
+  ],
+  "source_columns": {
+    "wavelength": "A",
+    "reflectance": "B"
+  },
+  "source_wavelength_range": [
+    324.0,
+    790.0
+  ],
+  "source_points": 256,
+  "factor_source": "dev/analysis_output/recovery_20261003_followup/symmetry/self_response_factor.json",
+  "factor_sha256": "cefa64e03ea484b6e419759ca1c14508ed26069bc5ff4b4262e7555bb948855a",
+  "exact_shared_wavelengths_nm": [
+    740.0,
+    742.0,
+    743.0,
+    745.0,
+    747.0,
+    749.0,
+    750.0,
+    752.0,
+    754.0,
+    756.0,
+    757.0,
+    759.0,
+    761.0,
+    763.0,
+    764.0,
+    766.0,
+    768.0,
+    769.0,
+    771.0,
+    773.0,
+    775.0,
+    776.0,
+    778.0,
+    780.0,
+    782.0,
+    783.0,
+    785.0,
+    787.0,
+    789.0,
+    790.0
+  ],
+  "shared_points": 30,
+  "comparisons": {
+    "factor": {
+      "max_absolute_difference": 0.04788952526993984,
+      "rmse": 0.040728945495588455,
+      "equivalent_at_1e_minus_6": false
+    },
+    "inverse_factor": {
+      "max_absolute_difference": 0.06594231753406632,
+      "rmse": 0.060314593143159005,
+      "equivalent_at_1e_minus_6": false
+    }
+  },
+  "limits": "Source CSV has no device/reference identity or measurement provenance beyond its filename and column labels. Only exact shared wavelengths compared; no interpolation, extrapolation, rescaling or workbook modification. Numerical differences do not exclude a physical association under unknown measurement conditions."
+}

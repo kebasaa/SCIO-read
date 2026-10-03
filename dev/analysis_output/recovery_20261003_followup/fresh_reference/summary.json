@@ -1,0 +1,45 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_00",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_01",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_02",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_03",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_04",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fresh_cap_05",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

@@ -1,0 +1,290 @@
+{
+  "archives": [
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "sha256": "bbcb51b8fba520b6314f5b15108031d02193527d25129c7e5e1cdf9c61ad5af1",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "sha256": "ae5ea07dd5c1e66704dc2c93a8a152636fbe8af8de94bb8e995d9c5ebbc7bd48",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "sha256": "a94e661057810bd9f6835011a8763ef37bf594443a080d36a8ed2812a9a000a5",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "sha256": "4616f37503c59d2b755dac60430d4393ed15227bae2bb828efd895039c380380",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk",
+      "sha256": "0525e34d2ba16cea5756042c03ecde6e690b0d71dd3f49ae6cae345745e540fa",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk",
+      "sha256": "658dab25425bbc7f1bf2dee5846efc431b2b0ef413c91b093c646febab1028f9",
+      "dex_count": 2
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk",
+      "sha256": "9de65104ac580d98a290cf2bf133c3ac0c82eb7e5f5d531e947d165923dbf925",
+      "dex_count": 4
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk",
+      "sha256": "d8312aacaed1b07c55cc9dcee43a83593874bcd71bbd79e6064b7cfc36975c33",
+      "dex_count": 4
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "sha256": "234a81eb3ef04ae1e2a2ab52e72720824a929b61830b7171936b12d154e8436a",
+      "dex_count": 2
+    }
+  ],
+  "dex_files": [
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!classes.dex",
+      "sha256": "4ee17a35092ed7cda895c8b26a81f961f872520f776b26da25c6640a567aace8",
+      "bytes": 8935252,
+      "class_count": 8550,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!classes2.dex",
+      "sha256": "25c1f7211d10a1ef3d6972113f12fb60e9739327b123f8b13e63a2e678c2a54b",
+      "bytes": 6312072,
+      "class_count": 4851,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!classes.dex",
+      "sha256": "0db0fcd5593bec1cf25f6d0d5235227933e307c1802d346ff275e66c84eca09a",
+      "bytes": 8782232,
+      "class_count": 8231,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!classes2.dex",
+      "sha256": "6ddfb44f56149bcf74d4fbb9cbed4cd8fd20304f3367ba499d83ef29d1cc7bee",
+      "bytes": 3887072,
+      "class_count": 3414,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!classes.dex",
+      "sha256": "bdb78f361eff8439b9e80f9e63618fb5ea2f4edde5e9afbfc66ec1b12e879916",
+      "bytes": 8955776,
+      "class_count": 7985,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!classes2.dex",
+      "sha256": "959c41994d97061f0fa62b42e57d63f8c68e317d00f75640cd014f8abf048080",
+      "bytes": 9238744,
+      "class_count": 7784,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk!classes.dex",
+      "sha256": "94f17824133386f3c321250335fc986447b5f547cfb845d8605811a8d53b32d1",
+      "bytes": 8898736,
+      "class_count": 8502,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk!classes2.dex",
+      "sha256": "2706cee0727c8ac16ecc1be2af0f69ed104b4a9960eaf4a1a939c843e6d15c45",
+      "bytes": 6312120,
+      "class_count": 4851,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "bb27441a020c28b021de67e0dd7770023ac0e17ed87199ccf3c034002e244a7b",
+      "bytes": 8995672,
+      "class_count": 8078,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "a39296f82e9e6aeae625485d2c6d8d3036f47b0a327dc62000369f1619d9da7c",
+      "bytes": 9221632,
+      "class_count": 7806,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "3947c92cd6243d9cdbcf13cdcbe8c045bb0b27fa5abfb1e021304e6b69b87333",
+      "bytes": 7934244,
+      "class_count": 7109,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "711de9487748a98bab7534f45651940cb362ffc51ee526c5bfd26373817721e2",
+      "bytes": 9513072,
+      "class_count": 8014,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "b9918ee22cb8c153f5afb21925b14ba20e998bcbb8e178cbc2600f3f9151a1ff",
+      "bytes": 9011264,
+      "class_count": 7054,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "88360c6e4ce732f80570593b2d0e71bb587160675472a64ec2395ec24bff28a9",
+      "bytes": 8979060,
+      "class_count": 8830,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes3.dex",
+      "sha256": "175fcfd065a595c4953b3ce6a53485d1a2c63c111afad3db5e5be5ce634eaa5e",
+      "bytes": 9513756,
+      "class_count": 8809,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes4.dex",
+      "sha256": "8a73479bce982396fd36ab7440487838e5da149abf8a5b794ee0b96e328d4a9b",
+      "bytes": 6003884,
+      "class_count": 4990,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "d4e1036000f4a9051bdec5d3b51fad923c4b1c51febf6986a29aac779b3b9449",
+      "bytes": 8849052,
+      "class_count": 7359,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "30908810516701267efcdf27b5c511a36402eb6eee361b38f14b3bc7ab7148a6",
+      "bytes": 8638596,
+      "class_count": 8768,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes3.dex",
+      "sha256": "9a4354c45e4bc57af15deeaa033e2e1f54502b7efaeebbe272a0be6f1a7ec345",
+      "bytes": 9555552,
+      "class_count": 8836,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes4.dex",
+      "sha256": "a3ad41dd5160a59e54be54691acfd6296d01aa15afbee841e4055ef49ecae558",
+      "bytes": 4304672,
+      "class_count": 3458,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!classes.dex",
+      "sha256": "88ddbe2c642811e772cf7e4ed56e497db7d5a727e511b08c8cc1651db6129b20",
+      "bytes": 8470532,
+      "class_count": 8072,
+      "target_definitions": [
+        "Lcom/consumerphysics/android/sdk/sciosdk/ScioPhoneInternalDevice;"
+      ],
+      "service_literal_present": true,
+      "interface_literal_present": true,
+      "related_definitions": []
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!classes2.dex",
+      "sha256": "05e84909a4775d1d47cbd923433f819479ba199fa3a0c658f02d8a4cb401a753",
+      "bytes": 7676252,
+      "class_count": 5727,
+      "target_definitions": [],
+      "service_literal_present": false,
+      "interface_literal_present": false,
+      "related_definitions": []
+    }
+  ],
+  "limits": "Class-definition tables and literal presence only; not decompiled control flow. An absent class definition does not exclude dynamic loading, framework/vendor implementations, obfuscation, or native code. No APK executed."
+}

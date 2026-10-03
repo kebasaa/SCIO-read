@@ -1,0 +1,711 @@
+{
+  "logs": [
+    {
+      "source": "btsnoop_hci.log",
+      "sha256": "d725d56025dc1ce818fc8db5d534f8c59f9873a6dedc27d2c38a206f6a5ccbb1",
+      "counts": {
+        "records": 1692,
+        "acl_packets": 1349,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "att_opcodes": {
+        "0a": 1,
+        "10": 2,
+        "11": 2,
+        "08": 15,
+        "01": 9,
+        "09": 7,
+        "04": 5,
+        "05": 4,
+        "12": 23,
+        "13": 23,
+        "1b": 1150,
+        "52": 4
+      },
+      "messages": [
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 338,
+          "end_record": 338,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 343,
+          "end_record": 344,
+          "bytes": 16,
+          "sha256": "18d56782d63a2cbdcab25b79aff025ced36141199eb41ab43fa273efe9b0e693"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 354,
+          "end_record": 354,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 360,
+          "end_record": 361,
+          "bytes": 16,
+          "sha256": "0653af05f9efc96631dbfe921969a313e642be92eb0b0cc40fc59bd4f0144eec"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 367,
+          "end_record": 367,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 370,
+          "end_record": 371,
+          "bytes": 16,
+          "sha256": "d4ba1ba7029807fecf1abf1b9832c2f6c1deb1105a2a8cc205e6b54f3d8ffafe"
+        },
+        {
+          "command": 14,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 374,
+          "end_record": 374,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 376,
+          "end_record": 376,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 377,
+          "end_record": 377,
+          "bytes": 9,
+          "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 382,
+          "end_record": 382,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 383,
+          "end_record": 383,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 386,
+          "end_record": 386,
+          "bytes": 12,
+          "sha256": "9b13f88f9954089ddfa63f5cdc466285603a7b5a3a4b2d81c1d31ac9dbd9e24d"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 387,
+          "end_record": 387,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 390,
+          "end_record": 484,
+          "bytes": 1800,
+          "sha256": "475677ccf696c66e847246c59aef486cf4cc2f03465a942364c65bec2fbd1fc0",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 485,
+          "end_record": 580,
+          "bytes": 1800,
+          "sha256": "4b19c96f5bd4c6e0d5978511777533231d3f1034d3ba6550e0384ea8a154997f",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 581,
+          "end_record": 668,
+          "bytes": 1656,
+          "sha256": "d688d77629ffa7ad8c5bbefb42e41f8a9ee27171498679c9916dc86b12e07e18",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 669,
+          "end_record": 669,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 672,
+          "end_record": 672,
+          "bytes": 12,
+          "sha256": "3d873327d49ee5656025c359c63404c831db8036aa54713db22dfb48830f1cf9"
+        },
+        {
+          "command": 17,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 673,
+          "end_record": 673,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 679,
+          "end_record": 679,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 682,
+          "end_record": 682,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 684,
+          "end_record": 685,
+          "bytes": 16,
+          "sha256": "3f07c53f54452a42baae7574caf58d36f8b23b256fef2b204b6505e68a6e5353"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 692,
+          "end_record": 692,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 695,
+          "end_record": 696,
+          "bytes": 16,
+          "sha256": "c1b5262ee59dbd02cb7310a180516e3a230d6fc73882a85877014a05b8aa7de4"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 702,
+          "end_record": 702,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 708,
+          "end_record": 708,
+          "bytes": 12,
+          "sha256": "d43907649d1150aa32677f055ec083f555585fb9c86b2c8bd1fb467573b52b17"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 709,
+          "end_record": 709,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 713,
+          "end_record": 811,
+          "bytes": 1800,
+          "sha256": "f72c81d2ed8c0acfdafa1685b3e57eb82d417de5aabb185fdefc0f26b1d4f0ae",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 812,
+          "end_record": 908,
+          "bytes": 1800,
+          "sha256": "8f7b48dfdb6f4c9cd77506421d30a3931f29a430af16a25e49b3bc73361be3dd",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 909,
+          "end_record": 998,
+          "bytes": 1656,
+          "sha256": "b82c5ef06f0be17474255ab0d4ec13cd4b1bce43e3e4888eadef3599cf62853b",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1009,
+          "end_record": 1009,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1014,
+          "end_record": 1015,
+          "bytes": 16,
+          "sha256": "b8e5774f440daab5a60a3998e6046057cbcbfd5f36cf3e382f8a2f8a3f052fac"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1021,
+          "end_record": 1021,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1024,
+          "end_record": 1025,
+          "bytes": 16,
+          "sha256": "5aca10ea0fc719adca06c50e2331dd0d815eec110e4e79dd2ac0da82ee2ba144"
+        },
+        {
+          "command": 14,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1028,
+          "end_record": 1028,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1030,
+          "end_record": 1030,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 11,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1035,
+          "end_record": 1035,
+          "bytes": 9,
+          "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d"
+        },
+        {
+          "command": 11,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1039,
+          "end_record": 1039,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1040,
+          "end_record": 1040,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1043,
+          "end_record": 1043,
+          "bytes": 12,
+          "sha256": "333a2f904052faf5ea11526fc9cac1080a88f81efad0dd0aa7dcdad658ee3f80"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1044,
+          "end_record": 1044,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1047,
+          "end_record": 1141,
+          "bytes": 1800,
+          "sha256": "ace8da2caa2eb8fa9b4bd69700fd48a20e000d2d4c81aea4456e74f6e31da7ea",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1142,
+          "end_record": 1237,
+          "bytes": 1800,
+          "sha256": "b4cbb2ce69bbd8dd28e05450685a3abb663a9bc06e2bd94eb8dec727af2bba7f",
+          "blob_b64": "AAAAAHbyrurpuyOdBTYIk0fn/WAAGhGFI6VW9aTLkdo1bkm78kKaWICVuNic1unl8n1EiTc55GphjzTKRCxA7XM/Chq1aDTYJ0Nap9iWgQ/mvyZXuT+cTPN27+4hunu3E33vrGMmALT0S9jAy+of+M7p4HqvsZYAw7TSINS9l20Ke/U8CxADq9RU9wb++gciTiW0CR+YtvT4LT9VPuIMRdkARbcl0rf+7nzvFrbqDiLtnar002YPjmjJxEPxAaSsStwKZMQVCXbmq2diWaeTzumWP9z1MopJ0V/krWP81nsAtSVdWRhHFDBEU7vDs9aMbb9/ZCpYlHb1/T7sJ0puc1sA0/fOPuUuNIm8Mjz0OD7Z2hvFG33ow/3Hf61sHncxl4E5kqQiQ2kbnz9HZJ6bXOYW/nJbT7+Q4z/kVncFubKCMtFPSA0yrCeqDjRoYXCvpYZIbptY+qk5dQ62p4rtaVylilybQyAPfouihV2Y3Ia4bAH+QvUMlBuMca4JTnj/3OmUCnV6BPRx3uLnTlr3WunRL/DOgkRpy3YmcbBmNrrb95++gi1u6giaJdS/sTtzucgg7A1JXQ+4Wmj1k1xcuzukHoRY4/jeuQQqezxTSLx7fUn/oE5Vr8E5vxPMDkoWSMJR9FjiT5CdzamMUE0tOGzkVV5nSIHkGA9kK5vUNTxAWtas1vWkka/01AhyCe/DqsZtdH6Bpp+8Vem1BTf+nY+oQ0IagptC2Ou+TFgjUvXCLxUw7/yREixUZVdDN2k1oQrCD7wWd8qrf6N4ZDZbUtzX/K9mI6WtkupSV/8n2QCIkhRC382wog351rj7oU+InBQLEBllUmWBTXiz0NEL7RnZtECjza0+6j1QP6uanUFA7Afd/O2TCyxzM+rk4mrGX+jHw9YWLVKShD4pOS7wF3F91X9ni3VS+lOOa+YY/Lh2qbHeQCUH/Oj2ck+CqHzowiwniW7qQ20tQ8Y2YiEb8ycynY6rHs15I7OMigbbWJkxMIRqxgBYlsOI0kiXrhq7G9e5BQTuEb2QWGdMvTKoSsotWdUfwZhTQwma8GK3qdWj7Ev1PsduxUAUj23isniumrYzCXYC6AzTjABgZIDXrJtDrpSE70OT8iwuG5Eow+FjT6DnrnzSgrW7mW+CO5xYmc4lKQ2N3GWeh7CDcQz5vDE+FW8j/11+95qlOUgGURH75G5BLhVd0Csx6dXvsthPL8yCN+VvyClnvhroKp9+eUIFL7Jjv/d4ghJhAjvu6tgYl+xYhDOXAwUuzU2Pr4TaOpvZAhOqz/riVGdUt8u1EpwZe5KfEdSdakD6jG3qyBolmMggMc3u76Ys/NeM022EYtmhbZ0fFb9XLlKiAURKZGIpaNcNAbZY/+Vx+wwNRNPZEbPJiZyLnwDpggKUV8E81bVoo7p78Cs6bNBRGTy0PhtgnfxEq6HRopf9OujHIKCXAhDqQXS2GcJX2wQBbdOYkJC3wUekkJCaGVeAe1xdkVTksdu+11F/FeR6oEF+zDGWIink1zFOpeeQP61mj+JEw4TNxyXLfh7LT+o54w2ScTcTloIjlr6mQ8mQJPgwdnlJVdPJ1TgI3aPJ8Rx5CKgPeCq1W9bgTcgAFeUiuW5NayB792VQLEXbWyYh2u8c+hCtBI9wqj3WdNnSDjaF7qRSWy8NM0qJxQ4aQLgb0CiWgmHD3Au0xuejlHkvzY7wTVv+yFr6KOG6CHU/KoAxwnUpCwRTj1Q5sSSYfM6P+3hEe4qbPqBNNDWTBJqnpFSQ+NHGdgmTf9uRu/WuWTKT2VyNkVik62e+5QV29HNmW1JxU7z1L09pFroQaeJZFelq3BnIO6DBKnF9L1z7qJQeoue5FudNUMh2peHesl570bwsXtoWhIP7othedxufNl7oepyYsyzrXA9ITICapbNg5UR93MTMEOhFKenH/6Xo762PXaSKo1Hai4Pmpqhb52PL6UpnE5tbQ9GNj8QJPqiQZcYf1/jd27xjHCQIaMQzW9isxCEIa8eB3nHZtLbT9qwYjmXt/5+ZJthBtbylFS4+MXCUQXtE1gXjlKyKpQ7q1/CVuk7K374jYliTyqYF68S/NtbermnST8bAM8xtcmHxm0eoUMrtYV3+mnjVNR+eOxPAXs8JNiSPf8mbjkSHYMDLXV7NizWLERNwdmjnjaROj0ZINHYkSlJLS5v+i7McTQ8ItaZ2w8bK/ewpylHYPujKX/DvZcG+iUq4UNVd2w3mNE/GMDk6RXwg3uZBTBo7j0jTdv9khGlhqSiBVuu/ZKZqbCDhhq1FIS8Im/ZuAs/anowH6bGvg2bSOA4Pgl2p9AzlTIQgLU60lvcmWnR6t7IeJYhMSr2taWJwhyRbIJAcct6AWvxguFyAWY7vcOjNSKyOTQOXBnA7uGtt",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1238,
+          "end_record": 1325,
+          "bytes": 1656,
+          "sha256": "a9d3b592e56ab568acb4457c8df59f3bd6815b328183125ee6df6676a7c5b46d",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1326,
+          "end_record": 1326,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1329,
+          "end_record": 1329,
+          "bytes": 12,
+          "sha256": "abac0c33ac2a166f8ab9bb955cfd58a557a16196cf3c28e6f76ce7a1eb2c7988"
+        },
+        {
+          "command": 17,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1330,
+          "end_record": 1330,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1336,
+          "end_record": 1336,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1339,
+          "end_record": 1340,
+          "bytes": 16,
+          "sha256": "05b3d764a2b95a773af16323dedd8894b62804d4b379d3575305438683e316a0"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1341,
+          "end_record": 1342,
+          "bytes": 16,
+          "sha256": "05b3d764a2b95a773af16323dedd8894b62804d4b379d3575305438683e316a0"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1348,
+          "end_record": 1348,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1351,
+          "end_record": 1352,
+          "bytes": 16,
+          "sha256": "403a736fa224ef8ae9f3e5b9b722fb3487d887bf38c8c39b1253743e4f6925ce"
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1363,
+          "end_record": 1363,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1366,
+          "end_record": 1367,
+          "bytes": 16,
+          "sha256": "083c7d5d3d9e94b3d6e70f3198f5202b604b2ffaf0cdcc0d798330fb8b88509b"
+        },
+        {
+          "command": 4,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1376,
+          "end_record": 1376,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 4,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1379,
+          "end_record": 1379,
+          "bytes": 12,
+          "sha256": "59755167e0d55f2ca2a013fb06098f3bb021ac970e9f8bad61df0144cbd155a3"
+        },
+        {
+          "command": 2,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1380,
+          "end_record": 1380,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1383,
+          "end_record": 1477,
+          "bytes": 1800,
+          "sha256": "c5916080dbf7172bc81f72a824e99a9d042638156618783b6883010b0feac4e4",
+          "blob_b64": "AAAAANGUVWweAujCT4E42FmLb1JqE1hEGz5CDnMNsasqwWQKW5zja2gAMNWhJCKwjkopaDUbmpuE8C78FrbhRIrWOdrHdKI1wnQlsu/NwWFviHmPBpHrVvuFnfcWEm/kn+gms3MAlmgCHM8d4XgMsakEQSeMuZMJTg/g2wEDiXOixMu1/Q7yUuasF1de37sekb9L5D5AxwnkE3JvMKERHFXl2wxWdYl66VNAdNSgv4uf8whyIPwbMjrCq0y75zdFqjIj7xkRr0rBNn6jfi1kJwyiQh1jrj9Gl+o66hw+/OPY6eDhyaAmE+l+p4nHpxBYARai7SjuQdDI+0DwgjDweZDvEtPzHjxY/TJV9526cPxM2pYxSjAph8xBwVoX0Y3GGDOQFWauXccZ/hl77EEZ2zrlL1JpwXYaqsdbErNATO/PFdwzGrTKcUkZd92oOX89xGmcQcAPy7nUjo5meYvOZTvxFT2kZ4t29/LMbtHax693ZQOPczQY0z93Hyw03oVPzwmTWfn/ASZ/sCI+Q3k1B3+72jbzvHd67spPvdu6cRZSt0ex521IC8qSGwWCEhcTGMT20sBWSh9rIJU2sly9xWGXWKmoVhYy2EaWGcx56d+OWsqBg3S6wZDreWY+4X4YjIiClYYx7ha9Se24zMhJC1Xxv4UJyJLmm3JFgt7zs0nxgmhH0m5wy4xQq8VIb3PUWLsneTBLyxiNogyemdVBcMQBDWmPDcLUOa54yo33lIyQ5NPoIZmt41SsLqr3Fc6thkO2gW87t8v2Seve6IfKIS1HCGMoGFOa1wbfPrsxmtA61ZyDT9ui2N1uX+YwY2RM+qmuPZ8R3mtUMIUxc2D75eo97gU409BPuTdE5GeHyDa9pxrEqC95BsD5OPvOS673CC/AUhFdlg2XDJBv32kUwrikHAs2V63WMoUfNWqcV7WsrdlB/sCLaKurnTmhZQ7m2O1ahpHBWkCiz8N9jwbWeyvHVgAA27kQyhcNRZmdbnyAb/Bwz9ASbMyc5qUBJtoak6jTiHzJEgkRoq+2TEZtNh2xpHxsUjL/Rs39lCPIZkKv03ItWSEblh50tH+66BrQu1UgaKmkmRvG20sS6Gcjk75p35bElcHtUrYHO0yTapB1BABJZTW3MhmHayVEdRc/Ue4FNLOoVF3Tt+cP5W3jVF2aDKUx16f6fAF7I2XGBgjE7F0Ff0A7HI/kWQG6yDacA6gaWQN6HesZT3lcAUrLqn9zOBA6yZZWk95fvemiJpAE61lz9Rwc9MzF1xa0hQYPpzF8w8xslVHo7iqxSZG6EKeqMtkbzKD2G4LqFh+7zFZ9cbpu/KTSFv0EjeCuSYP8wrBRd6uGVwgdESwOZf8/uxqI2G4oODmT+R1JeJC++kNqgXVqEqNtYo6FylKFs7bcEEMaKYngT+trtbA7HJ7rtvPYGHJoEnPs2aB5wXkxwzLrvKVCj3YQw0xCr6vuz35uADwjiRwNuwKLZ+oGfzblBqfWx5xsvHRyFV+WvUvbIeIgOho0la7y1eA5uYke93BAhs1u9QCVHQPh5jdKgpOHwwncudCjgY6r24hHuQRTDLLMzIfZajZ8xneuIbCWrW81LEH4ZfwwTFWSNXNvWuf3Lm9hklOeB0mgH33s8Tm6XJKQKvLrzhGxybb2vUWQMm5ZjdkH6AXstiLriHx3z97qIWabTO8O2Ta4SA7uZOkjdnmE/e0/COQsobInEdb4k/lcvbgPEDO0i3GQMBgpLSEKGQsXD8gpJKAfcXiiIz0j8ZnC3ggUEnnItPQBf+YP51MFgGAhUXVd+u83TE76R0PGpWc/yQr5GM2ul5runqvtmbXzwWWtoQotj1YumT2Y0zmdA3fhoieYIRpLZ4IUa2mfop4T7uV/iWNcGXWaTvlIoVEWI3+XpBeRql/Xcz74J3pR3YhpNH+/W4fVvgXCe6HmzcvHw7Smlny4NS9uuF7iMcUxhaFOO1hihT1/f9AwB6FVVmFOLWV1cAeosRsSlIDHqH//FZs6nzWzfDlYz356LjrKjpj3gAfMBvZmYSq2/DTFputwFmncb1INs/hpWIPSdS9KWsI5fa0gbAnb/blHqIwIB9M7u+HMldUdZMbULSA5xFcid0+ck+6fZKjUCAZtorOFGr505Oe2Ierl3tVkFxLwUPEbdAwUje9tJzo64AlLzYY36DltjKB/tFKdzjFVnv0sFMkZWf3tzjTOeI+wA/D/rhul35te4uMipUROQR79kNW2+Jhx5B1KPfkVlQ60E+0ReRwBP0mWmUI/GNPYu5qdtcgsaJ8xXwmS5SnNk1HoqEXXrFMO80jvbKXTFMnh1ECdbLR9IHwBjMHbCv22LiWUtOfmjtH3Jszj17ys5vjJin+aNaAvk2W8wu5lVYD6QABK7/64HL5n",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1478,
+          "end_record": 1573,
+          "bytes": 1800,
+          "sha256": "8d250e05dd3bdd7718d848ba8d78226e547de229dc14af47b5ead1af2a0a3e9c",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 2,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1574,
+          "end_record": 1661,
+          "bytes": 1656,
+          "sha256": "3a3b1645d1c9f645eb4430e7ed91770931363b10dd4962834a103ed8a666f6e8",
+          "blob_b64": "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",
+          "in_previous_manifest": false,
+          "identity": "Unestablished from this log; do not pool device-specific key candidates."
+        },
+        {
+          "command": 5,
+          "direction": "sent",
+          "connection": 2,
+          "attribute_handle": 41,
+          "start_record": 1673,
+          "end_record": 1673,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "command": 5,
+          "direction": "received",
+          "connection": 2,
+          "attribute_handle": 37,
+          "start_record": 1676,
+          "end_record": 1677,
+          "bytes": 16,
+          "sha256": "b559519c8089da4ef1af5d5d93fe72412a40f81d617324b450f5b1dba9dc9f25"
+        }
+      ],
+      "command_counts": {
+        "sent/05": 11,
+        "received/05": 12,
+        "sent/0e": 2,
+        "received/0b": 5,
+        "sent/0b": 2,
+        "sent/04": 6,
+        "received/04": 6,
+        "sent/02": 4,
+        "received/02": 12,
+        "sent/11": 2
+      }
+    },
+    {
+      "source": "btsnoop_hci.log.last.log",
+      "sha256": "7a35699aa3cfddcaba3cd81597e794e708b882bea18e70e85d4c10f2bfc3ec6e",
+      "counts": {
+        "records": 161,
+        "incomplete_acl": 0,
+        "incomplete_scio": 0
+      },
+      "att_opcodes": {},
+      "messages": [],
+      "command_counts": {}
+    }
+  ],
+  "limits": "Only complete framed SCIO messages are exported. No firmware identification from a marker alone. Missing transfers in these finite logs do not exclude phone caches or other logs."
+}

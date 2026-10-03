@@ -1,0 +1,5 @@
+{
+  "files_scanned": 145,
+  "findings": [],
+  "limits": "Checks personal path patterns, credential field names, and locally cached credential values without exporting them. Vendor environment-file values were not extracted."
+}

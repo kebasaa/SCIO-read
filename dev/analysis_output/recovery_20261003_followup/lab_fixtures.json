@@ -1,0 +1,141 @@
+{
+  "apk_sha256": "234a81eb3ef04ae1e2a2ab52e72720824a929b61830b7171936b12d154e8436a",
+  "fixtures": [
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/scan-dark",
+      "sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        1168457289
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_scan-dark.bin"
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/scan-gradient",
+      "sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "bytes": 1416,
+      "header_u32le": [
+        0,
+        3941130195
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_scan-gradient.bin"
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/scan-sample",
+      "sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        1769896062
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_scan-sample.bin"
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/wr-dark",
+      "sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        2015165371
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_wr-dark.bin"
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/wr-gradient",
+      "sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "bytes": 1416,
+      "header_u32le": [
+        0,
+        2913901915
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_wr-gradient.bin"
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!assets/mock/wr-sample",
+      "sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        3128695424
+      ],
+      "in_prior_asset_inventory": true,
+      "private_path": "dev/private/lab_1_3_12_fixtures/asset_wr-sample.bin"
+    },
+    {
+      "source": "MockSamples.java:SAMPLE",
+      "sha256": "820e993c1d48ce29f096cbe398aa5c7b64cad054ba594fd6b6431bf92b711256",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        1743446232
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_SAMPLE.bin"
+    },
+    {
+      "source": "MockSamples.java:SAMPLE_DARK",
+      "sha256": "1a22e53e444bc60da3eef1cf4b4afa498a1a5bc7840d918ccd574ed10574885c",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        2735516601
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_SAMPLE_DARK.bin"
+    },
+    {
+      "source": "MockSamples.java:SAMPLE_GRADIENT",
+      "sha256": "c85f5f5c20cdd6b01c82133cf2d9001357e8ca0e1f28b62fec6fc0d0cb7ca01c",
+      "bytes": 1416,
+      "header_u32le": [
+        110,
+        3121067563
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_SAMPLE_GRADIENT.bin"
+    },
+    {
+      "source": "MockSamples.java:WR",
+      "sha256": "7d844a9a42d2c71f162b4132aef9b54ed26061e6ee351ba1695ac50e89f4ba66",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        2726265271
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_WR.bin"
+    },
+    {
+      "source": "MockSamples.java:WR_DARK",
+      "sha256": "73f23f80fb1000cc72f07eff6ada22114f83e00a0a55938e65f1f9d7d5f0cc25",
+      "bytes": 1800,
+      "header_u32le": [
+        0,
+        3836762258
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_WR_DARK.bin"
+    },
+    {
+      "source": "MockSamples.java:WR_GRADIENT",
+      "sha256": "242c8d8719efdef7a3b3c9bb9bf94bf237909526b8f8f023c05f2f3234698698",
+      "bytes": 1416,
+      "header_u32le": [
+        110,
+        3434667307
+      ],
+      "in_prior_asset_inventory": false,
+      "private_path": "dev/private/lab_1_3_12_fixtures/constant_WR_GRADIENT.bin"
+    }
+  ],
+  "mock_source_sha256": "ca064e3abf9fa893df8d86ad8effd9ffb819cfd0b02c14529cb47dda2b0eff69",
+  "native_libraries": [],
+  "unique_blobs": 12,
+  "limits": "Mock-associated blobs, not paired spectral truth. Class-level placeholder IDs/i2s are not validated capture identities. Prior asset membership does not check all older code fixtures."
+}

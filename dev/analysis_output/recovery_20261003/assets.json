@@ -1,0 +1,1786 @@
+{
+  "assets": [
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "085abdd779eebad4a33fae5f007c46d298c31a3a325e1f37f0d448f5b3cbbae9",
+      "bytes": 1048,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "b7f2d961aaddd7e5ae22bc1f036caf53da43355ea1fe1455e81739db3a045084",
+      "bytes": 1037,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "24b081be0928f3b78751fcd0ebeb0233036b42acdbf074b88b14200eef41b54b",
+      "bytes": 106,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/arm64-v8a/libpl_droidsonroids_gif.so",
+      "sha256": "0d473b6d10aae216fd534feef0cd341d8212fda987eb3e03d36ec73f85e58dfa",
+      "bytes": 279936,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/armeabi/libpl_droidsonroids_gif.so",
+      "sha256": "c7686d31baddccf76ab3b3b822d8d7173dfcf79de2368bab3439b308480b0b37",
+      "bytes": 306288,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/armeabi-v7a/libpl_droidsonroids_gif.so",
+      "sha256": "11a899186e0c693870d75718c0a3a450f3944c01dba2c6f1ca72f6cc88e90fb3",
+      "bytes": 300196,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/mips/libpl_droidsonroids_gif.so",
+      "sha256": "d407b3eb671a1d4ae0acb90f0bb3742968cfe314d8e13b3151bbcb7194a769aa",
+      "bytes": 294296,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/mips64/libpl_droidsonroids_gif.so",
+      "sha256": "5148ca1269811731fcadca3fa1b2e9ae1ad8cfb852de4dfcdfd42a780976fbf2",
+      "bytes": 506168,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/x86/libpl_droidsonroids_gif.so",
+      "sha256": "bcbb894f57cca46de98dd5ed2185a15bb36e3a5e94d972294e525411fa984418",
+      "bytes": 333892,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "lib/x86_64/libpl_droidsonroids_gif.so",
+      "sha256": "446fe2dba26df76a1b530f3e2deb79e103554c5abd3f005904eb2f5e8b0185c3",
+      "bytes": 272112,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 62
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "5766aa717a70db6d050db5c0fc1c263894cfcaeb5601e7a47f032db3019c1196",
+      "bytes": 967,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/arm64-v8a/libpl_droidsonroids_gif.so",
+      "sha256": "0d473b6d10aae216fd534feef0cd341d8212fda987eb3e03d36ec73f85e58dfa",
+      "bytes": 279936,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/armeabi-v7a/libpl_droidsonroids_gif.so",
+      "sha256": "11a899186e0c693870d75718c0a3a450f3944c01dba2c6f1ca72f6cc88e90fb3",
+      "bytes": 300196,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/armeabi/libpl_droidsonroids_gif.so",
+      "sha256": "c7686d31baddccf76ab3b3b822d8d7173dfcf79de2368bab3439b308480b0b37",
+      "bytes": 306288,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/mips/libpl_droidsonroids_gif.so",
+      "sha256": "d407b3eb671a1d4ae0acb90f0bb3742968cfe314d8e13b3151bbcb7194a769aa",
+      "bytes": 294296,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/mips64/libpl_droidsonroids_gif.so",
+      "sha256": "5148ca1269811731fcadca3fa1b2e9ae1ad8cfb852de4dfcdfd42a780976fbf2",
+      "bytes": 506168,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/x86/libpl_droidsonroids_gif.so",
+      "sha256": "bcbb894f57cca46de98dd5ed2185a15bb36e3a5e94d972294e525411fa984418",
+      "bytes": 333892,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk",
+      "member": "lib/x86_64/libpl_droidsonroids_gif.so",
+      "sha256": "446fe2dba26df76a1b530f3e2deb79e103554c5abd3f005904eb2f5e8b0185c3",
+      "bytes": 272112,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 62
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "158a19eb94aa2f3e2f459db69ee10276c73b945dd6c5f8fc223cf2d85e2b5e33",
+      "bytes": 1738,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "085abdd779eebad4a33fae5f007c46d298c31a3a325e1f37f0d448f5b3cbbae9",
+      "bytes": 1048,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "28e441786a940aff4762e88c0fd3d472f181554748213dc79bc5eef93e32f48e",
+      "bytes": 2762,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "5f72da0dd57b1b2146ad26a6c1b9293fb8dec5c5886686b90c3ac5b41856b107",
+      "bytes": 252,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/arm64-v8a/libpl_droidsonroids_gif.so",
+      "sha256": "0d473b6d10aae216fd534feef0cd341d8212fda987eb3e03d36ec73f85e58dfa",
+      "bytes": 279936,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/armeabi/libpl_droidsonroids_gif.so",
+      "sha256": "c7686d31baddccf76ab3b3b822d8d7173dfcf79de2368bab3439b308480b0b37",
+      "bytes": 306288,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/armeabi-v7a/libpl_droidsonroids_gif.so",
+      "sha256": "11a899186e0c693870d75718c0a3a450f3944c01dba2c6f1ca72f6cc88e90fb3",
+      "bytes": 300196,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/mips/libpl_droidsonroids_gif.so",
+      "sha256": "d407b3eb671a1d4ae0acb90f0bb3742968cfe314d8e13b3151bbcb7194a769aa",
+      "bytes": 294296,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/mips64/libpl_droidsonroids_gif.so",
+      "sha256": "5148ca1269811731fcadca3fa1b2e9ae1ad8cfb852de4dfcdfd42a780976fbf2",
+      "bytes": 506168,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/x86/libpl_droidsonroids_gif.so",
+      "sha256": "bcbb894f57cca46de98dd5ed2185a15bb36e3a5e94d972294e525411fa984418",
+      "bytes": 333892,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "lib/x86_64/libpl_droidsonroids_gif.so",
+      "sha256": "446fe2dba26df76a1b530f3e2deb79e103554c5abd3f005904eb2f5e8b0185c3",
+      "bytes": 272112,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 62
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "085abdd779eebad4a33fae5f007c46d298c31a3a325e1f37f0d448f5b3cbbae9",
+      "bytes": 1048,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/arm64-v8a/libpl_droidsonroids_gif.so",
+      "sha256": "0d473b6d10aae216fd534feef0cd341d8212fda987eb3e03d36ec73f85e58dfa",
+      "bytes": 279936,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/armeabi/libpl_droidsonroids_gif.so",
+      "sha256": "c7686d31baddccf76ab3b3b822d8d7173dfcf79de2368bab3439b308480b0b37",
+      "bytes": 306288,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/armeabi-v7a/libpl_droidsonroids_gif.so",
+      "sha256": "11a899186e0c693870d75718c0a3a450f3944c01dba2c6f1ca72f6cc88e90fb3",
+      "bytes": 300196,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/mips/libpl_droidsonroids_gif.so",
+      "sha256": "d407b3eb671a1d4ae0acb90f0bb3742968cfe314d8e13b3151bbcb7194a769aa",
+      "bytes": 294296,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/mips64/libpl_droidsonroids_gif.so",
+      "sha256": "5148ca1269811731fcadca3fa1b2e9ae1ad8cfb852de4dfcdfd42a780976fbf2",
+      "bytes": 506168,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 8
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/x86/libpl_droidsonroids_gif.so",
+      "sha256": "bcbb894f57cca46de98dd5ed2185a15bb36e3a5e94d972294e525411fa984418",
+      "bytes": 333892,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "lib/x86_64/libpl_droidsonroids_gif.so",
+      "sha256": "446fe2dba26df76a1b530f3e2deb79e103554c5abd3f005904eb2f5e8b0185c3",
+      "bytes": 272112,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 62
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "158a19eb94aa2f3e2f459db69ee10276c73b945dd6c5f8fc223cf2d85e2b5e33",
+      "bytes": 1738,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "085abdd779eebad4a33fae5f007c46d298c31a3a325e1f37f0d448f5b3cbbae9",
+      "bytes": 1048,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "a1040d08aef256c23db2829d2c89951ba8f6438f74f7f5b650874974af2a1971",
+      "bytes": 3666,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "af744b610b4043f532355997ff9e5252a6546f866a85bc8930f9b14771cbd7e0",
+      "bytes": 255,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libpl_droidsonroids_gif.so",
+      "sha256": "0d473b6d10aae216fd534feef0cd341d8212fda987eb3e03d36ec73f85e58dfa",
+      "bytes": 279936,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "ae1bee7019cd114f990b01e75316d5c80ec0a1b07d5ca9a7efe7c466f7f9cfe5",
+      "bytes": 1719,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "085abdd779eebad4a33fae5f007c46d298c31a3a325e1f37f0d448f5b3cbbae9",
+      "bytes": 1048,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "fdef5183303d558a974d90e35d37367f3fb78b1e73c5dd71e38e9e20f15dc4e1",
+      "bytes": 2584,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "d85a7eb80c0769d20e7b1b72ecefa4292f37c5d3fe4b525fb2b6655e1e8e5f81",
+      "bytes": 239,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libpl_droidsonroids_gif.so",
+      "sha256": "11a899186e0c693870d75718c0a3a450f3944c01dba2c6f1ca72f6cc88e90fb3",
+      "bytes": 300196,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "4d13bd92f86a0b1415062b8ed57655c0738ccfbdf0786c1d730d988b27fd4400",
+      "bytes": 1728,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "32749030963e563a70fb688ad97ceee6814ba6a1a4eda607b374f31aa26e8feb",
+      "bytes": 4313,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "32b50cc544d5ca4fd6bc7c467b2388ec67ce7f53feec0d92ea254341f2dce8d3",
+      "bytes": 272,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/AssetManifest.bin",
+      "sha256": "e0411c50cb4eefb2a9167a9c66ad0846e1dd7064f3d2bec498a320e42373b1fd",
+      "bytes": 136762,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/FontManifest.json",
+      "sha256": "00c3a95dc223e2d45e365aadad47a648471e7bd8a5270adb0aed1758b9e9d3e2",
+      "bytes": 2494,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/NOTICES.Z",
+      "sha256": "0cc354cdaef0f708c430acc7214226cc876dd1d1a62e48c0d12439127d6245c3",
+      "bytes": 132078,
+      "format": "gzip"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/NativeAssetsManifest.json",
+      "sha256": "9548a31e4a048135c1d94f919328bfb62ae2c7bb3cab96557c7941daa97776cb",
+      "bytes": 45,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Bold-base64.txt",
+      "sha256": "211c782029f609add61a21639af032a0ea86ea1413543e2ac97ccc036c93de6e",
+      "bytes": 103792,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Light-base64.txt",
+      "sha256": "ff4aa891ff355c6b75b4457d900e62b6ea1836eb7cecf7c62623e7b2ac886bc1",
+      "bytes": 104092,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Regular-base64.txt",
+      "sha256": "41be027c024f269267f213d4452c340bb4c11027ce879b445b61c816e8fd0855",
+      "bytes": 105480,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Bold-base64.txt",
+      "sha256": "b277fbed305b57f960e88aaf230d098064e27abec02d81f152030c3586f8fa7b",
+      "bytes": 95996,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Book-base64.txt",
+      "sha256": "bbbadf3e5445e2002cbc9edb82efd0a330cb3c91c6dd25840a22a71e5f1ce499",
+      "bytes": 94816,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Light-base64.txt",
+      "sha256": "5407fa915546c7e89cb25e809d6e5b5afd40d3df33ac499f82ab983b6032aaaa",
+      "bytes": 90716,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_cancel.wav",
+      "sha256": "ed7e054ded07f6f69110f97073685453acb4a248a107805be17f8e799b0753e9",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_chord_up.wav",
+      "sha256": "9e17a97b1db05733dbc13b605675ad02f8be10535adec5c1e6235eda56137e10",
+      "bytes": 155660,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_confirm_yes.wav",
+      "sha256": "208e2e003e83763dba71a298c9b933a5dbf11683965bb53d823f2ad026719944",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_off.wav",
+      "sha256": "a4c5ad88c70a7d08e7258571e7a2ec6fe9e0d82f8ecfb2d7f3a0148712681c98",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_on.wav",
+      "sha256": "f0c6abb0e8065e989324509234254231336d76c05a304e1b98f1b9ae16b02bbd",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/pdf/scio_cup_manual.pdf",
+      "sha256": "425a9b317bcb8c4774645e672f514d8f6b096600506f9e48693a6c164de07b54",
+      "bytes": 1141530,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/pdf/scio_cup_manual_old.pdf",
+      "sha256": "60b0a9928d189c9358b3966a19c57cb8b0a917719c283aa02b0632422a6cf611",
+      "bytes": 289170,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/pdf/scio_mini2_dairy_manual.pdf",
+      "sha256": "738b6bc3609aefe02c657ca3cca62ab1ccb639ac82db60d2b441f64acfc27c3a",
+      "bytes": 1028472,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/pdf/scio_mini2_manual.pdf",
+      "sha256": "9b1b522f2dece763b15dfb3207b8549841eda06d916e4d2f988c98f9ec85338b",
+      "bytes": 1213766,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_cancel.wav",
+      "sha256": "ed7e054ded07f6f69110f97073685453acb4a248a107805be17f8e799b0753e9",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_chord_up.wav",
+      "sha256": "9e17a97b1db05733dbc13b605675ad02f8be10535adec5c1e6235eda56137e10",
+      "bytes": 155660,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_confirm_yes.wav",
+      "sha256": "208e2e003e83763dba71a298c9b933a5dbf11683965bb53d823f2ad026719944",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_off.wav",
+      "sha256": "a4c5ad88c70a7d08e7258571e7a2ec6fe9e0d82f8ecfb2d7f3a0148712681c98",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_on.wav",
+      "sha256": "f0c6abb0e8065e989324509234254231336d76c05a304e1b98f1b9ae16b02bbd",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/media_kit/assets/web/hls1.4.10.js",
+      "sha256": "30b278794fd3f269a47e6dc7b76ae9a04f08acffdd72f9b8cc26d49d3ba09c38",
+      "bytes": 374690,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/simple_barcode_scanner/assets/barcode.html",
+      "sha256": "81cb5f90fc979181cbeb1d68144a3c15905f37a4758634d4022aa2306c3f0b1f",
+      "bytes": 1833,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/simple_barcode_scanner/assets/html5-qrcode.min.js",
+      "sha256": "660b12437b1d747e3e68b8be0685c08cb728140110ad213f167b14b66f8b1d8e",
+      "bytes": 375364,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/wakelock_plus/assets/no_sleep.js",
+      "sha256": "dce4eef0b197b640ad6aaab2228ee1ee7dccf8bd6d6b5de5484dd1bd16430a78",
+      "bytes": 13344,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/shaders/ink_sparkle.frag",
+      "sha256": "0ddb6dd1d060d863b453c26aaae72d539d5dbc5443e086ef618280da73d71380",
+      "bytes": 21328,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/shaders/stretch_effect.frag",
+      "sha256": "0ed3145e5e380355d92f9ccc66dba1c00d1b5001b1efa0dbeb6398dd56910486",
+      "bytes": 17368,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libapp.so",
+      "sha256": "9d46ae6000a652971848fecb894402727183ca07c986762198283564d9aecd9c",
+      "bytes": 13402716,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libc++_shared.so",
+      "sha256": "90485ce1a5f9f89e0d6855b617d689ca19b47774d67e0c7c2577a165e923d1cc",
+      "bytes": 904124,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libdatastore_shared_counter.so",
+      "sha256": "716c5d8d2cac8ca0edf65da8f139c7886b726ac79d542a14edeb94994ba6d3dc",
+      "bytes": 4416,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libflutter.so",
+      "sha256": "1477c6da69a9fdeaa7f61a5e1e296c95d641dbf1966fee5c144abcc881c4247a",
+      "bytes": 8276324,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libjniPdfium.so",
+      "sha256": "2ce1d22a84ac619813ef16639b87c38d5ebe66337f352a6925bad7e85fe3b14d",
+      "bytes": 21540,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libmediakitandroidhelper.so",
+      "sha256": "506d0bc7775fe9888be6b6e889d8556ca0574dba65813866e2158cbf52a8c8b1",
+      "bytes": 286812,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libmodft2.so",
+      "sha256": "bad87bd1e0b8fe39b91b4e48e2834bfdae0d77dfe3a3b32fdb801d3eab878709",
+      "bytes": 517444,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libmodpdfium.so",
+      "sha256": "724fa1393f9a20473b61f64c0834b1128078059ba62820c073bbd4c5d7942322",
+      "bytes": 3219936,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libmodpng.so",
+      "sha256": "2c034292349359197fab33607b414d45855255aabca07bf94dff4eeb45800952",
+      "bytes": 179312,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libmpv.so",
+      "sha256": "8aa2b23d16d941a8d685b8eb995b1cb31677ed3e28c55c776954eb1618ab1a2e",
+      "bytes": 11746532,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk",
+      "member": "lib/armeabi-v7a/libobjectbox-jni.so",
+      "sha256": "ffbfec6a877d7ce72ee662d88300ff489afe5bb2bcc1f3fe50a8952bd6f1d788",
+      "bytes": 1676852,
+      "format": "ELF",
+      "elf_class": 1,
+      "machine": 40
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "86fecd0235d45839845081c1f91c9a58b40b0ae787f242bdba8f9150da45d0eb",
+      "bytes": 1738,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "77c7e91789b2e11f00be04b8dd59120bad4f1a3cac751e15f41092c6737f3bdb",
+      "bytes": 4232,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "95bc666fb7f57f0c798f015f27aed7fde7c1a099854b92af10b5336b919d38a6",
+      "bytes": 286,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/.env.dev",
+      "sha256": "1e0a878ecbab495545c9d2961b4772c34ebfe387b0e6142fc3dd811725049604",
+      "bytes": 708,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/.env.prod",
+      "sha256": "0abead1c87ca2a35d7fc9b85b5d78ff6218389505098c2a6602e3ee0aa999c45",
+      "bytes": 710,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/AssetManifest.bin",
+      "sha256": "fa1f654408a6b13771fe24612a73579f29f80a79c0cc74d975e69ec17953d646",
+      "bytes": 134603,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/AssetManifest.json",
+      "sha256": "88285e682e7c5998d060f3aac0e8a2423ae34a3d8e56b90186b6021034db07e5",
+      "bytes": 106545,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/FontManifest.json",
+      "sha256": "00c3a95dc223e2d45e365aadad47a648471e7bd8a5270adb0aed1758b9e9d3e2",
+      "bytes": 2494,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/NOTICES.Z",
+      "sha256": "4a185bb864c49063cd706a630f15b565c2c1bc31b776577c92f6d49951c09904",
+      "bytes": 112161,
+      "format": "gzip"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/NativeAssetsManifest.json",
+      "sha256": "9548a31e4a048135c1d94f919328bfb62ae2c7bb3cab96557c7941daa97776cb",
+      "bytes": 45,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Bold-base64.txt",
+      "sha256": "211c782029f609add61a21639af032a0ea86ea1413543e2ac97ccc036c93de6e",
+      "bytes": 103792,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Light-base64.txt",
+      "sha256": "ff4aa891ff355c6b75b4457d900e62b6ea1836eb7cecf7c62623e7b2ac886bc1",
+      "bytes": 104092,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Hauora-Regular-base64.txt",
+      "sha256": "41be027c024f269267f213d4452c340bb4c11027ce879b445b61c816e8fd0855",
+      "bytes": 105480,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Bold-base64.txt",
+      "sha256": "b277fbed305b57f960e88aaf230d098064e27abec02d81f152030c3586f8fa7b",
+      "bytes": 95996,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Book-base64.txt",
+      "sha256": "bbbadf3e5445e2002cbc9edb82efd0a330cb3c91c6dd25840a22a71e5f1ce499",
+      "bytes": 94816,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/fonts/Nexa-Light-base64.txt",
+      "sha256": "5407fa915546c7e89cb25e809d6e5b5afd40d3df33ac499f82ab983b6032aaaa",
+      "bytes": 90716,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/pdf/scio_cup_manual.pdf",
+      "sha256": "70dd51b195d5f21b2dc65b8b278b5de075554a86704258402144ebb0828f9a46",
+      "bytes": 2021399,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/pdf/scio_cup_manual_old.pdf",
+      "sha256": "5b3a458004bee508a747587893d994cff890e2441617685daaeb2a63a8b0abe3",
+      "bytes": 2021815,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/pdf/scio_mini2_manual.pdf",
+      "sha256": "f95a1bb6f503a11a2b947f0b95fd92ce188073c6a54074294ccd2b801af6dea8",
+      "bytes": 1369229,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_cancel.wav",
+      "sha256": "ed7e054ded07f6f69110f97073685453acb4a248a107805be17f8e799b0753e9",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_chord_up.wav",
+      "sha256": "9e17a97b1db05733dbc13b605675ad02f8be10535adec5c1e6235eda56137e10",
+      "bytes": 155660,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_confirm_yes.wav",
+      "sha256": "208e2e003e83763dba71a298c9b933a5dbf11683965bb53d823f2ad026719944",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_off.wav",
+      "sha256": "a4c5ad88c70a7d08e7258571e7a2ec6fe9e0d82f8ecfb2d7f3a0148712681c98",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/assets/sounds/chime_short_on.wav",
+      "sha256": "f0c6abb0e8065e989324509234254231336d76c05a304e1b98f1b9ae16b02bbd",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_cancel.wav",
+      "sha256": "ed7e054ded07f6f69110f97073685453acb4a248a107805be17f8e799b0753e9",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_chord_up.wav",
+      "sha256": "9e17a97b1db05733dbc13b605675ad02f8be10535adec5c1e6235eda56137e10",
+      "bytes": 155660,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_confirm_yes.wav",
+      "sha256": "208e2e003e83763dba71a298c9b933a5dbf11683965bb53d823f2ad026719944",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_off.wav",
+      "sha256": "a4c5ad88c70a7d08e7258571e7a2ec6fe9e0d82f8ecfb2d7f3a0148712681c98",
+      "bytes": 188798,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/common/assets/sounds/chime_short_on.wav",
+      "sha256": "f0c6abb0e8065e989324509234254231336d76c05a304e1b98f1b9ae16b02bbd",
+      "bytes": 188802,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/simple_barcode_scanner/assets/barcode.html",
+      "sha256": "81cb5f90fc979181cbeb1d68144a3c15905f37a4758634d4022aa2306c3f0b1f",
+      "bytes": 1833,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/simple_barcode_scanner/assets/html5-qrcode.min.js",
+      "sha256": "660b12437b1d747e3e68b8be0685c08cb728140110ad213f167b14b66f8b1d8e",
+      "bytes": 375364,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/packages/wakelock_plus/assets/no_sleep.js",
+      "sha256": "dce4eef0b197b640ad6aaab2228ee1ee7dccf8bd6d6b5de5484dd1bd16430a78",
+      "bytes": 13344,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/flutter_assets/shaders/ink_sparkle.frag",
+      "sha256": "afbfca78dad2b50c45c0d6bad0626a0179f987360e0ad10bef1540692411063d",
+      "bytes": 21632,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libapp.so",
+      "sha256": "faaa61e5c07e4a67e721c565da6d6c708a96741fd59a087a28824f1c566b4298",
+      "bytes": 10814368,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libc++_shared.so",
+      "sha256": "2b21d07cc4ddcc5f0de91937f4bc1ff3d099d8c4e595dabfbba0c7f51b09744c",
+      "bytes": 1022136,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libdatastore_shared_counter.so",
+      "sha256": "d3e48717c9aa147e0ab21063ba0e8e0211cabf8bf40b222640829519edbf58e1",
+      "bytes": 7112,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libflutter.so",
+      "sha256": "ccc767447963a34555c726c26cab467031370fbe6c2300b86c5c2921b6b0ec4b",
+      "bytes": 11057968,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libjniPdfium.so",
+      "sha256": "f9ca238afc819024b47882f09466bafda03a5128e442e007e639b98e7e4eaba9",
+      "bytes": 53336,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libmodft2.so",
+      "sha256": "da2236937d9d618a7c917718cc98ad01e045f3872efd696e1e1fc40d3359ba5e",
+      "bytes": 554880,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libmodpdfium.so",
+      "sha256": "ff83cf731ca3649321d188ced7e14cd4d07f5fff68efb48792155e1230e2d4f3",
+      "bytes": 5216024,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libmodpng.so",
+      "sha256": "a91fef1d58fce9e7a1a24d964e442aef8dd442d03b748323166cab7b2b8c36f1",
+      "bytes": 214840,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "SCiO+Analyzer_1.5.6_APKPure.xapk!config.arm64_v8a.apk",
+      "member": "lib/arm64-v8a/libobjectbox-jni.so",
+      "sha256": "076f8724eef21234153569fa83eb9bfad6b5eeee9b3b9582aff8bec81d67cf17",
+      "bytes": 1782432,
+      "format": "ELF",
+      "elf_class": 2,
+      "machine": 183
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "DebugProbesKt.bin",
+      "sha256": "ae1bee7019cd114f990b01e75316d5c80ec0a1b07d5ca9a7efe7c466f7f9cfe5",
+      "bytes": 1719,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/airshipconfig.properties",
+      "sha256": "4669dab3668b09b75f3916f341472bf12e74a5ed06f3aadb6f209a5eb5ba1d4d",
+      "bytes": 969,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/dexopt/baseline.prof",
+      "sha256": "840ae5e2a5a8c53a95fc305bf736a5de7dc1bfd87f2be6e3313ce6479bb6c4ed",
+      "bytes": 2571,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/dexopt/baseline.profm",
+      "sha256": "757b16228a4ed54bed20edf795c8fce956000b5516ba978cd4655a2eb8e97da7",
+      "bytes": 235,
+      "format": "unclassified asset"
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800
+    }
+  ],
+  "embedded_samples": [
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "AAAAAIAafLqphdNUdNFfmN42HYmmekcp0zXHeMwXtXwj9XXN6PRVACL54qCDjOuKEOgKUaoYHTeT5QBSXuWxctbnC034B58Y6IasU6NNCYErLDuQjSvW7iKC3ZKKLXMYjjv9vB2Af9f+2NhDmnHYBXDz3sOD5w0CU2Pbu0P5x0iGxuboAVdFiKCou2p7CLmWp75qfeAIt4icLOQxnNuR5VU3gA3nhB5A74x1H5Tf28RZeNmBHwcoIQHSfE4L2LgGJW6hXi/d6Ln9Vcqw3CzNsBsY3pb4Acj7OOoi0xZ9EiAp75ufAGeeJEJf9bJNQ969xWbSBkGmcHUYNJSsWfGUFzC2phFL0be43JjeL4NDoDSVaol05hZ4BZ/Ry5qpt46b/2JGufdjBpOV00NgdYkfNLOSjL2YSb9KE95ZxK6W3QEY+Wnx9ZEJA77IQlMcQnlCVbmb032sSKW8kS29MnsXZVROmaDLE9dOIpOR7KdX6TIqJtu4DXdLQdh/RDXFP5YZD+pQsitn2MbNJG+I7+Xvo88+oXMVrjiv7b74K5tJmo9atlLKSz2vMVt6lbfNlzjFhYN1WteIRLRaUxsqmIV+nMAlQa5d+kBeT7mXExkEIc4hLE/Vv5OiCGRvH40NyNQcuOOxoScaIUEgjKpQf7mljcel3NlM7yjhf+K8ofc450bCaf06fUmLrnYQndRkD2r4vN7Dc+W23AIPyi9f5vdlDqkFekFpr8DKTMhmyK2TbMZfJYW114JbyoCqbJX0OV3A24ELp08be0J/dTtB4wfSorkmz82OHxSe0PqB9vdd16Y5PDoPk5AgZBiTYMN20lWonoBttkZVkA1/MMib5T+zx4VhcPDAHfM2ZgmiXTyS57M+NP8ot1ojOgwnUoas3YjxXgljbdmR8eVmV/cMk8Z959nYzmxsITubVfNX4HJSiIZyBfOjceLTwrzGbqEQ0y7iIPUDLCBiNfEPi3jDXAc3xce+2IWCrpVfBUOaOI9sLjFLBw6ieKoxNooyfKu7W/kTfrlNJQAgStuVxkAFaiEsCarkCs0zIVSoubolCHy4OCpAHxALGtC1frXtAR9AwBNzm89bbuFA2Y9U/6B2yfwHeFCL0O97tsOG2qP8NS1ZseSYEHC2tq5ZzPLcd6h+wjbktdFEXCVuEjVU8OO/2JbMLSqjod/VwYEyb85FCk8qJUeyA8yzQ7ZfqMnVoY2zwt9YcDvTnW19nskGK03ebY0YralrOtnKJigObhsWPzgTx9pyhQbpFXSYmRvabxJxo9poucITO6CQbgMDCIgeSw1lQgScU9hrCK4SA7QW+uBgb8mt+MTWRIoYZUnZRWtqkmP1/AggvAaBGCHH66JWFv+/4Jg7Y/O4NW3IzjNreDSsscch1ADlf8VcwytvJBC2Qex57qlsnoUYZ6cfRtijhUU2o1JlAxHlTtU9HZhMy4639SM42XAihj7ffal62MdQjZIt00HbA+vIen4SChTa0B8L/sy27Q3fMC3M+6Frw2MLvVdtl90ePCP6zelly9n7VGLZOpdL8CsXA29pfxu2XlLzTvKhKZFidqsSlnYWPC+6WbSywkfPWnv9yQ89jaqswJKyXnyyf2zY5/jVOBoKlU3SUcTM+Xd1zNZN9/Mj8Y/QP41JMMWOd3E/4qyGfoMS72rP0ONJCYUzVwtPyy+oM0MT7UcWObM7SvKhB/nySP6yEiM/nmEIS7wQSWrKaUO5HYoZZlXKs1d1GElOIeYi7HIBLjGEf2tu+sL7BZk+OICtjYPJKbaGisNjV6D1XTi2bMaC8zNy09wdvn+OdwUZPa51/gU0KGRcLfEtBOUb8CdAyo9Jrby/A/j1uqPUSy9HR5UkDRQcS7WlJATQUCg+z44Xx2Zx7ciT3ONOEXkewcy4sRhe1cpGDj08A3wDOCR5U4a44KvYu9HHbMorLyZMflYJpCzHStDEWekZx9G6aQpPkFJSNvSq8CyjeeVUc2Nu9NP6nskRUJIo2Y/thmqrquA3KpkU5L0ogOPzZyhfRiCKROgnYgNPpNgww4yZ60BxdYPsU95WhHLN5RqVrZugNCzQsBJ0On1rpojxVuUO9fe8m02g3P/9c45vzETl5QgTq2k3Q9YrMsswTkO2rSpazXNJoGY/uQPRuv6QMix3kBCblXqcb7b5VtEWafBez+XGzx3qaWrgX5jnDHgLz6PryYedBaW4/rMfTRxdxRhkJW1z95qza2vvKDhJyQuV6+xLbiFMV92giRR5RArddbQipn2DJD5cGJE6hWF7rllkBwrR9PKqFi1fMn8yw7pFnVzSkCzSwVnbQCX+UvEnAL9shemwMQpqYMpYFPN4dCMd/lqYm6auCnhmj/n/TfQyfYSZeI+NTIXbZNWNcqDlm+yGZxJuS7w8P9eFCxKB",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.16.597_APKPure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.2.523_APKPure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "AAAAAIAafLqphdNUdNFfmN42HYmmekcp0zXHeMwXtXwj9XXN6PRVACL54qCDjOuKEOgKUaoYHTeT5QBSXuWxctbnC034B58Y6IasU6NNCYErLDuQjSvW7iKC3ZKKLXMYjjv9vB2Af9f+2NhDmnHYBXDz3sOD5w0CU2Pbu0P5x0iGxuboAVdFiKCou2p7CLmWp75qfeAIt4icLOQxnNuR5VU3gA3nhB5A74x1H5Tf28RZeNmBHwcoIQHSfE4L2LgGJW6hXi/d6Ln9Vcqw3CzNsBsY3pb4Acj7OOoi0xZ9EiAp75ufAGeeJEJf9bJNQ969xWbSBkGmcHUYNJSsWfGUFzC2phFL0be43JjeL4NDoDSVaol05hZ4BZ/Ry5qpt46b/2JGufdjBpOV00NgdYkfNLOSjL2YSb9KE95ZxK6W3QEY+Wnx9ZEJA77IQlMcQnlCVbmb032sSKW8kS29MnsXZVROmaDLE9dOIpOR7KdX6TIqJtu4DXdLQdh/RDXFP5YZD+pQsitn2MbNJG+I7+Xvo88+oXMVrjiv7b74K5tJmo9atlLKSz2vMVt6lbfNlzjFhYN1WteIRLRaUxsqmIV+nMAlQa5d+kBeT7mXExkEIc4hLE/Vv5OiCGRvH40NyNQcuOOxoScaIUEgjKpQf7mljcel3NlM7yjhf+K8ofc450bCaf06fUmLrnYQndRkD2r4vN7Dc+W23AIPyi9f5vdlDqkFekFpr8DKTMhmyK2TbMZfJYW114JbyoCqbJX0OV3A24ELp08be0J/dTtB4wfSorkmz82OHxSe0PqB9vdd16Y5PDoPk5AgZBiTYMN20lWonoBttkZVkA1/MMib5T+zx4VhcPDAHfM2ZgmiXTyS57M+NP8ot1ojOgwnUoas3YjxXgljbdmR8eVmV/cMk8Z959nYzmxsITubVfNX4HJSiIZyBfOjceLTwrzGbqEQ0y7iIPUDLCBiNfEPi3jDXAc3xce+2IWCrpVfBUOaOI9sLjFLBw6ieKoxNooyfKu7W/kTfrlNJQAgStuVxkAFaiEsCarkCs0zIVSoubolCHy4OCpAHxALGtC1frXtAR9AwBNzm89bbuFA2Y9U/6B2yfwHeFCL0O97tsOG2qP8NS1ZseSYEHC2tq5ZzPLcd6h+wjbktdFEXCVuEjVU8OO/2JbMLSqjod/VwYEyb85FCk8qJUeyA8yzQ7ZfqMnVoY2zwt9YcDvTnW19nskGK03ebY0YralrOtnKJigObhsWPzgTx9pyhQbpFXSYmRvabxJxo9poucITO6CQbgMDCIgeSw1lQgScU9hrCK4SA7QW+uBgb8mt+MTWRIoYZUnZRWtqkmP1/AggvAaBGCHH66JWFv+/4Jg7Y/O4NW3IzjNreDSsscch1ADlf8VcwytvJBC2Qex57qlsnoUYZ6cfRtijhUU2o1JlAxHlTtU9HZhMy4639SM42XAihj7ffal62MdQjZIt00HbA+vIen4SChTa0B8L/sy27Q3fMC3M+6Frw2MLvVdtl90ePCP6zelly9n7VGLZOpdL8CsXA29pfxu2XlLzTvKhKZFidqsSlnYWPC+6WbSywkfPWnv9yQ89jaqswJKyXnyyf2zY5/jVOBoKlU3SUcTM+Xd1zNZN9/Mj8Y/QP41JMMWOd3E/4qyGfoMS72rP0ONJCYUzVwtPyy+oM0MT7UcWObM7SvKhB/nySP6yEiM/nmEIS7wQSWrKaUO5HYoZZlXKs1d1GElOIeYi7HIBLjGEf2tu+sL7BZk+OICtjYPJKbaGisNjV6D1XTi2bMaC8zNy09wdvn+OdwUZPa51/gU0KGRcLfEtBOUb8CdAyo9Jrby/A/j1uqPUSy9HR5UkDRQcS7WlJATQUCg+z44Xx2Zx7ciT3ONOEXkewcy4sRhe1cpGDj08A3wDOCR5U4a44KvYu9HHbMorLyZMflYJpCzHStDEWekZx9G6aQpPkFJSNvSq8CyjeeVUc2Nu9NP6nskRUJIo2Y/thmqrquA3KpkU5L0ogOPzZyhfRiCKROgnYgNPpNgww4yZ60BxdYPsU95WhHLN5RqVrZugNCzQsBJ0On1rpojxVuUO9fe8m02g3P/9c45vzETl5QgTq2k3Q9YrMsswTkO2rSpazXNJoGY/uQPRuv6QMix3kBCblXqcb7b5VtEWafBez+XGzx3qaWrgX5jnDHgLz6PryYedBaW4/rMfTRxdxRhkJW1z95qza2vvKDhJyQuV6+xLbiFMV92giRR5RArddbQipn2DJD5cGJE6hWF7rllkBwrR9PKqFi1fMn8yw7pFnVzSkCzSwVnbQCX+UvEnAL9shemwMQpqYMpYFPN4dCMd/lqYm6auCnhmj/n/TfQyfYSZeI+NTIXbZNWNcqDlm+yGZxJuS7w8P9eFCxKB",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-dark",
+      "sha256": "c742e4907bdc32609e37ce381625951cef3737ef5da4ae25b306d6a9080f19a1",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "a8a489bfeb17922ed297b62da44e41ce56c71c9dd95606a59bbceba5ae59b42a",
+      "decoded_bytes": 1800,
+      "blob_b64": "AAAAAEk+pUXMHGeli0Vc5W//hSfxUYZ0Kl6Mxu/DYvk1iycmKAM2frSv2DQlA1pwksfFMv+/SCeJxspfsrTOSG6gZAwYhoZTh2RsrfTY0wlynCABiGPMDTC3q5h0heKqMXTVS51KXjT4nMjdCTSVXUKZQwdXZZYDju7ohazcOsiTwqOMcDwaS7alM7Ww0/vA7F963DHJYS3AXuAUSb6U2c05W/T1SvNcyjEzC3WqSgfpsU8dpM2Zch5UUcpQIKceA8l3md5zF7WWtBG+wy6TyEpV5PGL3YsMI0erGOduJys876h057nfo5HMEc8wV3Mr3C/hc2v2nYJq9x9gICrGkqqsFyRraq9LBYHdWHdthUTr0K2AxyoFeSmkfasCb3OL8m+7u5/tjdJSshfuGKqtcwmKmEZo16eOSciGYQezpcz7/BbLTMr1hdn5jjY+3sEFINUqdJWWQ8VYAcQjGAuoNciLzaSvJPoRtPGPCh7a2vkbTUiF6Hs0qQz4F2xHkuWYyQzsI/2Cjf+BOM6UDfTN1s084v9+0RYzvSwfUVGSQPCAt6NYeHno4rhtte2L4fZcLRHymVAvYyfIUlEEL3aYeSttooEQaX/FaqBoSy05gSU0ssTMCnTKwQoZSHGMhIKGJ3CSnqgaW78A4loZQLEi9Mz8GLH3WJl9xGSSNg9PLQ8hZZieorG1soYF7m2n22/F21m17vPYLcO67hSZgyvxd3ElqibKa+GTRt996AQk02TIxg2Bdyxc+5uC3TNu/C8IefvFKR0p+Pi7teLK1dPnHWzAqER76OD3BiyxihjlwwroWOuRYhYPzt3VOf9zEZQC81SE2cDPWmJG5s7lD9PuxVyuiurEn7AbgLNVnwf6FgpPWFAV11QruZZTvQ+K2qzQG9qTXa8J/tXlmDoDuEueWnkWoO1h8XZRj64Q5Pplaahr70wq+oziKr0Ven1HTOq9rO69oUbCwsB0kZXf468HpOZMA3G5goNHXnxymZoKrzPWEU17Z37mygJPHBpt/AUfNYYBMEA0T3/NWrAdqZaOyhU+MPIfE9uPOmtXgT7wcjmdyfMJm/Ewmk+91L+hLfSa7Wbt7tZRovo9d5Mivjs3svV5T//Kcce8BrDZG3+7vHmcQQ4etwZbjNDsh+aTurYDx0W1cliLeW+ITWuHlKWorsPxABE4t6iWxXmKlsIfzcOHpk5h/EbaKZ1BphmpY74zzHMuvdD5L0mWhYmh/Zl/X41x8xLemIpki8pijTT9811qhIdbrRspel884e7jIViLiiSP1XdTp6eQyfCs8uFVlab3kSycYlfGaGNm1rK6KaxvWWA+TgA/JL3RoVzYGNFRCEKoMFJ1U5IloyHuV3qgwiEWK+iByU2KmNHgucvE1Vz4Db2VyLxdNolWE6kNIrFQlHdwpXNzhd7QEHIoI3BLjRdn3nhhJUByGxrZ5gwlUJOR5KjqoVQveJhS6H8eAV6OTiN4n2zx7LZSkfzQb2xruFekQ+NvlZmnZ0iay4DNf5Qkh6+0GrVEfbcB/s/23TSZlHGlUTP0F0/PoGN3DYh7xJg3lQGldWr5oYz4K5szudlsjIVbZCNhdq2l9CvYvG/xC6EMX5NCztSpXOzAJ60kx3TN9Z6Q5biT1TYeZDPtV/65EFDUvKcMGOpZs9rddjR1VaK1rLP1CcuWAxF7Cd/PUHE29cZp85zSM3dr+16t6+qK81+9ld8exIwf9fPnqiTYOGNgwNCTj+q2Fe226mbnpHwOv7vTTrUfoMhxamD99LZYYP1dTOiO3coyih/U2LAjoSr0m5e1tkmgz46D5/K2EsRvY8uVFabqOlGtoPbNhKXQZwTDwfSy0IL05b6SHXszNiA6Pyh2S3Tiiy5Vp0sVZBZCeeu2isUe1g8MDtUI8DlpRgzD8qFvksX0cI5E5qfaL60UeK0YX22YZLeIEiDP+VoE+MhOYhwBm28e9HF5lMtK/PcT7RvgkOpXU+4HzUEtskdimwzbr8RGo+RjTJJN1vaj9dbWPDDsw5qEccqTki1h0XXXz1kIE8xKA7OCMLV4vluXlONBfYyWsCquBAqrbjMVG0yZ8hv2+oRnDt29QWpbNa9U/p0N75PgZiiOMjqUsLmA9BU7nmKpiu7NwozsqpgU9lN8ftagXajSzkqH22CHxubErsqQgII31cCW5jrBQj9rHdeSNU1tKf3nFMFetEIxHOwO4lrXe2Q6BkXv8ofRahtvbMQxWfd4r1x3oxjC3y+CQIi+Zz1Axfi7Ke904nkScwGI13NRGo1RUesUJMJmPAvriL/RTeJYCDeaHvEupa8jbPlys6zYFJGEBfgbLbZRYJpAsjmSXOpwx9dBnFr7/dahooFomkeHNAuhcrQN+2uPp1LJrcXXXdtreXDh6XUFUNO54qK2",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-gradient",
+      "sha256": "d1661debab5e5e4ad799d5acf7d4774b2fa154e8909983f2f2a5b67dc4e0a9f9",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "9dee70fc2400bbb31a018f1a5b6390bc5e2611c76fd4866eada56200d980df64",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAANPf6OrsidNnEHvBS9tCdoDvloPW1lhC54LIvah2JHWT8Suxcf64o7GL/ARxK/vSDEjq0pPKZ/Jb5IH0NBVK9cixtDD7RMJU9kwVOaRb/DFqlr7PBR+RC9E3MWt/1nmOH17Ub6GPyNhYg4GnMlvLyQxz6BgnLCXYbOC81FuNeM44RFy3R3v58EvKBLEtuGJ09PQnBhnv8bpqzDU9gr57po6pzCp92oNWjVhdIoP09cRXCD6fEDmcVsb4QH9B9ztRYBH6VvJYEo1Bu9oTSkt+37cW5RaVsUWvdMkDlUq10qldPpxqs2YdJKi9QMdduW6lRegOgRUxfjqTjBOJbxyrtmy7ovNGcM5lf2lxMDQOFizPV5rJ9INhzFHA7VfLack7XQ1oEMXnSzLgZ2O943ilSJC6ugK1YgfT9vj7PXmAsc20TMlnRv4dyE4r/0CwYKGTlIOgsjauH4UmcUFNmJ6rqkX2nOcJGHUekdrvGlIYDXX1DyJ16F6YM/MZbc3j1U5Fo7w6CZTXa5To8Ix0UOD8LvS8GADRjISaGdR9RXEnVWWrnb56h1AjFoFpsCB55izk+ay36i99zNcTg6OR3vNHgOERb9he4ChLixPZ8Fw4bqTtfdKwQF+2DjMhB4EdV1x0sPiBNedeLrTrS7Dkqltnm9q/FaO7gfzO5bxpIJYeZIqjz8utyERxiSUFmmAYgeWBA9eYg1CcfUPfPvcToOrqC/cdOa4i8VasqA10z9gfFWZyzdq+DKRmtkLB/crQ8QHrVgAKq8J8UHtBrSl2PKmVisBCRhjHAHxDiAvKTXLgVqfDi72Q/YEg7ZHoE0yZ8x5K1Ls1PIJPOXIILAmO9c+kYVbGAyaqnCl+4k3yZ/NgQrLzi5aS5QQ6ONwKOV2Ns8bvnbUB6AwMzDTzoDPa7PbbAFlW+Hx8SjAFOLQaTR6Zt9q8xXU2l1FhA5IV9LiZYKTlIPpQgMcaDJynuqOLeSDj9TyehF2wX0d0xPnq44kvnzJlCZEo6sw2cMDasZwZet3Fq/gpWeG4U68WsAYwPRjDYkG7NEnAQTA41aCjJUtnXjaqOAJ6azpYEakaKi67YxS05F1WY1llHn4ZRo4lFKQeUcaRxuUuuhKUPPdks7JtM4R/LWHkeFA1klW5bD+WaASIH6qLvnjoVVJibyAEsK9hAZdDuIelMqHp/vis2nFgZIyA9XwNfqJF/vDXimbbwnIjDYDTS9I6bPBLFLCY0kgfX+dgYcPqc8w1pwT/ISk3lRusMHCWAls1OQav/ZFAcgbHjMaWLglhf9C23CYnXCVmeb4ThDCXqd2aoD3GkdoZD7Z7/gJQd24NwCTWYMF0MuYGillKARPNdM3IK/uUwpRQ2e3xGLYUJY1+lBN1HAIGt7eDsaUFUeMDojNMyIMgxBgNe4Jxz2yN+E8ERngSZ2irHjULcyGSH0MXxU3/ZZ1JtDeBHwMj+TippjMqz2WQDiwBynSr4rXvfhT/bi/dckUCxcGY08oqMQFgWqFxTaj8VIjkfCH8Oe8iXrX0Retvs+3CB0BUBbEdzGcnGrfi3SPNPuGuKiXIxzy3sXRurNoLzWLNnHmpRNhGF89I2k/rComHX7/pkx3spDp78wcjSthGcDL5PSBDFKuybSgXBNO0+J/ERA4rwfpucLNjQy0xJVeF5rMXGvjFlNAVJ9J+ZHHnKJ2D20z8SD6GJqvUuSWCEHSN2ng1o8xGjqnEZ3WLHKxuWQ/PQ3NO93cZpZulif3VueW5sUcADAOQDcKRvWpwA8DhxOwKJ+jQONR+bg//LBfrSZmfZTJK0H8PjRb83Bv0XJWj4RUdl0ZXS5dRvCUp/A8qxMZ4hT77mIfFv5SPjhFLN/wyhL78XCkBIh6dTny/6XbXGe6S",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/scan-sample",
+      "sha256": "2a6129874fdeb669728be63a610f02a7b0c172749d2b7e293ddfc6880807fea0",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "55a5207f5695b89c1b8fc390f1cd90a0f5b9315bbe995bbda5709d4ed55476ed",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-dark",
+      "sha256": "e5cc24e52993a2cf730cf6af76a30153d9ddb306992547bd4cc53a69a0cea713",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "13b16e145ab956973c0730c28f288c9b7175d99bed470b7a44524497d9d15d05",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-gradient",
+      "sha256": "419abc5ef6b88e44ca9a2013d03ad07604a0c58eb4add752c51b62a9b81cc791",
+      "bytes": 1938,
+      "format": "unclassified asset",
+      "decoded_sha256": "6df1d17c68245460f966bb78be773c69fbf7e204e8b5efc7bee221ef7b524329",
+      "decoded_bytes": 1416,
+      "blob_b64": "AAAAAFudrq1gxRpD1psbMeUo7+M7EGHnOI/Hd2IS+tKUH99gNVQyEQ12FJr5gP2bDO3KX60uXzG8BbimCgeWo/BxMrTUH2CmDMEtLGwDcRCg/omq4F42CPU4lXnbG2lSTCVLNxXRHN/ulYtWcSpPyRTkoMo87Ov74iRxR3f33TheDE7/VfOjVUNw+zFG8DJigRr73UeayQ7YJU4wsKVaxHGJ0+qk2BstdSv6CqMLlW5p8hei8pFmI0slCGGQZykPIjbm1xCKa3F5mLADkxA3VFrIHeSW1/zQxCY7zLlS5WrJAjNFhDlxNZxXL7ny52LzhEHRKR2JtLgENvRuLvEzpFa2zNqU+rh4VWoQmE/Wn1inEf3a1uPoXl4ywazqYcGJ4kiaRpV4Hoak0f1X4S9ZhnJDK9EAUbZ4jIcswX8DFKEAmIH1AuBav9/JZggd0Ke9O0VEd/86IQPAGibtLUe46AkT76T6VOQrxS7NUQY5bEz0nhNzfQNZ5UElKnQxq0xfyb1w92cPgeVrPxmMcebv+Cuv8EJL3Wd1eAJiORYEJLCLXPq1b7qYF8sq/i5CT6MVC/ANPZc/b9Sib4sQRRTyk1JKfx2dDfTytNzx1145lCGQ3t4niOLXsq3b+iXylvTAUHNyLBSk34OQ1Y87NoYuyt+6QvZToFF8WETwaAkx2l4TZ+E4h4nMAZLzu0WClSZ8QDKcAjUsbMr3Q9kWkW4IgjyH1WxkvOiLtHqfRdO6HIzGDY5cOXJRxeQ2+G1RWEmhAC0DUgkW/MAmKTT6KzMscvUk3KWY+nN3JP8dB4/cGa7yxIHthZ7s7rcuX73rrt+zn39XpxCssGaXhdRMHUefsCTz3o7gamf/GhZtkvrqC3VA+4hVdMOegqnB2dyxbbXUXWLWqqVd0R35Znds0eWV3UvQNtIUxpeaPkvKN+Np49fnSEKxpGfpd1A+orFV9DDZHKuPiLnM/A2tN2srnsP2lJqdv4dGZzahmJwMSTMjcpY5cMTV6/OPe7iH0UePZdePqDmKyejpAf5dp+62OpZ39h01edOM1vJyUd510cGHOTPtYNotRaUHlMp7CCe0AmcbelD9cFOC4vnrnxGGVkUAs8K9YxoQ1D37sdTbRUBXTZSADoHfTxI2jzzhoWPjpGOF5G+mSCDcTzuePT8jGX1l92Ifg+2kqoT50v7CCN7wpeiG8WtSVuWyGA4ztQ+MqpVXFSdnOw/Lr7gVAkEwMN+4XUuPxHDPL2x/HZ1I652dnpnyyzo+D+kdwAsJ34lXArep0IY8pRSOCcL/NVlbC7glbBFi41opTND8bIPXmKClfoxqFCK6t9KuiPWLH9FghwSbglSyCdYbI+p0JWZdCGRUrgU4uOQQvRsMmIcMLXNUi45jcl4ttB2eGrHHyaAcol43rRs7jcVoBqmEzGCIbThQOP2cnWWDRTXcy1rxfGRZY2BJG3fJQrDMgiOtFP9KfWc1v1/iTPWacqrALO3qzAJFxu2iXgIPc7OvGpI+vHQPyqhjTmIeoU4jUORRxPNEpeDgTBpH3TsCar1KxRI6UuVFPZcYee07UdCWkX8M+c5rh9L0eS0uY59GKaWtXVSkCagJQcGiZGHM0uGAQev7cvbhOkot8tzWy3ZBEeHe/Eht5BMfQfPUkxnwK+oz/+FMOgXRbLVDBWFr98GRX5uPAHzt0K5ZYTmmp27Hjnh9t8QVBJ1dOnj+h+HPrajXJwHvnD2fJROdiCGjWfLvFKVMO++84mffUXw9FeV++f/AJd2333p0FSSoLGPiuDXD1d9gFoIuZFqlR4f1M4GPqgm9SZEN2YNykcSZ0gQoEoljnYPzISCPO9PDFVPwSf9mXdmMRou9fny1RN1PXlZa4B/sW3rv+U0EY9iLsS6F",
+      "association": "Asset path only; device identity not inferred from bytes."
+    },
+    {
+      "archive": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk",
+      "member": "assets/mock/wr-sample",
+      "sha256": "9f18e53187d4583538fb2cfb45ee697e2c6fe19fb72ee8f9464ca2950fa99a55",
+      "bytes": 2464,
+      "format": "unclassified asset",
+      "decoded_sha256": "234c443dc7616ae8702ff5c08cfff65a0df1efe06100818f78eff7bf2d91df36",
+      "decoded_bytes": 1800,
+      "blob_b64": "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",
+      "association": "Asset path only; device identity not inferred from bytes."
+    }
+  ],
+  "limits": "Name-independent asset inventory excluding visual/font extensions. Does not exhaust encoded arrays in code or custom containers. ELF recognition is not SCIO firmware validation."
+}

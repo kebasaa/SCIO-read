@@ -1,0 +1,21 @@
+{
+  "reset_attempts": 1,
+  "timer_writes": 0,
+  "reconnect_attempts": [
+    {
+      "attempt": 1,
+      "error_type": "SerialException"
+    },
+    {
+      "attempt": 2,
+      "error_type": "SerialException"
+    },
+    {
+      "attempt": 3,
+      "error_type": "SerialException"
+    }
+  ],
+  "after_available": false,
+  "unchanged_fields": {},
+  "limits": "Readback covers identity, timer and four calibration headers, not every setting or file body. Does not test remote power-on or immediate-off. Unchanged fields alone cannot prove a reset physically occurred."
+}

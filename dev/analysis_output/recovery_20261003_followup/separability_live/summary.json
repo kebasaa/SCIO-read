@@ -1,0 +1,35 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "compose_sw",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "compose_sd",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "compose_wd",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "compose_swd",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

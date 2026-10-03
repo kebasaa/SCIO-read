@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/FirmwareFiles.java",
+      "sha256": "d6150fdae15582e68d6f675cc72c5144512dec5ffd8e9a8966ca1b0d2a82c700",
+      "anchor": "deadPixelsIndices(100)",
+      "matching_lines": [
+        9
+      ],
+      "observation": "Enum maps deadPixelsIndices=100, centers=101, bins=102, nPixelsPerBin=103; names alone do not establish table element types or dimensions."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchor": "this.i2sTag = getScioDevice().getImage2SpecTag();",
+      "matching_lines": [
+        301
+      ],
+      "observation": "Update completion obtains the image-to-spectrum tag for subsequent checksum reporting."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186",
+      "anchor": "return this.preferences.getI2S();",
+      "matching_lines": [
+        222
+      ],
+      "observation": "getImage2SpecTag returns the stored I2S preference, not a computed cryptographic key in this method."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchor": "this.upgradeState.checksum = this.fum.getChecksumData(next);",
+      "matching_lines": [
+        326
+      ],
+      "observation": "The following loop interprets the four supplied prefix bytes little-endian and stores their value in localChecksums. It does NOT calculate a checksum over file contents."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchor": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, hashMap);",
+      "matching_lines": [
+        789
+      ],
+      "observation": "Reads device headers for IDs 100..103, compares their checksum fields with the supplied update-prefix values, then reports them to server."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186",
+      "anchor": "final long u32 = responseCommand.getU32(12);",
+      "matching_lines": [
+        1936
+      ],
+      "observation": "Read-file-header callback returns the word at payload offset 12 as checksum; it does not return the file body."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchor": "responseCommandHandler.setRequestedCommandData(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(i).array());",
+      "matching_lines": [
+        723
+      ],
+      "observation": "Read-file-header wrapper serializes the file ID as four little-endian bytes, then sends READ_FILE_HEADER."
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/common/serverapi/CommonServerAPI.java",
+      "sha256": "31573561dae5872958fcb5acbf99c7b013798dd845b2186d366b93c1abf06934",
+      "anchor": "public BaseServerResponse reportFirmwareParamsChecksum",
+      "matching_lines": [
+        367
+      ],
+      "observation": "Caller supplies i2sTag as first string argument; this wrapper serializes it under compression_version with the four checksums. This ties metadata naming, not a compression implementation or key derivation."
+    }
+  ],
+  "coverage": "Manually inspected method-level paths in classes-dex_out source tree; APK/version correspondence not newly established.",
+  "limits": "No claim of exhaustive Java coverage or completed Flutter AOT control flow. Strings and pass-through wrappers do not locate the device/server opaque transform. No hardware or update commands executed."
+}

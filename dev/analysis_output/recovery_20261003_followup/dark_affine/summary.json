@@ -1,0 +1,40 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "new0_d0",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "new0_d1",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "new0_self",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "new1_d0",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "new1_d1",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

@@ -1,0 +1,45 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "self_sample",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "self_white",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "reciprocal",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_middle",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "dark_s0",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "dark_s1",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

@@ -1,0 +1,363 @@
+{
+  "resources": {
+    "objects_seen": 36366,
+    "unique_objects": 14523,
+    "duplicate_objects": 21843,
+    "codec_attempts": 17606,
+    "format_OTF": 13,
+    "codec_rejected": 14972,
+    "base64-run": 530,
+    "format_DEX": 22,
+    "codec_signature_cap_reached": 25,
+    "format_ELF": 27,
+    "format_PNG": 5435,
+    "format_TTF-candidate": 9,
+    "hex-run": 78,
+    "vendor_java_files": 3810,
+    "java-base64-string": 66,
+    "java-int-little": 1,
+    "java-int-big": 1
+  },
+  "size_only_leads_reviewed": [
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!play-services-cloud-messaging.properties",
+      "route": "archive-member",
+      "sha256": "712efbde0a118e4174d4e3cc84716a0bc8a9273e9d846d3d001e669e1e2d32e3",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!play-services-measurement-api.properties",
+      "route": "archive-member",
+      "sha256": "a036fcd8c0aa40f09eef5278a5679ce878124c4e05c15bc4dcf83d5a46f16c9f",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!play-services-measurement-sdk.properties",
+      "route": "archive-member",
+      "sha256": "d585ed5bd4f4cfc9c4da641388f8a866a7f83e804d69999ff68115193a393d10",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!res/drawable-ldpi-v4/mbr_icon.png",
+      "route": "archive-member/zlib@41",
+      "sha256": "2bc08bed46a656a1f6e4401acfb4174bc48c4ce03e925346a77c1119e73a9492",
+      "bytes": 1170,
+      "classification": "Stream inside PNG resource; not SCIO-linked data"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!res/raw/__tzdata_africa_windhoek",
+      "route": "archive-member",
+      "sha256": "7cc852d6ab26f34dbe1e1364260f25bb60df24bff741899cacc0592b8a4b7a2e",
+      "bytes": 144,
+      "classification": "Named timezone resource; size-only match"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!res/raw/__tzdata_america_blanc_sablon",
+      "route": "archive-member",
+      "sha256": "05451ef96bb7fd611cee30585e8d4c69f0f08a76aa7e9f8196d49ac9600f17f3",
+      "bytes": 96,
+      "classification": "Named timezone resource; size-only match"
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!play-services-cloud-messaging.properties",
+      "route": "archive-member",
+      "sha256": "e56cc14b420d5f3078e1fbe9c5e47d1d73272eda8b68ca97dd2e17491f00b517",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!play-services-cloud-messaging.properties",
+      "route": "archive-member",
+      "sha256": "f8ef7565db66da4890f4be15b2ebc62ac05833f4f5bbbb7deb02eabd5a324021",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!play-services-measurement-api.properties",
+      "route": "archive-member",
+      "sha256": "9bf486877f58c3267f8b7dbdddd1fcce05bf9bc7fd7d7cfe31cadb6f0450f66b",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!play-services-measurement-sdk.properties",
+      "route": "archive-member",
+      "sha256": "764cf3988ded6438b1916f9e6741bef95f0bfbbcfd2d9072188e264d9e36f3fa",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!assets/flutter_assets/assets/fonts/Nexa-Light-base64.txt",
+      "route": "hex-run@28952",
+      "sha256": "c885c7a7041741fea1798615a706a6253d561c7c74c6f5ac68742ace41a7c522",
+      "bytes": 140,
+      "classification": "Run inside font resource; size-only match, no SCIO payload linkage"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!play-services-cloud-messaging.properties",
+      "route": "archive-member",
+      "sha256": "314491414e5f73358eb3dcf7f7745e1efddb7614f5552066d8362a0a2c752037",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!play-services-measurement-api.properties",
+      "route": "archive-member",
+      "sha256": "bdb77ff80b1f601121f9611b2ca6e5f3b1b136f67bd6aa7aaeeb7b96ea6b0d47",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!play-services-measurement-sdk.properties",
+      "route": "archive-member",
+      "sha256": "721c9b53e40b165718c92cf109114957f61486c4e54ebfa7c38b00f1c3c8aa99",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@2876652",
+      "sha256": "86e93c8475fa7169e22f74cb894a3d71e73ffd5e6691d36bbe58beac713ae6e1",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": true,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@2996060",
+      "sha256": "7e1ebb03f2dfe0d1e7745fe33105d27e31b8c0920f80ce236891de1abadfbc27",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": true,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@3316596",
+      "sha256": "b1b5fb04f4b40285f285713dff7a9cd104953935339544816cc35fb1efc27a07",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": false,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@3336748",
+      "sha256": "fd415e8acb1c99cc120da76e3b6a0fba9c8d0ab05286620700c588bd9f16f358",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": true,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@3845540",
+      "sha256": "f499a601f95cdff84da26a0d424fd29b0c63e2dcf53a3040f9f4cc46106b6c7a",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": false,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libapp.so",
+      "route": "base64-run@3878316",
+      "sha256": "550770fff67fd108a6cec3d4aa7d13cb8e1a590d02ddb6b3aa85d4d76bdcf0d6",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match",
+      "input_bytes": 128,
+      "input_is_ascii_identifier": false,
+      "input_is_hex_digits": true
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libc++_shared.so",
+      "route": "hex-run@305792",
+      "sha256": "4061eaa8d20aad6f2d4b57baae7be15d006ba42641ceea8ea814763f0c5eb1b7",
+      "bytes": 100,
+      "classification": "Run inside C++ runtime; size-only match, no SCIO payload linkage"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libmpv.so",
+      "route": "base64-run@589590",
+      "sha256": "7627e1f827e914db383e5be9741700d0f7fedec5a5ac1bb86e3f8606b93f2d84",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libmpv.so",
+      "route": "base64-run@610730",
+      "sha256": "6acadfb6f05c387de1c1f491ab3950e966d2c02a2f7b580343a393385de6398a",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libmpv.so",
+      "route": "base64-run@643718",
+      "sha256": "28cb54c77c16589b3aa03f3357d8528afd5f41e8327c94866904954545c58006",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libmpv.so",
+      "route": "base64-run@898911",
+      "sha256": "6e50e65d440e74cac978f777bc30e982377a4297d61afd89a14e86597bb127f4",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!config.armeabi_v7a.apk!lib/armeabi-v7a/libmpv.so",
+      "route": "base64-run@2096144",
+      "sha256": "bc5764f07d6cfbece482fbddc609c1bdc25bb3566b4dfbb031187f79f37c5ecb",
+      "bytes": 96,
+      "classification": "Unvalidated Base64-compatible ASCII run; size-only match"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!play-services-measurement-api.properties",
+      "route": "archive-member",
+      "sha256": "38d06c3d706cb63f502ea7047ce6cf729bafbe9e427b21e2986b1fabef8add55",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!play-services-measurement-sdk.properties",
+      "route": "archive-member",
+      "sha256": "7c9001142c37cacedab821d4b82b7401ed749ff092785254a1a356ad07ab6b79",
+      "bytes": 96,
+      "classification": "Properties resource; size-only match, no firmware evidence"
+    }
+  ],
+  "dex": {
+    "files": 22,
+    "array_candidates": 1667,
+    "vendor_candidates": 341,
+    "vendor_non_R_candidates": [
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 43264,
+        "code_offset": 4122212,
+        "reference_offset": 4122236,
+        "payload_offset": 4122248,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      },
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 39389,
+        "code_offset": 3886684,
+        "reference_offset": 3886708,
+        "payload_offset": 3886720,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      },
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 49470,
+        "code_offset": 4513444,
+        "reference_offset": 4513468,
+        "payload_offset": 4513480,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      },
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 43100,
+        "code_offset": 4107644,
+        "reference_offset": 4107668,
+        "payload_offset": 4107680,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      },
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 49995,
+        "code_offset": 4533548,
+        "reference_offset": 4533572,
+        "payload_offset": 4533584,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      },
+      {
+        "class": "Lcom/consumerphysics/consumer/config/C$Workshop;",
+        "method_index": 47245,
+        "code_offset": 4217488,
+        "reference_offset": 4217512,
+        "payload_offset": 4217524,
+        "element_width": 4,
+        "elements": 20,
+        "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+        "bytes": 80,
+        "sha256": "ff107603b49421e5eca104edb504886b57158d0ee58520462c9e52580ecfd6b6",
+        "ldr_prefix_offsets": []
+      }
+    ],
+    "structural_ldr_candidates": 0
+  },
+  "server": {
+    "statuses": [
+      200,
+      200,
+      200
+    ],
+    "null_offers": [
+      true,
+      true,
+      true
+    ],
+    "wall_clock_start_gaps_seconds": [
+      20.024630069732666,
+      19.988980770111084
+    ],
+    "timing_note": "Run used a monotonic 20-second start-based scheduler. Wall-clock timestamps include bookkeeping/clock jitter. Future runner now waits 20 seconds after completion."
+  },
+  "usb": {
+    "device": {
+      "dsp_id": "e24da26b2304c2c0",
+      "aptina_field": "328045ab1161f198",
+      "device_id": "8032AB45611198F1",
+      "firmware_version": 147,
+      "ble_id": "01665900004c99b4",
+      "ble_fw_version": 125,
+      "device_serial_fragment": "DF1816004A",
+      "device_name": "myScio",
+      "i2s_tag_config": "",
+      "i2s_tag_missing": true
+    },
+    "read_errors": [
+      {
+        "query": "ble_config",
+        "error_type": "ScioTimeout"
+      }
+    ],
+    "captures": 0,
+    "body_read_command_established": false
+  },
+  "outcome": "No validated firmware/table body or offline spectrum decoder recovered. No updates/reset/speculative USB writes. APK/code coverage bounded; device headers and null server offers do not establish global unavailability."
+}
