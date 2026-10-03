@@ -45,7 +45,7 @@ class Cmd:
     READY_FOR_WR = 0x0E            # 14  state change - opt-in only
     CLEAR_READY_FOR_WR = 0x11      # 17  state change - opt-in only
     FILE_DOWNLOAD = 0x81           # -127 host->device WRITE - never sent
-    RESET_DEVICE = 0x83            # -125 disruptive - never sent
+    RESET_DEVICE = 0x83            # -125 disruptive - explicit opt-in only
     READ_BLE_ID = 0x84             # -124 ble id, ble fw, name, i2s tag
     READ_BLE_STATUS = 0x85         # -123 ble status
     READ_FILE_HEADER = 0x87        # -121 payload <I file_id ; returns 4x u32

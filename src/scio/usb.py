@@ -1,4 +1,4 @@
-"""USB (CDC serial) transport for the SCiO, read-only / capture use.
+"""USB (CDC serial) transport for the SCiO, read-only / capture by default.
 
 Ported from the ``scio_usb`` class in ``archive/notebooks/01_scio_usb.ipynb``
 with the bugs fixed:
@@ -6,8 +6,8 @@ with the bugs fixed:
 * a real serial read timeout (a missing response no longer hangs the kernel);
 * :meth:`ScioUSB._read_response` hunts for the ``0xBA`` marker and resyncs
   instead of asserting on the first byte;
-* only read-only / capture commands are exposed; write/state commands
-  (parameter set, LED, file download, reset, rename) are intentionally absent.
+* power-saver writes and reset require explicit allow_write=True; capture never
+  invokes them. Parameter set, LED, file download and rename have no helpers.
 
 The SCiO enumerates as a Texas Instruments CDC device, VID:PID ``0451:16AA``.
 """
@@ -57,7 +57,7 @@ def find_scio_ports() -> list[dict]:
 
 
 class ScioUSB:
-    """Read-only SCiO USB session.
+    """SCiO USB session, read-only unless a write is explicitly authorized.
 
     Use as a context manager::
 
@@ -147,6 +147,42 @@ class ScioUSB:
         return out
 
     # -- read-only queries ------------------------------------------------
+    def read_power_saver(self) -> dict:
+        """Read the automatic-off timer; does not wake a powered-off device."""
+        from .power import parse_power_saver
+        return parse_power_saver(self._command(Cmd.READ_BLE).data)
+
+    def set_power_saver(self, minutes: int, *, allow_write: bool = False) -> dict:
+        """Send the app-compatible automatic-off setting (USB hardware-unverified).
+
+        State-changing, opt-in only. Does NOT reset automatically. The app resets
+        after success; use reset_device explicitly if appropriate. A returned
+        response is not proof that the timer persisted or that shutdown occurred.
+        The signed-byte adjustment can change the requested duration; inspect
+        encoded_seconds. Zero/immediate-off and remote power-on are unsupported.
+        """
+        from .power import power_saver_payload, power_saver_seconds
+        if allow_write is not True:
+            raise PermissionError('set_power_saver requires allow_write=True')
+        payload = power_saver_payload(minutes)
+        response = self._command(Cmd.WRITE_BLE, payload, allow_write=True)
+        return {'requested_minutes': minutes,
+                'encoded_seconds': power_saver_seconds(minutes),
+                'response': response, 'reset_sent': False,
+                'hardware_verified': False}
+
+    def reset_device(self, *, allow_write: bool = False) -> protocol.Response:
+        """Explicit disruptive reset, NOT power-off/on; USB behavior unverified.
+
+        No retries. The serial connection can disappear before a response; a
+        timeout therefore does not prove the reset failed. Reconnect manually.
+        App usage suggests restart, but preservation of every device setting
+        is not established. Do not use when that preservation is a prerequisite.
+        """
+        if allow_write is not True:
+            raise PermissionError('reset_device requires allow_write=True')
+        return self._command(Cmd.RESET_DEVICE, allow_write=True)
+
     def read_device_info(self, ble_attempts: int = 2) -> dict:
         """Device + BLE identifiers.
 

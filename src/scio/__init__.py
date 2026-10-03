@@ -5,7 +5,8 @@ self-contained record, and (optionally, later) have the vendor server convert it
 into a 331-point spectrum. Capture needs no network.
 
 protocol     command framing, response parsers (pure)
-usb          pyserial transport, read-only capture
+usb          pyserial transport, read-only capture plus opt-in power-saver/reset
+power        app-compatible automatic-off timer encoding (hardware-unverified)
 probe        safety-gated probing of undocumented opcodes
 store        on-disk formats, fixtures, white reference / calibration policy
 cloud        vendor API: login, scan -> spectrum, calibration thresholds
