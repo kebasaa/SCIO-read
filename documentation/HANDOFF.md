@@ -14,7 +14,8 @@ duplicated.
   It needs an active Consumer Physics account.
 - **Offline decoding does not work** and is unlikely to without hardware. That
   whole strand lives in [`../dev/`](../dev/README.md); the working pipeline does
-  not depend on it.
+  not depend on it. Its current state and ranked next tasks are in
+  [`../dev/HANDOVER.md`](../dev/HANDOVER.md).
 - The scan store holds **97 canonical records**, including 42 that carry the
   spectrum the server returned in 2020/2021 - a real regression target.
 

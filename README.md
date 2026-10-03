@@ -14,7 +14,7 @@ Two paths exist:
 | | status |
 |---|---|
 | **Capture -> vendor server -> spectrum** | **works.** Verified against 2020/2021 stored spectra to ~1e-15. Needs an active Consumer Physics account. |
-| **Capture -> spectrum, offline** | **unsolved.** The device applies an opaque, high-entropy, fixed-length transform whose *class is undetermined*; see [`dev/README.md`](dev/README.md). |
+| **Capture -> spectrum, offline** | **unsolved.** Scan bodies are opaque, high-entropy and fixed-length; both the *class* of the transform (encryption or proprietary coding) and *where* it runs are undetermined. Current state and next steps: [`dev/HANDOVER.md`](dev/HANDOVER.md). |
 
 Capture itself needs **no network**. A scan is written as a self-contained
 record and can be converted to a spectrum later, from anywhere. That separation
@@ -77,6 +77,22 @@ and superseded notebooks are in `archive/notebooks/`.
 A slow light/dark pulse means it is idle or charging, and its USB endpoint goes
 silent or disappears. Fix: unplug, long-press off, long-press on until steady
 blue, replug. It re-idles by itself after a period without commands.
+
+**Remote power control:** no immediate-off or remote-on command has been confirmed.
+The app does support an automatic-off timer. On an open `ScioUSB` instance named
+`dev`, `dev.read_power_saver()` queries it;
+`dev.set_power_saver(minutes, allow_write=True)` sends the app-compatible setting
+for 1–30 minutes. Its signed-byte adjustment means the encoded duration can differ
+from the requested minutes: inspect `encoded_seconds` in the return value.
+These optional USB write helpers are **hardware-unverified** and can alter device
+behavior. Nothing writes by default. The setter never resets automatically;
+the app resets after successful writing, so `dev.reset_device(allow_write=True)`
+is a separate, disruptive operation, not a power-off/on substitute. Do not retry
+a timed-out reset blindly. There is no BLE transport implementation in this library.
+See [power evidence and limitations](dev/DEVICE_FUNCTION_REFERENCE.md#power-control-usb-and-ble).
+The read itself was verified on the connected firmware-147 unit: it returned
+360 seconds (6 minutes), between matching identity controls. Actual shutdown
+timing, writes, reset behavior and remote wake remain unverified.
 
 ---
 
@@ -161,8 +177,8 @@ returns two or three, one per blob.
 
 ## 3. Command reference
 
-Legend: **R** read-only (safe), **W** writes or changes device state (this
-project never sends these), **X** declared in the app but unimplemented on this
+Legend: **R** read-only (safe), **W** writes or changes device state (never sent
+automatically; power-saver/reset helpers require explicit opt-in), **X** declared in the app but unimplemented on this
 firmware (147) - probed on hardware, logs in `01_rawdata/probe_logs/`.
 
 The **app symbol** column names the method or constant in the decompiled Android
@@ -336,7 +352,16 @@ binning ~2.7 pixels per band, per-pixel sensor noise differs everywhere, and an
 entropy coder avalanches on any input difference too. Flat byte histograms are
 equally what good compression produces.
 
-Compression is currently the *leading* hypothesis, on the vendor's own vocabulary:
+**What the server reveals.** Reflectance is a sample-domain quantity divided by a
+white-domain quantity: swapping sample and white components gives a response table
+that is multiplicatively separable to ~1e-16, with a stable non-unity self-response
+factor C(λ). Dark handling is not a simple subtraction, per-band affine map or
+shared gain. Sample and dark blobs are integrity-protected (any edit is rejected
+with `Bad_sample_signature`); gradient edits are accepted and leave the spectrum
+unchanged. None of this recovers the domain vectors themselves. Evidence:
+[`dev/RECOVERY_STATUS.md`](dev/RECOVERY_STATUS.md).
+
+The class remains **undetermined**. The vendor's vocabulary hints at compression:
 the i2s tag is called `compression_version` in the API, the parameter carrying it
 is literally named `i2sTag` in the un-obfuscated 2017 build, and the app ships an
 `UnsupportedCompressionConversion` error - you cannot convert between encryptions.
@@ -374,18 +399,26 @@ type **87** as a 119233-byte BLE image. Both observations are kept in
 `protocol.FIRMWARE_FILES` rather than reconciled away.
 
 **Only headers can be read back. Bodies cannot.** `FILE_DOWNLOAD` (`0x81`) writes
-to the device; `READ_FILE_HEADER` returns 16 bytes and ignores any offset. There
-is no other candidate opcode - the reserved band was probed exhaustively. This is
-why offline decoding is blocked: `dsp_op` contains the image-to-spectrum code and
-presumably the key, and the only ways to obtain it are an external SPI-flash dump,
-BF512 JTAG, or a phone that cached it (see
+to the device; `READ_FILE_HEADER` returns 16 bytes and ignores any offset. No
+body-read operation was found in the reviewed command paths, and the reserved band
+was probed without finding one. This is why offline decoding is blocked: the
+transform - and any key - lives in firmware we do not have. It may run on the
+BF512 (`dsp_op` and friends) or on the CC2540 BLE SoC (file 87, which has hardware
+AES); which one is unproven. Routes to the code are a boot-flash dump, debug access
+to either processor, or a phone that cached the files (see
 [`documentation/HARDWARE_ACQUISITION.md`](documentation/HARDWARE_ACQUISITION.md)).
+
+**Hardware.** A [SparkFun teardown](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all)
+identifies an ADSP-BF512 Blackfin DSP, AS4C8M16SA 128 Mbit SDRAM, a CC2540F256 BLE
+SoC, three unidentified ICs beside the SDRAM, and a custom sensor with 12 receptors,
+each with its own filter, aperture and lens over a photodiode array.
 
 Both SCiO apps cached these files in Android SharedPreferences
 (`/data/data/com.consumerphysics.consumer/shared_prefs/`) as base64 with a 4-byte
 little-endian checksum prefix, listed in a `firmware.file.names` string-set. The
 consumer app deletes them after a **completed** upgrade, so a phone that never
 finished one is the best candidate. `dev/scio_offline/firmware.py` extracts them.
+(For this repository's unit the original phone and backup no longer exist.)
 
 ---
 
@@ -563,7 +596,7 @@ Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
 |---|---|
 | `src/scio/` | the working library: `protocol`, `usb`, `probe`, `store`, `cloud`, `credentials`, `session`, `logscan`, `corpus`, `reference`, `paths` |
 | `01`-`03` notebooks | the three live notebooks (see [§1](#1-quick-start)) |
-| `dev/` | offline-decoding research (`scio_offline`, scripts, `notebooks/`, its own tests) - see [`dev/README.md`](dev/README.md) |
+| `dev/` | offline-decoding research (`scio_offline`, scripts, `notebooks/`, its own tests) - start at [`dev/HANDOVER.md`](dev/HANDOVER.md); full log in [`dev/RECOVERY_STATUS.md`](dev/RECOVERY_STATUS.md) |
 | `dev/notebooks/superseded/` | earlier decoding attempts, each labelled superseded, kept as the exploration record |
 | `tools/` | `replay_all_scans.py`, `analyze_scan.py`, `check_public_safety.py` |
 | `tests/` | offline tests for the working pipeline (`pytest tests/`) |

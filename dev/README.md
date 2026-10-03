@@ -1,10 +1,20 @@
 # `dev/` - offline decoding (unresolved)
 
+> **Start here:** [HANDOVER.md](HANDOVER.md) has the current state and ranked next
+> tasks. **Research correction:** the full log is [RECOVERY_STATUS.md](RECOVERY_STATUS.md).
+> Older interpretations below are historical, not established exclusions. The
+> corrected framing search, empirical controls and region/role oracle reopen
+> incomplete software routes. In particular, signatures, key architecture,
+> firmware availability and processing order remain hypotheses.
+
+Device IDs, command namespaces, file headers, and calibration-table evidence are
+maintained in [DEVICE_FUNCTION_REFERENCE.md](DEVICE_FUNCTION_REFERENCE.md).
+
 Everything here belongs to one question:
 
 > **Can a SCiO scan be turned into a spectrum without the Consumer Physics server?**
 
-The answer today is **no**, and this directory is the record of why. It is kept
+This has **not yet been achieved**, and this directory records the experiments. It is kept
 separate from `src/scio/` on purpose: the working pipeline must not depend on any
 of it, and `pytest tests/` must pass with `dev/` deleted.
 
@@ -13,8 +23,10 @@ of it, and `pytest tests/` must pass with `dev/` deleted.
 A scan is three blobs (dark, sample, gradient - 1800/1800/1656 B on `-e`
 firmware). Each is an 8-byte plaintext header (`u32` status/type, `u32` per-blob
 value) followed by a body that is a multiple of 16 bytes and carries ~7.9 bits of
-entropy per byte. The conversion happens on the device's Blackfin BF512 DSP, whose
-firmware (`dsp_op`, 32628 B on this unit) we do not have and cannot read back.
+entropy per byte. The location and nature of the opaque transform remain unproven;
+both the Blackfin DSP and BLE processor are relevant acquisition targets. The
+device reports a `dsp_op` file of 32628 B, but file metadata is not firmware content.
+No verified firmware-body read route has been recovered yet.
 
 Nothing here has recovered a key, and no candidate decode has ever survived
 validation against a stored server spectrum.
