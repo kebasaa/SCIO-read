@@ -5,6 +5,32 @@ Completed campaign: [results](analysis_output/recovery_20261003/RESULTS.md),
 
 ## Active continuation, 2026-10-03
 
+Current state and ranked next tasks: [HANDOVER.md](HANDOVER.md). This file is the
+chronological record.
+
+### Supervised leakage test (offline, completed)
+
+- Question: do sample/dark bodies carry any fixed-position information about the
+  server spectrum? Earlier body statistics were all unsupervised.
+- `scio_offline/leakage.py`, `scripts/probe_leakage.py`: 92 paired records (one
+  device, five acquisition groups; frozen fresh blobs excluded, none present).
+  Features: body bits, bytes, u16 LE/BE. Targets: mean, log-mean, slope, PC1–3 of
+  reflectance. Detectors: max-|Pearson r| scan and leave-one-acquisition-out ridge
+  (max over five penalties), each with 10,000 permutations within acquisition
+  groups, so the null already covers scanning every feature and penalty.
+- Power, measured first on synthetic fixtures of the same n and body size: a codec
+  with the level in 896, 64, 8 or a single fixed u16 field is detected (p ≈ 0.002 at
+  500 permutations); the SHA-256-counter encrypted twin is never flagged.
+- Real corpus: 96 tests, 4.2% below 0.05, median p 0.50, minimum p 0.048
+  (Bonferroni 1.0), best held-out R² −0.14. **No leakage detected.**
+- Interpretation: disfavours a fixed-position coder of counts; consistent with
+  encryption under a fresh nonce, or a coder whose fields shift position
+  (variable-length coding in a fixed container). Not proof of encryption; nonlinear
+  or position-shifting leakage is outside these linear fixed-position detectors.
+  Evidence: [leakage](analysis_output/leakage_20261003/leakage.json).
+- Verification: 7 new tests; research suite **120 passed** with sockets blocked.
+  No device or server access.
+
 This section is updated during experiments, not only at handoff. Decoder research
 output remains under `dev`; source data and older reports are preserved. The
 separately requested power-control library additions below intentionally change

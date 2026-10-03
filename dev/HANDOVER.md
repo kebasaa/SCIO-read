@@ -32,6 +32,16 @@ how to work in this repository is in
   blob) + fixed-size body: 1792 B sample/dark, 1648 B gradient on `-e` firmware,
   1408 B gradient on `-o`. Body ≈ 7.9 bits/byte, positionally featureless; 30 captures
   of an unchanged target are at 0.49986 bit distance from each other.
+- **No supervised leakage.** Sample and dark bodies carry no fixed-position
+  information about the server spectrum: 96 permutation tests (bits, bytes, u16
+  LE/BE × mean, log-mean, slope, PC1–3 × max-|r| scan and grouped-CV ridge, 92
+  records, 10,000 within-acquisition permutations) give 4.2% below p = 0.05,
+  median p 0.50, best held-out R² below zero. The same detectors find a single
+  fixed-position u16 field carrying the signal level at p ≈ 0.002 on synthetic
+  fixtures of this size, and never flag the encrypted twin.
+  [leakage](analysis_output/leakage_20261003/leakage.json). This points away from
+  a plain fixed-rate coder of counts and toward encryption (or a coder whose
+  fields do not sit at fixed positions); it is not proof of encryption.
 - Every supplied app path (Java 2017, Lab 1.3.12, Flutter 1.5.6 ARM64, 1.5.19 ARM32)
   is a Base64 pass-through. No client-side decoder exists in any supplied APK.
 - No firmware body is available: USB exposes file headers only (`0x81` is a
@@ -43,7 +53,8 @@ how to work in this repository is in
 
 **Not established**
 
-- Whether the body is encrypted or a proprietary fixed-rate coding.
+- Whether the body is encrypted, or coded with position-shifting (entropy-coded)
+  fields. Plain fixed-position coding is now disfavoured (see leakage above).
 - Where the transform runs: BF512 DSP, CC2540 BLE SoC, or (decoding side) the server.
 - Key architecture, absolute sample/white domain vectors, pixel geometry, table contents.
 
@@ -55,22 +66,10 @@ photodiode array.
 
 ## Open tasks, ranked
 
-### 1. Supervised leakage test of scan bodies (offline)
+With the leakage negative, software-only discrimination of the body is close to
+exhausted; the firmware (tasks 1–2) is the decisive input.
 
-- **Goal:** decide whether bodies carry any recoverable information about the
-  spectrum. Nonce-randomised encryption leaks nothing; a fixed-rate codec almost
-  always does (scale fields, DC terms, fixed-position quantised values).
-- **Inputs:** paired corpus via `scio_offline.research.contexts()`; exclude the
-  frozen fresh blobs.
-- **Method:** per-feature correlation (bits, bytes, u16 LE/BE) with spectral targets
-  (mean, slope, PCA scores) against a max-statistic permutation null; grouped-CV
-  ridge regression with a permutation null. Power measured first on synthetic
-  codec vs encrypted fixtures of the same size.
-- **Accept:** synthetic codec detected, synthetic cipher not; real result reported
-  with its power bound. A leak is a lead, not a decode.
-- **Status:** in progress (`scio_offline/leakage.py`, `scripts/probe_leakage.py`).
-
-### 2. Identify the boot flash from the teardown photos
+### 1. Identify the boot flash from the teardown photos
 
 - The BF512 has no internal program flash unless it is an `F` variant (check the
   marking against the ADI datasheet rather than assuming). Its boot stream (LDR)
@@ -81,29 +80,29 @@ photodiode array.
 - **Validate** any dump against known headers, e.g. `dsp_op` 32,628 B, v147,
   checksum 4151168; `dsp_boot` 7,284 B; `dsp_dec` 14,600 B (README §5).
 
-### 3. CC2540F256 debug-lock status
+### 2. CC2540F256 debug-lock status
 
 - Read-only status query over the TI debug interface. **Never erase-to-unlock.**
 - File 87 (119,233 B BLE runtime) fits its flash, and it has hardware AES, so it is
   a serious candidate for where encryption/signing happens.
 
-### 4. Sensor-geometry constraints
+### 3. Sensor-geometry constraints
 
 - Does a 12-sub-aperture layout fit the table sizes (`deadPixelsIndices` 1714 B,
   `nPixelsPerBin` 1166 B, `bins` 140 B, `centers` 96 B) and the body sizes
   (1792 / 1648 / 1408)? A constraint for any codec hypothesis, not a decode.
 
-### 5. Static trace of `/v1/external_sdk/intermediate_scan`
+### 4. Static trace of `/v1/external_sdk/intermediate_scan`
 
 - Live route (401 on POST). Trace request/response models in the 2017 researcher
   source, Lab 1.3.12 and 1.5.x DEX. No credential extraction or use.
 
-### 6. Gradient blob
+### 5. Gradient blob
 
 - Ignored by the server, header 110, generation-dependent size. Compare its
   statistics with sample/dark; test whether it is less protected or structured.
 
-### 7. Documentation consolidation
+### 6. Documentation consolidation
 
 - `dev/README.md` still states, as settled, that every modified blob is rejected,
   that all routes are exhausted, that JPEG is excluded, that the firmware endpoint
@@ -126,6 +125,7 @@ hypothesis that the earlier run could not have seen.
 | Mock fixtures (duplicates of 2017 source constants) | [mock comparison](analysis_output/recovery_20261003_followup/mock_constant_comparison.json) |
 | Server bit-flip/mutation oracles (closed by the signature) | [`ciphertext_oracle/`](analysis_output/ciphertext_oracle/) |
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
+| Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Same-target bit agreement | README §4 (0.49986 bit distance over 30 captures) |
 
 ## Closed for this owner

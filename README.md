@@ -365,7 +365,12 @@ The class remains **undetermined**. The vendor's vocabulary hints at compression
 the i2s tag is called `compression_version` in the API, the parameter carrying it
 is literally named `i2sTag` in the un-obfuscated 2017 build, and the app ships an
 `UnsupportedCompressionConversion` error - you cannot convert between encryptions.
-**Encryption is not excluded and cannot be**, by software: the device could
+A supervised test on 92 paired records finds **no** body bit, byte or 16-bit word
+that correlates with the returned spectrum, and no held-out linear predictor,
+although the same test detects a single fixed-position count field in synthetic
+data of this size ([`dev/HANDOVER.md`](dev/HANDOVER.md)). That disfavours a simple
+fixed-position coder, but does not prove encryption. **Encryption cannot be
+confirmed by software alone**: the device could
 encrypt and the server decrypt, and the Android client is a verified byte-for-byte
 pass-through that would look identical either way. See
 [`dev/README.md`](dev/README.md).
