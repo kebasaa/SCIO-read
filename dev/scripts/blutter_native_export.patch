@@ -1,0 +1,96 @@
+diff --git a/blutter.py b/blutter.py
+index dc12556..d0fb6e6 100644
+--- a/blutter.py
++++ b/blutter.py
+@@ -151,7 +151,7 @@ def cmake_blutter(input: BlutterInput):
+     subprocess.run([CMAKE_CMD, '-GNinja', '-B', builddir, f'-DDARTLIB={input.dart_info.lib_name}', f'-DNAME_SUFFIX={input.name_suffix}', '-DCMAKE_BUILD_TYPE=Release', '--log-level=NOTICE'] + macros, cwd=blutter_dir, check=True, env=my_env)
+ 
+     # build and install blutter
+-    subprocess.run([NINJA_CMD], cwd=builddir, check=True)
++    subprocess.run([NINJA_CMD, '-j2'], cwd=builddir, check=True)
+     subprocess.run([CMAKE_CMD, '--install', '.'], cwd=builddir, check=True)
+ 
+ def get_dart_lib_info(libapp_path: str, libflutter_path: str) -> DartLibInfo:
+diff --git a/blutter/src/CodeAnalyzer.cpp b/blutter/src/CodeAnalyzer.cpp
+index af5172e..8ce2c07 100644
+--- a/blutter/src/CodeAnalyzer.cpp
++++ b/blutter/src/CodeAnalyzer.cpp
+@@ -13,10 +13,17 @@ void CodeAnalyzer::AnalyzeAll()
+ {
+ 	Disassembler disasmer;
+ 
+-	for (auto lib : app.libs) {
+-		if (lib->isInternal)
++	auto analysisLibs = app.libs;
++	analysisLibs.push_back(&app.nativeLib);
++	for (auto lib : analysisLibs) {
++		const bool synthetic = lib == &app.nativeLib;
++		if (lib->isInternal && !synthetic)
+ 			continue;
+-		for (auto cls : lib->classes) {
++		auto analysisClasses = lib->classes;
++		if (synthetic && lib->topClass &&
++			std::find(analysisClasses.begin(), analysisClasses.end(), lib->topClass) == analysisClasses.end())
++			analysisClasses.push_back(lib->topClass);
++		for (auto cls : analysisClasses) {
+ 			for (auto dartFn : cls->Functions()) {
+ 				if (dartFn->Size() == 0)
+ 					continue;
+diff --git a/blutter/src/DartDumper.cpp b/blutter/src/DartDumper.cpp
+index 85bde37..2c91f8a 100644
+--- a/blutter/src/DartDumper.cpp
++++ b/blutter/src/DartDumper.cpp
+@@ -305,15 +305,24 @@ void DartDumper::DumpCode(const char* out_dir)
+ 
+ 	Disassembler disasmer;
+ 
+-	for (auto dartLib : app.libs) {
+-		if (dartLib->isInternal)
++	auto dumpLibs = app.libs;
++	dumpLibs.push_back(&app.nativeLib);
++	for (auto dartLib : dumpLibs) {
++		const bool synthetic = dartLib == &app.nativeLib;
++		if (dartLib->isInternal && !synthetic)
+ 			continue;
+ 
+-		auto out_file = dartLib->CreatePath(out_dir);
++		auto out_file = synthetic
++			? (std::filesystem::path(out_dir) / "synthetic_native.dart").string()
++			: dartLib->CreatePath(out_dir) + ".lib_" + std::to_string(dartLib->id);
+ 		std::ofstream of(out_file);
+ 		dartLib->PrintCommentInfo(of);
+ 
+-		for (auto dartCls : dartLib->classes) {
++		auto dumpClasses = dartLib->classes;
++		if (synthetic && dartLib->topClass &&
++			std::find(dumpClasses.begin(), dumpClasses.end(), dartLib->topClass) == dumpClasses.end())
++			dumpClasses.push_back(dartLib->topClass);
++		for (auto dartCls : dumpClasses) {
+ 			dartCls->PrintHead(of);
+ 
+ 			if (!dartCls->Fields().empty())
+@@ -325,7 +334,10 @@ void DartDumper::DumpCode(const char* out_dir)
+ 			if (!dartCls->Functions().empty())
+ 				of << "\n";
+ 			for (auto dartFn : dartCls->Functions()) {
+-				dartFn->PrintHead(of);
++				if (synthetic)
++					of << std::format("  _ anonymous_{:x}() {{\n    // ** addr: {:#x}, size: {:#x}\n", dartFn->Address(), dartFn->Address(), dartFn->Size());
++				else
++					dartFn->PrintHead(of);
+ 
+ #ifndef NO_CODE_ANALYSIS
+ 				// use as app is loaded at zero
+diff --git a/dartvm_fetch_build.py b/dartvm_fetch_build.py
+index cc9967c..b0e6104 100644
+--- a/dartvm_fetch_build.py
++++ b/dartvm_fetch_build.py
+@@ -157,7 +157,7 @@ def cmake_dart(info: DartLibInfo, target_dir: str):
+         cwd=target_dir, check=True)
+     
+     # build and install dart vm library to packages directory
+-    subprocess.run([NINJA_CMD], cwd=builddir, check=True)
++    subprocess.run([NINJA_CMD, '-j2'], cwd=builddir, check=True)
+     subprocess.run([CMAKE_CMD, '--install', '.'], cwd=builddir, check=True)
+ 
+ def fetch_and_build(info: DartLibInfo):
