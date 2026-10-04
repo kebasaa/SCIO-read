@@ -1,0 +1,21 @@
+{
+  "python": "3.11.7",
+  "pillow": "10.0.1",
+  "cryptography": "41.0.7",
+  "image_plugins": {
+    "JPEG": true,
+    "JPEG2000": true,
+    "PNG": true,
+    "TIFF": true,
+    "GIF": true,
+    "WEBP": true
+  },
+  "compiled_features": {
+    "jpg": true,
+    "jpg_2000": true,
+    "zlib": true,
+    "libtiff": true,
+    "webp": true
+  },
+  "limits": "Unavailable plugin/backend must be reported as unsupported, never a negative decode result."
+}

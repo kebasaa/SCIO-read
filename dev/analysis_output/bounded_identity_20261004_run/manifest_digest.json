@@ -1,0 +1,14 @@
+{
+  "manifest_sha256": "5c3a66aed9fcaaf621d44339dd10489355655d1ad11cb1d153685ab3a5f179d5",
+  "gzip_sha256": "6fdc89bebc61cf7cfe74f9fa2766c3ce3135e388732b06eddbbd5310e7ecc728",
+  "manifest_bytes": 100325301,
+  "gzip_bytes": 2105233,
+  "configurations": 422419,
+  "unique_identity_keys": 5067,
+  "stage_counts": {
+    "1-six-aes": 300,
+    "2-identity-gap": 155849,
+    "3-layered-coverage": 263662
+  },
+  "purpose": "Lossless archive of full execution manifest; raw copy remains local for resumability."
+}

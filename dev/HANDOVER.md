@@ -13,6 +13,20 @@ how to work in this repository is in
 
 ## Current state
 
+**Completed follow-up:** bounded identity/layered-codec campaign under `dev/`.
+The prior non-AES gap manifest contains six Aptina byte keys absent from the
+corrected AES manifest. New identity fields were not all included in hashed or
+paired derivations. These are coverage gaps, not evidence of a key. Frozen cap
+captures remain excluded; no device or server access is part of this campaign.
+All 422,419 configurations completed: 300 six-key AES, 155,849 identity-gap,
+263,662 layered-codec, and 2,608 controls. There were 1,292 identity-key codec
+parses and one random-body-control parse, but **zero same-role cross-acquisition
+candidates**. No intermediate, reflectance or absolute vectors were recovered.
+Stage 1's sole parse consumed 20 bytes and left 1,772 unexplained trailing bytes;
+it failed all ten additional exploratory confirmation blobs. See
+`analysis_output/bounded_identity_20261004_run/assessment.json` and
+`BOUNDED_CAMPAIGN.md`. Do not repeat this manifest without a new hypothesis.
+
 **Established**
 
 - The server computes reflectance as a sample-domain quantity divided by a
@@ -47,8 +61,9 @@ how to work in this repository is in
   fields do not sit at fixed positions); it is not proof of encryption.
 - **The gradient is just as opaque.** Its body matches sample/dark on every statistic
   (entropy at the random expectation, flat histogram, no positional or run structure,
-  no repeated blocks), sits 0.4999 bits from the same scan's sample body (so it is not
-  derived from it), and shows no spectral leakage (48 tests, Bonferroni p 1.0). The
+  no repeated blocks), sits 0.4999 bits from the same scan's sample body (this does
+  not establish independence or exclude derivation), and shows no spectral leakage
+  (48 tests, Bonferroni p 1.0). The
   server simply does not use it. [gradient](analysis_output/gradient_20261004/gradient.json)
 - **Size arithmetic** ([size constraints](analysis_output/size_constraints_20261004/size_constraints.json)):
   no table or body is a whole number of 331 entries at any width, so the tables are
@@ -64,11 +79,12 @@ how to work in this repository is in
   `analyze-batch` / `aggregated-result` workflow: per-scan results within a
   multi-scan batch. Name/co-location inference, not a traced response model.
   [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json)
-- **Device identity is constant; the BLE-ID text fields do not enter the encoding.**
+- **Device identity is constant; encoding works with blank BLE-ID text fields.**
   `0x89`/`0x93` write the BLE-ID serial prefix / i2s tag (README §3). An empty-payload
   probe wiped both on 2026-09-07 and they were restored on 2026-10-04. Blobs captured
   while they were blank (2026-09-07 18:50 series) were decoded by the server, given
-  the real `device_id` and tag in the request. `device_id`, `dsp_id`, the Aptina
+  the real `device_id` and tag in the request. This does not exclude cached identity
+  or a separately stored copy entering the transform. `device_id`, `dsp_id`, the Aptina
   field, `ble_id` and the BLE MAC `B4:99:4C:59:66:01` are identical from 2023 to
   2026-10-04 (`01_rawdata/probe_logs/ble_id_restore_20261004_*`). The phone MAC is
   not a key: USB captures sent with a synthetic MAC decode.
@@ -111,8 +127,10 @@ desk review in
 
 ## Open tasks, ranked
 
-All remaining tasks need a separately authorised hardware session with the device
-opened (the housing is not designed to be reopened). Nothing below may write, erase,
+The hardware tasks below need a separately authorised session with the device
+opened (the housing is not designed to be reopened). Bounded software coverage
+corrections and independently supplied firmware artifacts remain non-teardown routes.
+Nothing below may write, erase,
 reset or change straps or protection.
 
 ### 1. Passive boot-traffic capture

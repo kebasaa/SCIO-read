@@ -1,5 +1,31 @@
 # Evidence-led recovery, October 2026
 
+## Bounded identity/codec continuation, 2026-10-04
+
+See [BOUNDED_CAMPAIGN.md](BOUNDED_CAMPAIGN.md) for the completed run, exact stages,
+inputs, limits and reproduction commands. All new work is under `dev/`; source
+data and production are unchanged. No network/device operations are included.
+
+Evidence corrections: six Aptina byte keys were missing from the corrected AES
+manifest; newly injected full Aptina/upper-half/serial-prefix fields did not all
+participate in the old generator's hashes and pairs. The new manifest closes
+these bounded gaps. Stage 1 finished with one non-confirming 20-byte deflate parse
+in 300 configurations. It is not a decoder.
+
+Final: all 422,419 configurations completed. Stage 2 yielded 488 parses in
+155,849 configurations; stage 3 yielded 803 in 263,662. Random-key controls
+yielded none in 1,304; random-body controls yielded one in 1,304. No parser
+signature repeated across the three sample acquisitions or the three dark
+acquisitions. No intermediate or spectrum was validated. See the immutable
+`analysis_output/bounded_identity_20261004_run/assessment.json` and compressed
+execution manifest. The run's input/evaluator hashes remained unchanged.
+
+Random-like gradient distance does not prove the gradient is not derived from
+sample data. Blank writable BLE-ID text fields do not rule out a cached or
+separately stored identity used by the transform. Hardware access is not the only
+remaining conceivable route: coverage corrections and external firmware artifacts
+remain available without opening this unit. Historical results remain preserved.
+
 Completed campaign: [results](analysis_output/recovery_20261003/RESULTS.md),
 [verification](analysis_output/recovery_20261003/verification.json).
 

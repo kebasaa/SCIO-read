@@ -1,0 +1,6 @@
+# Large local per-configuration outcomes; portable summaries stay shareable.
+results.sqlite
+results.sqlite-journal
+results.sqlite-wal
+results.sqlite-shm
+manifest.json

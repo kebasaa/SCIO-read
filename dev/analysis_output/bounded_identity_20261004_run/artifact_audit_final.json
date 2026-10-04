@@ -1,0 +1,30 @@
+{
+  "changed_paths_outside_dev": [],
+  "scanned_paths": [
+    "dev/BOUNDED_CAMPAIGN.md",
+    "dev/HANDOVER.md",
+    "dev/RECOVERY_STATUS.md",
+    "dev/analysis_output/bounded_identity_20261004/.gitignore",
+    "dev/analysis_output/bounded_identity_20261004_run/.gitignore",
+    "dev/analysis_output/bounded_identity_20261004_run/artifact_audit_01.json",
+    "dev/analysis_output/bounded_identity_20261004_run/assessment.json",
+    "dev/analysis_output/bounded_identity_20261004_run/capabilities.json",
+    "dev/analysis_output/bounded_identity_20261004_run/manifest.json.gz",
+    "dev/analysis_output/bounded_identity_20261004_run/manifest_digest.json",
+    "dev/analysis_output/bounded_identity_20261004_run/progress_01.json",
+    "dev/analysis_output/bounded_identity_20261004_run/progress_02.json",
+    "dev/analysis_output/bounded_identity_20261004_run/progress_03.json",
+    "dev/analysis_output/bounded_identity_20261004_run/summary_422419.json",
+    "dev/scio_offline/bounded_campaign.py",
+    "dev/scripts/audit_bounded_outputs.py",
+    "dev/scripts/bounded_capabilities.py",
+    "dev/scripts/bounded_identity_campaign.py",
+    "dev/scripts/publish_bounded_manifest.py",
+    "dev/scripts/resume_bounded_campaign.py",
+    "dev/scripts/summarize_bounded_campaign.py",
+    "dev/tests/test_bounded_campaign.py"
+  ],
+  "credential_or_path_findings": [],
+  "manifest_archive_matches": true,
+  "passed": true
+}

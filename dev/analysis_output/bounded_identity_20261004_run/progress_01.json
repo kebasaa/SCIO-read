@@ -1,0 +1,4016 @@
+{
+  "completed": 61000,
+  "total": 422419,
+  "counts": {
+    "1-six-aes": {
+      "no_codec_hit": 299,
+      "codec_lead": 1
+    },
+    "2-identity-gap": {
+      "no_codec_hit": 60511,
+      "codec_lead": 189
+    }
+  },
+  "codec_leads": [
+    {
+      "job": 214,
+      "stage": "1-six-aes",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 407,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 1321,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 1331,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 1851,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 1852,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 1853,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 2324,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 3140,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 3308,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 3311,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 3314,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 4143,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 4924,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 4968,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 4969,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 4970,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 5164,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 5205,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 5315,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 5317,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 5360,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 6878,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 6973,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 6974,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 6975,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 7842,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8013,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8014,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8015,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8029,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8644,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8767,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8799,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 8919,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 9218,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 9219,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 9220,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 9873,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 10001,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 10069,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12425,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12431,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12537,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12561,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12562,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 12572,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 13933,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 14431,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 14580,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 14582,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15239,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15241,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15359,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15361,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15486,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 15901,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 18157,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 18416,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 19129,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 20151,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 20154,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 20682,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21056,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21057,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21690,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21692,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21693,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21695,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21733,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21734,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 21742,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 22189,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 22224,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 22549,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 22811,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 22832,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 23229,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 23230,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 23231,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 24407,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 24409,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 24840,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 24915,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 25354,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 25420,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 25697,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27524,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27526,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27527,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27529,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27581,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 27622,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 29451,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 29662,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 30439,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 30839,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31182,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31211,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31399,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31400,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31401,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31412,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31414,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 31970,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 32013,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 32015,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 32597,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 33085,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 33518,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 34489,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 34521,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 36044,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 36741,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 38130,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 38136,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 38149,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 38159,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 38251,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 39048,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 39080,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 39598,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 40620,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 42809,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43258,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43379,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43380,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43533,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43534,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 43535,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44484,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44801,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44845,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44846,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44847,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44870,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 44921,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 45027,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 45455,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46097,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46098,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46170,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46171,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46172,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46462,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46777,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 46815,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 47740,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 48799,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 48893,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 48928,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 49548,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 49618,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 50021,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 50436,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 51394,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 51429,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 51538,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 51539,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 51540,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 52066,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 52550,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 52591,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 53302,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 54160,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 54627,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 54662,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 55528,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 55531,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 56490,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 57075,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 57080,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 57085,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 57094,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 57884,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59260,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59366,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59367,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59368,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59414,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59419,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59424,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59433,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59452,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59454,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 59456,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 60158,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        1,
+        0
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 60247,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 60285,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    },
+    {
+      "job": 60976,
+      "stage": "2-identity-gap",
+      "screen_hit_counts": [
+        0,
+        1
+      ],
+      "confirmation_hit_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_codec_signatures": []
+    }
+  ],
+  "cross_record_candidates": [],
+  "validated_intermediate": false,
+  "validated_reflectance": false,
+  "validated_domain_vectors": false,
+  "limits": [
+    "Common codec signatures are only candidates; lengths, boundaries and meaning need independent support.",
+    "Negative screen applies to the two selected exploratory blobs, not every corpus record.",
+    "Only candidates reaching the frozen confirmation set can support an independent validation claim.",
+    "Controls are small empirical samples, not extreme-tail or familywise guarantees."
+  ]
+}
