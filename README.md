@@ -154,15 +154,21 @@ with ble.ScioBLE() as dev:               # or ScioBLE("B4:99:4C:59:66:01") / Sci
   that advertises service `3490`, is treated as a SCiO.
 - **Synchronous API.** bleak is asyncio-only; `ScioBLE` runs its own event loop
   in a background thread, so it works the same in a script and in Jupyter.
-- **Close before reconnecting.** While a `ScioBLE` is connected the SCiO stops
-  advertising, so a second `open()` (e.g. re-running a notebook cell) cannot find
-  it. Call `dev.close()` first, or use `with ScioBLE() as dev:`. If the link drops,
-  commands fail fast with `ScioDisconnected` and `dev.open()` reconnects.
-- **Replies are matched to requests.** Each reply echoes its command id (confirmed
-  in the 2019 captures, all three scan messages included). A late reply to a
-  request that timed out is dropped rather than returned as the next answer
-  (`dev.stale_replies`), and packets belonging to no reply are ignored
-  (`dev.stray_packets`).
+- **One connection at a time.** While a `ScioBLE` is connected the SCiO stops
+  advertising. If `open()` can't find it because an earlier `ScioBLE` in the
+  *same process* still holds it (e.g. a re-run notebook cell), it closes that old
+  session, prints a note saying so, and connects; the old object then raises
+  `ScioDisconnected`. A session holding a *different* SCiO is left alone, and
+  `ble.close_all()` closes every session. A connection held by *another* process
+  (a second kernel or script) can't be released from here: close it or restart
+  that kernel. If the link drops, commands fail fast with `ScioDisconnected` and
+  `dev.open()` reconnects.
+- **Replies are matched to requests** (BLE and USB). Each reply echoes its command
+  id (confirmed in the 2019 BLE captures, all three scan messages included, and
+  in every USB probe log). A late reply to a request that timed out is dropped
+  rather than returned as the next answer (`dev.stale_replies`; USB gives up with
+  `ScioProtocolError` after 8 stale frames in a row), and BLE packets belonging to
+  no reply are ignored (`dev.stray_packets`).
 - **Windows** (10/11, verified on hardware): the built-in Bluetooth stack is used
   through WinRT; nothing to configure.
 - **Linux** (BlueZ >= 5.55 over D-Bus, *not yet verified on hardware*):

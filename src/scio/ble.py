@@ -33,7 +33,7 @@ from . import protocol
 from .device import ScioDevice
 from .protocol import Cmd, ScioProtocolError, ScioTimeout
 
-__all__ = ["ScioBLE", "find_scio_ble", "ScioNotFound", "ScioDisconnected",
+__all__ = ["ScioBLE", "find_scio_ble", "close_all", "ScioNotFound", "ScioDisconnected",
            "ScioTimeout", "ScioProtocolError"]
 
 
@@ -46,6 +46,24 @@ class ScioDisconnected(ScioTimeout):
 
 
 _DISCONNECTED = object()
+
+# Every connected ScioBLE in this process. A connected SCiO stops advertising, so
+# a second session (e.g. a re-run notebook cell) can only find it again if the
+# first lets go; open() uses this set to do that. Strong references on purpose:
+# an open session is a live link, and this is how it is found once the notebook
+# variable that held it has been rebound.
+_SESSIONS: set = set()
+_SESSIONS_LOCK = threading.Lock()
+TAKEOVER_RESCANS = 3
+
+
+def close_all() -> int:
+    """Close every connected ScioBLE in this process; return how many were closed."""
+    with _SESSIONS_LOCK:
+        sessions = list(_SESSIONS)
+    for session in sessions:
+        session.close()
+    return len(sessions)
 
 
 def _bleak():
@@ -184,13 +202,24 @@ class ScioBLE(ScioDevice):
         self._link_lost = False
         self._runner = _LoopThread()
         try:
-            found = self._runner.run(_discover(self.discover_timeout),
-                                     self.discover_timeout + 10)
-            match = self._match(found)
+            match = self._match(self._scan())
             if match is None:
-                what = f"'{self.device}'" if self.device else "any SCiO"
-                raise ScioNotFound(f"{what} is not advertising; press the device "
-                                   f"button to wake it and try again")
+                holders = self._holders()
+                if not holders:
+                    raise ScioNotFound(self._not_found_message())
+                # The SCiO is not advertising because this process still holds it
+                # in another session (typically a re-run notebook cell): let go.
+                for old in holders:
+                    print(f"scio.ble: closed an earlier ScioBLE connected to {old.address} "
+                          f"({old.name}) so this session can connect; the old object "
+                          f"is now closed.")
+                    old.close()
+                for _ in range(TAKEOVER_RESCANS):  # it advertises again within seconds
+                    match = self._match(self._scan())
+                    if match is not None:
+                        break
+                if match is None:
+                    raise ScioNotFound(self._not_found_message())
             target, self.name = match[0], match[1]
             self.address = target.address
             self.client = self._make_client(target)
@@ -198,7 +227,29 @@ class ScioBLE(ScioDevice):
         except BaseException:
             self.close()
             raise
+        with _SESSIONS_LOCK:
+            _SESSIONS.add(self)
         return self
+
+    def _scan(self) -> list[tuple]:
+        return self._runner.run(_discover(self.discover_timeout), self.discover_timeout + 10)
+
+    def _holders(self) -> list:
+        """Other connected sessions in this process that hold the device we want."""
+        want = self.device.lower() if self.device else None
+        with _SESSIONS_LOCK:
+            sessions = [s for s in _SESSIONS if s is not self and s.client is not None]
+        if want is None:
+            return sessions  # an unspecified SCiO matches any connected one
+        return [s for s in sessions
+                if want in {(s.address or "").lower(), (s.name or "").lower()}]
+
+    def _not_found_message(self) -> str:
+        what = f"'{self.device}'" if self.device else "No SCiO"
+        verb = "is not advertising" if self.device else "is advertising"
+        return (f"{what} {verb}. Press the device button to wake it. If another "
+                f"program or notebook kernel is still connected to it, close that "
+                f"connection or restart that kernel.")
 
     async def _connect(self):
         await self.client.connect()
@@ -220,6 +271,8 @@ class ScioBLE(ScioDevice):
         await self.client.disconnect()
 
     def close(self):
+        with _SESSIONS_LOCK:
+            _SESSIONS.discard(self)
         if self.client is not None and self._runner is not None:
             try:
                 self._runner.run(self._disconnect(), 10)

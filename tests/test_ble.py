@@ -276,3 +276,90 @@ def test_disconnect_is_reported(monkeypatch):
         d._on_disconnect(client)
         with pytest.raises(ble.ScioDisconnected):
             d.read_temperature()
+
+
+# ------------------------------------------------------- session takeover
+@pytest.fixture(autouse=True)
+def _no_leaked_sessions():
+    yield
+    ble.close_all()
+
+
+SCIO_A = ("B4:99:4C:59:66:01", "SCiOmyScio")
+SCIO_B = ("AA:BB:CC:00:11:22", "SCiOother")
+
+
+class _Radio:
+    """Fake air: each session gets its own client; a held SCiO stops advertising."""
+
+    def __init__(self, monkeypatch, devices=(SCIO_A,)):
+        self.devices = list(devices)
+        self.clients = []
+        radio = self
+
+        async def discover(timeout):
+            held = {c.address for c in radio.clients if c.is_connected}
+            return [(SimpleNamespace(address=a), n, -60, []) for a, n in radio.devices if a not in held]
+
+        def make_client(session, target):
+            client = FakeClient(REPLIES)
+            client.address = target.address
+            radio.clients.append(client)
+            return client
+
+        monkeypatch.setattr(ble, "_discover", discover)
+        monkeypatch.setattr(ble.ScioBLE, "_make_client", make_client)
+
+    def session(self, device=None):
+        d = ble.ScioBLE(device, timeout=2)
+        d.SLEEP_BETWEEN_COMMANDS = 0
+        return d
+
+
+def test_rerun_cell_takes_over_the_session_left_open(monkeypatch, capsys):
+    radio = _Radio(monkeypatch)
+    d1 = radio.session().open()
+    d2 = radio.session().open()            # d1 never closed: the notebook re-run case
+    assert "closed an earlier ScioBLE connected to B4:99:4C:59:66:01" in capsys.readouterr().out
+    assert d2.is_connected and not d1.is_connected
+    assert d2.read_device_info()["i2s_tag_config"]
+    with pytest.raises(ble.ScioDisconnected):
+        d1.read_temperature()
+    assert ble._SESSIONS == {d2}
+
+
+def test_takeover_by_explicit_address_and_by_name(monkeypatch):
+    radio = _Radio(monkeypatch)
+    d1 = radio.session().open()
+    d2 = radio.session("b4:99:4c:59:66:01").open()   # case-insensitive address
+    d3 = radio.session("SCiOmyScio").open()          # and by advertised name
+    assert d3.is_connected and not d1.is_connected and not d2.is_connected
+
+
+def test_session_for_another_device_is_left_alone(monkeypatch, capsys):
+    radio = _Radio(monkeypatch, devices=(SCIO_A, SCIO_B))
+    other = radio.session(SCIO_B[0]).open()
+    mine = radio.session(SCIO_A[0]).open()           # A is advertising: no takeover
+    assert other.is_connected and mine.is_connected
+    assert "closed an earlier" not in capsys.readouterr().out
+    radio.devices = [SCIO_B]                         # A switched off; only B is held
+    with pytest.raises(ble.ScioNotFound):
+        radio.session(SCIO_A[0]).open()
+    assert other.is_connected                        # still not closed
+
+
+def test_no_holder_means_a_clear_not_found_message(monkeypatch):
+    _Radio(monkeypatch, devices=())
+    with pytest.raises(ble.ScioNotFound, match="another program or notebook kernel"):
+        ble.ScioBLE().open()
+    assert ble._SESSIONS == set()                    # a failed open() leaves nothing behind
+
+
+def test_close_and_close_all_empty_the_registry(monkeypatch):
+    radio = _Radio(monkeypatch, devices=(SCIO_A, SCIO_B))
+    a = radio.session(SCIO_A[0]).open()
+    b = radio.session(SCIO_B[0]).open()
+    assert ble._SESSIONS == {a, b}
+    a.close()
+    assert ble._SESSIONS == {b}
+    assert ble.close_all() == 1 and ble._SESSIONS == set() and not b.is_connected
