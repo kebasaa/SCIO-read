@@ -97,6 +97,26 @@ The read itself was verified on the connected firmware-147 unit: it returned
 360 seconds (6 minutes), between matching identity controls. Actual shutdown
 timing, writes, reset behavior and remote wake remain unverified.
 
+**Scan location:** every new record stores where it was taken in a `mobile_GPS`
+block shaped like the phone app's (`latitude`, `longitude`, `locality`,
+`country`, `admin_area`, `address_line`), plus `location_meta` (source, accuracy,
+time, why a lookup failed). The coordinates come from the capturing computer's
+own location service: on Windows the built-in location API, which needs
+*Settings → Privacy & security → Location → Let desktop apps access your
+location*; on Linux GeoClue; on macOS `CoreLocationCLI`. There is no IP-based
+lookup and no reverse geocoding, so nothing leaves the machine and the text
+fields stay empty. When no fix is available the fields are empty and the capture
+goes ahead. It is on by default. Turn it off with `capture(..., geolocate=False)`
+or `SCIO_GEOLOCATION=0`, or pass a phone's fix with
+`capture(..., location_override={"latitude": …, "longitude": …})`.
+
+The location is kept locally, in the raw record and in the processed spectrum
+file. **It is never sent to the server** unless you consent with
+`session.process(path, token, send_location=True)` or
+`session.process_pending(send_location=True)`. Records under `01_rawdata/scans/`
+are committed to this public repository, so a located scan published there
+publishes its coordinates too.
+
 ---
 
 ## 2. Transport

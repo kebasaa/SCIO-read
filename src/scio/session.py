@@ -29,7 +29,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from . import cloud, logscan, store
+from . import cloud, location, logscan, store
 from .paths import portable_path
 from .store import (
     PROCESSED_DIR,
@@ -94,8 +94,13 @@ def build_record(annotation: dict, device: dict, blobs: dict, white: dict | None
                  sampled_at: str | None = None, temperature: dict | None = None,
                  status_word: int | None = None, calibration: dict | None = None,
                  transport: str = "usb", provenance: dict | None = None,
-                 spectrum: dict | None = None, extra: dict | None = None) -> dict:
-    """Assemble a ``scio-scan/2`` record. Pure - does not touch the filesystem."""
+                 spectrum: dict | None = None, extra: dict | None = None,
+                 gps: dict | None = None, location_meta: dict | None = None) -> dict:
+    """Assemble a ``scio-scan/2`` record. Pure - does not touch the filesystem.
+
+    ``gps`` is the app-shaped ``mobile_GPS`` block (see :mod:`scio.location`); it is
+    stored locally and left out of server requests unless the user consents.
+    """
     rec = {
         "schema": SCHEMA,
         "scan_uid": uuid.uuid4().hex,
@@ -107,6 +112,10 @@ def build_record(annotation: dict, device: dict, blobs: dict, white: dict | None
         "temperature": temperature or {},
         "status_word": status_word,
         "raw": {k: blob_entry(v) for k, v in blobs.items() if k in SCAN_KEYS},
+        "mobile_GPS": gps or location.empty_gps(),
+        "location_meta": location_meta or {"enabled": False, "source": None,
+                                           "notes": ["no location recorded for this record"],
+                                           "sent_to_server": False},
         "white_reference": white,
         "calibration": calibration or {},
         "provenance": provenance or {},
@@ -156,8 +165,12 @@ def record_blobs(rec: dict) -> tuple[dict, dict]:
     return scan, white
 
 
-def to_payload(rec: dict) -> dict:
-    """Build the spectro-scan request body for a canonical record."""
+def to_payload(rec: dict, send_location: bool = False) -> dict:
+    """Build the spectro-scan request body for a canonical record.
+
+    The record's ``mobile_GPS`` is included only when ``send_location`` is True,
+    which is the user's explicit consent; by default the location stays local.
+    """
     scan_b, white_b = record_blobs(rec)
     missing = [k for k in ("sample", "sample_dark") if k not in scan_b]
     missing += [k for k in ("sample_white", "sample_white_dark") if k not in white_b]
@@ -167,12 +180,15 @@ def to_payload(rec: dict) -> dict:
     i2s = dev.get("i2s_tag_config")
     if not i2s:
         raise ValueError("record has no i2s_tag_config; the server rejects an empty tag")
-    return cloud.build_scan_payload(
+    payload = cloud.build_scan_payload(
         {"blobs": scan_b, "meta": {"sampled_at": rec.get("sampled_at")}},
         {"blobs": white_b,
          "meta": {"sampled_white_at": (rec["white_reference"] or {}).get("sampled_white_at")}},
         dev.get("device_id"), i2s,
     )
+    if send_location is True and location.has_fix(rec.get("mobile_GPS")):
+        payload["mobile_GPS"] = {k: rec["mobile_GPS"].get(k) for k in location.GPS_KEYS}
+    return payload
 
 
 # --------------------------------------------------------------------- capture
@@ -191,7 +207,8 @@ def resolve_thresholds(device_id: str, token: str | None = None) -> dict:
 def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
             token: str | None = None, force_calibrate: bool = False,
             thresholds: dict | None = None, out_dir=SCANS_DIR, wr_dir=None,
-            on_calibration_needed=None) -> Path:
+            on_calibration_needed=None, geolocate: bool | None = None,
+            location_override: dict | None = None) -> Path:
     """Capture one scan from a live device into a canonical record. **No network.**
 
     *dev* is an open :class:`scio.usb.ScioUSB`. The white reference is reused from
@@ -202,7 +219,13 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
 
     ``token`` is optional and used only to refresh the calibration thresholds -
     the capture itself never needs it.
+
+    The scan location is recorded in ``mobile_GPS`` (local only; see
+    :mod:`scio.location`). ``geolocate`` defaults to on (``SCIO_GEOLOCATION=0``
+    turns it off); ``location_override`` supplies coordinates from elsewhere, e.g.
+    a phone. A failed lookup leaves the fields empty and never stops a capture.
     """
+    manual_location = location.scan_location(manual=location_override) if location_override else None
     wr_dir = Path(wr_dir) if wr_dir is not None else store.WR_DIR
     info = dev.read_device_info()
     device_id = info.get("device_id")
@@ -231,6 +254,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
 
     scan = dev.sample_spectrum(fw)
     t_after = dev.read_temperature()
+    gps, location_meta = manual_location or location.scan_location(enabled=geolocate)
     if device_id:
         store.bump_scans_since_calibration(device_id, wr_dir)
 
@@ -245,6 +269,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
         transport="usb",
         provenance={"source": "live capture", "n_responses": scan.get("n_responses"),
                     "notes": []},
+        gps=gps, location_meta=location_meta,
     )
     return write_record(rec, out_dir)
 
@@ -466,15 +491,18 @@ def _converted_sources(directory=SCANS_DIR) -> set[str]:
 
 
 # ------------------------------------------------------------------ processing
-def process(raw_path, token: str, out_dir=PROCESSED_DIR) -> Path:
+def process(raw_path, token: str, out_dir=PROCESSED_DIR, send_location: bool = False) -> Path:
     """Send one canonical record to the server and write the record + its spectrum.
 
     JSON only. The record carries the wavelength axis, the reflectance, the
     annotation and the whole originating scan, so a CSV alongside it would be a
     lossy second copy of the same numbers with a second format to keep in step.
+
+    The scan location is kept with the spectrum locally. It is sent to the server
+    only with ``send_location=True`` (the user's consent).
     """
     rec = load_record(raw_path)
-    payload = to_payload(rec)
+    payload = to_payload(rec, send_location=send_location)
     resp = cloud.analyze_scan(token, payload)
     wl, refl = cloud.spectrum_from_response(resp)
 
@@ -486,6 +514,9 @@ def process(raw_path, token: str, out_dir=PROCESSED_DIR) -> Path:
         "source_record": portable_path(raw_path),
         "scan_uid": rec.get("scan_uid"),
         "annotation": rec.get("annotation"),
+        "location": {"mobile_GPS": rec.get("mobile_GPS") or location.empty_gps(),
+                     "location_meta": rec.get("location_meta"),
+                     "sent_to_server": "mobile_GPS" in payload},
         "spectrum": {"wavelength_nm": wl, "reflectance": refl,
                      "n_points": len(refl),
                      "range_nm": [wl[0], wl[-1]] if wl else None},
@@ -507,13 +538,14 @@ def pending(scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR) -> list[Path]:
 
 def process_pending(token=None, limit: int | None = None, pause: float = 0.0,
                     scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR,
-                    on_result=None) -> list[dict]:
+                    on_result=None, send_location: bool = False) -> list[dict]:
     """Upload the backlog. This is the deferred half of the decoupled workflow.
 
     ``token`` may be a string or a callable; a callable is invoked per scan
     because access tokens are short-lived (``expires_in=14``). Failures are
     recorded and do not stop the run - one unusable record should not block the
-    rest of a backlog.
+    rest of a backlog. ``send_location=True`` (consent) also sends each scan's
+    stored location; by default locations stay local.
     """
     from . import credentials
     if token is None:
@@ -525,7 +557,7 @@ def process_pending(token=None, limit: int | None = None, pause: float = 0.0,
     for i, path in enumerate(todo):
         tok = token() if callable(token) else token
         try:
-            out = process(path, tok, processed_dir)
+            out = process(path, tok, processed_dir, send_location=send_location)
             row = {"scan": portable_path(path), "processed": portable_path(out), "error": None}
         except (cloud.CloudError, ValueError) as exc:
             row = {"scan": portable_path(path), "processed": None, "error": str(exc)}
