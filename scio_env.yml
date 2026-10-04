@@ -10,6 +10,7 @@ dependencies:
   - scipy
   - matplotlib
   - pyserial
+  - bleak>=0.22        # Bluetooth LE transport (scio.ble); optional for USB-only use
   - cryptography
   - pytest
   - pip

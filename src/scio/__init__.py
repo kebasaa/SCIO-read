@@ -5,7 +5,9 @@ self-contained record, and (optionally, later) have the vendor server convert it
 into a 331-point spectrum. Capture needs no network.
 
 protocol     command framing, response parsers (pure)
-usb          pyserial transport, read-only capture plus opt-in power-saver/reset
+device       transport-independent session: read-only guard, queries, capture
+usb          pyserial transport (USB CDC)
+ble          bleak transport (Bluetooth LE, Windows/Linux); needs ``bleak``
 power        app-compatible automatic-off timer encoding (hardware-unverified)
 probe        safety-gated probing of undocumented opcodes
 store        on-disk formats, fixtures, white reference / calibration policy

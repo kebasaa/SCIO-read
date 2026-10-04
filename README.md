@@ -91,7 +91,8 @@ These optional USB write helpers are **hardware-unverified** and can alter devic
 behavior. Nothing writes by default. The setter never resets automatically;
 the app resets after successful writing, so `dev.reset_device(allow_write=True)`
 is a separate, disruptive operation, not a power-off/on substitute. Do not retry
-a timed-out reset blindly. There is no BLE transport implementation in this library.
+a timed-out reset blindly. The same helpers exist on `ScioBLE` (section 2); over BLE
+they are equally unverified.
 See [power evidence and limitations](dev/DEVICE_FUNCTION_REFERENCE.md#power-control-usb-and-ble).
 The read itself was verified on the connected firmware-147 unit: it returned
 360 seconds (6 minutes), between matching identity controls. Actual shutdown
@@ -132,9 +133,41 @@ DTR/RTS handling does not matter. Responses arrive as one contiguous frame.
 
 ### Bluetooth LE
 
-The same `0xBA` command protocol runs over BLE. This project uses USB, but the
-BLE facts are recorded here because they are hard to rediscover. Vendor GATT
-service `00003490-0000-1000-8000-00805f9b34fb`:
+The same `0xBA` command protocol runs over BLE, and `scio.ble.ScioBLE` implements
+it with [bleak](https://github.com/hbldh/bleak) (`pip install bleak`). It has the
+same methods as `ScioUSB` and drops into `session.capture` unchanged; the
+notebooks switch with `TRANSPORT = "ble"`:
+
+```python
+from scio import ble
+print(ble.find_scio_ble())               # advertisers, likely SCiOs first
+with ble.ScioBLE() as dev:               # or ScioBLE("B4:99:4C:59:66:01") / ScioBLE("SCiOmyScio")
+    info = dev.read_device_info()
+    scan = dev.sample_spectrum(info["firmware_version"])
+```
+
+- **No pairing.** Do not pair the SCiO in the OS Bluetooth settings; the app
+  never bonds and neither does this library.
+- **It must be awake.** The SCiO advertises only while on, and switches itself
+  off after its automatic-off timer (6 min on this unit). Press the button first.
+  This unit advertises as `SCiOmyScio`; anything whose name contains "scio", or
+  that advertises service `3490`, is treated as a SCiO.
+- **Synchronous API.** bleak is asyncio-only; `ScioBLE` runs its own event loop
+  in a background thread, so it works the same in a script and in Jupyter.
+- **Windows** (10/11, verified on hardware): the built-in Bluetooth stack is used
+  through WinRT; nothing to configure.
+- **Linux** (BlueZ >= 5.55 over D-Bus, *not yet verified on hardware*):
+  `bluetoothd` must be running and the user allowed on the system D-Bus (the
+  default for a desktop user; no `sudo` needed). Check with
+  `bluetoothctl power on` and `bluetoothctl scan on` that the SCiO shows up, then
+  run the four calls above: `find_scio_ble()` lists it, `read_device_info()`
+  returns `ble_id 01665900004c99b4` / BLE fw 125, `sample_spectrum` returns
+  1800/1800/1656-byte blobs. If BlueZ has a stale cache after a firmware change,
+  `bluetoothctl remove <MAC>` clears it.
+- **Timing** (Windows, this unit): identity read 0.3 s, a three-blob scan ~3.2 s
+  (about 280 notifications).
+
+Vendor GATT service `00003490-0000-1000-8000-00805f9b34fb`:
 
 | Role | UUID | Handle (this unit) |
 |---|---|---|
@@ -166,17 +199,23 @@ With BlueZ:
 sudo gatttool -i hci0 -b <MAC> --char-write-req -a 0x0029 -n 01ba020000 --listen
 ```
 
-`archive/notebooks/05_scio_ble_devel.ipynb` holds an unfinished `bleak` attempt.
-**Why it failed, so the next attempt does not repeat it:** it wrote the command to
+Requests are split the same way as replies (`RequestCommandBuilder`): the
+first packet is `01 BA cmd len_lo len_hi` plus up to 15 payload bytes, each later
+one a sequence byte (2, 3, ...) plus up to 19. Every request starts at sequence 1;
+the USB session counter does not apply. Writes are *with response*, except
+`READY_FOR_WR` (0x0E), `CLEAR_READY_FOR_WR` (0x11) and `FILE_DOWNLOAD` (0x81).
+A reply message is complete when `len` bytes have arrived; a scan sends two or
+three messages back to back, each starting again at sequence 1. See
+`protocol.ble_packets` and `protocol.BleReassembler`.
+
+`archive/notebooks/05_scio_ble_devel.ipynb` holds an earlier, failed `bleak`
+attempt. **Why it failed:** it wrote the command to
 the control characteristic and then called `read_gatt_char` on that *same*
 characteristic to get the answer. Replies never arrive there - they arrive as
 notifications on the **reporter** characteristic, which must be subscribed to
 first. (It also wrote the ASCII string `"01ba040000"` rather than the five bytes
 `bytes.fromhex("01ba040000")`, so the device received garbage either way.)
 
-A working BLE transport only needs to subscribe to the reporter and reassemble
-the sequence-prefixed 20-byte notifications into `[0xBA, cmd, len, data]` frames;
-the parsers in `src/scio/protocol.py` then apply unchanged.
 
 ### Framing (both directions, both transports)
 
@@ -275,14 +314,98 @@ exercised. `parse_battery` returns the raw value and interprets nothing.
 |---|---|---|
 | `[0:8]` | 8 B | BLE id (hex) |
 | `[8:10]` | 2 B | BLE firmware version, `u16` |
-| `[40:50]` | 10 B | device serial fragment (NUL-padded string) |
-| `[50:66]` | 16 B | user device name |
-| `[66:130]` | 64 B | **`i2s_tag_config`**, e.g. `20150812-e:PRODUCTION` |
+| `[10:40]` | 30 B | serial, first 30 characters - written by **`0x89`** |
+| `[40:50]` | 10 B | serial, last 10 characters (writer unknown) |
+| `[50:66]` | 16 B | user device name - written by `0x91` |
+| `[66:130]` | 64 B | **`i2s_tag_config`**, e.g. `20150812-e:PRODUCTION` - written by **`0x93`** |
+
+Text fields are ASCII, NUL-padded. `parse_ble_id` returns `serial_prefix`,
+`device_serial_fragment` and their concatenation `device_serial`. No app reads
+bytes `[10:50]`; the full serial of this unit is
+`CPPCA0031C6PF0516009W6404386A1DF1816004A`.
 
 The i2s ("image to spectrum") tag identifies the binning-table generation and is
-**mandatory** in every server request. A dropped BLE-ID read leaves it empty and
-silently produces unusable scans, so `read_device_info` retries and flags
-`i2s_tag_missing`.
+**mandatory** in every server request.
+
+#### Writing the BLE-ID fields
+
+The three text fields are rewritten with one command each. No app sends `0x89`
+or `0x93` (they were found on this unit, see below); all three take the same
+payload as the app's rename: **raw ASCII, no padding, no NUL**, with the frame
+length giving the size. The device zero-fills the rest of the field, and the
+value persists across power cycles - no reset is needed (the app resets after a
+rename anyway). **An empty payload clears the field.**
+
+| cmd | field | max | frame for this unit's value |
+|---|---|---|---|
+| `0x89` | serial `[10:40]` | 30 B | `01ba891e00` + `CPPCA0031C6PF0516009W6404386A1` |
+| `0x91` | name `[50:66]` | 16 B | `01ba910600` + `myScio` |
+| `0x93` | i2s tag `[66:130]` | 64 B | `01ba931500` + `20150812-e:PRODUCTION` |
+
+Each replies with an empty frame of its own opcode.
+
+**The device always reports these values itself** - they are only blank if
+something wiped them. Rewriting them is a repair, not part of any workflow, and
+a wrong value is dangerous: the i2s tag is matched exactly by the vendor server,
+so a wrong one is stored permanently and every scan from the device is rejected
+until it is rewritten. The library therefore guards each write twice:
+
+```python
+dev.write_i2s_tag("20150812-e:PRODUCTION", allow_write=True)
+dev.write_serial_prefix("CPPCA0031C6PF0516009W6404386A1", allow_write=True)
+```
+
+1. `allow_write=True` is required, as for every write;
+2. the current value is read first and a **warning** is shown with the current
+   and the new value; the write goes ahead only if the user types `yes`
+   (or a `confirm=` callable returns `True`). Otherwise nothing is sent.
+
+If the value is already correct nothing is written or asked. The result has
+`previous`, `readback` and `verified` (from a fresh 0x84 read); nothing resets.
+Empty and over-long values are refused before anything is sent; longer
+payloads were never tried on `0x89`/`0x93`. Only write a value you know is the
+device's original, e.g. from its own earlier records.
+
+`0x88` and `0x95` also accept a payload (empty, 30 B or 40 B) and acknowledge it
+the same way, but change nothing in this record, nor in the device id, file list,
+file headers or auto-off timer, before or after a power cycle. They are writes
+of something not visible here and stay forbidden.
+
+#### Incident and repair (2026-09-07 / 2026-10-04)
+
+From 2026-09-07 every READ_BLE_ID on this unit returned `[10:40]` and `[66:130]`
+zeroed. Reads at 15:52-15:58 that day had the tag; the 18:50 series did not. In
+between, the reserved-opcode sweep (notebook 03) sent `0x88`, `0x89`, `0x93` and
+`0x95` with empty payloads - i.e. it cleared the serial prefix and the tag. The
+missing tag made every scan unprocessable without a manual fill-in; a reset did
+not bring it back.
+
+On 2026-10-04 the fields were mapped and restored over BLE with
+`dev/scripts/restore_ble_id_record.py`, one write per run, each between full
+read-only snapshots (BLE-ID record, device id, timer, file list, ten file
+headers). Raw evidence: `01_rawdata/probe_logs/ble_id_restore_20261004_*`.
+
+| time | write | effect |
+|---|---|---|
+| 14:29:54 | `0x93` + tag (21 B) | tag restored at `[66:130]`, nothing else changed |
+| 14:30:50 | `0x95` + full serial (40 B) | none |
+| 14:32:21 | (power cycle, read only) | tag still present - persistent |
+| 14:33:21 | `0x95` + serial prefix (30 B) | none |
+| 14:33:40 | `0x88` + serial prefix (30 B) | none |
+| 14:33:59 | `0x89` + serial prefix (30 B) | serial restored at `[10:40]`, nothing else changed |
+
+**Do not send `0x88`, `0x89`, `0x93` or `0x95` with an empty or blind payload.**
+The probe refuses all four.
+
+After the repair the device reports both values again, and a scan captured over
+BLE at 14:44 carried them straight from the device and was processed by the
+server (331-point spectrum).
+
+The library does **not** substitute a tag from older records: the device is the
+source of truth. Should the tag be blank (this or another unit),
+`read_device_info` flags `i2s_tag_missing`, the notebooks say so, and
+`session.process` refuses the record. Repair the device with `write_i2s_tag`
+first, using the value from its own earlier records.
 
 **`0x87` READ_FILE_HEADER** - request `struct.pack("<I", file_id)`. The response
 is **always 16 bytes**: `(type, size, version, checksum)` as four `u32` LE.
@@ -305,7 +428,11 @@ Never sent by this project. `ScioUSB` refuses them unless `allow_write=True`.
 | `0x11` | CLEAR_READY_FOR_WR | `performClearReadyForWR` | **W**, counterpart of `0x0E` |
 | `0x81` | FILE_DOWNLOAD | `performFileDownload` | **W**, host->device **only** - it uploads firmware, it does not read it |
 | `0x83` | RESET_DEVICE | `CommandIDs.RESET_DEVICE` | **W**, disruptive |
-| `0x91` | WRITE_USER_DEVICE_NAME | `CommandIDs.WRITE_USER_DEVICE_NAME` | **W** |
+| `0x88` | (none; `Cmd.UNKNOWN_WRITE_88`) | - | **W**, accepts a payload, no visible effect |
+| `0x89` | WRITE_SERIAL_PREFIX (found on this unit) | - | **W**, BLE-ID `[10:40]`, ASCII ≤ 30 B, persistent |
+| `0x91` | WRITE_USER_DEVICE_NAME | `CommandIDs.WRITE_USER_DEVICE_NAME` | **W**, BLE-ID `[50:66]`, ASCII ≤ 16 B |
+| `0x93` | WRITE_I2S_TAG (found on this unit) | - | **W**, BLE-ID `[66:130]`, ASCII ≤ 64 B, persistent |
+| `0x95` | (none; `Cmd.UNKNOWN_WRITE_95`) | - | **W**, accepts a payload, no visible effect |
 | `0x9A` | WRITE_BLE | `CommandIDs.WRITE_BLE` | **W** |
 
 ### Declared but unimplemented (firmware 147)
@@ -317,8 +444,10 @@ All probed on real hardware:
 | `0x06` | READ_EVENT_LOG (`CommandIDs.READ_EVENT_LOG`) | **X** no response |
 | `0x08` | PARAMETER_GET (`CommandIDs.PARAMETER_GET`) | **X** no response |
 | `0x09` | BIST (built-in self test) | **X** no response |
-| `0x88`, `0x89`, `0x93`, `0x95` | reserved band | valid frame returned, **empty body** |
 | `0x8A`-`0x8F` | reserved band | no response |
+
+`0x88`, `0x89`, `0x93` and `0x95` from the same band turned out to be writes
+(table above); probing them with empty payloads cleared two BLE-ID fields.
 
 ---
 
@@ -609,9 +738,11 @@ Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
 - **`device_id` must be UPPERCASE.** Lowercase returns HTTP 404 - proven, see
   `01_rawdata/probe_logs/calibration_v1_thresholds_lowercase.json`.
 - **An empty `i2s_tag_config` is rejected outright** (`InvalidUsage`). Thirty
-  scans in this repository were captured with an empty tag because a single BLE-ID
-  read dropped; they were unusable until the tag was filled in from the device's
-  white reference. `read_device_info` now retries and flags the failure.
+  scans in this repository were captured with an empty tag; they were unusable
+  until the tag was filled in from the device's white reference. The tag can be
+  cleared on the device by an empty `0x93` write and restored with
+  `write_i2s_tag` (section 3) - after a warning and confirmation, since a wrong
+  tag is rejected too. Capture does not substitute one.
 - **Base64 must be standard, not URL-safe.** One legacy group in this repo stored
   URL-safe unpadded base64; the canonical records re-encode from the
   authoritative hex.

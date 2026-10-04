@@ -58,6 +58,10 @@ U16LE payload length, then at most 15 payload bytes; following packets carry a
 sequence byte and at most 19 more bytes. This is **BLE framing**, distinct from
 USB framing and from the eight-byte scan-blob header. Reassembly removes only
 transport framing, not scan-header bytes. No decode is performed in these paths.
+Requests use the same split and always start at sequence `1`; the app writes
+them *with response*, except READY_FOR_WR (`0x0E`), CLEAR_READY_FOR_WR (`0x11`) and
+FILE_DOWNLOAD (`0x81`), which go *without response*. `src/scio/ble.py` implements
+this and was verified against the firmware-147 unit on 2026-10-04.
 
 The SDK reads the sample payload's first U32LE as status, but the public
 `ScioReading` constructor does not copy the separate status property; the Flutter
@@ -188,8 +192,12 @@ Aptina/device ID respectively. This is not reversal of all eight bytes.
 
 `BleIDResponseCommandHandler.java` reads BLE ID at offset 0 (8 bytes), BLE
 firmware at offset 8 (U16), name at offset 50 (16 bytes), and I2S tag at offset 66
-(64 bytes), removing NULs and trimming the tag. The repository also labels bytes
-40–49 a serial fragment; that field is **not read by this inspected Java handler**.
+(64 bytes), removing NULs and trimming the tag. Bytes 10–49 hold the device
+serial (30 + 10 characters) and are **not read by this inspected Java handler**.
+Hardware-tested on 2026-10-04 (no app sends these): `0x89` writes `[10:40]` and
+`0x93` writes `[66:130]`, raw ASCII as in the app's `0x91` rename of `[50:66]`,
+persistent across a power cycle; an empty payload clears the field. `0x88` and
+`0x95` acknowledge writes with no visible effect. See README section 3.
 Preserve original bytes and parser provenance when testing identifier-derived
 hypotheses. Never combine identifiers from different devices.
 

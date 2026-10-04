@@ -1,0 +1,11 @@
+{
+ "opcode": 147,
+ "value_name": "i2s",
+ "payload_hex": "32303135303831322d653a50524f44554354494f4e",
+ "payload_ascii": "20150812-e:PRODUCTION",
+ "request_hex": "01ba93150032303135303831322d653a50524f44554354494f4e",
+ "sent_at": "2026-10-04T14:30:07+02:00",
+ "response_command": 147,
+ "response_length": 0,
+ "response_hex": ""
+}

@@ -32,7 +32,7 @@ from pathlib import Path
 
 from . import protocol
 from .protocol import Cmd
-from .usb import ScioProtocolError, ScioTimeout, ScioUSB
+from .device import ScioDevice, ScioProtocolError, ScioTimeout
 
 from .paths import REPOSITORY_ROOT
 
@@ -57,10 +57,15 @@ SAFE_READS = {
 
 # Unclaimed opcodes inside the file-list reserved band 87-95 (0x57..0x5F). The
 # app uses 0x87 (header) and 0x94 (list); these are the gaps worth a blind read.
-RESERVED_BAND = [0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x93, 0x95]
+RESERVED_BAND = [0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F]
+
+# Empty-payload probes of these on 2026-09-07 cleared the serial prefix (0x89)
+# and the i2s tag (0x93) in the BLE-ID record; 0x88 and 0x95 ack writes with no
+# visible effect (README section 3). All four are writes, never probes.
+SUSPECTED_WRITES = frozenset({0x88, 0x89, 0x93, 0x95})
 
 # Never send these, ever, from the probe.
-FORBIDDEN = protocol.WRITE_COMMANDS
+FORBIDDEN = protocol.WRITE_COMMANDS | SUSPECTED_WRITES
 
 
 @dataclass
@@ -90,9 +95,9 @@ def _u32le(data: bytes, limit: int = 64) -> list:
 
 
 class ScioProbe:
-    """Wraps a :class:`ScioUSB` session and sends only allowlisted read probes."""
+    """Wraps an open :class:`ScioDevice` (USB or BLE) and sends only allowlisted read probes."""
 
-    def __init__(self, dev: ScioUSB, log_dir: Path | str = PROBE_LOG_DIR,
+    def __init__(self, dev: ScioDevice, log_dir: Path | str = PROBE_LOG_DIR,
                  max_response: int = 65535):
         self.dev = dev
         self.log_dir = Path(log_dir)
@@ -120,9 +125,8 @@ class ScioProbe:
             request_hex=frame.hex(), ok=False,
         )
         try:
-            self.dev.ser.reset_input_buffer()
-            self.dev.ser.write(frame)
-            self.dev.ser.flush()
+            self.dev._discard_input()
+            self.dev.send_frame(frame)
             resp = self.dev._read_response()
             data = resp.data
             res.ok = True

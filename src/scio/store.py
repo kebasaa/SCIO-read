@@ -121,7 +121,7 @@ def _blob_record(blobs: dict) -> dict:
 
 def save_scan(blobs: dict, device: dict, temperatures: dict, status_word: int | None,
               calibration_file: str | None = None, out_dir=SCAN_DIR, stamp: str | None = None,
-              extra_meta: dict | None = None) -> Path:
+              extra_meta: dict | None = None, transport: str = "usb") -> Path:
     """Write a ``scio-scan/1`` file with the three raw blobs and metadata."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -133,7 +133,7 @@ def save_scan(blobs: dict, device: dict, temperatures: dict, status_word: int | 
         "temperature": temperatures,
         "status_word": status_word,
         "calibration_file": portable_path(calibration_file) if calibration_file else None,
-        "transport": "usb",
+        "transport": transport,
         **_blob_record(blobs),
     }
     if extra_meta:
@@ -149,7 +149,8 @@ def save_scan(blobs: dict, device: dict, temperatures: dict, status_word: int | 
 
 def save_calibration(blobs: dict, device: dict, temp_before: dict, temp_after: dict,
                      out_dir=WR_DIR, stamp: str | None = None,
-                     thresholds: dict | None = None, validated: dict | None = None) -> Path:
+                     thresholds: dict | None = None, validated: dict | None = None,
+                     transport: str = "usb") -> Path:
     """Write a white-reference file as ``YYYYMMDD_HHMM_calibration.json``.
 
     Calibration history is never destroyed: the filename carries the timestamp,
@@ -182,7 +183,7 @@ def save_calibration(blobs: dict, device: dict, temp_before: dict, temp_after: d
         "scans_since_calibration": 0,
         "thresholds_in_force": thresholds,
         "validated": validated,
-        "transport": "usb",
+        "transport": transport,
         "unused_but_recorded": {
             "note": "Kept deliberately though unused, may be useful later.",
             "ready_for_wr_supported": bool(fw >= 144),

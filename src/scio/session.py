@@ -211,7 +211,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
             location_override: dict | None = None) -> Path:
     """Capture one scan from a live device into a canonical record. **No network.**
 
-    *dev* is an open :class:`scio.usb.ScioUSB`. The white reference is reused from
+    *dev* is an open :class:`scio.usb.ScioUSB` or :class:`scio.ble.ScioBLE`. The white reference is reused from
     disk unless one is missing, stale by the thresholds in force, or
     *force_calibrate* is set; in that case *on_calibration_needed* is called with
     the calibration report so the caller can prompt for the cover to be put on
@@ -227,6 +227,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
     """
     manual_location = location.scan_location(manual=location_override) if location_override else None
     wr_dir = Path(wr_dir) if wr_dir is not None else store.WR_DIR
+    transport = getattr(dev, "transport_name", "usb")
     info = dev.read_device_info()
     device_id = info.get("device_id")
     fw = info.get("firmware_version", 0)
@@ -244,7 +245,8 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
         wr_blobs = dev.white_reference(fw)
         wr_after = dev.read_temperature()
         wr_path = store.save_calibration(wr_blobs, info, wr_before, wr_after,
-                                         out_dir=wr_dir, thresholds=thresholds)
+                                         out_dir=wr_dir, thresholds=thresholds,
+                                         transport=transport)
         cal = store.load_scan(wr_path)
         report = store.calibration_report(cal, t_before.get("cmos_t_app"), thresholds)
         report["captured_now"] = True
@@ -266,7 +268,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
         calibration={"status_at_scan": report["status"], "thresholds": thresholds,
                      "thresholds_source": thresholds.get("source", "unknown"),
                      "report": report},
-        transport="usb",
+        transport=transport,
         provenance={"source": "live capture", "n_responses": scan.get("n_responses"),
                     "notes": []},
         gps=gps, location_meta=location_meta,

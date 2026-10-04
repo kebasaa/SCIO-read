@@ -126,6 +126,8 @@ class _FakeDev:
         self._response = response
     def _next_seq(self):
         s = self._seq; self._seq = 1 + (self._seq % 255); return s
+    def _discard_input(self): self.ser.reset_input_buffer()
+    def send_frame(self, frame): self.ser.write(frame); self.ser.flush()
     def _read_response(self):
         if self._response is None:
             from scio.usb import ScioTimeout
@@ -147,10 +149,19 @@ def test_probe_refuses_reserved_without_optin(tmp_path):
     from scio import probe
     p = probe.ScioProbe(_FakeDev(), log_dir=tmp_path)
     with pytest.raises(PermissionError):
-        p.probe(0x88)                        # reserved, not opted in
+        p.probe(0x8A)                        # reserved, not opted in
     # allowed once opted in (will time out on the fake dev, which is fine)
-    r = p.probe(0x88, allow_reserved=True)
+    r = p.probe(0x8A, allow_reserved=True)
     assert r.ok is False and "timeout" in r.note
+
+
+def test_probe_refuses_suspected_config_writes_even_when_opted_in(tmp_path):
+    from scio import probe
+    p = probe.ScioProbe(_FakeDev(), log_dir=tmp_path)
+    for opcode in (0x88, 0x89, 0x93, 0x95):
+        with pytest.raises(PermissionError):
+            p.probe(opcode, allow_reserved=True)
+    assert p.dev.ser.written == []
 
 
 def test_probe_builds_correct_frame_and_parses(tmp_path):
@@ -337,6 +348,19 @@ def test_capture_needs_no_network_and_writes_a_complete_record(tmp_path):
                             "mobile_mac_address", "sample", "sample_dark", "sample_white",
                             "sample_white_dark", "scio_edition", "widget_scan_attributes"}
     assert payload["mobile_mac_address"] == "02:00:00:00:00:00"
+
+
+def test_capture_records_the_transport_and_keeps_the_device_tag(tmp_path):
+    class _Ble(_FakeScio):
+        transport_name = "ble"
+
+    path = session.capture(_Ble(), "ble", out_dir=tmp_path / "scans", wr_dir=tmp_path / "wr",
+                           thresholds=dict(session.THRESHOLDS_FALLBACK),
+                           on_calibration_needed=lambda rep: True)
+    rec = session.load_record(path)
+    assert rec["transport"] == "ble"
+    assert rec["device"]["i2s_tag_config"] == "20150812-e:PRODUCTION"
+    assert rec["provenance"]["notes"] == []
 
 
 def test_capture_refuses_when_the_white_reference_is_declined(tmp_path):

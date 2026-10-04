@@ -54,7 +54,9 @@ documentation/     this file, firmware_notes.md, HARDWARE_ACQUISITION.md, datash
 | module | role |
 |---|---|
 | `protocol` | framing and response parsers - **pure**, no I/O, fully unit-tested |
-| `usb` | `ScioUSB` transport; refuses write opcodes unless `allow_write=True` |
+| `device` | `ScioDevice`: transport-independent queries, capture and the read-only guard (refuses write opcodes unless `allow_write=True`) |
+| `usb` | `ScioUSB` - pyserial (USB CDC) transport |
+| `ble` | `ScioBLE`, `find_scio_ble` - bleak (Bluetooth LE) transport, synchronous API |
 | `probe` | safety-gated probing of undocumented opcodes (allowlist, empty payloads) |
 | `store` | on-disk formats, base64 conventions, white-reference persistence and policy |
 | `cloud` | vendor API: login, `spectro-scan`, calibration thresholds, WR validation |
@@ -72,6 +74,19 @@ fully awake - steady blue.** When idle or charging it pulses light/dark blue and
 its USB endpoint goes silent or vanishes entirely. Unplug, long-press off,
 long-press on until steady blue, replug. It re-idles on its own after a period
 without commands, so keep traffic flowing during a session.
+
+Bluetooth LE works as well (`scio.ble.ScioBLE`, needs `bleak`; notebooks switch
+with `TRANSPORT = "ble"`). The unit advertises as `SCiOmyScio` only while awake
+and powers itself off after its 6-minute timer, so press the button before
+connecting. No pairing. Verified on Windows 11; Linux (BlueZ) is written but
+untested on hardware - README section 2 has the checklist.
+
+**The BLE-ID record is writable.** `0x89` writes the serial prefix `[10:40]`,
+`0x93` the i2s tag `[66:130]`, `0x91` the name - raw ASCII, persistent, and an
+empty payload clears the field. An empty-payload probe did exactly that on
+2026-09-07; both fields were restored on 2026-10-04 (README section 3,
+`dev/scripts/restore_ble_id_record.py`). `0x88`/`0x95` accept writes with no
+visible effect. Never send any of the four blind; the probe refuses them.
 
 Notebooks, numbered by role: `01_scio_scan_to_spectrum.ipynb` (the workflow),
 `02_scio_device_health.ipynb` (identifiers, battery, temperature, firmware file
@@ -125,8 +140,11 @@ Where the 97 records came from:
 ## Things that will bite you
 
 - **`device_id` must be uppercase** or the API returns 404.
-- **An empty `i2s_tag_config` is rejected** and silently ruins a capture session.
-  `read_device_info` retries and sets `i2s_tag_missing`; check it.
+- **An empty `i2s_tag_config` is rejected.** The device reports the tag itself
+  unless it was wiped (an empty `0x93` write); `read_device_info` then sets
+  `i2s_tag_missing`. Repair with `dev.write_i2s_tag(..., allow_write=True)`, which
+  warns and asks first - a wrong tag is rejected just the same. Capture never
+  substitutes a tag from older records.
 - **Base64 must be standard, 76-col wrapped** - not URL-safe.
 - **Access tokens expire in ~14 s.** Fetch one per request.
 - **Never publish a credential or a home-directory path.**
@@ -141,8 +159,8 @@ Where the 97 records came from:
 
 The working pipeline is done. Useful directions, roughly by value:
 
-1. **A BLE transport.** The protocol is identical; only notification reassembly
-   is missing. That frees the device from a cable and from this machine.
+1. **Verify the BLE transport on Linux** (BlueZ) with the checklist in README
+   section 2; it is implemented and verified on Windows only.
 2. **Offline decoding** - see [`../dev/README.md`](../dev/README.md). Software
    routes are exhausted; an SPI-flash dump (~$15) or BF512 JTAG is the way in.
    [`HARDWARE_ACQUISITION.md`](HARDWARE_ACQUISITION.md) has the procedure.
@@ -154,7 +172,10 @@ The working pipeline is done. Useful directions, roughly by value:
 
 - `device_id` `8032AB45611198F1`; `dsp_id` `e24da26b2304c2c0`; `ble_id`
   `01665900004c99b4`; BLE MAC `B4:99:4C:59:66:01`
-- firmware 147; BLE firmware 125; i2s tag `20150812-e:PRODUCTION`; name `myScio`
+- firmware 147; BLE firmware 125; i2s tag `20150812-e:PRODUCTION`; name
+  `myScio`, advertised as `SCiOmyScio`
+- serial `CPPCA0031C6PF0516009W6404386A1DF1816004A` (BLE-ID `[10:50]`; prefix
+  rewritten 2026-10-04 from the 2023 app log)
 - firmware file sizes/checksums: see the table in the README
 - calibration thresholds (live): `time_diff=1e9` min, `scan_diff=1e9`,
   `temp_diff=10000` - every rule off

@@ -1,0 +1,18 @@
+{
+ "write": {
+  "opcode": 149,
+  "value_name": "serial_a",
+  "payload_hex": "435050434130303331433650463035313630303957363430343338364131",
+  "payload_ascii": "CPPCA0031C6PF0516009W6404386A1",
+  "request_hex": "01ba951e00435050434130303331433650463035313630303957363430343338364131",
+  "sent_at": "2026-10-04T14:33:34+02:00",
+  "response_command": 149,
+  "response_length": 0,
+  "response_hex": ""
+ },
+ "diff": {
+  "ble_id_regions_changed": {},
+  "other_changes": []
+ },
+ "verdict": "ok"
+}

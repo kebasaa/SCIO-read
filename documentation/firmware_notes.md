@@ -62,7 +62,11 @@ DFU, mass-storage, HID, or vendor-specific interface.
 - `READ_FILE_HEADER (0x87)` returned the same 16-byte header when appended
   offset/length fields were tried.
 - Reserved `0x88`, `0x89`, `0x93`, `0x95` acknowledged an empty payload with an
-  empty body; `0x8A`–`0x8F` timed out.
+  empty body; `0x8A`–`0x8F` timed out. **These four are writes, and the empty
+  payloads cleared data:** `0x89` writes the BLE-ID serial prefix `[10:40]` and
+  `0x93` the i2s tag `[66:130]` (raw ASCII, persistent); `0x88`/`0x95` accept
+  writes with no visible effect. Mapped and restored 2026-10-04 (README
+  section 3); the probe now refuses all four.
 - No tested read-only command returned a firmware body. Non-empty reserved
   payloads remain deliberately untested because they may mutate device state.
 - A direct serial check after `READ_FILE_HEADER` received one 20-byte frame

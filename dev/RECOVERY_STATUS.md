@@ -1129,3 +1129,35 @@ own intermediate truth or independently supported calibration calculation.
 If caches do not provide these artifacts, prepare a separate read-only hardware
 session covering external storage, BF512 and CC2540. Physical opening, electrical
 connections, debug access, writes and protection changes are outside this session.
+
+## Identifier-key gap search, all non-AES embedded ciphers (2026-10-04): negative
+
+The 2026-10-03 identifier-key search covered AES only; the TEA/XTEA run used
+single fields with no MAC and excluded pairs. This pass
+(`dev/scripts/identifier_key_gap_search.py`, `scio_offline.cipher_gap`) closed the
+gaps on the six static same-target captures:
+
+- **Ciphers:** TEA, XTEA, ARC4, ChaCha20, TripleDES, Blowfish, Camellia (block
+  ciphers in ECB and CBC/CFB/OFB with zero and header-derived IVs, at each native
+  block size; ChaCha20 with zero and header nonces; stream ciphers raw).
+- **Keys (2950 unique):** every device identity field from
+  `keyrecover.candidate_keys_from_device`, single and pairwise, **including the BLE
+  MAC `B4:99:4C:59:66:01`**, plus raw-byte forms of the **full 16-byte Aptina id**
+  `00008e4c3832e1c8328045ab1161f198` (`0x01` `[8:24]`; only `[16:24]` was ever a
+  candidate before), its upper half, the word-swapped 2023 `aptinaId`, and the
+  restored 30-char serial prefix.
+- **Criterion:** cross-capture plaintext repeatability (`plaintext_repeatability`),
+  two-stage screen, against 128 random-key controls per cipher/config.
+
+**Result: no hit.** Top identity key 0.1246
+(`device_id+serial_fragment.join.reverse.sha1_16`), **below** the random-control
+ceiling 0.1497 - i.e. not distinguishable from random. Evidence:
+`analysis_output/identifier_key_gap_20261004/identifier_key_gap.json`.
+
+This does not exclude encryption, another key, or compressed plaintext; it adds
+these ciphers and these identity keys (MAC, pairs, full Aptina id, serial prefix)
+to the "do not repeat" set. Context: the device's BLE-ID serial and i2s tag were
+found to be writable (`0x89`/`0x93`), wiped by an empty-payload probe on
+2026-09-07 and restored on 2026-10-04 (README section 3); blobs captured while
+they were blank still decoded server-side, so those record fields do not enter
+the scan encoding.

@@ -64,6 +64,14 @@ how to work in this repository is in
   `analyze-batch` / `aggregated-result` workflow: per-scan results within a
   multi-scan batch. Name/co-location inference, not a traced response model.
   [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json)
+- **Device identity is constant; the BLE-ID text fields do not enter the encoding.**
+  `0x89`/`0x93` write the BLE-ID serial prefix / i2s tag (README §3). An empty-payload
+  probe wiped both on 2026-09-07 and they were restored on 2026-10-04. Blobs captured
+  while they were blank (2026-09-07 18:50 series) were decoded by the server, given
+  the real `device_id` and tag in the request. `device_id`, `dsp_id`, the Aptina
+  field, `ble_id` and the BLE MAC `B4:99:4C:59:66:01` are identical from 2023 to
+  2026-10-04 (`01_rawdata/probe_logs/ble_id_restore_20261004_*`). The phone MAC is
+  not a key: USB captures sent with a synthetic MAC decode.
 - Every supplied app path (Java 2017, Lab 1.3.12, Flutter 1.5.6 ARM64, 1.5.19 ARM32)
   is a Base64 pass-through. No client-side decoder exists in any supplied APK.
 - No firmware body is available: USB exposes file headers only (`0x81` is a
@@ -139,7 +147,8 @@ hypothesis that the earlier run could not have seen.
 
 | Route | Evidence |
 |---|---|
-| Identifier-derived keys (≈220k configurations, corrected framing) | [key_search_confirmed](analysis_output/recovery_20261003/key_search_confirmed.json), [foreign](analysis_output/recovery_20261003/key_search_foreign.json) |
+| Identifier-derived keys, AES (≈220k configurations, corrected framing) | [key_search_confirmed](analysis_output/recovery_20261003/key_search_confirmed.json), [foreign](analysis_output/recovery_20261003/key_search_foreign.json) |
+| Identifier keys × TEA/XTEA/ARC4/ChaCha20/TripleDES/Blowfish/Camellia, incl. the MAC, field *pairs*, the full 16-byte Aptina id + upper half, and the serial prefix (2950 keys; top repeatability 0.125, below the 0.150 random-control ceiling) | [identifier_key_gap](analysis_output/identifier_key_gap_20261004/identifier_key_gap.json) |
 | Generic compression and word-swap/bit-reverse representations | [compression_only](analysis_output/recovery_20261003/compression_only.json), [representation_codecs](analysis_output/recovery_20261003_followup/representation_codecs.json) |
 | Headerless baseline-JPEG Huffman parsing | [jpeg_entropy](analysis_output/recovery_20261003_followup/jpeg_entropy.json) |
 | Unknown-polynomial CRC, seeded Murmur/FNV/DJB2 | [unknown_crc](analysis_output/recovery_20261003_followup/unknown_crc.json), [seed](analysis_output/recovery_20261003_followup/unknown_checksum_seed.json) |

@@ -15,25 +15,17 @@ The SCiO enumerates as a Texas Instruments CDC device, VID:PID ``0451:16AA``.
 from __future__ import annotations
 
 import struct
-import time
 
 import serial
 import serial.tools.list_ports as list_ports
 
 from . import protocol
-from .protocol import Cmd
+from .device import ScioDevice
+from .protocol import ScioProtocolError, ScioTimeout
+
+__all__ = ["ScioUSB", "find_scio_ports", "ScioTimeout", "ScioProtocolError", "SCIO_VID_PID"]
 
 SCIO_VID_PID = "0451:16AA"
-
-
-class ScioTimeout(Exception):
-    pass
-
-
-class ScioProtocolError(Exception):
-    def __init__(self, message, partial=b""):
-        super().__init__(message)
-        self.partial = partial
 
 
 def find_scio_ports() -> list[dict]:
@@ -56,7 +48,7 @@ def find_scio_ports() -> list[dict]:
     return ports
 
 
-class ScioUSB:
+class ScioUSB(ScioDevice):
     """SCiO USB session, read-only unless a write is explicitly authorized.
 
     Use as a context manager::
@@ -64,16 +56,19 @@ class ScioUSB:
         with ScioUSB(port) as dev:
             info = dev.read_device_info()
             scan = dev.sample_spectrum(info["firmware_version"])
+
+    The queries (``read_device_info``, ``sample_spectrum``, ...) live in
+    :class:`scio.device.ScioDevice` and are shared with :class:`scio.ble.ScioBLE`.
     """
 
-    SLEEP_BETWEEN_COMMANDS = 0.05
+    transport_name = "usb"
 
     def __init__(self, port: str, baudrate: int = 115200, timeout: float = 5.0):
+        super().__init__()
         self.port = port
         self.baudrate = baudrate
         self.timeout = timeout
         self.ser = None
-        self._seq = 1
 
     # -- connection -------------------------------------------------------
     def open(self):
@@ -86,17 +81,13 @@ class ScioUSB:
             self.ser.close()
             self.ser = None
 
-    def __enter__(self):
-        return self.open()
-
-    def __exit__(self, *exc):
-        self.close()
-
     # -- framing ----------------------------------------------------------
-    def _next_seq(self) -> int:
-        s = self._seq
-        self._seq = 1 + (self._seq % 255)
-        return s
+    def _discard_input(self):
+        self.ser.reset_input_buffer()
+
+    def send_frame(self, frame: bytes):
+        self.ser.write(frame)
+        self.ser.flush()
 
     def _read_exact(self, n: int) -> bytes:
         buf = b""
@@ -123,128 +114,3 @@ class ScioUSB:
         length = struct.unpack("<H", self._read_exact(2))[0]
         data = self._read_exact(length) if length else b""
         return protocol.Response(command=cmd, length=length, data=data)
-
-    def _command(self, cmd: int, payload: bytes = b"", allow_write: bool = False) -> protocol.Response:
-        if cmd not in protocol.READ_ONLY_COMMANDS and not allow_write:
-            raise PermissionError(
-                f"command 0x{cmd:02X} is not read-only; pass allow_write=True to send it"
-            )
-        frame = protocol.build_command(cmd, payload, seq=self._next_seq())
-        self.ser.reset_input_buffer()
-        self.ser.write(frame)
-        self.ser.flush()
-        resp = self._read_response()
-        time.sleep(self.SLEEP_BETWEEN_COMMANDS)
-        return resp
-
-    def raw_command(self, cmd: int, payload: bytes = b"", n_responses: int = 1,
-                    allow_write: bool = False) -> list[protocol.Response]:
-        """Send a command and collect ``n_responses`` frames (advanced use)."""
-        first = self._command(cmd, payload, allow_write=allow_write)
-        out = [first]
-        for _ in range(n_responses - 1):
-            out.append(self._read_response())
-        return out
-
-    # -- read-only queries ------------------------------------------------
-    def read_power_saver(self) -> dict:
-        """Read the automatic-off timer; does not wake a powered-off device."""
-        from .power import parse_power_saver
-        return parse_power_saver(self._command(Cmd.READ_BLE).data)
-
-    def set_power_saver(self, minutes: int, *, allow_write: bool = False) -> dict:
-        """Send the app-compatible automatic-off setting (USB hardware-unverified).
-
-        State-changing, opt-in only. Does NOT reset automatically. The app resets
-        after success; use reset_device explicitly if appropriate. A returned
-        response is not proof that the timer persisted or that shutdown occurred.
-        The signed-byte adjustment can change the requested duration; inspect
-        encoded_seconds. Zero/immediate-off and remote power-on are unsupported.
-        """
-        from .power import power_saver_payload, power_saver_seconds
-        if allow_write is not True:
-            raise PermissionError('set_power_saver requires allow_write=True')
-        payload = power_saver_payload(minutes)
-        response = self._command(Cmd.WRITE_BLE, payload, allow_write=True)
-        return {'requested_minutes': minutes,
-                'encoded_seconds': power_saver_seconds(minutes),
-                'response': response, 'reset_sent': False,
-                'hardware_verified': False}
-
-    def reset_device(self, *, allow_write: bool = False) -> protocol.Response:
-        """Explicit disruptive reset, NOT power-off/on; USB behavior unverified.
-
-        No retries. The serial connection can disappear before a response; a
-        timeout therefore does not prove the reset failed. Reconnect manually.
-        App usage suggests restart, but preservation of every device setting
-        is not established. Do not use when that preservation is a prerequisite.
-        """
-        if allow_write is not True:
-            raise PermissionError('reset_device requires allow_write=True')
-        return self._command(Cmd.RESET_DEVICE, allow_write=True)
-
-    def read_device_info(self, ble_attempts: int = 2) -> dict:
-        """Device + BLE identifiers.
-
-        The BLE-ID response carries ``i2s_tag_config``, which the server *requires*
-        (an empty tag is rejected with ``InvalidUsage``). A single dropped read used
-        to leave it blank and silently produce unusable scans, so retry, and flag it
-        when it is still missing.
-        """
-        dev = protocol.parse_device_id(self._command(Cmd.READ_DEVICE_ID).data)
-        ble = {}
-        for _ in range(max(1, ble_attempts)):
-            try:
-                ble = protocol.parse_ble_id(self._command(Cmd.READ_BLE_ID).data)
-            except (ScioTimeout, ScioProtocolError, IndexError):
-                ble = {}
-            if ble.get("i2s_tag_config"):
-                break
-        info = {**dev, **ble}
-        if not info.get("i2s_tag_config"):
-            info["i2s_tag_missing"] = True
-        return info
-
-    def read_temperature(self) -> dict:
-        return protocol.parse_temperature(self._command(Cmd.READ_TEMPERATURE).data)
-
-    def read_battery(self) -> dict:
-        return protocol.parse_battery(self._command(Cmd.READ_BATTERY_STATE).data)
-
-    def read_file_list(self) -> list[dict]:
-        return protocol.parse_file_list(self._command(Cmd.READ_FILE_LIST).data)
-
-    def read_file_header(self, file_id: int) -> dict:
-        resp = self._command(Cmd.READ_FILE_HEADER, struct.pack("<I", int(file_id)))
-        out = protocol.parse_file_header(resp.data)
-        out["file_id"] = int(file_id)
-        return out
-
-    def read_all_file_headers(self, ids=(87, 89, 90, 91, 92, 99, 100, 101, 102, 103)) -> dict:
-        return {fid: self.read_file_header(fid) for fid in ids}
-
-    # -- capture ----------------------------------------------------------
-    def sample_spectrum(self, firmware_version: int = 0, disable_gradient: bool = False) -> dict:
-        """Trigger a scan and collect its blobs.
-
-        Returns raw ``bytes`` under the standard keys plus ``status_word`` (the
-        first u32 of the sample blob).  Response order on the wire is
-        dark, sample, (gradient).
-        """
-        n = protocol.num_responses_for_firmware(firmware_version, disable_gradient)
-        responses = self.raw_command(Cmd.SAMPLE_SPECTRUM, n_responses=n)
-        blobs = {"sample_dark": responses[0].data, "sample": responses[1].data}
-        status = struct.unpack_from("<I", responses[1].data, 0)[0] if len(responses[1].data) >= 4 else None
-        if n > 2:
-            blobs["sample_gradient"] = responses[2].data
-        return {"blobs": blobs, "status_word": status, "n_responses": n}
-
-    def white_reference(self, firmware_version: int = 0, disable_gradient: bool = False) -> dict:
-        """Same command as a scan; the caller stores it as the white reference."""
-        scan = self.sample_spectrum(firmware_version, disable_gradient)
-        return {
-            "sample_white_dark": scan["blobs"]["sample_dark"],
-            "sample_white": scan["blobs"]["sample"],
-            **({"sample_white_gradient": scan["blobs"]["sample_gradient"]}
-               if "sample_gradient" in scan["blobs"] else {}),
-        }
