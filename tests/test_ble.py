@@ -297,7 +297,10 @@ class _Radio:
         self.clients = []
         radio = self
 
+        self.scans = 0
+
         async def discover(timeout):
+            radio.scans += 1
             held = {c.address for c in radio.clients if c.is_connected}
             return [(SimpleNamespace(address=a), n, -60, []) for a, n in radio.devices if a not in held]
 
@@ -363,3 +366,14 @@ def test_close_and_close_all_empty_the_registry(monkeypatch):
     a.close()
     assert ble._SESSIONS == {b}
     assert ble.close_all() == 1 and ble._SESSIONS == set() and not b.is_connected
+
+
+def test_named_takeover_skips_the_scan_that_cannot_succeed(monkeypatch):
+    radio = _Radio(monkeypatch)
+    radio.session(SCIO_A[0]).open()
+    radio.scans = 0
+    d2 = radio.session(SCIO_A[0]).open()     # named and held here: no pointless first scan
+    assert d2.is_connected and radio.scans == 1
+    radio.scans = 0
+    d3 = radio.session().open()              # unnamed: must scan first (another SCiO may answer)
+    assert d3.is_connected and radio.scans == 2

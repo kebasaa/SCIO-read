@@ -158,7 +158,9 @@ with ble.ScioBLE() as dev:               # or ScioBLE("B4:99:4C:59:66:01") / Sci
   advertising. If `open()` can't find it because an earlier `ScioBLE` in the
   *same process* still holds it (e.g. a re-run notebook cell), it closes that old
   session, prints a note saying so, and connects; the old object then raises
-  `ScioDisconnected`. A session holding a *different* SCiO is left alone, and
+  `ScioDisconnected`. With a named device (`ScioBLE(address_or_name)`) it skips
+  the first scan, which cannot succeed while the device is held, so the takeover
+  costs no extra scan cycle. A session holding a *different* SCiO is left alone, and
   `ble.close_all()` closes every session. A connection held by *another* process
   (a second kernel or script) can't be released from here: close it or restart
   that kernel. If the link drops, commands fail fast with `ScioDisconnected` and

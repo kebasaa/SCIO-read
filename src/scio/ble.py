@@ -202,9 +202,13 @@ class ScioBLE(ScioDevice):
         self._link_lost = False
         self._runner = _LoopThread()
         try:
-            match = self._match(self._scan())
+            # A named device held by another session here cannot be advertising, so
+            # scanning for it first would only waste a discover_timeout. Unnamed:
+            # scan anyway, since another SCiO in range may answer.
+            holders = self._holders() if self.device else []
+            match = None if holders else self._match(self._scan())
             if match is None:
-                holders = self._holders()
+                holders = holders or self._holders()
                 if not holders:
                     raise ScioNotFound(self._not_found_message())
                 # The SCiO is not advertising because this process still holds it
