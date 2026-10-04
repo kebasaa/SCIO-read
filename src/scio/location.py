@@ -20,8 +20,10 @@ Providers, tried in order, each optional and each failing quietly:
 * Linux: GeoClue's ``where-am-i`` demo client, if present.
 * macOS: ``CoreLocationCLI``, if on ``PATH``.
 
-Geolocation is on by default. Disable it per call (``capture(..., geolocate=False)``)
-or globally with the environment variable ``SCIO_GEOLOCATION=0``.
+Geolocation is **off by default**. Enable it per call (``capture(..., geolocate=True)``)
+or globally with the environment variable ``SCIO_GEOLOCATION=1``. GPS data is never
+published to the public repository: ``tools/check_public_safety.py`` (run by the
+pre-commit hook) refuses any file carrying real coordinates.
 """
 
 from __future__ import annotations
@@ -57,8 +59,8 @@ $o | ConvertTo-Json -Compress
 
 
 def enabled_by_default() -> bool:
-    """On unless ``SCIO_GEOLOCATION`` is set to 0/false/no/off."""
-    return os.environ.get(ENV_SWITCH, "1").strip().lower() not in ("0", "false", "no", "off")
+    """Off unless ``SCIO_GEOLOCATION`` is set to 1/true/yes/on."""
+    return os.environ.get(ENV_SWITCH, "0").strip().lower() in ("1", "true", "yes", "on")
 
 
 def empty_gps() -> dict:

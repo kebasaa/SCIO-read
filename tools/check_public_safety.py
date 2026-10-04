@@ -1,5 +1,11 @@
 #!/usr/bin/env python
-"""Fail if files intended for commit contain credentials or user-home paths."""
+"""Fail if files intended for commit contain credentials, user-home paths or GPS fixes.
+
+GPS data is never published: any latitude/longitude value other than the documented
+redaction placeholder (Zurich, 47.3769 / 8.5417, used since commit c8e2a83) or zero is
+a finding, in JSON keys, escaped JSON inside logs/notebooks and ``latitude=`` debug
+lines alike. Python sources are exempt (test fixtures carry synthetic coordinates).
+"""
 
 from __future__ import annotations
 
@@ -40,6 +46,23 @@ PATTERNS = {
     "GitHub token": re.compile(r"gh[opsu]_[A-Za-z0-9]{30,}"),
     "OpenAI key": re.compile(r"sk-(?:proj-)?[A-Za-z0-9_-]{20,}"),
 }
+
+
+#: The redaction placeholder: the only coordinate pair allowed in the repository.
+REDACTED_GPS = {"latitude": 47.3769, "longitude": 8.5417}
+GPS_EXEMPT_SUFFIXES = {".py"}
+_GPS = re.compile(r"""(?i)\\?["']?(latitude|longitude)\\?["']?\s*[:=]\s*(-?\d{1,3}(?:\.\d+)?)""")
+
+
+def gps_findings(text: str) -> list[int]:
+    """Line numbers carrying a real coordinate (not the placeholder, not zero)."""
+    lines = []
+    for match in _GPS.finditer(text):
+        value = float(match.group(2))
+        if value == 0 or value == REDACTED_GPS[match.group(1).lower()]:
+            continue
+        lines.append(text.count("\n", 0, match.start()) + 1)
+    return lines
 
 
 def candidate_names(staged_only: bool = False) -> list[str]:
@@ -103,13 +126,16 @@ def main(argv=None) -> int:
             for match in pattern.finditer(text):
                 line = text.count("\n", 0, match.start()) + 1
                 findings.append((Path(relative).as_posix(), line, name))
+        if path.suffix.lower() not in GPS_EXEMPT_SUFFIXES:
+            for line in gps_findings(text):
+                findings.append((Path(relative).as_posix(), line, "GPS coordinates (never publish location)"))
     if findings:
         for path, line, name in findings:
             print(f"{path}:{line}: {name}")
         print(f"Public-safety check failed with {len(findings)} finding(s).")
         return 1
     target = "staged snapshot" if args.cached else "working tree"
-    print(f"Public-safety check passed for {target}: no credentials or user-home paths detected.")
+    print(f"Public-safety check passed for {target}: no credentials, user-home paths or GPS fixes detected.")
     return 0
 
 

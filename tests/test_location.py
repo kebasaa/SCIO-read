@@ -42,8 +42,15 @@ def with_fix(monkeypatch):
     monkeypatch.setattr(location, "get_fix", lambda timeout=10.0: (dict(FIX), []))
 
 
-def test_capture_records_location_locally_and_never_sends_it_by_default(tmp_path, with_fix):
+def test_geolocation_is_off_by_default(tmp_path, with_fix, monkeypatch):
+    monkeypatch.delenv(location.ENV_SWITCH, raising=False)
     _, rec = _capture(tmp_path)
+    assert rec["mobile_GPS"] == location.empty_gps() and not rec["location_meta"]["enabled"]
+    assert rec["location_meta"]["notes"] == ["geolocation disabled"]
+
+
+def test_capture_records_location_locally_and_never_sends_it_by_default(tmp_path, with_fix):
+    _, rec = _capture(tmp_path, geolocate=True)
     assert rec["mobile_GPS"]["latitude"] == FIX["latitude"]
     assert rec["mobile_GPS"]["longitude"] == FIX["longitude"]
     assert set(rec["mobile_GPS"]) == set(location.GPS_KEYS)
@@ -55,17 +62,17 @@ def test_capture_records_location_locally_and_never_sends_it_by_default(tmp_path
 
 
 def test_no_fix_leaves_fields_empty_and_capture_succeeds(tmp_path):
-    _, rec = _capture(tmp_path)
+    _, rec = _capture(tmp_path, geolocate=True)
     assert rec["mobile_GPS"] == location.empty_gps()
     assert rec["location_meta"]["notes"] == ["stubbed in tests"]
     assert "mobile_GPS" not in session.to_payload(rec, send_location=True)
 
 
-def test_geolocation_can_be_switched_off(tmp_path, with_fix, monkeypatch):
-    _, rec = _capture(tmp_path, geolocate=False)
-    assert rec["mobile_GPS"] == location.empty_gps() and not rec["location_meta"]["enabled"]
-    monkeypatch.setenv(location.ENV_SWITCH, "0")
+def test_environment_switch_enables_and_argument_overrides(tmp_path, with_fix, monkeypatch):
+    monkeypatch.setenv(location.ENV_SWITCH, "1")
     _, rec = _capture(tmp_path)
+    assert rec["mobile_GPS"]["latitude"] == FIX["latitude"]
+    _, rec = _capture(tmp_path, geolocate=False)
     assert rec["mobile_GPS"]["latitude"] is None
 
 
@@ -87,7 +94,7 @@ def test_processed_spectrum_keeps_location_and_consent_controls_sending(tmp_path
     sent = []
     monkeypatch.setattr(cloud, "analyze_scan", lambda token, payload: sent.append(payload) or {"spectrum": [1.0]})
     monkeypatch.setattr(cloud, "spectrum_from_response", lambda resp: ([740], [1.0]))
-    _capture(tmp_path)
+    _capture(tmp_path, geolocate=True)
     raw = next((tmp_path / "scans").glob("*.json"))
     out = json.loads(session.process(raw, "tok", tmp_path / "p1").read_text())
     assert "mobile_GPS" not in sent[-1]

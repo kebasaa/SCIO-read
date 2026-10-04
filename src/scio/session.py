@@ -221,9 +221,9 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
     the capture itself never needs it.
 
     The scan location is recorded in ``mobile_GPS`` (local only; see
-    :mod:`scio.location`). ``geolocate`` defaults to on (``SCIO_GEOLOCATION=0``
-    turns it off); ``location_override`` supplies coordinates from elsewhere, e.g.
-    a phone. A failed lookup leaves the fields empty and never stops a capture.
+    :mod:`scio.location`). ``geolocate`` defaults to off (``geolocate=True`` or
+    ``SCIO_GEOLOCATION=1`` turns it on); ``location_override`` supplies coordinates
+    from elsewhere, e.g. a phone. A failed lookup leaves the fields empty and never stops a capture.
     """
     manual_location = location.scan_location(manual=location_override) if location_override else None
     wr_dir = Path(wr_dir) if wr_dir is not None else store.WR_DIR

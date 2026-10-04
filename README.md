@@ -106,16 +106,19 @@ own location service: on Windows the built-in location API, which needs
 location*; on Linux GeoClue; on macOS `CoreLocationCLI`. There is no IP-based
 lookup and no reverse geocoding, so nothing leaves the machine and the text
 fields stay empty. When no fix is available the fields are empty and the capture
-goes ahead. It is on by default. Turn it off with `capture(..., geolocate=False)`
-or `SCIO_GEOLOCATION=0`, or pass a phone's fix with
+goes ahead. It is **off by default**. Turn it on with `capture(..., geolocate=True)`
+or `SCIO_GEOLOCATION=1`, or pass a phone's fix with
 `capture(..., location_override={"latitude": …, "longitude": …})`.
 
 The location is kept locally, in the raw record and in the processed spectrum
 file. **It is never sent to the server** unless you consent with
 `session.process(path, token, send_location=True)` or
-`session.process_pending(send_location=True)`. Records under `01_rawdata/scans/`
-are committed to this public repository, so a located scan published there
-publishes its coordinates too.
+`session.process_pending(send_location=True)`.
+
+**GPS data is never published in this repository.** `tools/check_public_safety.py`,
+run by the pre-commit hook, refuses any file with a real latitude/longitude.
+Empty fields and the Zurich redaction placeholder (47.3769, 8.5417) pass. A located
+scan therefore stays on your machine: remove its coordinates before committing it.
 
 ---
 

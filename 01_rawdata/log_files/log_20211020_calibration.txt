@@ -9,9 +9,9 @@
 2021-10-20 10:55:04.648	DEBUG	LastLocationService	request updated from provider: network
 2021-10-20 10:55:06.417	DEBUG	LastLocationService	got location: network: 31.9072444, 34.8106711, 80.5999984741211, 20.0
 2021-10-20 10:55:06.422	DEBUG	LastLocationService	got location: network: 31.9072444, 34.8106711, 80.5999984741211, 20.0
-2021-10-20 10:55:06.423	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=IL,countryName=Switzerland,hasLatitude=true,latitude=31.906570499999994,hasLongitude=true,longitude=34.8113793,phone=null,url=null,extras=null]
+2021-10-20 10:55:06.423	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=CH,countryName=Switzerland,hasLatitude=true,latitude=47.3769,hasLongitude=true,longitude=8.5417,phone=null,url=null,extras=null]
 2021-10-20 10:55:06.424	DEBUG	LastLocationService	destroy
-2021-10-20 10:55:06.424	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=IL,countryName=Switzerland,hasLatitude=true,latitude=31.906570499999994,hasLongitude=true,longitude=34.8113793,phone=null,url=null,extras=null]
+2021-10-20 10:55:06.424	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=CH,countryName=Switzerland,hasLatitude=true,latitude=47.3769,hasLongitude=true,longitude=8.5417,phone=null,url=null,extras=null]
 2021-10-20 10:55:06.632	DEBUG	SplashScreenActivity	cont when service is down
 2021-10-20 10:55:06.633	DEBUG	SplashScreenActivity	continue when service is down - service is down, counter: 12
 2021-10-20 10:55:06.636	DEBUG	TableStructure	build table: scan
@@ -632,8 +632,8 @@ Response: {"_type":"GET consumerscans","curr_data":{"del_id":null,"del_known_tim
 2021-10-20 10:55:19.028	DEBUG	BaseScioAwareActivit	on scio disconnected
 2021-10-20 10:55:20.427	DEBUG	LastLocationService	got location: network: 47.3769, 8.5417, 80.5999984741211, 20.0
 2021-10-20 10:55:20.433	DEBUG	LastLocationService	got location: network: 47.3769, 8.5417, 80.5999984741211, 20.0
-2021-10-20 10:55:20.441	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=IL,countryName=Switzerland,hasLatitude=true,latitude=31.906570499999994,hasLongitude=true,longitude=34.8113793,phone=null,url=null,extras=null]
-2021-10-20 10:55:20.446	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=IL,countryName=Switzerland,hasLatitude=true,latitude=31.906570499999994,hasLongitude=true,longitude=34.8113793,phone=null,url=null,extras=null]
+2021-10-20 10:55:20.441	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=CH,countryName=Switzerland,hasLatitude=true,latitude=47.3769,hasLongitude=true,longitude=8.5417,phone=null,url=null,extras=null]
+2021-10-20 10:55:20.446	DEBUG	LastLocationService	address: Address[addressLines=[0:"Bahnhofstrasse 1, Zurich, Switzerland"],feature=2,admin=Zurich,sub-admin=Zurich,locality=Zurich,thoroughfare=Bahnhofstrasse,postalCode=null,countryCode=CH,countryName=Switzerland,hasLatitude=true,latitude=47.3769,hasLongitude=true,longitude=8.5417,phone=null,url=null,extras=null]
 2021-10-20 10:55:20.459	DEBUG	LastLocationService	destroy
 2021-10-20 10:55:20.558	DEBUG	BaseScioAwareActivit	update toolbar connection isConnected = true, isWaitingForConnect = false, isJustEnterScreen = false, noScio = false
 2021-10-20 10:55:20.562	DEBUG	BaseScioAwareActivit	Not trying to reconnect. is connected: true, isActivityActive: true, has BT:true, bt status: ALL_GOOD
