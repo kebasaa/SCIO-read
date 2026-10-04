@@ -35,6 +35,9 @@ today must still be convertible the day someone breaks the offline path.
 8. [Practical gotchas](#8-practical-gotchas)
 9. [Repository layout](#9-repository-layout)
 
+Hardware (boards, chips, sensor, debug access, teardown photos):
+[`documentation/HARDWARE.md`](documentation/HARDWARE.md).
+
 ---
 
 ## 1. Quick start
@@ -413,8 +416,8 @@ AES); which one is unproven. Routes to the code are a boot-flash dump, debug acc
 to either processor, or a phone that cached the files (see
 [`documentation/HARDWARE_ACQUISITION.md`](documentation/HARDWARE_ACQUISITION.md)).
 
-**Hardware.** A [SparkFun teardown](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all)
-(photos stored with attribution in [`documentation/teardown/`](documentation/teardown/README.md))
+**Hardware** (full reference with photos: [`documentation/HARDWARE.md`](documentation/HARDWARE.md)).
+A [SparkFun teardown](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all)
 shows an ADSP-BF512KBCZ-3 Blackfin DSP (no on-chip program flash), AS4C8M16SA 128 Mbit
 SDRAM, a CC2540F256 BLE SoC, a probable ADP5062 charger, two unidentified small QFNs and
 no visible standalone flash chip. The sensor has 12 receptors in a 3 × 4 grid, each with
@@ -613,7 +616,7 @@ Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
 | `01_rawdata/scans/` | **canonical `scio-scan/2` records** - self-contained, ready to process |
 | `01_rawdata/` (rest) | the original captures, untouched: `log_files/`, `log_extracted/`, `scan_json/`, `scan_json_calibration/`, `device_files/`, `probe_logs/` |
 | `02_processed_data/` | records **plus** their spectra, and the replay experiment |
-| `documentation/` | RE log, hardware acquisition guide, handoff, datasheets, patents |
+| `documentation/` | [hardware reference](documentation/HARDWARE.md) and teardown photos, RE log, hardware acquisition guide, handoff, datasheets, patents |
 | `archive/` | superseded notebooks (`notebooks/`), scripts and raw notes (`more_info/`), frozen - see [`archive/README.md`](archive/README.md) |
 
 `01_rawdata/scans/` holds 97 records: 26 from 2020/2021 app logs (each carrying
@@ -657,7 +660,8 @@ documentation.
   [`adsp-bf512-514-516-518.pdf`](documentation/adsp-bf512-514-516-518.pdf), Rev E), the TI
   [`CC2540F256.pdf`](documentation/CC2540F256.pdf) datasheet, and the notes in
   `archive/more_info/` that came from other people.
-- **SparkFun teardown photos** in [`documentation/teardown/`](documentation/teardown/README.md):
+- **SparkFun teardown photos** in [`documentation/teardown/`](documentation/teardown/README.md),
+  shown in [`documentation/HARDWARE.md`](documentation/HARDWARE.md):
   © SparkFun Electronics, from "SCiO Pocket Molecular Scanner Teardown" by JOEL_E_B,
   licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), unmodified.
 - **Captured device data** under `01_rawdata/` is measurement output from the

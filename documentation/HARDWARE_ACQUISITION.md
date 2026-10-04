@@ -36,7 +36,8 @@ or alter the boot-mode straps.
 ## Teardown photo review (2026-10-04)
 
 Source: SparkFun's teardown photos, stored with attribution (CC BY-SA 4.0) in
-[`teardown/`](teardown/README.md). Datasheet:
+[`teardown/`](teardown/README.md) and shown in the hardware reference
+[`HARDWARE.md`](HARDWARE.md). Datasheet:
 [`adsp-bf512-514-516-518.pdf`](adsp-bf512-514-516-518.pdf) (Rev E).
 
 ### The DSP has no on-chip program flash

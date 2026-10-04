@@ -80,8 +80,8 @@ how to work in this repository is in
 - Where the transform runs: BF512 DSP, CC2540 BLE SoC, or (decoding side) the server.
 - Key architecture, absolute sample/white domain vectors, pixel geometry, table contents.
 
-**Hardware** (SparkFun teardown photos, stored with attribution in
-[`../documentation/teardown/`](../documentation/teardown/README.md); desk review in
+**Hardware** (full reference with all photos: [`../documentation/HARDWARE.md`](../documentation/HARDWARE.md);
+desk review in
 [`HARDWARE_ACQUISITION.md`](../documentation/HARDWARE_ACQUISITION.md#teardown-photo-review-2026-10-04)):
 
 - **DSP:** `ADSP-BF512 KBCZ-3`, 300 MHz BGA, with **no on-chip program flash** (datasheet
@@ -175,6 +175,7 @@ key-architecture framing, acceptance gate).
 
 - [RECOVERY_STATUS.md](RECOVERY_STATUS.md), [NATIVE_ANALYSIS.md](NATIVE_ANALYSIS.md),
   [DEVICE_FUNCTION_REFERENCE.md](DEVICE_FUNCTION_REFERENCE.md)
-- [`../documentation/HARDWARE_ACQUISITION.md`](../documentation/HARDWARE_ACQUISITION.md)
+- [`../documentation/HARDWARE.md`](../documentation/HARDWARE.md) (hardware reference, photos),
+  [`../documentation/HARDWARE_ACQUISITION.md`](../documentation/HARDWARE_ACQUISITION.md)
 - SparkFun teardown with board photos:
   <https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all>

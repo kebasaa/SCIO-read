@@ -1,5 +1,9 @@
 # SCiO teardown photos (SparkFun)
 
+All of these photos are shown and explained in the hardware reference,
+[`../HARDWARE.md`](../HARDWARE.md). This file is the folder's attribution and licence
+record.
+
 **Source:** "SCiO Pocket Molecular Scanner Teardown" by JOEL_E_B, SparkFun Electronics,
 <https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all>
 (photos taken 2017 according to their EXIF data).
