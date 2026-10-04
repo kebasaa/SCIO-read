@@ -13,6 +13,8 @@ import _bootstrap
 from scio import cloud, credentials, session, store
 from scio_offline import research as r
 
+DEFAULT_CLIENT='Android 1.3.8.554'
+
 
 def probes(rows):
     base=rows[0]; payload=session.to_payload(base['record']); result=[]
@@ -97,10 +99,10 @@ def run_jobs(out,jobs,live=False,followup_from=None):
             continue
         time.sleep(max(0,20-(time.monotonic()-last)))
         encoded=json.dumps(job['payload'],sort_keys=True,separators=(',',':')).encode()
-        r.write_new(out/f'{i:02d}_request.json',{'name':job['name'],'payload':job['payload'],'payload_sha256':r.sha(encoded),'changes':job['changes'],'control_group':job.get('control_group','primary'),'started_at':store.now_iso()})
+        r.write_new(out/f'{i:02d}_request.json',{'name':job['name'],'payload':job['payload'],'payload_sha256':r.sha(encoded),'changes':job['changes'],'control_group':job.get('control_group','primary'),'client_version':job.get('client_version',DEFAULT_CLIENT),'started_at':store.now_iso()})
         status=0; response={}; spectrum=None
         try:
-            resp=requests.post(cloud.SPECTRO_URL,json=job['payload'],headers={'Authorization':'Bearer '+token,'Accept':'application/json','X-SCiO-Client-Version':'Android 1.3.8.554','X-Request-ID':str(uuid.uuid4())},timeout=45)
+            resp=requests.post(cloud.SPECTRO_URL,json=job['payload'],headers={'Authorization':'Bearer '+token,'Accept':'application/json','X-SCiO-Client-Version':job.get('client_version',DEFAULT_CLIENT),'X-Request-ID':str(uuid.uuid4())},timeout=45)
             status=resp.status_code
             try: response=resp.json()
             except ValueError: response={'non_json_sha256':r.sha(resp.content),'bytes':len(resp.content)}

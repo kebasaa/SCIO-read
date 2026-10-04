@@ -8,6 +8,33 @@ Completed campaign: [results](analysis_output/recovery_20261003/RESULTS.md),
 Current state and ranked next tasks: [HANDOVER.md](HANDOVER.md). This file is the
 chronological record.
 
+### Firmware request as a firmware-135/136 device (2026-10-04, completed)
+
+- `scripts/probe_old_firmware.py`, user-authorised, 8 of at most 10 requests. Firmware
+  requests were 21.4-22.2 s apart. The second scan request followed the first by 22.0 s,
+  but the first scan request started only 4.2 s after the last firmware response: the scan
+  runner keeps its own timer and did not see the firmware phase. Lesson: share one spacing
+  timer across phases.
+- Firmware-upgrade GETs:
+  - current control;
+  - dsp_op `0x88` (136) and `0x87` (135);
+  - an all-files-old device (`0x7C`/`0x10`/`0x0B`/`0x87`), alone and with the
+    `Android 1.2.6.476` client string;
+  - final control.
+
+  All six returned HTTP 200 with the byte-identical 51-byte `{"new_version":null}` (SHA-256
+  `f7bb8314…`). **No firmware was offered.** This is a bounded negative for these parameters
+  only.
+- Old-format scan: the intact historical control (`oracle_network/00`) matched its stored
+  spectrum. The same payload with both gradients removed, sent with the 1.2.6.476 client
+  string, returned 200 and a spectrum **identical** on all 331 bands (max error 0.0). The
+  server neither needs the gradients nor varies by client version for this request.
+- Changes:
+  - `firmware_recheck.py` now exposes `run_firmware_jobs`, which takes per-job versions,
+    tag and client; offered bodies would go to the git-ignored `dev/recovered_firmware/<run>/`.
+  - `oracle_v2.run_jobs` takes a per-job `client_version`, with the old default kept.
+  - Six mocked tests were added. Research suite: **134 passed** with sockets blocked.
+
 ### Teardown desk review (2026-10-04, completed)
 
 - SparkFun's 17 teardown photos are stored unmodified with CC BY-SA 4.0 attribution in

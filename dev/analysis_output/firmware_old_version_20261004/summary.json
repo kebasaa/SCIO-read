@@ -1,0 +1,15 @@
+{
+  "requests": [
+    {
+      "name": "control_scan",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "old_format_no_gradients",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

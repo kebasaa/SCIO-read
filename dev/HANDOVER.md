@@ -67,7 +67,10 @@ how to work in this repository is in
 - Every supplied app path (Java 2017, Lab 1.3.12, Flutter 1.5.6 ARM64, 1.5.19 ARM32)
   is a Base64 pass-through. No client-side decoder exists in any supplied APK.
 - No firmware body is available: USB exposes file headers only (`0x81` is a
-  host-to-device write); the upgrade endpoint returns `new_version: null`.
+  host-to-device write); the upgrade endpoint returns `new_version: null`, including
+  when asked as a firmware-135/136 device (dsp_op `0x88`/`0x87`, all four files old,
+  and the 1.2.6.476 app client; 2026-10-04,
+  [old-firmware probe](analysis_output/firmware_old_version_20261004/campaign_summary.json)).
 - Reference truth: 92 records in `02_processed_data/` carry a spectrum the server
   returned for exactly those bytes; 42 of them additionally carry the 2020/21
   spectrum. Six fresh cap scans (18 blobs) are **frozen** for prospective
@@ -150,6 +153,7 @@ hypothesis that the earlier run could not have seen.
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |
 | `intermediate_scan` as a decoding endpoint | [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json) |
 | Looking for a standalone flash chip in the teardown photos | [teardown markings](../documentation/teardown/README.md#markings-read-from-these-photos-2026-10-04) |
+| Firmware offer as a firmware-135/136 device; 2-frame scan with the 1.2.6.476 client (null; spectrum identical) | [old-firmware probe](analysis_output/firmware_old_version_20261004/campaign_summary.json) |
 | Same-target bit agreement | README §4 (0.49986 bit distance over 30 captures) |
 
 Documentation: `dev/README.md` was reconciled with this file on 2026-10-04 (fixed

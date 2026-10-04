@@ -1,0 +1,65 @@
+{
+  "device_ble_id": "01665900004C99B4",
+  "default_compression_version": "20150812-e:PRODUCTION",
+  "source_metadata": "01_rawdata/device_files/device_20260907_155207.json",
+  "jobs": [
+    {
+      "name": "control_current",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      }
+    },
+    {
+      "name": "dsp_op_136",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x88"
+      }
+    },
+    {
+      "name": "dsp_op_135",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x87"
+      }
+    },
+    {
+      "name": "old_device_135",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x10",
+        "0x5B": "0x0B",
+        "0x5C": "0x87"
+      }
+    },
+    {
+      "name": "old_device_135_old_app",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x10",
+        "0x5B": "0x0B",
+        "0x5C": "0x87"
+      },
+      "client": "Android 1.2.6.476"
+    },
+    {
+      "name": "control_current_final",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      }
+    }
+  ],
+  "max_requests": 6,
+  "min_gap_seconds": 20,
+  "scope": "Known GET firmware-upgrade only. No device writes, installation or reset."
+}

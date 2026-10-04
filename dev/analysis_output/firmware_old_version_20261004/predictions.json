@@ -1,0 +1,8 @@
+{
+  "firmware": "new_version null for every job (all lower versions down to 0 were null in 2026-09)",
+  "old_format_scan": "spectrum identical to control_scan on all 331 bands, atol=rtol=1e-6",
+  "budget": 10,
+  "planned_requests": 8,
+  "default_client": "Android 1.3.8.554",
+  "old_client": "Android 1.2.6.476"
+}

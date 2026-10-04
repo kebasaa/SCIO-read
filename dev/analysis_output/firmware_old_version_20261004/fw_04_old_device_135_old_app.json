@@ -1,0 +1,18 @@
+{
+  "name": "old_device_135_old_app",
+  "versions": {
+    "0x57": "0x7C",
+    "0x5A": "0x10",
+    "0x5B": "0x0B",
+    "0x5C": "0x87"
+  },
+  "compression_version": "20150812-e:PRODUCTION",
+  "client": "Android 1.2.6.476",
+  "started_unix": 1791121712.9810236,
+  "status": 200,
+  "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+  "response_bytes": 51,
+  "new_version_is_null": true,
+  "files": [],
+  "elapsed_monotonic_seconds": 1.577999999979511
+}

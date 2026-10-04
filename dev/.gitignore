@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 .pytest_tmp*/
 tmp/
+recovered_firmware/
