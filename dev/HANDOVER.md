@@ -25,9 +25,12 @@ how to work in this repository is in
   and C is not a low-order polynomial.
   [dark affine](analysis_output/recovery_20261003_followup/dark_affine/comparison.json),
   [response structure](analysis_output/recovery_20261003_followup/response_structure.json)
-- Sample and dark blobs are integrity-protected: any edit gives
-  `Bad_sample_signature`. Gradient edits, omission and zero-fill are accepted with
-  an unchanged spectrum. ([`ciphertext_oracle/`](analysis_output/ciphertext_oracle/))
+- Sample, dark, white and white-dark blobs are integrity-protected: any tested
+  change to the second header word or the body gives `Bad_sample_signature`. The
+  status bit in header word 0 is not covered (accepted in all six roles), and
+  gradient edits, omission and zero-fill are accepted, all with an unchanged
+  spectrum. ([`ciphertext_oracle/`](analysis_output/ciphertext_oracle/),
+  [RESULTS](analysis_output/recovery_20261003/RESULTS.md))
 - Blob = 8-byte header (word 0 type/status, gradients carry 110; word 1 fresh per
   blob) + fixed-size body: 1792 B sample/dark, 1648 B gradient on `-e` firmware,
   1408 B gradient on `-o`. Body ≈ 7.9 bits/byte, positionally featureless; 30 captures
@@ -102,13 +105,6 @@ exhausted; the firmware (tasks 1–2) is the decisive input.
 - Ignored by the server, header 110, generation-dependent size. Compare its
   statistics with sample/dark; test whether it is less protected or structured.
 
-### 6. Documentation consolidation
-
-- `dev/README.md` still states, as settled, that every modified blob is rejected,
-  that all routes are exhausted, that JPEG is excluded, that the firmware endpoint
-  is decommissioned, and that the device holds two secrets. Correct those against
-  RECOVERY_STATUS and this file.
-
 ## Do not repeat
 
 Each is a bounded negative with saved evidence; repeat only with a genuinely new
@@ -127,6 +123,10 @@ hypothesis that the earlier run could not have seen.
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Same-target bit agreement | README §4 (0.49986 bit distance over 30 captures) |
+
+Documentation: `dev/README.md` was reconciled with this file on 2026-10-04 (fixed
+container vs fixed rate, JPEG scope, integrity-check scope, firmware endpoint,
+key-architecture framing, acceptance gate).
 
 ## Closed for this owner
 

@@ -356,9 +356,9 @@ equally what good compression produces.
 white-domain quantity: swapping sample and white components gives a response table
 that is multiplicatively separable to ~1e-16, with a stable non-unity self-response
 factor C(λ). Dark handling is not a simple subtraction, per-band affine map or
-shared gain. Sample and dark blobs are integrity-protected (any edit is rejected
-with `Bad_sample_signature`); gradient edits are accepted and leave the spectrum
-unchanged. None of this recovers the domain vectors themselves. Evidence:
+shared gain. Sample, dark and white blobs are integrity-protected (any tested
+change to the second header word or body is rejected with `Bad_sample_signature`);
+the status bit and gradient edits are accepted and leave the spectrum unchanged. None of this recovers the domain vectors themselves. Evidence:
 [`dev/RECOVERY_STATUS.md`](dev/RECOVERY_STATUS.md).
 
 The class remains **undetermined**. The vendor's vocabulary hints at compression:

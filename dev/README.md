@@ -1,11 +1,9 @@
 # `dev/` - offline decoding (unresolved)
 
 > **Start here:** [HANDOVER.md](HANDOVER.md) has the current state and ranked next
-> tasks. **Research correction:** the full log is [RECOVERY_STATUS.md](RECOVERY_STATUS.md).
-> Older interpretations below are historical, not established exclusions. The
-> corrected framing search, empirical controls and region/role oracle reopen
-> incomplete software routes. In particular, signatures, key architecture,
-> firmware availability and processing order remain hypotheses.
+> tasks; the full chronological log is [RECOVERY_STATUS.md](RECOVERY_STATUS.md).
+> This file was reconciled with both on 2026-10-04. Where an older measurement is
+> kept below, its interpretation has been narrowed to what it actually shows.
 
 Device IDs, command namespaces, file headers, and calibration-table evidence are
 maintained in [DEVICE_FUNCTION_REFERENCE.md](DEVICE_FUNCTION_REFERENCE.md).
@@ -51,7 +49,7 @@ per device - not a cryptographic key. The misreading seeded both the project's
 "the blobs are encrypted" framing and the AptinaId-as-AES-256 hypothesis below.
 Removing the basis for a claim is not the same as refuting it, so:
 
-**Compression is now the leading hypothesis.** The vendor calls the i2s tag
+**The vendor's vocabulary hints at compression.** The vendor calls the i2s tag
 `compression_version`; in the un-obfuscated 2017 researcher build the parameter
 carrying that value is literally named `i2sTag`, passed in the same call as the
 four binning-table checksums; and the app ships an `UnsupportedCompressionConversion`
@@ -59,7 +57,14 @@ error string. You cannot convert between encryptions; you can re-bin between
 binning tables. The gradient blob's length also changes with the generation
 (1656 B on `-e`, 1416 B on `-o`) while the sample's does not.
 
-**Encryption is not excluded, and cannot be excluded by software.** The device
+**But a plain fixed-position coder is now disfavoured.** A supervised test on the
+92 paired records ([leakage](analysis_output/leakage_20261003/leakage.json)) finds
+no body bit, byte or 16-bit word correlated with the returned spectrum and no
+held-out linear predictor, although the same detectors find a single fixed-position
+count field in synthetic fixtures of this size. That leaves encryption under a
+fresh nonce, or a coder whose fields shift position, as the live options.
+
+**Encryption is neither confirmed nor excluded by software.** The device
 could encrypt and the server decrypt. The Android client is a verified
 byte-for-byte pass-through - BLE frames to `Base64.encodeToString` to JSON to
 POST, with no arithmetic on the bytes anywhere - so it would contain no crypto
@@ -69,7 +74,8 @@ nobody proposed. Absence of evidence is close to worthless here.
 
 The asymmetry that follows governs how to report results: **a compression hit
 would be decisive; a compression miss is not.** Nothing in this directory may
-conclude "therefore it is encrypted" - only "compression not demonstrated".
+conclude "therefore it is encrypted" - only "compression not demonstrated", with
+the coverage of the test that missed.
 
 ## Measured facts about the corpus (97 scans, 300 unique bodies)
 
@@ -105,9 +111,10 @@ Three measurements, each from a different direction, agree. Raw numbers in
 **1. Output length never depends on content.** Across 97 captures of dark frames,
 a white calibration box, bark, soil crust, skin, rock and a hand, the sample body
 is *always exactly* 1792 B, the dark body 1792, the gradient 1648. Not one byte of
-variation. **Entropy coding cannot do this** - a Huffman, arithmetic or range coder
-spends bits in proportion to input information, so a dark frame and a lit one come
-out different lengths. Any compression here must therefore be **fixed-rate**.
+variation. This shows the **container** is fixed-size, not that the coding is
+fixed-rate: a variable-length stream can be written into a fixed buffer and the
+remainder filled (see "no visible padding" below for what that filling would have
+to look like). `transform_class` schema 2 carries this correction.
 
 **2. Scene information content leaves no trace.** Mean body entropy by scene:
 dark 7.8980, calibration box 7.8937, static series 7.8933, everything else 7.8951
@@ -129,9 +136,9 @@ negative means something. Its stated limit still holds: a proprietary range or
 arithmetic coder emits a headerless stream indistinguishable from random and no
 sweep over standard formats would find it.
 
-**5. Not a compressed image either.** The sensor is a CMOS imager, so a small
-compressed frame is a natural guess - and it is wrong for every standard codec.
-The decisive test needs no decoder: entropy-coded image formats must **byte-stuff**
+**5. Not a plain JPEG-family stream.** The sensor is an imager (the teardown shows
+12 filtered receptors over one photodiode array), so a small compressed frame is a
+natural guess. A test that needs no decoder: entropy-coded image formats must **byte-stuff**
 so a raw `0xFF` cannot be read as a marker, and the rule holds over the
 entropy-coded segment itself, **with or without a container**. That matters
 because an embedded coder would strip the header, producing a stream no decoder
@@ -145,7 +152,12 @@ would accept.
 
 Every rate sits on its random baseline. The detector was verified against a real
 JPEG first: a full file scores 0.60, and a **headerless entropy-coded segment -
-exactly the embedded-coder case - scores 1.0000**.
+exactly the embedded-coder case - scores 1.0000**. This excludes an *untransformed*
+JPEG, JPEG-LS or JPEG 2000 entropy stream. It does not exclude one that is
+encrypted or otherwise byte-transformed afterwards, a coder that does not
+byte-stuff, or a proprietary DCT/wavelet scheme. A separate headerless baseline-JPEG
+Huffman parse ([jpeg_entropy](analysis_output/recovery_20261003_followup/jpeg_entropy.json))
+accepts real bodies at about the same rate as random controls.
 
 Alongside that: no container magic (JPEG/PNG/GIF/BMP/TIFF/WebP/JP2/ZIP/RAR/7z)
 appears above chance **at any offset** - the earlier check only tested offset 0 -
@@ -153,22 +165,25 @@ and PIL accepts nothing in 1,320 decode attempts across 40 bodies × 33 offsets.
 An image wrapped in a generic compressor is covered by point 4: the wrapper would
 have to decompress first, and none did.
 
-**There is also no padding.** If the fixed 1792 B were a buffer holding a shorter
-variable-length stream, the slack would show. Head and tail entropy match to three
-decimal places at every prefix length, and the longest constant-byte run in 300
-bodies is **3**, below the random expectation of 2.35.
+**There is also no visible padding.** If the fixed 1792 B were a buffer holding a
+shorter variable-length stream with constant fill, the slack would show. Head and
+tail entropy match to three decimal places at every prefix length, and the longest
+constant-byte run in 300 bodies is **3**, near the random expectation of 2.35. That
+excludes zero or constant padding; random or encrypted fill would not show.
 
-**Conclusion: fixed-rate, whitened, positionally featureless, header-free, and not
-any standard image codec.** That is consistent with encryption *and* with a
-rate-filling proprietary coder, and the corpus cannot separate them. The verdict
-stays `undetermined`; claiming either would overstate the evidence.
+**Conclusion: fixed-size, whitened, positionally featureless, header-free, with no
+constant padding and no untransformed JPEG-family stream.** That is consistent with
+encryption *and* with a proprietary coder whose output fills the container. The
+supervised leakage test (above) narrows the coder option to one without
+fixed-position fields. The verdict stays `undetermined`.
 
 The blind spot is the same in both sweeps: a proprietary DCT or wavelet coder that
 does not byte-stuff emits a headerless stream indistinguishable from random, and
 neither the codec sweep nor the stuffing test would see it.
 
-What would actually settle it: `dsp_op` via an SPI-flash dump; the four binning
-tables; or SDK credentials for `/v1/external_sdk/intermediate_scan`, which is
+What would actually settle it: the firmware (`dsp_op` and friends, or the CC2540
+image) via a hardware read; the four binning tables; or SDK credentials for
+`/v1/external_sdk/intermediate_scan`, which is
 **live** (401 on POST, 405 on GET - a route that distinguishes methods is a
 registered route) and sits by name between the blob and the spectrum.
 
@@ -214,8 +229,7 @@ has only the file *names*, never payloads.
 The newest (Flutter) app talks to `api.scionir.com` / `auth.scionir.com`. Those, and
 `api.consumerphysics.com` and `lab.consumerphysics.com`, **all resolve to 35.229.97.127 and answer
 identically** (`401 {"message":null}` for the two version/rollout endpoints, `404` for `/`). It is
-one backend under several names, so the decommissioned firmware store is decommissioned for all
-of them. No credential was sent to any scionir.com host. (`dev.scionir.com` is a separate AWS
+one backend under several names, so the firmware-store result below applies to all of them. No credential was sent to any scionir.com host. (`dev.scionir.com` is a separate AWS
 address and looks like a content site; not pursued.) Our token is refused at
 `GET /v1/configuration` (401): it lacks the collection/SDK scope.
 
@@ -236,17 +250,28 @@ equals the sign of the plaintext change. `malleability.py` classifies the damage
 was validated against a deliberately non-benign simulated server first (900+ runs, 540 on
 held-out seeds, zero wrong labels), so a result would have meant something.
 
-**It is closed by a per-blob signature.** Against a baseline whose untouched control returns
-`200`, **every modified blob - down to one flipped bit - returns
-`400 {"error_type":"Bad_sample_signature"}`** (8/8 in the pilot). The server verifies a per-blob
-integrity signature *before* it decodes. Two gates, in order: signature (`400`) -> physics range
-(`422 high_ambient`, found in A0) -> decode. Whole unmodified blobs pass the signature (A0's
-white-swap of intact blobs returned `200`); any byte change fails it. No altered blob is ever
-decoded, so there is no bit-flip oracle and no sign-of-delta plaintext route. **Do not send
-modified blobs to the server** - it is refused by design.
+**It is closed by an integrity check on four of the six blobs.** Against a baseline whose
+untouched control returns `200`, every tested change to the **second header word or the body**
+of a sample, dark, white or white-dark blob - down to one flipped bit - returns
+`400 {"error_type":"Bad_sample_signature"}` (8/8 in the pilot; the October campaign confirmed it
+for all four roles, block boundaries and a sum/XOR-preserving byte swap). Two things are
+**not** checked: the status bit in header word 0 can be changed in all six roles, and gradient
+blobs can be mutated, zero-filled or omitted - in every case `200` with the spectrum exactly
+unchanged ([RESULTS](analysis_output/recovery_20261003/RESULTS.md)). Whole unmodified blobs
+pass (A0's white-swap of intact blobs returned `200`). No altered protected blob is ever decoded,
+so there is no bit-flip oracle and no sign-of-delta plaintext route. **Do not send modified
+blobs to the server.**
 
-A0 did establish, with valid inputs only, that `R` is separable (`R = g(S, D) / (W - Wd)`,
-agreeing to 1e-15), that timestamps are inert and nothing is cached.
+The error name does not establish what the check is (MAC, signature, checksum over hidden
+plaintext, or a decode-time consistency test), nor the order in which the server applies it
+relative to the physics-range check (`422 high_ambient`, found in A0).
+
+A0 did establish, with valid inputs only, that `R` is separable into a sample-side and a
+white-side factor (agreeing to 1e-15), that timestamps are inert and nothing is cached. Later
+tests sharpened this: the table of intact sample/white combinations is multiplicatively
+separable to ~1e-16, role swaps expose a stable non-unity factor C(λ), and dark handling is
+*not* a simple subtraction (the additive identity fails on 321 of 331 bands), so do not read the
+white side as literally `W - Wd`. See [HANDOVER.md](HANDOVER.md).
 
 **The signature is device-bound.** The app-embedded mock blobs (real captures from three other
 devices and older generations, in `FakeJson.java` / `assets/mock/`) all decode natively when
@@ -257,12 +282,14 @@ under the identity that produced it, and the server holds or derives per-device 
 arbitrary devices. (`dev/scripts/extract_mock_scans.py`, `ciphertext_oracle.py foreign`,
 `FOREIGN_VERDICT.json`.)
 
-**Why this matters beyond the dead end:** the device holds a secret and signs each blob, keyed to
-its identity. That raises the prior that the payload transform is device-keyed rather than public
-compression (not proof - signed compression exists); there is no global key to find; and the
-transform key and the signing key both live in the device. The class stays `undetermined`, but
-the practical conclusion is firm: the remaining route is a hardware read, not more software or
-server work.
+**Why this matters beyond the dead end:** validity depends on the device_id the blob is
+submitted under, so some per-device material exists on the server side (stored or derived).
+That raises the prior that the payload is device-keyed rather than public compression, but it
+is compatible with several designs: a per-device key, a global key with the device_id as a
+tweak, a master key with per-device derivation, or a per-device calibration lookup that a
+foreign blob fails. Whether the device holds one secret, two (transform and integrity) or
+none of its own is not established. The class stays `undetermined`; the most informative
+remaining route is the firmware, which needs a hardware read.
 
 ## Layout
 
@@ -275,7 +302,11 @@ dev/
     02_scio_keyrecovery.ipynb         the current key-recovery attempt
     superseded/                       earlier attempts, each labelled, kept as the record
   tests/                 pytest for this strand only
-  analysis_output/       generated reports, safe to delete and regenerate
+  analysis_output/       saved evidence, including live server/device runs that cannot be
+                         regenerated - treat as append-only; write new runs to new paths
+  HANDOVER.md            current state and ranked next tasks (keep it current)
+  RECOVERY_STATUS.md     chronological research log
+  DEVICE_FUNCTION_REFERENCE.md, NATIVE_ANALYSIS.md   device facts; native-tooling notes
 ```
 
 The root notebooks (`01`-`03`) deliberately import **only** `scio`, never
@@ -299,40 +330,59 @@ Modules:
 | `compression_hypothesis` | known codecs at every byte **and bit** offset, with partial-output tolerance; screens each codec against random input first and excludes any that "finds" structure in noise |
 | `malleability` / `malleability_sim` | **chosen-ciphertext probing of the live server**: flip a bit in a blob, read which bands move. The classifier separates stream / block-transform / delta / ECB / CBC-CFB / adaptive-coder and can answer `undetermined`, but has no label meaning "encryption excluded". Validated against a simulated server, not the real one |
 | `transform_class` | what *class* of transform is this? Size-invariance, entropy-by-scene and coder-header tests, emitting a verdict that structurally cannot say "encryption ruled out" |
-| `validation` | **the gate**: score a candidate decoder against all 92 records whose true spectrum we hold. Self-checked in both directions - truth must pass, noise must fail |
+| `validation` | score a candidate decoder against all 92 records whose true spectrum we hold. Self-checked in both directions - truth must pass, noise must fail |
+| `research` | auditable corpus contexts (white/acquisition groups), the metadata-aware `DecodeInput`/`DecodeResult` interface, and **the gate** `numerical_check`: all 331 bands, exact axis, `atol=rtol=1e-6`, no rescaling |
+| `search_v2` / `plaintext_oracles` | framing-correct bounded key searches with order-independent oracles (replace the flawed dark rescreen) |
+| `compression_only` / `representation_codecs` | keyless codec probes, including word-swapped and bit-reversed representations |
+| `jpeg_entropy` | headerless baseline-JPEG Huffman parse probe |
+| `crc_recovery` / `seeded_checksum` | unknown-polynomial CRC and seeded non-cryptographic checksum recovery for the second header word |
+| `leakage` | supervised test: do body bits/bytes/words carry information about the spectrum? (negative) |
+| `response_models` | server-response hypotheses (separability, dark models), not blob decoders |
+| `snoop` | offline btsnoop -> ACL -> ATT -> SCIO frame reassembly |
+| `firmware_containers` / `resource_probe` / `native_index` / `arm64_refs` | bounded static scans of app archives, resources and AOT dumps for firmware/table material |
 
 ## Running it
 
 ```bash
-pytest dev/tests/                      # offline, no hardware
-python dev/scripts/analyze_scio.py     # neutral diagnostics over the corpus
-python dev/scripts/recover_key.py      # needs dsp_op, which we do not have
+python dev/scripts/test_without_network.py   # dev/tests with sockets blocked
+python dev/scripts/analyze_scio.py           # neutral diagnostics over the corpus
+python dev/scripts/probe_leakage.py --output dev/analysis_output/<new-run>/leakage.json
+python dev/scripts/recover_key.py            # needs dsp_op, which we do not have
 ```
+
+More drivers and their exact invocations are in
+[RECOVERY_STATUS.md](RECOVERY_STATUS.md#reproducible-tools).
 
 Scripts assume the repository root as their working directory; `_bootstrap`
 enforces that, so they can be launched from anywhere.
 
 ## Why it stalled, and what would unstick it
 
-Every software and server route has been exhausted:
+The software and server routes tried so far are bounded negatives, not proofs of absence
+(each is listed with its evidence in [HANDOVER.md](HANDOVER.md#do-not-repeat)):
 
-- **The cloud** returns firmware only through the upgrade endpoint, decommissioned
-  (`needs_params_upgrade:false` even for wrong checksums), and the newest app's
-  `scionir.com` backend is the same server.
-- **The server will not decode a modified blob**: each carries a device-bound signature
-  (`Bad_sample_signature`), so it cannot be turned into a decoding oracle, and a blob only
-  decodes under its own device_id. See the sections above.
-- **The APKs** cache firmware in SharedPreferences but ship none; the Flutter `libapp.so` is
-  arm64 AOT and holds no firmware. No firmware exists anywhere on the analysis machine.
-- **USB** has no readback path (`0x87` returns 16 bytes; `0x81` is host->device only).
-- **Identifier-derived keys** are negative under both the smoothness and the order-independent
-  dark-frame oracle.
+- **The cloud** has returned no firmware through the upgrade endpoint: `new_version` was
+  empty in every probe (2026-09) and in a 2026-10 recheck, and `needs_params_upgrade` stays
+  false even for wrong checksums. Offers could be device- or account-dependent, so this is
+  not proof that the store is gone. The newest app's `scionir.com` backend is the same server.
+- **The server will not decode a modified protected blob** (`Bad_sample_signature`), so it
+  cannot be turned into a decoding oracle, and a blob only decodes under its own device_id.
+- **The APKs** cache firmware in SharedPreferences but ship none. Static traces of every
+  supplied app (Java, Lab, Flutter ARM64 and ARM32 AOT) find only Base64 pass-through, and
+  bounded archive/resource/DEX/container scans found no firmware body or table.
+- **USB** has no known readback path (`0x87` returns 16 bytes; `0x81` is host->device only).
+- **Identifier-derived keys** are negative under the corrected framing search and
+  order-independent oracles.
+- **Body statistics**, unsupervised and supervised, cannot separate encryption from a
+  position-shifting coder.
 
 What is left is a hardware read, and the full procedure with validation targets and safety
 rules is in **`documentation/HARDWARE_ACQUISITION.md`**. In brief:
 
-1. **External SPI flash** (~$15 CH341A + SOIC-8 clip): `dsp_boot`/`dsp_dec`/`dsp_op` as stored,
-   validated against this unit's header table (`dsp_op` 32628 B, checksum 4151168).
+1. **Boot flash** (if external: ~$15 CH341A + SOIC-8 clip): `dsp_boot`/`dsp_dec`/`dsp_op` as
+   stored, validated against this unit's header table (`dsp_op` 32628 B, checksum 4151168).
+   First confirm from the teardown photos which chip it is, and whether the DSP is an `F`
+   variant with in-package flash (HANDOVER task 1).
 2. **BF512 JTAG**: halt mid-scan, read the key from L1 SRAM; may be OTP-disabled.
 3. **CC2540** (the TI BLE/USB MCU that enumerates as `0451:16AA`, has hardware AES-128): the
    signature and possibly the transform may be applied *here*, not on the DSP - so identify
@@ -340,8 +390,8 @@ rules is in **`documentation/HARDWARE_ACQUISITION.md`**. In brief:
 4. **Another owner's cached firmware** - no hardware needed; `firmware.py` extracts it from a
    SharedPreferences dump or `adb backup`. Outreach text is in the hardware doc.
 
-Because the device signs each blob keyed to its identity, two secrets live in the device - the
-transform key and a per-device signing key - and a dump is the only way to reach either.
+If the device does hold key material (for the transform, the integrity check, or both),
+a firmware or memory read is the only known way to reach it.
 
 ## Closed avenue: the i2s tag is not a chosen-binning oracle
 
@@ -389,14 +439,16 @@ What that tells us, which is worth keeping even though the answer is no:
 - **The generation letter is not a free parameter.** It behaves as part of a
   composite key, not a selector the caller can steer.
 
-**The firmware endpoint is closed too.** `GET /v1/device/{ble_id}/firmware-upgrade`
+**The firmware endpoint gave nothing either.** `GET /v1/device/{ble_id}/firmware-upgrade`
 returns the table payloads themselves (`centers`, `bins`, `nPixelsPerBin`,
 `deadPixelsIndices` as base64 + 4-byte checksum), which would have given the
 pixel->band mapping outright. Probed with all-zero file versions - so the server
 should consider every file outdated - under the real tag, each substitute tag, and
-with the parameter omitted: `new_version` is **empty in all five cases**.
+with the parameter omitted: `new_version` is **empty in all five cases**, and again in a
+2026-10 recheck under the recorded tag.
 
-**Do not retry either of these.** If you want a second binning of one ciphertext
+**Do not retry either of these** without a genuinely new input (another device's identity,
+or a tag the device itself reports). If you want a second binning of one ciphertext
 you need tables for another generation, and neither endpoint will part with them.
 The remaining routes are still the hardware ones below.
 
@@ -409,8 +461,9 @@ findings.
 **1. `AptinaId` as an AES-256 key.** The Aptina id is 32 hex characters - 128 bits as bytes,
 but 32 *characters* if taken as an ASCII string, which is exactly an AES-256 key length. That
 coincidence is the reason device identifiers are in the candidate set at all.
-`keyrecover.py` already tests id-derived keys (raw, ASCII, and standard KDFs over them) and
-none has ever validated. The rationale was never written down, only the code - so if you are
+`keyrecover.py` and the corrected `search_v2` test id-derived keys (raw, ASCII, and standard
+KDFs over them) and none has ever validated. (An earlier dark-frame rescreen fed the header
+into the cipher and is superseded; `rescreen_dark.py` now dispatches to `rescreen_v2.py`.) The rationale was never written down, only the code - so if you are
 tempted to "try the Aptina id", it has been tried.
 
 **2. The reflectance formula is not a decoding shortcut.** `archive/more_info/decrypt.txt`
@@ -423,12 +476,20 @@ note: it claims the three sections are "400 bytes long", where the measured size
 
 ## The bar for success
 
-A smooth-looking curve is **not** a result. `pipeline.py` enforces the actual
-bar, and it should stay enforced:
+A smooth-looking curve is **not** a result, and neither is high correlation: a wrong
+amplitude can correlate perfectly. The bar, enforced by `research.numerical_check` and
+`pipeline.py`:
 
-- the same key/mode must produce consistent plaintext across *different* scans, and
-- the resulting spectrum must agree with a **held-out** server spectrum from
-  `01_rawdata/log_extracted/` (42 canonical records carry one).
+- the same key/mode must produce consistent plaintext across *different* scans;
+- the resulting spectrum must match the server's on **all 331 bands**, on the exact
+  740-1070 nm axis, at `atol=rtol=1e-6`, with no per-scan rescaling. Reference truth is the
+  92 records in `02_processed_data/` (42 of them also carry the 2020/21 server answer);
+- it must then pass on the six **frozen** fresh cap scans
+  ([manifest](analysis_output/recovery_20261003_followup/fresh_reference_validation.json)),
+  and reject wrong metadata, swapped roles and shuffled input.
+
+`validation.validate`'s median-Pearson >= 0.90 is a floor for spotting near-misses, not
+acceptance.
 
 An earlier iteration of this work produced a false "hit" by sliding a window over
 firmware bytes until something scored well, and another by reading random bytes
