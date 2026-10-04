@@ -62,6 +62,7 @@ class ScioUSB(ScioDevice):
     """
 
     transport_name = "usb"
+    MAX_STALE_REPLIES = 8  # stale frames skipped per read before giving up
 
     def __init__(self, port: str, baudrate: int = 115200, timeout: float = 5.0):
         super().__init__()
@@ -69,6 +70,8 @@ class ScioUSB(ScioDevice):
         self.baudrate = baudrate
         self.timeout = timeout
         self.ser = None
+        self._expect = None       # command id of the request in flight
+        self.stale_replies = 0    # complete replies to an earlier, abandoned request
 
     # -- connection -------------------------------------------------------
     def open(self):
@@ -86,6 +89,8 @@ class ScioUSB(ScioDevice):
         self.ser.reset_input_buffer()
 
     def send_frame(self, frame: bytes):
+        if len(frame) >= 3 and frame[1] == protocol.PROTOCOL_MARKER:
+            self._expect = frame[2]
         self.ser.write(frame)
         self.ser.flush()
 
@@ -99,6 +104,22 @@ class ScioUSB(ScioDevice):
         return buf
 
     def _read_response(self, resync_limit: int = 4096) -> protocol.Response:
+        """Next reply *to the request in flight*, resyncing to 0xBA if needed.
+
+        Every reply echoes its request's command id. A frame with another id is a
+        late answer to an earlier request that timed out (it can land after the
+        input buffer was cleared); it is skipped and counted in ``stale_replies``
+        so it is never returned as this request's answer.
+        """
+        for _ in range(self.MAX_STALE_REPLIES + 1):
+            resp = self._read_frame(resync_limit)
+            if self._expect is None or resp.command == self._expect:
+                return resp
+            self.stale_replies += 1
+        raise ScioProtocolError(
+            f"only stale replies while waiting for 0x{self._expect:02X}")
+
+    def _read_frame(self, resync_limit: int = 4096) -> protocol.Response:
         """Read one response frame, resyncing to the 0xBA marker if needed."""
         scanned = 0
         while True:
