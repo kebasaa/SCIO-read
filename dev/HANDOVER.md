@@ -80,34 +80,54 @@ how to work in this repository is in
 - Where the transform runs: BF512 DSP, CC2540 BLE SoC, or (decoding side) the server.
 - Key architecture, absolute sample/white domain vectors, pixel geometry, table contents.
 
-**Hardware** (SparkFun teardown, see references): ADSP-BF512 Blackfin DSP,
-AS4C8M16SA 128 Mbit SDRAM, CC2540F256 BLE SoC (256 KB internal flash, hardware
-AES), three unidentified ICs beside the SDRAM, and a custom sensor with **12
-receptors**, each with its own filter, aperture and lens over a wire-bonded
-photodiode array.
+**Hardware** (SparkFun teardown photos, stored with attribution in
+[`../documentation/teardown/`](../documentation/teardown/README.md); desk review in
+[`HARDWARE_ACQUISITION.md`](../documentation/HARDWARE_ACQUISITION.md#teardown-photo-review-2026-10-04)):
+
+- **DSP:** `ADSP-BF512 KBCZ-3`, 300 MHz BGA, with **no on-chip program flash** (datasheet
+  Rev E ordering guide). It boots via BMODE straps from external parallel/SPI flash, an
+  SPI0 or UART0 host, ≤3 KB OTP, or SDRAM. OTP cannot hold `dsp_op`. Lockbox exists;
+  whether it is used is unknown.
+- **No standalone flash chip visible** on either face. Legible parts: SDRAM, CC2540F256
+  (labelled "9A"), probable ADP5062 charger, two unidentified small QFNs.
+- **Hypothesis (unverified):** the CC2540 stores the DSP images and boots the BF512 as a
+  host. All reported files together (176,861 B) fit in its 256 KB flash.
+- **CC2540 debug-lock state is unknown.** It cannot be read from photos or over USB.
+  Debug pins: P2_1 = DD (pin 35), P2_2 = DC (pin 34), plus RESET_N. No labelled header is
+  visible; four castellated edge pads by `TP802` are a candidate.
+- **Sensor:** 12 receptors in a 3 × 4 grid (filters, apertures of differing size, lenses)
+  over a wire-bonded array. The module flex carries its own `FW:9216` sticker.
 
 ## Open tasks, ranked
 
-Only the firmware tasks remain. The offline software routes listed below are
-bounded negatives; the firmware is the decisive input. Both tasks start with
-desk work (photos, datasheets) before any hardware session.
+All remaining tasks need a separately authorised hardware session with the device
+opened (the housing is not designed to be reopened). Nothing below may write, erase,
+reset or change straps or protection.
 
-### 1. Identify the boot flash from the teardown photos
+### 1. Passive boot-traffic capture
 
-- The BF512 has no internal program flash unless it is an `F` variant (check the
-  marking against the ADI datasheet rather than assuming). Its boot stream (LDR)
-  must come from somewhere: one of the three unidentified ICs is the prime
-  candidate for an SPI flash.
-- Map SPI/JTAG test points from the high-resolution photos.
-- **Output:** a read-only dump plan. Physical work is a separately authorised session.
-- **Validate** any dump against known headers, e.g. `dsp_op` 32,628 B, v147,
-  checksum 4151168; `dsp_boot` 7,284 B; `dsp_dec` 14,600 B (README §5).
+- **Goal:** record the DSP's boot stream as it crosses a bus at power-on. Whatever
+  BMODE selects (SPI flash, SPI0 host, UART0 host), the LDR data must travel over
+  SPI0/UART0 unless it comes from the ≤3 KB OTP. This route is read-only and needs no
+  unlocking.
+- **First:** with the board unpowered, find accessible test points on the BF512's
+  SPI0/UART0 nets and the CC2540's matching peripheral pins. The BF512 is a BGA, so this
+  needs continuity tracing, not photos.
+- **Validate** the capture against the known headers: `dsp_boot` 7,284 B, `dsp_dec`
+  14,600 B, `dsp_op` 32,628 B, v147, checksum 4151168 (README §5), and parse it as LDR
+  (`scio_offline.firmware`).
 
 ### 2. CC2540F256 debug-lock status
 
-- Read-only status query over the TI debug interface. **Never erase-to-unlock.**
-- File 87 (119,233 B BLE runtime) fits its flash, and it has hardware AES, so it is
-  a serious candidate for where encryption/signing happens.
+- Locate DD/DC/RESET_N (continuity from pins 35/34), then use a CC Debugger-class tool's
+  status/ID readout only. Verify the status command against TI SWRU191 before use.
+- **Never accept a chip-erase prompt.** If the chip is locked, record that and stop.
+- If it is unlocked, a read-only flash dump would cover the BLE runtime, any AES/signing
+  material and, under the hypothesis above, the DSP images.
+
+### 3. External flash or BF512 JTAG (only if task 1 points there)
+
+- HARDWARE_ACQUISITION.md routes A and B, unchanged.
 
 ## Do not repeat
 
@@ -129,6 +149,7 @@ hypothesis that the earlier run could not have seen.
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |
 | `intermediate_scan` as a decoding endpoint | [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json) |
+| Looking for a standalone flash chip in the teardown photos | [teardown markings](../documentation/teardown/README.md#markings-read-from-these-photos-2026-10-04) |
 | Same-target bit agreement | README §4 (0.49986 bit distance over 30 captures) |
 
 Documentation: `dev/README.md` was reconciled with this file on 2026-10-04 (fixed

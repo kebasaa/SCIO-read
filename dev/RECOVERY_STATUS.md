@@ -8,6 +8,27 @@ Completed campaign: [results](analysis_output/recovery_20261003/RESULTS.md),
 Current state and ranked next tasks: [HANDOVER.md](HANDOVER.md). This file is the
 chronological record.
 
+### Teardown desk review (2026-10-04, completed)
+
+- SparkFun's 17 teardown photos are stored unmodified with CC BY-SA 4.0 attribution in
+  `documentation/teardown/`, and the user supplied the BF51x datasheet Rev E.
+- **DSP:** the marking `ADSP-BF512 KBCZ-3` is the ordering-guide model (0-70 °C, 300 MHz,
+  CSP_BGA). No BF512 model has on-chip program flash; Rev E drops the obsolete 16 Mbit
+  SPI-flash models. Boot options (BMODE): external parallel/SPI flash, SPI0 host, OTP
+  (≤3 KB), SDRAM, UART0 host.
+- **Board:** no 8-pin SOIC/WSON part resembling a standalone flash is visible on either face
+  (a resolution-bounded observation). Identified: SDRAM AS4C8M16SA, CC2540F256 (labelled
+  "9A"), probable ADP5062 charger. Unidentified: QFNs `LGQ #629` and `BDT 52W Z25K`.
+- **Hypothesis:** the CC2540 hosts the DSP images. All reported files (176,861 B) fit its
+  256 KB flash. Unverified.
+- **CC2540 debug lock:** not determinable from photos or USB. Pins are P2_1/P2_2/RESET_N;
+  the read-only procedure is in HARDWARE_ACQUISITION.md.
+- **Next:** passive boot-traffic capture at power-on, which needs no unlocking, is now the
+  first hardware route.
+- HARDWARE_ACQUISITION.md's "server closed for good" and "two secrets" wording was
+  corrected in the same change.
+- No device, server or tool downloads, apart from the photos and one datasheet page view.
+
 ### Offline tasks 3-5 of the handover (2026-10-04, completed)
 
 - **Gradient** (`scio_offline/gradient.py`, `scripts/probe_gradient.py`): 92 records.

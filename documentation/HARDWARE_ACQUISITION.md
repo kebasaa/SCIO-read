@@ -19,19 +19,91 @@ or alter the boot-mode straps.
 
 ### Added 2026-09-30, after the server was fully characterised
 
-- **The server route is closed for good.** Firmware/table download is decommissioned
-  (`needs_params_upgrade:false` even for wrong checksums), the newest app's `scionir.com`
-  backend is the same server, no endpoint returns raw intensities, and no firmware exists
-  anywhere on the analysis machine. A hardware read is the only remaining source.
-- **The device signs each scan blob, keyed to its identity.** The server rejects any modified
-  blob with `400 Bad_sample_signature`, and a valid blob submitted under a different device_id
-  is rejected the same way, while it decodes under its own. So the device holds **two** secrets
-  worth recovering: the payload-transform key and a per-device signing key. Either or both may
-  be what makes offline decoding possible.
+- **The server has returned no firmware.** `new_version` was empty in every probe (2026-09) and
+  in a 2026-10 recheck, the newest app's `scionir.com` backend is the same server, no endpoint
+  returns raw intensities, and no firmware was found in any supplied app or on the analysis
+  machine. Offers could be device- or account-dependent; for this unit a hardware read is the
+  only remaining source. (Corrected 2026-10-04: earlier wording said "closed for good".)
+- **Protected blobs are bound to the device identity.** The server rejects any tested change to
+  the second header word or body of sample/dark/white blobs with `400 Bad_sample_signature`, and
+  a valid blob submitted under a different device_id is rejected the same way. Some per-device
+  material therefore exists on the server side. Whether the device holds one secret, two
+  (transform and integrity) or none of its own is **not** established (corrected 2026-10-04;
+  see `dev/README.md`).
 - **Which chip applies the transform is not known.** It could be the BF512 DSP or the CC2540
   BLE/USB MCU (see Route C). Identify both dumps' contents before assuming the DSP is the target.
 
-## Route A - external SPI flash (first choice)
+## Teardown photo review (2026-10-04)
+
+Source: SparkFun's teardown photos, stored with attribution (CC BY-SA 4.0) in
+[`teardown/`](teardown/README.md). Datasheet:
+[`adsp-bf512-514-516-518.pdf`](adsp-bf512-514-516-518.pdf) (Rev E).
+
+### The DSP has no on-chip program flash
+
+- The marking is `ADSP-BF512 KBCZ-3` (photo 10): the ordering-guide model ADSP-BF512KBCZ-3,
+  0-70 °C, 300 MHz, 168-ball CSP_BGA. None of the nine BF512 models has a flash suffix; the
+  Rev E datasheet explicitly drops the obsolete models that had 16 Mbit SPI flash.
+- Boot source is set by the BMODE2-0 straps (Table 6): `001` external 8/16-bit flash,
+  `011` external SPI flash/EEPROM, `100` **SPI0 host** (the BF512 is an SPI slave and is fed
+  the LDR stream), `101` OTP (at most 2,560-3,072 bytes of public OTP), `110` SDRAM warm
+  boot, `111` **UART0 host** (autobaud on `@`, then the host sends the stream).
+- OTP is far too small for `dsp_op` (32,628 B). So `dsp_op` arrives from external memory or
+  from a host, possibly in a second stage loaded by `dsp_boot`.
+- Lockbox (code authentication, secure mode, private OTP, unique chip ID) exists on this
+  part. Whether it is used is unknown. If it is, key material may sit in private OTP that
+  no external read reaches.
+
+### No visible standalone flash; the CC2540 may host the DSP images
+
+- Every legible package on both faces is identified in
+  [`teardown/README.md`](teardown/README.md#markings-read-from-these-photos-2026-10-04):
+  BF512, SDRAM, CC2540F256, a probable ADP5062 charger (`5062 #1641`), and two small
+  unidentified QFNs (`LGQ #629`, `BDT 52W Z25K`). There is no 8-pin SOIC/WSON part that
+  looks like a standalone SPI flash at this photo resolution. That is not proof of absence:
+  a small QFN or WSON flash, or a part under the S/N label or the heatsink, is still possible.
+- **Hypothesis, unverified:** the CC2540 stores the DSP images and boots the BF512 as an
+  SPI0 or UART0 host. This is consistent with the evidence:
+  - Every file the device reports (BLE runtime 119,233 + `dsp_boot` 7,284 + `dsp_dec`
+    14,600 + `dsp_op` 32,628 + four tables 3,116 = **176,861 B**) fits in the CC2540F256's
+    256 KB flash.
+  - The file list, file headers and `FILE_DOWNLOAD` are all served over the CC2540's own
+    USB/BLE link.
+  - The CC2540 carries a hand-written "9A" label in photo 09, typical of a programmed part.
+- If the hypothesis holds, two routes would give the DSP images: reading the CC2540 flash
+  (see below), or passively recording the boot traffic between the two chips.
+- The sensor module's flex carries its own `FW:9216` sticker (photo 05). It may identify a
+  module firmware or calibration revision. Its meaning is unknown.
+
+### CC2540 debug-lock status: cannot be determined without hardware
+
+- The CC2540's two-wire debug interface uses P2_1 (DD, pin 35) and P2_2 (DC, pin 34) plus
+  RESET_N (CC2540F256 datasheet, pin table). No labelled debug header is visible near the chip
+  in photos 09/11. The four castellated edge pads by `TP802` (photo 08) are a candidate
+  programming connector, but they are not traced to these pins.
+- Neither the photos nor the USB protocol reveal the lock state. It needs a separately
+  planned, authorised hardware session:
+  1. Open the enclosure. The teardown notes the housing is not designed to be reopened, so
+     expect damage.
+  2. Trace DD/DC/RESET_N/GND/VDD to accessible pads with a continuity meter, with the board
+     unpowered.
+  3. Connect a CC Debugger-class tool and use only its status/ID readout. The debug
+     status byte reports the lock bit (TI SWRU191, debug interface chapter: verify the
+     command against the guide before use).
+  4. **Never accept a "chip erase" prompt.** On a locked part, erase-then-read destroys the
+     only copy. If it reports locked, record that and stop.
+
+### Revised order of hardware routes
+
+1. **Passive boot-traffic capture.** With a logic analyzer on the BF512's SPI0 or UART0 lines
+   (or the bus to any flash), record power-on. Whatever source BMODE selects, the LDR stream
+   must cross a bus unless it comes from OTP. This is read-only and needs no unlocking.
+   Identifying the right nets from the photos alone is not possible, because the BF512 is a BGA.
+2. **CC2540 lock-status readout** (above). If it is unlocked, a read-only flash dump would also
+   cover the hypothesis that the CC2540 hosts the DSP images.
+3. Routes A (if an SPI flash is found) and B (BF512 JTAG) below, unchanged.
+
+## Route A - external SPI flash (if one is found)
 
 1. Photograph both PCB faces sharply before touching anything. Include the
    orientation mark and readable top markings of every 8-pin device.

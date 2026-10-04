@@ -414,9 +414,14 @@ to either processor, or a phone that cached the files (see
 [`documentation/HARDWARE_ACQUISITION.md`](documentation/HARDWARE_ACQUISITION.md)).
 
 **Hardware.** A [SparkFun teardown](https://learn.sparkfun.com/tutorials/scio-pocket-molecular-scanner-teardown-/all)
-identifies an ADSP-BF512 Blackfin DSP, AS4C8M16SA 128 Mbit SDRAM, a CC2540F256 BLE
-SoC, three unidentified ICs beside the SDRAM, and a custom sensor with 12 receptors,
-each with its own filter, aperture and lens over a photodiode array.
+(photos stored with attribution in [`documentation/teardown/`](documentation/teardown/README.md))
+shows an ADSP-BF512KBCZ-3 Blackfin DSP (no on-chip program flash), AS4C8M16SA 128 Mbit
+SDRAM, a CC2540F256 BLE SoC, a probable ADP5062 charger, two unidentified small QFNs and
+no visible standalone flash chip. The sensor has 12 receptors in a 3 × 4 grid, each with
+its own filter, aperture and lens over a photodiode array. All the device's reported files
+together (176,861 B) would fit in the CC2540's 256 KB flash. That makes it plausible, but
+unverified, that the CC2540 hosts the DSP images and boots the BF512. See
+[`documentation/HARDWARE_ACQUISITION.md`](documentation/HARDWARE_ACQUISITION.md#teardown-photo-review-2026-10-04).
 
 Both SCiO apps cached these files in Android SharedPreferences
 (`/data/data/com.consumerphysics.consumer/shared_prefs/`) as base64 with a 4-byte
@@ -648,8 +653,13 @@ documentation.
   [`US10330531.pdf`](documentation/US10330531.pdf)) are their filings, included
   for reference only.
 - **Other third-party documents**, likewise reference-only: the Analog Devices
-  [`ADSP-BF512.pdf`](documentation/ADSP-BF512.pdf) datasheet, and the notes in
+  ADSP-BF51x datasheets ([`ADSP-BF512.pdf`](documentation/ADSP-BF512.pdf), Rev D, and
+  [`adsp-bf512-514-516-518.pdf`](documentation/adsp-bf512-514-516-518.pdf), Rev E), the TI
+  [`CC2540F256.pdf`](documentation/CC2540F256.pdf) datasheet, and the notes in
   `archive/more_info/` that came from other people.
+- **SparkFun teardown photos** in [`documentation/teardown/`](documentation/teardown/README.md):
+  © SparkFun Electronics, from "SCiO Pocket Molecular Scanner Teardown" by JOEL_E_B,
+  licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), unmodified.
 - **Captured device data** under `01_rawdata/` is measurement output from the
   author's own unit, not third-party material - it is shared under the same GPL
   as the rest.
