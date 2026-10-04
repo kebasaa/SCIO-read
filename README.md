@@ -154,6 +154,15 @@ with ble.ScioBLE() as dev:               # or ScioBLE("B4:99:4C:59:66:01") / Sci
   that advertises service `3490`, is treated as a SCiO.
 - **Synchronous API.** bleak is asyncio-only; `ScioBLE` runs its own event loop
   in a background thread, so it works the same in a script and in Jupyter.
+- **Close before reconnecting.** While a `ScioBLE` is connected the SCiO stops
+  advertising, so a second `open()` (e.g. re-running a notebook cell) cannot find
+  it. Call `dev.close()` first, or use `with ScioBLE() as dev:`. If the link drops,
+  commands fail fast with `ScioDisconnected` and `dev.open()` reconnects.
+- **Replies are matched to requests.** Each reply echoes its command id (confirmed
+  in the 2019 captures, all three scan messages included). A late reply to a
+  request that timed out is dropped rather than returned as the next answer
+  (`dev.stale_replies`), and packets belonging to no reply are ignored
+  (`dev.stray_packets`).
 - **Windows** (10/11, verified on hardware): the built-in Bluetooth stack is used
   through WinRT; nothing to configure.
 - **Linux** (BlueZ >= 5.55 over D-Bus, *not yet verified on hardware*):

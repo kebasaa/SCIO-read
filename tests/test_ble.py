@@ -175,6 +175,101 @@ def test_not_advertising_is_a_clear_error(monkeypatch):
         _open(monkeypatch, FakeClient(REPLIES), device="AA:BB:CC:DD:EE:FF")
 
 
+def _late_reply_after_next_write(client, cmd):
+    """Make *cmd*'s late reply land after the next request is sent, before its own reply.
+
+    That is the dangerous order: the stale frame is first in line for the reader.
+    """
+    orig = client.write_gatt_char
+
+    async def late_then_own(uuid, data, response=False):
+        for packet in ble_packets(cmd, REPLIES[cmd][0]):
+            client.callbacks[protocol.BLE_REPORTER_UUID](None, bytearray(packet))
+        client.write_gatt_char = orig
+        await orig(uuid, data, response)
+    client.write_gatt_char = late_then_own
+
+
+def test_late_reply_to_a_timed_out_request_is_never_returned_for_the_next(monkeypatch):
+    client = FakeClient(REPLIES, silent={Cmd.READ_TEMPERATURE})
+    with _open(monkeypatch, client, timeout=0.3) as d:
+        with pytest.raises(ScioTimeout):
+            d.read_temperature()
+        client.silent = set()
+        _late_reply_after_next_write(client, Cmd.READ_TEMPERATURE)
+        info = d.read_device_info()          # the stale temperature reply lands first
+        assert info["firmware_version"] == 153 and info["i2s_tag_config"]
+        assert d.stale_replies == 1
+
+
+def test_stale_scan_message_cannot_be_paired_with_a_new_scan(monkeypatch):
+    client = FakeClient(REPLIES)
+    with _open(monkeypatch, client) as d:
+        _late_reply_after_next_write(client, Cmd.READ_TEMPERATURE)
+        scan = d.sample_spectrum(153)
+    assert [scan["blobs"][k] for k in ("sample_dark", "sample", "sample_gradient")] == SCAN
+    assert d.stale_replies == 1
+
+
+def test_stray_tail_packets_do_not_fail_the_next_command(monkeypatch):
+    client = FakeClient(REPLIES)
+    with _open(monkeypatch, client) as d:
+        for packet in ble_packets(Cmd.READ_BLE_ID, bytes(130))[3:]:   # tail of an old reply
+            client.callbacks[protocol.BLE_REPORTER_UUID](None, bytearray(packet))
+        assert round(d.read_temperature()["cmos_t"], 2) == 20.42
+        assert d.stray_packets == 5
+
+
+def test_reply_starting_mid_message_keeps_the_new_reply(monkeypatch):
+    client = FakeClient(REPLIES)
+    with _open(monkeypatch, client) as d:
+        orig = client.write_gatt_char
+
+        async def lose_a_packet_first(uuid, data, response=False):
+            # half of an old 0x84 reply arrives (its tail is lost) just before ours
+            client.callbacks[protocol.BLE_REPORTER_UUID](
+                None, bytearray(ble_packets(Cmd.READ_BLE_ID, bytes(130))[0]))
+            await orig(uuid, data, response)
+        client.write_gatt_char = lose_a_packet_first
+        assert round(d.read_temperature()["cmos_t"], 2) == 20.42   # own reply survives
+        assert d.stale_replies == 1                                 # old loss was dropped
+
+
+def test_data_loss_in_our_own_reply_is_raised(monkeypatch):
+    client = FakeClient(REPLIES)
+    with _open(monkeypatch, client) as d:
+        orig = client.write_gatt_char
+
+        async def drop_second_packet(uuid, data, response=False):
+            client.callbacks_backup = client.callbacks[protocol.BLE_REPORTER_UUID]
+            sent = []
+            client.callbacks[protocol.BLE_REPORTER_UUID] = lambda s, p: sent.append(bytes(p))
+            await orig(uuid, data, response)
+            client.callbacks[protocol.BLE_REPORTER_UUID] = client.callbacks_backup
+            for i, p in enumerate(sent):
+                if i != 1:
+                    client.callbacks_backup(None, bytearray(p))
+        client.write_gatt_char = drop_second_packet
+        with pytest.raises(ScioProtocolError):
+            d._command(Cmd.READ_BLE_ID)
+
+
+def test_reconnect_after_the_link_drops(monkeypatch):
+    client = FakeClient(REPLIES)
+    d = _open(monkeypatch, client)
+    try:
+        d._on_disconnect(client)
+        client.is_connected = False
+        assert d.is_connected is False
+        with pytest.raises(ble.ScioDisconnected):
+            d.read_temperature()             # fails fast, does not write to a dead link
+        d.open()                             # reconnects instead of returning early
+        assert d.is_connected
+        assert round(d.read_temperature()["cmos_t"], 2) == 20.42
+    finally:
+        d.close()
+
+
 def test_disconnect_is_reported(monkeypatch):
     client = FakeClient(REPLIES, silent={Cmd.READ_TEMPERATURE})
     with _open(monkeypatch, client, timeout=5) as d:

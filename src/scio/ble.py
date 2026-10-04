@@ -26,6 +26,7 @@ from __future__ import annotations
 import asyncio
 import queue
 import threading
+import time
 from concurrent.futures import TimeoutError as _FutureTimeout
 
 from . import protocol
@@ -151,7 +152,11 @@ class ScioBLE(ScioDevice):
         self._lock = threading.Lock()
         self._button = threading.Event()
         self.button_presses = 0
-        self._last_cmd = None
+        self._expect = None        # command id of the request in flight
+        self._first_reply = False  # waiting for the first reply to that request
+        self._link_lost = False
+        self.stray_packets = 0     # notifications that belonged to no reply
+        self.stale_replies = 0     # complete replies to an earlier, abandoned request
 
     # -- connection -------------------------------------------------------
     def _match(self, found: list[tuple]):
@@ -171,9 +176,12 @@ class ScioBLE(ScioDevice):
 
     def open(self):
         if self.client is not None:
-            return self
+            if self.is_connected and not self._link_lost:
+                return self
+            self.close()  # the link dropped: tear down, then connect afresh
         self._responses = queue.Queue()
         self._reassembler.reset()
+        self._link_lost = False
         self._runner = _LoopThread()
         try:
             found = self._runner.run(_discover(self.discover_timeout),
@@ -224,15 +232,38 @@ class ScioBLE(ScioDevice):
 
     @property
     def is_connected(self) -> bool:
-        return self.client is not None and bool(getattr(self.client, "is_connected", False))
+        return (self.client is not None and not self._link_lost
+                and bool(getattr(self.client, "is_connected", False)))
 
     # -- notification callbacks (run on the loop thread) ------------------
+    @staticmethod
+    def _is_start(packet: bytes) -> bool:
+        return len(packet) >= 5 and packet[0] == 1 and packet[1] == protocol.PROTOCOL_MARKER
+
     def _on_report(self, _sender, data: bytearray):
+        packet = bytes(data)
+        done = []
         with self._lock:
+            r = self._reassembler
+            if not r.in_progress and not self._is_start(packet):
+                # The tail of a reply that was abandoned (reset by _discard_input or
+                # cut short): it belongs to no request, so it must not fail one.
+                self.stray_packets += 1
+                return
+            partial_cmd = r._cmd
             try:
-                done = self._reassembler.feed(bytes(data))
+                done = r.feed(packet)
             except ScioProtocolError as e:
+                e.command = partial_cmd  # which reply lost data, for the reader
                 done = [e]
+                if self._is_start(packet):
+                    # A new reply began before the old one finished (a packet was
+                    # lost): report the loss, but keep the new reply.
+                    try:
+                        done += r.feed(packet)
+                    except ScioProtocolError as e2:
+                        e2.command = None
+                        done.append(e2)
         for item in done:
             self._responses.put(item)
 
@@ -242,6 +273,7 @@ class ScioBLE(ScioDevice):
             self._button.set()
 
     def _on_disconnect(self, _client):
+        self._link_lost = True
         self._responses.put(_DISCONNECTED)
 
     def wait_for_button(self, timeout: float | None = None) -> bool:
@@ -268,7 +300,7 @@ class ScioBLE(ScioDevice):
         The app always starts a request at sequence 1 (the USB session counter
         does not apply), so the frame is re-split rather than sent as-is.
         """
-        if self.client is None:
+        if self.client is None or self._link_lost:
             raise ScioDisconnected("not connected; call open() first")
         if len(frame) < 5 or frame[1] != protocol.PROTOCOL_MARKER:
             raise ValueError("not a SCiO command frame")
@@ -276,23 +308,40 @@ class ScioBLE(ScioDevice):
         length = frame[3] | (frame[4] << 8)
         payload = bytes(frame[5:5 + length])
         response = cmd not in protocol.NO_RESPONSE_WRITE_COMMANDS
-        self._last_cmd = cmd
+        self._expect, self._first_reply = cmd, True
         for packet in protocol.ble_packets(cmd, payload):
             self._runner.run(self.client.write_gatt_char(
                 protocol.BLE_CONTROL_UUID, packet, response=response), self.timeout)
 
     def _read_response(self) -> protocol.Response:
+        """Next reply *to the request in flight*.
+
+        Every reply echoes its request's command id. Complete replies with another
+        id are late answers to an earlier request that timed out; they are dropped
+        (counted in ``stale_replies``) so they can never be returned as the answer
+        to this one - for a scan that would silently pair the wrong blob.
+        """
         timeout = self.timeout
-        if self._last_cmd == Cmd.SAMPLE_SPECTRUM:
-            timeout = max(self.timeout, self.scan_timeout)
-            self._last_cmd = None  # later messages of the same scan stream quickly
-        try:
-            item = self._responses.get(timeout=timeout)
-        except queue.Empty:
-            raise ScioTimeout(f"no BLE response within {timeout} s") from None
-        if item is _DISCONNECTED:
-            self._responses.put(item)
-            raise ScioDisconnected("BLE connection lost")
-        if isinstance(item, Exception):
-            raise item
-        return item
+        if self._first_reply and self._expect == Cmd.SAMPLE_SPECTRUM:
+            timeout = max(self.timeout, self.scan_timeout)  # the scan itself takes time
+        self._first_reply = False
+        deadline = time.monotonic() + timeout
+        while True:
+            remaining = deadline - time.monotonic()
+            try:
+                item = self._responses.get(timeout=max(0.0, remaining))
+            except queue.Empty:
+                raise ScioTimeout(f"no BLE response within {timeout} s") from None
+            if item is _DISCONNECTED:
+                self._responses.put(item)
+                raise ScioDisconnected("BLE connection lost")
+            if isinstance(item, Exception):
+                lost = getattr(item, "command", None)
+                if lost is not None and self._expect is not None and lost != self._expect:
+                    self.stale_replies += 1  # data loss in an abandoned reply
+                    continue
+                raise item
+            if self._expect is not None and item.command != self._expect:
+                self.stale_replies += 1
+                continue
+            return item
