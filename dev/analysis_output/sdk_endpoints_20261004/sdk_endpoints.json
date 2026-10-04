@@ -1,0 +1,698 @@
+{
+  "schema": "scio-sdk-endpoints/1",
+  "targets": [
+    "intermediate_scan",
+    "aggregated-result",
+    "/external_sdk/"
+  ],
+  "fields": [
+    "API_V1_BATCH_ANALYSIS",
+    "API_V1_UPLOAD_SCAN"
+  ],
+  "positive_control": "/v2/consumer/spectro-scan",
+  "dex_files": [
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!classes.dex",
+      "sha256": "4ee17a35092ed7cda895c8b26a81f961f872520f776b26da25c6640a567aace8",
+      "target_strings": [
+        "/aggregated-result",
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 4233488,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_1.3.8.554_Apkpure.apk!classes2.dex",
+      "sha256": "25c1f7211d10a1ef3d6972113f12fb60e9739327b123f8b13e63a2e678c2a54b",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!classes.dex",
+      "sha256": "0db0fcd5593bec1cf25f6d0d5235227933e307c1802d346ff275e66c84eca09a",
+      "target_strings": [
+        "/aggregated-result"
+      ],
+      "target_fields": [],
+      "references": [
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 3998180,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk!classes2.dex",
+      "sha256": "6ddfb44f56149bcf74d4fbb9cbed4cd8fd20304f3367ba499d83ef29d1cc7bee",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!classes.dex",
+      "sha256": "bdb78f361eff8439b9e80f9e63618fb5ea2f4edde5e9afbfc66ec1b12e879916",
+      "target_strings": [
+        "/aggregated-result",
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets",
+        "intermediate_scan_result_background"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 4630364,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.16.597_APKPure.apk!classes2.dex",
+      "sha256": "959c41994d97061f0fa62b42e57d63f8c68e317d00f75640cd014f8abf048080",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk!classes.dex",
+      "sha256": "94f17824133386f3c321250335fc986447b5f547cfb845d8605811a8d53b32d1",
+      "target_strings": [
+        "/aggregated-result",
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 4217624,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.2.523_APKPure.apk!classes2.dex",
+      "sha256": "2706cee0727c8ac16ecc1be2af0f69ed104b4a9960eaf4a1a939c843e6d15c45",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "bb27441a020c28b021de67e0dd7770023ac0e17ed87199ccf3c034002e244a7b",
+      "target_strings": [
+        "/aggregated-result",
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets",
+        "intermediate_scan_result_background"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 4652104,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.21.615_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "a39296f82e9e6aeae625485d2c6d8d3036f47b0a327dc62000369f1619d9da7c",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "3947c92cd6243d9cdbcf13cdcbe8c045bb0b27fa5abfb1e021304e6b69b87333",
+      "target_strings": [
+        "/aggregated-result",
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [
+        {
+          "class": "Landroidx/constraintlayout/motion/widget/MotionController;",
+          "method": "buildBounds",
+          "offset": 2202682,
+          "opcode": "const-string",
+          "target": "/external_sdk/widgets"
+        },
+        {
+          "class": "Landroidx/constraintlayout/core/motion/Motion;",
+          "method": "buildBounds",
+          "offset": 1955086,
+          "opcode": "const-string",
+          "target": "/external_sdk/widgets"
+        },
+        {
+          "class": "Landroidx/core/app/NotificationCompat$CarExtender;",
+          "method": "getUnreadConversationFromBundle",
+          "offset": 2428270,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        },
+        {
+          "class": "Lcom/consumerphysics/consumer/serverapi/ServerAPI;",
+          "method": "aggregateResult",
+          "offset": 4328548,
+          "opcode": "const-string",
+          "target": "/aggregated-result"
+        }
+      ],
+      "control_references": 1
+    },
+    {
+      "source": "SCiO+Analyzer_1.3.9.563_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "711de9487748a98bab7534f45651940cb362ffc51ee526c5bfd26373817721e2",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "b9918ee22cb8c153f5afb21925b14ba20e998bcbb8e178cbc2600f3f9151a1ff",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "88360c6e4ce732f80570593b2d0e71bb587160675472a64ec2395ec24bff28a9",
+      "target_strings": [
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes3.dex",
+      "sha256": "175fcfd065a595c4953b3ce6a53485d1a2c63c111afad3db5e5be5ce634eaa5e",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.19_APKPure.xapk!com.consumerphysics.consumer.apk!classes4.dex",
+      "sha256": "8a73479bce982396fd36ab7440487838e5da149abf8a5b794ee0b96e328d4a9b",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes.dex",
+      "sha256": "d4e1036000f4a9051bdec5d3b51fad923c4b1c51febf6986a29aac779b3b9449",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes2.dex",
+      "sha256": "30908810516701267efcdf27b5c511a36402eb6eee361b38f14b3bc7ab7148a6",
+      "target_strings": [
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes3.dex",
+      "sha256": "9a4354c45e4bc57af15deeaa033e2e1f54502b7efaeebbe272a0be6f1a7ec345",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "SCiO+Analyzer_1.5.6_APKPure.xapk!com.consumerphysics.consumer.apk!classes4.dex",
+      "sha256": "a3ad41dd5160a59e54be54691acfd6296d01aa15afbee841e4055ef49ecae558",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!classes.dex",
+      "sha256": "88ddbe2c642811e772cf7e4ed56e497db7d5a727e511b08c8cc1651db6129b20",
+      "target_strings": [
+        "/external_sdk/device/%s/scio_version",
+        "/external_sdk/device/%s/self_test",
+        "/external_sdk/device/%s/user_calibration",
+        "/external_sdk/intermediate_scan/widget/%s",
+        "/external_sdk/widget/%s/aggregated-result",
+        "/external_sdk/widgets"
+      ],
+      "target_fields": [
+        "Lcom/consumerphysics/android/config/Config;.API_V1_BATCH_ANALYSIS",
+        "Lcom/consumerphysics/android/config/Config;.API_V1_UPLOAD_SCAN"
+      ],
+      "references": [],
+      "control_references": 0
+    },
+    {
+      "source": "The Lab Dev Toolkit for SCiO_1.3.12.144_Apkpure.apk!classes2.dex",
+      "sha256": "05e84909a4775d1d47cbd923433f819479ba199fa3a0c658f02d8a4cb401a753",
+      "target_strings": [],
+      "target_fields": [],
+      "references": [],
+      "control_references": 0
+    }
+  ],
+  "arm32_1_5_19": {
+    "available": true,
+    "sha256": "9d46ae6000a652971848fecb894402727183ca07c986762198283564d9aecd9c",
+    "string_sites": [
+      {
+        "address": "0x495e98",
+        "string": " intermediate results",
+        "nearby_strings": [
+          " mediciones individuales",
+          "About SCiO",
+          "Acerca de SCiO",
+          "EL SCIO NO APARECE",
+          "SCiO NOT LISTED",
+          "Sobre o SCiO"
+        ]
+      },
+      {
+        "address": "0x559190",
+        "string": "The list of intermediate results is empty.",
+        "nearby_strings": []
+      },
+      {
+        "address": "0x8dca04",
+        "string": "showIntermediateResults",
+        "nearby_strings": [
+          "Applet",
+          "AppletAttribute",
+          "applet",
+          "attributes",
+          "customMoistureBasis",
+          "dbMoistureBasisStatus",
+          "dbMoistureBasisType",
+          "id",
+          "isChild",
+          "moistureBasis",
+          "useMoistureBasis"
+        ]
+      },
+      {
+        "address": "0x9c11d0",
+        "string": "client_internal_ids_in_batch",
+        "nearby_strings": [
+          "results"
+        ]
+      },
+      {
+        "address": "0x9c64b4",
+        "string": "show_intermediate_results",
+        "nearby_strings": [
+          "badge",
+          "feed_front",
+          "image_url",
+          "is_custom",
+          "scan_image_url",
+          "scio_version",
+          "status",
+          "updated_at"
+        ]
+      },
+      {
+        "address": "0x9db918",
+        "string": "batch_id",
+        "nearby_strings": []
+      },
+      {
+        "address": "0x9db948",
+        "string": "batch_id",
+        "nearby_strings": []
+      },
+      {
+        "address": "0xc70e60",
+        "string": "/batch/",
+        "nearby_strings": [
+          "/record/",
+          "/scan-attributes",
+          "/v1/consumer/widget/",
+          "widget_scan_attributes"
+        ]
+      },
+      {
+        "address": "0xc7168c",
+        "string": "/batch/",
+        "nearby_strings": [
+          "/note",
+          "/v1/consumer/record/",
+          "/v1/consumer/widget/",
+          "note"
+        ]
+      },
+      {
+        "address": "0xc723c4",
+        "string": "/batch/",
+        "nearby_strings": [
+          "/photo",
+          "/v1/consumer/record/",
+          "/v1/consumer/widget/",
+          "photo"
+        ]
+      },
+      {
+        "address": "0xc72974",
+        "string": "/batch/",
+        "nearby_strings": [
+          "/photo",
+          "/v1/consumer/record/",
+          "/v1/consumer/widget/",
+          "mAc",
+          "photo_url"
+        ]
+      },
+      {
+        "address": "0xc739e8",
+        "string": "/batch/",
+        "nearby_strings": [
+          "/v1/consumer/scan/",
+          "/v1/consumer/widget/"
+        ]
+      },
+      {
+        "address": "0xc74ef8",
+        "string": "batch_id",
+        "nearby_strings": [
+          "/analysis-records",
+          "/v4/consumer/widget/"
+        ]
+      },
+      {
+        "address": "0xc74f28",
+        "string": "batch_id",
+        "nearby_strings": [
+          "/analysis-records",
+          "/v4/consumer/widget/",
+          "latitude"
+        ]
+      },
+      {
+        "address": "0xc7678c",
+        "string": "batch_id",
+        "nearby_strings": [
+          "InvalidScan",
+          "RecordIsAlreadyAggregated",
+          "background_multi_scan_before_upload",
+          "sample_analysis_id"
+        ]
+      },
+      {
+        "address": "0xc76a48",
+        "string": "batch_id",
+        "nearby_strings": [
+          "/analyze-batch",
+          "/v1/consumer/widget/",
+          "InvalidScan"
+        ]
+      },
+      {
+        "address": "0xc76a78",
+        "string": "batch_id",
+        "nearby_strings": [
+          "/analyze-batch",
+          "/v1/consumer/widget/",
+          "InvalidScan",
+          "widget_scan_attributes"
+        ]
+      },
+      {
+        "address": "0xc76b40",
+        "string": "/analyze-batch",
+        "nearby_strings": [
+          "/v1/consumer/widget/",
+          "batch_id",
+          "note",
+          "widget_scan_attributes"
+        ]
+      },
+      {
+        "address": "0xc77588",
+        "string": "batch_id",
+        "nearby_strings": [
+          "can't prepare analyze-batch request body",
+          "client_internal_id",
+          "scans"
+        ]
+      },
+      {
+        "address": "0xc775b8",
+        "string": "can't prepare analyze-batch request body",
+        "nearby_strings": [
+          "batch_id",
+          "client_internal_id",
+          "scans"
+        ]
+      },
+      {
+        "address": "0xc9299c",
+        "string": "batch_id",
+        "nearby_strings": [
+          "client_internal_id",
+          "note",
+          "widget_scan_attributes"
+        ]
+      },
+      {
+        "address": "0xc93760",
+        "string": "batch_id",
+        "nearby_strings": [
+          "/aggregated-result",
+          "/v4/consumer/widget/",
+          "Invalid Scan (Server)",
+          "device_id",
+          "error_body",
+          "save_as_undefined"
+        ]
+      },
+      {
+        "address": "0xc94e24",
+        "string": "batch_id",
+        "nearby_strings": [
+          "Null aggregate config value in an Applet entity.",
+          "applet_id",
+          "i2s_tag_config",
+          "sample",
+          "sample_dark",
+          "sample_gradient",
+          "sample_white",
+          "sample_white_dark",
+          "sample_white_gradient",
+          "sampled_at",
+          "sampled_white_at"
+        ]
+      },
+      {
+        "address": "0xc96e04",
+        "string": "/v1/consumer/intermediate_scans/batch/",
+        "nearby_strings": []
+      }
+    ],
+    "route_helper": "0xbdfcdc",
+    "helper_call_sites": [
+      {
+        "call": "0xbdfcc8",
+        "routes": [
+          "/v1/sdk/device/",
+          "/scio_version"
+        ]
+      },
+      {
+        "call": "0xc0d3fc",
+        "routes": [
+          "/v1/user/me"
+        ]
+      },
+      {
+        "call": "0xc52f54",
+        "routes": [
+          "/v1/device-types"
+        ]
+      },
+      {
+        "call": "0xc53194",
+        "routes": [
+          "/v1/rollout_config"
+        ]
+      },
+      {
+        "call": "0xc534fc",
+        "routes": [
+          "/v1/device/",
+          "/accessories"
+        ]
+      },
+      {
+        "call": "0xc548ec",
+        "routes": [
+          "/v1/user/feedback"
+        ]
+      },
+      {
+        "call": "0xc55778",
+        "routes": [
+          "/v1/client_version_status"
+        ]
+      },
+      {
+        "call": "0xc55cec",
+        "routes": [
+          "/v2/user/all-locations"
+        ]
+      },
+      {
+        "call": "0xc55f50",
+        "routes": [
+          "/v2/user/locations"
+        ]
+      },
+      {
+        "call": "0xc56138",
+        "routes": [
+          "/v1/client-permitted"
+        ]
+      },
+      {
+        "call": "0xc7c08c",
+        "routes": [
+          "/v3/consumer/scans"
+        ]
+      },
+      {
+        "call": "0xc81b90",
+        "routes": [
+          "/v1/widget/bias_correction"
+        ]
+      },
+      {
+        "call": "0xc84058",
+        "routes": [
+          "/v1/jobs/"
+        ]
+      },
+      {
+        "call": "0xc8db64",
+        "routes": [
+          "/v3/consumer/feed"
+        ]
+      },
+      {
+        "call": "0xc96e48",
+        "routes": [
+          "/v1/consumer/intermediate_scans/batch/"
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "dex_files": 22,
+    "files_with_target_strings": 9,
+    "candidate_references": 9,
+    "control_references": 6
+  },
+  "interpretation": [
+    "No DEX method references the external_sdk intermediate_scan route; it is a Config constant only. The consumer aggregateResult call posts device_id and batch_id.",
+    "In 1.5.19, /v1/consumer/intermediate_scans/batch/ is built in one function and passed to the generic API helper shared with routes such as /v1/user/me and /v3/consumer/feed.",
+    "show_intermediate_results is loaded beside Applet fields, and batch_id beside /analysis-records, /analyze-batch and /aggregated-result. The SDK constant is named API_V1_UPLOAD_SCAN beside API_V1_BATCH_ANALYSIS. Together this indicates that 'intermediate' means per-scan results inside a multi-scan batch, not decoded data. Inference from names and co-location, not a traced response model."
+  ],
+  "limits": [
+    "Matching is syntactic at every 16-bit code unit inside each ``code_item``; there",
+    "is no full instruction-boundary decoder, so a hit is a *candidate* (an operand",
+    "word can alias an opcode), while zero hits bound direct references. Strings built",
+    "at run time (concatenation, resources, reflection) are outside its coverage."
+  ]
+}

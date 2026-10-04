@@ -182,10 +182,11 @@ does not byte-stuff emits a headerless stream indistinguishable from random, and
 neither the codec sweep nor the stuffing test would see it.
 
 What would actually settle it: the firmware (`dsp_op` and friends, or the CC2540
-image) via a hardware read; the four binning tables; or SDK credentials for
-`/v1/external_sdk/intermediate_scan`, which is
-**live** (401 on POST, 405 on GET - a route that distinguishes methods is a
-registered route) and sits by name between the blob and the spectrum.
+image) via a hardware read, or the four binning tables. The live
+`/v1/external_sdk/intermediate_scan` route (401 on POST) was once listed here; a
+2026-10-04 trace indicates "intermediate scan" means a member scan of a multi-scan
+batch, not partially decoded data
+([sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json)).
 
 ## Findings from the 2026-09-30 investigation
 

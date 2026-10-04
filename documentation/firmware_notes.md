@@ -387,9 +387,13 @@ on the consumer endpoint in the same run, so the credential is valid - the `exte
 surface simply wants a different credential class (an SDK/developer key) that a consumer
 account does not carry.
 
-This matters because `intermediate_scan` sits, by name and position, between the opaque blob
-and the 331-band spectrum. It is the most promising endpoint in the API for offline decoding,
-it is reachable, and the blocker is credentials from a company that no longer issues them.
+This once looked important because `intermediate_scan` seemed, by name, to sit between the
+opaque blob and the 331-band spectrum. A 2026-10-04 static trace weakens that: the constant is
+named `API_V1_UPLOAD_SCAN` beside `API_V1_BATCH_ANALYSIS`, no DEX method references it, and the
+1.5.19 consumer route `/v1/consumer/intermediate_scans/batch/` sits in the multi-scan batch
+workflow (`batch_id`, `analyze-batch`, `aggregated-result`, Applet flag
+`show_intermediate_results`). "Intermediate" most likely means per-scan results inside a batch,
+not decoded data (`dev/analysis_output/sdk_endpoints_20261004/sdk_endpoints.json`).
 Raw results: `dev/analysis_output/intermediate_endpoint_probe.json`.
 
 ### Compressed-image hypothesis: excluded for every standard codec (2026-09-11)

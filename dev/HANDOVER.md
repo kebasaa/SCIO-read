@@ -45,6 +45,25 @@ how to work in this repository is in
   [leakage](analysis_output/leakage_20261003/leakage.json). This points away from
   a plain fixed-rate coder of counts and toward encryption (or a coder whose
   fields do not sit at fixed positions); it is not proof of encryption.
+- **The gradient is just as opaque.** Its body matches sample/dark on every statistic
+  (entropy at the random expectation, flat histogram, no positional or run structure,
+  no repeated blocks), sits 0.4999 bits from the same scan's sample body (so it is not
+  derived from it), and shows no spectral leakage (48 tests, Bonferroni p 1.0). The
+  server simply does not use it. [gradient](analysis_output/gradient_20261004/gradient.json)
+- **Size arithmetic** ([size constraints](analysis_output/size_constraints_20261004/size_constraints.json)):
+  no table or body is a whole number of 331 entries at any width, so the tables are
+  not plain per-band arrays. `centers` (96 B) splits into 12 × 8 B, consistent with
+  one record per receptor. No body splits 12 ways at ≥16-bit width or fits 12-bit
+  packing; all are multiples of 16 B. The `-e`/`-o` gradient difference is 240 B
+  (15 blocks).
+- **"Intermediate scan" means a batch member, not partial decoding.** No DEX method
+  references `/external_sdk/intermediate_scan` (a `Config` constant named
+  `API_V1_UPLOAD_SCAN`, beside `API_V1_BATCH_ANALYSIS`). In 1.5.19 the consumer
+  route `/v1/consumer/intermediate_scans/batch/` goes through the generic API helper
+  next to an Applet flag `show_intermediate_results` and the `batch_id` /
+  `analyze-batch` / `aggregated-result` workflow: per-scan results within a
+  multi-scan batch. Name/co-location inference, not a traced response model.
+  [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json)
 - Every supplied app path (Java 2017, Lab 1.3.12, Flutter 1.5.6 ARM64, 1.5.19 ARM32)
   is a Base64 pass-through. No client-side decoder exists in any supplied APK.
 - No firmware body is available: USB exposes file headers only (`0x81` is a
@@ -69,8 +88,9 @@ photodiode array.
 
 ## Open tasks, ranked
 
-With the leakage negative, software-only discrimination of the body is close to
-exhausted; the firmware (tasks 1–2) is the decisive input.
+Only the firmware tasks remain. The offline software routes listed below are
+bounded negatives; the firmware is the decisive input. Both tasks start with
+desk work (photos, datasheets) before any hardware session.
 
 ### 1. Identify the boot flash from the teardown photos
 
@@ -89,22 +109,6 @@ exhausted; the firmware (tasks 1–2) is the decisive input.
 - File 87 (119,233 B BLE runtime) fits its flash, and it has hardware AES, so it is
   a serious candidate for where encryption/signing happens.
 
-### 3. Sensor-geometry constraints
-
-- Does a 12-sub-aperture layout fit the table sizes (`deadPixelsIndices` 1714 B,
-  `nPixelsPerBin` 1166 B, `bins` 140 B, `centers` 96 B) and the body sizes
-  (1792 / 1648 / 1408)? A constraint for any codec hypothesis, not a decode.
-
-### 4. Static trace of `/v1/external_sdk/intermediate_scan`
-
-- Live route (401 on POST). Trace request/response models in the 2017 researcher
-  source, Lab 1.3.12 and 1.5.x DEX. No credential extraction or use.
-
-### 5. Gradient blob
-
-- Ignored by the server, header 110, generation-dependent size. Compare its
-  statistics with sample/dark; test whether it is less protected or structured.
-
 ## Do not repeat
 
 Each is a bounded negative with saved evidence; repeat only with a genuinely new
@@ -122,6 +126,9 @@ hypothesis that the earlier run could not have seen.
 | Server bit-flip/mutation oracles (closed by the signature) | [`ciphertext_oracle/`](analysis_output/ciphertext_oracle/) |
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
+| Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
+| Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |
+| `intermediate_scan` as a decoding endpoint | [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json) |
 | Same-target bit agreement | README §4 (0.49986 bit distance over 30 captures) |
 
 Documentation: `dev/README.md` was reconciled with this file on 2026-10-04 (fixed

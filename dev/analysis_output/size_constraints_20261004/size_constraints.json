@@ -1,0 +1,1064 @@
+{
+  "tables": {
+    "deadPixelsIndices": {
+      "bytes": 1714,
+      "factors": {
+        "2": 1,
+        "857": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 1714,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 857,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 1712,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 856,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 4,
+          "count": 428,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 8,
+          "count": 214,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 1710,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 855,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 1706,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 853,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": false
+      }
+    },
+    "centers": {
+      "bytes": 96,
+      "factors": {
+        "2": 5,
+        "3": 1
+      },
+      "multiple_of_16": true,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 96,
+          "per_receptor": 8,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 48,
+          "per_receptor": 4,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 24,
+          "per_receptor": 2,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 8,
+          "count": 12,
+          "per_receptor": 1,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 94,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 47,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 92,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 46,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 23,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 88,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 44,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 22,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 8,
+          "count": 11,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": true,
+        "14": false
+      }
+    },
+    "bins": {
+      "bytes": 140,
+      "factors": {
+        "2": 2,
+        "5": 1,
+        "7": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 140,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 70,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 35,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 138,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 69,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 136,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 68,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 34,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 8,
+          "count": 17,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 132,
+          "per_receptor": 11,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 66,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 33,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": true,
+        "12": false,
+        "14": true
+      }
+    },
+    "nPixelsPerBin": {
+      "bytes": 1166,
+      "factors": {
+        "2": 1,
+        "11": 1,
+        "53": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 1166,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 583,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 1164,
+          "per_receptor": 97,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 582,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 4,
+          "count": 291,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 1162,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 581,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 1158,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 579,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": false
+      }
+    }
+  },
+  "bodies": {
+    "sample_or_dark": {
+      "bytes": 1792,
+      "factors": {
+        "2": 8,
+        "7": 1
+      },
+      "multiple_of_16": true,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 1792,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 896,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 448,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 8,
+          "count": 224,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 1790,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 895,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 1788,
+          "per_receptor": 149,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 894,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 447,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 1784,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 892,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 446,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 8,
+          "count": 223,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": true
+      }
+    },
+    "gradient_e": {
+      "bytes": 1648,
+      "factors": {
+        "2": 4,
+        "103": 1
+      },
+      "multiple_of_16": true,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 1648,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 824,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 412,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 8,
+          "count": 206,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 1646,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 823,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 1644,
+          "per_receptor": 137,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 822,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 411,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 1640,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 820,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 410,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 8,
+          "count": 205,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": false
+      }
+    },
+    "gradient_o": {
+      "bytes": 1408,
+      "factors": {
+        "2": 7,
+        "11": 1
+      },
+      "multiple_of_16": true,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 1408,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 704,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 352,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 8,
+          "count": 176,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 1406,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 703,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 1404,
+          "per_receptor": 117,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 702,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 351,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 1400,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 700,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 350,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 8,
+          "count": 175,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": false
+      }
+    }
+  },
+  "firmware": {
+    "dsp_boot": {
+      "bytes": 7284,
+      "factors": {
+        "2": 2,
+        "3": 1,
+        "607": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 7284,
+          "per_receptor": 607,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 3642,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 1821,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 7282,
+          "per_receptor": null,
+          "multiple_of_bands": true
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 3641,
+          "per_receptor": null,
+          "multiple_of_bands": true
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 7280,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 3640,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 1820,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 8,
+          "count": 910,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 7276,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 3638,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 1819,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": true,
+        "14": false
+      }
+    },
+    "dsp_dec": {
+      "bytes": 14600,
+      "factors": {
+        "2": 3,
+        "5": 2,
+        "73": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 14600,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 7300,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 3650,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 8,
+          "count": 1825,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 14598,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 7299,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 14596,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 7298,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 3649,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 14592,
+          "per_receptor": 1216,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 7296,
+          "per_receptor": 608,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 3648,
+          "per_receptor": 304,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 8,
+          "count": 1824,
+          "per_receptor": 152,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": true,
+        "12": false,
+        "14": false
+      }
+    },
+    "dsp_op": {
+      "bytes": 32628,
+      "factors": {
+        "2": 2,
+        "3": 1,
+        "2719": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 32628,
+          "per_receptor": 2719,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 2,
+          "count": 16314,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 0,
+          "width": 4,
+          "count": 8157,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 32626,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 2,
+          "count": 16313,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 32624,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 2,
+          "count": 16312,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 4,
+          "count": 8156,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 8,
+          "count": 4078,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 32620,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 2,
+          "count": 16310,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 4,
+          "count": 8155,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": true,
+        "14": false
+      }
+    },
+    "ble_runtime": {
+      "bytes": 119233,
+      "factors": {
+        "119233": 1
+      },
+      "multiple_of_16": false,
+      "splits": [
+        {
+          "prefix": 0,
+          "width": 1,
+          "count": 119233,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 2,
+          "width": 1,
+          "count": 119231,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 4,
+          "width": 1,
+          "count": 119229,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        },
+        {
+          "prefix": 8,
+          "width": 1,
+          "count": 119225,
+          "per_receptor": null,
+          "multiple_of_bands": false
+        }
+      ],
+      "packed_bits_fit": {
+        "10": false,
+        "12": false,
+        "14": false
+      }
+    }
+  },
+  "cross_generation": {
+    "gradient_difference_bytes": 240,
+    "difference_aes_blocks": 15.0,
+    "difference_per_receptor": 20.0,
+    "sample_size_unchanged": true
+  },
+  "schema": "scio-size-constraints/1",
+  "sources": {
+    "tables_and_firmware": "READ_FILE_HEADER on the fw-147 unit (README section 5)",
+    "bodies": "canonical scans (-e) and vendor fixtures (-o)",
+    "receptors": "SparkFun teardown: 12 filtered receptors"
+  },
+  "observations": [
+    "No table or body size is a whole number of 331 entries at any tested prefix/width: the tables are not plain per-band arrays.",
+    "centers (96 B) is the only table with a clean 12-way split at zero prefix (12 x 8 B); consistent with one record per receptor, not evidence of it.",
+    "No body splits 12 ways at 2-byte or wider width, and none fits 12-bit packing; equal per-receptor u16 sub-images are excluded for the plaintext-as-stored hypothesis.",
+    "All bodies are multiples of 16 B; the -e/-o gradient difference is 240 B = 15 blocks = 12 x 20 B."
+  ],
+  "limits": "Size arithmetic only. A fit is not a layout; unequal splits and coded bodies are untouched."
+}

@@ -8,6 +8,34 @@ Completed campaign: [results](analysis_output/recovery_20261003/RESULTS.md),
 Current state and ranked next tasks: [HANDOVER.md](HANDOVER.md). This file is the
 chronological record.
 
+### Offline tasks 3-5 of the handover (2026-10-04, completed)
+
+- **Gradient** (`scio_offline/gradient.py`, `scripts/probe_gradient.py`): 92 records.
+  Gradient bodies (1648 B, word 0 = 110) match sample/dark on entropy (7.887 vs
+  7.894, each at its finite-length random expectation), pooled chi-square (212 vs
+  198/289, df 255), zero positions beyond 4 sigma, longest run 3, no repeated
+  blocks. Same-scan bit distance to sample 0.49999 and to dark 0.49966, against
+  other-scan 0.5004/0.4995 (|z| < 1). Leakage: 48 tests, minimum p 0.026,
+  Bonferroni 1.0. The four older-generation vendor fixtures (1416 B) have the same
+  entropy profile. **No sign that the gradient is plaintext, weaker or derived.**
+- **Size constraints** (`scio_offline/size_constraints.py`,
+  `scripts/analyze_size_constraints.py`): no table/body size is a whole number of
+  331 entries; `centers` splits 12 × 8 B; no body splits 12 ways at ≥ 2-byte width
+  or fits 10/12-bit packing (1792 fits 14-bit); all bodies are multiples of 16 B;
+  gradient `-e`/`-o` difference 240 B. Constraints only.
+- **intermediate_scan** (`scio_offline/dex_refs.py`, `scripts/audit_sdk_endpoints.py`):
+  22 unique DEX files; bytecode const-string/sget scan with a positive control
+  (`/v2/consumer/spectro-scan`, 6 files). No reference to the external-SDK route;
+  the only route hits are the consumer `aggregateResult` (posts `device_id`,
+  `batch_id`) plus three androidx operand aliases. The 1.5.19 ARM32 snapshot holds
+  `/v1/consumer/intermediate_scans/batch/`, built in one function and passed to the
+  generic API helper `0xbdfcdc` shared with 14 other routes. Co-located strings put
+  it in the batch workflow; interpretation recorded as inference, not a traced
+  response model. Earlier "most promising endpoint" wording corrected in
+  `documentation/firmware_notes.md` and `dev/README.md`.
+- Verification: 4 new tests; research suite **124 passed** with sockets blocked.
+  No device or server access.
+
 ### Supervised leakage test (offline, completed)
 
 - Question: do sample/dark bodies carry any fixed-position information about the
