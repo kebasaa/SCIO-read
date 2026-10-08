@@ -228,8 +228,15 @@ target** (raw `READ_TEMPERATURE` triples, `obj = w2/100`):
 Skin (~32.6 °C) versus room-temperature targets (~20 °C) matches real surface
 temperatures, so it looks like a genuine (uncalibrated, likely contact) reading
 rather than noise. `obj_t` is therefore **not universally 0** — it is unit/firmware
-dependent. `ScioDevice.read_object_temperature()` returns it. Not checked against a
-reference thermometer; not verified on the firmware-147 unit beyond the earlier `0.0`.
+dependent. `ScioDevice.read_object_temperature()` returns it.
+
+**Confirmed on the firmware-147 unit (2026-10-08, read-only):** a 16-read
+`READ_TEMPERATURE` series (`scripts/read_object_temperature.py`, command 0x04 only,
+no scans/writes) returned `obj_t = 0.00` on every read while the sensor went from
+open air to skin contact; `cmos_t`/`chip_t` varied normally
+([evidence](analysis_output/objt_20261008/objt.json)). So fw-147 never populates the
+object word, while the fw-138 unit does — the field is firmware/unit dependent, not
+universally live. Not checked against a reference thermometer.
 
 ## Power control: USB and BLE
 
