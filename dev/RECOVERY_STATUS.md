@@ -1,5 +1,73 @@
 # Evidence-led recovery, October 2026
 
+## fw-138 unit: scans ingested, replayed, device included corpus-wide, 2026-10-08
+
+The contributor sent a white reference + three samples (pine/tomato/skin). Full write-up:
+[`analysis_output/foreign_fw138_20261008/FINDINGS.md`](analysis_output/foreign_fw138_20261008/FINDINGS.md).
+
+- **Ingest + replay** (`scripts/ingest_foreign_fw138.py`): written as canonical `scio-scan/2`
+  records (white → `scan_json_calibration/`, 3 samples → `scans/`) and replayed via
+  `session.process_pending(pause=20)` under his device_id + bare `20150812:PRODUCTION` tag +
+  his white. **skin → HTTP 200, 331-band spectrum; pine wood & tomato → 422 InvalidScan.**
+  All three passed the integrity check; two then failed the physics/quality gate. (The
+  check's mechanism is not isolated — only mismatched-identity combinations are rejected.)
+  First self-collected fw-138 paired sample (skin) added to the canonical corpus.
+- **Multi-device research strand (per the owner's decision to include the foreign device
+  everywhere except live/physical ops):**
+  - `leakage.py`: `corpus_groups()` groups by device; `load_corpus(device_id=…)` selects one
+    (default the largest = owner); `probe_leakage.py` iterates groups and flags a group with
+    < 8 records (fw-138, n=1) as underpowered rather than stacking incompatible data.
+  - `transform_class.py`: `size_invariance` groups by (role, generation); length is fixed
+    within each generation (`-e` 1648 B, bare `20150812` 1408 B gradient), content-independent.
+  - `evidence.py`: adjacency `hamming` bucketed by (kind, length).
+  - `validation.py`: `load_pairs` includes all devices (optional `device_id` filter); the
+    skin pair now also gates any future decoder (94 pairs; self-check still 1.0/noise-fail).
+  - Live/physical modules (`usb`, `ble`, `device`, `probe`, `power`) unchanged — owner-only.
+- **Object temperature** (`READ_TEMPERATURE` word 2) is live on the fw-138 unit (skin 32.63 °C
+  vs ~20 °C; 0 on the fw-147 unit). `ScioDevice.read_object_temperature()` added; documented in
+  DEVICE_FUNCTION_REFERENCE and README §3.
+- Verification: research suite **263 passed** (sockets blocked), production **114 passed** and
+  **116 with `dev/` absent** (decoupling held). New/updated tests. `01_rawdata` additions only
+  (append-only). Contributor's name/e-mail and raw e-mails kept private; no firmware.
+
+## Checksum-informed offline campaign, 2026-10-08
+
+Implemented [CHECKSUM_CAMPAIGN.md](CHECKSUM_CAMPAIGN.md), then completed all
+180,266 jobs across 2,342 distinct header/delta hypothesis keys. Owner/contributor
+profiles were separate. No exact prior owner AES overlap. Header/delta families
+produced 381 unconfirmed codec leads; random controls produced nine. All 402
+individual hits were short raw-deflate parses consuming 4–68 bytes with >=1,688
+unexplained trailing bytes. No same-role owner confirmation, keyed-integrity
+match, structural intermediate, reflectance or domain vectors.
+
+The owner current-header association with historical acquisitions is unverified;
+the contributor has one acquisition only. These results exclude the enumerated
+constructions on these inputs, not historical checksum-derived keys generally
+or custom codecs. The 39-file static app audit found no supported firmware-body
+read path: header/list operations read metadata, while FILE_DOWNLOAD writes
+provided firmware bytes. A misleading read-list log in the download wrapper was
+documented. No device/server operation, reset, installation or correspondence.
+
+An offline supplied-artifact inspector preserves private originals and supports
+structural triage and actual-byte comparison; it harvests no arbitrary key windows.
+Report and immutable manifests: [campaign](analysis_output/checksum_headers_20261008_run/REPORT.md).
+Verification: 263 research tests with sockets blocked, 114 unchanged production
+tests; inputs/evaluator/driver/helper hashes and source/production snapshot match.
+
+## Exact four-key contributor firmware follow-up, 2026-10-08
+
+Implemented [CONTRIBUTOR_FIRMWARE.md](CONTRIBUTOR_FIRMWARE.md): contributor
+profile, plan-only/live/offline-inspection runner, strict containers and private
+immutable archives. Owner actual, contributor actual, contributor zero and owner
+actual GETs all returned HTTP 200 with byte-identical 51-byte null offers. Each
+GET obtained fresh authentication; preparation gaps after prior completion were
+20.000, 20.000 and 20.016 seconds. The initial sandboxed launch failed authentication
+before any firmware GET. No files, device operation or outgoing correspondence.
+See [report and ledger](analysis_output/contributor_fw138_exact4_20261008_network/REPORT.md).
+This closes the four-code-key request-format gap in the earlier eight-key campaign,
+not every possible authorized firmware acquisition route. Source/production hashes
+are unchanged; exact responses are git-ignored under `dev/private/`.
+
 ## Contributed fw-138 unit: firmware request + cross-white test, 2026-10-08
 
 A second owner contributed an older fw-138 unit (device specs, blobs and full write-up:
@@ -13,11 +81,11 @@ A second owner contributed an older fw-138 unit (device specs, blobs and full wr
 - **Cross-white (`scripts/probe_foreign_crosswhite.py`, 4 requests):** the contributor's
   sample+dark paired with the owner's white reference was rejected `400 Bad_sample_signature`
   under both the owner's and the contributor's device_id; the controls returned valid spectra.
-  The per-blob signature is bound to the request's device_id; sample and white are not
-  independent swappable halves.
-- **New lead:** across the two units `dsp_boot`/`dsp_dec` are identical size+version but differ
-  in byte sum (−673, −26) → a small per-device region inside the boot/decrypt images, separate
-  from `dsp_op`. A target for any `dsp_boot`/`dsp_dec` dump.
+  These tested mixed-device requests are rejected; they do not establish per-blob
+  verification, a cryptographic signature or binding specifically to device_id.
+- **Comparison lead:** `dsp_boot`/`dsp_dec` have equal reported size/version and
+  differing checksum fields (−673, −26). Without bodies or a proven checksum
+  algorithm, this does not establish a small per-device/key region or its location.
 - Replay of the contributed scan for a paired fw-138 spectrum is **blocked** pending the
   contributor's white reference. Firmware tooling extended: a per-job `ble_id` override and a
   foreign header-table comparison in `firmware_recheck.run_firmware_jobs`/`describe_body`
@@ -1077,6 +1145,9 @@ vectors have yet been established.
 | High correlation establishes decoding | Invalid acceptance criterion | Wrong amplitude can correlate perfectly. New gate compares all 331 finite bands and exact wavelength axis, without per-scan rescaling. |
 | All APKs/architectures already searched | Incomplete | New archive/member hashes and native/Dex string coverage are reproducible. String inspection is not complete native or Dex control-flow analysis. |
 | Standard image codecs excluded | Overstated bounded negative | Original decoder sweep covered 40 bodies and offsets 0–32; byte-stuffing on opaque bodies cannot exclude encrypted JPEG, headerless/custom codecs, omitted tables or transformed bytes. The corrected search tests real image decoders after candidate decryption and after generic decompression. |
+| Contributor null offers prove the firmware store is empty | Bounded negative | Earlier eight-key campaign and exact four-key follow-up returned null on this account. No store inventory, authorization equivalence or global availability was established. |
+| Equal version/size plus small checksum deltas locate a per-device key region | Untested | Only reported header fields are available. No bodies, verified byte-sum algorithm or localization of changed bytes; small net sums can mask extensive changes. |
+| Cross-white rejection proves a device-ID-bound per-blob signature | Overstated | The tested mixed-unit combinations returned Bad_sample_signature with valid controls. Multiple fields/roles changed; algorithm, verification granularity and order remain unknown. |
 
 ## Reproducible tools
 

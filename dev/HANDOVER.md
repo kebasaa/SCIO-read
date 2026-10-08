@@ -13,6 +13,35 @@ how to work in this repository is in
 
 ## Current state
 
+**Completed checksum-informed follow-up, 2026-10-08:** 2,342 unique hypothesis
+keys and all 180,266 jobs. No structural intermediate, reflectance, domain vectors
+or keyed-integrity match. There were 390 lead configurations, including nine in
+random controls; all 402 codec hits were raw-deflate parses consuming 4–68 bytes
+and leaving >=1,688 unexplained trailing bytes. No owner cross-acquisition lead;
+the contributor has one acquisition only. Current owner headers on historical
+scans remain an unverified association, limiting negative conclusions.
+The 39-file static audit found no supported USB/BLE firmware-body read operation;
+zero device/server operations. Offline firmware inspection and actual-byte
+comparison are prepared for newly supplied artifacts. Frozen captures untouched.
+See [CHECKSUM_CAMPAIGN.md](CHECKSUM_CAMPAIGN.md) and
+[report](analysis_output/checksum_headers_20261008_run/REPORT.md).
+Verification: 263 socket-blocked research tests and 114 unchanged production tests
+passed. Complete-checkpoint resume, public-safety and compressed-artifact scans
+passed. Do not repeat these candidates without new header/firmware evidence.
+
+**Completed 2026-10-08 follow-up:** contributor firmware acquisition using the
+exact four app firmware version keys, fresh authentication per request, and
+bracketing owner controls. All four GETs returned HTTP 200 with byte-identical
+51-byte null offers; no firmware obtained. Completion-to-next-preparation gaps
+were 20.000, 20.000 and 20.016 seconds. The sandboxed first launch failed auth
+before any firmware GET. The earlier eight-key contributor results remain
+preserved. See [CONTRIBUTOR_FIRMWARE.md](CONTRIBUTOR_FIRMWARE.md) and
+[campaign report](analysis_output/contributor_fw138_exact4_20261008_network/REPORT.md).
+No device operation or external message occurred. Do not repeat this route without
+new evidence such as another authorized account or an independently supplied dump.
+Verification: 205 socket-blocked research tests and 114 unchanged production tests
+passed; 31 acquisition tests rechecked after final cleanup. Public-safety scan passed.
+
 **Completed follow-up:** bounded identity/layered-codec campaign under `dev/`.
 The prior non-AES gap manifest contains six Aptina byte keys absent from the
 corrected AES manifest. New identity fields were not all included in hashed or
@@ -127,17 +156,23 @@ desk review in
 
 ## Open tasks, ranked
 
-### 0. Paired fw-138 spectrum — awaiting the contributor's white reference
+### 0. fw-138 unit: ingested, replayed, included (done 2026-10-08)
 
 A second owner contributed an older **fw-138** unit (see
 [`analysis_output/foreign_fw138_20261008/FINDINGS.md`](analysis_output/foreign_fw138_20261008/FINDINGS.md)).
-The firmware request came back `null` (below), but a real older-generation **paired
-sample** can still be added once the contributor sends their white reference
-(`sample_white`, `sample_white_dark`, `sample_white_gradient`). `probe_foreign_firmware.py`
-then replays the scan under the fw-138 device_id + bare tag. **New lead from the
-contribution:** `dsp_boot`/`dsp_dec` are identical size+version across the two units but
-differ in byte sum (−673, −26) → a small **per-device region inside the boot/decrypt
-images**; make it a target of any `dsp_boot`/`dsp_dec` dump.
+Firmware request → `null` (below). White reference + three samples (pine/tomato/skin) were
+ingested as canonical records and replayed: **skin decoded (331-band spectrum); pine/tomato
+rejected 422 InvalidScan** (passed the signature, failed the physics gate). The foreign
+device is now included across the multi-device research readers (`leakage.corpus_groups`,
+`validation.load_pairs`, `transform_class` per-generation); live/physical ops stay owner-only.
+`obj_t` (object temperature) is live on this fw-138 unit (0 on the fw-147 unit) —
+`ScioDevice.read_object_temperature()` added. **Remaining:** ask the contributor to re-take
+pine/tomato (422), and a read-only check of whether the owner's fw-147 reports live `obj_t`.
+**Comparison lead:**
+`dsp_boot`/`dsp_dec` have equal reported size/version but differing checksum fields
+(−673, −26). This does not establish a byte-sum algorithm, a small changed region,
+personalization or a key location. If bodies are obtained, compare their actual
+bytes and code before interpreting the differences.
 
 The hardware tasks below need a separately authorised session with the device
 opened (the housing is not designed to be reopened). Bounded software coverage
@@ -177,6 +212,7 @@ hypothesis that the earlier run could not have seen.
 
 | Route | Evidence |
 |---|---|
+| Firmware-header-derived AES/CMAC/HMAC keys and diagnostic deltas | [checksum campaign](analysis_output/checksum_headers_20261008_run/REPORT.md); current-to-historical association remains exploratory |
 | Identifier-derived keys, AES (≈220k configurations, corrected framing) | [key_search_confirmed](analysis_output/recovery_20261003/key_search_confirmed.json), [foreign](analysis_output/recovery_20261003/key_search_foreign.json) |
 | Identifier keys × TEA/XTEA/ARC4/ChaCha20/TripleDES/Blowfish/Camellia, incl. the MAC, field *pairs*, the full 16-byte Aptina id + upper half, and the serial prefix (2950 keys; top repeatability 0.125, below the 0.150 random-control ceiling) | [identifier_key_gap](analysis_output/identifier_key_gap_20261004/identifier_key_gap.json) |
 | Generic compression and word-swap/bit-reverse representations | [compression_only](analysis_output/recovery_20261003/compression_only.json), [representation_codecs](analysis_output/recovery_20261003_followup/representation_codecs.json) |
@@ -188,7 +224,7 @@ hypothesis that the earlier run could not have seen.
 | Server bit-flip/mutation oracles (closed by the signature) | [`ciphertext_oracle/`](analysis_output/ciphertext_oracle/) |
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
 | Firmware offer for a genuine fw-138 device (bare `20150812` tag) | [fw-138 findings](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
-| Pairing a foreign sample with the owner's white reference (device-bound signature) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
+| Pairing a foreign sample with the owner's white reference (tested combinations rejected) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |

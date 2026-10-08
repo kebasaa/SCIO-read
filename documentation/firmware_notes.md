@@ -564,7 +564,7 @@ intact blobs returned `200`); any byte change fails it.
   the remaining route is a hardware read (see the acquisition options above), not more software
   or server work. The transform class remains `undetermined`.
 
-### The blob signature is device-bound; older generations still decode (2026-09-30)
+### Blobs are rejected under a non-matching device_id; older generations still decode (2026-09-30)
 
 Follow-up to the signature finding, using the app-embedded mock/fake blobs - real, validly-signed
 captures from other devices shipped in `FakeJson.java` and `resources/assets/mock/`. Extracted
@@ -578,10 +578,12 @@ blobs are intact.
   devices (`E027C2A6CF9435D6`, `1026A4DD1BB7158B`, `503E5732B5EF1F35`) and three generations
   (`20150812`, `20150812-o`, `20150712`). So the server still decodes other devices' blobs and
   older generations; the decommissioned part is only the firmware/table *download*, not analysis.
-- **The signature is device-bound.** The same foreign blob submitted under *our* device_id -
-  with the native tag, and with our tag - returns `400 Bad_sample_signature`. So the signature
-  the server checks is tied to the request's device_id (either it covers device_id, or it is
-  verified with a per-device key); a blob only decodes under the identity that produced it.
+- **A blob is rejected under a non-matching device_id.** The same foreign blob submitted under
+  *our* device_id - with the native tag, and with our tag - returns `400 Bad_sample_signature`.
+  Varying only the device_id (native tag kept) still rejects, so this is not merely a tag/
+  generation effect. But the mechanism is not isolated: it may be a cryptographic check covering
+  device_id, a per-device key, or the server rejecting the foreign content against the mismatched
+  identity's expected calibration. A blob only decodes under the identity that produced it.
 
 Consequences: the server holds or derives per-device verification/decode material for arbitrary
 devices, so there is no global key to find and a blob cannot be moved between identities. This
@@ -625,7 +627,7 @@ plain SPI-flash read of `dsp_op` may yield the algorithm but not the secret. The
 JTAG-during-scan SRAM capture or an OTP read (Route B), not just Route A.
 
 **Per-device vs master key is undetermined from outside.** Three architectures all produce the
-device-bound signature we observed (wrong `device_id` -> `Bad_sample_signature`) and the
+device_id-dependent rejection we observed (wrong `device_id` -> `Bad_sample_signature`) and the
 foreign-blob result (each device decodes only under its own id):
 
 - **A - unique per-device secret**, server keeps a table. A dump of our unit decodes only our unit.

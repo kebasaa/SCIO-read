@@ -7,7 +7,7 @@ gradient blob 1416 B.** One raw scan (sample/dark/gradient, no white reference) 
 contributed; it decodes cleanly offline (1800/1800/1416 B, correct headers,
 ~7.9 bits/byte).
 
-## 1. Firmware request — server still offers nothing
+## 1. Firmware request — no offer for the tested parameters
 
 The idea: an out-of-date device might be offered the upgrade images the project has
 never obtained. Four firmware-upgrade GETs, 20 s apart (`probe_foreign_firmware.py`,
@@ -22,12 +22,12 @@ never obtained. Four firmware-upgrade GETs, 20 s apart (`probe_foreign_firmware.
 
 All four returned the **byte-identical** 51-byte `{"new_version":null}` (SHA-256
 `f7bb8314…`) — the same empty response the owner's own device gets. The control proves
-the token and endpoint are healthy, so this is "the store has nothing", not an auth or
-transport failure. **Bounded negative:** null for these parameters; it does not prove
+the endpoint accepted these authenticated requests, not that its firmware store
+is empty. **Bounded negative:** null for these parameters; it does not prove
 the firmware is unavailable to every authorized client. No install, reset or device
 command.
 
-## 2. Cross-white test — the signature is device-bound per blob
+## 2. Cross-white test — tested mixed-device combinations are rejected
 
 The contributed scan has no white reference, so it cannot be replayed alone. Instead
 its sample+dark were paired with the **owner's** white reference and submitted two ways
@@ -39,13 +39,12 @@ its sample+dark were paired with the **owner's** white reference and submitted t
 | cross_owner_identity | owner id + `-e` tag | **400 `Bad_sample_signature`** |
 | cross_foreign_identity | fw-138 id + bare tag | **400 `Bad_sample_signature`** |
 
-A scan cannot be assembled from a foreign sample and the owner's white under either
-identity: whichever device_id the request carries, the other side's blobs fail the
-signature. This **confirms the per-blob signature is bound to the request's device_id**
-and that sample and white are not validated as independent, swappable halves. It does
-not reveal the signature algorithm or the payload transform.
+These foreign-sample/owner-white combinations were rejected under both tested
+identities. This does not identify the failing blob, establish per-blob verification
+or a cryptographic signature, or isolate binding to device_id rather than generation,
+calibration or another field. Verification order and the payload transform remain unknown.
 
-## 3. File-header deltas vs the owner's fw-147 — a per-device region in boot/dec
+## 3. File-header deltas vs the owner's fw-147 — comparison leads
 
 Byte-sum checksums on both units (the analyzer's assumption):
 
@@ -61,23 +60,57 @@ Byte-sum checksums on both units (the analyzer's assumption):
 | 102 | bins | 140 / 1 / 13587 | 140 / 3 / 13587 | same size+**sum**, diff version |
 | 103 | nPixelsPerBin | 974 / 1 / 30963 | 1166 / 3 / 36371 | different size+version |
 
-**Key observation (contributor's, confirmed):** `dsp_boot` (v17) and `dsp_dec` (v12)
-have **identical size and version on both units but different byte sums**. Two devices
-running the same versioned boot/decrypt code differ by a small amount inside those
-images — i.e. a **per-device region embedded in `dsp_boot`/`dsp_dec`**, separate from
-the versioned code and from `dsp_op`. This localizes where per-device material
-(plausibly a key or per-device calibration) lives, and is a concrete target for the
-hardware routes: dumping `dsp_boot`/`dsp_dec` from either unit should expose where the
-two differ.
+`dsp_boot` (v17) and `dsp_dec` (v12) have equal reported size/version but different
+checksum fields. No firmware bodies or proven checksum algorithm are available.
+Even an established byte sum would not constrain how many bytes differ: extensive
+changes can have a small net sum. Personalization and embedded keys remain hypotheses,
+not localized findings. Compare actual bodies if they become available.
 
-`bins` is identical in size and byte sum across generations (only the version differs),
-so that table may be generation-stable.
+`bins` has equal reported size/checksum across generations. This does not establish
+identical bytes or a generation-stable table.
 
-## 4. Open: a paired fw-138 spectrum needs the contributor's white reference
+### Interpretation correction and request-format follow-up, 2026-10-08
 
-To add a real older-generation paired sample to the corpus, the contributor's white
-reference is required (`sample_white`, `sample_white_dark`, and `sample_white_gradient`).
-With it, `probe_foreign_firmware.py` will replay the scan under the fw-138 device_id +
-bare tag and store the paired sample. (Awaiting that data.)
+Raw reports above are preserved. Contributor jobs in this earlier campaign included
+four calibration-table IDs as well as four code IDs. The exact four-code-key follow-up
+with fresh tokens and bracketing controls also returned four null offers:
+[`../contributor_fw138_exact4_20261008_network/REPORT.md`](../contributor_fw138_exact4_20261008_network/REPORT.md).
+The interpretation corrections above replace the unsupported store/signature/key-region
+claims, without altering historical raw results.
 
-Blob SHA-256 of the contributed scan is in `device.json`.
+## 4. White reference received — fw-138 samples ingested and replayed (2026-10-08)
+
+The contributor then sent a **white reference plus three samples** (pine wood, tomato,
+skin), all base64 (`scans.json`). These were written as canonical `scio-scan/2` records
+(`scripts/ingest_foreign_fw138.py`) and replayed to the server under his device_id +
+bare tag + his white (`session.process_pending`, `replay_summary.json`):
+
+| sample | server result |
+|---|---|
+| skin (hand) | **HTTP 200, 331-band spectrum** (reflectance 0.31–1.26) |
+| pine wood | 422 `InvalidScan` |
+| tomato | 422 `InvalidScan` |
+
+The blobs are valid under their own device_id (no `Bad_sample_signature`): all three
+passed the integrity check. Two then failed the physics/quality gate (`422 InvalidScan`,
+"try again"), one decoded. (As in §2, this does not establish the check's mechanism.) This is the project's **first self-collected fw-138 paired sample**
+(skin). The three raw records remain in the corpus; pine/tomato simply have no spectrum
+(like dark frames the server rejects).
+
+**Included across the research strand.** The foreign device is now part of the canonical
+corpus and the multi-device readers: `leakage.corpus_groups()` lists both devices and runs
+per device (fw-138 n=1 → underpowered, reported honestly); `validation.load_pairs()`
+includes the skin pair; `transform_class` reports the `20150812` generation (gradient 1408 B)
+alongside `-e` (1648 B), with length fixed within each generation. Live/physical operations
+stay owner-only.
+
+## 5. Object temperature is live on the fw-138 unit (2026-10-08)
+
+`READ_TEMPERATURE` word 2 (`obj_t = w2/100`) reads 0 on the owner's fw-147 unit but is a
+live surface temperature on this fw-138 unit: skin 32.63 °C vs wood/tomato ~20 °C, white
+22.71 °C. The four raw triples and the data table are in
+[`../../DEVICE_FUNCTION_REFERENCE.md`](../../DEVICE_FUNCTION_REFERENCE.md); a convenience
+`ScioDevice.read_object_temperature()` was added. Whether the owner's fw-147 unit also
+reports a live value when pointed at a warm target is an open read-only check.
+
+Blob SHA-256 of all contributed scans is in `scans.json`.

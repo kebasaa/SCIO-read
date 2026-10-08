@@ -274,13 +274,15 @@ separable to ~1e-16, role swaps expose a stable non-unity factor C(λ), and dark
 *not* a simple subtraction (the additive identity fails on 321 of 331 bands), so do not read the
 white side as literally `W - Wd`. See [HANDOVER.md](HANDOVER.md).
 
-**The signature is device-bound.** The app-embedded mock blobs (real captures from three other
-devices and older generations, in `FakeJson.java` / `assets/mock/`) all decode natively when
-submitted unmodified under their own device_id + tag - `200`, 331 bands, generations `20150812`,
-`-o` and `20150712` alike. But the *same* foreign blob under our device_id returns
-`Bad_sample_signature`. So the signature is tied to the request's device_id; a blob only decodes
-under the identity that produced it, and the server holds or derives per-device material for
-arbitrary devices. (`dev/scripts/extract_mock_scans.py`, `ciphertext_oracle.py foreign`,
+**A blob is rejected under a non-matching device_id.** The app-embedded mock blobs (real captures
+from three other devices and older generations, in `FakeJson.java` / `assets/mock/`) all decode
+natively when submitted unmodified under their own device_id + tag - `200`, 331 bands, generations
+`20150812`, `-o` and `20150712` alike. But the *same* foreign blob under our device_id returns
+`Bad_sample_signature`. So acceptance depends on the request's device_id matching the blob; a blob
+only decodes under the identity that produced it, and the server holds or derives per-device
+material for arbitrary devices. The mechanism is not isolated - a cryptographic device binding, a
+per-device key, or rejection of the foreign content against the mismatched identity's calibration
+are all consistent. (`dev/scripts/extract_mock_scans.py`, `ciphertext_oracle.py foreign`,
 `FOREIGN_VERDICT.json`.)
 
 **Why this matters beyond the dead end:** validity depends on the device_id the blob is
