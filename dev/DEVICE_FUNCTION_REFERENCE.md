@@ -238,6 +238,16 @@ open air to skin contact; `cmos_t`/`chip_t` varied normally
 object word, while the fw-138 unit does — the field is firmware/unit dependent, not
 universally live. Not checked against a reference thermometer.
 
+**It is not a different command or format on fw-147.** The raw `READ_TEMPERATURE`
+response is exactly 12 bytes (`900100007909000000000000` → `[400, 2425, 0]`); the
+object `u32` at offset 8 is literally `0x00000000` on the wire, and stays 0 when read
+immediately after a `SAMPLE_SPECTRUM` (LED fired). The command (0x04), the 12-byte
+3×`u32` format, and the decompiled `TemperatureResponseCommandHandler`
+(`object = u32(8)/100`) are identical across firmware and app versions. So the 0 is
+the firmware not populating the word, not an alternate command, a longer response, a
+different offset, or a parsing error
+([evidence](analysis_output/objt_20261008/temp_command_fw147.json)).
+
 ## Power control: USB and BLE
 
 **Confirmed in inspected app code:** configurable automatic-off timer over the

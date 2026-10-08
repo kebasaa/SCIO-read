@@ -1,0 +1,13 @@
+{
+ "schema": "scio-objt-command/1",
+ "question": "Is the temperature/object readout a different command or format on fw-147?",
+ "device_id": "8032AB45611198F1",
+ "firmware_version": 147,
+ "read_temperature_raw_hex": "900100007909000000000000",
+ "read_temperature_bytes": 12,
+ "u32_words_le": [400, 2425, 0],
+ "word_meaning": "aptina/cmos(0), chip(4), object(8) - matches TemperatureResponseCommandHandler (object = u32(8)/100)",
+ "object_word_after_scan": 0,
+ "note": "Command 0x04 and the 12-byte 3xu32 format are identical to fw-138 and to the decompiled app handler across versions. fw-147 sends the object word as literal 0x00000000, including immediately after a SAMPLE_SPECTRUM (LED fired). So obj_t being 0 on fw-147 is firmware not populating the word, not a different command, longer response, or parsing difference. Read-only: commands 0x04 and 0x02 only; no writes.",
+ "measured_at": "2026-10-08"
+}
