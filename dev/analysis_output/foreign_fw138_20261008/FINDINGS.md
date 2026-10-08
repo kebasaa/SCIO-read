@@ -88,14 +88,29 @@ bare tag + his white (`session.process_pending`, `replay_summary.json`):
 | sample | server result |
 |---|---|
 | skin (hand) | **HTTP 200, 331-band spectrum** (reflectance 0.31–1.26) |
-| pine wood | 422 `InvalidScan` |
-| tomato | 422 `InvalidScan` |
+| pine wood | 422 `InvalidScan` (first take); **200 on the re-take** (see below) |
+| tomato | 422 `InvalidScan` (first take and both re-takes) |
 
-The blobs are valid under their own device_id (no `Bad_sample_signature`): all three
-passed the integrity check. Two then failed the physics/quality gate (`422 InvalidScan`,
-"try again"), one decoded. (As in §2, this does not establish the check's mechanism.) This is the project's **first self-collected fw-138 paired sample**
-(skin). The three raw records remain in the corpus; pine/tomato simply have no spectrum
-(like dark frames the server rejects).
+The blobs are valid under their own device_id (no `Bad_sample_signature`): all passed the
+integrity check, then some failed the physics/quality gate (`422 InvalidScan`, "try again").
+(As in §2, this does not establish the check's mechanism.) skin was the project's **first
+self-collected fw-138 paired sample**.
+
+**Re-takes, 2026-10-08** (`scripts/ingest_foreign_fw138_retake.py`,
+`../foreign_fw138_retake_20261008/`): the contributor re-captured with the window fully covered — 2
+attempts each of tomato (cut flesh) and pine. An owner control confirmed the endpoint, then
+each attempt was replayed (≥20 s apart):
+
+- **pine wood — both attempts decoded** (HTTP 200, 331 bands, reflectance ~0.86–1.75; the two
+  spectra are distinct). Kept as two canonical fw-138 pairs; the original 422 pine record was
+  removed, replaced by these.
+- **tomato (cut flesh) — both attempts 422 `InvalidScan` again.** Tomato does not clear the
+  server's quality gate on this unit (likely a genuine low-signal/out-of-range material limit,
+  not a technique issue). The original tomato record is kept as raw-only (no better replacement);
+  the two failed re-take records were discarded.
+
+The corpus now holds **3 fw-138 paired samples (skin + 2 pine)** plus the raw tomato record.
+Deleted records' raw blobs remain archived in `scans.json` here, so no measurement data is lost.
 
 **Included across the research strand.** The foreign device is now part of the canonical
 corpus and the multi-device readers: `leakage.corpus_groups()` lists both devices and runs

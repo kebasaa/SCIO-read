@@ -1,0 +1,50 @@
+{
+  "control_ok": true,
+  "results": [
+    {
+      "record": "01_rawdata/scans/20261008205739_fw138_retake_tomato_cut_flesh_attempt_1_fw138_retake-1.json",
+      "material": "tomato_cut_flesh_attempt_1",
+      "status": "error",
+      "error": "spectro-scan HTTP 422: {\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support"
+    },
+    {
+      "record": "01_rawdata/scans/20261008205739_fw138_retake_tomato_cut_flesh_attempt_2_fw138_retake-2.json",
+      "material": "tomato_cut_flesh_attempt_2",
+      "status": "error",
+      "error": "spectro-scan HTTP 422: {\"error_type\":\"InvalidScan\",\"http_status\":422,\"message\":\"Invalid scan, try again. If you receive this message frequently, contact support"
+    },
+    {
+      "record": "01_rawdata/scans/20261008205739_fw138_retake_pine_wood_attempt_1_fw138_retake-3.json",
+      "material": "pine_wood_attempt_1",
+      "status": 200,
+      "processed": "02_processed_data/20261008205739_fw138_retake_pine_wood_attempt_1_fw138_retake-3_spectrum.json",
+      "n": 331,
+      "finite_331": true,
+      "reflectance_range": [
+        0.8693742252921227,
+        1.7198819155102891
+      ]
+    },
+    {
+      "record": "01_rawdata/scans/20261008205739_fw138_retake_pine_wood_attempt_2_fw138_retake-4.json",
+      "material": "pine_wood_attempt_2",
+      "status": 200,
+      "processed": "02_processed_data/20261008205739_fw138_retake_pine_wood_attempt_2_fw138_retake-4_spectrum.json",
+      "n": 331,
+      "finite_331": true,
+      "reflectance_range": [
+        0.8612352321251042,
+        1.7468289788843194
+      ]
+    }
+  ],
+  "decoded": [
+    "pine_wood_attempt_1",
+    "pine_wood_attempt_2"
+  ],
+  "failed": [
+    "tomato_cut_flesh_attempt_1",
+    "tomato_cut_flesh_attempt_2"
+  ],
+  "distinct_spectra": 2
+}

@@ -1,5 +1,17 @@
 # Evidence-led recovery, October 2026
 
+## fw-138 re-takes: pine now decodes, tomato still rejected, 2026-10-08
+
+the contributor re-captured pine and tomato with the window fully covered (2 attempts each) plus the
+white (`scripts/ingest_foreign_fw138_retake.py`, `analysis_output/foreign_fw138_retake_20261008/`).
+Replayed individually after an owner control: **both pine attempts decoded** (HTTP 200, 331 bands,
+reflectance ~0.86–1.75, two distinct spectra) — now two canonical fw-138 pairs; the original 422
+pine record was removed and replaced. **Tomato (cut flesh) still 422 InvalidScan on both attempts**
+— it does not clear the physics/quality gate on this unit (a material limit); the original tomato
+record is kept raw-only, the failed re-takes discarded. Corpus: 3 fw-138 pairs (skin + 2 pine).
+Deleted records' blobs stay archived in `foreign_fw138_20261008/scans.json`. 5 server requests,
+≥20 s apart; no firmware, no device writes.
+
 ## Cross-device decode push, 2026-10-08
 
 Using the newly cross-device paired data (owner fw-147 ×93 incl. 30 same-target repeats,

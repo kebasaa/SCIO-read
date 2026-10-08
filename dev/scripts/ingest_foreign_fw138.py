@@ -32,7 +32,7 @@ def _bytes(b64_map):
     return {k: base64.b64decode(v) for k, v in b64_map.items()}
 
 
-def build_records(run_dir=RUN, wr_dir=None, scans_dir=None):
+def build_records(run_dir=RUN, wr_dir=None, scans_dir=None, slug=SLUG, reuse_white=False):
     device_specs = json.loads((run_dir / 'device.json').read_text())['device']
     scans = json.loads((run_dir / 'scans.json').read_text())
     device = {k: device_specs[k] for k in device_specs}        # all device specs
@@ -41,17 +41,23 @@ def build_records(run_dir=RUN, wr_dir=None, scans_dir=None):
     wr_dir = wr_dir or store.WR_DIR
 
     wr = scans['white_reference']
-    wr_path = store.save_calibration(_bytes(wr['blobs_b64']), device,
-                                     temp_before=wr['temperature'], temp_after=wr['temperature'],
-                                     out_dir=wr_dir, transport='usb')
-    cal = store.load_latest_calibration(device['device_id'], wr_dir) or store.load_scan(wr_path)
+    if reuse_white:
+        wr_path = store.latest_calibration_path(device['device_id'], wr_dir)
+        if wr_path is None:
+            raise ValueError('reuse_white set but no existing calibration for this device')
+        cal = store.load_scan(wr_path)
+    else:
+        wr_path = store.save_calibration(_bytes(wr['blobs_b64']), device,
+                                         temp_before=wr['temperature'] or {}, temp_after=wr['temperature'] or {},
+                                         out_dir=wr_dir, transport='usb')
+        cal = store.load_latest_calibration(device['device_id'], wr_dir) or store.load_scan(wr_path)
     white_section = session._white_section(cal, portable_path(wr_path))
 
     written = []
     for i, s in enumerate(scans['samples'], 1):
-        t = s['temperature']
+        t = s.get('temperature') or {}
         rec = session.build_record(
-            session.annotate(f"{SLUG} {s['material']}", f"{SLUG}-{i}",
+            session.annotate(f"{slug} {s['material']}", f"{slug}-{i}",
                              "contributed second unit, fw-138"),
             device, _bytes(s['blobs_b64']), white_section,
             temperature={'scan_before': t, 'scan_after': t}, status_word=0,

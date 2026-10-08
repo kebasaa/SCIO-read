@@ -174,13 +174,13 @@ handle to decode. Scripts: `probe_twotime.py`, `probe_cross_device.py`, `probe_f
 A second owner contributed an older **fw-138** unit (see
 [`analysis_output/foreign_fw138_20261008/FINDINGS.md`](analysis_output/foreign_fw138_20261008/FINDINGS.md)).
 Firmware request → `null` (below). White reference + three samples (pine/tomato/skin) were
-ingested as canonical records and replayed: **skin decoded (331-band spectrum); pine/tomato
-rejected 422 InvalidScan** (passed the signature, failed the physics gate). The foreign
-device is now included across the multi-device research readers (`leakage.corpus_groups`,
-`validation.load_pairs`, `transform_class` per-generation); live/physical ops stay owner-only.
-`obj_t` (object temperature) is live on this fw-138 unit (0 on the fw-147 unit) —
-`ScioDevice.read_object_temperature()` added. **Remaining:** ask the contributor to re-take
-pine/tomato (422), and a read-only check of whether the owner's fw-147 reports live `obj_t`.
+ingested as canonical records and replayed. After a window-covered re-take, the corpus now has
+**3 fw-138 pairs: skin + 2 pine wood** (both pine re-take attempts decoded, 200). **Tomato
+still fails** the physics/quality gate (422 InvalidScan, first take and both cut-flesh re-takes)
+— a material limit; its raw record is kept. The foreign device is included across the
+multi-device research readers (`leakage.corpus_groups`, `validation.load_pairs`,
+`transform_class` per-generation); live/physical ops stay owner-only. `obj_t` is live on the
+fw-138 unit, 0 on the fw-147 unit (confirmed; `ScioDevice.read_object_temperature()` added).
 **Comparison lead:**
 `dsp_boot`/`dsp_dec` have equal reported size/version but differing checksum fields
 (−673, −26). This does not establish a byte-sum algorithm, a small changed region,
