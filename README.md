@@ -300,7 +300,7 @@ group `abcd` rewritten as `cdab`, then **uppercased**:
 ```text
 cmos_t = (w0 - 375.22) / 1.4092        # Aptina CMOS sensor, degC
 chip_t = w1 / 100.0                    # DSP chip, degC
-obj_t  = w2 / 100.0                    # object; 0.0 on this unit
+obj_t  = w2 / 100.0                    # object/surface; 0.0 on this fw-147 unit
 ```
 
 The Android app truncates to integer **twice**:
@@ -308,6 +308,12 @@ The Android app truncates to integer **twice**:
 not `20.42`. This matters: the calibration temperature rule compares the
 truncated value. `parse_temperature` returns `cmos_t`, `cmos_t_app` and
 `raw_u32` so nothing is lost.
+
+`obj_t` reads `0.0` on this fw-147 unit, but is **non-zero and tracks the target**
+on at least one fw-138 unit (a hand ~32.6 °C vs ~20 °C for room-temperature
+targets), so it is unit/firmware dependent, not universally 0.
+`ScioDevice.read_object_temperature()` returns it; data points in
+[`dev/DEVICE_FUNCTION_REFERENCE.md`](dev/DEVICE_FUNCTION_REFERENCE.md).
 
 **`0x05` READ_BATTERY_STATE**
 

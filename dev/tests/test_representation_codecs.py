@@ -27,7 +27,9 @@ def test_fixed_container_does_not_exclude_variable_compression():
     a = zlib.compress(b'A' * 1000)
     b = zlib.compress(bytes(range(256)) * 4)
     assert len(a) != len(b)
-    report = size_invariance({'sample':[a.ljust(1792,b'\0'), b.ljust(1792,b'\0')]})
+    # size_invariance groups by (role, generation); two padded streams of one
+    # generation must still read as a fixed container.
+    report = size_invariance({'sample': {'gen': [a.ljust(1792, b'\0'), b.ljust(1792, b'\0')]}})
     assert not report['length_ever_depends_on_content']
     assert 'Padding' in report['implication']
     assert 'does not establish a fixed-rate codec' in report['implication']

@@ -49,8 +49,7 @@ def frozen_hashes(path=FRESH_MANIFEST) -> set[str]:
     return {b["sha256"] for b in json.loads(path.read_text(encoding="utf-8"))["blobs"]}
 
 
-def load_corpus(rows=None, frozen=None) -> dict:
-    """Paired corpus for one device and blob geometry, frozen blobs excluded."""
+def _kept(rows, frozen):
     rows = research.contexts() if rows is None else rows
     frozen = frozen_hashes() if frozen is None else frozen
     kept, dropped = [], 0
@@ -59,13 +58,44 @@ def load_corpus(rows=None, frozen=None) -> dict:
             dropped += 1
             continue
         kept.append(r)
-    devices = {r["device"].get("device_id") for r in kept}
+    return kept, dropped
+
+
+def corpus_groups(rows=None, frozen=None) -> dict:
+    """Records grouped by ``device_id`` (frozen blobs excluded).
+
+    Different devices are different sensors/generations and must not be stacked
+    into one feature matrix, so leakage runs per group.
+    """
+    kept, _ = _kept(rows, frozen)
+    groups = {}
+    for r in kept:
+        groups.setdefault(r["device"].get("device_id"), []).append(r)
+    return groups
+
+
+def load_corpus(rows=None, frozen=None, device_id=None) -> dict:
+    """Paired corpus for ONE device and blob geometry, frozen blobs excluded.
+
+    With several devices present, ``device_id`` selects the group; the default is
+    the largest (the owner's own unit). Use :func:`corpus_groups` to list devices.
+    """
+    kept_all, dropped = _kept(rows, frozen)
+    groups = {}
+    for r in kept_all:
+        groups.setdefault(r["device"].get("device_id"), []).append(r)
+    if not groups:
+        raise ValueError("no records after frozen exclusion")
+    if device_id is None:
+        device_id = max(groups, key=lambda d: len(groups[d]))
+    kept = groups[device_id]
     shapes = {(len(r["blobs"]["sample"]), len(r["blobs"]["sample_dark"])) for r in kept}
-    if len(devices) != 1 or len(shapes) != 1:
-        raise ValueError(f"corpus mixes devices {devices} or blob sizes {shapes}")
+    if len(shapes) != 1:
+        raise ValueError(f"device {device_id} mixes blob sizes {shapes}")
     return {
         "rows": kept,
-        "device_id": devices.pop(),
+        "device_id": device_id,
+        "n": len(kept),
         "spectra": np.array([r["truth"]["reflectance"] for r in kept], float),
         "wavelength_nm": np.asarray(kept[0]["truth"]["wavelength_nm"], float),
         "acquisition_group": np.array([r["acquisition_group"] for r in kept]),

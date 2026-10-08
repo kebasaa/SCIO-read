@@ -42,13 +42,14 @@ PROCESSED_DIR = store.PROCESSED_DIR
 SCANS_DIR = store.SCANS_DIR
 
 
-def load_pairs(scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR) -> list[dict]:
+def load_pairs(scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR, device_id=None) -> list[dict]:
     """Every (blobs, true spectrum) pair available locally.
 
     Returns dicts with ``blobs`` (raw bytes by key), ``spectrum`` (the server's
-    331 floats), ``wavelength_nm``, ``name`` and ``source``. Records without a
-    processed counterpart - the five dark frames the server rejects as low signal -
-    are skipped, since there is no truth to score against.
+    331 floats), ``wavelength_nm``, ``name``, ``source`` and ``device_id``. Records
+    without a processed counterpart - the five dark frames the server rejects as low
+    signal - are skipped, since there is no truth to score against. The corpus may
+    contain several devices; ``device_id`` selects one (default: all).
     """
     processed_dir, scans_dir = Path(processed_dir), Path(scans_dir)
     pairs = []
@@ -56,6 +57,9 @@ def load_pairs(scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR) -> list[dict]:
         d = json.loads(proc.read_text(encoding="utf-8"))
         rec = d.get("scan")
         if not rec:
+            continue
+        rec_device = (rec.get("device") or {}).get("device_id")
+        if device_id is not None and rec_device != device_id:
             continue
         scan_b, white_b = session.record_blobs(rec)
         spec = d.get("spectrum", {})
@@ -66,6 +70,7 @@ def load_pairs(scans_dir=SCANS_DIR, processed_dir=PROCESSED_DIR) -> list[dict]:
             "name": (rec.get("annotation") or {}).get("name"),
             "scan_uid": rec.get("scan_uid"),
             "source": (rec.get("provenance") or {}).get("source"),
+            "device_id": rec_device,
             "blobs": {**scan_b, **white_b},
             "spectrum": np.asarray(refl, float),
             "wavelength_nm": spec.get("wavelength_nm"),

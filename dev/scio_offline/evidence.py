@@ -122,10 +122,16 @@ def corpus_report(records) -> dict:
             by_kind.setdefault(kind, []).append((record.record_id, blob))
     adjacent = []
     for kind, values in by_kind.items():
-        for (id_a, a), (id_b, b) in zip(values, values[1:]):
-            adjacent.append({"kind": kind, "record_a": id_a, "record_b": id_b,
-                             "whole_hamming": hamming_fraction(a, b),
-                             "body_hamming": hamming_fraction(a[8:], b[8:])})
+        # Only compare equal-length blobs: different generations (e.g. 1656 vs 1416 B
+        # gradients) are not comparable byte-for-byte.
+        by_len = {}
+        for id_, blob in values:
+            by_len.setdefault(len(blob), []).append((id_, blob))
+        for same_len in by_len.values():
+            for (id_a, a), (id_b, b) in zip(same_len, same_len[1:]):
+                adjacent.append({"kind": kind, "record_a": id_a, "record_b": id_b,
+                                 "whole_hamming": hamming_fraction(a, b),
+                                 "body_hamming": hamming_fraction(a[8:], b[8:])})
     entropies = [r["body_entropy"] for r in blob_rows]
     return {
         "schema": "scio-transform-evidence/1",

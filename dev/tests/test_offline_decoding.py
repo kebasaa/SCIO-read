@@ -278,10 +278,16 @@ def test_transform_class_cannot_report_encryption_ruled_out():
     assert rep["verdict"] in {"undetermined", "compression_supported", "compression_refuted"}
     assert rep["encryption"]["status"] == "not_excluded"
     assert "why_not_excludable" in rep["encryption"]
-    # the size argument is the load-bearing one; assert it was actually measured
+    # the size argument is the load-bearing one; assert it was actually measured.
+    # Length is fixed *within each generation*; across generations it differs by design
+    # (e.g. the gradient is 1648 B on -e and 1408 B on the bare 20150812 tag).
     assert rep["size_invariance"]["length_ever_depends_on_content"] is False
     for role in ("sample", "sample_dark", "sample_gradient"):
-        assert rep["size_invariance"]["per_role"][role]["distinct_lengths"] in ([1792], [1648])
+        pr = rep["size_invariance"]["per_role"][role]
+        assert pr["content_dependent_within_generation"] is False
+        assert set(pr["distinct_lengths"]) <= {1792, 1648, 1408}
+        for gen in pr["by_generation"].values():
+            assert len(gen["distinct_lengths"]) == 1
 
 
 def test_scene_information_leaves_no_trace_in_entropy():

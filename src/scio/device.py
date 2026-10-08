@@ -219,6 +219,16 @@ class ScioDevice:
     def read_temperature(self) -> dict:
         return protocol.parse_temperature(self._command(Cmd.READ_TEMPERATURE).data)
 
+    def read_object_temperature(self) -> float:
+        """Object/surface temperature in degC (READ_TEMPERATURE word 2, ``w2/100``).
+
+        This is the uncalibrated reading of whatever the sensor window is against.
+        It is **0.0 on some units** (observed 0 on the firmware-147 reference unit),
+        but a live surface temperature on at least one firmware-138 unit (a hand
+        read ~32.6 degC versus ~20 degC for room-temperature targets). Read-only.
+        """
+        return self.read_temperature()["obj_t"]
+
     def read_battery(self) -> dict:
         return protocol.parse_battery(self._command(Cmd.READ_BATTERY_STATE).data)
 

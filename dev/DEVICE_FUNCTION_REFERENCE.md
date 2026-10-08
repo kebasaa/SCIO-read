@@ -213,6 +213,24 @@ Source locations for these handlers are relative to the Java scope above under
 `android/scioconnection/protocol/commands/`. Their hashes are recorded in
 [identity/temperature evidence](analysis_output/recovery_20261003_followup/identity_temperature_dataflow.json).
 
+**Object temperature (word 2) is live on at least one unit.** The README notes
+`obj_t = w2/100` reads `0.0` on the firmware-147 reference unit. A contributed
+firmware-138 unit reports a **non-zero object/surface temperature that tracks the
+target** (raw `READ_TEMPERATURE` triples, `obj = w2/100`):
+
+| target | raw u32 LE (w0 w1 w2) | obj_t |
+|---|---|---|
+| white reference (in cover) | `8d010000 b5080000 df080000` | 22.71 °C |
+| pine wood | `91010000 4d090000 c5070000` | 19.89 °C |
+| tomato | `94010000 d1090000 e3070000` | 20.19 °C |
+| skin (hand) | `95010000 690a0000 bf0c0000` | 32.63 °C |
+
+Skin (~32.6 °C) versus room-temperature targets (~20 °C) matches real surface
+temperatures, so it looks like a genuine (uncalibrated, likely contact) reading
+rather than noise. `obj_t` is therefore **not universally 0** — it is unit/firmware
+dependent. `ScioDevice.read_object_temperature()` returns it. Not checked against a
+reference thermometer; not verified on the firmware-147 unit beyond the earlier `0.0`.
+
 ## Power control: USB and BLE
 
 **Confirmed in inspected app code:** configurable automatic-off timer over the

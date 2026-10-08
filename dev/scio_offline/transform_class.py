@@ -45,13 +45,19 @@ def _scene(rec: dict) -> str:
     return "other"
 
 
+def _generation(rec: dict) -> str:
+    """Generation key: the i2s tag decides the binning/geometry (e.g. -e vs bare)."""
+    return (rec.get("device") or {}).get("i2s_tag_config") or "unknown"
+
+
 def collect(scans_dir=None) -> dict:
-    """Unique bodies grouped by blob role and by scene."""
+    """Unique bodies grouped by blob role (and by generation) and by scene."""
     scans_dir = Path(scans_dir or store.SCANS_DIR)
-    by_role, by_scene, seen = {}, {}, set()
+    by_role, by_role_gen, by_scene, seen = {}, {}, {}, set()
     for p in sorted(scans_dir.glob("*.json")):
         rec = session.load_record(p)
         scene = _scene(rec)
+        gen = _generation(rec)
         scan_b, white_b = session.record_blobs(rec)
         for key, blob in {**scan_b, **white_b}.items():
             body = blob[8:]
@@ -60,28 +66,45 @@ def collect(scans_dir=None) -> dict:
                 continue
             seen.add(h)
             by_role.setdefault(key, []).append(body)
+            by_role_gen.setdefault(key, {}).setdefault(gen, []).append(body)
             if key in ("sample", "sample_dark"):
                 by_scene.setdefault(scene, []).append(body)
-    return {"by_role": by_role, "by_scene": by_scene}
+    return {"by_role": by_role, "by_role_gen": by_role_gen, "by_scene": by_scene}
 
 
-def size_invariance(by_role: dict) -> dict:
-    """Does output length ever depend on content? (The decisive size argument.)"""
+def size_invariance(by_role_gen: dict) -> dict:
+    """Does output length depend on content? Judged *within each generation*.
+
+    Length legitimately differs between i2s generations (e.g. the gradient is 1648 B
+    on ``-e`` and 1408 B on the bare ``20150812`` tag). The decisive question is
+    whether, holding the generation fixed, a dark frame and a lit scene come out the
+    same length. ``content_dependent_within_generation`` answers exactly that.
+    """
     out = {}
-    for role, bodies in sorted(by_role.items()):
-        sizes = sorted({len(b) for b in bodies})
-        out[role] = {"n_bodies": len(bodies), "distinct_lengths": sizes,
-                     "content_dependent": len(sizes) > 1}
-    any_varies = any(v["content_dependent"] for v in out.values())
+    any_within = False
+    for role, gens in sorted(by_role_gen.items()):
+        per_gen, all_lengths = {}, set()
+        for gen, bodies in sorted(gens.items()):
+            sizes = sorted({len(b) for b in bodies})
+            all_lengths |= set(sizes)
+            per_gen[gen] = {"n_bodies": len(bodies), "distinct_lengths": sizes,
+                            "content_dependent": len(sizes) > 1}
+        within = any(v["content_dependent"] for v in per_gen.values())
+        any_within |= within
+        out[role] = {"by_generation": per_gen, "distinct_lengths": sorted(all_lengths),
+                     "content_dependent_within_generation": within,
+                     "content_dependent": within}
     return {
         "per_role": out,
-        "length_ever_depends_on_content": any_varies,
+        "length_ever_depends_on_content": any_within,
         "implication": (
-            "Observed length varies; this alone does not identify a codec."
-            if any_varies else
-            "Observed container length is fixed within each collected role. "
-            "Padding or a fixed buffer can hide variable-rate compression; "
-            "this does not establish a fixed-rate codec or exclude entropy coding."),
+            "Within some generation, observed length varies with content; this alone "
+            "does not identify a codec."
+            if any_within else
+            "Observed container length is fixed within each (role, generation). Across "
+            "generations it differs by design. Padding or a fixed buffer can hide "
+            "variable-rate compression; this does not establish a fixed-rate codec or "
+            "exclude entropy coding."),
     }
 
 
@@ -143,7 +166,7 @@ def run(scans_dir=None) -> dict:
     artefact we can read sits outside that path.
     """
     data = collect(scans_dir)
-    size = size_invariance(data["by_role"])
+    size = size_invariance(data["by_role_gen"])
     ent = entropy_by_scene(data["by_scene"])
     head = coder_header_scan(data["by_role"])
 
