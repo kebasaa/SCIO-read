@@ -1,0 +1,25 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fw138_normal",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fw138_roleswap",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

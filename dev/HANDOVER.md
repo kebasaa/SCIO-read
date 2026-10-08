@@ -156,6 +156,19 @@ desk review in
 
 ## Open tasks, ranked
 
+### 0b. Cross-device decode push (done 2026-10-08)
+
+Three probes on the cross-device paired data (RECOVERY_STATUS §"Cross-device decode push"):
+**two-time-pad** — no keystream reuse (the one no-key break-chance, closed); **cross-device
+fingerprint** — identical random-like body statistics across 5 devices / 4 generations (one
+global algorithm); **fw-138 separability** — the server's sample/white separability generalises
+to the contributor's unit (role-swap accepted, C≈1.00). Net: **no offline decode**; the body is
+confirmed consistent with per-blob-randomised encryption; the decisive input stays firmware or
+known plaintext (raw intensities), neither obtainable offline without disassembly. The
+software-only route is exhausted on present evidence. A *powered* second-device leakage test
+awaits ≥20–30 fw-138 scans (requested from the contributor); even then it needs a plaintext
+handle to decode. Scripts: `probe_twotime.py`, `probe_cross_device.py`, `probe_fw138_separability.py`.
+
 ### 0. fw-138 unit: ingested, replayed, included (done 2026-10-08)
 
 A second owner contributed an older **fw-138** unit (see

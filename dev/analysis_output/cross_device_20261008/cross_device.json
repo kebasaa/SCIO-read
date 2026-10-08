@@ -1,0 +1,135 @@
+{
+  "schema": "scio-cross-device/1",
+  "question": "Is the body fingerprint the same across devices/generations?",
+  "devices": 5,
+  "per_device": {
+    "8032AB45611198F1": {
+      "tag": "20150812-e:PRODUCTION",
+      "provenance": "owned unit (paired corpus)",
+      "n_sample": 93,
+      "n": 93,
+      "body_bytes": 1792,
+      "header_word0_values": [
+        0
+      ],
+      "header_word1_unique": 93,
+      "entropy_mean": 7.893666422753522,
+      "entropy_min": 7.865744382027371,
+      "pooled_chi_square": 197.7019969278034,
+      "pooled_chi_square_df": 255,
+      "max_abs_position_z": 3.303780546738588,
+      "positions_beyond_4_sigma": 0,
+      "bit_one_fraction": 0.4996414770545315,
+      "longest_constant_run": 3,
+      "repeated_16b_blocks": 0
+    },
+    "E02E60F46B7CD55F": {
+      "tag": "20150812:PRODUCTION",
+      "provenance": "contributed fw-138 unit",
+      "n_sample": 4,
+      "n": 4,
+      "body_bytes": 1792,
+      "header_word0_values": [
+        0
+      ],
+      "header_word1_unique": 3,
+      "entropy_mean": 7.8890473818441995,
+      "entropy_min": 7.884171221487459,
+      "pooled_chi_square": 463.21428571428567,
+      "pooled_chi_square_df": 255,
+      "max_abs_position_z": 3.240854166573956,
+      "positions_beyond_4_sigma": 0,
+      "bit_one_fraction": 0.49623325892857145,
+      "longest_constant_run": 3,
+      "repeated_16b_blocks": 112
+    },
+    "503E5732B5EF1F35": {
+      "tag": "20150812-o:PRODUCTION",
+      "provenance": "app-embedded mock (uncertain identity)",
+      "n_sample": 1,
+      "n": 1,
+      "body_bytes": 1792,
+      "header_word0_values": [
+        0
+      ],
+      "header_word1_unique": 1,
+      "entropy_mean": 7.8920554782440195,
+      "entropy_min": 7.8920554782440195,
+      "pooled_chi_square": 258.0,
+      "pooled_chi_square_df": 255,
+      "max_abs_position_z": 1.725298147132273,
+      "positions_beyond_4_sigma": 0,
+      "bit_one_fraction": 0.5017438616071429,
+      "longest_constant_run": 2,
+      "repeated_16b_blocks": 0
+    },
+    "E027C2A6CF9435D6": {
+      "tag": "20150812:PRODUCTION",
+      "provenance": "app-embedded mock (uncertain identity)",
+      "n_sample": 3,
+      "n": 3,
+      "body_bytes": 1792,
+      "header_word0_values": [
+        0
+      ],
+      "header_word1_unique": 3,
+      "entropy_mean": 7.893589606823121,
+      "entropy_min": 7.885331015149504,
+      "pooled_chi_square": 268.38095238095235,
+      "pooled_chi_square_df": 255,
+      "max_abs_position_z": 2.8164277377203493,
+      "positions_beyond_4_sigma": 0,
+      "bit_one_fraction": 0.5007905505952381,
+      "longest_constant_run": 2,
+      "repeated_16b_blocks": 0
+    },
+    "1026A4DD1BB7158B": {
+      "tag": "20150712:PRODUCTION",
+      "provenance": "app-embedded mock (uncertain identity)",
+      "n_sample": 1,
+      "n": 1,
+      "body_bytes": 1792,
+      "header_word0_values": [
+        0
+      ],
+      "header_word1_unique": 1,
+      "entropy_mean": 7.905175200790324,
+      "entropy_min": 7.905175200790324,
+      "pooled_chi_square": 228.85714285714286,
+      "pooled_chi_square_df": 255,
+      "max_abs_position_z": 1.725298147132273,
+      "positions_beyond_4_sigma": 0,
+      "bit_one_fraction": 0.4990931919642857,
+      "longest_constant_run": 2,
+      "repeated_16b_blocks": 0
+    }
+  },
+  "spreads": {
+    "entropy_mean": {
+      "min": 7.8890473818441995,
+      "max": 7.905175200790324,
+      "spread": 0.01612781894612425
+    },
+    "pooled_chi_square": {
+      "min": 197.7019969278034,
+      "max": 463.21428571428567,
+      "spread": 265.51228878648226
+    },
+    "max_abs_position_z": {
+      "min": 1.725298147132273,
+      "max": 3.303780546738588,
+      "spread": 1.5784823996063149
+    },
+    "bit_one_fraction": {
+      "min": 0.49623325892857145,
+      "max": 0.5017438616071429,
+      "spread": 0.005510602678571452
+    }
+  },
+  "fingerprint_consistent": true,
+  "interpretation": "All devices/generations share the same random-like body fingerprint (flat byte histogram, ~7.89 bits/byte, no >4-sigma positions, bit fraction ~0.5). Consistent with one global algorithm (a shared key with device_id as a tweak), but it does not prove a shared key and does not break encryption.",
+  "limits": [
+    "Mock devices have uncertain identity/calibration; they inform, not drive.",
+    "A shared fingerprint is necessary but not sufficient for a shared decode model; the supervised leakage test already found no owner-side fixed-position information."
+  ]
+}

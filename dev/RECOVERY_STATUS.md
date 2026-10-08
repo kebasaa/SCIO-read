@@ -1,5 +1,43 @@
 # Evidence-led recovery, October 2026
 
+## Cross-device decode push, 2026-10-08
+
+Using the newly cross-device paired data (owner fw-147 ×93 incl. 30 same-target repeats,
+contributor fw-138, 5 app-embedded foreign-mock devices across 4 generations). Three probes;
+reports in `analysis_output/{twotime_20261008,cross_device_20261008,fw138_separability_20261008}`.
+
+- **Two-time-pad / keystream-reuse** (`scripts/probe_twotime.py`, `scio_offline/twotime.py`): the
+  first no-key XOR attack (prior `stream_hypothesis` only guessed keystreams). Across every
+  same-target repeat group (incl. `current_static` ×30) pairwise body XORs sit at the random
+  expectation — bit distance 0.485–0.498, XOR entropy 7.86–7.90 bits, no long zero runs; the
+  synthetic reused-keystream control is flagged and the fresh-IV control is not. **No keystream
+  reuse.** A constant/derived IV is ruled out; the cipher re-randomises every blob (consistent
+  with the fresh-per-blob second header word). This closes the gap the avalanche number only hinted
+  at. (This was the one no-key attack that could have broken it outright.)
+- **Cross-device statistical fingerprint** (`scripts/probe_cross_device.py`): all 5 devices /
+  4 generations share the same random-like body fingerprint — entropy 7.889–7.905 bits, no byte
+  position beyond 4σ, bit-one fraction 0.496–0.502. Consistent with **one global algorithm**
+  (a shared key with device_id as a tweak); it does not prove a shared key and does not break
+  encryption.
+- **fw-138 separability** (`scripts/probe_fw138_separability.py`, 4 server requests, 21 s apart):
+  a same-identity role-swap of the contributor's own blobs (his white into the sample slots,
+  his sample into the white slots, bare tag) was **accepted (200)** — all his blobs pass the
+  integrity check, as the owner's A0 white-swap did. R_normal·R_roleswap gives a near-unity
+  self-response factor C_fw138 ∈ [0.994, 1.011], close to the owner's C ∈ [1.022, 1.055]. So the
+  server's multiplicative sample/white separability **generalises to the second device/generation**
+  (calibration structure is shared, C slightly device/generation-dependent or single-sample noisy).
+
+**Verdict (honest).** The cross-device data does not open an offline decode. The body is confirmed
+consistent with per-blob-randomised encryption under what looks like one global algorithm; keystream
+reuse is excluded; no fixed-position leakage (earlier). The decisive missing input remains firmware
+(the key) or **known plaintext** — pre-ratio raw intensities for a device we hold blobs for, which
+we only have for a *different* device (tech-support CSV). Neither is obtainable offline from the
+device without disassembly. Remaining non-disassembly routes: (a) a raw-intensity export (lab/
+tech-support, a correspondence route), (b) a *powered* second-device test (≥20–30 fw-138 scans, now
+requested) — informative, but it still needs a plaintext handle to decode. The software-only route is
+exhausted on present evidence. New/updated tests pass (research + production); no firmware; no device
+writes.
+
 ## fw-138 unit: scans ingested, replayed, device included corpus-wide, 2026-10-08
 
 The contributor sent a white reference + three samples (pine/tomato/skin). Full write-up:

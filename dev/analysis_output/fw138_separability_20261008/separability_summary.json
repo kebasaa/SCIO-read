@@ -1,0 +1,10 @@
+{
+  "normal_status": 200,
+  "roleswap_status": 200,
+  "C_fw138_range": [
+    0.9937839828113176,
+    1.0114477220284468
+  ],
+  "separability_like": true,
+  "within_owner_C_range": true
+}

@@ -1,0 +1,437 @@
+{
+  "schema": "scio-twotime/1",
+  "question": "Is any keystream reused (constant/derived IV) so two ciphertexts XOR to plaintext?",
+  "controls": {
+    "reused_keystream": {
+      "n_bodies": 12,
+      "n_pairs": 66,
+      "body_bytes": 1792,
+      "bit_distance": {
+        "mean": 0.004480139001623377,
+        "min": 0.003696986607142857,
+        "max": 0.005022321428571429
+      },
+      "xor_entropy_bits": {
+        "mean": 0.10844731706170721,
+        "min": 0.10137272583385344
+      },
+      "zero_byte_fraction_max": 0.9916294642857143,
+      "longest_zero_run_max": 734,
+      "random_longest_zero_run": 1.35,
+      "reuse_suspected": true
+    },
+    "fresh_keystream": {
+      "n_bodies": 12,
+      "n_pairs": 66,
+      "body_bytes": 1792,
+      "bit_distance": {
+        "mean": 0.5006468141233764,
+        "min": 0.48897879464285715,
+        "max": 0.5093470982142857
+      },
+      "xor_entropy_bits": {
+        "mean": 7.894660154829386,
+        "min": 7.874017468085507
+      },
+      "zero_byte_fraction_max": 0.006138392857142857,
+      "longest_zero_run_max": 2,
+      "random_longest_zero_run": 1.35,
+      "reuse_suspected": false
+    }
+  },
+  "repeat_groups": {
+    "8032AB45611198F1|20150812-e:PRODUCTION|20200604_dead_needles|sample": {
+      "report": {
+        "n_bodies": 3,
+        "n_pairs": 3,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.5013020833333334,
+          "min": 0.49637276785714285,
+          "max": 0.5052315848214286
+        },
+        "xor_entropy_bits": {
+          "mean": 7.8949914067902,
+          "min": 7.894464130527711
+        },
+        "zero_byte_fraction_max": 0.005022321428571429,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 3,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.5053848086825934,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|20200604_dead_needles|sample_dark": {
+      "report": {
+        "n_bodies": 3,
+        "n_pairs": 3,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.5002790178571428,
+          "min": 0.49727957589285715,
+          "max": 0.5054408482142857
+        },
+        "xor_entropy_bits": {
+          "mean": 7.903576332973018,
+          "min": 7.900501822618152
+        },
+        "zero_byte_fraction_max": 0.006138392857142857,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 3,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.47604177664373254,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|20211020_calibration|sample": {
+      "report": {
+        "n_bodies": 13,
+        "n_pairs": 78,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.499599358974359,
+          "min": 0.49100167410714285,
+          "max": 0.5119280133928571
+        },
+        "xor_entropy_bits": {
+          "mean": 7.893703633474067,
+          "min": 7.87180385487023
+        },
+        "zero_byte_fraction_max": 0.006696428571428571,
+        "longest_zero_run_max": 2,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 13,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.04157871402581327,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|20211020_calibration|sample_dark": {
+      "report": {
+        "n_bodies": 13,
+        "n_pairs": 78,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.49961187900641024,
+          "min": 0.4882114955357143,
+          "max": 0.5099748883928571
+        },
+        "xor_entropy_bits": {
+          "mean": 7.894137340715802,
+          "min": 7.876301481785255
+        },
+        "zero_byte_fraction_max": 0.008370535714285714,
+        "longest_zero_run_max": 2,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 13,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": -0.10898535655721768,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|bark|sample": {
+      "report": {
+        "n_bodies": 6,
+        "n_pairs": 15,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.4994094122023809,
+          "min": 0.49169921875,
+          "max": 0.5052315848214286
+        },
+        "xor_entropy_bits": {
+          "mean": 7.896042523117688,
+          "min": 7.88311779718091
+        },
+        "zero_byte_fraction_max": 0.007254464285714286,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 6,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": -0.09121503549321557,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|bark|sample_dark": {
+      "report": {
+        "n_bodies": 6,
+        "n_pairs": 15,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.49709821428571443,
+          "min": 0.49239676339285715,
+          "max": 0.5060686383928571
+        },
+        "xor_entropy_bits": {
+          "mean": 7.89491040410834,
+          "min": 7.880002399846663
+        },
+        "zero_byte_fraction_max": 0.006696428571428571,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 6,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.10895925963143817,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|current_static|sample": {
+      "report": {
+        "n_bodies": 30,
+        "n_pairs": 435,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.4998595289408867,
+          "min": 0.4849330357142857,
+          "max": 0.5130440848214286
+        },
+        "xor_entropy_bits": {
+          "mean": 7.894213531082213,
+          "min": 7.867155820905497
+        },
+        "zero_byte_fraction_max": 0.009486607142857142,
+        "longest_zero_run_max": 2,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 30,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.020982552075507425,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|current_static|sample_dark": {
+      "report": {
+        "n_bodies": 30,
+        "n_pairs": 435,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.500328407224959,
+          "min": 0.48911830357142855,
+          "max": 0.5127650669642857
+        },
+        "xor_entropy_bits": {
+          "mean": 7.894645561542818,
+          "min": 7.864956968918416
+        },
+        "zero_byte_fraction_max": 0.0078125,
+        "longest_zero_run_max": 2,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 30,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": -0.025439442439382266,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|rock|sample": {
+      "report": {
+        "n_bodies": 4,
+        "n_pairs": 6,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.4975469680059524,
+          "min": 0.49044363839285715,
+          "max": 0.50146484375
+        },
+        "xor_entropy_bits": {
+          "mean": 7.8935426952419006,
+          "min": 7.882927695633767
+        },
+        "zero_byte_fraction_max": 0.005580357142857143,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 4,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.2331021562006074,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|rock|sample_dark": {
+      "report": {
+        "n_bodies": 4,
+        "n_pairs": 6,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.4991396949404763,
+          "min": 0.49476841517857145,
+          "max": 0.5032784598214286
+        },
+        "xor_entropy_bits": {
+          "mean": 7.897096643019854,
+          "min": 7.880977069405562
+        },
+        "zero_byte_fraction_max": 0.005022321428571429,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 4,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.317214081534559,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|skin|sample": {
+      "report": {
+        "n_bodies": 11,
+        "n_pairs": 55,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.4994698660714285,
+          "min": 0.49183872767857145,
+          "max": 0.5087193080357143
+        },
+        "xor_entropy_bits": {
+          "mean": 7.895430245240279,
+          "min": 7.8732253043792175
+        },
+        "zero_byte_fraction_max": 0.0078125,
+        "longest_zero_run_max": 2,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 11,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.16413950104886837,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|skin|sample_dark": {
+      "report": {
+        "n_bodies": 11,
+        "n_pairs": 55,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.5001192167207792,
+          "min": 0.49232700892857145,
+          "max": 0.5076032366071429
+        },
+        "xor_entropy_bits": {
+          "mean": 7.893627883513525,
+          "min": 7.874852640857611
+        },
+        "zero_byte_fraction_max": 0.008370535714285714,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 11,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.25065404886134635,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|soilcrust|sample": {
+      "report": {
+        "n_bodies": 4,
+        "n_pairs": 6,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.500918433779762,
+          "min": 0.49769810267857145,
+          "max": 0.5052315848214286
+        },
+        "xor_entropy_bits": {
+          "mean": 7.897675446448726,
+          "min": 7.878604457502913
+        },
+        "zero_byte_fraction_max": 0.004464285714285714,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 4,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": 0.6534419960153137,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    },
+    "8032AB45611198F1|20150812-e:PRODUCTION|soilcrust|sample_dark": {
+      "report": {
+        "n_bodies": 4,
+        "n_pairs": 6,
+        "body_bytes": 1792,
+        "bit_distance": {
+          "mean": 0.49800037202380953,
+          "min": 0.4940708705357143,
+          "max": 0.50244140625
+        },
+        "xor_entropy_bits": {
+          "mean": 7.896234340734644,
+          "min": 7.88403631042416
+        },
+        "zero_byte_fraction_max": 0.007254464285714286,
+        "longest_zero_run_max": 1,
+        "random_longest_zero_run": 1.35,
+        "reuse_suspected": false
+      },
+      "word1": {
+        "n": 4,
+        "word1_duplicates": 0,
+        "word1_distance_vs_bitdistance_corr": -0.33848667598602167,
+        "note": "A nonzero correlation or any duplicate word1 would be a keystream-reuse lead."
+      }
+    }
+  },
+  "cross_device_sample": {
+    "n_bodies": 2,
+    "n_pairs": 1,
+    "body_bytes": 1792,
+    "bit_distance": {
+      "mean": 0.49769810267857145,
+      "min": 0.49769810267857145,
+      "max": 0.49769810267857145
+    },
+    "xor_entropy_bits": {
+      "mean": 7.914920837507511,
+      "min": 7.914920837507511
+    },
+    "zero_byte_fraction_max": 0.0027901785714285715,
+    "longest_zero_run_max": 1,
+    "random_longest_zero_run": 1.35,
+    "reuse_suspected": false
+  },
+  "devices": [
+    "8032AB45611198F1",
+    "E02E60F46B7CD55F"
+  ],
+  "reuse_found": false,
+  "verdict": "No reuse: every repeat group XORs at the random expectation; consistent with a fresh per-blob keystream (or per-scan plaintext randomisation), not broken.",
+  "limits": [
+    "Only detects reuse of an identical keystream; it cannot recover a fresh-IV cipher.",
+    "Repeat groups are owner-only (the second device has no same-target repeats yet).",
+    "A negative is consistent with encryption; it does not prove encryption."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "hypothesis": "fw138_roleswap returns 200 + 331 finite bands (all his blobs pass the check). If sample/white separability holds, C_fw138 = sqrt(R_normal * R_roleswap) is a stable non-unity factor; compare its range to the owner's C (1.022-1.055).",
+  "owner_C_range": [
+    1.0223501318382036,
+    1.054725644460159
+  ],
+  "planned_requests": 4
+}
