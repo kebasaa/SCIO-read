@@ -1,0 +1,1557 @@
+{
+  "files": [
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "33f02e9d7384e34ace2a376cd8961e0944a81dd1b24b895c57551eba710a47b0",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles firmwareFiles) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles firmwareFiles) {"
+        }
+      ]
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/protocol/CommandIDs.java",
+      "sha256": "c3ae06ed80a37a22385a6bcf4bed7d97998b58778f4b0425b8021591fd12af77",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "public static final byte FILE_DOWNLOAD = -127;"
+        },
+        {
+          "line": 18,
+          "text": "public static final byte READ_FILE_HEADER = -121;"
+        },
+        {
+          "line": 19,
+          "text": "public static final byte READ_FILE_LIST = -108;"
+        },
+        {
+          "line": 29,
+          "text": "public static final byte RESPONSE_READ_FILE_LIST = -108;"
+        }
+      ]
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+      "anchors": [
+        {
+          "line": 718,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 722,
+          "text": "public boolean performReadFileHeader(int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 724,
+          "text": "return performCommand(CommandIDs.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 777,
+          "text": "public boolean performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 782,
+          "text": "return performCommand(CommandIDs.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "aca563c89ddaa0ce5b14acd10fd4f16620c16a27f0086e432421aac0237bb2c3",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186",
+      "anchors": [
+        {
+          "line": 139,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 142,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 145,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1858,
+          "text": "public void performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1859,
+          "text": "log.d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1860,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(bArr, i, responseCommandHandler);"
+        },
+        {
+          "line": 1865,
+          "text": "private void performReadFileList(final Task task, final boolean z) {"
+        },
+        {
+          "line": 1867,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1912,
+          "text": "ScioInternalDevice.this.logException(e, \"performReadFileList\");"
+        },
+        {
+          "line": 1924,
+          "text": "private void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1926,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "classes-dex_out/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "59bd7c41bdfadfbbb9804d5aae773ffabb228856c74d02f7416f9bc9e2ea48f9",
+      "anchors": [
+        {
+          "line": 58,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 201,
+          "text": "this.localChecksums = new HashMap();"
+        },
+        {
+          "line": 325,
+          "text": "this.upgradeState.data = this.fum.getByteData(next);"
+        },
+        {
+          "line": 326,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(next);"
+        },
+        {
+          "line": 331,
+          "text": "this.localChecksums.put(Integer.valueOf((int) next.getValue()), Long.valueOf(j));"
+        },
+        {
+          "line": 339,
+          "text": "this.upgradeState.data = this.fum.getByteData(firmwareFiles);"
+        },
+        {
+          "line": 340,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(firmwareFiles);"
+        },
+        {
+          "line": 507,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new ResponseCommandHandler() {"
+        },
+        {
+          "line": 695,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 732,
+          "text": "private void performReadFileList() {"
+        },
+        {
+          "line": 747,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: starting read file list\");"
+        },
+        {
+          "line": 753,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: SUCCESS read file list\");"
+        },
+        {
+          "line": 764,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 776,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 789,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, hashMap);"
+        },
+        {
+          "line": 790,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, hashMap);"
+        },
+        {
+          "line": 791,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, hashMap);"
+        },
+        {
+          "line": 792,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, hashMap);"
+        },
+        {
+          "line": 811,
+          "text": "if (!map.get(\"dead_pixels_indices_checksum\").equals(this.localChecksums.get(100))) {"
+        },
+        {
+          "line": 815,
+          "text": "if (!map.get(\"centers_checksum\").equals(this.localChecksums.get(101))) {"
+        },
+        {
+          "line": 819,
+          "text": "if (!map.get(\"bins_checksum\").equals(this.localChecksums.get(102))) {"
+        },
+        {
+          "line": 823,
+          "text": "if (!map.get(\"n_pixels_per_bin_checksum\").equals(this.localChecksums.get(103))) {"
+        },
+        {
+          "line": 866,
+          "text": "private void performReadFileHeader(final String str, final int i, final Map<String, Long> map) {"
+        },
+        {
+          "line": 867,
+          "text": "LogglyProvider.d(getPrefs().getUserEmail() + \": performReadFileHeader: starting read file header: \" + str);"
+        },
+        {
+          "line": 873,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileHeader: SUCCESS read file header: \" + str);"
+        },
+        {
+          "line": 884,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        },
+        {
+          "line": 896,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "04e8a0726209fec4d1cf7cdc91593f8b2067d1926b37986c73b5696c0e163087",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles file) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles file) {"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "1d21311968e2b50dcef3bdfc667b6123201b696520a2b8c87e879e53d93b7e11",
+      "anchors": [
+        {
+          "line": 811,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 815,
+          "text": "public boolean performReadFileHeader(int fileType, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 817,
+          "text": "return performCommand(Commands.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 873,
+          "text": "public boolean performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 878,
+          "text": "return performCommand(Commands.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "23c22b48670cb2dc16cefb14dc37467d7d79249b049bc1afc617a4ac79769272",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "15dd0523ff83bc0b813ebf6b992b1dc25550baae34416ae9fd81813a1e6b8d30",
+      "anchors": [
+        {
+          "line": 127,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 130,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 133,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1576,
+          "text": "public void performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1577,
+          "text": "log.m9d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1578,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(data, msgSeq, responseCommandHandler);"
+        },
+        {
+          "line": 1581,
+          "text": "private void performReadFileList(final Task task, final boolean isSetConnected) {"
+        },
+        {
+          "line": 1583,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1629,
+          "text": "private void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1631,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/_CHECK_consumerphysics/researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "37cfdcda802f50fe8619dae41f7c7c97269827f9ddfbe9546cccb58d35488f2b",
+      "anchors": [
+        {
+          "line": 46,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 321,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 454,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff);"
+        },
+        {
+          "line": 455,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff);"
+        },
+        {
+          "line": 464,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff2);"
+        },
+        {
+          "line": 465,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff2);"
+        },
+        {
+          "line": 470,
+          "text": "this.localChecksums.put(Integer.valueOf((int) ff2.getValue()), Long.valueOf(value));"
+        },
+        {
+          "line": 558,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new C10067());"
+        },
+        {
+          "line": 574,
+          "text": "private void performReadFileList() {"
+        },
+        {
+          "line": 591,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 601,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 621,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, checksums);"
+        },
+        {
+          "line": 622,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, checksums);"
+        },
+        {
+          "line": 623,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, checksums);"
+        },
+        {
+          "line": 624,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, checksums);"
+        },
+        {
+          "line": 638,
+          "text": "if (!((Long) checksums.get(\"dead_pixels_indices_checksum\")).equals(this.localChecksums.get(Integer.valueOf(100)))) {"
+        },
+        {
+          "line": 641,
+          "text": "if (!((Long) checksums.get(\"centers_checksum\")).equals(this.localChecksums.get(Integer.valueOf(101)))) {"
+        },
+        {
+          "line": 644,
+          "text": "if (!((Long) checksums.get(\"bins_checksum\")).equals(this.localChecksums.get(Integer.valueOf(102)))) {"
+        },
+        {
+          "line": 647,
+          "text": "if (!((Long) checksums.get(\"n_pixels_per_bin_checksum\")).equals(this.localChecksums.get(Integer.valueOf(103)))) {"
+        },
+        {
+          "line": 694,
+          "text": "private void performReadFileHeader(final String fileNameType, final int fileType, final Map<String, Long> checksums) {"
+        },
+        {
+          "line": 703,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        },
+        {
+          "line": 713,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "04e8a0726209fec4d1cf7cdc91593f8b2067d1926b37986c73b5696c0e163087",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles file) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles file) {"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "1d21311968e2b50dcef3bdfc667b6123201b696520a2b8c87e879e53d93b7e11",
+      "anchors": [
+        {
+          "line": 811,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 815,
+          "text": "public boolean performReadFileHeader(int fileType, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 817,
+          "text": "return performCommand(Commands.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 873,
+          "text": "public boolean performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 878,
+          "text": "return performCommand(Commands.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "23c22b48670cb2dc16cefb14dc37467d7d79249b049bc1afc617a4ac79769272",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "15dd0523ff83bc0b813ebf6b992b1dc25550baae34416ae9fd81813a1e6b8d30",
+      "anchors": [
+        {
+          "line": 127,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 130,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 133,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1576,
+          "text": "public void performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1577,
+          "text": "log.m9d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1578,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(data, msgSeq, responseCommandHandler);"
+        },
+        {
+          "line": 1581,
+          "text": "private void performReadFileList(final Task task, final boolean isSetConnected) {"
+        },
+        {
+          "line": 1583,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1629,
+          "text": "private void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1631,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "com.consumerphysics.researcher_2017-09-19_source_from_JADX/sources/com/consumerphysics/researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "37cfdcda802f50fe8619dae41f7c7c97269827f9ddfbe9546cccb58d35488f2b",
+      "anchors": [
+        {
+          "line": 46,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 321,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 454,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff);"
+        },
+        {
+          "line": 455,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff);"
+        },
+        {
+          "line": 464,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff2);"
+        },
+        {
+          "line": 465,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff2);"
+        },
+        {
+          "line": 470,
+          "text": "this.localChecksums.put(Integer.valueOf((int) ff2.getValue()), Long.valueOf(value));"
+        },
+        {
+          "line": 558,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new C10067());"
+        },
+        {
+          "line": 574,
+          "text": "private void performReadFileList() {"
+        },
+        {
+          "line": 591,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 601,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 621,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, checksums);"
+        },
+        {
+          "line": 622,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, checksums);"
+        },
+        {
+          "line": 623,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, checksums);"
+        },
+        {
+          "line": 624,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, checksums);"
+        },
+        {
+          "line": 638,
+          "text": "if (!((Long) checksums.get(\"dead_pixels_indices_checksum\")).equals(this.localChecksums.get(Integer.valueOf(100)))) {"
+        },
+        {
+          "line": 641,
+          "text": "if (!((Long) checksums.get(\"centers_checksum\")).equals(this.localChecksums.get(Integer.valueOf(101)))) {"
+        },
+        {
+          "line": 644,
+          "text": "if (!((Long) checksums.get(\"bins_checksum\")).equals(this.localChecksums.get(Integer.valueOf(102)))) {"
+        },
+        {
+          "line": 647,
+          "text": "if (!((Long) checksums.get(\"n_pixels_per_bin_checksum\")).equals(this.localChecksums.get(Integer.valueOf(103)))) {"
+        },
+        {
+          "line": 694,
+          "text": "private void performReadFileHeader(final String fileNameType, final int fileType, final Map<String, Long> checksums) {"
+        },
+        {
+          "line": 703,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        },
+        {
+          "line": 713,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "33f02e9d7384e34ace2a376cd8961e0944a81dd1b24b895c57551eba710a47b0",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles firmwareFiles) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles firmwareFiles) {"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/android/scioconnection/protocol/CommandIDs.java",
+      "sha256": "c3ae06ed80a37a22385a6bcf4bed7d97998b58778f4b0425b8021591fd12af77",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "public static final byte FILE_DOWNLOAD = -127;"
+        },
+        {
+          "line": 18,
+          "text": "public static final byte READ_FILE_HEADER = -121;"
+        },
+        {
+          "line": 19,
+          "text": "public static final byte READ_FILE_LIST = -108;"
+        },
+        {
+          "line": 29,
+          "text": "public static final byte RESPONSE_READ_FILE_LIST = -108;"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "443ac567ed69f9be4a785a76890c495860eed4263b1c1454250154a2a8aa5a78",
+      "anchors": [
+        {
+          "line": 846,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 850,
+          "text": "public boolean performReadFileHeader(int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 852,
+          "text": "return performCommand(CommandIDs.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 905,
+          "text": "public boolean performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 910,
+          "text": "return performCommand(CommandIDs.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "aca563c89ddaa0ce5b14acd10fd4f16620c16a27f0086e432421aac0237bb2c3",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "dca45a5c8c8775259e9e73834f5d2f09a92134a8aaefa2173913c289fe3e349c",
+      "anchors": [
+        {
+          "line": 141,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 144,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 147,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1660,
+          "text": "public void performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1661,
+          "text": "log.d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1662,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(bArr, i, responseCommandHandler);"
+        },
+        {
+          "line": 1666,
+          "text": "public void performReadFileList(final Task task, final boolean z) {"
+        },
+        {
+          "line": 1668,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1708,
+          "text": "ScioInternalDevice.this.logException(e, \"performReadFileList\");"
+        },
+        {
+          "line": 1719,
+          "text": "public void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1721,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "SCiO Pocket Molecular Sensor_v1.2.6.476_apkpure.com.apk_Decompiler.com/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "ad27f40187568149053a84dcea115743308a3d473236ba1775eaf28601abddae",
+      "anchors": [
+        {
+          "line": 62,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 196,
+          "text": "this.localChecksums = new HashMap();"
+        },
+        {
+          "line": 307,
+          "text": "this.upgradeState.data = this.fum.getByteData(next);"
+        },
+        {
+          "line": 308,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(next);"
+        },
+        {
+          "line": 313,
+          "text": "this.localChecksums.put(Integer.valueOf((int) next.getValue()), Long.valueOf(j));"
+        },
+        {
+          "line": 321,
+          "text": "this.upgradeState.data = this.fum.getByteData(firmwareFiles);"
+        },
+        {
+          "line": 322,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(firmwareFiles);"
+        },
+        {
+          "line": 475,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new ResponseCommandHandler() {"
+        },
+        {
+          "line": 634,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 664,
+          "text": "public void performReadFileList() {"
+        },
+        {
+          "line": 677,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: starting read file list\");"
+        },
+        {
+          "line": 680,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: SUCCESS read file list\");"
+        },
+        {
+          "line": 688,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 697,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 709,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, hashMap);"
+        },
+        {
+          "line": 710,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, hashMap);"
+        },
+        {
+          "line": 711,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, hashMap);"
+        },
+        {
+          "line": 712,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, hashMap);"
+        },
+        {
+          "line": 728,
+          "text": "if (!map.get(\"dead_pixels_indices_checksum\").equals(this.localChecksums.get(100))) {"
+        },
+        {
+          "line": 732,
+          "text": "if (!map.get(\"centers_checksum\").equals(this.localChecksums.get(101))) {"
+        },
+        {
+          "line": 736,
+          "text": "if (!map.get(\"bins_checksum\").equals(this.localChecksums.get(102))) {"
+        },
+        {
+          "line": 740,
+          "text": "if (!map.get(\"n_pixels_per_bin_checksum\").equals(this.localChecksums.get(103))) {"
+        },
+        {
+          "line": 778,
+          "text": "public void performReadFileHeader(final String str, final int i, final Map<String, Long> map) {"
+        },
+        {
+          "line": 779,
+          "text": "LogglyProvider.d(getPrefs().getUserEmail() + \": performReadFileHeader: starting read file header: \" + str);"
+        },
+        {
+          "line": 782,
+          "text": "LogglyProvider.d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileHeader: SUCCESS read file header: \" + str);"
+        },
+        {
+          "line": 790,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        },
+        {
+          "line": 799,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "33f02e9d7384e34ace2a376cd8961e0944a81dd1b24b895c57551eba710a47b0",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles firmwareFiles) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles firmwareFiles) {"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/android/scioconnection/protocol/CommandIDs.java",
+      "sha256": "c3ae06ed80a37a22385a6bcf4bed7d97998b58778f4b0425b8021591fd12af77",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "public static final byte FILE_DOWNLOAD = -127;"
+        },
+        {
+          "line": 18,
+          "text": "public static final byte READ_FILE_HEADER = -121;"
+        },
+        {
+          "line": 19,
+          "text": "public static final byte READ_FILE_LIST = -108;"
+        },
+        {
+          "line": 29,
+          "text": "public static final byte RESPONSE_READ_FILE_LIST = -108;"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "ef498f6e1d36679071a19e861af1e915bf4cf25af02a1f41397d8bb3acbedbe7",
+      "anchors": [
+        {
+          "line": 870,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 874,
+          "text": "public boolean performReadFileHeader(int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 876,
+          "text": "return performCommand(CommandIDs.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 929,
+          "text": "public boolean performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 934,
+          "text": "return performCommand(CommandIDs.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "aca563c89ddaa0ce5b14acd10fd4f16620c16a27f0086e432421aac0237bb2c3",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "b5f6994488169b8470e14137ce3b5f3293111171859cdf8e181e23db63ac3a49",
+      "anchors": [
+        {
+          "line": 139,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 142,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 145,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1638,
+          "text": "public void performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1639,
+          "text": "log.mo12814d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1640,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(bArr, i, responseCommandHandler);"
+        },
+        {
+          "line": 1644,
+          "text": "public void performReadFileList(final Task task, final boolean z) {"
+        },
+        {
+          "line": 1646,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1686,
+          "text": "ScioInternalDevice.this.logException(e, \"performReadFileList\");"
+        },
+        {
+          "line": 1697,
+          "text": "public void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1699,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_1.3.8.554_Apkpure_source_from_JADX/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "3cf9b7238d44dfad61a0bcbf0d8cfb3d383670991c97016c0350b440bd4ba8a6",
+      "anchors": [
+        {
+          "line": 61,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 195,
+          "text": "this.localChecksums = new HashMap();"
+        },
+        {
+          "line": 306,
+          "text": "this.upgradeState.data = this.fum.getByteData(next);"
+        },
+        {
+          "line": 307,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(next);"
+        },
+        {
+          "line": 312,
+          "text": "this.localChecksums.put(Integer.valueOf((int) next.getValue()), Long.valueOf(j));"
+        },
+        {
+          "line": 320,
+          "text": "this.upgradeState.data = this.fum.getByteData(firmwareFiles);"
+        },
+        {
+          "line": 321,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(firmwareFiles);"
+        },
+        {
+          "line": 474,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new ResponseCommandHandler() {"
+        },
+        {
+          "line": 633,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 663,
+          "text": "public void performReadFileList() {"
+        },
+        {
+          "line": 676,
+          "text": "LogglyProvider.m61d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: starting read file list\");"
+        },
+        {
+          "line": 679,
+          "text": "LogglyProvider.m61d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: SUCCESS read file list\");"
+        },
+        {
+          "line": 687,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 696,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 708,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, hashMap);"
+        },
+        {
+          "line": 709,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, hashMap);"
+        },
+        {
+          "line": 710,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, hashMap);"
+        },
+        {
+          "line": 711,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, hashMap);"
+        },
+        {
+          "line": 727,
+          "text": "if (!map.get(\"dead_pixels_indices_checksum\").equals(this.localChecksums.get(100))) {"
+        },
+        {
+          "line": 731,
+          "text": "if (!map.get(\"centers_checksum\").equals(this.localChecksums.get(101))) {"
+        },
+        {
+          "line": 735,
+          "text": "if (!map.get(\"bins_checksum\").equals(this.localChecksums.get(102))) {"
+        },
+        {
+          "line": 739,
+          "text": "if (!map.get(\"n_pixels_per_bin_checksum\").equals(this.localChecksums.get(103))) {"
+        },
+        {
+          "line": 777,
+          "text": "public void performReadFileHeader(final String str, final int i, final Map<String, Long> map) {"
+        },
+        {
+          "line": 778,
+          "text": "LogglyProvider.m61d(getPrefs().getUserEmail() + \": performReadFileHeader: starting read file header: \" + str);"
+        },
+        {
+          "line": 781,
+          "text": "LogglyProvider.m61d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileHeader: SUCCESS read file header: \" + str);"
+        },
+        {
+          "line": 789,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        },
+        {
+          "line": 798,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_v1.1.0.320_apkpure.com_source_from_JADX/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "04e8a0726209fec4d1cf7cdc91593f8b2067d1926b37986c73b5696c0e163087",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles file) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles file) {"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_v1.1.0.320_apkpure.com_source_from_JADX/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "24bb1bc037d75ca48065c30d971433cec5da691b21e5f38347e8c5446c92843a",
+      "anchors": [
+        {
+          "line": 812,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 816,
+          "text": "public boolean performReadFileHeader(int fileType, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 818,
+          "text": "return performCommand(Commands.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 874,
+          "text": "public boolean performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 879,
+          "text": "return performCommand(Commands.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_v1.1.0.320_apkpure.com_source_from_JADX/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "23c22b48670cb2dc16cefb14dc37467d7d79249b049bc1afc617a4ac79769272",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_v1.1.0.320_apkpure.com_source_from_JADX/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "f70f5a15bf677485d13aa02806cd9754fc21854ab78b75b8faeb8c6cfa5a3963",
+      "anchors": [
+        {
+          "line": 127,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 130,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 133,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1576,
+          "text": "public void performFileDownload(byte[] data, int msgSeq, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1577,
+          "text": "log.m9d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1578,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(data, msgSeq, responseCommandHandler);"
+        },
+        {
+          "line": 1581,
+          "text": "private void performReadFileList(final Task task, final boolean isSetConnected) {"
+        },
+        {
+          "line": 1583,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1629,
+          "text": "private void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1631,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "SCiOPocketMolecularSensor_v1.1.0.320_apkpure.com_source_from_JADX/sources/com/consumerphysics/consumer/activities/FirmwareUpgradeActivity.java",
+      "sha256": "993bfffafef61b1947ebb57f70b4c7e10ef6cbf2f5ed0e0faf01b9010b3f7658",
+      "anchors": [
+        {
+          "line": 58,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 286,
+          "text": "this.localChecksums = new HashMap();"
+        },
+        {
+          "line": 372,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff);"
+        },
+        {
+          "line": 373,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff);"
+        },
+        {
+          "line": 382,
+          "text": "this.upgradeState.data = this.fum.getByteData(ff2);"
+        },
+        {
+          "line": 383,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(ff2);"
+        },
+        {
+          "line": 388,
+          "text": "this.localChecksums.put(Integer.valueOf((int) ff2.getValue()), Long.valueOf(value));"
+        },
+        {
+          "line": 521,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new ResponseCommandHandler() {"
+        },
+        {
+          "line": 662,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 719,
+          "text": "private void performReadFileList() {"
+        },
+        {
+          "line": 740,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 750,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 758,
+          "text": "CommonLogglyProvider.m20d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: SUCCESS read file list\");"
+        },
+        {
+          "line": 774,
+          "text": "CommonLogglyProvider.m20d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileList: starting read file list\");"
+        },
+        {
+          "line": 782,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, checksums);"
+        },
+        {
+          "line": 783,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, checksums);"
+        },
+        {
+          "line": 784,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, checksums);"
+        },
+        {
+          "line": 785,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, checksums);"
+        },
+        {
+          "line": 799,
+          "text": "if (!((Long) checksums.get(\"dead_pixels_indices_checksum\")).equals(this.localChecksums.get(Integer.valueOf(100)))) {"
+        },
+        {
+          "line": 803,
+          "text": "if (!((Long) checksums.get(\"centers_checksum\")).equals(this.localChecksums.get(Integer.valueOf(101)))) {"
+        },
+        {
+          "line": 807,
+          "text": "if (!((Long) checksums.get(\"bins_checksum\")).equals(this.localChecksums.get(Integer.valueOf(102)))) {"
+        },
+        {
+          "line": 811,
+          "text": "if (!((Long) checksums.get(\"n_pixels_per_bin_checksum\")).equals(this.localChecksums.get(Integer.valueOf(103)))) {"
+        },
+        {
+          "line": 844,
+          "text": "private void performReadFileHeader(final String fileNameType, final int fileType, final Map<String, Long> checksums) {"
+        },
+        {
+          "line": 845,
+          "text": "CommonLogglyProvider.m20d(getPrefs().getUserEmail() + \": performReadFileHeader: starting read file header: \" + fileNameType);"
+        },
+        {
+          "line": 854,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        },
+        {
+          "line": 864,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(fileNameType, fileType, checksums);"
+        },
+        {
+          "line": 869,
+          "text": "CommonLogglyProvider.m20d(FirmwareUpgradeActivity.this.getPrefs().getUserEmail() + \": performReadFileHeader: SUCCESS read file header: \" + fileNameType);"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/android/common/model/FirmwareUpgradeModel.java",
+      "sha256": "33f02e9d7384e34ace2a376cd8961e0944a81dd1b24b895c57551eba710a47b0",
+      "anchors": [
+        {
+          "line": 37,
+          "text": "public byte[] getByteData(FirmwareFiles firmwareFiles) {"
+        },
+        {
+          "line": 42,
+          "text": "public byte[] getChecksumData(FirmwareFiles firmwareFiles) {"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/android/scioconnection/protocol/CommandIDs.java",
+      "sha256": "c3ae06ed80a37a22385a6bcf4bed7d97998b58778f4b0425b8021591fd12af77",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "public static final byte FILE_DOWNLOAD = -127;"
+        },
+        {
+          "line": 18,
+          "text": "public static final byte READ_FILE_HEADER = -121;"
+        },
+        {
+          "line": 19,
+          "text": "public static final byte READ_FILE_LIST = -108;"
+        },
+        {
+          "line": 29,
+          "text": "public static final byte RESPONSE_READ_FILE_LIST = -108;"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/android/scioconnection/services/SCiOBLeService.java",
+      "sha256": "77220bceb5de64a1ee8e686a658237c6f1df97c77eb683ed7586a973989c0be6",
+      "anchors": [
+        {
+          "line": 869,
+          "text": "public boolean performReadFileList(ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 873,
+          "text": "public boolean performReadFileHeader(int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 875,
+          "text": "return performCommand(CommandIDs.READ_FILE_HEADER, responseCommandHandler);"
+        },
+        {
+          "line": 928,
+          "text": "public boolean performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 933,
+          "text": "return performCommand(CommandIDs.FILE_DOWNLOAD, responseCommandHandler);"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/android/sdk/config/ScioCommands.java",
+      "sha256": "aca563c89ddaa0ce5b14acd10fd4f16620c16a27f0086e432421aac0237bb2c3",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "public static final int READ_FILE_HEADER_INTERNAL = 91;"
+        },
+        {
+          "line": 17,
+          "text": "public static final int READ_FILE_LIST_INTERNAL = 90;"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/android/sdk/sciosdk/ScioInternalDevice.java",
+      "sha256": "b0912360f1e5d7ef13fd6f33cfe9ded93d416701a7a16c2ce080a55e0362dfb3",
+      "anchors": [
+        {
+          "line": 139,
+          "text": "ScioInternalDevice.this.performReadFileList(task, false);"
+        },
+        {
+          "line": 142,
+          "text": "ScioInternalDevice.this.performReadFileHeader(task);"
+        },
+        {
+          "line": 145,
+          "text": "ScioInternalDevice.this.performReadFileList(task, true);"
+        },
+        {
+          "line": 1662,
+          "text": "public void performFileDownload(byte[] bArr, int i, ResponseCommandHandler responseCommandHandler) {"
+        },
+        {
+          "line": 1663,
+          "text": "log.mo14649d(\"ScioDevice::performReadFileList entered\");"
+        },
+        {
+          "line": 1664,
+          "text": "this.scioServiceConnection.getScioService().performFileDownload(bArr, i, responseCommandHandler);"
+        },
+        {
+          "line": 1668,
+          "text": "public void performReadFileList(final Task task, final boolean z) {"
+        },
+        {
+          "line": 1670,
+          "text": "this.scioServiceConnection.getScioService().performReadFileList(new ResponseCommandHandler() {"
+        },
+        {
+          "line": 1710,
+          "text": "ScioInternalDevice.this.logException(e, \"performReadFileList\");"
+        },
+        {
+          "line": 1721,
+          "text": "public void performReadFileHeader(final Task task) {"
+        },
+        {
+          "line": 1723,
+          "text": "this.scioServiceConnection.getScioService().performReadFileHeader(((Integer) task.data).intValue(), new ResponseCommandHandler() {"
+        }
+      ]
+    },
+    {
+      "source": "TheLabDevToolkitforSCiO_1.3.12.144_Apkpure_source_from_JADX/sources/com/consumerphysics/researcher/activities/FirmwareUpgradeActivity.java",
+      "sha256": "25d81e49db1e68613443037537928a7339dbc10e6ef509a6b197c1bf674f3fe8",
+      "anchors": [
+        {
+          "line": 48,
+          "text": "private Map<Integer, Long> localChecksums = new HashMap();"
+        },
+        {
+          "line": 199,
+          "text": "this.upgradeState.data = this.fum.getByteData(next);"
+        },
+        {
+          "line": 200,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(next);"
+        },
+        {
+          "line": 205,
+          "text": "this.localChecksums.put(Integer.valueOf((int) next.getValue()), Long.valueOf(j));"
+        },
+        {
+          "line": 213,
+          "text": "this.upgradeState.data = this.fum.getByteData(firmwareFiles);"
+        },
+        {
+          "line": 214,
+          "text": "this.upgradeState.checksum = this.fum.getChecksumData(firmwareFiles);"
+        },
+        {
+          "line": 326,
+          "text": "getScioDevice().performFileDownload(this.upgradeState.currentMessageData, this.upgradeState.currentFrame, new ResponseCommandHandler() {"
+        },
+        {
+          "line": 493,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 510,
+          "text": "public void performReadFileList() {"
+        },
+        {
+          "line": 528,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 538,
+          "text": "FirmwareUpgradeActivity.this.performReadFileList();"
+        },
+        {
+          "line": 550,
+          "text": "performReadFileHeader(\"dead_pixels_indices_checksum\", 100, hashMap);"
+        },
+        {
+          "line": 551,
+          "text": "performReadFileHeader(\"centers_checksum\", 101, hashMap);"
+        },
+        {
+          "line": 552,
+          "text": "performReadFileHeader(\"bins_checksum\", 102, hashMap);"
+        },
+        {
+          "line": 553,
+          "text": "performReadFileHeader(\"n_pixels_per_bin_checksum\", 103, hashMap);"
+        },
+        {
+          "line": 564,
+          "text": "boolean equals = map.get(\"dead_pixels_indices_checksum\").equals(this.localChecksums.get(100));"
+        },
+        {
+          "line": 565,
+          "text": "if (!map.get(\"centers_checksum\").equals(this.localChecksums.get(101))) {"
+        },
+        {
+          "line": 568,
+          "text": "if (!map.get(\"bins_checksum\").equals(this.localChecksums.get(102))) {"
+        },
+        {
+          "line": 571,
+          "text": "if (!map.get(\"n_pixels_per_bin_checksum\").equals(this.localChecksums.get(103))) {"
+        },
+        {
+          "line": 616,
+          "text": "public void performReadFileHeader(final String str, final int i, final Map<String, Long> map) {"
+        },
+        {
+          "line": 625,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        },
+        {
+          "line": 635,
+          "text": "FirmwareUpgradeActivity.this.performReadFileHeader(str, i, map);"
+        }
+      ]
+    }
+  ],
+  "inspected_files": 39,
+  "supported_body_read_found": false,
+  "device_commands_sent": 0,
+  "coverage_limit": "Named Java command/model/activity call sites, not proof that undocumented device firmware has no read operation",
+  "findings": {
+    "0x87": "READ_FILE_HEADER: LE file ID; four U32 response words; checksum at offset 12",
+    "0x94": "READ_FILE_LIST: file IDs/versions, not bodies",
+    "0x81": "FILE_DOWNLOAD sets outbound firmware bytes and write type; host-to-device write",
+    "misleading_log": "performFileDownload logs performReadFileList entered; log text is not operation direction",
+    "checksum": "Model separates first four bytes; inspected host code does not calculate a body byte sum"
+  }
+}

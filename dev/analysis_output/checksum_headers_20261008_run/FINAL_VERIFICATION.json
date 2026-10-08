@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "completed_jobs": 180266,
+  "research_tests_passed_network_disabled": 263,
+  "production_tests_passed_unchanged": 114,
+  "campaign_tests_passed": 58,
+  "recorded_input_hashes_unchanged": true,
+  "recorded_evaluator_driver_helper_hashes_unchanged": true,
+  "source_and_production_snapshot_unchanged": true,
+  "complete_checkpoint_resume_passed_without_new_jobs": true,
+  "public_safety_scan_passed": true,
+  "compressed_shareable_artifacts_scanned": 2,
+  "compressed_artifact_findings": 0,
+  "diff_whitespace_check_passed": true,
+  "private_checkpoint_git_ignored": true,
+  "device_commands": 0,
+  "server_requests": 0,
+  "new_firmware_artifacts": 0,
+  "validated_intermediate": false,
+  "validated_reflectance": false,
+  "validated_domain_vectors": false
+}

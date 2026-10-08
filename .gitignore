@@ -15,6 +15,7 @@ __pycache__/
 *.p12
 *.pfx
 local_private/
+email/
 
 # Cached encrypted SCiO account credentials (never commit)
 .scio_credentials.enc

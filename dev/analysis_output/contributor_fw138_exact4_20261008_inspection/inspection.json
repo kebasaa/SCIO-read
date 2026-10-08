@@ -1,0 +1,34 @@
+{
+  "source_campaign": "dev/analysis_output/contributor_fw138_exact4_20261008_network",
+  "rows": [
+    {
+      "name": "owner_control_initial",
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "offer_state": "null",
+      "artifacts": []
+    },
+    {
+      "name": "contributor_actual",
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "offer_state": "null",
+      "artifacts": []
+    },
+    {
+      "name": "contributor_zero",
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "offer_state": "null",
+      "artifacts": []
+    },
+    {
+      "name": "owner_control_final",
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "offer_state": "null",
+      "artifacts": []
+    }
+  ],
+  "network_requests": 0
+}

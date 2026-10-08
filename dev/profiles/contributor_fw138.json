@@ -1,0 +1,29 @@
+{
+  "schema": "scio-firmware-profile/1",
+  "profile_id": "contributor_fw138",
+  "device_id": "E02E60F46B7CD55F",
+  "dsp_id": "5291a26b2304c2c0",
+  "aptina_field": "2ee0f4607c6b5fd5",
+  "ble_id": "EBA03B00004C99B4",
+  "i2s_tag_config": "20150812:PRODUCTION",
+  "serial_number": "CPPCA0031C6PF331500306403936A1DF4015005M",
+  "current_versions": {"0x57": "0x7C", "0x5A": "0x11", "0x5B": "0x0C", "0x5C": "0x8A"},
+  "file_headers": {
+    "ble": [87, 119278, 124, 12946070],
+    "dsp_boot": [90, 7284, 17, 687783],
+    "dsp_dec": [91, 14600, 12, 1548912],
+    "dsp_op": [92, 32212, 138, 4101455],
+    "file99": [99, 32, 0, 0],
+    "deadPixelsIndices": [100, 2366, 1, 127520],
+    "centers": [101, 96, 1, 4880],
+    "bins": [102, 140, 1, 13587],
+    "nPixelsPerBin": [103, 974, 1, 30963]
+  },
+  "provenance": {
+    "source": "email/scio_fw138_for_kebasaa.md",
+    "method": "Contributor-reported USB headers; raw scan Base64 independently checked",
+    "scope": "Contributed device and identifiers supplied for the firmware experiment",
+    "limits": "No firmware bodies or independently proven checksum algorithm supplied"
+  },
+  "ble_mapping_note": "Server payload name ble maps diagnostically to observed runtime header 87; enum 89 is absent on this unit"
+}

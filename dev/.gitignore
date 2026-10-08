@@ -4,3 +4,4 @@ __pycache__/
 .pytest_tmp*/
 tmp/
 recovered_firmware/
+analysis_output/checksum_headers_*_plan/plan.json

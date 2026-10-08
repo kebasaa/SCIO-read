@@ -1,0 +1,489 @@
+{
+  "schema": "scio-contributor-firmware-campaign/1",
+  "max_firmware_gets": 4,
+  "min_completion_gap_seconds": 20,
+  "client": "Android 1.3.8.554",
+  "profiles": [
+    {
+      "schema": "scio-firmware-profile/1",
+      "profile_id": "owner_fw147",
+      "device_id": "8032AB45611198F1",
+      "ble_id": "01665900004C99B4",
+      "i2s_tag_config": "20150812-e:PRODUCTION",
+      "current_versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      },
+      "file_headers": {
+        "ble": [
+          87,
+          119233,
+          125,
+          12925168
+        ],
+        "dsp_boot": [
+          90,
+          7284,
+          17,
+          688456
+        ],
+        "dsp_dec": [
+          91,
+          14600,
+          12,
+          1548938
+        ],
+        "dsp_op": [
+          92,
+          32628,
+          147,
+          4151168
+        ],
+        "deadPixelsIndices": [
+          100,
+          1714,
+          3,
+          97267
+        ],
+        "centers": [
+          101,
+          96,
+          3,
+          6080
+        ],
+        "bins": [
+          102,
+          140,
+          3,
+          13587
+        ],
+        "nPixelsPerBin": [
+          103,
+          1166,
+          3,
+          36371
+        ]
+      },
+      "provenance": {
+        "source": "README.md section 5; previous verified device headers"
+      }
+    },
+    {
+      "schema": "scio-firmware-profile/1",
+      "profile_id": "contributor_fw138",
+      "device_id": "E02E60F46B7CD55F",
+      "dsp_id": "5291a26b2304c2c0",
+      "aptina_field": "2ee0f4607c6b5fd5",
+      "ble_id": "EBA03B00004C99B4",
+      "i2s_tag_config": "20150812:PRODUCTION",
+      "serial_number": "CPPCA0031C6PF331500306403936A1DF4015005M",
+      "current_versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A"
+      },
+      "file_headers": {
+        "ble": [
+          87,
+          119278,
+          124,
+          12946070
+        ],
+        "dsp_boot": [
+          90,
+          7284,
+          17,
+          687783
+        ],
+        "dsp_dec": [
+          91,
+          14600,
+          12,
+          1548912
+        ],
+        "dsp_op": [
+          92,
+          32212,
+          138,
+          4101455
+        ],
+        "file99": [
+          99,
+          32,
+          0,
+          0
+        ],
+        "deadPixelsIndices": [
+          100,
+          2366,
+          1,
+          127520
+        ],
+        "centers": [
+          101,
+          96,
+          1,
+          4880
+        ],
+        "bins": [
+          102,
+          140,
+          1,
+          13587
+        ],
+        "nPixelsPerBin": [
+          103,
+          974,
+          1,
+          30963
+        ]
+      },
+      "provenance": {
+        "source": "email/scio_fw138_for_kebasaa.md",
+        "method": "Contributor-reported USB headers; raw scan Base64 independently checked",
+        "scope": "Contributed device and identifiers supplied for the firmware experiment",
+        "limits": "No firmware bodies or independently proven checksum algorithm supplied",
+        "source_sha256": "8b5d8efdb32ec2cd6e4ae7d7dd28871703b4b0bb76e13c03bb7edcb338776404",
+        "profile_sha256": "e874d005035597e7d235fa88e7e62b02456fb229f3b850218956ed746605166c"
+      },
+      "ble_mapping_note": "Server payload name ble maps diagnostically to observed runtime header 87; enum 89 is absent on this unit"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "owner_control_initial",
+      "profile": {
+        "schema": "scio-firmware-profile/1",
+        "profile_id": "owner_fw147",
+        "device_id": "8032AB45611198F1",
+        "ble_id": "01665900004C99B4",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "current_versions": {
+          "0x57": "0x7D",
+          "0x5A": "0x11",
+          "0x5B": "0x0C",
+          "0x5C": "0x93"
+        },
+        "file_headers": {
+          "ble": [
+            87,
+            119233,
+            125,
+            12925168
+          ],
+          "dsp_boot": [
+            90,
+            7284,
+            17,
+            688456
+          ],
+          "dsp_dec": [
+            91,
+            14600,
+            12,
+            1548938
+          ],
+          "dsp_op": [
+            92,
+            32628,
+            147,
+            4151168
+          ],
+          "deadPixelsIndices": [
+            100,
+            1714,
+            3,
+            97267
+          ],
+          "centers": [
+            101,
+            96,
+            3,
+            6080
+          ],
+          "bins": [
+            102,
+            140,
+            3,
+            13587
+          ],
+          "nPixelsPerBin": [
+            103,
+            1166,
+            3,
+            36371
+          ]
+        },
+        "provenance": {
+          "source": "README.md section 5; previous verified device headers"
+        }
+      },
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      }
+    },
+    {
+      "name": "contributor_actual",
+      "profile": {
+        "schema": "scio-firmware-profile/1",
+        "profile_id": "contributor_fw138",
+        "device_id": "E02E60F46B7CD55F",
+        "dsp_id": "5291a26b2304c2c0",
+        "aptina_field": "2ee0f4607c6b5fd5",
+        "ble_id": "EBA03B00004C99B4",
+        "i2s_tag_config": "20150812:PRODUCTION",
+        "serial_number": "CPPCA0031C6PF331500306403936A1DF4015005M",
+        "current_versions": {
+          "0x57": "0x7C",
+          "0x5A": "0x11",
+          "0x5B": "0x0C",
+          "0x5C": "0x8A"
+        },
+        "file_headers": {
+          "ble": [
+            87,
+            119278,
+            124,
+            12946070
+          ],
+          "dsp_boot": [
+            90,
+            7284,
+            17,
+            687783
+          ],
+          "dsp_dec": [
+            91,
+            14600,
+            12,
+            1548912
+          ],
+          "dsp_op": [
+            92,
+            32212,
+            138,
+            4101455
+          ],
+          "file99": [
+            99,
+            32,
+            0,
+            0
+          ],
+          "deadPixelsIndices": [
+            100,
+            2366,
+            1,
+            127520
+          ],
+          "centers": [
+            101,
+            96,
+            1,
+            4880
+          ],
+          "bins": [
+            102,
+            140,
+            1,
+            13587
+          ],
+          "nPixelsPerBin": [
+            103,
+            974,
+            1,
+            30963
+          ]
+        },
+        "provenance": {
+          "source": "email/scio_fw138_for_kebasaa.md",
+          "method": "Contributor-reported USB headers; raw scan Base64 independently checked",
+          "scope": "Contributed device and identifiers supplied for the firmware experiment",
+          "limits": "No firmware bodies or independently proven checksum algorithm supplied",
+          "source_sha256": "8b5d8efdb32ec2cd6e4ae7d7dd28871703b4b0bb76e13c03bb7edcb338776404",
+          "profile_sha256": "e874d005035597e7d235fa88e7e62b02456fb229f3b850218956ed746605166c"
+        },
+        "ble_mapping_note": "Server payload name ble maps diagnostically to observed runtime header 87; enum 89 is absent on this unit"
+      },
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A"
+      }
+    },
+    {
+      "name": "contributor_zero",
+      "profile": {
+        "schema": "scio-firmware-profile/1",
+        "profile_id": "contributor_fw138",
+        "device_id": "E02E60F46B7CD55F",
+        "dsp_id": "5291a26b2304c2c0",
+        "aptina_field": "2ee0f4607c6b5fd5",
+        "ble_id": "EBA03B00004C99B4",
+        "i2s_tag_config": "20150812:PRODUCTION",
+        "serial_number": "CPPCA0031C6PF331500306403936A1DF4015005M",
+        "current_versions": {
+          "0x57": "0x7C",
+          "0x5A": "0x11",
+          "0x5B": "0x0C",
+          "0x5C": "0x8A"
+        },
+        "file_headers": {
+          "ble": [
+            87,
+            119278,
+            124,
+            12946070
+          ],
+          "dsp_boot": [
+            90,
+            7284,
+            17,
+            687783
+          ],
+          "dsp_dec": [
+            91,
+            14600,
+            12,
+            1548912
+          ],
+          "dsp_op": [
+            92,
+            32212,
+            138,
+            4101455
+          ],
+          "file99": [
+            99,
+            32,
+            0,
+            0
+          ],
+          "deadPixelsIndices": [
+            100,
+            2366,
+            1,
+            127520
+          ],
+          "centers": [
+            101,
+            96,
+            1,
+            4880
+          ],
+          "bins": [
+            102,
+            140,
+            1,
+            13587
+          ],
+          "nPixelsPerBin": [
+            103,
+            974,
+            1,
+            30963
+          ]
+        },
+        "provenance": {
+          "source": "email/scio_fw138_for_kebasaa.md",
+          "method": "Contributor-reported USB headers; raw scan Base64 independently checked",
+          "scope": "Contributed device and identifiers supplied for the firmware experiment",
+          "limits": "No firmware bodies or independently proven checksum algorithm supplied",
+          "source_sha256": "8b5d8efdb32ec2cd6e4ae7d7dd28871703b4b0bb76e13c03bb7edcb338776404",
+          "profile_sha256": "e874d005035597e7d235fa88e7e62b02456fb229f3b850218956ed746605166c"
+        },
+        "ble_mapping_note": "Server payload name ble maps diagnostically to observed runtime header 87; enum 89 is absent on this unit"
+      },
+      "versions": {
+        "0x57": "0x00",
+        "0x5A": "0x00",
+        "0x5B": "0x00",
+        "0x5C": "0x00"
+      }
+    },
+    {
+      "name": "owner_control_final",
+      "profile": {
+        "schema": "scio-firmware-profile/1",
+        "profile_id": "owner_fw147",
+        "device_id": "8032AB45611198F1",
+        "ble_id": "01665900004C99B4",
+        "i2s_tag_config": "20150812-e:PRODUCTION",
+        "current_versions": {
+          "0x57": "0x7D",
+          "0x5A": "0x11",
+          "0x5B": "0x0C",
+          "0x5C": "0x93"
+        },
+        "file_headers": {
+          "ble": [
+            87,
+            119233,
+            125,
+            12925168
+          ],
+          "dsp_boot": [
+            90,
+            7284,
+            17,
+            688456
+          ],
+          "dsp_dec": [
+            91,
+            14600,
+            12,
+            1548938
+          ],
+          "dsp_op": [
+            92,
+            32628,
+            147,
+            4151168
+          ],
+          "deadPixelsIndices": [
+            100,
+            1714,
+            3,
+            97267
+          ],
+          "centers": [
+            101,
+            96,
+            3,
+            6080
+          ],
+          "bins": [
+            102,
+            140,
+            3,
+            13587
+          ],
+          "nPixelsPerBin": [
+            103,
+            1166,
+            3,
+            36371
+          ]
+        },
+        "provenance": {
+          "source": "README.md section 5; previous verified device headers"
+        }
+      },
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      }
+    }
+  ],
+  "auth": "Fresh token immediately before each GET; credentials read only",
+  "source_code_sha256": "04e456360113e2e93538f5c4cc0a6c4dbe43fb84d94cff0a73651dcf501309fb"
+}

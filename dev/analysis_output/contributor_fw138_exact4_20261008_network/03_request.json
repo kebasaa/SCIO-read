@@ -1,0 +1,13 @@
+{
+  "index": 3,
+  "name": "owner_control_final",
+  "profile_id": "owner_fw147",
+  "device_id": "8032AB45611198F1",
+  "ble_id": "01665900004C99B4",
+  "params": {
+    "versions": "[{\"key\":\"0x57\",\"value\":\"0x7D\"},{\"key\":\"0x5A\",\"value\":\"0x11\"},{\"key\":\"0x5B\",\"value\":\"0x0C\"},{\"key\":\"0x5C\",\"value\":\"0x93\"}]",
+    "compression_version": "20150812-e:PRODUCTION"
+  },
+  "client": "Android 1.3.8.554",
+  "preparation_monotonic": 10537.0
+}

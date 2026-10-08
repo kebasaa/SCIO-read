@@ -1,0 +1,193 @@
+{
+  "completed": 180266,
+  "enumerated": 180266,
+  "complete": true,
+  "outcomes": [
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "delta",
+      "status": "codec_lead",
+      "count": 4
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "delta",
+      "status": "no_codec_hit",
+      "count": 1496
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "header",
+      "status": "codec_lead",
+      "count": 192
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "header",
+      "status": "no_codec_hit",
+      "count": 57608
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "random-body",
+      "status": "codec_lead",
+      "count": 2
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "random-body",
+      "status": "no_codec_hit",
+      "count": 798
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "random-key",
+      "status": "codec_lead",
+      "count": 3
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "decode",
+      "family": "random-key",
+      "status": "no_codec_hit",
+      "count": 797
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "direct",
+      "family": "compression-only",
+      "status": "no_codec_hit",
+      "count": 1
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "integrity",
+      "family": "delta",
+      "status": "no_match",
+      "count": 720
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "integrity",
+      "family": "header",
+      "status": "no_match",
+      "count": 27744
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "integrity",
+      "family": "random-body",
+      "status": "no_match",
+      "count": 384
+    },
+    {
+      "profile": "contributor_fw138",
+      "kind": "integrity",
+      "family": "random-key",
+      "status": "no_match",
+      "count": 384
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "delta",
+      "status": "codec_lead",
+      "count": 2
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "delta",
+      "status": "no_codec_hit",
+      "count": 1498
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "header",
+      "status": "codec_lead",
+      "count": 183
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "header",
+      "status": "no_codec_hit",
+      "count": 57617
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "random-body",
+      "status": "codec_lead",
+      "count": 2
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "random-body",
+      "status": "no_codec_hit",
+      "count": 798
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "random-key",
+      "status": "codec_lead",
+      "count": 2
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "decode",
+      "family": "random-key",
+      "status": "no_codec_hit",
+      "count": 798
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "direct",
+      "family": "compression-only",
+      "status": "no_codec_hit",
+      "count": 1
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "integrity",
+      "family": "delta",
+      "status": "no_match",
+      "count": 720
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "integrity",
+      "family": "header",
+      "status": "no_match",
+      "count": 27744
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "integrity",
+      "family": "random-body",
+      "status": "no_match",
+      "count": 384
+    },
+    {
+      "profile": "owner_fw147",
+      "kind": "integrity",
+      "family": "random-key",
+      "status": "no_match",
+      "count": 384
+    }
+  ],
+  "validated_intermediate": false,
+  "validated_reflectance": false,
+  "validated_domain_vectors": false,
+  "limits": "Codec matches require boundary review; current owner headers on historical scans are unverified; foreign track has one acquisition"
+}

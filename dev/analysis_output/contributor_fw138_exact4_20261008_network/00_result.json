@@ -1,0 +1,23 @@
+{
+  "index": 0,
+  "name": "owner_control_initial",
+  "profile_id": "owner_fw147",
+  "device_id": "8032AB45611198F1",
+  "ble_id": "01665900004C99B4",
+  "params": {
+    "versions": "[{\"key\":\"0x57\",\"value\":\"0x7D\"},{\"key\":\"0x5A\",\"value\":\"0x11\"},{\"key\":\"0x5B\",\"value\":\"0x0C\"},{\"key\":\"0x5C\",\"value\":\"0x93\"}]",
+    "compression_version": "20150812-e:PRODUCTION"
+  },
+  "client": "Android 1.3.8.554",
+  "preparation_monotonic": 10468.312,
+  "started_monotonic": 10469.781,
+  "started_unix": 1791450322.721587,
+  "status": 200,
+  "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+  "response_bytes": 51,
+  "response_truncated": false,
+  "private_response_path": "dev/private/contributor_firmware/contributor_fw138_exact4_20261008_network_0d4cb327/00_response.bin",
+  "offer_state": "null",
+  "artifacts": [],
+  "completed_monotonic": 10470.562
+}
