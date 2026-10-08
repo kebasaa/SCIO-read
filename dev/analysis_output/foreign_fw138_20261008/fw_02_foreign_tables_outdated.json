@@ -1,0 +1,23 @@
+{
+  "name": "foreign_tables_outdated",
+  "ble_id": "EBA03B00004C99B4",
+  "versions": {
+    "0x57": "0x7C",
+    "0x5A": "0x11",
+    "0x5B": "0x0C",
+    "0x5C": "0x8A",
+    "0x64": "0x00",
+    "0x65": "0x00",
+    "0x66": "0x00",
+    "0x67": "0x00"
+  },
+  "compression_version": "20150812:PRODUCTION",
+  "client": "Android 1.3.8.554",
+  "started_unix": 1791449204.0493908,
+  "status": 200,
+  "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+  "response_bytes": 51,
+  "new_version_is_null": true,
+  "files": [],
+  "elapsed_monotonic_seconds": 0.6869999999998981
+}

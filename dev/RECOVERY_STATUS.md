@@ -1,5 +1,28 @@
 # Evidence-led recovery, October 2026
 
+## Contributed fw-138 unit: firmware request + cross-white test, 2026-10-08
+
+A second owner contributed an older fw-138 unit (device specs, blobs and full write-up:
+[`analysis_output/foreign_fw138_20261008/FINDINGS.md`](analysis_output/foreign_fw138_20261008/FINDINGS.md)).
+
+- **Firmware (`scripts/probe_foreign_firmware.py`, 4 requests, 20 s apart):** three GETs at
+  the fw-138 BLE id + bare `20150812:PRODUCTION` tag (all-zero, real fw-138 versions, tables
+  outdated) and one control at the owner's own device. **All four returned the byte-identical
+  51-byte `{"new_version":null}`.** The genuinely-old device on the older generation tag — the
+  one case prior probes never covered — is offered nothing either. Bounded negative.
+- **Cross-white (`scripts/probe_foreign_crosswhite.py`, 4 requests):** the contributor's
+  sample+dark paired with the owner's white reference was rejected `400 Bad_sample_signature`
+  under both the owner's and the contributor's device_id; the controls returned valid spectra.
+  The per-blob signature is bound to the request's device_id; sample and white are not
+  independent swappable halves.
+- **New lead:** across the two units `dsp_boot`/`dsp_dec` are identical size+version but differ
+  in byte sum (−673, −26) → a small per-device region inside the boot/decrypt images, separate
+  from `dsp_op`. A target for any `dsp_boot`/`dsp_dec` dump.
+- Replay of the contributed scan for a paired fw-138 spectrum is **blocked** pending the
+  contributor's white reference. Firmware tooling extended: a per-job `ble_id` override and a
+  foreign header-table comparison in `firmware_recheck.run_firmware_jobs`/`describe_body`
+  (6 new mocked tests). No firmware obtained; nothing installed; no device command.
+
 ## Bounded identity/codec continuation, 2026-10-04
 
 See [BOUNDED_CAMPAIGN.md](BOUNDED_CAMPAIGN.md) for the completed run, exact stages,

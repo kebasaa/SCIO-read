@@ -1,0 +1,15 @@
+{
+  "results": {
+    "cross_owner_identity": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature"
+    },
+    "cross_foreign_identity": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature"
+    }
+  },
+  "limits": "Rejection confirms the request device_id must match every non-gradient blob; it does not reveal the signature algorithm or the payload transform."
+}

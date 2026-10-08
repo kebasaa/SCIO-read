@@ -127,6 +127,18 @@ desk review in
 
 ## Open tasks, ranked
 
+### 0. Paired fw-138 spectrum — awaiting the contributor's white reference
+
+A second owner contributed an older **fw-138** unit (see
+[`analysis_output/foreign_fw138_20261008/FINDINGS.md`](analysis_output/foreign_fw138_20261008/FINDINGS.md)).
+The firmware request came back `null` (below), but a real older-generation **paired
+sample** can still be added once the contributor sends their white reference
+(`sample_white`, `sample_white_dark`, `sample_white_gradient`). `probe_foreign_firmware.py`
+then replays the scan under the fw-138 device_id + bare tag. **New lead from the
+contribution:** `dsp_boot`/`dsp_dec` are identical size+version across the two units but
+differ in byte sum (−673, −26) → a small **per-device region inside the boot/decrypt
+images**; make it a target of any `dsp_boot`/`dsp_dec` dump.
+
 The hardware tasks below need a separately authorised session with the device
 opened (the housing is not designed to be reopened). Bounded software coverage
 corrections and independently supplied firmware artifacts remain non-teardown routes.
@@ -175,6 +187,8 @@ hypothesis that the earlier run could not have seen.
 | Mock fixtures (duplicates of 2017 source constants) | [mock comparison](analysis_output/recovery_20261003_followup/mock_constant_comparison.json) |
 | Server bit-flip/mutation oracles (closed by the signature) | [`ciphertext_oracle/`](analysis_output/ciphertext_oracle/) |
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
+| Firmware offer for a genuine fw-138 device (bare `20150812` tag) | [fw-138 findings](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
+| Pairing a foreign sample with the owner's white reference (device-bound signature) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |

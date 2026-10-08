@@ -1,0 +1,102 @@
+{
+  "contributed_device": {
+    "firmware": 138,
+    "i2s_tag_config": "20150812:PRODUCTION",
+    "ble_id": "EBA03B00004C99B4"
+  },
+  "firmware_results": [
+    {
+      "name": "foreign_all_zero",
+      "ble_id": "EBA03B00004C99B4",
+      "versions": {
+        "0x57": "0x00",
+        "0x5A": "0x00",
+        "0x5B": "0x00",
+        "0x5C": "0x00",
+        "0x64": "0x00",
+        "0x65": "0x00",
+        "0x66": "0x00",
+        "0x67": "0x00"
+      },
+      "compression_version": "20150812:PRODUCTION",
+      "client": "Android 1.3.8.554",
+      "started_unix": 1791449162.6645896,
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "response_bytes": 51,
+      "new_version_is_null": true,
+      "files": [],
+      "elapsed_monotonic_seconds": 0.6719999999986612
+    },
+    {
+      "name": "foreign_real_fw138",
+      "ble_id": "EBA03B00004C99B4",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A",
+        "0x64": "0x01",
+        "0x65": "0x01",
+        "0x66": "0x01",
+        "0x67": "0x01"
+      },
+      "compression_version": "20150812:PRODUCTION",
+      "client": "Android 1.3.8.554",
+      "started_unix": 1791449183.3534238,
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "response_bytes": 51,
+      "new_version_is_null": true,
+      "files": [],
+      "elapsed_monotonic_seconds": 0.6869999999998981
+    },
+    {
+      "name": "foreign_tables_outdated",
+      "ble_id": "EBA03B00004C99B4",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A",
+        "0x64": "0x00",
+        "0x65": "0x00",
+        "0x66": "0x00",
+        "0x67": "0x00"
+      },
+      "compression_version": "20150812:PRODUCTION",
+      "client": "Android 1.3.8.554",
+      "started_unix": 1791449204.0493908,
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "response_bytes": 51,
+      "new_version_is_null": true,
+      "files": [],
+      "elapsed_monotonic_seconds": 0.6869999999998981
+    },
+    {
+      "name": "own_device_control",
+      "ble_id": "01665900004C99B4",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      },
+      "compression_version": "20150812-e:PRODUCTION",
+      "client": "Android 1.3.8.554",
+      "started_unix": 1791449224.75833,
+      "status": 200,
+      "response_sha256": "f7bb8314e735cf6b05f60993ae05cd2e6150ea12f65c0e6d9d0cdd3209a08a0d",
+      "response_bytes": 51,
+      "new_version_is_null": true,
+      "files": [],
+      "elapsed_monotonic_seconds": 0.7340000000003783
+    }
+  ],
+  "offered_files": [],
+  "saved_dir": null,
+  "firmware_limits": "Null is only the observed offer for these parameters. Does not prove firmware deleted or unavailable to other authorized clients. No installation, reset or device command.",
+  "replay_plan": "blocked: contributed scan has no white reference (need sample_white + sample_white_dark)",
+  "replay": "blocked: contributed scan has no white reference (need sample_white + sample_white_dark)"
+}

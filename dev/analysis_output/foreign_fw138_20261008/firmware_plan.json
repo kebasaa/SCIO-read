@@ -1,0 +1,60 @@
+{
+  "device_ble_id": "EBA03B00004C99B4",
+  "default_compression_version": "20150812:PRODUCTION",
+  "source_metadata": "01_rawdata/device_files/device_20260907_155207.json",
+  "jobs": [
+    {
+      "name": "foreign_all_zero",
+      "versions": {
+        "0x57": "0x00",
+        "0x5A": "0x00",
+        "0x5B": "0x00",
+        "0x5C": "0x00",
+        "0x64": "0x00",
+        "0x65": "0x00",
+        "0x66": "0x00",
+        "0x67": "0x00"
+      }
+    },
+    {
+      "name": "foreign_real_fw138",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A",
+        "0x64": "0x01",
+        "0x65": "0x01",
+        "0x66": "0x01",
+        "0x67": "0x01"
+      }
+    },
+    {
+      "name": "foreign_tables_outdated",
+      "versions": {
+        "0x57": "0x7C",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x8A",
+        "0x64": "0x00",
+        "0x65": "0x00",
+        "0x66": "0x00",
+        "0x67": "0x00"
+      }
+    },
+    {
+      "name": "own_device_control",
+      "versions": {
+        "0x57": "0x7D",
+        "0x5A": "0x11",
+        "0x5B": "0x0C",
+        "0x5C": "0x93"
+      },
+      "ble_id": "01665900004C99B4",
+      "compression_version": "20150812-e:PRODUCTION"
+    }
+  ],
+  "max_requests": 4,
+  "min_gap_seconds": 20,
+  "scope": "Known GET firmware-upgrade only. No device writes, installation or reset."
+}

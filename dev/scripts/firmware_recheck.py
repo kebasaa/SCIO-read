@@ -30,8 +30,12 @@ def device_identity():
     return device['device'],current
 
 
-def describe_body(name,data):
-    """Metadata for an offered container (4-byte LE checksum prefix + body)."""
+def describe_body(name,data,extra_headers=None):
+    """Metadata for an offered container (4-byte LE checksum prefix + body).
+
+    ``extra_headers`` is an optional second header table ``name -> (size, version,
+    checksum)`` (e.g. a foreign unit's) compared alongside this unit's fw-147 table.
+    """
     body=data[4:]
     row={'name':name,'container_sha256':r.sha(data),'body_sha256':r.sha(body),
          'body_bytes':len(body),'prefix_u32le':int.from_bytes(data[:4],'little')}
@@ -41,13 +45,20 @@ def describe_body(name,data):
         size,version,checksum=UNIT_HEADERS[name]
         row['matches_unit_header_size']=len(body)==size
         row['matches_unit_header_checksum']=row['prefix_u32le']==checksum
+    if extra_headers and name in extra_headers:
+        size,version,checksum=extra_headers[name][:3]
+        row['matches_foreign_header_size']=len(body)==size
+        row['matches_foreign_header_checksum']=row['prefix_u32le']==checksum
     return row
 
 
-def run_firmware_jobs(out,jobs,live,ble_id,default_tag,saved_dir=None,budget=None):
+def run_firmware_jobs(out,jobs,live,ble_id,default_tag,saved_dir=None,budget=None,compare_headers=None):
     """Send each job's GET serially; stop on any error or on the first offer.
 
-    A job is {'name', 'versions', optional 'compression_version', optional 'client'}.
+    A job is {'name', 'versions', optional 'compression_version', optional 'client',
+    optional 'ble_id'}. A per-job ``ble_id`` overrides the default (e.g. a control
+    against the owner's own device within one serially-spaced run). ``compare_headers``
+    is an optional second header table passed to :func:`describe_body`.
     Returns the result rows. Raw responses stay in dev/private/<run>; offered bodies
     are also written to ``saved_dir`` (git-ignored dev/recovered_firmware/<run>).
     """
@@ -66,13 +77,14 @@ def run_firmware_jobs(out,jobs,live,ble_id,default_tag,saved_dir=None,budget=Non
     for index,job in enumerate(jobs):
         name=job['name'];versions=job['versions']
         tag=job.get('compression_version',default_tag);client=job.get('client',DEFAULT_CLIENT)
+        req_ble=job.get('ble_id',ble_id)
         time.sleep(max(0,20-(time.monotonic()-last)))
         params={'versions':json.dumps([{'key':k,'value':v} for k,v in versions.items()],separators=(',',':'))}
         if tag is not None:params['compression_version']=tag
         last=time.monotonic()
-        row={'name':name,'versions':versions,'compression_version':tag,'client':client,'started_unix':time.time()}
+        row={'name':name,'ble_id':req_ble,'versions':versions,'compression_version':tag,'client':client,'started_unix':time.time()}
         try:
-            with requests.get(cloud.API_BASE+'/device/'+ble_id+'/firmware-upgrade',params=params,
+            with requests.get(cloud.API_BASE+'/device/'+req_ble+'/firmware-upgrade',params=params,
                 headers={'Authorization':'Bearer '+token,'Accept':'application/json','X-SCiO-Client-Version':client},
                 timeout=30,allow_redirects=False,stream=True) as response:
                 row['status']=response.status_code;chunks=[];size=0
@@ -97,7 +109,7 @@ def run_firmware_jobs(out,jobs,live,ble_id,default_tag,saved_dir=None,budget=Non
                     saved_dir.mkdir(parents=True,exist_ok=True)
                     with (saved_dir/(key+'.bin')).open('xb') as f:f.write(data[4:])
                     with (saved_dir/(key+'.checksum')).open('x') as f:f.write(str(int.from_bytes(data[:4],'little')))
-                row['files'].append(describe_body(key,data))
+                row['files'].append(describe_body(key,data,compare_headers))
         except Exception as exc:
             row['halt_exception_type']=type(exc).__name__
         row['elapsed_monotonic_seconds']=time.monotonic()-last
