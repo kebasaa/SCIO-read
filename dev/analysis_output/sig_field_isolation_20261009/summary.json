@@ -1,0 +1,45 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "owner_blobs__id_fw138",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "owner_blobs__tag_fw138",
+      "status": 500,
+      "spectrum": false
+    },
+    {
+      "name": "owner_blobs__id_tag_fw138",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_mid",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "fw138white__id_fw138_tag_owner",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "fw138white__id_owner_tag_fw138",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

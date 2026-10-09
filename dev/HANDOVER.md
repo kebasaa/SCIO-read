@@ -380,6 +380,17 @@ The server flags whichever side's blobs are bound to a device other than the req
 not work with sample data from device B, in either direction. Consistent with — not proof of — a
 per-blob device-bound signature; fields other than `device_id` also differ between the units.
 
+**Binding field isolated: `device_id` (2026-10-09).** Single-variable test
+(`analysis_output/sig_field_isolation_20261009/`, `probe_signature_field_isolation.py`): starting
+from the owner's valid scan and changing **only** the request `device_id` (all owner blobs) turns
+200 → **400 `Bad_sample_signature`**; the flagged side is always the one whose origin device ≠ the
+request `device_id`. So the per-blob signature is **keyed by `device_id`** — the server validates
+each blob against the request `device_id`, not an id read from the blob. `i2s_tag_config` is also
+used but acts like an edition selector (tag-only change → 500, not a clean rejection; the `-e` suffix
+matters). `device_id` itself derives from the sensor aptina id (fw-138 `E02E60F46B7CD55F` = aptina
+`2ee0f4607c6b5fd5` byte-pairs reversed). **Firmware target narrows to the KDF `device_id`/aptina →
+per-blob key.** Does not reveal the KDF/cipher or yield the key; no offline decode.
+
 ### 0. fw-138 unit: ingested, replayed, included (done 2026-10-08)
 
 A second owner contributed an older **fw-138** unit (see

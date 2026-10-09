@@ -1,0 +1,4 @@
+{
+  "hypothesis": "On owner-blob jobs, a 400 Bad_sample_signature means that changed request field is used to validate/key the blobs; a 200 means the server reads an id embedded in the blob instead. device_id is the leading candidate for the key.",
+  "planned_requests": 8
+}

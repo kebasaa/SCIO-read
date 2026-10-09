@@ -1,0 +1,12 @@
+{
+  "name": "fw138white__id_owner_tag_fw138",
+  "status": 400,
+  "response": {
+    "spectrum": "white",
+    "error_type": "Bad_sample_signature",
+    "http_status": 400,
+    "message": "There is a problem with your scan, try again."
+  },
+  "spectrum": null,
+  "finished_at": "2026-10-09T19:22:53.656+02:00"
+}

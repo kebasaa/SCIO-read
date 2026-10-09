@@ -1,0 +1,36 @@
+{
+  "results": {
+    "owner_blobs__id_fw138": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature",
+      "flagged_side": "sample"
+    },
+    "owner_blobs__tag_fw138": {
+      "status": 500,
+      "decoded": false,
+      "error_type": null,
+      "flagged_side": null
+    },
+    "owner_blobs__id_tag_fw138": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature",
+      "flagged_side": "sample"
+    },
+    "fw138white__id_fw138_tag_owner": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature",
+      "flagged_side": "sample"
+    },
+    "fw138white__id_owner_tag_fw138": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature",
+      "flagged_side": "white"
+    }
+  },
+  "reading": "owner_blobs__* that reject -> that request field validates/keys the blobs; if they decode 200 -> binding id is embedded in the blob header, not the request.",
+  "limits": "Identifies which request field gates validation; it does not reveal the signature algorithm or prove that field is literally the decryption key."
+}
