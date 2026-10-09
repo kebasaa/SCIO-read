@@ -1,0 +1,6 @@
+{
+  "firmware": "Unknown. Prior probes returned null for the OWNER current device only; this is the first genuinely old device (fw-138, bare 20150812 tag).",
+  "replay": "blocked: contributed scan has no white reference (need sample_white + sample_white_dark)",
+  "budget": 10,
+  "planned_requests": 5
+}
