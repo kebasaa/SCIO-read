@@ -1,0 +1,12 @@
+{
+  "name": "cross_foreign_identity",
+  "status": 400,
+  "response": {
+    "spectrum": "sample",
+    "error_type": "Bad_sample_signature",
+    "http_status": 400,
+    "message": "There is a problem with your scan, try again."
+  },
+  "spectrum": null,
+  "finished_at": "2026-10-09T15:37:26.785+02:00"
+}

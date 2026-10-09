@@ -1,0 +1,25 @@
+{
+  "requests": [
+    {
+      "name": "control_initial",
+      "status": 200,
+      "spectrum": true
+    },
+    {
+      "name": "cross_owner_identity",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "cross_foreign_identity",
+      "status": 400,
+      "spectrum": false
+    },
+    {
+      "name": "control_final",
+      "status": 200,
+      "spectrum": true
+    }
+  ],
+  "limits": "Rejections do not establish a MAC, a cipher, key architecture, or processing order."
+}

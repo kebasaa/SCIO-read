@@ -1,0 +1,16 @@
+{
+  "results": {
+    "cross_owner_identity": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature"
+    },
+    "cross_foreign_identity": {
+      "status": 400,
+      "decoded": false,
+      "error_type": "Bad_sample_signature"
+    }
+  },
+  "direction": "owner sample + fw-138 white reference (mirror of probe_foreign_crosswhite.py)",
+  "limits": "Rejection confirms the request device_id must match every non-gradient blob; it does not reveal the signature algorithm, the payload transform, or isolate which blob failed. The white gradient was kept (owner), mirroring the forward test."
+}

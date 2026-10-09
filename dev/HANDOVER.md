@@ -371,6 +371,15 @@ software-only route is exhausted on present evidence. A *powered* second-device 
 awaits ≥20–30 fw-138 scans (requested from the contributor); even then it needs a plaintext
 handle to decode. Scripts: `probe_twotime.py`, `probe_cross_device.py`, `probe_fw138_separability.py`.
 
+**Both cross-white directions now closed (reverse added 2026-10-09).** The forward graft (owner
+white + fw-138 sample, 2026-10-08) and the reverse (owner sample + fw-138 white,
+`analysis_output/foreign_fw138_reverse_crosswhite_20261009/`, `probe_foreign_reverse_crosswhite.py`)
+both return **400 `Bad_sample_signature`** under both identities, with valid same-device controls.
+The server flags whichever side's blobs are bound to a device other than the request `device_id`
+(reverse: `white` under owner id, `sample` under fw-138 id). So a white reference from device A does
+not work with sample data from device B, in either direction. Consistent with — not proof of — a
+per-blob device-bound signature; fields other than `device_id` also differ between the units.
+
 ### 0. fw-138 unit: ingested, replayed, included (done 2026-10-08)
 
 A second owner contributed an older **fw-138** unit (see
@@ -440,7 +449,7 @@ hypothesis that the earlier run could not have seen.
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
 | Firmware offer for a genuine fw-138 device (bare `20150812` tag) | [fw-138 findings](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
 | Public HarvestMaster software (Mirus 4.6.11, Mirus 5.0.0, SCiO Troubleshooter 1.2.0, all plugin bundles): thin REST clients, no decoder, key or SCiO firmware | [harvestmaster findings](analysis_output/harvestmaster_20261009/FINDINGS.md) |
-| Pairing a foreign sample with the owner's white reference (tested combinations rejected) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
+| Pairing a foreign sample with the owner's white reference, or the reverse (both directions tested; all combinations rejected `Bad_sample_signature`) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md), [reverse](analysis_output/foreign_fw138_reverse_crosswhite_20261009/FINDINGS.md) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |
