@@ -1,0 +1,3335 @@
+{
+  "schema": 1,
+  "offline": true,
+  "decoded_bytes": 33425872,
+  "records": [
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.asyncawaitbestpractices.dll.compressed",
+      "source_sha256": "bb284360a7942307079c48445d807a2ce872bc52029fe18d1285901e25030b04",
+      "source_size": 7951,
+      "decoded_size": 18432,
+      "sha256": "c85b90cd3c88a7e5d31ae803f99ca63024b6c274c4ac7bed7e06a699df3864ef",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/asyncawaitbestpractices.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.castle.core.dll.compressed",
+      "source_sha256": "6e16c0379e735e096fc1c570e574f96164b5ecfcc018dc08c6bea63cedafad4c",
+      "source_size": 171431,
+      "decoded_size": 434688,
+      "sha256": "1796277a7aa9f2a9835c070d28fed44b3614ca221a2c1affc21a4c4e41194c3f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 6
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/castle.core.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.commonservicelocator.dll.compressed",
+      "source_sha256": "2eb9ebadb3bcd9af4e159cead7cf9b734ec46353a63e3aacca95b5312e9d0b27",
+      "source_size": 4342,
+      "decoded_size": 9728,
+      "sha256": "8951f1b70412949c6ac5f5a73441e689d954522ee199f17f56c97d3c90908afd",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/commonservicelocator.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.costura.dll.compressed",
+      "source_sha256": "74291771dd1f0338517e85182e062a96279f6e4ab8251502b8f7d1c33c6ce655",
+      "source_size": 1751,
+      "decoded_size": 4608,
+      "sha256": "41bb464ac7c0d192641077e44a59d7d89860c3c620a59961f2fc4a4be47deae3",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/costura.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.costura.pdb.compressed",
+      "source_sha256": "fbaa489666a278edc8ba51a9963f48e4dfe4c2d7a02f5454543fb87510b5dc7c",
+      "source_size": 1793,
+      "decoded_size": 2608,
+      "sha256": "89b13aa6efbc0b04745a00bb5fcf05b7a4e3537095bde974ed3490a9cf582d17",
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/costura.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.devices.resources.dll.compressed",
+      "source_sha256": "b66d85472133e80c019f08000d40063c7b0a76b1aaf213f498f9918ba5ee7ad9",
+      "source_size": 40349,
+      "decoded_size": 140800,
+      "sha256": "1dcdb5476085ad98e0b8b2a4d66813ba68dbfd4132df5e8b0cd62239974316d0",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 108
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 37
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/de.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.hm800.resources.dll.compressed",
+      "source_sha256": "6dddec43a4e0d341e9a36e01ca10cd09d481d9d20491eb6f37eed93deaa35de9",
+      "source_size": 7529,
+      "decoded_size": 31744,
+      "sha256": "6d6909d64de006cc6c3df5677292fae9cc43f41b1ab606df645cf58acdd105df",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/de.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.vcg.resources.dll.compressed",
+      "source_sha256": "f54f41fb106c5b70704b33c14e1a2bab0a93d1a3cd762857bb71c4f9f50e92da",
+      "source_size": 15103,
+      "decoded_size": 54784,
+      "sha256": "f862cf5c7081ede3f8a2e957a7238023fc640584ab0542c9950196fa403508a0",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 23
+        },
+        "firmware": {
+          "firmware": 40
+        },
+        "crypto": {
+          "aes": 1,
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/de.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.js.common.core.resources.dll.compressed",
+      "source_sha256": "57cf25a77a108ba7b8e7d3320804df9a4e81af7ef84b307ed9a6faaa8d7a63e4",
+      "source_size": 3504,
+      "decoded_size": 11264,
+      "sha256": "c6e80b0686267461cc6bba5b1c0446f0ba75895d588e1a9d6408a5ab8a3668e8",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/de.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "321f3b4054234f201c15314d55247f41a4e374347e8e32bb5560f07d0a1e9395",
+      "source_size": 1533,
+      "decoded_size": 4096,
+      "sha256": "40de194079b719b5cd21447cc1fab4539ff2ab14af920ecd1ecca256204fef43",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/de.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.devices.resources.dll.compressed",
+      "source_sha256": "87c7d8cd61661ce4b03c889dc5df9dfea40c64ec1fdca058293183638bacf385",
+      "source_size": 39688,
+      "decoded_size": 140800,
+      "sha256": "41473890b30b1072085d0c86aa19ce890b82b8f39c04cdcdde8bf3dd39d75746",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 108
+        },
+        "spectral": {
+          "nir_": 8,
+          "receptor": 1
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 38
+        },
+        "crypto": {
+          "rsa": 2,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/es.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.hm800.resources.dll.compressed",
+      "source_sha256": "7632f1a64993b5f369cd56de55d44f73f448c0e4d53a1119fb53fb28621d0580",
+      "source_size": 7409,
+      "decoded_size": 31744,
+      "sha256": "c1c57873b5b1327e3b5c3712329e31cadf386fcb4b9377797cacf175ad35ba23",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/es.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.vcg.resources.dll.compressed",
+      "source_sha256": "14ab6e398abb1510047a6638386a36c6fa1d6ea728c84ebde14cafb9a9aaf5e8",
+      "source_size": 14736,
+      "decoded_size": 53760,
+      "sha256": "af2ff053163d3029e288d5412daa21cda38fb5ae83d0a7f7ed6bda8e8fb0d691",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 24
+        },
+        "firmware": {
+          "firmware": 40
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/es.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.js.common.core.resources.dll.compressed",
+      "source_sha256": "edaf427984b572b4320eefe87c67f31c746ed48a903ff799c83c3ba9918e6888",
+      "source_size": 3521,
+      "decoded_size": 11776,
+      "sha256": "783f915fc6aeeb0769e06ce24759c365b0bfc3386e4df0af2220270cd15600bd",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/es.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "2b73553f8915d61c4690e6394879934c51b8cf02bd04eacfbf9ec8456c67663c",
+      "source_size": 1503,
+      "decoded_size": 3584,
+      "sha256": "7010c23486672ed13cb966a87e96fa9ec62163eedc720b6f7095e38f234087f3",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/es.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fakeiteasy.dll.compressed",
+      "source_sha256": "590eb97ae58c6c66aed0ca19aba9b0c3be450a323e9a4e60f4850585a9032a8b",
+      "source_size": 149309,
+      "decoded_size": 314368,
+      "sha256": "274e4b560a57efcb1dd6707b34b753c5f2db2fe275b3cb7fd9ba3d11f39a0e5b",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fakeiteasy.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.devices.resources.dll.compressed",
+      "source_sha256": "4bffd3600dda3e22604740be7e56405aab3d15d7e8acc2bbed97ba0a3ca09659",
+      "source_size": 40067,
+      "decoded_size": 142848,
+      "sha256": "8601737625e9fde18a90d469144cfdb1660e650c577593c6d8e84cca166045d2",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 108
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 25
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fr.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.hm800.resources.dll.compressed",
+      "source_sha256": "22b559f54a89a49716f6dfd305ec0896cabddb557f09c23ac37980aa90b1bfcd",
+      "source_size": 7505,
+      "decoded_size": 32256,
+      "sha256": "76f959c2881f6a3dfda3cdd91dd781cc43b1435fa4d6a6c6139f3cbb7b96dd68",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 12
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fr.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.vcg.resources.dll.compressed",
+      "source_sha256": "0a9e3f77ea6d52112a8809d2c4c03cc523268ee592aac4c882761c012d4f7926",
+      "source_size": 14908,
+      "decoded_size": 54784,
+      "sha256": "f7afb8f61ded06032e9612c7bbb479581bc8de513023dfcc1bafff4be51f85ff",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 24
+        },
+        "firmware": {
+          "firmware": 30
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fr.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.js.common.core.resources.dll.compressed",
+      "source_sha256": "75b63ce8239677b260fbdaed2ac76da7780c34d0f9900a35b1344af94052cec6",
+      "source_size": 3524,
+      "decoded_size": 11776,
+      "sha256": "f9d274ed1b57868f29760cbbd267daa81d1b8cd0e7d9c34afc5604ab2d090b20",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fr.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "b11b9bc1bb32e22c0e35b079800a560f33d5792d2286d059727009f1938f9876",
+      "source_size": 1508,
+      "decoded_size": 3584,
+      "sha256": "5f1d53684c52ac94419bd719d72e715a0fcffb74f504553842ed57f5f3c833d1",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/fr.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.dll.compressed",
+      "source_sha256": "e032b2905700479459a9379e7177fbbaa37120e641202ae8cb9b9f29b31c8318",
+      "source_size": 12888,
+      "decoded_size": 29184,
+      "sha256": "1a9786ed4a90570bdfd8c6fb7429ddbc5f8f8534d166297a137f1581639bf3e3",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/galasoft.mvvmlight.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.extras.dll.compressed",
+      "source_sha256": "d7bbb52fb054109da985b7d0fe3663715a52017577ab21b25ad1b7b585e29d54",
+      "source_size": 10733,
+      "decoded_size": 25600,
+      "sha256": "e0ac213d3735be6fccd18930fdcb98194d4a95e7c5c4ddd8c2d28b365f3297a0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 5
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/galasoft.mvvmlight.extras.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.extras.pdb.compressed",
+      "source_sha256": "2dc9463fc64670443751373c92eab2ed1533140ad312ee93bd3706a7208dd7a1",
+      "source_size": 10455,
+      "decoded_size": 44544,
+      "sha256": "9003b24dc25c0166a040a25573adbd2a869459c67767d85b031078bbc553262d",
+      "kind": "other",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/galasoft.mvvmlight.extras.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.pdb.compressed",
+      "source_sha256": "9ff747969474384f89a64a9ad33328376cc740bf3b9ed4c007074f30949bec3b",
+      "source_size": 17856,
+      "decoded_size": 89600,
+      "sha256": "ac3be59f9098f4f991525face182c6a64c2f88b20c061575ccd6f5d1ab1bc30c",
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/galasoft.mvvmlight.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.alta.views.dll.compressed",
+      "source_sha256": "d0e00aefc851baeccf6c0beeba665b3ac8542a5800993434128a1003ac256ddd",
+      "source_size": 257105,
+      "decoded_size": 528896,
+      "sha256": "a22617c684a40e02734cf921d07508ae246e310e17538cf826219aa88bf22c03",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.alta.views.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.alta.views.pdb.compressed",
+      "source_sha256": "ca2cc7f4b73565df1f23c908fce06399421ced03c6abd3e2dd3d950adbbfb474",
+      "source_size": 244766,
+      "decoded_size": 292748,
+      "sha256": "82cb1128d5c164f6bfb184d2e0cbb5202b902c6107c8c79aff48b2b1aacb386d",
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.alta.views.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.devices.dll.compressed",
+      "source_sha256": "f07402888f2f10d05ac4a3e7a19dc738de23af3c130a86deabefc7c48c79812d",
+      "source_size": 252737,
+      "decoded_size": 766976,
+      "sha256": "49a52165b03aaf2c2cf78fe0e57f8b5f2c751fbab9dfffe4dce0f89c3799fd33",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 301
+        },
+        "spectral": {
+          "nir sensor": 5,
+          "nir_": 24
+        },
+        "payload": {
+          "device_id": 4
+        },
+        "firmware": {
+          "firmware": 138
+        },
+        "crypto": {
+          "rsa": 4,
+          "licens": 28
+        },
+        "transport": {
+          "localhost:8080": 1,
+          "/v1/": 1,
+          "is_connected": 12,
+          "export_scans": 2,
+          "self_test": 2,
+          "last_data_sync": 4,
+          "serialport": 32,
+          "com port": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.devices.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.devices.pdb.compressed",
+      "source_sha256": "c43e25b05a92ae49e05e50c0dc505a863d518e34f2d623be8ad40388c94910a8",
+      "source_size": 81510,
+      "decoded_size": 195284,
+      "sha256": "a2b72b6f514f5cd744f76791a204feb600d374482af30f75b9a871ebc24938f8",
+      "kind": "other",
+      "vocabulary": {
+        "vendor": {
+          "scio": 8
+        },
+        "firmware": {
+          "firmware": 18
+        },
+        "crypto": {
+          "licens": 1
+        },
+        "transport": {
+          "serialport": 7
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.devices.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.hm800.dll.compressed",
+      "source_sha256": "fd74330765ddb53e7bdf226b6010095754720fb8ca2980c8253619cc9dd96bf3",
+      "source_size": 1838748,
+      "decoded_size": 2374656,
+      "sha256": "5bc8b2a8f306ea2c0c6c56592df13ebf9e59be1007739d313b39557ecce021d1",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 1
+        },
+        "firmware": {
+          "firmware": 277
+        },
+        "crypto": {
+          "aes": 1,
+          "hmac": 1,
+          "rsa": 3
+        },
+        "transport": {
+          "is_connected": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.hm800.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.hm800.pdb.compressed",
+      "source_sha256": "52f85c5c19d26d1809355722ffd5c6020794d3b6d9fbd4c176aa32d94ef95535",
+      "source_size": 106196,
+      "decoded_size": 264144,
+      "sha256": "5e7b8f34dacaa3592c8345bc2fa263b6071c1b640ef10f231f987f9acb5005ac",
+      "kind": "other",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 27
+        },
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.hm800.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.vcg.dll.compressed",
+      "source_sha256": "069906de41ff5dcc31eddb6384f43238e07cfb846b47ab0e76183cc0b76afabd",
+      "source_size": 306733,
+      "decoded_size": 864256,
+      "sha256": "9399afe3265be6ea6daba9942d97513d4e1650a67ad237ebfcd7de1affebce2b",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 341
+        },
+        "spectral": {
+          "nir sensor": 1,
+          "nir_": 2
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 248
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 13
+        },
+        "transport": {
+          "last_data_sync": 1,
+          "serialport": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.vcg.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.vcg.pdb.compressed",
+      "source_sha256": "117d5af02d75302e3a65c5074fec57210c6f49dd6cf5bf195e968b5b062921ab",
+      "source_size": 98937,
+      "decoded_size": 232632,
+      "sha256": "051ea992c4b44a2ac5a5bc35078e440b91cb965ff19bc80d20d3a78161a58a2d",
+      "kind": "other",
+      "vocabulary": {
+        "vendor": {
+          "scio": 13
+        },
+        "firmware": {
+          "firmware": 16
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/hm.vcg.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.dll.compressed",
+      "source_sha256": "6d43616fae49d3136133b9c008234ff249ef45a605c151a9f49cca5fbf131133",
+      "source_size": 753197,
+      "decoded_size": 1801216,
+      "sha256": "8e0cc4604b7ad96c44018ebcdfe1c2c8ecc9fee01d47dcd18f701a5c76d2e127",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 11,
+          "licens": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/ironpython.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.modules.dll.compressed",
+      "source_sha256": "454ccb5e3fd0abfa3db55703d7e6e81a856066506ff61dce520cc12589701e4a",
+      "source_size": 269584,
+      "decoded_size": 705536,
+      "sha256": "36bfbfb20ac11d6e857f675f675555637b7e02074aff32bfc2ee193e84941750",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 6,
+          "rsa": 14,
+          "privatekey": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/ironpython.modules.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.sqlite.dll.compressed",
+      "source_sha256": "7f20ee655b34f6b07a6d8ae568f3bf195e4405c33d9b6082e8711ed47e59111a",
+      "source_size": 263681,
+      "decoded_size": 637440,
+      "sha256": "472fae57426d2bd1143d57e06da5f35837cf87e67c87ff7adc9bbe81963d867b",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4,
+          "decrypt": 1,
+          "encrypt": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/ironpython.sqlite.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.wpf.dll.compressed",
+      "source_sha256": "d8aa296018c69b14857e81ac43a9e60c0f6e650de82319a2663a91745d0a5f62",
+      "source_size": 3211,
+      "decoded_size": 7168,
+      "sha256": "3350780720583f239851fa40ef97edc1379662470fe5de7561f9fdc0fac44d1f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/ironpython.wpf.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.devices.resources.dll.compressed",
+      "source_sha256": "b20a435fb0d6b28974f8157251018fc18fcf1b1874d011956ba90f7d437c343b",
+      "source_size": 38919,
+      "decoded_size": 139776,
+      "sha256": "e9ea609b752b6e56423a82b2fa3945e400f810618780eb11a070f3268c638c5d",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 108
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 38
+        },
+        "crypto": {
+          "rsa": 21,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/it.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.hm800.resources.dll.compressed",
+      "source_sha256": "6dab2071528efd82bec0db3b8873b2163a42f826eb64c77658f05eeea9280df0",
+      "source_size": 7348,
+      "decoded_size": 31744,
+      "sha256": "26e4aefe4424d2e8a2af06f18623af37c961914458902c1c2f9e935ddb52a1d6",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/it.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.vcg.resources.dll.compressed",
+      "source_sha256": "dbc3e37a3c5cc5974682286061e8891af505758488088b1728306c488ed353ec",
+      "source_size": 14628,
+      "decoded_size": 53760,
+      "sha256": "4ed2ee4fa5e77cc7091e9eb1ac09ac49e54c86046835c3c5661d11715b58efcb",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 24
+        },
+        "firmware": {
+          "firmware": 40
+        },
+        "crypto": {
+          "rsa": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/it.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.js.common.core.resources.dll.compressed",
+      "source_sha256": "b74ba09c8605cb9c1576cb51c91d7aa4d58fcffff46217a73e31e81f4ebc1f88",
+      "source_size": 3518,
+      "decoded_size": 11776,
+      "sha256": "9a51ccbbb03ed3e9f5baddff96e1ab1cc55420ae8b8f504cc5af94f114c4c9cc",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/it.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "fce86f128ab1be7160d59d567d8583f8b2b301d72b7762aab57eefa764ff670e",
+      "source_size": 1521,
+      "decoded_size": 4096,
+      "sha256": "5579de9d1ab407b95a1b82ffc9cd30c79ba72d19740d89ac66efa8a81221e147",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/it.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.core.dll.compressed",
+      "source_sha256": "f2a92373f5a2645a51de5ec27c3451bfac06ddd4288729dd588e13658348aa13",
+      "source_size": 62810,
+      "decoded_size": 158720,
+      "sha256": "afa6d67d765da24af01e92c660e3a46e55248d6efab5c0c91196cc9a1375b35d",
+      "kind": ".net",
+      "vocabulary": {
+        "transport": {
+          "serialport": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/js.common.core.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.core.pdb.compressed",
+      "source_sha256": "47a093c3a677a79f6e95f2c55017913664b63bb4e2c05d1c91c81db94985e4ed",
+      "source_size": 28763,
+      "decoded_size": 58856,
+      "sha256": "a86cdcaf88528fea9b0247b81f09a830457b0ba7e38df14f4416ba5147843863",
+      "kind": "other",
+      "vocabulary": {
+        "transport": {
+          "serialport": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/js.common.core.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.dll.compressed",
+      "source_sha256": "1a0116f2faa26ed3d7ac590693b96e46961ec0e63d9c2ea1edccaccf7ba85534",
+      "source_size": 44929,
+      "decoded_size": 106496,
+      "sha256": "35a6793a5be2d2ba0902a5c28b9e94b2b5aa44742dc70608e26649f49abfdbb0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "cryptostream": 2,
+          "rsa": 1,
+          "decrypt": 5,
+          "encrypt": 19,
+          "licens": 55
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/js.common.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.pdb.compressed",
+      "source_sha256": "194610b3bc20fa614569a8cd4c56a93937b7ca1fadfc500bb04c1a721b4d69c8",
+      "source_size": 23238,
+      "decoded_size": 47672,
+      "sha256": "bef27bcbfeb660cf5ac91c9ef1a5c6bf8cb613fbdf39a32144ba4c242e54425c",
+      "kind": "other",
+      "vocabulary": {
+        "crypto": {
+          "cryptostream": 1,
+          "decrypt": 1,
+          "encrypt": 2,
+          "licens": 18
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/js.common.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.log4net.dll.compressed",
+      "source_sha256": "52622ce9e23cd734f3f45334811b829adfa0d5500050bba2f1c678a2e69380dc",
+      "source_size": 102059,
+      "decoded_size": 270336,
+      "sha256": "1d45a6afa38f0b10814063f2a42e6efce45752853667650e765844b8566b3332",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/log4net.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.bcl.asyncinterfaces.dll.compressed",
+      "source_sha256": "0dc994766cd2eeb74496e35d4f1d3934bcebd4947b2d163f06029f132f4687a7",
+      "source_size": 14831,
+      "decoded_size": 26752,
+      "sha256": "5dc372a10f345b1f00ec6a8fa1a2ce569f7e5d63e4f1f8631be367e46bfa34f4",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/microsoft.bcl.asyncinterfaces.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.dynamic.dll.compressed",
+      "source_sha256": "c59a758b1848808f420e8a7eefc4da1768e41528399f7778677fa2baa74bd1da",
+      "source_size": 383016,
+      "decoded_size": 1069568,
+      "sha256": "e624126f0628785ac5d9559cf7cad8bf713cc34344d7ed62c7115f3fd7496dbc",
+      "kind": ".net",
+      "vocabulary": {
+        "spectral": {
+          "pixel": 3
+        },
+        "crypto": {
+          "aes": 1,
+          "rijndael": 3,
+          "cryptostream": 2,
+          "hmac": 7,
+          "rsa": 17,
+          "encrypt": 2,
+          "licens": 10
+        },
+        "transport": {
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/microsoft.dynamic.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.scripting.dll.compressed",
+      "source_sha256": "d67d303a8bcd26b7b51e3a82180b1c61fe45992145cc4f931c784a47a737a6eb",
+      "source_size": 59533,
+      "decoded_size": 140800,
+      "sha256": "f0e45343518b78374466598c052716a0add91a74e1d03a87c124cd91639514c0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 1,
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/microsoft.scripting.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.scripting.metadata.dll.compressed",
+      "source_sha256": "9b8bb8391cc138fb0bf5d3093d7de391f63e764f5fc8a798cbfe501640d79274",
+      "source_size": 35084,
+      "decoded_size": 89600,
+      "sha256": "be0c35b370ec699be014a8ffa6ade714c9018eb5b893787f76af4dfc26436ea1",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/microsoft.scripting.metadata.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.visualstudio.codecoverage.shim.dll.compressed",
+      "source_sha256": "593b27565b7f2bdc1767a4db5a0bf2f1ef841e5f17ca60b6a0a9c880f60d3526",
+      "source_size": 13345,
+      "decoded_size": 23336,
+      "sha256": "d7cdd2d3e02ada6de7b99d6795bea37020a3040c1232f253e6fd5785346250c0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/microsoft.visualstudio.codecoverage.shim.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.mvvm.overlay.dll.compressed",
+      "source_sha256": "855f09b359cb4fbc2775b8e8941ccdf02c619d710fa37cc080b3be8519b6abfd",
+      "source_size": 47790,
+      "decoded_size": 121856,
+      "sha256": "dcffa8fcaebe848e5cd9a851474bc2ca3711ee355d239bb2156f72d7ee5c937d",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/mvvm.overlay.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.mvvm.overlay.pdb.compressed",
+      "source_sha256": "f5d8bfe1a3fc3d7e91806f79b32027eb8e99410592eea6e7db5002e0c870c5d4",
+      "source_size": 36997,
+      "decoded_size": 55920,
+      "sha256": "e151fc9d5425fb5c17d5bc76e89ad28e5b75bdf614a1407d65e77098a2172df3",
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/mvvm.overlay.pdb",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.newtonsoft.json.dll.compressed",
+      "source_sha256": "e72f8d9778f6da2d73e493848556fb394f781bfea0475c2300b2860b8b0d7ce3",
+      "source_size": 269582,
+      "decoded_size": 711952,
+      "sha256": "c5c83bbc1741be6ff4c490c0aee34c162945423ec577c646538b2d21ce13199e",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 30
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/newtonsoft.json.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ninject.dll.compressed",
+      "source_sha256": "d8b6f152bffb3b644a7ccb41e0bb192f2a6659c3772d6514bb26b32ec15ce64a",
+      "source_size": 57122,
+      "decoded_size": 138240,
+      "sha256": "93495b9fd0fcb8c41743e28beb05fcb7d3e40c17030113a8b773ee92d497d050",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/ninject.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.prodotnetzip.dll.compressed",
+      "source_sha256": "e5f553f7b26147a7f690f936dd01a8897686b2ea80e6cda4b5f2244465d79e04",
+      "source_size": 163558,
+      "decoded_size": 312320,
+      "sha256": "aac83bbc63f1b0d362d878b137657a1835d36e6fcba4988a6667b7006568b49d",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 21,
+          "hmac": 1,
+          "rsa": 5,
+          "decrypt": 6,
+          "encrypt": 27
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/prodotnetzip.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.devices.resources.dll.compressed",
+      "source_sha256": "3a8a98881c7ce286ea317fd6f2a33cc38d56c0de7c700f591450b688fbe25873",
+      "source_size": 39397,
+      "decoded_size": 139776,
+      "sha256": "76e36296f0c4a44d872a33dd4319bc15ef686f360c3c770d7f9294a4ba22792c",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 109
+        },
+        "spectral": {
+          "nir_": 8,
+          "receptor": 1
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 38
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/pt.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.hm800.resources.dll.compressed",
+      "source_sha256": "a4c375f3e04825c2cac4a06f6fc78a40314b8bb4acad73f876009d2b18ef6ecf",
+      "source_size": 7393,
+      "decoded_size": 31744,
+      "sha256": "94d08aa275a146afa6c63ef10ff29bd5f1406e7a97936f82132b332e0e7c9b33",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/pt.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.vcg.resources.dll.compressed",
+      "source_sha256": "7acb9e86634bcbdd95857a76d0a30abcad8ee5bfdf218b52ee024740e916d6aa",
+      "source_size": 14590,
+      "decoded_size": 53760,
+      "sha256": "7dbe43f8ba126d52cf9b4b6c67a65781f616573e27548836345d6e7eb4298170",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 24
+        },
+        "firmware": {
+          "firmware": 40
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/pt.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.js.common.core.resources.dll.compressed",
+      "source_sha256": "b40ca6f38ff443a683340ccc0e4f8869ba8e4e65aa2144ba64a467650faf2b26",
+      "source_size": 3537,
+      "decoded_size": 11776,
+      "sha256": "b2084d05da9f6bdc9857236120b648a514a10c3f4f4515badc2159303f9fe937",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/pt.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "b8c65823b06340442fc199c875a14a2c19fdbf410c65aead98b175239e65288e",
+      "source_size": 1510,
+      "decoded_size": 3584,
+      "sha256": "1288527b8fc83392c7dd18ba1bee42a4fa030c967ec110fb60e2d069af130652",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/pt.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.buffers.dll.compressed",
+      "source_sha256": "de32ddaf09b7974d58d9661b7b5934acd58256d96d3bf39f196b49277ac4cf7d",
+      "source_size": 11412,
+      "decoded_size": 20856,
+      "sha256": "accccfbe45d9f08ffeed9916e37b33e98c65be012cfff6e7fa7b67210ce1fefb",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.buffers.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.codedom.dll.compressed",
+      "source_sha256": "21b52fe8ff5add7220e288ff955d255d8c742a70acdad490b165c66585e2445c",
+      "source_size": 15843,
+      "decoded_size": 32384,
+      "sha256": "d4047cdc0c372b06afc9cbed39b717fac18dced723e5851806a19f1bf42de1a3",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.codedom.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.collections.immutable.dll.compressed",
+      "source_sha256": "ec44c925f87f4d7209469d515be7993affffe50170681fd47078c5ebec1cc150",
+      "source_size": 83752,
+      "decoded_size": 198784,
+      "sha256": "d168af8e4a1263b5844180b1b371c5879b21b5b666feef7ca749b10192688006",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.collections.immutable.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.componentmodel.annotations.dll.compressed",
+      "source_sha256": "275867a01d0aa1cff2df0bceb044705dd2b7aa518a778557a0578a3cf6cb9bad",
+      "source_size": 18469,
+      "decoded_size": 43152,
+      "sha256": "04113c8549185519f3202790ceb23df609644872b9c249a56d2bcf59566102c4",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.componentmodel.annotations.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.data.sqlite.dll.compressed",
+      "source_sha256": "7340884fc4f0b9d3fc5db95f55d2a8c8c815040f673d8a774aaafc7b09869458",
+      "source_size": 165553,
+      "decoded_size": 450232,
+      "sha256": "77dac4e1aa63161d6aff363030a801945d6b8d5b823a6b460b2c2be9ec38d3b7",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rijndael": 1,
+          "rsa": 24,
+          "decrypt": 10,
+          "encrypt": 4,
+          "licens": 20
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.data.sqlite.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.data.sqlserverce.dll.compressed",
+      "source_sha256": "6c10be252fb0ce51bac342160d9082b2095c321ca677c167221dc1597e629b4c",
+      "source_size": 108856,
+      "decoded_size": 296816,
+      "sha256": "ddf91a67b1d1215e6731618fd84149bd4715e70126b270021ea25babb5389c84",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 5,
+          "encrypt": 27
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.data.sqlserverce.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.diagnostics.diagnosticsource.dll.compressed",
+      "source_sha256": "484bfd73e9877178bb82a8963305ebd8422beff3157a3ac7ee29229c967b9a09",
+      "source_size": 18664,
+      "decoded_size": 35760,
+      "sha256": "d22133818a30313e0becf010d78a556a56b34ea361dbd33588c9817631fed540",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.diagnostics.diagnosticsource.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.interactive.dll.compressed",
+      "source_sha256": "6fe48a0c8ccdcdbcd653692980e249d41e05fb47f9cfa93c296825cb35a8e41a",
+      "source_size": 43975,
+      "decoded_size": 85648,
+      "sha256": "9d837b5004eeee45b8cb52d76490ee4ce0b82c1cd1c70215368089fef19c5393",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.interactive.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.io.ports.dll.compressed",
+      "source_sha256": "3c23f6546b3e5dc2ec3bf7db2e70a5b30619ba3ff47e1f0b5058d17cb4f89f05",
+      "source_size": 16653,
+      "decoded_size": 34424,
+      "sha256": "b548933d34dc32231785cfa5c758a6b1054c75bf3f69bb2f32d1bc26dd232725",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        },
+        "transport": {
+          "serialport": 12
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.io.ports.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.memory.dll.compressed",
+      "source_sha256": "21a3d53d89531043aabbbe297a40d3acd5477941cf731dfc7bc48f836c93dc31",
+      "source_size": 59807,
+      "decoded_size": 142240,
+      "sha256": "bf3fb84664f4097f1a8a9bc71a51dcf8cf1a905d4080a4d290da1730866e856f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.memory.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.numerics.vectors.dll.compressed",
+      "source_sha256": "59986576bbb8af470cc36553aa17511764ee58d4684261a9bbe3b5973905e80b",
+      "source_size": 32868,
+      "decoded_size": 115856,
+      "sha256": "1d3ef8698281e7cf7371d1554afef5872b39f96c26da772210a33da041ba1183",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.numerics.vectors.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.resources.extensions.dll.compressed",
+      "source_sha256": "eec487cc5491514dccca4c1c682837d5441f3e2292f6d02749f2c917f7762775",
+      "source_size": 28304,
+      "decoded_size": 61568,
+      "sha256": "fa11c08a622261c28aee318be8157d8a3e90fcd75383ffc3315ae5b9c748281a",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.resources.extensions.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.runtime.compilerservices.unsafe.dll.compressed",
+      "source_sha256": "e9cb0f2bd1498dd63961c9fd72f923c1d04aea7a391039d3e0c612ad03c5ea04",
+      "source_size": 9549,
+      "decoded_size": 18024,
+      "sha256": "37768488e8ef45729bc7d9a2677633c6450042975bb96516e186da6cb9cd0dcf",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.runtime.compilerservices.unsafe.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.accesscontrol.dll.compressed",
+      "source_sha256": "cb3872166a6e026bdfe985200f7524d353b65466aa8b5e8873ea49674800baa4",
+      "source_size": 15395,
+      "decoded_size": 35952,
+      "sha256": "ff14c5f628b9a6798d173aefbba0a43d61e66f715108e2576ac0d3dfab9071d0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.security.accesscontrol.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.permissions.dll.compressed",
+      "source_sha256": "92bff69098352c658cce82faffc1e6f86ffcc5fbe131a64a670d1447c99eb3f5",
+      "source_size": 14928,
+      "decoded_size": 31392,
+      "sha256": "006d4d13c4c4c8327b3a94dc502d0e91114c1c495b408f6b78c6b30a3062a14f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.security.permissions.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.principal.windows.dll.compressed",
+      "source_sha256": "66ca193f63a4499f361aca94e42aaedcc06cea79000b8fb427ed372417555682",
+      "source_size": 9600,
+      "decoded_size": 18312,
+      "sha256": "b4d8e15adc235d0e858e39b5133e5d00a4baa8c94f4f39e3b5e791b0f9c0c806",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.security.principal.windows.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.text.encoding.codepages.dll.compressed",
+      "source_sha256": "0f69abe22cf08077d52b52319e2a51dc60ac188cc1c1c5650eb26eb513d3ab9b",
+      "source_size": 526803,
+      "decoded_size": 766224,
+      "sha256": "b77ee852824a6e8098fbade000beb42ce9df32fa4189a00d5e7f472f6c6a5030",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.text.encoding.codepages.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.threading.channels.dll.compressed",
+      "source_sha256": "0449935eb389be3b56b7128fb72b9e96731b7243f96b06ea4320044f7bf9213f",
+      "source_size": 26698,
+      "decoded_size": 53904,
+      "sha256": "4aaf175d1823a14899931c6257b7d0c1479f18fd3c1a5d30551786f900d41c5c",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.threading.channels.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.threading.tasks.extensions.dll.compressed",
+      "source_sha256": "eeef14532c25635162130e363695d8ec71ae7c6562c5d42ee545666de6121746",
+      "source_size": 13443,
+      "decoded_size": 25984,
+      "sha256": "4f81ffd0dc7204db75afc35ea4291769b07c440592f28894260eea76626a23c6",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.threading.tasks.extensions.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.windows.interactivity.dll.compressed",
+      "source_sha256": "2a877fe2f69458c5359808d6023da6d9127cba762c37895bd5799ddffaff2bf3",
+      "source_size": 26225,
+      "decoded_size": 55880,
+      "sha256": "33b006bb038b06eb22f19c1dc1f8ba1a92647aaf7517ab2aa99cc53ddd336c5d",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/system.windows.interactivity.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.devices.resources.dll.compressed",
+      "source_sha256": "e2c8c41289e2e3e9cf90e8aad2e8f0094000681a8edabaffb07135c4f616f31c",
+      "source_size": 37682,
+      "decoded_size": 124928,
+      "sha256": "2c3142d4b8faa15e653dd2cbb82593b6e122e23d0cf8fc1bffec3d5d5ba85d73",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 105
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 25
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3,
+          "last_data_sync": 1,
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/zh-hans.hm.devices.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.hm800.resources.dll.compressed",
+      "source_sha256": "74ba5528656cd10bd3bdd74fc64dd8c29c56cedcae3ac262a5ed0b0a6a80e610",
+      "source_size": 1588763,
+      "decoded_size": 1619968,
+      "sha256": "7e5ceacdc298da2abac91f613b17be12a1b751d065e911943d6e7673a412e7b8",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 12
+        },
+        "crypto": {
+          "aes": 1,
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/zh-hans.hm.hm800.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.vcg.resources.dll.compressed",
+      "source_sha256": "2c10303c0991f6f43c595b5ca879046c89c05c929d84ba9d94daec0bc6e2b752",
+      "source_size": 14086,
+      "decoded_size": 49152,
+      "sha256": "e8fe44ab3d754a66dc59b7738856791806681456c838440cae1bc0f6716a12ec",
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 24
+        },
+        "firmware": {
+          "firmware": 31
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/zh-hans.hm.vcg.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.js.common.core.resources.dll.compressed",
+      "source_sha256": "698afc7298e910c49d8dea45184980a67bd8b25ae5ba85f13e29885b45f558d7",
+      "source_size": 3517,
+      "decoded_size": 11264,
+      "sha256": "45ec81a8e909089fcd5c93677a83d415692fd7c23c5475288d7e17f53e53bd9a",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/zh-hans.js.common.core.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.mvvm.overlay.resources.dll.compressed",
+      "source_sha256": "4663344e403b7f5c06656b1a965e6d1f7125ad8984150fd7eeebbbb8b2b6dfca",
+      "source_size": 1543,
+      "decoded_size": 4096,
+      "sha256": "e83d49cb8cd60066ab83fb1b67cc2b7b3f78e2ddef9302188481607a83b6bac4",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/serviceapp/zh-hans.mvvm.overlay.resources.dll",
+      "status": "decoded"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Castle.Core.dll",
+      "source_sha256": "1796277a7aa9f2a9835c070d28fed44b3614ca221a2c1affc21a4c4e41194c3f",
+      "source_size": 434688,
+      "decoded_size": 434688,
+      "sha256": "1796277a7aa9f2a9835c070d28fed44b3614ca221a2c1affc21a4c4e41194c3f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 6
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Castle.Core.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.Devices.resources.dll",
+      "source_sha256": "c77bc27cbf38920a5d7af4a4e89148a10c5a260abea25a617da4bfca52d2d1a2",
+      "source_size": 123904,
+      "decoded_size": 123904,
+      "sha256": "c77bc27cbf38920a5d7af4a4e89148a10c5a260abea25a617da4bfca52d2d1a2",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 35
+        },
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/de.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.HM800.resources.dll",
+      "source_sha256": "596eeb29043af90055673ca6608c7c8a5a89111ea59bddddbae22732b7f7514f",
+      "source_size": 32256,
+      "decoded_size": 32256,
+      "sha256": "596eeb29043af90055673ca6608c7c8a5a89111ea59bddddbae22732b7f7514f",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/de.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.VCG.resources.dll",
+      "source_sha256": "73337dd7458831ad2512f8215e87d448fa0e4ab9a345926f5905564b47d003e2",
+      "source_size": 49664,
+      "decoded_size": 49664,
+      "sha256": "73337dd7458831ad2512f8215e87d448fa0e4ab9a345926f5905564b47d003e2",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 40
+        },
+        "crypto": {
+          "aes": 1,
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/de.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/de.JS.Common.Core.resources.dll",
+      "source_sha256": "1ac54c542b3800ef9c58b785e85e20f91f790bfd2ccd837dbcb364a858fc3b81",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "1ac54c542b3800ef9c58b785e85e20f91f790bfd2ccd837dbcb364a858fc3b81",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/de.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.Devices.resources.dll",
+      "source_sha256": "d2402fc348dd8c7a0c71282c8757edd746bc54f416265390e7ad63ecf234223c",
+      "source_size": 123904,
+      "decoded_size": 123904,
+      "sha256": "d2402fc348dd8c7a0c71282c8757edd746bc54f416265390e7ad63ecf234223c",
+      "kind": ".net",
+      "vocabulary": {
+        "spectral": {
+          "receptor": 1
+        },
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/es.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.HM800.resources.dll",
+      "source_sha256": "d20642f52395b05ddad706b8862caec4ac051ce7f8c688d076a47d546c5335d5",
+      "source_size": 32256,
+      "decoded_size": 32256,
+      "sha256": "d20642f52395b05ddad706b8862caec4ac051ce7f8c688d076a47d546c5335d5",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/es.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.VCG.resources.dll",
+      "source_sha256": "51cf73b7cd4e78dcbc783a298f0d0dcbcd5c2d18be52e20f01d583572a2d9c25",
+      "source_size": 49664,
+      "decoded_size": 49664,
+      "sha256": "51cf73b7cd4e78dcbc783a298f0d0dcbcd5c2d18be52e20f01d583572a2d9c25",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 40
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/es.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/es.JS.Common.Core.resources.dll",
+      "source_sha256": "9ba6e3c596805495e356809e7e6d0dcd6891a4e6e68123ee87deef3096149487",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "9ba6e3c596805495e356809e7e6d0dcd6891a4e6e68123ee87deef3096149487",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/es.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/FakeItEasy.dll",
+      "source_sha256": "2f7d85cf1992faab2f4b0cc553ba2c01f2b96e5440cdcd47baf4e6f9e7bb9008",
+      "source_size": 293888,
+      "decoded_size": 293888,
+      "sha256": "2f7d85cf1992faab2f4b0cc553ba2c01f2b96e5440cdcd47baf4e6f9e7bb9008",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/FakeItEasy.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.Devices.resources.dll",
+      "source_sha256": "e930f80d904e5c531e57092df7eec0d26442637d5b81c9ca425f8ae41c633864",
+      "source_size": 125440,
+      "decoded_size": 125440,
+      "sha256": "e930f80d904e5c531e57092df7eec0d26442637d5b81c9ca425f8ae41c633864",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 25
+        },
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/fr.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.HM800.resources.dll",
+      "source_sha256": "d356e541aa7bb2278bdd9f89c7a781418254349a29fb8422d3aca2bc10b72498",
+      "source_size": 32768,
+      "decoded_size": 32768,
+      "sha256": "d356e541aa7bb2278bdd9f89c7a781418254349a29fb8422d3aca2bc10b72498",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 12
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/fr.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.VCG.resources.dll",
+      "source_sha256": "2ee1b2594e20aa0ab429d0c733266ac98336ef4be0ccecf0f1d3b634c0c51723",
+      "source_size": 50176,
+      "decoded_size": 50176,
+      "sha256": "2ee1b2594e20aa0ab429d0c733266ac98336ef4be0ccecf0f1d3b634c0c51723",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 30
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/fr.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/fr.JS.Common.Core.resources.dll",
+      "source_sha256": "78d34647ad8ba512c58bacec05b934f680e971c5f2749c1b8301a46eec4b8940",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "78d34647ad8ba512c58bacec05b934f680e971c5f2749c1b8301a46eec4b8940",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/fr.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/GalaSoft.MvvmLight.dll",
+      "source_sha256": "1a9786ed4a90570bdfd8c6fb7429ddbc5f8f8534d166297a137f1581639bf3e3",
+      "source_size": 29184,
+      "decoded_size": 29184,
+      "sha256": "1a9786ed4a90570bdfd8c6fb7429ddbc5f8f8534d166297a137f1581639bf3e3",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/GalaSoft.MvvmLight.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/GalaSoft.MvvmLight.Extras.dll",
+      "source_sha256": "e0ac213d3735be6fccd18930fdcb98194d4a95e7c5c4ddd8c2d28b365f3297a0",
+      "source_size": 25600,
+      "decoded_size": 25600,
+      "sha256": "e0ac213d3735be6fccd18930fdcb98194d4a95e7c5c4ddd8c2d28b365f3297a0",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 5
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/GalaSoft.MvvmLight.Extras.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/HM.Alta.Views.dll",
+      "source_sha256": "73b0a8ede29a60e83f543cdecea9ec890818f141d2067ed74e70f13e9c27185a",
+      "source_size": 540160,
+      "decoded_size": 540160,
+      "sha256": "73b0a8ede29a60e83f543cdecea9ec890818f141d2067ed74e70f13e9c27185a",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/HM.Alta.Views.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/HM.Devices.dll",
+      "source_sha256": "f82d53002931ff56e828ae165d33f1b3913746e58f28f99aa8478b48abc26172",
+      "source_size": 651776,
+      "decoded_size": 651776,
+      "sha256": "f82d53002931ff56e828ae165d33f1b3913746e58f28f99aa8478b48abc26172",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 130
+        },
+        "crypto": {
+          "rsa": 4
+        },
+        "transport": {
+          "serialport": 41,
+          "com port": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/HM.Devices.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/HM.HM800.dll",
+      "source_sha256": "2d3f65e211dad530a6a8e9a671dcc8eebf4bf544636d8464d7714d5a4b20e621",
+      "source_size": 2906112,
+      "decoded_size": 2906112,
+      "sha256": "2d3f65e211dad530a6a8e9a671dcc8eebf4bf544636d8464d7714d5a4b20e621",
+      "kind": ".net",
+      "vocabulary": {
+        "payload": {
+          "i2s": 1
+        },
+        "firmware": {
+          "firmware": 280
+        },
+        "crypto": {
+          "hmac": 1,
+          "rsa": 3
+        },
+        "transport": {
+          "is_connected": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/HM.HM800.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/HM.VCG.dll",
+      "source_sha256": "53a6809b1cd2facbb783f2b89b08614f4e83238c18413a07f11f9074a42ed58e",
+      "source_size": 697344,
+      "decoded_size": 697344,
+      "sha256": "53a6809b1cd2facbb783f2b89b08614f4e83238c18413a07f11f9074a42ed58e",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 234
+        },
+        "crypto": {
+          "rsa": 1
+        },
+        "transport": {
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/HM.VCG.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Ionic.Zip.dll",
+      "source_sha256": "37c70e73717fa77dcbdbd0797cacb4ab6632c4f52f090b081968c7e1e00e25b9",
+      "source_size": 462848,
+      "decoded_size": 462848,
+      "sha256": "37c70e73717fa77dcbdbd0797cacb4ab6632c4f52f090b081968c7e1e00e25b9",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 22,
+          "rijndael": 1,
+          "hmac": 1,
+          "rsa": 5,
+          "decrypt": 6,
+          "encrypt": 32
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Ionic.Zip.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/IronPython.dll",
+      "source_sha256": "744ffbf30bd5fbcdc746db96edb5b1dde4176c2b9d255bb5a80e5fccdb18f0f7",
+      "source_size": 1798656,
+      "decoded_size": 1798656,
+      "sha256": "744ffbf30bd5fbcdc746db96edb5b1dde4176c2b9d255bb5a80e5fccdb18f0f7",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 8,
+          "licens": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/IronPython.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/IronPython.Modules.dll",
+      "source_sha256": "02f0056219f15a6a87c91cd75f1b1875b139a30fd2051fef5acb5cb874688a9f",
+      "source_size": 731648,
+      "decoded_size": 731648,
+      "sha256": "02f0056219f15a6a87c91cd75f1b1875b139a30fd2051fef5acb5cb874688a9f",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 6,
+          "rsa": 14,
+          "privatekey": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/IronPython.Modules.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.Devices.resources.dll",
+      "source_sha256": "d6b7f93775a58f9c1e8cfc6ca2635e30de9c8e55baf44ec6aaf06d2a7482837d",
+      "source_size": 122880,
+      "decoded_size": 122880,
+      "sha256": "d6b7f93775a58f9c1e8cfc6ca2635e30de9c8e55baf44ec6aaf06d2a7482837d",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 24
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/it.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.HM800.resources.dll",
+      "source_sha256": "265f47d41ff15bbec21dc7689d633acd3cfe7502fa68c5a1dace391782d866e4",
+      "source_size": 32256,
+      "decoded_size": 32256,
+      "sha256": "265f47d41ff15bbec21dc7689d633acd3cfe7502fa68c5a1dace391782d866e4",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/it.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.VCG.resources.dll",
+      "source_sha256": "b6c52fb77c08a73ae04e8dc983f309d2b56e303262fa75c6e92eac5122a631cc",
+      "source_size": 49152,
+      "decoded_size": 49152,
+      "sha256": "b6c52fb77c08a73ae04e8dc983f309d2b56e303262fa75c6e92eac5122a631cc",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 40
+        },
+        "crypto": {
+          "rsa": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/it.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/it.JS.Common.Core.resources.dll",
+      "source_sha256": "716315e06f9da5bc8eebe145a4828256c8ad1b66d2e0fa9495d39aefc62c38f6",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "716315e06f9da5bc8eebe145a4828256c8ad1b66d2e0fa9495d39aefc62c38f6",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/it.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/JS.Common.Core.dll",
+      "source_sha256": "c17140d33a7761bdfb82f1b8b22e5da0961da3a4223f85295cdced9d3aa7a007",
+      "source_size": 125952,
+      "decoded_size": 125952,
+      "sha256": "c17140d33a7761bdfb82f1b8b22e5da0961da3a4223f85295cdced9d3aa7a007",
+      "kind": ".net",
+      "vocabulary": {
+        "transport": {
+          "serialport": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/JS.Common.Core.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/JS.Common.dll",
+      "source_sha256": "26c7cdba445f9215c11611d4d92383820c56d78e0d007fbbc7afd14533b62c2e",
+      "source_size": 105984,
+      "decoded_size": 105984,
+      "sha256": "26c7cdba445f9215c11611d4d92383820c56d78e0d007fbbc7afd14533b62c2e",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "cryptostream": 2,
+          "rsa": 1,
+          "decrypt": 5,
+          "encrypt": 19,
+          "licens": 56
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/JS.Common.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/log4net.dll",
+      "source_sha256": "ce6ee4fdc783a5bf905f240178ac96eaeb7ede22ffe06a06ba179cd1a0442bd3",
+      "source_size": 301056,
+      "decoded_size": 301056,
+      "sha256": "ce6ee4fdc783a5bf905f240178ac96eaeb7ede22ffe06a06ba179cd1a0442bd3",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4,
+          "licens": 52
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/log4net.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Dynamic.dll",
+      "source_sha256": "0ee7bfa73350e782c27f7050fe5f17b920913b942dcb9c4ac3612b85ae9cc869",
+      "source_size": 1044480,
+      "decoded_size": 1044480,
+      "sha256": "0ee7bfa73350e782c27f7050fe5f17b920913b942dcb9c4ac3612b85ae9cc869",
+      "kind": ".net",
+      "vocabulary": {
+        "spectral": {
+          "pixel": 3
+        },
+        "crypto": {
+          "aes": 1,
+          "rijndael": 3,
+          "cryptostream": 2,
+          "hmac": 7,
+          "rsa": 16,
+          "encrypt": 2,
+          "licens": 10
+        },
+        "transport": {
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Microsoft.Dynamic.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Practices.ServiceLocation.dll",
+      "source_sha256": "34005d6a80434542780c6d192e6abd07bea49b2eeb7e43fbfdfe90c2889986e5",
+      "source_size": 18112,
+      "decoded_size": 18112,
+      "sha256": "34005d6a80434542780c6d192e6abd07bea49b2eeb7e43fbfdfe90c2889986e5",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Microsoft.Practices.ServiceLocation.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Scripting.dll",
+      "source_sha256": "5c0736dae4b6c5429c36a10e372c4bf36e3cf7659b1644a6f1d269f229299b5b",
+      "source_size": 143872,
+      "decoded_size": 143872,
+      "sha256": "5c0736dae4b6c5429c36a10e372c4bf36e3cf7659b1644a6f1d269f229299b5b",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Microsoft.Scripting.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Scripting.Metadata.dll",
+      "source_sha256": "735601c54d59113311e5e94c43acccfb2d2f8a81a4b465951b3830cd82f09e22",
+      "source_size": 93184,
+      "decoded_size": 93184,
+      "sha256": "735601c54d59113311e5e94c43acccfb2d2f8a81a4b465951b3830cd82f09e22",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Microsoft.Scripting.Metadata.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Mvvm.Overlay.dll",
+      "source_sha256": "ca3f64e12ba48d941b04592646479b6aa769ff090d75c7c32a4612ea46ae5740",
+      "source_size": 114176,
+      "decoded_size": 114176,
+      "sha256": "ca3f64e12ba48d941b04592646479b6aa769ff090d75c7c32a4612ea46ae5740",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Mvvm.Overlay.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Newtonsoft.Json.dll",
+      "source_sha256": "526f69142edc80cb1f261acdb7c73ce3db841d21ac26bee6715f604c8a238be1",
+      "source_size": 513536,
+      "decoded_size": 513536,
+      "sha256": "526f69142edc80cb1f261acdb7c73ce3db841d21ac26bee6715f604c8a238be1",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 7
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Newtonsoft.Json.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/Ninject.dll",
+      "source_sha256": "d6dd5739fc1a02f7cc284b8957d7412800ded255f2c5b5a736f3a2742c046de6",
+      "source_size": 136704,
+      "decoded_size": 136704,
+      "sha256": "d6dd5739fc1a02f7cc284b8957d7412800ded255f2c5b5a736f3a2742c046de6",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/Ninject.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.Devices.resources.dll",
+      "source_sha256": "03028421963c653f921d31ddc5e3bf7111ac2386e46c66d2170d7fb8bb7ac89a",
+      "source_size": 122880,
+      "decoded_size": 122880,
+      "sha256": "03028421963c653f921d31ddc5e3bf7111ac2386e46c66d2170d7fb8bb7ac89a",
+      "kind": ".net",
+      "vocabulary": {
+        "spectral": {
+          "receptor": 1
+        },
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/pt.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.HM800.resources.dll",
+      "source_sha256": "4a36250b1fddd44dfdf1b9db8de15344536aa4772f221180f445ffe50d32f14b",
+      "source_size": 32256,
+      "decoded_size": 32256,
+      "sha256": "4a36250b1fddd44dfdf1b9db8de15344536aa4772f221180f445ffe50d32f14b",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 17
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/pt.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.VCG.resources.dll",
+      "source_sha256": "14c688381a0f70fa9ea90915fd2784e41c627fd019d60e4df34401a1a7af3f41",
+      "source_size": 49152,
+      "decoded_size": 49152,
+      "sha256": "14c688381a0f70fa9ea90915fd2784e41c627fd019d60e4df34401a1a7af3f41",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 40
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/pt.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/pt.JS.Common.Core.resources.dll",
+      "source_sha256": "6436b06f204ac27fc8e7525b92056f2d51b71f1afdf8e15dd88c1ba7863fc04d",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "6436b06f204ac27fc8e7525b92056f2d51b71f1afdf8e15dd88c1ba7863fc04d",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/pt.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/System.Data.SQLite.dll",
+      "source_sha256": "9fbb8530e2304498133e5abbba018d65881c6995f5995f4e966a2bdfe4c8a110",
+      "source_size": 205312,
+      "decoded_size": 205312,
+      "sha256": "9fbb8530e2304498133e5abbba018d65881c6995f5995f4e966a2bdfe4c8a110",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2,
+          "encrypt": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/System.Data.SQLite.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/System.ValueTuple.dll",
+      "source_sha256": "158a18599e8dabdd292563ea05f885e56f8bf8b23c7efd292f783fbac5a71b22",
+      "source_size": 77672,
+      "decoded_size": 77672,
+      "sha256": "158a18599e8dabdd292563ea05f885e56f8bf8b23c7efd292f783fbac5a71b22",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/System.ValueTuple.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/System.Windows.Interactivity.dll",
+      "source_sha256": "33b006bb038b06eb22f19c1dc1f8ba1a92647aaf7517ab2aa99cc53ddd336c5d",
+      "source_size": 55880,
+      "decoded_size": 55880,
+      "sha256": "33b006bb038b06eb22f19c1dc1f8ba1a92647aaf7517ab2aa99cc53ddd336c5d",
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/System.Windows.Interactivity.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.Devices.resources.dll",
+      "source_sha256": "bdc15965a4aaf77b50641f42fe4473253e254e860c4e2c379d59c499bcb68793",
+      "source_size": 109568,
+      "decoded_size": 109568,
+      "sha256": "bdc15965a4aaf77b50641f42fe4473253e254e860c4e2c379d59c499bcb68793",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 24
+        },
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/zh-chs.HM.Devices.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.HM800.resources.dll",
+      "source_sha256": "fbb8aeaf859c0b977a67f4b08a8dc8bb0ca9e7ded2007bd9fc68779707366173",
+      "source_size": 2149376,
+      "decoded_size": 2149376,
+      "sha256": "fbb8aeaf859c0b977a67f4b08a8dc8bb0ca9e7ded2007bd9fc68779707366173",
+      "kind": ".net",
+      "vocabulary": {
+        "payload": {
+          "i2s": 1
+        },
+        "firmware": {
+          "firmware": 12
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/zh-chs.HM.HM800.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.VCG.resources.dll",
+      "source_sha256": "02acb8f10dc9477fb9b9065c0aab89326b920b23cd4be19ed6f3fb7039343d0e",
+      "source_size": 45056,
+      "decoded_size": 45056,
+      "sha256": "02acb8f10dc9477fb9b9065c0aab89326b920b23cd4be19ed6f3fb7039343d0e",
+      "kind": ".net",
+      "vocabulary": {
+        "firmware": {
+          "firmware": 31
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/zh-chs.HM.VCG.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.JS.Common.Core.resources.dll",
+      "source_sha256": "a7b1f8a98d6df610d184f75e59639aa67c36536e991cc9ad52a252f1522d6d5d",
+      "source_size": 10752,
+      "decoded_size": 10752,
+      "sha256": "a7b1f8a98d6df610d184f75e59639aa67c36536e991cc9ad52a252f1522d6d5d",
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/assemblies/service134/zh-chs.JS.Common.Core.resources.dll",
+      "status": "uncompressed-resource"
+    },
+    {
+      "source": "troubleshooter-bundle/AsyncAwaitBestPractices.dll",
+      "sha256": "c8c2d6529fb09bb03024360c6c7b8bc8b4209b54b5b12d727ce54d8ee6b358f3",
+      "decoded_size": 18944,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/AsyncAwaitBestPractices.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/AsyncAwaitBestPractices.MVVM.dll",
+      "sha256": "c85059fe24a221a377b9a7e235fc014d65461a9bf3a44ec347c382bbfd1c0ea9",
+      "decoded_size": 13312,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/AsyncAwaitBestPractices.MVVM.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/de/HM.Devices.resources.dll",
+      "sha256": "30b50fa157fe5fe7b46c1cec2a9bd427a9a483b3fdbf2525f0427dac38c4390f",
+      "decoded_size": 140288,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 98
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 35
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/de/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/de/JS.Common.Core.resources.dll",
+      "sha256": "6decbdd8a11795ba5a548f060e66328a1ed779c82d50d70192093f1993f41cbd",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/de/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/es/HM.Devices.resources.dll",
+      "sha256": "017de141863469669b0b355a4080bd7280a2615dd1fa58c218109e8c5ef16fb8",
+      "decoded_size": 139776,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 99
+        },
+        "spectral": {
+          "nir_": 8,
+          "receptor": 1
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 2,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/es/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/es/JS.Common.Core.resources.dll",
+      "sha256": "4b524e50fb8044e33e2dc11ab71a3292895fdba4ca28425861d7056de950fefd",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/es/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/fr/HM.Devices.resources.dll",
+      "sha256": "3f05bcb57f52080cce56c63cb25d6ff8101b5180127481ab05c2a3ad0a05b821",
+      "decoded_size": 142336,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 99
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 24
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/fr/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/fr/JS.Common.Core.resources.dll",
+      "sha256": "bd6888845d4647a901367f070db5bdddf63fa182f37d4b5f0a6ab20686c4f12b",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/fr/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/HM.Devices.dll",
+      "sha256": "e0ac1e3107ccac665afe917dbb862e02a12d19c12f1e022e2943431aab74866c",
+      "decoded_size": 721920,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 287
+        },
+        "spectral": {
+          "nir sensor": 5,
+          "nir_": 24
+        },
+        "payload": {
+          "device_id": 4
+        },
+        "firmware": {
+          "firmware": 138
+        },
+        "crypto": {
+          "rsa": 4,
+          "licens": 28
+        },
+        "transport": {
+          "localhost:8080": 1,
+          "/v1/": 1,
+          "is_connected": 11,
+          "export_scans": 1,
+          "self_test": 1,
+          "last_data_sync": 4,
+          "serialport": 45,
+          "com port": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/HM.Devices.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/HM.Devices.xml",
+      "sha256": "411ba59713d234d8970d2ecbf3a8a60d30745653b4d3004fb44ba9e5534849a1",
+      "decoded_size": 868854,
+      "kind": "other",
+      "vocabulary": {
+        "vendor": {
+          "scio": 213
+        },
+        "spectral": {
+          "nir sensor": 6,
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 445
+        },
+        "crypto": {
+          "rsa": 3,
+          "licens": 9
+        },
+        "transport": {
+          "localhost:8080": 1,
+          "/v1/": 9,
+          "is_connected": 4,
+          "self_test": 1,
+          "last_data_sync": 1,
+          "serialport": 24,
+          "com port": 6
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/HM.Devices.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/IronPython.dll",
+      "sha256": "744ffbf30bd5fbcdc746db96edb5b1dde4176c2b9d255bb5a80e5fccdb18f0f7",
+      "decoded_size": 1798656,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 8,
+          "licens": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/IronPython.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/IronPython.Modules.dll",
+      "sha256": "02f0056219f15a6a87c91cd75f1b1875b139a30fd2051fef5acb5cb874688a9f",
+      "decoded_size": 731648,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "aes": 6,
+          "rsa": 14,
+          "privatekey": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/IronPython.Modules.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/IronPython.Modules.xml",
+      "sha256": "e65e42063cf7837592f481003843d6f9bf7935b32deef1eb03b9d6bd7747d9cb",
+      "decoded_size": 241303,
+      "kind": "other",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2,
+          "encrypt": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/IronPython.Modules.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/IronPython.xml",
+      "sha256": "b066614f5e232402520cd935e6844a43417309136a27e5d745b3f31076713c61",
+      "decoded_size": 408068,
+      "kind": "other",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/IronPython.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/it/HM.Devices.resources.dll",
+      "sha256": "9af322e31bbfc7b43f33866a1016b98c01ed79892f0ae7f76dcf10abfa8618ae",
+      "decoded_size": 138752,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 98
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 25,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/it/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/it/JS.Common.Core.resources.dll",
+      "sha256": "5ed1847a46666d5fa6702fe629fd978506a7f118c8aefc89932b84899e6cf9e2",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/it/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/JS SCiO Troubleshooter.deps.json",
+      "sha256": "8b4322fb7d48af5d8a36e3df5b70b7b31a424ff675e4a93edae97ca6cce86ccf",
+      "decoded_size": 12354,
+      "kind": "other",
+      "vocabulary": {
+        "vendor": {
+          "scio": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/JS SCiO Troubleshooter.deps.json",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/JS SCiO Troubleshooter.dll",
+      "sha256": "39e901ee2e24b5b7fb81d7fcb4ddd362301aed7a4991a3102dc5dc8b3aefe970",
+      "decoded_size": 38912,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 72
+        },
+        "firmware": {
+          "firmware": 42
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/JS SCiO Troubleshooter.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/JS SCiO Troubleshooter.runtimeconfig.json",
+      "sha256": "0d2a78306989c968cd73f4a6b462eef0371639cbb8790248028e12cba035445a",
+      "decoded_size": 372,
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/JS SCiO Troubleshooter.runtimeconfig.json",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/JS.Common.Core.dll",
+      "sha256": "037b168a9aba35125f80c82fc382c6eccf0f67af69a46ed0ed0417a6f0dc2e0f",
+      "decoded_size": 126976,
+      "kind": ".net",
+      "vocabulary": {
+        "transport": {
+          "serialport": 4
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/JS.Common.Core.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/JS.Common.Core.dll.config",
+      "sha256": "a4b248163b53c349e7b9c373ec5e6c5dd588d4300cbbce2b3d877afd333145ca",
+      "decoded_size": 1540,
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/JS.Common.Core.dll.config",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/log4net.dll",
+      "sha256": "676387fc6dcda7f28270acfabd65f79805bb7f6227e7eb5cbe0a23460231d2b7",
+      "decoded_size": 304640,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 4,
+          "licens": 52
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/log4net.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Dynamic.dll",
+      "sha256": "0ee7bfa73350e782c27f7050fe5f17b920913b942dcb9c4ac3612b85ae9cc869",
+      "decoded_size": 1044480,
+      "kind": ".net",
+      "vocabulary": {
+        "spectral": {
+          "pixel": 3
+        },
+        "crypto": {
+          "aes": 1,
+          "rijndael": 3,
+          "cryptostream": 2,
+          "hmac": 7,
+          "rsa": 16,
+          "encrypt": 2,
+          "licens": 10
+        },
+        "transport": {
+          "serialport": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Dynamic.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Dynamic.xml",
+      "sha256": "f22bd3e8e7c01b4bb31204e7a677d32c9cb80ae06b7b8f227e66bc04cd3fa826",
+      "decoded_size": 368690,
+      "kind": "other",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Dynamic.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Scripting.dll",
+      "sha256": "5c0736dae4b6c5429c36a10e372c4bf36e3cf7659b1644a6f1d269f229299b5b",
+      "decoded_size": 143872,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Scripting.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Scripting.Metadata.dll",
+      "sha256": "735601c54d59113311e5e94c43acccfb2d2f8a81a4b465951b3830cd82f09e22",
+      "decoded_size": 93184,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Scripting.Metadata.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Scripting.Metadata.xml",
+      "sha256": "0a0be9f0f29e82627d8d74dc7af603c7b4c0d949147eb3f956af215e6237e110",
+      "decoded_size": 17098,
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Scripting.Metadata.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Microsoft.Scripting.xml",
+      "sha256": "c8e856de4aba7640152901f1db1cc03e7b8e3e07bf451a6ce6fb3b104543b4a3",
+      "decoded_size": 205709,
+      "kind": "other",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Microsoft.Scripting.xml",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/Newtonsoft.Json.dll",
+      "sha256": "526f69142edc80cb1f261acdb7c73ce3db841d21ac26bee6715f604c8a238be1",
+      "decoded_size": 513536,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 7
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/Newtonsoft.Json.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/pt/HM.Devices.resources.dll",
+      "sha256": "02f1cca92b269248e3079befe1fba5f2d23e6f61368050e5defd7bbb0f5c3ddd",
+      "decoded_size": 138752,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 99
+        },
+        "spectral": {
+          "nir_": 8,
+          "receptor": 1
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 36
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/pt/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/pt/JS.Common.Core.resources.dll",
+      "sha256": "cf8009f699ef2bfe4d51a90f91b671491a0ce516461fbff586f15efbe85c5a84",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/pt/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/System.IO.Ports.dll",
+      "sha256": "c4e66c991e23dd4b615cf141e5d5ad7a670f891d16f9face108671e9612dca50",
+      "decoded_size": 87168,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 2
+        },
+        "transport": {
+          "serialport": 12
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/System.IO.Ports.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/System.Management.dll",
+      "sha256": "28cd9b24b0b0503ba9604cfe7db16384bcf086fb6a5d04031ee1e658b3f35a6a",
+      "decoded_size": 295536,
+      "kind": ".net",
+      "vocabulary": {
+        "crypto": {
+          "rsa": 10,
+          "encrypt": 1
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/System.Management.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/zh-chs/HM.Devices.resources.dll",
+      "sha256": "c54aa617bd153b6f540ddebc4cf3714b8c171283ace98a6b5f709ba21d491e19",
+      "decoded_size": 123904,
+      "kind": ".net",
+      "vocabulary": {
+        "vendor": {
+          "scio": 95
+        },
+        "spectral": {
+          "nir_": 8
+        },
+        "payload": {
+          "device_id": 1
+        },
+        "firmware": {
+          "firmware": 24
+        },
+        "crypto": {
+          "rsa": 1,
+          "licens": 5
+        },
+        "transport": {
+          "is_connected": 3
+        }
+      },
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/zh-chs/HM.Devices.resources.dll",
+      "status": "bundle-extract"
+    },
+    {
+      "source": "troubleshooter-bundle/zh-chs/JS.Common.Core.resources.dll",
+      "sha256": "a54c23da1403f7617acc35a6f740cc9f944d104e976e2fdc75f05c24ab067ef8",
+      "decoded_size": 10752,
+      "kind": ".net",
+      "vocabulary": {},
+      "output": "dev/private/harvestmaster_resources_20261009/bundle/zh-chs/JS.Common.Core.resources.dll",
+      "status": "bundle-extract"
+    }
+  ],
+  "hash_provenance": {
+    "c85b90cd3c88a7e5d31ae803f99ca63024b6c274c4ac7bed7e06a699df3864ef": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.asyncawaitbestpractices.dll.compressed"
+    ],
+    "1796277a7aa9f2a9835c070d28fed44b3614ca221a2c1affc21a4c4e41194c3f": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.castle.core.dll.compressed",
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Castle.Core.dll"
+    ],
+    "8951f1b70412949c6ac5f5a73441e689d954522ee199f17f56c97d3c90908afd": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.commonservicelocator.dll.compressed"
+    ],
+    "41bb464ac7c0d192641077e44a59d7d89860c3c620a59961f2fc4a4be47deae3": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.costura.dll.compressed"
+    ],
+    "89b13aa6efbc0b04745a00bb5fcf05b7a4e3537095bde974ed3490a9cf582d17": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.costura.pdb.compressed"
+    ],
+    "1dcdb5476085ad98e0b8b2a4d66813ba68dbfd4132df5e8b0cd62239974316d0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.devices.resources.dll.compressed"
+    ],
+    "6d6909d64de006cc6c3df5677292fae9cc43f41b1ab606df645cf58acdd105df": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.hm800.resources.dll.compressed"
+    ],
+    "f862cf5c7081ede3f8a2e957a7238023fc640584ab0542c9950196fa403508a0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.hm.vcg.resources.dll.compressed"
+    ],
+    "c6e80b0686267461cc6bba5b1c0446f0ba75895d588e1a9d6408a5ab8a3668e8": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.js.common.core.resources.dll.compressed"
+    ],
+    "40de194079b719b5cd21447cc1fab4539ff2ab14af920ecd1ecca256204fef43": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.de.mvvm.overlay.resources.dll.compressed"
+    ],
+    "41473890b30b1072085d0c86aa19ce890b82b8f39c04cdcdde8bf3dd39d75746": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.devices.resources.dll.compressed"
+    ],
+    "c1c57873b5b1327e3b5c3712329e31cadf386fcb4b9377797cacf175ad35ba23": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.hm800.resources.dll.compressed"
+    ],
+    "af2ff053163d3029e288d5412daa21cda38fb5ae83d0a7f7ed6bda8e8fb0d691": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.hm.vcg.resources.dll.compressed"
+    ],
+    "783f915fc6aeeb0769e06ce24759c365b0bfc3386e4df0af2220270cd15600bd": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.js.common.core.resources.dll.compressed"
+    ],
+    "7010c23486672ed13cb966a87e96fa9ec62163eedc720b6f7095e38f234087f3": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.es.mvvm.overlay.resources.dll.compressed"
+    ],
+    "274e4b560a57efcb1dd6707b34b753c5f2db2fe275b3cb7fd9ba3d11f39a0e5b": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fakeiteasy.dll.compressed"
+    ],
+    "8601737625e9fde18a90d469144cfdb1660e650c577593c6d8e84cca166045d2": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.devices.resources.dll.compressed"
+    ],
+    "76f959c2881f6a3dfda3cdd91dd781cc43b1435fa4d6a6c6139f3cbb7b96dd68": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.hm800.resources.dll.compressed"
+    ],
+    "f7afb8f61ded06032e9612c7bbb479581bc8de513023dfcc1bafff4be51f85ff": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.hm.vcg.resources.dll.compressed"
+    ],
+    "f9d274ed1b57868f29760cbbd267daa81d1b8cd0e7d9c34afc5604ab2d090b20": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.js.common.core.resources.dll.compressed"
+    ],
+    "5f1d53684c52ac94419bd719d72e715a0fcffb74f504553842ed57f5f3c833d1": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.fr.mvvm.overlay.resources.dll.compressed"
+    ],
+    "1a9786ed4a90570bdfd8c6fb7429ddbc5f8f8534d166297a137f1581639bf3e3": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.dll.compressed",
+      "dev/private/harvestmaster_service_20261009/decomp/service134/GalaSoft.MvvmLight.dll"
+    ],
+    "e0ac213d3735be6fccd18930fdcb98194d4a95e7c5c4ddd8c2d28b365f3297a0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.extras.dll.compressed",
+      "dev/private/harvestmaster_service_20261009/decomp/service134/GalaSoft.MvvmLight.Extras.dll"
+    ],
+    "9003b24dc25c0166a040a25573adbd2a869459c67767d85b031078bbc553262d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.extras.pdb.compressed"
+    ],
+    "ac3be59f9098f4f991525face182c6a64c2f88b20c061575ccd6f5d1ab1bc30c": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.galasoft.mvvmlight.pdb.compressed"
+    ],
+    "a22617c684a40e02734cf921d07508ae246e310e17538cf826219aa88bf22c03": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.alta.views.dll.compressed"
+    ],
+    "82cb1128d5c164f6bfb184d2e0cbb5202b902c6107c8c79aff48b2b1aacb386d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.alta.views.pdb.compressed"
+    ],
+    "49a52165b03aaf2c2cf78fe0e57f8b5f2c751fbab9dfffe4dce0f89c3799fd33": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.devices.dll.compressed"
+    ],
+    "a2b72b6f514f5cd744f76791a204feb600d374482af30f75b9a871ebc24938f8": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.devices.pdb.compressed"
+    ],
+    "5bc8b2a8f306ea2c0c6c56592df13ebf9e59be1007739d313b39557ecce021d1": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.hm800.dll.compressed"
+    ],
+    "5e7b8f34dacaa3592c8345bc2fa263b6071c1b640ef10f231f987f9acb5005ac": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.hm800.pdb.compressed"
+    ],
+    "9399afe3265be6ea6daba9942d97513d4e1650a67ad237ebfcd7de1affebce2b": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.vcg.dll.compressed"
+    ],
+    "051ea992c4b44a2ac5a5bc35078e440b91cb965ff19bc80d20d3a78161a58a2d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.hm.vcg.pdb.compressed"
+    ],
+    "8e0cc4604b7ad96c44018ebcdfe1c2c8ecc9fee01d47dcd18f701a5c76d2e127": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.dll.compressed"
+    ],
+    "36bfbfb20ac11d6e857f675f675555637b7e02074aff32bfc2ee193e84941750": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.modules.dll.compressed"
+    ],
+    "472fae57426d2bd1143d57e06da5f35837cf87e67c87ff7adc9bbe81963d867b": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.sqlite.dll.compressed"
+    ],
+    "3350780720583f239851fa40ef97edc1379662470fe5de7561f9fdc0fac44d1f": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ironpython.wpf.dll.compressed"
+    ],
+    "e9ea609b752b6e56423a82b2fa3945e400f810618780eb11a070f3268c638c5d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.devices.resources.dll.compressed"
+    ],
+    "26e4aefe4424d2e8a2af06f18623af37c961914458902c1c2f9e935ddb52a1d6": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.hm800.resources.dll.compressed"
+    ],
+    "4ed2ee4fa5e77cc7091e9eb1ac09ac49e54c86046835c3c5661d11715b58efcb": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.hm.vcg.resources.dll.compressed"
+    ],
+    "9a51ccbbb03ed3e9f5baddff96e1ab1cc55420ae8b8f504cc5af94f114c4c9cc": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.js.common.core.resources.dll.compressed"
+    ],
+    "5579de9d1ab407b95a1b82ffc9cd30c79ba72d19740d89ac66efa8a81221e147": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.it.mvvm.overlay.resources.dll.compressed"
+    ],
+    "afa6d67d765da24af01e92c660e3a46e55248d6efab5c0c91196cc9a1375b35d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.core.dll.compressed"
+    ],
+    "a86cdcaf88528fea9b0247b81f09a830457b0ba7e38df14f4416ba5147843863": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.core.pdb.compressed"
+    ],
+    "35a6793a5be2d2ba0902a5c28b9e94b2b5aa44742dc70608e26649f49abfdbb0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.dll.compressed"
+    ],
+    "bef27bcbfeb660cf5ac91c9ef1a5c6bf8cb613fbdf39a32144ba4c242e54425c": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.js.common.pdb.compressed"
+    ],
+    "1d45a6afa38f0b10814063f2a42e6efce45752853667650e765844b8566b3332": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.log4net.dll.compressed"
+    ],
+    "5dc372a10f345b1f00ec6a8fa1a2ce569f7e5d63e4f1f8631be367e46bfa34f4": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.bcl.asyncinterfaces.dll.compressed"
+    ],
+    "e624126f0628785ac5d9559cf7cad8bf713cc34344d7ed62c7115f3fd7496dbc": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.dynamic.dll.compressed"
+    ],
+    "f0e45343518b78374466598c052716a0add91a74e1d03a87c124cd91639514c0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.scripting.dll.compressed"
+    ],
+    "be0c35b370ec699be014a8ffa6ade714c9018eb5b893787f76af4dfc26436ea1": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.scripting.metadata.dll.compressed"
+    ],
+    "d7cdd2d3e02ada6de7b99d6795bea37020a3040c1232f253e6fd5785346250c0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.microsoft.visualstudio.codecoverage.shim.dll.compressed"
+    ],
+    "dcffa8fcaebe848e5cd9a851474bc2ca3711ee355d239bb2156f72d7ee5c937d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.mvvm.overlay.dll.compressed"
+    ],
+    "e151fc9d5425fb5c17d5bc76e89ad28e5b75bdf614a1407d65e77098a2172df3": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.mvvm.overlay.pdb.compressed"
+    ],
+    "c5c83bbc1741be6ff4c490c0aee34c162945423ec577c646538b2d21ce13199e": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.newtonsoft.json.dll.compressed"
+    ],
+    "93495b9fd0fcb8c41743e28beb05fcb7d3e40c17030113a8b773ee92d497d050": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.ninject.dll.compressed"
+    ],
+    "aac83bbc63f1b0d362d878b137657a1835d36e6fcba4988a6667b7006568b49d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.prodotnetzip.dll.compressed"
+    ],
+    "76e36296f0c4a44d872a33dd4319bc15ef686f360c3c770d7f9294a4ba22792c": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.devices.resources.dll.compressed"
+    ],
+    "94d08aa275a146afa6c63ef10ff29bd5f1406e7a97936f82132b332e0e7c9b33": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.hm800.resources.dll.compressed"
+    ],
+    "7dbe43f8ba126d52cf9b4b6c67a65781f616573e27548836345d6e7eb4298170": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.hm.vcg.resources.dll.compressed"
+    ],
+    "b2084d05da9f6bdc9857236120b648a514a10c3f4f4515badc2159303f9fe937": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.js.common.core.resources.dll.compressed"
+    ],
+    "1288527b8fc83392c7dd18ba1bee42a4fa030c967ec110fb60e2d069af130652": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.pt.mvvm.overlay.resources.dll.compressed"
+    ],
+    "accccfbe45d9f08ffeed9916e37b33e98c65be012cfff6e7fa7b67210ce1fefb": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.buffers.dll.compressed"
+    ],
+    "d4047cdc0c372b06afc9cbed39b717fac18dced723e5851806a19f1bf42de1a3": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.codedom.dll.compressed"
+    ],
+    "d168af8e4a1263b5844180b1b371c5879b21b5b666feef7ca749b10192688006": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.collections.immutable.dll.compressed"
+    ],
+    "04113c8549185519f3202790ceb23df609644872b9c249a56d2bcf59566102c4": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.componentmodel.annotations.dll.compressed"
+    ],
+    "77dac4e1aa63161d6aff363030a801945d6b8d5b823a6b460b2c2be9ec38d3b7": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.data.sqlite.dll.compressed"
+    ],
+    "ddf91a67b1d1215e6731618fd84149bd4715e70126b270021ea25babb5389c84": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.data.sqlserverce.dll.compressed"
+    ],
+    "d22133818a30313e0becf010d78a556a56b34ea361dbd33588c9817631fed540": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.diagnostics.diagnosticsource.dll.compressed"
+    ],
+    "9d837b5004eeee45b8cb52d76490ee4ce0b82c1cd1c70215368089fef19c5393": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.interactive.dll.compressed"
+    ],
+    "b548933d34dc32231785cfa5c758a6b1054c75bf3f69bb2f32d1bc26dd232725": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.io.ports.dll.compressed"
+    ],
+    "bf3fb84664f4097f1a8a9bc71a51dcf8cf1a905d4080a4d290da1730866e856f": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.memory.dll.compressed"
+    ],
+    "1d3ef8698281e7cf7371d1554afef5872b39f96c26da772210a33da041ba1183": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.numerics.vectors.dll.compressed"
+    ],
+    "fa11c08a622261c28aee318be8157d8a3e90fcd75383ffc3315ae5b9c748281a": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.resources.extensions.dll.compressed"
+    ],
+    "37768488e8ef45729bc7d9a2677633c6450042975bb96516e186da6cb9cd0dcf": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.runtime.compilerservices.unsafe.dll.compressed"
+    ],
+    "ff14c5f628b9a6798d173aefbba0a43d61e66f715108e2576ac0d3dfab9071d0": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.accesscontrol.dll.compressed"
+    ],
+    "006d4d13c4c4c8327b3a94dc502d0e91114c1c495b408f6b78c6b30a3062a14f": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.permissions.dll.compressed"
+    ],
+    "b4d8e15adc235d0e858e39b5133e5d00a4baa8c94f4f39e3b5e791b0f9c0c806": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.security.principal.windows.dll.compressed"
+    ],
+    "b77ee852824a6e8098fbade000beb42ce9df32fa4189a00d5e7f472f6c6a5030": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.text.encoding.codepages.dll.compressed"
+    ],
+    "4aaf175d1823a14899931c6257b7d0c1479f18fd3c1a5d30551786f900d41c5c": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.threading.channels.dll.compressed"
+    ],
+    "4f81ffd0dc7204db75afc35ea4291769b07c440592f28894260eea76626a23c6": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.threading.tasks.extensions.dll.compressed"
+    ],
+    "33b006bb038b06eb22f19c1dc1f8ba1a92647aaf7517ab2aa99cc53ddd336c5d": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.system.windows.interactivity.dll.compressed",
+      "dev/private/harvestmaster_service_20261009/decomp/service134/System.Windows.Interactivity.dll"
+    ],
+    "2c3142d4b8faa15e653dd2cbb82593b6e122e23d0cf8fc1bffec3d5d5ba85d73": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.devices.resources.dll.compressed"
+    ],
+    "7e5ceacdc298da2abac91f613b17be12a1b751d065e911943d6e7673a412e7b8": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.hm800.resources.dll.compressed"
+    ],
+    "e8fe44ab3d754a66dc59b7738856791806681456c838440cae1bc0f6716a12ec": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.hm.vcg.resources.dll.compressed"
+    ],
+    "45ec81a8e909089fcd5c93677a83d415692fd7c23c5475288d7e17f53e53bd9a": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.js.common.core.resources.dll.compressed"
+    ],
+    "e83d49cb8cd60066ab83fb1b67cc2b7b3f78e2ddef9302188481607a83b6bac4": [
+      "dev/private/harvestmaster_service_20261009/decomp/serviceapp/costura.zh-hans.mvvm.overlay.resources.dll.compressed"
+    ],
+    "c77bc27cbf38920a5d7af4a4e89148a10c5a260abea25a617da4bfca52d2d1a2": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.Devices.resources.dll"
+    ],
+    "596eeb29043af90055673ca6608c7c8a5a89111ea59bddddbae22732b7f7514f": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.HM800.resources.dll"
+    ],
+    "73337dd7458831ad2512f8215e87d448fa0e4ab9a345926f5905564b47d003e2": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/de.HM.VCG.resources.dll"
+    ],
+    "1ac54c542b3800ef9c58b785e85e20f91f790bfd2ccd837dbcb364a858fc3b81": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/de.JS.Common.Core.resources.dll"
+    ],
+    "d2402fc348dd8c7a0c71282c8757edd746bc54f416265390e7ad63ecf234223c": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.Devices.resources.dll"
+    ],
+    "d20642f52395b05ddad706b8862caec4ac051ce7f8c688d076a47d546c5335d5": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.HM800.resources.dll"
+    ],
+    "51cf73b7cd4e78dcbc783a298f0d0dcbcd5c2d18be52e20f01d583572a2d9c25": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/es.HM.VCG.resources.dll"
+    ],
+    "9ba6e3c596805495e356809e7e6d0dcd6891a4e6e68123ee87deef3096149487": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/es.JS.Common.Core.resources.dll"
+    ],
+    "2f7d85cf1992faab2f4b0cc553ba2c01f2b96e5440cdcd47baf4e6f9e7bb9008": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/FakeItEasy.dll"
+    ],
+    "e930f80d904e5c531e57092df7eec0d26442637d5b81c9ca425f8ae41c633864": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.Devices.resources.dll"
+    ],
+    "d356e541aa7bb2278bdd9f89c7a781418254349a29fb8422d3aca2bc10b72498": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.HM800.resources.dll"
+    ],
+    "2ee1b2594e20aa0ab429d0c733266ac98336ef4be0ccecf0f1d3b634c0c51723": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/fr.HM.VCG.resources.dll"
+    ],
+    "78d34647ad8ba512c58bacec05b934f680e971c5f2749c1b8301a46eec4b8940": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/fr.JS.Common.Core.resources.dll"
+    ],
+    "73b0a8ede29a60e83f543cdecea9ec890818f141d2067ed74e70f13e9c27185a": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/HM.Alta.Views.dll"
+    ],
+    "f82d53002931ff56e828ae165d33f1b3913746e58f28f99aa8478b48abc26172": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/HM.Devices.dll"
+    ],
+    "2d3f65e211dad530a6a8e9a671dcc8eebf4bf544636d8464d7714d5a4b20e621": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/HM.HM800.dll"
+    ],
+    "53a6809b1cd2facbb783f2b89b08614f4e83238c18413a07f11f9074a42ed58e": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/HM.VCG.dll"
+    ],
+    "37c70e73717fa77dcbdbd0797cacb4ab6632c4f52f090b081968c7e1e00e25b9": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Ionic.Zip.dll"
+    ],
+    "744ffbf30bd5fbcdc746db96edb5b1dde4176c2b9d255bb5a80e5fccdb18f0f7": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/IronPython.dll",
+      "troubleshooter-bundle/IronPython.dll"
+    ],
+    "02f0056219f15a6a87c91cd75f1b1875b139a30fd2051fef5acb5cb874688a9f": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/IronPython.Modules.dll",
+      "troubleshooter-bundle/IronPython.Modules.dll"
+    ],
+    "d6b7f93775a58f9c1e8cfc6ca2635e30de9c8e55baf44ec6aaf06d2a7482837d": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.Devices.resources.dll"
+    ],
+    "265f47d41ff15bbec21dc7689d633acd3cfe7502fa68c5a1dace391782d866e4": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.HM800.resources.dll"
+    ],
+    "b6c52fb77c08a73ae04e8dc983f309d2b56e303262fa75c6e92eac5122a631cc": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/it.HM.VCG.resources.dll"
+    ],
+    "716315e06f9da5bc8eebe145a4828256c8ad1b66d2e0fa9495d39aefc62c38f6": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/it.JS.Common.Core.resources.dll"
+    ],
+    "c17140d33a7761bdfb82f1b8b22e5da0961da3a4223f85295cdced9d3aa7a007": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/JS.Common.Core.dll"
+    ],
+    "26c7cdba445f9215c11611d4d92383820c56d78e0d007fbbc7afd14533b62c2e": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/JS.Common.dll"
+    ],
+    "ce6ee4fdc783a5bf905f240178ac96eaeb7ede22ffe06a06ba179cd1a0442bd3": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/log4net.dll"
+    ],
+    "0ee7bfa73350e782c27f7050fe5f17b920913b942dcb9c4ac3612b85ae9cc869": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Dynamic.dll",
+      "troubleshooter-bundle/Microsoft.Dynamic.dll"
+    ],
+    "34005d6a80434542780c6d192e6abd07bea49b2eeb7e43fbfdfe90c2889986e5": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Practices.ServiceLocation.dll"
+    ],
+    "5c0736dae4b6c5429c36a10e372c4bf36e3cf7659b1644a6f1d269f229299b5b": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Scripting.dll",
+      "troubleshooter-bundle/Microsoft.Scripting.dll"
+    ],
+    "735601c54d59113311e5e94c43acccfb2d2f8a81a4b465951b3830cd82f09e22": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Microsoft.Scripting.Metadata.dll",
+      "troubleshooter-bundle/Microsoft.Scripting.Metadata.dll"
+    ],
+    "ca3f64e12ba48d941b04592646479b6aa769ff090d75c7c32a4612ea46ae5740": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Mvvm.Overlay.dll"
+    ],
+    "526f69142edc80cb1f261acdb7c73ce3db841d21ac26bee6715f604c8a238be1": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Newtonsoft.Json.dll",
+      "troubleshooter-bundle/Newtonsoft.Json.dll"
+    ],
+    "d6dd5739fc1a02f7cc284b8957d7412800ded255f2c5b5a736f3a2742c046de6": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/Ninject.dll"
+    ],
+    "03028421963c653f921d31ddc5e3bf7111ac2386e46c66d2170d7fb8bb7ac89a": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.Devices.resources.dll"
+    ],
+    "4a36250b1fddd44dfdf1b9db8de15344536aa4772f221180f445ffe50d32f14b": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.HM800.resources.dll"
+    ],
+    "14c688381a0f70fa9ea90915fd2784e41c627fd019d60e4df34401a1a7af3f41": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/pt.HM.VCG.resources.dll"
+    ],
+    "6436b06f204ac27fc8e7525b92056f2d51b71f1afdf8e15dd88c1ba7863fc04d": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/pt.JS.Common.Core.resources.dll"
+    ],
+    "9fbb8530e2304498133e5abbba018d65881c6995f5995f4e966a2bdfe4c8a110": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/System.Data.SQLite.dll"
+    ],
+    "158a18599e8dabdd292563ea05f885e56f8bf8b23c7efd292f783fbac5a71b22": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/System.ValueTuple.dll"
+    ],
+    "bdc15965a4aaf77b50641f42fe4473253e254e860c4e2c379d59c499bcb68793": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.Devices.resources.dll"
+    ],
+    "fbb8aeaf859c0b977a67f4b08a8dc8bb0ca9e7ded2007bd9fc68779707366173": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.HM800.resources.dll"
+    ],
+    "02acb8f10dc9477fb9b9065c0aab89326b920b23cd4be19ed6f3fb7039343d0e": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.HM.VCG.resources.dll"
+    ],
+    "a7b1f8a98d6df610d184f75e59639aa67c36536e991cc9ad52a252f1522d6d5d": [
+      "dev/private/harvestmaster_service_20261009/decomp/service134/zh-chs.JS.Common.Core.resources.dll"
+    ],
+    "c8c2d6529fb09bb03024360c6c7b8bc8b4209b54b5b12d727ce54d8ee6b358f3": [
+      "troubleshooter-bundle/AsyncAwaitBestPractices.dll"
+    ],
+    "c85059fe24a221a377b9a7e235fc014d65461a9bf3a44ec347c382bbfd1c0ea9": [
+      "troubleshooter-bundle/AsyncAwaitBestPractices.MVVM.dll"
+    ],
+    "30b50fa157fe5fe7b46c1cec2a9bd427a9a483b3fdbf2525f0427dac38c4390f": [
+      "troubleshooter-bundle/de/HM.Devices.resources.dll"
+    ],
+    "6decbdd8a11795ba5a548f060e66328a1ed779c82d50d70192093f1993f41cbd": [
+      "troubleshooter-bundle/de/JS.Common.Core.resources.dll"
+    ],
+    "017de141863469669b0b355a4080bd7280a2615dd1fa58c218109e8c5ef16fb8": [
+      "troubleshooter-bundle/es/HM.Devices.resources.dll"
+    ],
+    "4b524e50fb8044e33e2dc11ab71a3292895fdba4ca28425861d7056de950fefd": [
+      "troubleshooter-bundle/es/JS.Common.Core.resources.dll"
+    ],
+    "3f05bcb57f52080cce56c63cb25d6ff8101b5180127481ab05c2a3ad0a05b821": [
+      "troubleshooter-bundle/fr/HM.Devices.resources.dll"
+    ],
+    "bd6888845d4647a901367f070db5bdddf63fa182f37d4b5f0a6ab20686c4f12b": [
+      "troubleshooter-bundle/fr/JS.Common.Core.resources.dll"
+    ],
+    "e0ac1e3107ccac665afe917dbb862e02a12d19c12f1e022e2943431aab74866c": [
+      "troubleshooter-bundle/HM.Devices.dll"
+    ],
+    "411ba59713d234d8970d2ecbf3a8a60d30745653b4d3004fb44ba9e5534849a1": [
+      "troubleshooter-bundle/HM.Devices.xml"
+    ],
+    "e65e42063cf7837592f481003843d6f9bf7935b32deef1eb03b9d6bd7747d9cb": [
+      "troubleshooter-bundle/IronPython.Modules.xml"
+    ],
+    "b066614f5e232402520cd935e6844a43417309136a27e5d745b3f31076713c61": [
+      "troubleshooter-bundle/IronPython.xml"
+    ],
+    "9af322e31bbfc7b43f33866a1016b98c01ed79892f0ae7f76dcf10abfa8618ae": [
+      "troubleshooter-bundle/it/HM.Devices.resources.dll"
+    ],
+    "5ed1847a46666d5fa6702fe629fd978506a7f118c8aefc89932b84899e6cf9e2": [
+      "troubleshooter-bundle/it/JS.Common.Core.resources.dll"
+    ],
+    "8b4322fb7d48af5d8a36e3df5b70b7b31a424ff675e4a93edae97ca6cce86ccf": [
+      "troubleshooter-bundle/JS SCiO Troubleshooter.deps.json"
+    ],
+    "39e901ee2e24b5b7fb81d7fcb4ddd362301aed7a4991a3102dc5dc8b3aefe970": [
+      "troubleshooter-bundle/JS SCiO Troubleshooter.dll"
+    ],
+    "0d2a78306989c968cd73f4a6b462eef0371639cbb8790248028e12cba035445a": [
+      "troubleshooter-bundle/JS SCiO Troubleshooter.runtimeconfig.json"
+    ],
+    "037b168a9aba35125f80c82fc382c6eccf0f67af69a46ed0ed0417a6f0dc2e0f": [
+      "troubleshooter-bundle/JS.Common.Core.dll"
+    ],
+    "a4b248163b53c349e7b9c373ec5e6c5dd588d4300cbbce2b3d877afd333145ca": [
+      "troubleshooter-bundle/JS.Common.Core.dll.config"
+    ],
+    "676387fc6dcda7f28270acfabd65f79805bb7f6227e7eb5cbe0a23460231d2b7": [
+      "troubleshooter-bundle/log4net.dll"
+    ],
+    "f22bd3e8e7c01b4bb31204e7a677d32c9cb80ae06b7b8f227e66bc04cd3fa826": [
+      "troubleshooter-bundle/Microsoft.Dynamic.xml"
+    ],
+    "0a0be9f0f29e82627d8d74dc7af603c7b4c0d949147eb3f956af215e6237e110": [
+      "troubleshooter-bundle/Microsoft.Scripting.Metadata.xml"
+    ],
+    "c8e856de4aba7640152901f1db1cc03e7b8e3e07bf451a6ce6fb3b104543b4a3": [
+      "troubleshooter-bundle/Microsoft.Scripting.xml"
+    ],
+    "02f1cca92b269248e3079befe1fba5f2d23e6f61368050e5defd7bbb0f5c3ddd": [
+      "troubleshooter-bundle/pt/HM.Devices.resources.dll"
+    ],
+    "cf8009f699ef2bfe4d51a90f91b671491a0ce516461fbff586f15efbe85c5a84": [
+      "troubleshooter-bundle/pt/JS.Common.Core.resources.dll"
+    ],
+    "c4e66c991e23dd4b615cf141e5d5ad7a670f891d16f9face108671e9612dca50": [
+      "troubleshooter-bundle/System.IO.Ports.dll"
+    ],
+    "28cd9b24b0b0503ba9604cfe7db16384bcf086fb6a5d04031ee1e658b3f35a6a": [
+      "troubleshooter-bundle/System.Management.dll"
+    ],
+    "c54aa617bd153b6f540ddebc4cf3714b8c171283ace98a6b5f709ba21d491e19": [
+      "troubleshooter-bundle/zh-chs/HM.Devices.resources.dll"
+    ],
+    "a54c23da1403f7617acc35a6f740cc9f944d104e976e2fdc75f05c24ab067ef8": [
+      "troubleshooter-bundle/zh-chs/JS.Common.Core.resources.dll"
+    ]
+  }
+}

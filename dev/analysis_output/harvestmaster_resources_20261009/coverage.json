@@ -1,0 +1,1425 @@
+{
+  "offline": true,
+  "vendor_execution": false,
+  "requests": 0,
+  "embedded_records": 170,
+  "unique_payload_hashes": 160,
+  "kinds": {
+    ".net": 151,
+    "other": 19
+  },
+  "source_hashes_reverified": 135,
+  "all_recovered_payload_hashes_reverified": true,
+  "vendor_decompiled_directories": 26,
+  "resx_entries": 13488,
+  "binary_resx_entries": 25,
+  "unique_binary_resx_hashes": 12,
+  "nested_zip_resources": 0,
+  "non_resx_vendor_assets": [
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/AltaToggleButton.xaml",
+      "size": 7865,
+      "sha256": "1951e318317d05a76f010719dde93d5e14f4da9c3995e0b779358c928e6769d3",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/ClearButton.xaml",
+      "size": 3190,
+      "sha256": "f2769e36e5f8f9d78f95b417a91024d3b293079db7576b810283dbbc38db63cb",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/GrayButton.xaml",
+      "size": 5868,
+      "sha256": "89c07b0cccfafe9beca47b82becdcce2776b4e8e27b42c1b89bdf2bda7df6491",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/LinearGauge.xaml",
+      "size": 5695,
+      "sha256": "5a783bfc9d824b059295c4bf68c71d2e4416506e827a09e2e8ac75cd021f0384",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/NumericInputControl.xaml",
+      "size": 6149,
+      "sha256": "49159e64968b2914921666a852f7ef6d921f03ca6b8da2183571684b3062887d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.Controls/ToggleSwitch.xaml",
+      "size": 12218,
+      "sha256": "9c316e2b108774086249b6d54a4afb2175112ead3e1a607846e26f2a264c62cc",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/About.xaml",
+      "size": 1686,
+      "sha256": "fee6c45a3aaa9918eeb332db5fb5ef2bc920f00543fa7e954c1dd1debcde36f5",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Actuator.xaml",
+      "size": 1540,
+      "sha256": "da47f147811e8595367494b5dfc7350e5c390c0d2fe298b5821a3f8542a794aa",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Add.xaml",
+      "size": 1074,
+      "sha256": "7c74a3818da9e23edc5dbbd26b78cacff85a42f721d080ad966ad73848e522a2",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/AddMoisturePoint.xaml",
+      "size": 1255,
+      "sha256": "66af237e47350da9bee11fbc034607435a91af3a4f5e86d4b67e1fb98b820aa5",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/AddToList.xaml",
+      "size": 3865,
+      "sha256": "f031505a8c4c97b9eac2b1a67d04d45ceec10d8c3359d18516df9f60ad9b4cae",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/AddToListSelected.xaml",
+      "size": 2114,
+      "sha256": "8cfd927aca1c485740c86b3e974e776e7c24bab7410d8912e978b2ebbd352c92",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/BackArrow.xaml",
+      "size": 1266,
+      "sha256": "ab1f422e425036251a30832b37bac18bf5f3533b736e4e85cc9d2c2dde9c7b85",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/BackSpace.xaml",
+      "size": 1517,
+      "sha256": "134d9c3ffc37cdeb5ae4b540568404856b7536e93b69133a2ff636e5eac03f44",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Barcode.xaml",
+      "size": 1583,
+      "sha256": "0cac3e0fed3f1fcc25d81098f6338a10906f2fde3bb6fce94db2d08f776e40f3",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ChangeLocation.xaml",
+      "size": 1133,
+      "sha256": "a686b83cce3cdc5d240a09a45d8cf865d920294a2d799f00213cf2b251e5659c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/CircularProgressWheel.xaml",
+      "size": 3742,
+      "sha256": "a0d7f2a01df53bff8e33a6544fe612e662927210fdaa4c65fd5e942b034eb38f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Close.xaml",
+      "size": 2659,
+      "sha256": "62cd113af24fb0bab8db0cfaf65cbaaf24c47a9050e22d764b8dc03704250fa4",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Compass.xaml",
+      "size": 2334,
+      "sha256": "31dce9bee57a9e96a172cd321199cb63ab7fba06d67c770ade90b1d3b0b399e6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Copy.xaml",
+      "size": 1390,
+      "sha256": "94ab961e853f7801cae28826cdd8cfe2342fbbbc57878b29f17e060557f56b29",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/CustomTrait.xaml",
+      "size": 864,
+      "sha256": "a9ba7da4a5a69d81798bb5e097f6849e40228e7a5b729521b3e111e073bd5b76",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Cycle.xaml",
+      "size": 1516,
+      "sha256": "c05684c8534c0c0abfe052feeab92d54327a77c9e00657e55cdb6e425237a178",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/CycleRotate.xaml",
+      "size": 1599,
+      "sha256": "67288306737bf4317b757f475cb9081e9801430faa86455928b317e6a26a2fb6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/DateTime.xaml",
+      "size": 2223,
+      "sha256": "b62c7d47e150c8cbbd724d7cfa664e293fa39aa5ed73ec99c1619944285f43d3",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Delete.xaml",
+      "size": 2153,
+      "sha256": "fede371e8e25bd6925f8345ff154cc7a532b8c8100404879c799d3250a954981",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/DeleteMoisturePoint.xaml",
+      "size": 1141,
+      "sha256": "f683a096a6819d9a1646141dc6da45f2186046f75eb631655996b6e4eb342888",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Devices.xaml",
+      "size": 2110,
+      "sha256": "7f8700ebe7ceb2e076d17201cd3ed68e6fb2856150cc501a589475c439a291fb",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Devices2.xaml",
+      "size": 2135,
+      "sha256": "d37ba1227b5d661f710a10ca36f6294a808a70a0a1077fe487f112d3b8cc53d6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Diagnostics.xaml",
+      "size": 4689,
+      "sha256": "fafd5763acdecfd42543d0a2379bec7be69ed077d01ac82a56369f10e65aba99",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/DisabledNextIcon.xaml",
+      "size": 2669,
+      "sha256": "8ed3371286fc537ddffe7cbce82b5666fb5bd3bbcae72cd54fbb42a428b4e72e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/DisabledOk.xaml",
+      "size": 2757,
+      "sha256": "f238041ea3cb5f7796168671f8fe8583b3abe5ac3767de8eae7c1535859b0b2e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Edit.xaml",
+      "size": 1533,
+      "sha256": "83af51eda48900a9f2f35f95d025cedd6fde198a958d91b2bf8ba32c29438666",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Export.xaml",
+      "size": 1365,
+      "sha256": "42c70f462b12a70c54c8be27c647bec269b27572bf8b06c2fd66714a47c8de6b",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Eye.xaml",
+      "size": 1665,
+      "sha256": "8dec1047832ac1b84270bc710b98cee8171f1788fcc14847eee7799384207ab9",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Failure.xaml",
+      "size": 1704,
+      "sha256": "ef8f4f0c968e7c426093c8cb8b9a7c64a11a7d0700ec02a0f1098095755c2f4c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Favorites.xaml",
+      "size": 3736,
+      "sha256": "8568de3e9d4240602829e3c3bae3f30bcabec683874e70aa9acd4bb9f6bfc239",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/FavoriteSelected.xaml",
+      "size": 3743,
+      "sha256": "6cabc6219c59aa08113082fa6be94187353e8bf6da42c6e8f587a0b338b356ba",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Graph.xaml",
+      "size": 1897,
+      "sha256": "77b1d40b763179070383c13bbfaeb546e96b190cb9034d0b986bdca74a716daa",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/GraphInfo.xaml",
+      "size": 1996,
+      "sha256": "a9b9e79abfdc6ef7d2193d6c51e94059fa7650845186462b8df0abc95157e00b",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Harvest.xaml",
+      "size": 1680,
+      "sha256": "4ea8280e8fd3beec9b9fcdd7e999a12d145bdd2a0c8164dc9029862ea50e0a9f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/HarvestMasterLogo.xaml",
+      "size": 12230,
+      "sha256": "0b44cd1375991cf5c005bf2d64b40e43213bde59d0376051ac61c7a288b3ed42",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Health.xaml",
+      "size": 2351,
+      "sha256": "37d8e228f4806cec544c70031925d790ddfd14cf0fef554f690a60736daad084",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/HMLogo.xaml",
+      "size": 1377,
+      "sha256": "49d851f11db10e8684346f34039893397689231d4061455a29767fed1c94e16c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Home.xaml",
+      "size": 1055,
+      "sha256": "0bef2eb6d6914b5c8f3f9747dcfbb9cfe842c2c0043c006a26661f9b07bfa29e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/HomeButton.xaml",
+      "size": 6866,
+      "sha256": "f8a395a4ef0fbc0b441f23c379d410227acfa8e49845daa18c7af65f1fff427e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Import.xaml",
+      "size": 1540,
+      "sha256": "4d1ba709acc7c191bb531133e6e1c0ab00a8b3b3e211e797d5fda96b2deadde1",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Internet.xaml",
+      "size": 3426,
+      "sha256": "174bca8e864e9488769903285aa4f5fba4d1685c61c1e260c01e3633864faecf",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/LevelDetect.xaml",
+      "size": 1129,
+      "sha256": "44cdaeaec5c580c7d9371a29970ce6e526eb04a5d145463c955837631d71248a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/LineGraph.xaml",
+      "size": 1157,
+      "sha256": "e21dcd75e848c7ddaf88beb8b4a1d2a1bfda4a906c1fdb8a8af7507bb8307a42",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/List.xaml",
+      "size": 2566,
+      "sha256": "bdf4d2e60b3dba632ca40fad4604115ddc17ef98714a2a7759a158725832c331",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ListOk.xaml",
+      "size": 6320,
+      "sha256": "b2da1054600c10f8922e56ebcf9d326c7475f749950c4cbae9c80be537b94af5",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ListOkHighlight.xaml",
+      "size": 6301,
+      "sha256": "a94c6cd5077e737d51d8a117cd600b162a82b10d6a85bcd836ae3d9e07316786",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ListSelected.xaml",
+      "size": 2432,
+      "sha256": "e090229937cb7eaecdded166a2a87aa20df0b3f9796f22da56d598c03e73dc91",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Lock.xaml",
+      "size": 1177,
+      "sha256": "1a91cd12f67418f6f4c9549c59dc8e5d3e557a29befa4a43197759039a5255ab",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Magnify.xaml",
+      "size": 1308,
+      "sha256": "0a61b6d09afcac33c4945171970e0e8c4598e805762287a8c2d8f667298b7aff",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Map.xaml",
+      "size": 1334,
+      "sha256": "8dc272b78a8a60bd7823dfc8bfea980f209d1cd21beaf4b8ac568baa48fd528f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Maximize.xaml",
+      "size": 3042,
+      "sha256": "5f135a027899e0ed270fe9e010e190caa32038d0830f49738b68405671b08c86",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Minimize.xaml",
+      "size": 2617,
+      "sha256": "945183c3f18d55ad5db32f7af03d3d42aeaadf2c2053bfc8659356e6d3432208",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Moisture.xaml",
+      "size": 1396,
+      "sha256": "5380d1d78bba81b8054351035db25b8af5514332bb8467041c5cbbf466302f76",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/MoistureCurve.xaml",
+      "size": 26079,
+      "sha256": "2c3725ffa7abc3abb57ce8f4391bdcd6f010a5498db86a5e6db81f0f3688cf2e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/MoistureCurveDeselected.xaml",
+      "size": 53416,
+      "sha256": "12c0291dc3261d08282c45b259d413c3052558483d6fc0ef3ef97215eaf7ac19",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/MoistureCurveSelected.xaml",
+      "size": 19420,
+      "sha256": "1b7d23c3ef40c0de8f94048ac6ee31ae20eb8815163687adb9dba8ae377fd5a2",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/MoistureGraphToggle.xaml",
+      "size": 14960,
+      "sha256": "111e086630134b936afddc0d7c36d91daad56108519a260a47838dfb3b01630d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/New.xaml",
+      "size": 1170,
+      "sha256": "197b18d503eb8b9056c506757629e8f5fc149603cad6aa379916c1e058b6842d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/NewHMLogo.xaml",
+      "size": 1965,
+      "sha256": "f36f5ee40a216f0546891c5ed22f5fffa63d007a3064461512e9358b024bc0ee",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Next.xaml",
+      "size": 5551,
+      "sha256": "dd748f0dc667b7903397f253a02914ed1f2c211e9db7080977fbf480b11cc2ae",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/NextHighlight.xaml",
+      "size": 5511,
+      "sha256": "e22dd75eebd2e565000875b11bd2fcbd27542be079412f20df47b4b91fed3610",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/NextIcon.xaml",
+      "size": 2668,
+      "sha256": "0f55f7ef5be300b6ca7238bf3a53434fefb5da08e2a6ba2753298d3f497afc5d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/OkCheck.xaml",
+      "size": 1310,
+      "sha256": "c2d338a39c2b26841849938fdb7af45b8f76c1c67eae45093e9ba76668b43e35",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/OkIcon.xaml",
+      "size": 2652,
+      "sha256": "49b1d19844bcbbd18003d6b2e962b69421f9f58680d9f3a7295bdd4de801401e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Phone.xaml",
+      "size": 1516,
+      "sha256": "48068050f677ca22bd300045a62a368974e31be889cdd8731c947abc052b64ab",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Placemark.xaml",
+      "size": 1161,
+      "sha256": "d63232434f8c10200db687e346d9cecf118fb312654229f70dbd0835a6799085",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Plug.xaml",
+      "size": 2257,
+      "sha256": "13832e203535c72451f851d57e6d6be121889d90aeca66d33231846c548a858d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Preferences.xaml",
+      "size": 1380,
+      "sha256": "7303227165fafb2c0c3ff27555001e582ece134e7330e1f55d007117329fd0b7",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Printer.xaml",
+      "size": 1043,
+      "sha256": "8074087fdc5500435f668a87c7e011621b2812354461dd4d8f507ecc4496a480",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Quad.xaml",
+      "size": 915,
+      "sha256": "606a0e2d785d4b6f33716ce9e8e5e3f25bf45fa9dfa49814b85120118e3474e8",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/QuestionMark.xaml",
+      "size": 1696,
+      "sha256": "bc99c3f23b8118fdadbc1c2f12355adb2e0f4841877fca3ffaabf8b7767772e0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/QuickNote.xaml",
+      "size": 1242,
+      "sha256": "1cc7f9f91b56409758c414ead52ec2feeac33772a2fdcfe65e9e588725c56ad7",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Recents.xaml",
+      "size": 3093,
+      "sha256": "716d8c986ba6f81e11e534d5cf6af3ba677058719061afc3aec9a3a9fa84a58e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/RecentsSelected.xaml",
+      "size": 3101,
+      "sha256": "3e329d4e751b88562aaa22d58f0e383f6fd6781c37036c9b38e950eeef592014",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Refresh.xaml",
+      "size": 1799,
+      "sha256": "9da0d6075069f57f1eff420baa9796e2c9455fd9f9b6d51ce1b7d42ac3a9c6cf",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/RemoveFromList.xaml",
+      "size": 1070,
+      "sha256": "3a02b8c8b90d08d0ba4a5b4c613500ad17e5d2f196ffc99547fccea4be2ba4e8",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Satellite.xaml",
+      "size": 1635,
+      "sha256": "25e0d3ef9dd12e94516f2617feb4c4a66157a4eaf6db6593be4842b868f50597",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Save.xaml",
+      "size": 2025,
+      "sha256": "200d1aeff5d6ec4e15da4e34c3e6c8d16690567e9a86d6cc2a27aff633ee2c84",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/SliderThumb.xaml",
+      "size": 4117,
+      "sha256": "8dfa097e2259590ce2b548acc03bbd89e630f8815cd2e484cb6bcfaa72acb48c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/SpreadSheet.xaml",
+      "size": 1243,
+      "sha256": "e75ec0c060d709319de7b6354a96a9070ff2fad88200868eb29303a85d4dd7ed",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Success.xaml",
+      "size": 1461,
+      "sha256": "6581f0ad28c6fd3282833dd33f80c6ccbd922d694a0699c0e0387ea364cd3816",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Tab.xaml",
+      "size": 1068,
+      "sha256": "aa2bd3e4b5143cc805689010baf065e1014b6562c18ec0838d88029c1ff0d8f0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/TenKeyIcon.xaml",
+      "size": 8007,
+      "sha256": "43458f92df248d3cd0549a3361ca16ba8c1dcdac8db3e9361339ea5cb7078057",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/TestWeight.xaml",
+      "size": 1121,
+      "sha256": "987687681f26e3a58dd8af511aa424c23896fe46996d779e3ce0142bd81184da",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Timer.xaml",
+      "size": 1972,
+      "sha256": "31230feef906c3da256d304be7cac89451f7ec466fa4cf5f27064074aa903287",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ToolboxNext.xaml",
+      "size": 2671,
+      "sha256": "26f249766de62742697e4de819874c06e1f1e453eb360dfa4b0897a872254409",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ToolboxOk.xaml",
+      "size": 2655,
+      "sha256": "b242d8f5a57dd0864fded4e77070461a1cbae850c42e5284e9141908d90caa9a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Trait.xaml",
+      "size": 1381,
+      "sha256": "72e6bf861ac1a088e3b684d7d5718eafeedda66c1cb3bbae5a491f30e3a8decd",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Trash.xaml",
+      "size": 2141,
+      "sha256": "54e8e0fe1e6dfda5d2680bcd1ebf3e6a9a10ccde27f3543c221ec29bc2065d41",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Undo.xaml",
+      "size": 1257,
+      "sha256": "51640e00f948dac6d134dd4d7fde1824117b97d1a99de30e941c558783c11340",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Unlocked.xaml",
+      "size": 1099,
+      "sha256": "88d4850692f0b32510f5ddf83d62e747c90d40a4b91eb3eefb62264a4c88bbac",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/VectorBase.xaml",
+      "size": 908,
+      "sha256": "9ab1653a3b4661161043e2dc6615f5c9b9c041ad52c3cde1325d8bcbef0f5260",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Warning.xaml",
+      "size": 1826,
+      "sha256": "bc235c136befa4cd8102d15d65c5387d3e9ab1fc08b60e4afdf6085ff81e1a69",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Weight.xaml",
+      "size": 1091,
+      "sha256": "b6e196c8c50b2819bd94d5cdf3b98d5c330d5e1f9a29422f36261508d0f1b837",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/Wrench.xaml",
+      "size": 1476,
+      "sha256": "b95db469934fcf99e8f58373fd409ed45836e4676df5b1ab5fe022e423f72dd3",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ZoomIn.xaml",
+      "size": 1500,
+      "sha256": "082ccffa8f0d9004f22e366c38ca9f373c2df384b4262187fda62a5f8d265050",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.Alta.Views.VectorImages/ZoomOut.xaml",
+      "size": 1456,
+      "sha256": "4068cd0a1f121122603bd3f16cb0ef8bf66a6935a5eeaaca08bf22dfd28d0902",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/HM.PluginManager.Views/Filter.xaml",
+      "size": 1008,
+      "sha256": "6fdee5e14cae987255b67a991f8afd6d7d5697ece4119702a5c22fbe8a29f91e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/images/icons/effects/noisetile.jpg",
+      "size": 85184,
+      "sha256": "ed07cfb17be2cb37b5821abd0c06f70abfade0b71b933d085e13179d0e463899",
+      "extension": ".jpg"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/images/icons/harvest.png",
+      "size": 69125,
+      "sha256": "b5aacc86a195bb1335f016e94d690a6376029cf1ff6b2ea682d409075ad1285b",
+      "extension": ".png"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/HM.Alta.Views_73b0a8ed/themes/generic.xaml",
+      "size": 26747,
+      "sha256": "2e6681a41c2e4656045f0ccdfc50a79f9e443b1e7ed5142ef63ed743828c8496",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/AltaToggleButton.xaml",
+      "size": 7888,
+      "sha256": "2b101b4d4eef8e5d5df18cf56dc3a6323376273064aa610ffe41ce739ad1aefc",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/ClearButton.xaml",
+      "size": 3190,
+      "sha256": "e28ed5913488f97d38e312f5d611e5606e3e144434dd2770825a4993021fc869",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/GrayButton.xaml",
+      "size": 5830,
+      "sha256": "94e240e056e9981d00024cf5507cba7595a546e2976e9309913e7341297d4c62",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/LinearGauge.xaml",
+      "size": 7586,
+      "sha256": "474781e0e028ee0323e3914431029f56d8fa0d1c3604404263e03929600b3af6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/NumericInputControl.xaml",
+      "size": 6149,
+      "sha256": "0dd74864537293d1389b706af72ddced7c2f6f63a242b9c48f7022677d3329be",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/NumericLineMarker.xaml",
+      "size": 2201,
+      "sha256": "b79dd7199cfec029d25744c82731174b5c17ace0ec86a0595c6748a7cfff1e3a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.Controls/ToggleSwitch.xaml",
+      "size": 12218,
+      "sha256": "a0906c6f1c32b54623df40b10eaecaab72d398bb21800a902624bf6d78eae2b4",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/About.xaml",
+      "size": 1686,
+      "sha256": "6cff4a92a4c143fc574fc819af4eb9911f420d1ebc69245880d36408b3f42aa2",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Actuator.xaml",
+      "size": 1540,
+      "sha256": "9a0829856b389adf89e4f80c3510907b477c59b679edd1769dce6045bfe293ba",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Add.xaml",
+      "size": 1074,
+      "sha256": "2c2598dd01f2271823b2945489d69df9d363ec19ac8d47431cabd76e7bb21303",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/AddMoisturePoint.xaml",
+      "size": 1216,
+      "sha256": "c28e052f5942779d4cd49ae26537034f2b659332dad0209ac364da5cface7392",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/AddToList.xaml",
+      "size": 3865,
+      "sha256": "7bdff1c0899b3c93c1ac8ccfddfe84ab44fb02c4adf0f73512ef65555c79d44f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/AddToListSelected.xaml",
+      "size": 2114,
+      "sha256": "0dc5f40ae9264b9c727a3a3b0fed04aaccd07f6563aead27c58585fd9fd350bb",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/AlertOctagon.xaml",
+      "size": 998,
+      "sha256": "49a816d2c9602ab96440b1b6bb110639db56c12f1b37f610c0587e16cc520fda",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/AlertOctagonOutline.xaml",
+      "size": 1093,
+      "sha256": "808e2d620377d9fe1abe617b4b0d8bde3dea718444ca7eead80713d7127e1180",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/BackArrow.xaml",
+      "size": 1266,
+      "sha256": "3795e4cd4cce9b6d4b3b775b097b67197a4b0bec33dae13d37e7325c8ede9cac",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/BackSpace.xaml",
+      "size": 1500,
+      "sha256": "39f7a15763aa6b10b34d88dc72914d384f6bcb832702fe4240bcb485f607fdc1",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Barcode.xaml",
+      "size": 1583,
+      "sha256": "7f80485853106b783e5b6d19fb4ce8ed03480952396b02900d1fa8f6f0820333",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ChangeLocation.xaml",
+      "size": 1133,
+      "sha256": "6f4d74cda129b34cedf4c508a08d4125e48d6d026ebb7b31bee81bd97b903a16",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/CircularProgressWheel.xaml",
+      "size": 3742,
+      "sha256": "55517fc4c4e3d9d03483f10c91958959dc18f565b18f96a96c9bb726cc3690ad",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Close.xaml",
+      "size": 2659,
+      "sha256": "db09a1c26ae9971c7cb295e4ae9343d2c40e2b3d9afe096686eb48df120de501",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Compass.xaml",
+      "size": 2334,
+      "sha256": "56344cb27516fef09b4118e0ab46645786394117da23b118a323621d4bd4a496",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Copy.xaml",
+      "size": 1390,
+      "sha256": "a7937c412ad42b73c3fe372a636ce43ce86647dfb3a62a240efa0d277162661e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/CustomTrait.xaml",
+      "size": 864,
+      "sha256": "38f1286ae5957b6d2f6e7929d05262d0243001f340a304c860017598ef77125f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Cycle.xaml",
+      "size": 1516,
+      "sha256": "995477f5b8f4f113b709b49f8c4779fca6350a4b24701809860f36084384d1b0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/CycleRotate.xaml",
+      "size": 1599,
+      "sha256": "ebd97bfd0bfc9d993c073d82f66ae8c28d2efb2505c0c408f80287f80a2b2125",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/DateTime.xaml",
+      "size": 2223,
+      "sha256": "5794a5e7e9f90a61aeb69dc5485b3c170d9c9e56302a2fd0120c21648a0dcd0c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Delete.xaml",
+      "size": 2153,
+      "sha256": "bab7ffe2c1d9d856c3a228735df598a16bd0cb2c8fd95bc4d822fe1067ad5288",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/DeleteMoisturePoint.xaml",
+      "size": 1104,
+      "sha256": "1e3217600102bc645195784c594005c5ffdd55a5e4269f6075a5c3fe982536d0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Devices.xaml",
+      "size": 2110,
+      "sha256": "66eb21e134abfc545a82b986247a24bd24946eae66a13675099b251bcfa5b044",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Devices2.xaml",
+      "size": 2135,
+      "sha256": "c47df716f5d786fb4de4fcbe6d50674a643662aaf0a34ae957f1f39058b42165",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Diagnostics.xaml",
+      "size": 4689,
+      "sha256": "97226b7cd757a9469edeee07c7c71f60ce9c9c8b7df3afd2bf96b380518a6ec0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/DisabledNextIcon.xaml",
+      "size": 2669,
+      "sha256": "037545f6f9dbf854d32f6d6dd816c0950040756a09f24f925235a1c2d7dcc9f4",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/DisabledOk.xaml",
+      "size": 2757,
+      "sha256": "7dfa62e79d05039b91c755f4133a04596f65970441df885e4b145e364fc8e089",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Edit.xaml",
+      "size": 1533,
+      "sha256": "18f11252240122c41b14d0a102138bd59c79e66f477394d270f2fd745c2ab248",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Exclamation.xaml",
+      "size": 929,
+      "sha256": "1380b24d60188b0d8b58581fb42693c3b447b87baf07a59b5e620a4e7050799a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Export.xaml",
+      "size": 1365,
+      "sha256": "be75fdc9d3aa57258d0a43c8ed3715423535a68441df2a5a91a72b28ad73cc50",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Eye.xaml",
+      "size": 1665,
+      "sha256": "5920f44cdf97b08b0b84e4e952c6abd4e7f1a1504452753843e045415c1b5b83",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Failure.xaml",
+      "size": 1687,
+      "sha256": "211356bd5e6b9ac3323d803a8926068ea40d429afa1a9bfefaac1d13e240c888",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Favorites.xaml",
+      "size": 3736,
+      "sha256": "015e1f70c851582ceceac817d07c16b2b01f3a5edcdefca1fa778ae571a622cc",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/FavoriteSelected.xaml",
+      "size": 3743,
+      "sha256": "fd9c1334ba28d8d0e325c07b959a6215f0e81ddcacba4cd99afc046d368f81ba",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Graph.xaml",
+      "size": 1897,
+      "sha256": "60b5d9a044d5bae84ac1277512aa87edd5a6328a14f64e736b04226763d531f0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/GraphInfo.xaml",
+      "size": 1996,
+      "sha256": "f221064bf11db426f72385dd9383f1da8c2ecaa63e83138302fbb1f519c5e3cd",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Harvest.xaml",
+      "size": 1680,
+      "sha256": "d1a8a1a92700e0af891c73dbd60a0b65a4cca06eed9fbd44540a9ffd89c36e99",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/HarvestMasterLogo.xaml",
+      "size": 12230,
+      "sha256": "d3e5ecef2a5b9ead416feeab7be5198baba710cbede3f55eaba54897f5abde11",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Health.xaml",
+      "size": 2351,
+      "sha256": "711ca0ede706b36f883503fe85d2368c87a49f5a5ddb152fccfde20d24eddb7c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/HMLogo.xaml",
+      "size": 1377,
+      "sha256": "6493a4eec9a88d680c598ec9ff8b8ae7a789b96ba16692fbe30be44af5008b9e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Home.xaml",
+      "size": 1055,
+      "sha256": "f96d4dff881fff35e3fd852f8b94ec08aeb01bbc8e87e626bdc36d9151cb43f8",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/HomeButton.xaml",
+      "size": 6849,
+      "sha256": "4a9c5d662a7d2680a7da4bed37119c224de5413b8fc39ff4596efd8dcd076f15",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Import.xaml",
+      "size": 1540,
+      "sha256": "3c202a091b3738afe1a5bbc731bb076d5599ba9c164fde89b36288198b0dd3eb",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Internet.xaml",
+      "size": 3426,
+      "sha256": "2c611000d5c015154ab9ddea7cf5f655458b8be0e3cdbfb1be04c85b9bc2eade",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/LevelDetect.xaml",
+      "size": 1129,
+      "sha256": "9c6c5b0c0eaf23187da16bb7f05680a8a7e29895f8c492d67bc1e9849106ea2f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/LineGraph.xaml",
+      "size": 1157,
+      "sha256": "cf9714c42dfe8b98fceabe5ae878bc092b36b2c0c86968c46de329a554d836da",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/List.xaml",
+      "size": 2566,
+      "sha256": "cdd472e4077cb874574fb0d46f09d597d1f335c1abe242b5a5b8e99a516dd597",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ListOk.xaml",
+      "size": 6320,
+      "sha256": "8493953740674ea04ed5ff4f544c6bf75c923597ac1d2fece9e9e3d741037544",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ListOkHighlight.xaml",
+      "size": 6301,
+      "sha256": "12f6c086d0864f12ddea1eb7c9ff80b0ba098b4f1dd60a2dd2d077177860f6dd",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ListSelected.xaml",
+      "size": 2432,
+      "sha256": "e91a8530b22c5a1a30ca5fd6461526cb59da986586fa58c54e30dc01aef3c9c0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Lock.xaml",
+      "size": 1177,
+      "sha256": "0b5a73c87c8e2330f7d72e02a73662e06ea1e58c286a166aa9bdee280aa35145",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/M2MoistureCurve.xaml",
+      "size": 2358,
+      "sha256": "a12694074d3d56c1062d31502a1b5eefd07d1d000078328cff0edf2c22e9cb7f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/M2MoistureCurveDeselected.xaml",
+      "size": 4276,
+      "sha256": "519137ed2e2f7cd21a0befea986fdab61b4106e8f5a5edd615d7129c3c50b1a5",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Magnify.xaml",
+      "size": 1308,
+      "sha256": "01267c9858bf0f91696b106e0c5dc59d5e388d1fcf57bd0d6e878746003a684d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Map.xaml",
+      "size": 1334,
+      "sha256": "5a0e8d8fd5cd1374ff97dc2f940fb241b16056c6220c79a3f2cbc5aa3de3c812",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Maximize.xaml",
+      "size": 3042,
+      "sha256": "451eacaa860bea8817b29e24f8be8719c5e923486b2817092168301bbf92c85e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Minimize.xaml",
+      "size": 2617,
+      "sha256": "59744e713de2ef8c30286d26259a97e2606c284bb5988f389db949ef74a1d8e9",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Moisture.xaml",
+      "size": 1396,
+      "sha256": "c5a241549893573b94eb51b0f05971c2f4927b93ec6ccb045543f6f6b8dc464e",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/MoistureCurve.xaml",
+      "size": 2376,
+      "sha256": "4f5b398cc3a9a2ab76fdc4b9374f4fc0a8923dc4050e4929497f44c200442bb2",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/MoistureCurveDeselected.xaml",
+      "size": 4292,
+      "sha256": "02977532b5b5aef3ba792be4ec8ecb0ad5b7a0a8588ac941f10aa33820da2af0",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/MoistureCurveSelected.xaml",
+      "size": 2228,
+      "sha256": "d3f440e5bb9d2cfa54515a046b386e8e10a8985252730f8ceafa54a671889b6f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/MoistureGraphToggle.xaml",
+      "size": 14960,
+      "sha256": "d703789230f31d75edbb71c5409df043f598f32b82cb9df5a0d273ba101b6263",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/New.xaml",
+      "size": 1170,
+      "sha256": "900d9fdc284c368cc04bef69378b283b52197996d298a9d33ba42fe6f5104d26",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/NewHMLogo.xaml",
+      "size": 1965,
+      "sha256": "af8bbe1f770358387d8bc42520e84618237c85e36c7fa789b9aeed99d0b175fd",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Next.xaml",
+      "size": 5551,
+      "sha256": "8d74041110926154dc19bd5c95c52551b1957c2f9795b79844bca8d04d2fc397",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/NextHighlight.xaml",
+      "size": 5511,
+      "sha256": "ec4d435548442a9a62bf3dece403e6e548c7676004c9319cb793f937505548b8",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/NextIcon.xaml",
+      "size": 2668,
+      "sha256": "bc584343c7cb2b009a0ff9b50ee1922283f041467d8d924ddfade4456f9831bf",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/OkCheck.xaml",
+      "size": 1310,
+      "sha256": "60b6fd403c608624ddcf0e0fe9c7ff4b09b69433a7fbe8ec3c15d7ebdad8843c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/OkIcon.xaml",
+      "size": 2652,
+      "sha256": "dd776d8c610178966d6d71a581c41873853b46ca1afaf7023f839585676d881d",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Phone.xaml",
+      "size": 1516,
+      "sha256": "dc837aa95e8f493989c043cf2bf0076aae283038d5c37930a174143c94a31516",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Placemark.xaml",
+      "size": 1130,
+      "sha256": "8beb9e95e25faecf71ac424a369516e083691f8bc496b81c8d018a6e0ac53d7b",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Plug.xaml",
+      "size": 2257,
+      "sha256": "0bdccf8babb9144ba2870e2e497e84a89157c6a05f440d0f57881be329b63213",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Preferences.xaml",
+      "size": 1380,
+      "sha256": "ea2b1bdc51a82b0ee1593a621bdc5d9f29993a13ab72eb9e701a40b14568ddab",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Printer.xaml",
+      "size": 1043,
+      "sha256": "c7d364dc86def30c2c1808821b8a410de110524f36af1febeb1d49a4ea31c692",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Quad.xaml",
+      "size": 915,
+      "sha256": "e9dab248e5df2e014a76766cfcfd4bdeecc17cff144f88752af7c76f51e4ccb7",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/QuestionMark.xaml",
+      "size": 1696,
+      "sha256": "227a65f18a21f7dfd1c3d409c35deb123acd2cee822857ebdfd2c9631b5c1a82",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/QuickNote.xaml",
+      "size": 1242,
+      "sha256": "51f6402b6d8a240433de0b1748cce6458fe4a5dc634573c68e353c58ea70ef02",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Recents.xaml",
+      "size": 3093,
+      "sha256": "d1c37bad411fedb8c8460ad6a2c30ed3b8dac8a75ae50b0d4cd727c14f8e357f",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/RecentsSelected.xaml",
+      "size": 3101,
+      "sha256": "f544783e340734388eb20d59cfe11d5429590a800747bc4d5330fec09cc15eea",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Refresh.xaml",
+      "size": 1799,
+      "sha256": "c116e2474d66951c210e4b87b142fcd8dcb686a8064da6b9a6abb94f09032587",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/RemoveFromList.xaml",
+      "size": 1070,
+      "sha256": "3d49be3e7c76cfb2c898f666c98f0b793d82f49be85630fc75af23429dc306de",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Satellite.xaml",
+      "size": 1635,
+      "sha256": "31a19b141f55f6dcdc853d4492a4e53e52fe487f00496beb50fa4d582eec13e5",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Save.xaml",
+      "size": 2025,
+      "sha256": "c9659ea04afd334c373d44bef0389c7fc61be347cfe42eeec2562714908eb4a1",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/SliderThumb.xaml",
+      "size": 4117,
+      "sha256": "99e6724300137bc16ba25e16a19aa769aff0329f09832c8188b071ae682d3356",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/SpreadSheet.xaml",
+      "size": 1243,
+      "sha256": "46299e2964b5c1ad36a34951908da195e3f6a227b72fb587bad8d7ceb9ef6b64",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Success.xaml",
+      "size": 1444,
+      "sha256": "65c0cac5804fa98bed45b1e98db221c74c7faef78cb6d672b94d2566f90b053a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Tab.xaml",
+      "size": 1068,
+      "sha256": "2d6298b2d814f56709713ddd5eb4e5635ab2649cae8a7b0c2cc1d38175150c50",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/TenKeyIcon.xaml",
+      "size": 7990,
+      "sha256": "b55053fea320c8f27e7f28a545980c0266744ae241a71119ba4ab01f7b6c0656",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/TestWeight.xaml",
+      "size": 1121,
+      "sha256": "2fd1cbed8bc14a6025a69b3151f71049302f280263500e98eba9688cc8d78ef3",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Timer.xaml",
+      "size": 1972,
+      "sha256": "4ec1ad7c7a5ab9d616b83257516c975c98280238ec9d2e1e30a69729a05a6aa6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ToolboxNext.xaml",
+      "size": 2671,
+      "sha256": "01a22d12e02ed77ac409b4e8b1e1a78f647ee4001377fb9684abcfb30eb8c981",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ToolboxOk.xaml",
+      "size": 2655,
+      "sha256": "9b47f4bddabc7de7cb9c0b346ad52d88b71c9784c709407dda170e2df0d84251",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Trait.xaml",
+      "size": 1381,
+      "sha256": "2edc9355020a0613c8f4b5b26fc525ce1bb070f8d97d9e53df3185386691de2a",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Trash.xaml",
+      "size": 2141,
+      "sha256": "a61ef7b1cd8dd2d8e324e69f16bef825f0863c95afcefd0fc1a578dc757da976",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Undo.xaml",
+      "size": 1257,
+      "sha256": "37e21ed49b83b517652ccfa4f2009916dcd8ef24f42805b2176142639ac27a84",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Unlocked.xaml",
+      "size": 1099,
+      "sha256": "eeb44ce3f9006fe514a028691290ad6f3b5d46f8dd1aa0002d177efa053f8c38",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/VectorBase.xaml",
+      "size": 908,
+      "sha256": "19f0e4420fc3231c37c696e62a0e3c4566db79f6b9ba0d83b78b2b115e4bdfcb",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Warning.xaml",
+      "size": 1809,
+      "sha256": "330da744055443a11e1f1cf222e89f12635aa0a79f86999fb3fecf567c00da25",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Weight.xaml",
+      "size": 1091,
+      "sha256": "1114208dec85b47b3f57249f31223d726546d1d482c66b843c50ec813180aca6",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/Wrench.xaml",
+      "size": 1476,
+      "sha256": "be812786ef8d9975ef88777e06432bd1f9e354c69c17fe484f2335e2116f78b1",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ZoomIn.xaml",
+      "size": 1500,
+      "sha256": "22b0ce9193a01ee3a1e0e21db140226431aa34a9bee74f31c4d08a9195397417",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.Alta.Views.VectorImages/ZoomOut.xaml",
+      "size": 1456,
+      "sha256": "54bc57dfae18c316bd69f1ff7728b8d85b2d2b0aaf926947b2a6fbd3ca15b48c",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/HM.PluginManager.Views/Filter.xaml",
+      "size": 1008,
+      "sha256": "08a705b2b0e02bd5c0c2c4f654bf5a343d415aadc63196c74d1ebb02a7b46f72",
+      "extension": ".xaml"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/images/icons/effects/noisetile.jpg",
+      "size": 85184,
+      "sha256": "ed07cfb17be2cb37b5821abd0c06f70abfade0b71b933d085e13179d0e463899",
+      "extension": ".jpg"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/images/icons/harvest.png",
+      "size": 69125,
+      "sha256": "b5aacc86a195bb1335f016e94d690a6376029cf1ff6b2ea682d409075ad1285b",
+      "extension": ".png"
+    },
+    {
+      "path": "dev/private/harvestmaster_resources_20261009/vendor/hm.alta.views_a22617c6/themes/generic.xaml",
+      "size": 26747,
+      "sha256": "5038a4b3869118643a500f470383c38dee47c15c5da45b7dc3f5ad3f0c1ccc76",
+      "extension": ".xaml"
+    }
+  ],
+  "script_hash_catalogs": {
+    "5b127a8f38b5d6f32d8250a539e65e82c373cecd841350be3d917364ec27f4c6": {
+      "entries": 147,
+      "fields": [
+        "FileName",
+        "GrainGageType",
+        "Hash",
+        "Version"
+      ],
+      "grain_gage_types": [
+        "Classic",
+        "DoubleH2",
+        "GHMForage",
+        "Generic",
+        "GenericSubSampler",
+        "H2Classic",
+        "SingleBdsHcgg",
+        "SingleH2",
+        "SingleHcgg",
+        "Sprayer",
+        "TripleH2",
+        "TwinBdsHcgg",
+        "TwinH2",
+        "TwinHcgg"
+      ],
+      "filenames": [
+        "Calibration.py",
+        "CollectionSetup.py",
+        "Countdown.py",
+        "Flush.py",
+        "Initialization.py",
+        "LeftFlush.py",
+        "LeftPlot.py",
+        "LeftStrip.py",
+        "Plot.py",
+        "RightFlush.py",
+        "RightPlot.py",
+        "RightStrip.py",
+        "Strip.py",
+        "Tare.py"
+      ]
+    },
+    "57dcb2c5b10857a91ccef4f3338957b8bff00ed927e4de3ef0ff1b6d5d9883b2": {
+      "entries": 147,
+      "fields": [
+        "FileName",
+        "GrainGageType",
+        "Hash",
+        "Version"
+      ],
+      "grain_gage_types": [
+        "Classic",
+        "DoubleH2",
+        "GHMForage",
+        "Generic",
+        "GenericSubSampler",
+        "H2Classic",
+        "SingleBdsHcgg",
+        "SingleH2",
+        "SingleHcgg",
+        "Sprayer",
+        "TripleH2",
+        "TwinBdsHcgg",
+        "TwinH2",
+        "TwinHcgg"
+      ],
+      "filenames": [
+        "Calibration.py",
+        "CollectionSetup.py",
+        "Countdown.py",
+        "Flush.py",
+        "Initialization.py",
+        "LeftFlush.py",
+        "LeftPlot.py",
+        "LeftStrip.py",
+        "Plot.py",
+        "RightFlush.py",
+        "RightPlot.py",
+        "RightStrip.py",
+        "Strip.py",
+        "Tare.py"
+      ]
+    }
+  },
+  "limits": "Third-party assemblies inventoried, not fully decompiled; serialized graphics retained without deserialization. No claim of exhaustive instruction-level analysis."
+}

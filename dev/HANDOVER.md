@@ -13,6 +13,99 @@ how to work in this repository is in
 
 ## Current state
 
+**Changhong H2 discovery completed, 2026-10-09:** 40 bounded web search/page
+operations found no verified H2 ROM/OTA, sensing APK, native service or SDK archive.
+Primary ADI material confirms its sensor module and a sensor-to-cloud platform;
+this does not locate the raw-to-spectrum conversion. Exact launch press-kit URL
+was attempted privately: zero bytes, transport failure; HTTPS and public archive
+index also could not be inspected through the web tool. These are unresolved
+access/availability results, not proof that historical artifacts do not exist.
+ZOL's H2 download tab failed; its sparse catalogue does not establish retail
+availability or a hardware codename. Do not download Allwinner H2 boxes or XGIMI
+H2 projector firmware. No vendor software obtained/executed, no device/activation
+operations. Full findings, request ledger and artifact priorities:
+[H2 report](analysis_output/changhong_h2_20261009/REPORT.md).
+
+**Other SCIO integrations research completed, 2026-10-09:** verified Changhong H2
+embedded SCIO/ADI integration; Cargill Reveal, Eurofins and DietSensor apps/services;
+and cloud/mobile reseller offerings. No second packaged offline decoder verified.
+Best distinctive artifact lead is legitimate Changhong H2 firmware/system sensing
+apps; Reveal has identified Android/iOS packages but cloud/deferred-results evidence.
+Existing Analyzer 1.5.6/1.5.19 inventories already contain Cargill Reveal assets;
+compare code hashes before repeating analysis. CropX announced SCIO acquisition
+on August 26, 2026; not proof of legacy support or restored consumer services.
+39 research web operations, no packages/endpoints/accounts/activation/outreach.
+See [partner report](analysis_output/scio_partners_20261009/REPORT.md).
+
+**Renewed installer search completed, 2026-10-09:** 20 additional public operations
+(80 combined with the earlier campaign), no installer acquired. Current SCIO Q&A
+says requested models are included in a new customer software build; this is not
+proof of device-specific binaries or consumer compatibility. Concrete uncompleted
+leads: the known troubleshooting-guide Filecamp share, error-1060 screenshot and
+complete linked H3 installation documentation. Guide/image failures are tool
+limitations, not absence/access-control evidence. H3 licence warning has no
+download action. No activation bypass, vendor credential use, downloads or outreach.
+See [renewed search report](analysis_output/harvestmaster_search2_20261009/REPORT.md).
+
+**Embedded dependency/resource audit completed, 2026-10-09:** 170 payload records,
+160 distinct hashes (93 new to the prior inventory), 26 vendor assemblies
+statically decompiled. Inspected 13,488 resx entries; 25 binary occurrences,
+12 distinct hashes, no nested ZIP. Script-hash resources are JSON catalogs,
+not firmware. SCIO clients still delegate scans/self-test to localhost service;
+generic licensing/update code supplies no SCIO-specific package location.
+No decoder, service installer or supported key recovered. Third-party machine
+instructions and opaque serialized graphics are not exhaustively audited.
+Source/payload hashes reverified; 9 socket-blocked research tests and 116 unchanged
+production tests pass. No downloads, activation, vendor execution, device commands
+or deletions. See [resource report](analysis_output/harvestmaster_resources_20261009/REPORT.md).
+Safety finding: service export_scans is documented to delete history after ZIP
+creation; do not classify it as read-only.
+
+**Archive follow-up bounded run complete, 2026-10-09:** checked public archive
+interfaces and the H2 NIR installation guide for service package references. User
+cannot pursue HarvestMaster outreach; no correspondence will be sent. The
+campaign retains the cumulative 60-discovery-operation ceiling and existing
+five-package/2 GiB download limits. Access failures are not absence evidence.
+Ordinary browser Wayback access now works (337 HarvestMaster data URLs, 205
+support URLs). The retrieved 32-page H2 NIR guide explicitly describes separate
+service installation and sensor-specific activation links. Its renewal route
+is a contact/device-serial request form, not an exposed download. No form sent.
+No service installer found in the enumerated archive filters; recorded budget
+is 60 cumulative operations (conservatively including local filters/recovery).
+Eight prefix indices inspected; unknown hosts/opaque names and every page body
+remain outside coverage. Generic installer availability is still unresolved;
+sensor-specific activation does not prove device-specific binary distribution.
+One 19,075,308-byte guide retained, zero executable downloads/deletions.
+See [archive report](analysis_output/harvestmaster_archive_20261009/REPORT.md).
+*Result:* the H2 NIR Upgrade Installation Guide **31360** §1.7 names the
+acquisition mechanism — the SCiO Service is installed per sensor via an
+**activation link** obtained through **harvestmaster.com/support → My Product →
+SCiO License Renewal**, not a public download (see "Acquisition mechanism found"
+below). The decompile shows host-side delegation to the PC service and bypass
+of the GrainGage moisture calculation (`MoistureDisable = MoistureCurve.IsScio`),
+with additive constituent offsets downstream. It does not establish whether
+the absent service or OEM sensor holds every transform, nor consumer-device
+compatibility. A blind live-filename HEAD probe of
+`harvestmaster.com/data/{files,support}` returned no package (do not repeat —
+guessed-filename requests are against the campaign's own rule).
+
+**HarvestMaster installer follow-up, 2026-10-09:** reconciled 288 Burn payloads
+(all present; declared hash/size checks pass), decompiled installer-specific
+code, plugin managers, both service helpers and supplied troubleshooting utility.
+Seven MSI custom actions each; no service-registration tables. Traced plugin
+installation copies local ZIP files. No concrete SCIO installer download found.
+The supplied utility matches the prior 1.2.0 hash; fresh decompile confirms
+localhost API calls plus GrainGage CAN diagnostics, not a consumer decoder.
+Public/archive coverage has explicit limits; zero new downloads/removals.
+Verification: 278 socket-blocked research tests, six targeted audit tests and
+116 unchanged production tests passed. Original package/payload hashes unchanged.
+See [campaign report](analysis_output/harvestmaster_service_20261009/REPORT.md)
+and its evidence ledger/coverage manifests.
+All new artifacts remain under `dev`; private vendor code is not published.
+No installer execution, service installation, activation or device operations.
+Earlier thin-client observations do not establish where decoding occurs or
+consumer-device compatibility; a service absence claim requires bounded coverage.
+
 **Completed checksum-informed follow-up, 2026-10-08:** 2,342 unique hypothesis
 keys and all 180,266 jobs. No structural intermediate, reflectance, domain vectors
 or keyed-integrity match. There were 390 lead configurations, including nine in
@@ -156,6 +249,115 @@ desk review in
 
 ## Open tasks, ranked
 
+### 0c. HarvestMaster / Mirus software audit (in progress, started 2026-10-09)
+
+New non-teardown route, never examined before. HarvestMaster (Juniper Systems) sells the
+**H3 GrainGage**, a combine-mounted grain gauge with an embedded SCiO sensor, driven by the
+Windows application **Mirus** plus an **H3 plugin** and a public **SCiO Troubleshooting
+Utility** (harvestmaster.com support articles 14646, 14648, 17012).
+
+- **Hypothesis:** a combine often has no connectivity, so this vendor integration is the most
+  plausible place for an offline decoder, an embedded key, or shipped SCiO firmware images
+  (which would close the firmware gap). A Windows build is likely .NET and decompiles cleanly,
+  unlike the Flutter AOT apps.
+- **Method:** bounded automatic evidence-linked downloads are now authorized (five packages,
+  512 MiB each, 2 GiB cumulative); static extraction only (no installer
+  run, no activation or registration); workspace `private/harvestmaster/` (git-ignored).
+  Triage with `scripts/audit_harvestmaster.py` (vocabulary sweep, firmware-header size and
+  checksum match, calibration-table and body-size constants), then decompile and trace one
+  capture path.
+- **Stop conditions:** (A) local decoder or key → port it and validate (`validation.py`, 92 owner
+  pairs + 3 fw-138 pairs, 1e-6, then the frozen cap scans); (B) firmware bodies → compare with the
+  known headers, then disassemble with a Blackfin target; (C) cloud pass-through, same as the
+  phone apps → record it under "Do not repeat" and check for cached known-plaintext pairs.
+- **Result so far** ([FINDINGS](analysis_output/harvestmaster_20261009/FINDINGS.md)):
+  - Mirus 4.6.11, Mirus 5.0.0 and the SCiO Troubleshooter 1.2.0 are thin REST clients to a
+    separate local Windows service, **"SCiO Service"** ("A SCiO sensor sample analysis service",
+    v2.011.013.5, `localhost:8080/v1/`, serial-to-USB to the sensor).
+  - Vendor support recommends .NET 8. The actual service runtime and location of
+    spectral processing remain unverified; local storage does not prove local decoding.
+  - It has not been found in inspected payloads or through the bounded public search.
+    This does not exclude an uninspected archive, dependency or customer distribution.
+  - **Next:** obtain the "SCIO Services installer" (HarvestMaster field service, an H3 owner, or
+    an archive), then audit it with the same script.
+  - Caveat: the H3 sensor may be a different hardware generation from our BLE units.
+
+#### Acquisition mechanism found (2026-10-09)
+
+The H2 NIR Upgrade Installation Guide **31360** (`harvestmaster.com/data/support/31360 H2 NIR
+Upgrade Installation Guide.pdf`), §1.7 "Connect to Mirus", documents how the service is installed:
+
+> 1. Download and install Mirus 4.5.0 or above. 2. Enable the H3 Plugin. **3. Install the SCiO
+> Service for the sensor. Note: Each sensor has its own activation link. If you have not yet
+> received your link: a. Go to harvestmaster.com/support. Tap My Product. b. Tap SCiO License
+> Renewal.**
+
+So the installer is **not a public file**: it is delivered **per sensor via an activation link**,
+self-served through the HarvestMaster support portal (**My Product → SCiO License Renewal**). This
+is consistent with the campaign's and the filename-probe's failure to find any public URL. On
+`harvestmaster.com/support`, "My Product" → **SCiO License Renewal** links to
+`/products/software-request`, which is a **"SCiO Software Request" form** (inspected 2026-10-09 via
+the browser pane, not submitted). Its fields: name, company, email, phone, **SCiO Sensor Serial
+Number**, **GrainGage Serial Number**, desired license start date, combine name. There is **no
+generic installer download** on the portal — it is a human-processed request gated on both a SCiO
+sensor serial and an H3 GrainGage serial; HarvestMaster then emails back the per-sensor activation
+link. Submitting it is outreach (off-limits here) and needs H3 serials we do not have. So the
+self-service web route is a dead end for our consumer BLE units. Our consumer BLE units (fw-138/fw-147) are not H3 GrainGage OEM sensors, so this
+self-service route likely does not apply to them without an H3 registration. Realistic paths now
+narrow to: (a) an H3-owning institution that already holds the installer/activation link, or (b) if
+an H3 sensor serial is available, the SCiO License Renewal flow itself (delivers the per-sensor
+link). Not attempted here per the no-outreach constraint.
+
+#### Ways to obtain the SCiO Service (still open)
+
+Identifiers to search for:
+- Windows service name **`SCiO Service`**, described as *"A SCiO sensor sample analysis service"*;
+  the version seen is `v2.011.013.5`.
+- HarvestMaster calls the installer the "SCIO Services installer".
+- The REST API at `localhost:8080/v1/` exposes the JSON fields `scio_is_connected`,
+  `port_defined_by`, `last_data_sync` and `client_reasons`.
+- The vendor may name it differently: try Consumer Physics, `scionir`, `CP`, `SCiONIR`,
+  `ScioAgent`, `scio-edge`, or "sample analysis".
+
+1. **Wayback Machine.** Scripted access is blocked from the agent, so run these in a browser.
+   - Open the URL index queries:
+     - `https://web.archive.org/cdx/search/cdx?url=harvestmaster.com/data/&matchType=prefix&fl=timestamp,original,length&collapse=urlkey&limit=50000`
+     - The same with `url=` set to `junipersys.com/`, `junipersystems.filecamp.com/`, `scionir.com/`,
+       `consumerphysics.com/` and `dev.scionir.com/`.
+   - Search each result page (Ctrl+F) for `scio`, `.msi`, `.exe` and `.zip`.
+   - The browser UI does the same: `https://web.archive.org/web/*/harvestmaster.com/data/*`, then
+     filter by "scio".
+   - Also open the archived copies of support articles 17160 and 17179. Older revisions may have
+     linked the installer directly.
+2. **Ask HarvestMaster field service** (hmtechsupport@junipersys.com, +1 435-753-1881). The owner
+   sends this, not the agent. Ask for the "SCIO Services installer" for the H3 GrainGage. They
+   may require an H3 serial number.
+3. **Find an institution that runs an H3 GrainGage.** Typical users are seed breeding programmes,
+   agricultural universities and research stations with plot combines; an ETH or Agroscope field
+   station is worth asking. On their tablet the installed service can be copied without
+   reinstalling:
+   - Find its path with `sc qc "SCiO Service"` or
+     `Get-CimInstance Win32_Service -Filter "DisplayName like '%SCiO%'" | Select PathName`.
+   - With permission, copy the service executable and referenced libraries and
+     shareable models/calibration assets only. Do not copy credentials, licence
+     secrets, customer/GPS databases or unrelated logs indiscriminately.
+   - Note that the local scan store may itself pair raw blobs with results, which would be known
+     plaintext.
+4. **Ask SCiO / Consumer Physics directly** (scionir.com contact or support) for the Windows
+   service or an offline SDK for legacy units. Frame it as e-waste and legacy-device support.
+5. **Code and file search engines:**
+   - GitHub code search for `scio_is_connected`, `"SCiO Service"` and `localhost:8080/v1/scan`;
+     an integrator may have published a client or a copy.
+   - VirusTotal search by name (`name:ScioService`, `"SCiO Service"`). Metadata such as file
+     names, signer and version is visible without a premium account, even if the download isn't.
+   - Web search for `"v2.011.013"` and `"sample analysis service"`.
+6. **Juniper filecamp shares.** Customer-facing installers are distributed as
+   `junipersystems.filecamp.com/s/d/<token>` share links. Watch for a share link in any manual,
+   support article or reply from support.
+7. **Do not** run the installer once it is obtained. Use static extraction only, then
+   `scripts/audit_harvestmaster.py` and `ilspycmd`. Trace `POST /v1/scan` → serial read →
+   decode → model. Never activate a licence or register.
+
 ### 0b. Cross-device decode push (done 2026-10-08)
 
 Three probes on the cross-device paired data (RECOVERY_STATUS §"Cross-device decode push"):
@@ -237,6 +439,7 @@ hypothesis that the earlier run could not have seen.
 | Server bit-flip/mutation oracles (closed by the signature) | [`ciphertext_oracle/`](analysis_output/ciphertext_oracle/) |
 | Firmware-endpoint polling | [server recheck](analysis_output/recovery_20261003_followup/firmware_server_recheck/summary.json) |
 | Firmware offer for a genuine fw-138 device (bare `20150812` tag) | [fw-138 findings](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
+| Public HarvestMaster software (Mirus 4.6.11, Mirus 5.0.0, SCiO Troubleshooter 1.2.0, all plugin bundles): thin REST clients, no decoder, key or SCiO firmware | [harvestmaster findings](analysis_output/harvestmaster_20261009/FINDINGS.md) |
 | Pairing a foreign sample with the owner's white reference (tested combinations rejected) | [fw-138 findings §2](analysis_output/foreign_fw138_20261008/FINDINGS.md) |
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
