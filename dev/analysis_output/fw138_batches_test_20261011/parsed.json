@@ -1,0 +1,12 @@
+{
+  "device_id": "E02E60F46B7CD55F",
+  "i2s": "20150812:PRODUCTION",
+  "firmware": 138,
+  "counts": {
+    "cap_s1": 1,
+    "cap_s2": 1,
+    "wood_s1": 1,
+    "wood_s2": 1
+  },
+  "total_scans": 4
+}

@@ -1,0 +1,230 @@
+{
+  "device_id": "E02E60F46B7CD55F",
+  "aptina": "2ee0f4607c6b5fd5",
+  "premises": {
+    "aptina_to_deviceid_byte_pair_swap": "verified",
+    "app_string_256bit_aptina": "NOT found in decompiled apps (app has no scan crypto); Vitaly's claim, unverified here",
+    "word1_per_blob_nonce": "covered via header8-based IV schemes in decode.decrypt"
+  },
+  "n_key_candidates": 68,
+  "controls": 30,
+  "verdict": "NO KEY FOUND \u2014 no candidate beats the random-key control",
+  "results": {
+    "cap/sample": {
+      "n_blobs": 12,
+      "control_mean": 0.0904,
+      "control_max": 0.1157,
+      "best_candidate": "deviceid_inverted.md5_16",
+      "best_score": 0.1197,
+      "best_mode": {
+        "mode": "OFB",
+        "iv": "first_block",
+        "view": "u32le",
+        "offset": 0
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "deviceid_inverted.md5_16",
+          0.1197
+        ],
+        [
+          "aptina.repeat32",
+          0.1187
+        ],
+        [
+          "aptina_rev.md5_16",
+          0.1185
+        ],
+        [
+          "aptina_rev.sha256_32",
+          0.1184
+        ],
+        [
+          "deviceid_inverted_rev.repeat32",
+          0.1154
+        ]
+      ]
+    },
+    "cap/dark": {
+      "n_blobs": 12,
+      "control_mean": 0.0904,
+      "control_max": 0.1199,
+      "best_candidate": "aptina_ASCII.zeropad32",
+      "best_score": 0.1197,
+      "best_mode": {
+        "mode": "ECB",
+        "iv": "zero",
+        "view": "u32le",
+        "offset": 0
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "aptina_ASCII.zeropad32",
+          0.1197
+        ],
+        [
+          "aptina.sha1_20_pad24",
+          0.1194
+        ],
+        [
+          "deviceid_inverted_rev.md5_16",
+          0.1152
+        ],
+        [
+          "deviceid_inverted.md5_16",
+          0.1135
+        ],
+        [
+          "aptina_ASCII.sha256_16",
+          0.1128
+        ]
+      ]
+    },
+    "cap/gradient": {
+      "n_blobs": 12,
+      "control_mean": 0.0947,
+      "control_max": 0.1175,
+      "best_candidate": "aptina_ascii.sha1_20_pad24",
+      "best_score": 0.1198,
+      "best_mode": {
+        "mode": "CFB",
+        "iv": "header8_zero8",
+        "view": "u32le",
+        "offset": 8
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "aptina_ascii.sha1_20_pad24",
+          0.1198
+        ],
+        [
+          "deviceid_inverted_ASCII.sha256_32",
+          0.1187
+        ],
+        [
+          "deviceid_inverted_ascii.repeat32",
+          0.1172
+        ],
+        [
+          "aptina.sha256_32",
+          0.1168
+        ],
+        [
+          "aptina.sha1_20_pad24",
+          0.1159
+        ]
+      ]
+    },
+    "wood/sample": {
+      "n_blobs": 12,
+      "control_mean": 0.0894,
+      "control_max": 0.1199,
+      "best_candidate": "deviceid_inverted_ASCII.repeat32",
+      "best_score": 0.1154,
+      "best_mode": {
+        "mode": "CBC",
+        "iv": "zero",
+        "view": "u32le",
+        "offset": 0
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "deviceid_inverted_ASCII.repeat32",
+          0.1154
+        ],
+        [
+          "aptina_rev.zeropad16",
+          0.111
+        ],
+        [
+          "aptina.repeat32",
+          0.1105
+        ],
+        [
+          "aptina_ascii.repeat32",
+          0.1102
+        ],
+        [
+          "deviceid_inverted.sha1_20_pad24",
+          0.1096
+        ]
+      ]
+    },
+    "wood/dark": {
+      "n_blobs": 12,
+      "control_mean": 0.0911,
+      "control_max": 0.1198,
+      "best_candidate": "aptina_rev.repeat16",
+      "best_score": 0.1186,
+      "best_mode": {
+        "mode": "ECB",
+        "iv": "zero",
+        "view": "u32be",
+        "offset": 8
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "aptina_rev.repeat16",
+          0.1186
+        ],
+        [
+          "deviceid_inverted_ascii.raw",
+          0.1184
+        ],
+        [
+          "deviceid_inverted_ascii.zeropad16",
+          0.1184
+        ],
+        [
+          "deviceid_inverted_ascii.repeat16",
+          0.1184
+        ],
+        [
+          "aptina.repeat16",
+          0.1182
+        ]
+      ]
+    },
+    "wood/gradient": {
+      "n_blobs": 12,
+      "control_mean": 0.0938,
+      "control_max": 0.1195,
+      "best_candidate": "aptina.md5_16",
+      "best_score": 0.1187,
+      "best_mode": {
+        "mode": "CTR",
+        "iv": "zero8_header8",
+        "view": "u32le",
+        "offset": 16
+      },
+      "beats_control": false,
+      "top5": [
+        [
+          "aptina.md5_16",
+          0.1187
+        ],
+        [
+          "deviceid_inverted_rev.zeropad16",
+          0.1181
+        ],
+        [
+          "aptina_ASCII.sha256_16",
+          0.1165
+        ],
+        [
+          "aptina_ascii.md5_16",
+          0.1155
+        ],
+        [
+          "deviceid_inverted_rev.sha1_20_pad24",
+          0.1152
+        ]
+      ]
+    }
+  }
+}

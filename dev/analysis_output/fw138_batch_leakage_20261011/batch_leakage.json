@@ -1,0 +1,108 @@
+{
+  "claim1": {
+    "n_blobs": 300,
+    "unique_word1": 300,
+    "unique_word0": 2,
+    "all_word1_unique": true,
+    "word0_all_zero": false
+  },
+  "claim2": {
+    "cap/dark": {
+      "pairs": 600,
+      "bitbalance_mean": 0.5002,
+      "bitbalance_min": 0.4853,
+      "bitbalance_max": 0.511,
+      "identical_pairs": 0
+    },
+    "cap/sample": {
+      "pairs": 600,
+      "bitbalance_mean": 0.4997,
+      "bitbalance_min": 0.4863,
+      "bitbalance_max": 0.5121,
+      "identical_pairs": 0
+    },
+    "cap/gradient": {
+      "pairs": 600,
+      "bitbalance_mean": 0.5001,
+      "bitbalance_min": 0.4863,
+      "bitbalance_max": 0.5138,
+      "identical_pairs": 0
+    },
+    "wood/dark": {
+      "pairs": 600,
+      "bitbalance_mean": 0.5001,
+      "bitbalance_min": 0.4868,
+      "bitbalance_max": 0.515,
+      "identical_pairs": 0
+    },
+    "wood/sample": {
+      "pairs": 600,
+      "bitbalance_mean": 0.4998,
+      "bitbalance_min": 0.4867,
+      "bitbalance_max": 0.5122,
+      "identical_pairs": 0
+    },
+    "wood/gradient": {
+      "pairs": 600,
+      "bitbalance_mean": 0.4999,
+      "bitbalance_min": 0.4809,
+      "bitbalance_max": 0.5138,
+      "identical_pairs": 0
+    }
+  },
+  "claim3_positional": {
+    "cap/dark": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    },
+    "cap/sample": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    },
+    "cap/gradient": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    },
+    "wood/dark": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    },
+    "wood/sample": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    },
+    "wood/gradient": {
+      "const_positions_s1": 0,
+      "const_positions_s2": 0
+    }
+  },
+  "claim3_classifier": {
+    "dark": {
+      "train_sig_pos": 0,
+      "train_max_z": 3.48,
+      "session_control_cap_s1_vs_s2_pos": 0,
+      "cross_session_test_accuracy": 0.6,
+      "resubstitution_accuracy": 1.0
+    },
+    "sample": {
+      "train_sig_pos": 0,
+      "train_max_z": 4.83,
+      "session_control_cap_s1_vs_s2_pos": 0,
+      "cross_session_test_accuracy": 0.46,
+      "resubstitution_accuracy": 1.0
+    },
+    "gradient": {
+      "train_sig_pos": 1,
+      "train_max_z": 5.72,
+      "session_control_cap_s1_vs_s2_pos": 0,
+      "cross_session_test_accuracy": 0.46,
+      "resubstitution_accuracy": 1.0
+    }
+  },
+  "verdict_vs_vitaly": {
+    "claim1_nonce_unique": true,
+    "claim2_no_keystream_reuse": true,
+    "claim3_no_positional_leak": true,
+    "claim3_gradient_false_alarm_confirmed": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "planned": 100,
+  "min_gap_seconds": 20.0,
+  "live": true,
+  "pinned_white": "01_rawdata/scan_json_calibration/20261008_1537_calibration.json",
+  "targets": {
+    "cap": 50,
+    "wood": 50
+  }
+}

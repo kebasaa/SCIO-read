@@ -1,0 +1,61 @@
+{
+  "submitted": 4,
+  "promoted": 4,
+  "failed": 0,
+  "by_group": {
+    "cap-s1": {
+      "ok": 1,
+      "fail": 0
+    },
+    "cap-s2": {
+      "ok": 1,
+      "fail": 0
+    },
+    "wood-s1": {
+      "ok": 1,
+      "fail": 0
+    },
+    "wood-s2": {
+      "ok": 1,
+      "fail": 0
+    }
+  },
+  "results": [
+    {
+      "job": "cap-s1-01",
+      "status": 200,
+      "promoted": {
+        "record": "01_rawdata/scans/20261011132607_fw138_batch_cap_s1_01_fw138-cap-s1-01.json",
+        "spectrum": "02_processed_data/20261011132607_fw138_batch_cap_s1_01_fw138-cap-s1-01_spectrum.json"
+      },
+      "error": null
+    },
+    {
+      "job": "cap-s2-01",
+      "status": 200,
+      "promoted": {
+        "record": "01_rawdata/scans/20261011132611_fw138_batch_cap_s2_01_fw138-cap-s2-01.json",
+        "spectrum": "02_processed_data/20261011132611_fw138_batch_cap_s2_01_fw138-cap-s2-01_spectrum.json"
+      },
+      "error": null
+    },
+    {
+      "job": "wood-s1-01",
+      "status": 200,
+      "promoted": {
+        "record": "01_rawdata/scans/20261011132634_fw138_batch_wood_s1_01_fw138-wood-s1-01.json",
+        "spectrum": "02_processed_data/20261011132634_fw138_batch_wood_s1_01_fw138-wood-s1-01_spectrum.json"
+      },
+      "error": null
+    },
+    {
+      "job": "wood-s2-01",
+      "status": 200,
+      "promoted": {
+        "record": "01_rawdata/scans/20261011132658_fw138_batch_wood_s2_01_fw138-wood-s2-01.json",
+        "spectrum": "02_processed_data/20261011132658_fw138_batch_wood_s2_01_fw138-wood-s2-01_spectrum.json"
+      },
+      "error": null
+    }
+  ]
+}

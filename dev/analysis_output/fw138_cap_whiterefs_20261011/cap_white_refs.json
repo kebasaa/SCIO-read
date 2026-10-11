@@ -1,0 +1,356 @@
+{
+  "count": 50,
+  "device_id": "E02E60F46B7CD55F",
+  "records": [
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 1,
+      "ts": "22:37:34.825"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_2.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 2,
+      "ts": "22:37:37.939"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_3.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 3,
+      "ts": "22:37:41.038"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_4.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 4,
+      "ts": "22:37:44.134"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_5.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 5,
+      "ts": "22:37:47.224"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_6.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 6,
+      "ts": "22:37:50.329"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_7.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 7,
+      "ts": "22:37:53.436"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_8.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 8,
+      "ts": "22:37:56.519"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_9.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 9,
+      "ts": "22:37:59.626"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_10.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 10,
+      "ts": "22:38:02.732"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_11.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 11,
+      "ts": "22:38:05.826"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_12.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 12,
+      "ts": "22:38:08.910"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_13.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 13,
+      "ts": "22:38:12.003"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_14.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 14,
+      "ts": "22:38:15.110"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_15.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 15,
+      "ts": "22:38:18.198"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_16.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 16,
+      "ts": "22:38:21.291"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_17.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 17,
+      "ts": "22:38:24.381"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_18.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 18,
+      "ts": "22:38:27.458"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_19.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 19,
+      "ts": "22:38:30.549"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_20.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 20,
+      "ts": "22:38:33.652"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_21.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 21,
+      "ts": "22:38:36.748"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_22.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 22,
+      "ts": "22:38:39.839"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_23.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 23,
+      "ts": "22:38:42.934"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_24.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 24,
+      "ts": "22:38:46.023"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_25.json",
+      "target": "cap",
+      "session": "s1",
+      "scan_idx": 25,
+      "ts": "22:38:49.113"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_26.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 1,
+      "ts": "22:49:52.508"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_27.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 2,
+      "ts": "22:49:55.621"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_28.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 3,
+      "ts": "22:49:58.712"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_29.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 4,
+      "ts": "22:50:01.806"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_30.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 5,
+      "ts": "22:50:04.891"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_31.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 6,
+      "ts": "22:50:07.992"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_32.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 7,
+      "ts": "22:50:11.089"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_33.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 8,
+      "ts": "22:50:14.184"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_34.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 9,
+      "ts": "22:50:17.276"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_35.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 10,
+      "ts": "22:50:20.369"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_36.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 11,
+      "ts": "22:50:23.448"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_37.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 12,
+      "ts": "22:50:26.549"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_38.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 13,
+      "ts": "22:50:29.628"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_39.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 14,
+      "ts": "22:50:32.707"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_40.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 15,
+      "ts": "22:50:35.810"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_41.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 16,
+      "ts": "22:50:38.903"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_42.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 17,
+      "ts": "22:50:41.986"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_43.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 18,
+      "ts": "22:50:45.075"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_44.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 19,
+      "ts": "22:50:48.148"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_45.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 20,
+      "ts": "22:50:51.249"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_46.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 21,
+      "ts": "22:50:54.326"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_47.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 22,
+      "ts": "22:50:57.432"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_48.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 23,
+      "ts": "22:51:00.511"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_49.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 24,
+      "ts": "22:51:03.603"
+    },
+    {
+      "file": "01_rawdata/scan_json_calibration/20261011_1405_calibration_50.json",
+      "target": "cap",
+      "session": "s2",
+      "scan_idx": 25,
+      "ts": "22:51:06.693"
+    }
+  ]
+}

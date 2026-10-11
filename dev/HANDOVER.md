@@ -13,6 +13,24 @@ how to work in this repository is in
 
 ## Current state
 
+**fw-138 fixed-target batches ingested + decode retry, 2026-10-11:** the contributor sent 4 batches
+× 25 scans (closed cap = bright, wood = dark; 2 sessions each). All 100 decoded (HTTP 200 + 331
+bands — even the dark wood) and were added to canonical; the fw-138 corpus group is now **103
+records** (was 4). The 50 cap scans were also stored as raw `scio-wr/2` white references for the
+fw-138 device. Independently verified (not trusted) Vitaly's analysis: 300/300 `word1` nonces unique,
+no keystream reuse, no positional leak, and his gradient cap-vs-wood signal is a session-confounded
+false alarm (cross-session classifier ≈ chance). Supervised byte-vs-spectrum leakage on the enlarged
+corpus: no significant hit (min p 0.020 ≫ Bonferroni 0.05/48). **Aptina-keyed AES decrypt actually
+run** (owner's request): fw-138 aptina `2ee0f4607c6b5fd5`, its inverted form = `device_id
+E02E60F46B7CD55F`, reverse/ascii; 16/24/32-byte keys incl. **sha256 (256-bit)**; AES ECB/CBC/CFB/OFB/
+**CTR** with `word1`-nonce IV schemes; scored by same-target repeatability vs random controls —
+**NO KEY FOUND** (random-control level; a break would score ~0.9+). Verified ourselves that
+aptina byte-pair-swapped = device_id; but Vitaly's *"256-bit key using AptinaID"* app string was
+**not found** in the decompiled apps (which contain no scan crypto) — unconfirmed. Net: more corpus
+power + white refs, no decode break; the key stays a firmware KDF secret. Scripts
+`ingest_fw138_batches.py`, `probe_fw138_batch_leakage.py`, `probe_aptina_decrypt.py`; full writeup
+[FINDINGS](analysis_output/fw138_batches_20261011/FINDINGS.md).
+
 **Changhong H2 discovery completed, 2026-10-09:** 40 bounded web search/page
 operations found no verified H2 ROM/OTA, sensing APK, native service or SDK archive.
 Primary ADI material confirms its sensor module and a sensor-to-cloud platform;
