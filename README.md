@@ -2,6 +2,8 @@
 
 # The SCiO spectrometer: a technical reference
 
+**READ FIRST**: We can't figure out offline decoding without a firmware dump. We are requesting help: Either a phone that was initially used with the SCiO during a firmware update may have a firmware dump in its memory, or someone who is willing to disassemble and dump the chips might be able to help. Please contact us here to provide firmware dumps if available. Thank you!
+
 The Consumer Physics **SCiO** is a pocket near-infrared spectrometer, sold
 2015-2019 and now discontinued. It has no offline mode: the device emits opaque
 blobs and a vendor server turns them into spectra. This repository documents the
