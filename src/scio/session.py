@@ -208,7 +208,7 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
             token: str | None = None, force_calibrate: bool = False,
             thresholds: dict | None = None, out_dir=SCANS_DIR, wr_dir=None,
             on_calibration_needed=None, geolocate: bool | None = None,
-            location_override: dict | None = None) -> Path:
+            location_override: dict | None = None, allow_incomplete: bool = False) -> Path:
     """Capture one scan from a live device into a canonical record. **No network.**
 
     *dev* is an open :class:`scio.usb.ScioUSB` or :class:`scio.ble.ScioBLE`. The white reference is reused from
@@ -224,12 +224,20 @@ def capture(dev, name: str, scan_id: str | None = None, comment: str = "", *,
     :mod:`scio.location`). ``geolocate`` defaults to off (``geolocate=True`` or
     ``SCIO_GEOLOCATION=1`` turns it on); ``location_override`` supplies coordinates
     from elsewhere, e.g. a phone. A failed lookup leaves the fields empty and never stops a capture.
+
+    A device that does not report its ``device_id`` or ``i2s_tag_config`` raises
+    before anything is scanned: the server rejects such a record, and the identity
+    cannot be recovered afterwards. ``allow_incomplete=True`` keeps it anyway.
     """
     manual_location = location.scan_location(manual=location_override) if location_override else None
     wr_dir = Path(wr_dir) if wr_dir is not None else store.WR_DIR
     transport = getattr(dev, "transport_name", "usb")
     info = dev.read_device_info()
     device_id = info.get("device_id")
+    missing = [k for k in ("device_id", "i2s_tag_config") if not info.get(k)]
+    if missing and not allow_incomplete:
+        raise RuntimeError(f"device did not report {', '.join(missing)}; the server cannot decode "
+                           "a scan without it. Reconnect and retry, or pass allow_incomplete=True")
     fw = info.get("firmware_version", 0)
     thresholds = thresholds or resolve_thresholds(device_id, token)
 

@@ -112,6 +112,8 @@ def blob_bytes(entry: dict | str) -> bytes:
 
 
 def _blob_record(blobs: dict) -> dict:
+    # only the byte blobs; device.white_reference() also returns its device/temperature context
+    blobs = {k: v for k, v in blobs.items() if isinstance(v, (bytes, bytearray))}
     return {
         "raw_hex": {k: v.hex() for k, v in blobs.items()},
         "b64": {k: wrap_b64(v) for k, v in blobs.items()},

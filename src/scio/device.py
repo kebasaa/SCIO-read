@@ -40,6 +40,7 @@ class ScioDevice:
 
     def __init__(self):
         self._seq = 1
+        self._identity = None   # read_device_info() result, cached per connection
 
     # -- transport hooks --------------------------------------------------
     def open(self):
@@ -214,7 +215,28 @@ class ScioDevice:
         info = {**dev, **ble}
         if not info.get("i2s_tag_config"):
             info["i2s_tag_missing"] = True
+        self._identity = dict(info)
         return info
+
+    def identity(self) -> dict:
+        """Device identity for this connection, read once and then cached.
+
+        Every scan the server decodes is checked against this ``device_id`` and
+        needs this ``i2s_tag_config``, so blobs without it are unusable. A failed
+        read is reported in ``identity_error`` rather than stopping a scan.
+        """
+        if self._identity is None:
+            try:
+                self.read_device_info()
+            except (ScioTimeout, ScioProtocolError, IndexError) as exc:
+                return {"identity_error": f"{type(exc).__name__}: {exc}"}
+        return dict(self._identity)
+
+    def _temperature_or_error(self) -> dict:
+        try:
+            return self.read_temperature()
+        except (ScioTimeout, ScioProtocolError, IndexError) as exc:
+            return {"error": f"{type(exc).__name__}: {exc}"}
 
     def read_temperature(self) -> dict:
         return protocol.parse_temperature(self._command(Cmd.READ_TEMPERATURE).data)
@@ -251,21 +273,35 @@ class ScioDevice:
         Returns raw ``bytes`` under the standard keys plus ``status_word`` (the
         first u32 of the sample blob).  Response order on the wire is
         dark, sample, (gradient).
+
+        The result also carries ``device`` (:meth:`identity`) and the
+        ``temperature`` before and after, so a scan saved straight from here can
+        still be decoded later: the server rejects blobs without their device_id.
         """
+        device = self.identity()
+        t_before = self._temperature_or_error()
         n = protocol.num_responses_for_firmware(firmware_version, disable_gradient)
         responses = self.raw_command(Cmd.SAMPLE_SPECTRUM, n_responses=n)
+        t_after = self._temperature_or_error()
         blobs = {"sample_dark": responses[0].data, "sample": responses[1].data}
         status = struct.unpack_from("<I", responses[1].data, 0)[0] if len(responses[1].data) >= 4 else None
         if n > 2:
             blobs["sample_gradient"] = responses[2].data
-        return {"blobs": blobs, "status_word": status, "n_responses": n}
+        return {"blobs": blobs, "status_word": status, "n_responses": n,
+                "device": device, "temperature": {"before": t_before, "after": t_after}}
 
     def white_reference(self, firmware_version: int = 0, disable_gradient: bool = False) -> dict:
-        """Same command as a scan; the caller stores it as the white reference."""
+        """Same command as a scan; the caller stores it as the white reference.
+
+        The white blobs are the top-level keys; ``device`` and ``temperature`` ride
+        along as in :meth:`sample_spectrum` (``store.save_calibration`` ignores them).
+        """
         scan = self.sample_spectrum(firmware_version, disable_gradient)
         return {
             "sample_white_dark": scan["blobs"]["sample_dark"],
             "sample_white": scan["blobs"]["sample"],
             **({"sample_white_gradient": scan["blobs"]["sample_gradient"]}
                if "sample_gradient" in scan["blobs"] else {}),
+            "device": scan["device"],
+            "temperature": scan["temperature"],
         }

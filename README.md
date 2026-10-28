@@ -123,6 +123,34 @@ run by the pre-commit hook, refuses any file with a real latitude/longitude.
 Empty fields and the Zurich redaction placeholder (47.3769, 8.5417) pass. A located
 scan therefore stays on your machine: remove its coordinates before committing it.
 
+### Contributing scans from another SCiO
+
+The server decodes a scan only with the `device_id` and `i2s_tag_config` of the
+unit that took it, plus a white reference from that same unit. None of these can
+be recovered from bare blobs afterwards, so a scan saved without them is lost. If
+you have your own SCiO, do not write a capture script; run:
+
+```bash
+python -m scio contribute --name "closed cap" --count 5
+```
+
+It finds the SCiO on USB (`--port COM5` to pick one, `--ble` for Bluetooth). It
+asks you to put the white cover on for the white reference, then prompts before
+each scan, and writes `scio_contrib_<device_id>_<stamp>.zip`. The zip holds the
+device identity, the firmware file headers, the white reference and one
+`scio-scan/2` record per scan, each with a sha256 in `manifest.json`. It needs no
+network or account, and records no location. Run it once per target (`--name`).
+
+The owner imports a bundle with `python -m scio import <zip>`. Import checks the
+hashes and that every scan and white belong to the manifest's device. It copies
+them into `01_rawdata/` (append-only; already-imported scans are skipped), and
+`session.process_pending(pause=20)` replays them.
+
+Even outside a bundle, `ScioDevice.sample_spectrum()` and `white_reference()` now
+return the `device` identity (read once per connection) and the temperatures with
+the blobs. `session.capture()` refuses a device that does not report its
+`device_id` or i2s tag (`allow_incomplete=True` overrides).
+
 ---
 
 ## 2. Transport
@@ -786,7 +814,7 @@ Blobs, when present, are base64 with a 4-byte little-endian checksum prefix.
 
 | path | contents |
 |---|---|
-| `src/scio/` | the working library: `protocol`, `usb`, `probe`, `store`, `cloud`, `credentials`, `session`, `logscan`, `corpus`, `reference`, `paths` |
+| `src/scio/` | the working library: `protocol`, `usb`, `probe`, `store`, `cloud`, `credentials`, `session`, `contribute`, `logscan`, `corpus`, `reference`, `paths` (CLI: `python -m scio`) |
 | `01`-`03` notebooks | the three live notebooks (see [§1](#1-quick-start)) |
 | `dev/` | offline-decoding research (`scio_offline`, scripts, `notebooks/`, its own tests) - start at [`dev/HANDOVER.md`](dev/HANDOVER.md); full log in [`dev/RECOVERY_STATUS.md`](dev/RECOVERY_STATUS.md) |
 | `dev/notebooks/superseded/` | earlier decoding attempts, each labelled superseded, kept as the exploration record |

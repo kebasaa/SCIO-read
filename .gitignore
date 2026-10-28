@@ -39,3 +39,7 @@ CLAUDE.md
 # deliberately not tracked (see commit d37f3f5). The rule itself lives in the
 # assistant project memory, not in the repository.
 /CLAUDE.md
+
+# contributor bundles (python -m scio contribute); import them, do not commit the zips
+scio_contrib_*/
+scio_contrib_*.zip

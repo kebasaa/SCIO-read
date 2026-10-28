@@ -80,6 +80,7 @@ class ScioUSB(ScioDevice):
         return self
 
     def close(self):
+        self._identity = None
         if self.ser is not None:
             self.ser.close()
             self.ser = None

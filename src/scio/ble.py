@@ -275,6 +275,7 @@ class ScioBLE(ScioDevice):
         await self.client.disconnect()
 
     def close(self):
+        self._identity = None
         with _SESSIONS_LOCK:
             _SESSIONS.discard(self)
         if self.client is not None and self._runner is not None:

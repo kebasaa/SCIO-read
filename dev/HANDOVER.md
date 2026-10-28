@@ -13,6 +13,17 @@ how to work in this repository is in
 
 ## Current state
 
+**Contributor captures must carry identity + white, 2026-10-28:** a third contributor's fw-151
+captures (`email/scio-fw151-captures-20261027/`, 1 scan + a 5-scan multiscan) **cannot be
+decoded**: no device_id / i2s / BLE id and no white reference were sent. The server binds each
+blob to the request device_id, and a 64-bit id cannot be guessed. They parse fine: 1800/1800/1416 B,
+and the gradient word0 is 0 where fw-138 had 110. `_raw.bin` is the USB stream with a `ba 02 <len16>`
+header per frame. Fix in `src/`: `ScioDevice.sample_spectrum()`/`white_reference()` now return the
+cached `device` identity and temperatures; `session.capture()` refuses a missing device_id/i2s; new
+`scio.contribute` + `python -m scio contribute|import` produce/ingest a hashed zip bundle (identity,
+file headers, white, `scio-scan/2` records). **Next:** ask the fw-151 contributor to re-capture with
+`python -m scio contribute` (white cover first, then the targets); import + `process_pending`.
+
 **fw-138 fixed-target batches ingested + decode retry, 2026-10-11:** the contributor sent 4 batches
 × 25 scans (closed cap = bright, wood = dark; 2 sessions each). All 100 decoded (HTTP 200 + 331
 bands — even the dark wood) and were added to canonical; the fw-138 corpus group is now **103

@@ -62,6 +62,7 @@ documentation/     this file, firmware_notes.md, HARDWARE_ACQUISITION.md, datash
 | `cloud` | vendor API: login, `spectro-scan`, calibration thresholds, WR validation |
 | `credentials` | encrypted, machine-bound credential store |
 | `session` | **the workflow**: `capture`, `convert_legacy`, `extract_logs`, `process`, `process_pending` |
+| `contribute` | contributor bundles: `capture_bundle` (identity + white + scans -> zip), `import_bundle`; CLI `python -m scio contribute` / `import` |
 | `logscan` | recover scans out of old app logcat dumps |
 | `corpus` | inventory of every local capture, sha256-deduplicated |
 | `reference` | archived vendor CSV exports |

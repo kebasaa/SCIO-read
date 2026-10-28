@@ -14,6 +14,7 @@ store        on-disk formats, fixtures, white reference / calibration policy
 cloud        vendor API: login, scan -> spectrum, calibration thresholds
 credentials  encrypted, machine-bound credential store
 session      capture / convert / process - the high-level workflow
+contribute   contributor bundles (identity + white + scans); ``python -m scio``
 corpus       canonical inventory of local captures and archived spectra
 reference    archived vendor CSV exports
 paths        portable (non-identifying) path labels
