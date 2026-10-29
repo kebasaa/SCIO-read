@@ -278,7 +278,11 @@ def parse_temperature(data: bytes) -> dict:
 
 
 def parse_battery(data: bytes) -> dict:
-    """Parse a READ_BATTERY_STATE (0x05) response (handleReadBattery)."""
+    """Parse the documented eight-byte prefix of READ_BATTERY_STATE (0x05).
+
+    Follows handleReadBattery. Additional bytes in longer replies are ignored:
+    their meanings are unestablished and may include retained scan-buffer data.
+    """
     r = Response(Cmd.READ_BATTERY_STATE, len(data), data)
     return {
         "charge_percent": r.u16(0),

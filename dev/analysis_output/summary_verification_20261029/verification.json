@@ -1,0 +1,854 @@
+{
+  "schema": "scio-summary-verification/1",
+  "revision": "135d8915388ae64f9c6ba90bb7fdd753d21323f7",
+  "git_json_files_verified": 266,
+  "paired_records": 197,
+  "paired_groups": {
+    "20150812-e:PRODUCTION": 94,
+    "20150812:PRODUCTION": 103
+  },
+  "target_axis": "331 points, 740..1070 nm",
+  "blob_encoding_checks": 1182,
+  "pairs": [
+    {
+      "path": "02_processed_data/20200604143337_calibrationbox_143337_spectrum.json",
+      "git_blob": "98ec40824cc6affa62ffb4e89c97e11787643405"
+    },
+    {
+      "path": "02_processed_data/20200604143457_20200604_dead_needles_log00_spectrum.json",
+      "git_blob": "6482356a05f57fd5ef96faba8f9a119a77f44ab6"
+    },
+    {
+      "path": "02_processed_data/20200604143505_20200604_dead_needles_log01_spectrum.json",
+      "git_blob": "d616eb80594deb653ee3f9b2b3aa71b9bbba9820"
+    },
+    {
+      "path": "02_processed_data/20200604143513_20200604_dead_needles_log02_spectrum.json",
+      "git_blob": "0ffcf1f2eceac88079f0537d74f64a0e7a633fcb"
+    },
+    {
+      "path": "02_processed_data/20200604143557_soilcrust_143557_spectrum.json",
+      "git_blob": "7b158a396e88812bb894dbcb763e7024e5fbc3dd"
+    },
+    {
+      "path": "02_processed_data/20200604143614_soilcrust_143614_spectrum.json",
+      "git_blob": "4202f6afeb863352668a0432e8c1df9c78772211"
+    },
+    {
+      "path": "02_processed_data/20200604143624_soilcrust_143624_spectrum.json",
+      "git_blob": "d31f748dad614817353d20f146655b71d064345c"
+    },
+    {
+      "path": "02_processed_data/20200604143633_soilcrust_143633_spectrum.json",
+      "git_blob": "6cae4f1d8a79dd64b2ed75b620e1022b074672e4"
+    },
+    {
+      "path": "02_processed_data/20200604143642_20200604_soil_crust_log04_spectrum.json",
+      "git_blob": "a14bc78c44a0179e33b994f2d6baa2269932ee89"
+    },
+    {
+      "path": "02_processed_data/20200604143721_bark_143721_spectrum.json",
+      "git_blob": "f91c23fcd20b4d5154ceea847581f485494479b0"
+    },
+    {
+      "path": "02_processed_data/20200604143729_bark_143729_spectrum.json",
+      "git_blob": "a4137dc4b89cf6e038c46116fe35c18d00b4ef0a"
+    },
+    {
+      "path": "02_processed_data/20200604143739_bark_143739_spectrum.json",
+      "git_blob": "4ff5134dbbb43c412da9993c9ea98161bb6882c5"
+    },
+    {
+      "path": "02_processed_data/20200604143746_bark_143746_spectrum.json",
+      "git_blob": "e1c202cbde0f4421b80739e7b97fe812b724fe98"
+    },
+    {
+      "path": "02_processed_data/20200604143757_bark_143757_spectrum.json",
+      "git_blob": "8efac486aa65af0e973baddb84aa60935bbc1eef"
+    },
+    {
+      "path": "02_processed_data/20200604143806_bark_143806_spectrum.json",
+      "git_blob": "fd7595da00e227d47059e31d57deffea3845e48e"
+    },
+    {
+      "path": "02_processed_data/20200604143955_rock_143955_spectrum.json",
+      "git_blob": "e058ed89d3c9784b95f6f61bfcc99ccaf15796ed"
+    },
+    {
+      "path": "02_processed_data/20200604144005_rock_144005_spectrum.json",
+      "git_blob": "dcc8feb6ea4dee826cda0a645867fd6b848e1756"
+    },
+    {
+      "path": "02_processed_data/20200604144012_rock_144012_spectrum.json",
+      "git_blob": "dbd2926828055e9352227830125c7dcfa79976e2"
+    },
+    {
+      "path": "02_processed_data/20200604144021_rock_144021_spectrum.json",
+      "git_blob": "d7d7dc618de2c4b0a5a7fc311b0aa970a3a6b096"
+    },
+    {
+      "path": "02_processed_data/20211020105527_20211020_calibration_log00_spectrum.json",
+      "git_blob": "ab3cbca915de8b315e5912a8427785fe8f35333f"
+    },
+    {
+      "path": "02_processed_data/20211020105544_20211020_calibration_log01_spectrum.json",
+      "git_blob": "c7f43d8ba59b757545791f49f9fe7d0470cd48e0"
+    },
+    {
+      "path": "02_processed_data/20211020105555_20211020_calibration_log02_spectrum.json",
+      "git_blob": "034728613c0e4dc70e85688ac1337c34524e034b"
+    },
+    {
+      "path": "02_processed_data/20211020105604_20211020_calibration_log03_spectrum.json",
+      "git_blob": "a8a8b358f7c1663238a1a691061a48db78e68fd5"
+    },
+    {
+      "path": "02_processed_data/20211020105614_20211020_calibration_log04_spectrum.json",
+      "git_blob": "5ade54e0de94bce3708004d715ba67d7161113ea"
+    },
+    {
+      "path": "02_processed_data/20211020105622_20211020_calibration_log05_spectrum.json",
+      "git_blob": "3854bc8a2a31009d9c695e76da5c467ec32dacbd"
+    },
+    {
+      "path": "02_processed_data/20211020105633_20211020_calibration_log06_spectrum.json",
+      "git_blob": "b5c4e2170286ee5f84c5cbba23849fc01c568f1a"
+    },
+    {
+      "path": "02_processed_data/20211020105642_20211020_calibration_log07_spectrum.json",
+      "git_blob": "3f68f48982f1cd7bd9ac96c652b4d29fcf33e76a"
+    },
+    {
+      "path": "02_processed_data/20211020105649_20211020_calibration_log08_spectrum.json",
+      "git_blob": "2ad212fb9d1283dac8770ab7dc54db105ff5be27"
+    },
+    {
+      "path": "02_processed_data/20211020105656_20211020_calibration_log09_spectrum.json",
+      "git_blob": "d34f055adc27ea94170effc25fec96f8e0dbdeb1"
+    },
+    {
+      "path": "02_processed_data/20211020105704_20211020_calibration_log10_spectrum.json",
+      "git_blob": "6fc5b6ccd3136733fed82fcbf316692ba4051ed0"
+    },
+    {
+      "path": "02_processed_data/20211020105713_20211020_calibration_log11_spectrum.json",
+      "git_blob": "c4fc1bd7a65f3b7ba1a6f28683504ad46dbc0261"
+    },
+    {
+      "path": "02_processed_data/20211020105721_20211020_calibration_log12_spectrum.json",
+      "git_blob": "e44b3df28f9fa19b39845000133b71c7de4c7698"
+    },
+    {
+      "path": "02_processed_data/20211020105858_skin_105858_spectrum.json",
+      "git_blob": "e293084c57b628338121b24e103a7b60329766dd"
+    },
+    {
+      "path": "02_processed_data/20211020105907_skin_105907_spectrum.json",
+      "git_blob": "45f7a31438af3ff8ebc3cdc60fd12e0ca5a13f02"
+    },
+    {
+      "path": "02_processed_data/20211020105914_skin_105914_spectrum.json",
+      "git_blob": "05b0952b9935b9fd6f571859f378af64c12d2f82"
+    },
+    {
+      "path": "02_processed_data/20211020105921_skin_105921_spectrum.json",
+      "git_blob": "13e3ab26aa3076e39e640b49264291f25667a3d2"
+    },
+    {
+      "path": "02_processed_data/20211020105928_skin_105928_spectrum.json",
+      "git_blob": "3b5a8847d8c579166dba4c8f0347a79f0079d9a5"
+    },
+    {
+      "path": "02_processed_data/20211020105935_skin_105935_spectrum.json",
+      "git_blob": "c4f646705732e55f7db39c99b6266f8392a3a37b"
+    },
+    {
+      "path": "02_processed_data/20211020105943_skin_105943_spectrum.json",
+      "git_blob": "a904a5cb7b92b7e27beaa21e429e45bcb1166420"
+    },
+    {
+      "path": "02_processed_data/20211020105949_skin_105949_spectrum.json",
+      "git_blob": "69cbe2e4e05ec42839f03f3773a7cd8ec83a525a"
+    },
+    {
+      "path": "02_processed_data/20211020105957_skin_105957_spectrum.json",
+      "git_blob": "bccbe4a7c410f5ee30efbf4d91bfb2d3943ebd74"
+    },
+    {
+      "path": "02_processed_data/20211020110004_skin_110004_spectrum.json",
+      "git_blob": "ca86592d9d1fee130d2997049f9833bf32055e1b"
+    },
+    {
+      "path": "02_processed_data/20211020110011_skin_110011_spectrum.json",
+      "git_blob": "4125947672085957297f569bae2cc20ed8df6c73"
+    },
+    {
+      "path": "02_processed_data/20230329143054_mirror1__mirror1_spectrum.json",
+      "git_blob": "cef57b4ae79c4fdce3be5ef6982437f47fba2455"
+    },
+    {
+      "path": "02_processed_data/20230329143116_mirror2__mirror2_spectrum.json",
+      "git_blob": "a539aa2ed6c411db9c6d7903bf5a178af11d2beb"
+    },
+    {
+      "path": "02_processed_data/20230329143133_mirror3__mirror3_spectrum.json",
+      "git_blob": "d3c3b3f3d02e5f093b5ebd4af94969b48375aa18"
+    },
+    {
+      "path": "02_processed_data/20230330082305_calibrationbox1_tionbox1_spectrum.json",
+      "git_blob": "671a975f7e46ee31c9095c793260d9cfdae9d483"
+    },
+    {
+      "path": "02_processed_data/20230330082312_calibrationbox2_tionbox2_spectrum.json",
+      "git_blob": "b84bfe99bef154208b4ffeb77dbba50459f329b8"
+    },
+    {
+      "path": "02_processed_data/20230330082317_calibrationbox3_tionbox3_spectrum.json",
+      "git_blob": "5c6c3bf9e19f213aae2d5b1772d2ecd841ea3f71"
+    },
+    {
+      "path": "02_processed_data/20230330082322_calibrationbox4_tionbox4_spectrum.json",
+      "git_blob": "527aeb0aed4814b91ee20f084471711ff7c901a0"
+    },
+    {
+      "path": "02_processed_data/20230330082326_calibrationbox5_tionbox5_spectrum.json",
+      "git_blob": "b242dda126ce11b62d5a3912bc4e61a68817e69c"
+    },
+    {
+      "path": "02_processed_data/20230330082626_wood1_an_wood1_spectrum.json",
+      "git_blob": "b211e5940e84860569c05cc87ef07469a8bba67d"
+    },
+    {
+      "path": "02_processed_data/20230330082632_wood2_an_wood2_spectrum.json",
+      "git_blob": "17394a9e30f4ece42225c1bc86aa23668bb2e8cd"
+    },
+    {
+      "path": "02_processed_data/20230330082636_wood3_an_wood3_spectrum.json",
+      "git_blob": "d7fd83cf38f02586ffb88c63981b9d606888619b"
+    },
+    {
+      "path": "02_processed_data/20230330082642_wood4_an_wood4_spectrum.json",
+      "git_blob": "5e3b12d6789e8263a4f323e5b46aaa382aafe43d"
+    },
+    {
+      "path": "02_processed_data/20230330082647_wood5_an_wood5_spectrum.json",
+      "git_blob": "5bafef2dea006be915efba88e452ad99894a47fb"
+    },
+    {
+      "path": "02_processed_data/20260907155513_20260907_hand_60907_hand_spectrum.json",
+      "git_blob": "03f840312fa8d101b1844ba42dd87c77e53b3a82"
+    },
+    {
+      "path": "02_processed_data/20260907155826_20260907_burst1_907_burst1_spectrum.json",
+      "git_blob": "2325fe5c66c28c0370ef48bdeaa512623ad8e8a1"
+    },
+    {
+      "path": "02_processed_data/20260907155829_20260907_burst2_907_burst2_spectrum.json",
+      "git_blob": "e06cbf87837ec3eae1214e61730e00795f883436"
+    },
+    {
+      "path": "02_processed_data/20260907155831_20260907_burst3_907_burst3_spectrum.json",
+      "git_blob": "40f29eec111accf3915bfb7b3f82d14502115998"
+    },
+    {
+      "path": "02_processed_data/20260907155834_20260907_burst4_907_burst4_spectrum.json",
+      "git_blob": "df11279888dcd839b3be99d1cd5faa5b5b912960"
+    },
+    {
+      "path": "02_processed_data/20260907155836_20260907_burst5_907_burst5_spectrum.json",
+      "git_blob": "38828eafe43058ec0fed0fbe43fed5a490a991fa"
+    },
+    {
+      "path": "02_processed_data/20260907185028_current_static_static_001_spectrum.json",
+      "git_blob": "3212eaa38319f47877dc0bfdb4ed2c9fcf9297f1"
+    },
+    {
+      "path": "02_processed_data/20260907185030_current_static_static_002_spectrum.json",
+      "git_blob": "8b67b8c6adb6c9d2f5b399f76a60fdb9b29402e6"
+    },
+    {
+      "path": "02_processed_data/20260907185032_current_static_static_003_spectrum.json",
+      "git_blob": "14ea9d31ea07844e80343db49bd36be770cd8560"
+    },
+    {
+      "path": "02_processed_data/20260907185035_current_static_static_004_spectrum.json",
+      "git_blob": "c6559570534feabbe357870e9d1708c6397ad109"
+    },
+    {
+      "path": "02_processed_data/20260907185037_current_static_static_005_spectrum.json",
+      "git_blob": "221fe662363d25e7f127b95146524b739e95a5fc"
+    },
+    {
+      "path": "02_processed_data/20260907185039_current_static_static_006_spectrum.json",
+      "git_blob": "8d57dfa23d7a00b414ae189d318fee731d78a802"
+    },
+    {
+      "path": "02_processed_data/20260907185041_current_static_static_007_spectrum.json",
+      "git_blob": "3b3374527045a827fa72c08294e458b532295760"
+    },
+    {
+      "path": "02_processed_data/20260907185043_current_static_static_008_spectrum.json",
+      "git_blob": "479b66fe8e20d99cfdcd3a86c20dd1ff2578f195"
+    },
+    {
+      "path": "02_processed_data/20260907185045_current_static_static_009_spectrum.json",
+      "git_blob": "e4800980b6e66f651b2601cc492873a779e73c0f"
+    },
+    {
+      "path": "02_processed_data/20260907185047_current_static_static_010_spectrum.json",
+      "git_blob": "c6232b11cb828e7bff23f1c3c1037d901812f78c"
+    },
+    {
+      "path": "02_processed_data/20260907185049_current_static_static_011_spectrum.json",
+      "git_blob": "2248f7bbe74e2944e5dc799841e47a201ba82679"
+    },
+    {
+      "path": "02_processed_data/20260907185052_current_static_static_012_spectrum.json",
+      "git_blob": "534e5016fd5583d09d7632f07b5249b87658de66"
+    },
+    {
+      "path": "02_processed_data/20260907185054_current_static_static_013_spectrum.json",
+      "git_blob": "47096591b169160af043b82c84a0e27b08b46e20"
+    },
+    {
+      "path": "02_processed_data/20260907185056_current_static_static_014_spectrum.json",
+      "git_blob": "558ad4fcd7a5cbbd06effeadeb3473a5fa6b43af"
+    },
+    {
+      "path": "02_processed_data/20260907185058_current_static_static_015_spectrum.json",
+      "git_blob": "bb36f620041144762f5c35940d7bbc04b3f647fc"
+    },
+    {
+      "path": "02_processed_data/20260907185100_current_static_static_016_spectrum.json",
+      "git_blob": "048216d95ac8abb5fbd7cfe304c6f1ecb0cd53e1"
+    },
+    {
+      "path": "02_processed_data/20260907185102_current_static_static_017_spectrum.json",
+      "git_blob": "c93688fca7eb280877451f1a49c0cf2a861af7a4"
+    },
+    {
+      "path": "02_processed_data/20260907185104_current_static_static_018_spectrum.json",
+      "git_blob": "2bd79a034806849320afc054f6d5c3897a8b543d"
+    },
+    {
+      "path": "02_processed_data/20260907185106_current_static_static_019_spectrum.json",
+      "git_blob": "5c562ae62dc67443d952b65c1d93e81fb8eeb5e0"
+    },
+    {
+      "path": "02_processed_data/20260907185109_current_static_static_020_spectrum.json",
+      "git_blob": "ce1f9cc8cd90a533ec5b8f4d741d263fde50aaa2"
+    },
+    {
+      "path": "02_processed_data/20260907185111_current_static_static_021_spectrum.json",
+      "git_blob": "cb7eda9234d17774e3e83b9e3ede18b390ef8038"
+    },
+    {
+      "path": "02_processed_data/20260907185113_current_static_static_022_spectrum.json",
+      "git_blob": "4a58bade3d665c37d47a171abbf2bfe934a46986"
+    },
+    {
+      "path": "02_processed_data/20260907185115_current_static_static_023_spectrum.json",
+      "git_blob": "51362abe42119a592ba4f4de7ccf775337a859c7"
+    },
+    {
+      "path": "02_processed_data/20260907185117_current_static_static_024_spectrum.json",
+      "git_blob": "d9650b3dc3403142e3a278d675cb8879240cbd24"
+    },
+    {
+      "path": "02_processed_data/20260907185119_current_static_static_025_spectrum.json",
+      "git_blob": "7549103f9181c2b23d6a70978061db40a3628447"
+    },
+    {
+      "path": "02_processed_data/20260907185121_current_static_static_026_spectrum.json",
+      "git_blob": "f4361be72a07f39d9525f534ebc11a3809ab4526"
+    },
+    {
+      "path": "02_processed_data/20260907185124_current_static_static_027_spectrum.json",
+      "git_blob": "ca2cb57c074bf3677fe2100d2e87b10638edb901"
+    },
+    {
+      "path": "02_processed_data/20260907185126_current_static_static_028_spectrum.json",
+      "git_blob": "1f338abff2d290a6d22211517e6b2d20eeacfa9a"
+    },
+    {
+      "path": "02_processed_data/20260907185128_current_static_static_029_spectrum.json",
+      "git_blob": "e4718aeabcc5e68a305a99c0524b07b1f0439e17"
+    },
+    {
+      "path": "02_processed_data/20260907185130_current_static_static_030_spectrum.json",
+      "git_blob": "5cf47eb5975187c8eac53aa4202d7e357356ebfd"
+    },
+    {
+      "path": "02_processed_data/20261004144418_ble_transport_test_77daed693fda_spectrum.json",
+      "git_blob": "9888525454b3ea833997eb6c7ddd6d30cacf54ee"
+    },
+    {
+      "path": "02_processed_data/20261008153711_fw138_contrib_skin_fw138_contrib-3_spectrum.json",
+      "git_blob": "de1ce031c45f187ad876c55f17bb3cbf801a5f91"
+    },
+    {
+      "path": "02_processed_data/20261008184303_skin_live_20261008_80a3ed2376b6_spectrum.json",
+      "git_blob": "25dc2cb01114761ea58a6edb68b03248d3de3461"
+    },
+    {
+      "path": "02_processed_data/20261008205739_fw138_retake_pine_wood_attempt_1_fw138_retake-3_spectrum.json",
+      "git_blob": "d2c98cede9ca78956851b08bb5295b40d9e4e7c9"
+    },
+    {
+      "path": "02_processed_data/20261008205739_fw138_retake_pine_wood_attempt_2_fw138_retake-4_spectrum.json",
+      "git_blob": "c24ca1c156d6c0b3ff285f65f934fc6f502d0f8a"
+    },
+    {
+      "path": "02_processed_data/20261011132607_fw138_batch_cap_s1_01_fw138-cap-s1-01_spectrum.json",
+      "git_blob": "3f807cf3d9f1f9da15e674891fb7a396328bd25f"
+    },
+    {
+      "path": "02_processed_data/20261011132611_fw138_batch_cap_s2_01_fw138-cap-s2-01_spectrum.json",
+      "git_blob": "85f6626b1e8c13a5e78a751a56b8b6a5db38b614"
+    },
+    {
+      "path": "02_processed_data/20261011132634_fw138_batch_wood_s1_01_fw138-wood-s1-01_spectrum.json",
+      "git_blob": "a558ed46cf5912a3f476adb48340f1c47c7538aa"
+    },
+    {
+      "path": "02_processed_data/20261011132658_fw138_batch_wood_s2_01_fw138-wood-s2-01_spectrum.json",
+      "git_blob": "38c727ce2f384e1b646bb68e06b58af508bfe0a6"
+    },
+    {
+      "path": "02_processed_data/20261011132745_fw138_batch_cap_s1_02_fw138-cap-s1-02_spectrum.json",
+      "git_blob": "b715eb063e1a7b3cf9cfe66127da9f3fdec415a5"
+    },
+    {
+      "path": "02_processed_data/20261011132750_fw138_batch_cap_s1_03_fw138-cap-s1-03_spectrum.json",
+      "git_blob": "532507ae54c97a38f795b3035439ac0e9858d670"
+    },
+    {
+      "path": "02_processed_data/20261011132815_fw138_batch_cap_s1_04_fw138-cap-s1-04_spectrum.json",
+      "git_blob": "bee241eb05cd264e343f319b4afc5ccb3595e7da"
+    },
+    {
+      "path": "02_processed_data/20261011132839_fw138_batch_cap_s1_05_fw138-cap-s1-05_spectrum.json",
+      "git_blob": "cf19a70c0acafeebd00c477c651b650da36f467b"
+    },
+    {
+      "path": "02_processed_data/20261011132903_fw138_batch_cap_s1_06_fw138-cap-s1-06_spectrum.json",
+      "git_blob": "580fda97b363db4a578e27185b58628800536716"
+    },
+    {
+      "path": "02_processed_data/20261011132926_fw138_batch_cap_s1_07_fw138-cap-s1-07_spectrum.json",
+      "git_blob": "a85ea39e57f3c3ec1d76e70d95e26c8513fbc3a6"
+    },
+    {
+      "path": "02_processed_data/20261011132951_fw138_batch_cap_s1_08_fw138-cap-s1-08_spectrum.json",
+      "git_blob": "900d9bc311a96c52e81b4cb9a8a20095057cccfc"
+    },
+    {
+      "path": "02_processed_data/20261011133016_fw138_batch_cap_s1_09_fw138-cap-s1-09_spectrum.json",
+      "git_blob": "9cb311f619b7f7a7ee9eb9854b4516c715a26a15"
+    },
+    {
+      "path": "02_processed_data/20261011133040_fw138_batch_cap_s1_10_fw138-cap-s1-10_spectrum.json",
+      "git_blob": "5eac8c1d56ac9027acb09167fcecce8cb5732142"
+    },
+    {
+      "path": "02_processed_data/20261011133108_fw138_batch_cap_s1_11_fw138-cap-s1-11_spectrum.json",
+      "git_blob": "42729c4011e85e8131de18e896db62b9b7bb3f53"
+    },
+    {
+      "path": "02_processed_data/20261011133133_fw138_batch_cap_s1_12_fw138-cap-s1-12_spectrum.json",
+      "git_blob": "46bee728540ffa161ee4facf3681cc486b36d591"
+    },
+    {
+      "path": "02_processed_data/20261011133159_fw138_batch_cap_s1_13_fw138-cap-s1-13_spectrum.json",
+      "git_blob": "6c6cc804e558178b30af57fa21bb766eae7a2408"
+    },
+    {
+      "path": "02_processed_data/20261011133223_fw138_batch_cap_s1_14_fw138-cap-s1-14_spectrum.json",
+      "git_blob": "076c1eadb757f418cbe9ed7845907391cbd6cb92"
+    },
+    {
+      "path": "02_processed_data/20261011133247_fw138_batch_cap_s1_15_fw138-cap-s1-15_spectrum.json",
+      "git_blob": "5c49835683dfb44400b77fa9dacf5863df6b3cf1"
+    },
+    {
+      "path": "02_processed_data/20261011133312_fw138_batch_cap_s1_16_fw138-cap-s1-16_spectrum.json",
+      "git_blob": "3fa2cb1290a136836b4a57271998f7905be9f373"
+    },
+    {
+      "path": "02_processed_data/20261011133336_fw138_batch_cap_s1_17_fw138-cap-s1-17_spectrum.json",
+      "git_blob": "240955ec71af011970555b8e26f44da7367210da"
+    },
+    {
+      "path": "02_processed_data/20261011133359_fw138_batch_cap_s1_18_fw138-cap-s1-18_spectrum.json",
+      "git_blob": "90d6701c6ec36413d4f80997e25bc5a228e297c5"
+    },
+    {
+      "path": "02_processed_data/20261011133423_fw138_batch_cap_s1_19_fw138-cap-s1-19_spectrum.json",
+      "git_blob": "e59ef1ac46bd9daf9a6f0153c12dafda14f2db16"
+    },
+    {
+      "path": "02_processed_data/20261011133446_fw138_batch_cap_s1_20_fw138-cap-s1-20_spectrum.json",
+      "git_blob": "ece980785f8a8e8e78865c09de4036f8b2305cb8"
+    },
+    {
+      "path": "02_processed_data/20261011133511_fw138_batch_cap_s1_21_fw138-cap-s1-21_spectrum.json",
+      "git_blob": "aec6797b477f418c316175285f9adbed523d5684"
+    },
+    {
+      "path": "02_processed_data/20261011133535_fw138_batch_cap_s1_22_fw138-cap-s1-22_spectrum.json",
+      "git_blob": "e926514d1422ba8190f5f20a8fc87041836f00ac"
+    },
+    {
+      "path": "02_processed_data/20261011133600_fw138_batch_cap_s1_23_fw138-cap-s1-23_spectrum.json",
+      "git_blob": "6cbe0013ac4769bf0e67835ca9e736f1e4053591"
+    },
+    {
+      "path": "02_processed_data/20261011133624_fw138_batch_cap_s1_24_fw138-cap-s1-24_spectrum.json",
+      "git_blob": "28c129f1a00ed1a058c1e934fd17781c05bcdb49"
+    },
+    {
+      "path": "02_processed_data/20261011133649_fw138_batch_cap_s1_25_fw138-cap-s1-25_spectrum.json",
+      "git_blob": "9e694602f2cb1281e66bcc8dd0889f7f55f68d02"
+    },
+    {
+      "path": "02_processed_data/20261011133714_fw138_batch_cap_s2_02_fw138-cap-s2-02_spectrum.json",
+      "git_blob": "4e73a5791063440e33121493abca4701a70d58f6"
+    },
+    {
+      "path": "02_processed_data/20261011133738_fw138_batch_cap_s2_03_fw138-cap-s2-03_spectrum.json",
+      "git_blob": "52b8a21bc84e78c09a4829a1a528b27e9cf8a458"
+    },
+    {
+      "path": "02_processed_data/20261011133802_fw138_batch_cap_s2_04_fw138-cap-s2-04_spectrum.json",
+      "git_blob": "fdc7c63f8040ba304b938764c38d0593eb179cc8"
+    },
+    {
+      "path": "02_processed_data/20261011133826_fw138_batch_cap_s2_05_fw138-cap-s2-05_spectrum.json",
+      "git_blob": "1b43d7662f3d6c7950ed2fb584c9a6d592042ff2"
+    },
+    {
+      "path": "02_processed_data/20261011133851_fw138_batch_cap_s2_06_fw138-cap-s2-06_spectrum.json",
+      "git_blob": "a0bf57c00e3ba7449aa3e8b68371edd85013eb20"
+    },
+    {
+      "path": "02_processed_data/20261011133915_fw138_batch_cap_s2_07_fw138-cap-s2-07_spectrum.json",
+      "git_blob": "7ff09950644128f80fe65b5560978c0fffce7c95"
+    },
+    {
+      "path": "02_processed_data/20261011133939_fw138_batch_cap_s2_08_fw138-cap-s2-08_spectrum.json",
+      "git_blob": "5386f5ed0265fac7dede7712f2df8e2ad425e271"
+    },
+    {
+      "path": "02_processed_data/20261011134002_fw138_batch_cap_s2_09_fw138-cap-s2-09_spectrum.json",
+      "git_blob": "bbe829b64ee89594e6d561aa7077f5443596edb0"
+    },
+    {
+      "path": "02_processed_data/20261011134027_fw138_batch_cap_s2_10_fw138-cap-s2-10_spectrum.json",
+      "git_blob": "fcd9ef2a4d9b3b435379de3a0cbcbd324e985f6a"
+    },
+    {
+      "path": "02_processed_data/20261011134051_fw138_batch_cap_s2_11_fw138-cap-s2-11_spectrum.json",
+      "git_blob": "147253e551366ad07f643b7d227d09e94c11203b"
+    },
+    {
+      "path": "02_processed_data/20261011134115_fw138_batch_cap_s2_12_fw138-cap-s2-12_spectrum.json",
+      "git_blob": "420b861dcde565a840c99a2cd4d8b80c7474a59d"
+    },
+    {
+      "path": "02_processed_data/20261011134139_fw138_batch_cap_s2_13_fw138-cap-s2-13_spectrum.json",
+      "git_blob": "9aab92b7bf97b754c1680d54702af8f67d74ed92"
+    },
+    {
+      "path": "02_processed_data/20261011134204_fw138_batch_cap_s2_14_fw138-cap-s2-14_spectrum.json",
+      "git_blob": "20fbe820c881ec4bdd89d12e88879c3a8356f4c2"
+    },
+    {
+      "path": "02_processed_data/20261011134228_fw138_batch_cap_s2_15_fw138-cap-s2-15_spectrum.json",
+      "git_blob": "9a34fb3c6ebd42976ab5e1916e47d50fc652623b"
+    },
+    {
+      "path": "02_processed_data/20261011134252_fw138_batch_cap_s2_16_fw138-cap-s2-16_spectrum.json",
+      "git_blob": "023c644e71c9f629f07b4479f7a71eb548c2a825"
+    },
+    {
+      "path": "02_processed_data/20261011134316_fw138_batch_cap_s2_17_fw138-cap-s2-17_spectrum.json",
+      "git_blob": "f1e7263d22f9bfebfb9c36f85957f698978250e4"
+    },
+    {
+      "path": "02_processed_data/20261011134340_fw138_batch_cap_s2_18_fw138-cap-s2-18_spectrum.json",
+      "git_blob": "9174d181a1d13594c4221eae640d542b7d5c2348"
+    },
+    {
+      "path": "02_processed_data/20261011134405_fw138_batch_cap_s2_19_fw138-cap-s2-19_spectrum.json",
+      "git_blob": "e99854a6f33e463093beb081c71c87da44b7bc77"
+    },
+    {
+      "path": "02_processed_data/20261011134427_fw138_batch_cap_s2_20_fw138-cap-s2-20_spectrum.json",
+      "git_blob": "0bd7a126c6e28516047eb9e8b63362375c47907b"
+    },
+    {
+      "path": "02_processed_data/20261011134450_fw138_batch_cap_s2_21_fw138-cap-s2-21_spectrum.json",
+      "git_blob": "9301e661287119db7c8789e7a4ceb3ea85a9653a"
+    },
+    {
+      "path": "02_processed_data/20261011134513_fw138_batch_cap_s2_22_fw138-cap-s2-22_spectrum.json",
+      "git_blob": "c3ec8a4e07ce490e4983cfe9a16ac0282237ff6c"
+    },
+    {
+      "path": "02_processed_data/20261011134535_fw138_batch_cap_s2_23_fw138-cap-s2-23_spectrum.json",
+      "git_blob": "0b960d16034b163986369fb523319d2db04c8ce2"
+    },
+    {
+      "path": "02_processed_data/20261011134558_fw138_batch_cap_s2_24_fw138-cap-s2-24_spectrum.json",
+      "git_blob": "51441bc57223cae56421b4b9d99d977b31f496ea"
+    },
+    {
+      "path": "02_processed_data/20261011134621_fw138_batch_cap_s2_25_fw138-cap-s2-25_spectrum.json",
+      "git_blob": "2cda2e74e9a5356d8f34a3e56f8bc6f2021ba1e2"
+    },
+    {
+      "path": "02_processed_data/20261011134644_fw138_batch_wood_s1_02_fw138-wood-s1-02_spectrum.json",
+      "git_blob": "3c7217e1a20a40add1b4bd7a85bfa14154692235"
+    },
+    {
+      "path": "02_processed_data/20261011134707_fw138_batch_wood_s1_03_fw138-wood-s1-03_spectrum.json",
+      "git_blob": "7b1fbdb6812e461f645e0fb6b4d03065a4780351"
+    },
+    {
+      "path": "02_processed_data/20261011134730_fw138_batch_wood_s1_04_fw138-wood-s1-04_spectrum.json",
+      "git_blob": "f13e87aed46925bf3a5cf87ea7c4865679e669aa"
+    },
+    {
+      "path": "02_processed_data/20261011134753_fw138_batch_wood_s1_05_fw138-wood-s1-05_spectrum.json",
+      "git_blob": "0f434e6fc3530c4b018f9ea75b81b9cfe95a35ef"
+    },
+    {
+      "path": "02_processed_data/20261011134815_fw138_batch_wood_s1_06_fw138-wood-s1-06_spectrum.json",
+      "git_blob": "ad98c0f14ac20cd6e5560bf2ceb41fca1d779e60"
+    },
+    {
+      "path": "02_processed_data/20261011134837_fw138_batch_wood_s1_07_fw138-wood-s1-07_spectrum.json",
+      "git_blob": "b008b5f3f6058e216ac5cd24c31ff875224f5cd2"
+    },
+    {
+      "path": "02_processed_data/20261011134900_fw138_batch_wood_s1_08_fw138-wood-s1-08_spectrum.json",
+      "git_blob": "17bd005010650f59338bcfb2019acfb4041fc3e7"
+    },
+    {
+      "path": "02_processed_data/20261011134923_fw138_batch_wood_s1_09_fw138-wood-s1-09_spectrum.json",
+      "git_blob": "2ff323060a3d1697079fe4f35258b3ada2508058"
+    },
+    {
+      "path": "02_processed_data/20261011134945_fw138_batch_wood_s1_10_fw138-wood-s1-10_spectrum.json",
+      "git_blob": "9e407781434b2290f6875132f3b7c8098c705903"
+    },
+    {
+      "path": "02_processed_data/20261011135008_fw138_batch_wood_s1_11_fw138-wood-s1-11_spectrum.json",
+      "git_blob": "0b176d32c0cd8ae0736e9b54a9f100cd0d08477e"
+    },
+    {
+      "path": "02_processed_data/20261011135030_fw138_batch_wood_s1_12_fw138-wood-s1-12_spectrum.json",
+      "git_blob": "6fdf88a399909b135e8accb9258da4cfa8c92afa"
+    },
+    {
+      "path": "02_processed_data/20261011135052_fw138_batch_wood_s1_13_fw138-wood-s1-13_spectrum.json",
+      "git_blob": "7a71ff92c14d287a80a9aec8bec1fef2a46c59f4"
+    },
+    {
+      "path": "02_processed_data/20261011135115_fw138_batch_wood_s1_14_fw138-wood-s1-14_spectrum.json",
+      "git_blob": "835b6db2d0d3c99cf2643b22c759bde0783aa037"
+    },
+    {
+      "path": "02_processed_data/20261011135137_fw138_batch_wood_s1_15_fw138-wood-s1-15_spectrum.json",
+      "git_blob": "cba51ad26caf9e38ac327724480f65eb1b8cf74d"
+    },
+    {
+      "path": "02_processed_data/20261011135200_fw138_batch_wood_s1_16_fw138-wood-s1-16_spectrum.json",
+      "git_blob": "899d09929ec7ce54ae7834f11453f1b6b303f83f"
+    },
+    {
+      "path": "02_processed_data/20261011135223_fw138_batch_wood_s1_17_fw138-wood-s1-17_spectrum.json",
+      "git_blob": "1a1691f3c2d233ea6ebfe25c7b678e7bc571bedb"
+    },
+    {
+      "path": "02_processed_data/20261011135245_fw138_batch_wood_s1_18_fw138-wood-s1-18_spectrum.json",
+      "git_blob": "02f5c80b81560fcfa25c71652f30bdc591678476"
+    },
+    {
+      "path": "02_processed_data/20261011135308_fw138_batch_wood_s1_19_fw138-wood-s1-19_spectrum.json",
+      "git_blob": "894567ccfda1d58793b1ba547c6d51d91b48afda"
+    },
+    {
+      "path": "02_processed_data/20261011135330_fw138_batch_wood_s1_20_fw138-wood-s1-20_spectrum.json",
+      "git_blob": "f28c332fd237ef8c1b2dde60990820660edcfa8a"
+    },
+    {
+      "path": "02_processed_data/20261011135353_fw138_batch_wood_s1_21_fw138-wood-s1-21_spectrum.json",
+      "git_blob": "7d922ded1fd60fd3475bf57a4fcd354b668a1fd9"
+    },
+    {
+      "path": "02_processed_data/20261011135415_fw138_batch_wood_s1_22_fw138-wood-s1-22_spectrum.json",
+      "git_blob": "4e191b182f809ad59a6a87738e20f2096b45502d"
+    },
+    {
+      "path": "02_processed_data/20261011135438_fw138_batch_wood_s1_23_fw138-wood-s1-23_spectrum.json",
+      "git_blob": "e4dd85615c842b59612a7569584f6e3693b5859e"
+    },
+    {
+      "path": "02_processed_data/20261011135501_fw138_batch_wood_s1_24_fw138-wood-s1-24_spectrum.json",
+      "git_blob": "0b102ae08d81e33985660e52a30c7192ceef48a2"
+    },
+    {
+      "path": "02_processed_data/20261011135523_fw138_batch_wood_s1_25_fw138-wood-s1-25_spectrum.json",
+      "git_blob": "33891b34e632f8c5c522fc8e91c61f891d4cf2cb"
+    },
+    {
+      "path": "02_processed_data/20261011135546_fw138_batch_wood_s2_02_fw138-wood-s2-02_spectrum.json",
+      "git_blob": "36a96db0de9e0b1dac954753d16505c72f245301"
+    },
+    {
+      "path": "02_processed_data/20261011135608_fw138_batch_wood_s2_03_fw138-wood-s2-03_spectrum.json",
+      "git_blob": "9827705dc3c5103e8e54205e6371ffb1618168dc"
+    },
+    {
+      "path": "02_processed_data/20261011135631_fw138_batch_wood_s2_04_fw138-wood-s2-04_spectrum.json",
+      "git_blob": "5f223287802813c896783d355501737ecbcbda76"
+    },
+    {
+      "path": "02_processed_data/20261011135654_fw138_batch_wood_s2_05_fw138-wood-s2-05_spectrum.json",
+      "git_blob": "688e65f86e66e2873e915614e5491dc3684b351f"
+    },
+    {
+      "path": "02_processed_data/20261011135716_fw138_batch_wood_s2_06_fw138-wood-s2-06_spectrum.json",
+      "git_blob": "371e691dc7ab56dc5d35f4192d7d5324d2b09868"
+    },
+    {
+      "path": "02_processed_data/20261011135739_fw138_batch_wood_s2_07_fw138-wood-s2-07_spectrum.json",
+      "git_blob": "6c880ccae1f2823994dc3169d61b5847be8ed84a"
+    },
+    {
+      "path": "02_processed_data/20261011135802_fw138_batch_wood_s2_08_fw138-wood-s2-08_spectrum.json",
+      "git_blob": "d82869b86132f553426918f6095ea722dd6d0839"
+    },
+    {
+      "path": "02_processed_data/20261011135825_fw138_batch_wood_s2_09_fw138-wood-s2-09_spectrum.json",
+      "git_blob": "541a6f247f9a02485ca2574ee86b51de364ec1d6"
+    },
+    {
+      "path": "02_processed_data/20261011135847_fw138_batch_wood_s2_10_fw138-wood-s2-10_spectrum.json",
+      "git_blob": "c8c0f7a22ae71e13878c5ffe337a4c22f4ddce34"
+    },
+    {
+      "path": "02_processed_data/20261011135910_fw138_batch_wood_s2_11_fw138-wood-s2-11_spectrum.json",
+      "git_blob": "243b1e6cf23f1b53243e6d6d8136fac38cfd9f1d"
+    },
+    {
+      "path": "02_processed_data/20261011135932_fw138_batch_wood_s2_12_fw138-wood-s2-12_spectrum.json",
+      "git_blob": "69fb91070ebe79ced2c3a1c9a596be6205fc62ab"
+    },
+    {
+      "path": "02_processed_data/20261011135954_fw138_batch_wood_s2_13_fw138-wood-s2-13_spectrum.json",
+      "git_blob": "8556dcf852c817e836aa7292fa2c5d2f276d8e12"
+    },
+    {
+      "path": "02_processed_data/20261011140017_fw138_batch_wood_s2_14_fw138-wood-s2-14_spectrum.json",
+      "git_blob": "de1ecd6b3e9b407cb5567784f054d08baafa8161"
+    },
+    {
+      "path": "02_processed_data/20261011140039_fw138_batch_wood_s2_15_fw138-wood-s2-15_spectrum.json",
+      "git_blob": "a6af4b4e7077d2ce335f0f0880349c680d6d29a2"
+    },
+    {
+      "path": "02_processed_data/20261011140102_fw138_batch_wood_s2_16_fw138-wood-s2-16_spectrum.json",
+      "git_blob": "b7a2abab1086b5f63d43f749d95dad60c38c5164"
+    },
+    {
+      "path": "02_processed_data/20261011140124_fw138_batch_wood_s2_17_fw138-wood-s2-17_spectrum.json",
+      "git_blob": "17ab87fd7991272a30214a0c06d32e438b87da97"
+    },
+    {
+      "path": "02_processed_data/20261011140146_fw138_batch_wood_s2_18_fw138-wood-s2-18_spectrum.json",
+      "git_blob": "4d69585a459cce78fad58103b450f7480f365225"
+    },
+    {
+      "path": "02_processed_data/20261011140209_fw138_batch_wood_s2_19_fw138-wood-s2-19_spectrum.json",
+      "git_blob": "5bafa6d35c2f61e9ca1fa4c504e41a0321a2fb87"
+    },
+    {
+      "path": "02_processed_data/20261011140231_fw138_batch_wood_s2_20_fw138-wood-s2-20_spectrum.json",
+      "git_blob": "e9adef595969e180611e50627fdf8a317a822808"
+    },
+    {
+      "path": "02_processed_data/20261011140255_fw138_batch_wood_s2_21_fw138-wood-s2-21_spectrum.json",
+      "git_blob": "4245692db1ba8578b88e7617ef133ce10b286131"
+    },
+    {
+      "path": "02_processed_data/20261011140317_fw138_batch_wood_s2_22_fw138-wood-s2-22_spectrum.json",
+      "git_blob": "b69bd751855d88f0e40edc0d9303d3ddc348f885"
+    },
+    {
+      "path": "02_processed_data/20261011140340_fw138_batch_wood_s2_23_fw138-wood-s2-23_spectrum.json",
+      "git_blob": "93afcbe824f9686db3d23566e047b34148ade34a"
+    },
+    {
+      "path": "02_processed_data/20261011140402_fw138_batch_wood_s2_24_fw138-wood-s2-24_spectrum.json",
+      "git_blob": "dc237a1e56a5ca4ce8a0004a5be2414db9b470b7"
+    },
+    {
+      "path": "02_processed_data/20261011140425_fw138_batch_wood_s2_25_fw138-wood-s2-25_spectrum.json",
+      "git_blob": "1dafa6b3263d79dc9dedb33253e6482016c76689"
+    }
+  ],
+  "historical_complete_stream_check": {
+    "distinct_blobs": 402,
+    "attempts": 2412,
+    "hits": [],
+    "output_cap_bytes": 1048576
+  },
+  "fw151_complete_stream_check": {
+    "distinct_blobs": 18,
+    "attempts": 108,
+    "hits": [],
+    "output_cap_bytes": 1048576
+  },
+  "fw151_scan_count": 6,
+  "fw151_word0_all_zero": true,
+  "fw151_word1_unique": true,
+  "local_battery_tail": {
+    "n_battery_replies": 20,
+    "byte15_equals_prev_blob_byte15": {
+      "gradient": 20
+    }
+  },
+  "local_missing_replies": [
+    "r5:scan->ble_config"
+  ],
+  "repeatability_counterexample": {
+    "synthetic_only": true,
+    "exact_decrypt_and_decompress": true,
+    "signal_repeatability": {
+      "score": 0.9999995406949473,
+      "view": "u32le",
+      "offset": 16
+    },
+    "correct_plaintext_repeatability": {
+      "score": 0.027137775712778908,
+      "view": "u16be",
+      "offset": 0
+    },
+    "existing_detector_with_correct_key": {
+      "repeatability": 0.13879871626741597,
+      "initial_pair": 0.13879871626741597,
+      "view": "u16le",
+      "offset": 0,
+      "mode": "OFB",
+      "iv": "zero8_header8"
+    },
+    "limit": "Counterexample to universal key rejection, not evidence SCiO uses this codec or cipher."
+  },
+  "not_reproduced": [
+    "225680-layout sweep, its splits and RMSEs: original scripts absent",
+    "outside USB/Bluetooth/API traces and 44/44 result: raw evidence absent",
+    "any decryption or firmware recovery"
+  ]
+}

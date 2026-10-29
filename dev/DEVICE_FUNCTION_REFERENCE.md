@@ -512,3 +512,23 @@ were sent for this audit.
   and must not be assigned to the physical device or treated as known keys.
   Follow-up comparison finds all six code constants identical in the supplied
   source tree labeled 2017. They are not independent new captures or new truth.
+
+## Public admin metadata and export routes (verified 2026-10-29)
+
+Static inspection of public vendor frontend assets confirms distinct device fields
+`bak_op_hex`, `bek_op_hex` and an upload parameter `image2spec_params`. Their names
+do not establish cryptographic meanings or supply actual values. Image2Spec
+display snippets are commented out in the fetched template. The client checks
+`i2s_compression` and `i2s_postprocessing` compatibility separately.
+
+The per-record Matlab export uses `/admin/logstream/<recordId>?is_py2s=true` with
+authorization headers and opens the returned `logstream_url`; ordinary log export
+uses `false`. Neither response nor exported content was obtained. Offline
+installation records supply a storage bucket/key or Docker image name; the public
+template contains no actual package reference.
+
+The vendor manual's page-22 screenshot identifies CSI DLL 1.9.0.0 in offline-client
+v2.018.029.1 release notes and mentions logging levels. It does not establish the
+library's exact function, plaintext logs or legacy-device compatibility.
+See the [verification report](analysis_output/github_research_20261028/TRIAGE.md)
+and [hashed public-source manifest](analysis_output/summary_verification_20261029/public_evidence.json).

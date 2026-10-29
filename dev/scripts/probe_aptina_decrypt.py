@@ -10,8 +10,10 @@ This builds key candidates from the fw-138 aptina and its inverted/reverse forms
 repeat, sha256 = the 256-bit form, md5, sha1-pad), then uses the existing
 `repeatability.verify_repeatability` (AES ECB/CBC/CTR/CFB/OFB with header/word1-derived IV
 schemes, scored by same-target plaintext correlation) across the 25 same-target cap and wood
-scans. A correct key+mode => decrypted same-target plaintexts correlate ~1, far above a
-random-key control. Honest prior: word-swap/reverse/sha256 forms were already negative for the
+scans. This detector assumes decrypted bytes have repeatable integer structure;
+compressed intermediates can fail it even with the correct key and mode (see
+verify_research_summary.py's known-key counterexample). A negative result is not
+universal key rejection. Honest prior: word-swap/reverse/sha256 forms were already negative for the
 OWNER (bounded_identity_20261004); this is the fw-138 device's own aptina with high same-target
 power. Offline only; no network.
 

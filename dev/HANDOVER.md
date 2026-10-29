@@ -13,12 +13,68 @@ how to work in this repository is in
 
 ## Current state
 
+**Independent claim verification completed, 2026-10-29:** verified all 266 Git
+JSON objects at the cited commit, 197 paired records (94/103 by tag), 1,182 blob
+encoding/size checks and 402 distinct analysis blobs. Zero complete-stream hits
+in 2,412 zlib/gzip/raw-deflate checks; another 108 checks on the 18 supplied fw-151
+blobs were also negative. The exact 225,680-layout sweep and outside raw traces
+remain unavailable, so those results are not independently reproduced.
+[Results and acquisition priorities](analysis_output/github_research_20261028/TRIAGE.md),
+[reproducer output](analysis_output/summary_verification_20261029/verification.json).
+
+Public vendor assets independently confirm CSI DLL 1.9.0.0 in offline client
+v2.018.029.1 release notes, distinct Matlab/ordinary log export modes, BAK/BEK
+field names, and storage/Docker installation metadata. Image2Spec display blocks
+are commented out; actual values, binaries and legacy compatibility remain unknown.
+A synthetic known-key control demonstrates that compressed plaintext can defeat
+the older integer-repeatability key detector (0.027 score despite exact recovery).
+This does not establish SCiO's cipher/codec; existing cipher-to-codec campaigns
+already cover some such combinations. No real decryption or firmware recovered.
+53 focused tests passed; no device operations or authenticated API calls occurred.
+
+**Outside research summary reviewed, 2026-10-29:** `email/SCIO_GITHUB_RESEARCH_SUMMARY.md`
+reports work on a fw-151 unit; matching file versions do not establish that it is the
+contributor's unit. It reports no recovered firmware, key or decoder. The local fw-147
+capture confirms battery byte 15 = preceding gradient byte 15 in 20/20 replies,
+including recorded intervening-command sequences. These are opaque bytes already
+received, not demonstrated ciphertext. The saved run has 29 replies and one post-scan
+BLE-config timeout. Unknown byte meanings remain; **the broader lead is not closed**.
+[Corrected findings](analysis_output/stale_buffer_20261028/FINDINGS.md) and
+[reproducible analysis](analysis_output/stale_buffer_review_20261029/analysis_v3.json).
+The full summary reports **44/44 three-byte matches at battery offsets 13..15** on
+its tested unit; this is separate evidence, not 44 additional local observations.
+Its iPhone 1.5.20 analysis omitted gradients but followed calibration containing a
+white-gradient block, and returned four model results with **`spectrum: null`**.
+It supplies neither a decoded spectrum for that unit nor proof that gradients are
+unused by every server path. The SAMPLE-payload comparison established equal
+lengths and successful scans, not byte-identical blobs.
+
+The outside decoding sweep used 197 existing project pairs, grouped by tag, and
+225,680 candidate layouts; none met held-out `atol=rtol=1e-6`. The complete-stream
+zlib/gzip/raw-deflate checks at offsets 0 and 8 failed on 402 distinct blobs.
+These are reported bounded negatives, not independent local reproductions or
+proof of encryption. The summary says its underlying scripts and result files
+are not included unless separately attached.
+
+Specific acquisition leads are **CSI DLL 1.9.0.0** (named in an admin-manual
+screenshot; function and legacy compatibility unknown), the actual offline-service
+package/dependencies, and an **i2s Offline Matlab Format** export paired with raw
+data, spectrum, processing tag and calibration metadata. No package/image location
+or export was recovered. BAK/BEK field names do not establish cryptographic roles.
+`keepUpgradeFiles` retains decoded update data in an app model; it does not establish
+a persistent firmware cache. A genuine firmware API response could be preserved
+before transmission without flashing the device; null update responses do not
+establish that fw-151 is the latest release. [Triage](analysis_output/github_research_20261028/TRIAGE.md).
+
 **Contributor captures must carry identity + white, 2026-10-28:** a third contributor's fw-151
 captures (`email/scio-fw151-captures-20261027/`, 1 scan + a 5-scan multiscan) **cannot be
 decoded**: no device_id / i2s / BLE id and no white reference were sent. The server binds each
 blob to the request device_id, and a 64-bit id cannot be guessed. They parse fine: 1800/1800/1416 B,
 and the gradient word0 is 0 where fw-138 had 110. `_raw.bin` is the USB stream with a `ba 02 <len16>`
-header per frame. Fix in `src/`: `ScioDevice.sample_spectrum()`/`white_reference()` now return the
+header per frame (the single scan's raw stream matches its split frames; all six scans parse).
+The contributor's i2s tag remains unverified. `dev/scripts/ingest_fw151_captures.py`
+requires `--run --live --device-id <ID> --i2s <tag> --white <path>`, with explicit
+verified identity and a compatible white reference. Omitting `--live` makes a dry run. Fix in `src/`: `ScioDevice.sample_spectrum()`/`white_reference()` now return the
 cached `device` identity and temperatures; `session.capture()` refuses a missing device_id/i2s; new
 `scio.contribute` + `python -m scio contribute|import` produce/ingest a hashed zip bundle (identity,
 file headers, white, `scio-scan/2` records). **Next:** ask the fw-151 contributor to re-capture with
@@ -38,7 +94,8 @@ E02E60F46B7CD55F`, reverse/ascii; 16/24/32-byte keys incl. **sha256 (256-bit)**;
 **NO KEY FOUND** (random-control level; a break would score ~0.9+). Verified ourselves that
 aptina byte-pair-swapped = device_id; but Vitaly's *"256-bit key using AptinaID"* app string was
 **not found** in the decompiled apps (which contain no scan crypto) — unconfirmed. Net: more corpus
-power + white refs, no decode break; the key stays a firmware KDF secret. Scripts
+power + white refs, no decode break; encryption, a key derivation function and the
+location of any key remain unestablished by these negative tests. Scripts
 `ingest_fw138_batches.py`, `probe_fw138_batch_leakage.py`, `probe_aptina_decrypt.py`; full writeup
 [FINDINGS](analysis_output/fw138_batches_20261011/FINDINGS.md).
 
@@ -196,7 +253,8 @@ it failed all ten additional exploratory confirmation blobs. See
   gradient edits, omission and zero-fill are accepted, all with an unchanged
   spectrum. ([`ciphertext_oracle/`](analysis_output/ciphertext_oracle/),
   [RESULTS](analysis_output/recovery_20261003/RESULTS.md))
-- Blob = 8-byte header (word 0 type/status, gradients carry 110; word 1 fresh per
+- Blob = 8-byte header (word 0 type/status, gradients carry 110 in earlier captures
+  but 0 in the supplied fw-151 captures; word 1 fresh per
   blob) + fixed-size body: 1792 B sample/dark, 1648 B gradient on `-e` firmware,
   1408 B gradient on `-o`. Body ≈ 7.9 bits/byte, positionally featureless; 30 captures
   of an unchanged target are at 0.49986 bit distance from each other.
@@ -214,8 +272,9 @@ it failed all ten additional exploratory confirmation blobs. See
   (entropy at the random expectation, flat histogram, no positional or run structure,
   no repeated blocks), sits 0.4999 bits from the same scan's sample body (this does
   not establish independence or exclude derivation), and shows no spectral leakage
-  (48 tests, Bonferroni p 1.0). The
-  server simply does not use it. [gradient](analysis_output/gradient_20261004/gradient.json)
+  (48 tests, Bonferroni p 1.0). Tested local analysis requests were insensitive to
+  gradient edits/omission; this does not exclude calibration-time or other-path use.
+  [gradient](analysis_output/gradient_20261004/gradient.json)
 - **Size arithmetic** ([size constraints](analysis_output/size_constraints_20261004/size_constraints.json)):
   no table or body is a whole number of 331 entries at any width, so the tables are
   not plain per-band arrays. `centers` (96 B) splits into 12 × 8 B, consistent with
@@ -277,6 +336,22 @@ desk review in
   over a wire-bonded array. The module flex carries its own `FW:9216` sticker.
 
 ## Open tasks, ranked
+
+### 0. Obtain a matched decoding artifact (updated 2026-10-29)
+
+- First choice: an authorized i2s Offline Matlab Format export with its raw scan,
+  white reference, returned spectrum, device tag and processing version. The public
+  frontend calls an authenticated logstream route with `is_py2s=true`; it does not
+  include the export itself. Compare intermediate fields before proposing a decoder.
+- Second choice: the actual offline-service package, CSI dependency and full release
+  notes for a compatible revision. CSI logging is mentioned, but plaintext logging
+  is not demonstrated. Obtain matching device parameters and calibration too.
+- Require held-out real-pair validation of all 331 bands; do not accept smoothness,
+  byte matches or a short decompression prefix as a decode. Preserve any genuine
+  update response before device transmission if a new update becomes available.
+- No repeat generic key sweep or live owner scan is justified by this audit alone.
+  Detailed evidence, missing artifacts and compatibility limits are in the
+  [verification report](analysis_output/github_research_20261028/TRIAGE.md).
 
 ### 0c. HarvestMaster / Mirus software audit (in progress, started 2026-10-09)
 

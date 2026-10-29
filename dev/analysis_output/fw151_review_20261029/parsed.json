@@ -1,0 +1,103 @@
+{
+  "n_scans": 6,
+  "word0_all_zero": true,
+  "word1_unique": true,
+  "scans": [
+    {
+      "scan_id": "fw151-scan-20261027-190400",
+      "ts": "2026-10-27 19:04:00",
+      "source": "scan_20261027-190400",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "45c1cdea1f1d24e66fd8133ac5e4e7590f025ed8c2feb7b2c07815371614f68e",
+        "sample": "5a8d9ee9fdf0c66ded89754c5b2b70df30c16271155eed82ebe136beac023844",
+        "gradient": "40eb4a388ddeff9d68f352450ccb87d8157f48c44432f469763189b6ef6be787"
+      },
+      "raw_stream_match": true
+    },
+    {
+      "scan_id": "fw151-multiscan_20261027-191338-s0",
+      "ts": "2026-10-27 19:13:38",
+      "source": "multiscan_20261027-191338_s0",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "65cdf89daec175026416ea5f9869cdf4a101a3bc674cb7155793412b6f472af3",
+        "sample": "3f67ee08ce01fe95453d4d57c37f28fe36c2dbfdcb98fa3df02a49fa99c16af7",
+        "gradient": "ae82bcb0218bb8c6883a405bc691145c179aae1bef4237feba37261eed6e15ad"
+      },
+      "raw_stream_match": null
+    },
+    {
+      "scan_id": "fw151-multiscan_20261027-191338-s1",
+      "ts": "2026-10-27 19:13:38",
+      "source": "multiscan_20261027-191338_s1",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "bfb9a4945f364251d15c3e9722af1781219dbba9bc55d700b5bfab91d0660af7",
+        "sample": "1dfbb9a98961a8493f5bfeb738cf73db7cda89cba187d145f0ae1364a3f0509c",
+        "gradient": "538cbeb98c2e7907e079b7a2684611d42a50af4d80f32d60b24962258069844b"
+      },
+      "raw_stream_match": null
+    },
+    {
+      "scan_id": "fw151-multiscan_20261027-191338-s2",
+      "ts": "2026-10-27 19:13:38",
+      "source": "multiscan_20261027-191338_s2",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "6d2de6ef69ff0fea5835bc658537438ac59f2a9d6b432dd5efd47f9300c5c7b7",
+        "sample": "6848ddc40fccc879aabc551ee768804773998218c81e45339196a382bd1fa250",
+        "gradient": "98e44abbd486f86d959edc3673102f20c8c212252faba4bc122053e35b646da6"
+      },
+      "raw_stream_match": null
+    },
+    {
+      "scan_id": "fw151-multiscan_20261027-191338-s3",
+      "ts": "2026-10-27 19:13:38",
+      "source": "multiscan_20261027-191338_s3",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "0253e3f613cd9c24229614a0e815a40b0fdb437bc7a4c64459734f3810f548a2",
+        "sample": "9741e736c4783a0463bfca740170ff91fa8cffaaacfed5aab50e6a38a606e84b",
+        "gradient": "065d59e005827cef97284bca011f097ef729f873b38359dac5c73ec3359d4119"
+      },
+      "raw_stream_match": null
+    },
+    {
+      "scan_id": "fw151-multiscan_20261027-191338-s4",
+      "ts": "2026-10-27 19:13:38",
+      "source": "multiscan_20261027-191338_s4",
+      "sizes": {
+        "dark": 1800,
+        "sample": 1800,
+        "gradient": 1416
+      },
+      "sha256": {
+        "dark": "e2f616a761a7d4af024ce8123c796036be431b6409611b5e1e8f79050c5febc3",
+        "sample": "f357486bc54c7b87707d865ca84f35dced36a6bcfa1116844f21b03a89197746",
+        "gradient": "712a4ebe84571caeb53abd2f69deeffb39aeb5171e861f99c255d2de2003b443"
+      },
+      "raw_stream_match": null
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "per_probe": {
+    "battery": {
+      "n": 20,
+      "lengths": {
+        "16": 20
+      },
+      "classes": {
+        "baseline": 156,
+        "unexplained": 55,
+        "in_blobs": 109
+      },
+      "padding_classes": {
+        "unexplained": 38,
+        "baseline": 16,
+        "in_blobs": 106
+      },
+      "same_offset_positions": {},
+      "unexplained_padding_positions": {
+        "8": 19,
+        "15": 19
+      }
+    },
+    "device_status": {
+      "n": 2,
+      "lengths": {
+        "8": 2
+      },
+      "classes": {
+        "same_offset": 8,
+        "in_blobs": 8
+      },
+      "padding_classes": {},
+      "same_offset_positions": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2
+      },
+      "unexplained_padding_positions": {}
+    },
+    "device_id": {
+      "n": 2,
+      "lengths": {
+        "28": 2
+      },
+      "classes": {
+        "baseline": 53,
+        "in_blobs": 3
+      },
+      "padding_classes": {
+        "baseline": 17,
+        "in_blobs": 3
+      },
+      "same_offset_positions": {},
+      "unexplained_padding_positions": {}
+    },
+    "temperature": {
+      "n": 2,
+      "lengths": {
+        "12": 2
+      },
+      "classes": {
+        "unexplained": 6,
+        "baseline": 2,
+        "same_offset": 4,
+        "in_blobs": 12
+      },
+      "padding_classes": {},
+      "same_offset_positions": {
+        "2": 2,
+        "3": 2
+      },
+      "unexplained_padding_positions": {}
+    },
+    "ble_id": {
+      "n": 1,
+      "lengths": {
+        "130": 1
+      },
+      "classes": {
+        "baseline": 77,
+        "in_blobs": 53
+      },
+      "padding_classes": {},
+      "same_offset_positions": {},
+      "unexplained_padding_positions": {}
+    },
+    "ble_status": {
+      "n": 1,
+      "lengths": {
+        "6": 1
+      },
+      "classes": {
+        "same_offset": 4,
+        "unexplained": 2
+      },
+      "padding_classes": {
+        "same_offset": 4,
+        "unexplained": 2
+      },
+      "same_offset_positions": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "unexplained_padding_positions": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "file_header_unsupported": {
+      "n": 1,
+      "lengths": {
+        "16": 1
+      },
+      "classes": {
+        "baseline": 16
+      },
+      "padding_classes": {},
+      "same_offset_positions": {},
+      "unexplained_padding_positions": {}
+    }
+  },
+  "events": [
+    {
+      "probe": "battery",
+      "context": "r0:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbbbubbbiiii"
+    },
+    {
+      "probe": "device_status",
+      "context": "r0:scan->device_status",
+      "len": 8,
+      "classes": "ssssiiii"
+    },
+    {
+      "probe": "battery",
+      "context": "r0:scan->device_status->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbububbbiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r1:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbbbubbbiiiu"
+    },
+    {
+      "probe": "device_id",
+      "context": "r1:scan->device_id",
+      "len": 28,
+      "classes": "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "probe": "battery",
+      "context": "r1:scan->device_id->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubbbbbiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r2:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbububbbiiiu"
+    },
+    {
+      "probe": "temperature",
+      "context": "r2:scan->temperature",
+      "len": 12,
+      "classes": "ubssuuiiiiii"
+    },
+    {
+      "probe": "battery",
+      "context": "r2:scan->temperature->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbiiiuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r3:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "ble_id",
+      "context": "r3:scan->ble_id",
+      "len": 130,
+      "classes": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbiiiiiiiiiibbbbbbbbbbbbbbbbbbbbbiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    },
+    {
+      "probe": "battery",
+      "context": "r3:scan->ble_id->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r4:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "ble_status",
+      "context": "r4:scan->ble_status",
+      "len": 6,
+      "classes": "ssssuu"
+    },
+    {
+      "probe": "battery",
+      "context": "r4:scan->ble_status->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r5:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r5:scan->ble_config->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r6:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "file_header_unsupported",
+      "context": "r6:scan->file_header_unsupported",
+      "len": 16,
+      "classes": "bbbbbbbbbbbbbbbb"
+    },
+    {
+      "probe": "battery",
+      "context": "r6:scan->file_header_unsupported->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r7:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "device_status",
+      "context": "r7:scan->device_status",
+      "len": 8,
+      "classes": "ssssiiii"
+    },
+    {
+      "probe": "battery",
+      "context": "r7:scan->device_status->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r8:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "device_id",
+      "context": "r8:scan->device_id",
+      "len": 28,
+      "classes": "bbbbbbbbiiibbbbbbbbbbbbbbbbb"
+    },
+    {
+      "probe": "battery",
+      "context": "r8:scan->device_id->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "battery",
+      "context": "r9:scan->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    },
+    {
+      "probe": "temperature",
+      "context": "r9:scan->temperature",
+      "len": 12,
+      "classes": "ubssuuiiiiii"
+    },
+    {
+      "probe": "battery",
+      "context": "r9:scan->temperature->temperature->battery",
+      "len": 16,
+      "classes": "bbbbbbubuiiiiiiu"
+    }
+  ],
+  "unexplained_padding_bytes": 40,
+  "unknown_region_starts": {
+    "device_status": 8,
+    "device_id": 26,
+    "temperature": 12,
+    "battery": 8,
+    "ble_id": 130,
+    "ble_status": 0,
+    "ble_config": 0,
+    "file_header_unsupported": 16
+  },
+  "unknown_gaps": {
+    "device_id": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "interpretation": "Classes are byte matches, not proof of origin. Padding means bytes outside the documented parser, not proven unused memory.",
+  "verdict": "UNEXPLAINED bytes outside documented parser coverage; meaning unresolved",
+  "schema_version": 3,
+  "source_sha256": "fcfa2bcd5344b0068c3467dfb91213b84c4d437ba606f30be0d4aae661bba1eb",
+  "n_scans": 20,
+  "n_replies": 29,
+  "missing_reply_contexts": [
+    "r5:scan->ble_config"
+  ],
+  "baseline_counts": {
+    "device_status": 2,
+    "device_id": 2,
+    "temperature": 2,
+    "battery": 2,
+    "ble_id": 2,
+    "ble_status": 2,
+    "ble_config": 2,
+    "file_header_unsupported": 2
+  },
+  "unobserved_probes": [
+    "ble_config"
+  ],
+  "capture_errors": [
+    {
+      "stage": "r5:scan->ble_config",
+      "probe": "ble_config",
+      "error": "ScioTimeout: timed out waiting for response marker 0xBA"
+    }
+  ],
+  "battery_tail": {
+    "n_battery_replies": 20,
+    "byte15_equals_prev_blob_byte15": {
+      "gradient": 20
+    }
+  }
+}

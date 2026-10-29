@@ -50,6 +50,29 @@ def device(replies):
     return d
 
 
+@pytest.mark.parametrize("tail", [bytes(8), bytes(range(8)), b"\xff" * 8])
+def test_battery_parser_ignores_undocumented_tail(tail):
+    expected = {
+        "charge_percent": 100,
+        "health_percent": 91,
+        "health_status": 2,
+        "charging_status": 0,
+        "voltage_v": 4.068,
+    }
+    assert protocol.parse_battery(BATTERY) == expected
+    assert protocol.parse_battery(BATTERY + tail) == expected
+
+
+def test_long_battery_reply_preserved_raw_and_accepted_by_normal_read():
+    payload = BATTERY + bytes.fromhex("2600008400000091")
+    d = device({Cmd.READ_BATTERY_STATE: [frame(Cmd.READ_BATTERY_STATE, payload)]})
+    response = d.raw_command(Cmd.READ_BATTERY_STATE)[0]
+    assert response.data == payload
+    assert len(response.data) == 16
+    assert d.read_battery() == protocol.parse_battery(BATTERY)
+    assert not d.ser.buffer
+
+
 def test_late_reply_landing_after_the_buffer_was_cleared_is_skipped():
     d = device({Cmd.READ_BATTERY_STATE: [frame(Cmd.READ_BATTERY_STATE, BATTERY)]})
     # the temperature reply of an earlier, timed-out request lands after our write

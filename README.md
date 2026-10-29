@@ -305,7 +305,7 @@ decompilation if you ever need to re-derive a layout; keep them.
 | `0x01` | READ_DEVICE_ID | - | ≥26 B, see below | `performReadDeviceId` | **R** |
 | `0x02` | SAMPLE_SPECTRUM | - | 2 or 3 frames of blob data | `performSpectrum` | **R** (capture; persists nothing) |
 | `0x04` | READ_TEMPERATURE | - | 12 B: three `u32` LE | `performReadTemperature` | **R** |
-| `0x05` | READ_BATTERY_STATE | - | 8 B, see below | `performReadBattery` | **R** |
+| `0x05` | READ_BATTERY_STATE | - | 8 documented bytes; 16-byte replies observed, see below | `performReadBattery` | **R** |
 | `0x84` | READ_BLE_ID | - | ≥130 B, see below | `performReadDeviceBleId` | **R** |
 | `0x85` | READ_BLE_STATUS | - | ble status | `CommandIDs.READ_BLE_STATUS` | **R** |
 | `0x87` | READ_FILE_HEADER | `<I` file_id | **exactly 16 B**: four `u32` LE | `performReadFileHeader`, via `SCiOBLeService.performReadFileHeader(int)` | **R** |
@@ -354,6 +354,21 @@ targets), so it is unit/firmware dependent, not universally 0.
 | `3` | `u8` | health status |
 | `4` | `u16` | charging status |
 | `6` | `u16` | voltage, mV (divide by 1000) |
+
+Only bytes 0–7 have documented battery meanings. `parse_battery()` interprets
+this eight-byte prefix and ignores additional bytes; `read_battery()` returns
+the same battery fields for longer replies. Advanced diagnostics can retain the
+complete payload through `raw_command(Cmd.READ_BATTERY_STATE)[0].data`.
+
+On the owner's fw-147 unit, **byte 15 of the 16-byte battery reply matched byte 15
+of the preceding gradient in 20/20 saved replies**, including the recorded
+intervening-command sequences. A separate outside fw-151 report describes
+matches at offsets 13–15 in 44/44 observations; that count is externally reported,
+not independently reproduced on the owner's unit. All offsets are zero-based.
+These observations suggest retained buffer data, but establish neither encryption
+nor plaintext/key disclosure and do not define the remaining reply bytes. Do not
+interpret the tail as additional battery fields or assume the same layout across
+firmware revisions. See the [detailed findings and coverage limits](dev/analysis_output/stale_buffer_20261028/FINDINGS.md).
 
 An early notebook read the charging status as `0` = not charging, `4` = full,
 `6` = battery error, anything else = charging. Treat that as an **unverified

@@ -1,5 +1,14 @@
 # fw-138 fixed-target batches — ingest + further steps (2026-10-11)
 
+> Review correction, 2026-10-29: the historical experiment below found no
+> repeatability hit, not proof of a firmware-secret KDF or absence of all decodable
+> structure. A known-correct AES key applied to compressed synthetic signals fails
+> this detector's intended high-repeatability criterion despite exact recovery.
+> See the [independent audit](../github_research_20261028/TRIAGE.md). Preserve the
+> original measurements below, but do not use its categorical key/nonce/keystream
+> interpretations as established facts. Existing cipher-to-codec campaigns have
+> separate bounded coverage and are not invalidated by this control.
+
 Contributor (Vitaly) sent four batch files (`email/scio_fw138_batch*.txt`): 4 × 25 scans, two
 targets (closed cap = bright, wood = dark), each in two independent sessions. Parser/ingest:
 `dev/scripts/ingest_fw138_batches.py`.

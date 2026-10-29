@@ -1,0 +1,106 @@
+{
+  "checked_on": "2026-10-29",
+  "access": "public static assets only; no authenticated API requests",
+  "assets": [
+    {
+      "url": "https://admin.consumerphysics.com/js/compiled.8905d6d199290c947c521c48909d621b.js",
+      "file": "compiled.8905d6d199290c947c521c48909d621b.js",
+      "bytes": 3099636,
+      "sha256": "fda98657080c26946fa3b8c10c022eee0214619c38a09c45d698bd3e0e5cb596",
+      "evidence_lines": {}
+    },
+    {
+      "url": "https://admin.consumerphysics.com/js/app.a83e83d7a2dab7f4165022f482daab3d.js",
+      "file": "app.a83e83d7a2dab7f4165022f482daab3d.js",
+      "bytes": 707460,
+      "sha256": "17076bb1c15b73f78a04758c46649872ad24137ddb49871f2087a24569cf8a0f",
+      "evidence_lines": {
+        "bak_op_hex": [
+          1879
+        ],
+        "bek_op_hex": [
+          1880
+        ],
+        "image2spec_params": [
+          1889
+        ],
+        "getLogStream": [
+          1998,
+          3023,
+          12818,
+          12819
+        ],
+        "is_py2s": [
+          1999
+        ],
+        "logstream_url": [
+          12820
+        ],
+        "differentPostprocessing": [
+          7103,
+          7147,
+          7149
+        ],
+        "differentCompression": [
+          7104,
+          7153,
+          7155
+        ]
+      }
+    },
+    {
+      "url": "https://admin.consumerphysics.com/js/tpls.9ab59741e575f6d20ce6a74996b5f75c.js",
+      "file": "tpls.9ab59741e575f6d20ce6a74996b5f75c.js",
+      "bytes": 681181,
+      "sha256": "2735513bb6ef764067ea6cc1ac5f16ed68f775bfd5cf6cb6ed2129260069699f",
+      "evidence_lines": {
+        "bak_op_hex": [
+          2181,
+          2183
+        ],
+        "bek_op_hex": [
+          2186,
+          2188
+        ],
+        "image2spec_params": [
+          2218,
+          2219,
+          2488
+        ],
+        "i2s Offline Matlab Format": [
+          5837
+        ],
+        "getLogStream": [
+          5834,
+          5838
+        ],
+        "installation_blobkey": [
+          4306,
+          4315,
+          4316
+        ],
+        "docker_image": [
+          4307
+        ],
+        "differentPostprocessing": [
+          485
+        ],
+        "differentCompression": [
+          486
+        ]
+      }
+    },
+    {
+      "url": "https://admin.consumerphysics.com/docs/cp-admin-manual.pdf",
+      "file": "cp-admin-manual.pdf",
+      "bytes": 3379720,
+      "sha256": "cfbe57bb97e51543bf2ffd9638b9c15f380b59b76fcf08d552744f45daf92e9b"
+    }
+  ],
+  "manual_page22_visual_check": {
+    "offline_client_version": "v2.018.029.1",
+    "csi_dll_version": "1.9.0.0",
+    "logging": "log levels and DEBUG mentioned; remaining release-note text clipped in screenshot"
+  },
+  "limits": "Source code establishes client-side routes and field names, not backend availability, actual field values, crypto semantics, or legacy compatibility."
+}
