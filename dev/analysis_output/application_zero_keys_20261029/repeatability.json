@@ -1,0 +1,1931 @@
+{
+  "groups": {
+    "fw138/cap/sample": {
+      "blob_sha256": [
+        "70e65bb5446d627385281aa58ae66e46af8cef2bbde90b8dc44abef6b29df808",
+        "683bc75b1fb18c3031f2b398f9d568e53ba5a1e45aa11d1675c06947091a1e30",
+        "9df1d493f79a0a6f404d3ba4e9d1f313f048aef3eaaf1675310d6109f9cad920",
+        "a41b174efce6c66dc25f6c124c88147fc472b6a29201a5c100114de79f91bdab",
+        "a5973ffc7032947e1bc6b77237c904e7618d4d8fb69bbe0567dd83d0d3007466",
+        "8eb43bb4f7e08302f48dec2713afe96378d8c7ff3ed2a3c648b7b098c793ea5f",
+        "b47167efbe4b5e55ddbad8cdc2b327e1fd072c5f1407cfdd48435004c801eb0c",
+        "a894398e80b5fc24e2041c5259360b46d597818fdad0f2a2a7428958f7d4988f"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.10954366741617168,
+          "initial_pair": 0.10954366741617168,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.06878655770619954,
+          "initial_pair": 0.06878655770619954,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.09050570784221741,
+          "initial_pair": 0.09050570784221741,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.08464122339723,
+          "initial_pair": 0.08464122339723,
+          "view": "u16le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.06625851615902803,
+          "initial_pair": 0.06625851615902803,
+          "view": "u16be",
+          "offset": 0,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.09161283083976954,
+          "initial_pair": 0.09161283083976954,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.07888629692238051,
+          "initial_pair": 0.07888629692238051,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.06764290868431592,
+          "initial_pair": 0.06764290868431592,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.11754084242101022,
+          "initial_pair": 0.11754084242101022,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.05930727648485037,
+          "initial_pair": 0.05930727648485037,
+          "view": "u16le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.0751567810285906,
+          "initial_pair": 0.0751567810285906,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.056295822169125376,
+          "initial_pair": 0.056295822169125376,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.08732546355330656,
+          "initial_pair": 0.08732546355330656,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.10646972564592504,
+          "initial_pair": 0.10646972564592504,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.05924305547675604,
+          "initial_pair": 0.05924305547675604,
+          "view": "u16be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.09963603451210845,
+          "initial_pair": 0.09963603451210845,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.06481383016833246,
+          "initial_pair": 0.06481383016833246,
+          "view": "u16be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.08898541772453553,
+          "initial_pair": 0.08898541772453553,
+          "view": "u16le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.09657682264261434,
+          "initial_pair": 0.09657682264261434,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.09955436048355852,
+          "initial_pair": 0.09955436048355852,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.11590339515431633,
+          "initial_pair": 0.11590339515431633,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.09455256052090233,
+          "initial_pair": 0.09455256052090233,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.07196133581879507,
+          "initial_pair": 0.07196133581879507,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.0960608750671072,
+          "initial_pair": 0.0960608750671072,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.11557436090305165,
+          "initial_pair": 0.11557436090305165,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.08037674572588288,
+          "initial_pair": 0.08037674572588288,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        }
+      ],
+      "random_key_scores": [
+        0.07029057869582936,
+        0.10870780781885815,
+        0.07684028170970163,
+        0.08566537721431194,
+        0.10585012494022529,
+        0.08533116973703257,
+        0.11107974160265917,
+        0.1116222899158629,
+        0.10203860397942273,
+        0.07902958896632029,
+        0.0643902758869611,
+        0.10278569261149027
+      ],
+      "screen_hits_at_0_5": []
+    },
+    "fw138/cap/dark": {
+      "blob_sha256": [
+        "9c9ca522fb2dc39c4dc294092ebde7bf7ffe3f1393d50d7a189b189fe5b12dd3",
+        "5a9685900c905d7f24e164bd32eca572d322ce7bdbc4fae0cf28b84bfa889a96",
+        "23b29efd0e14ad6122b967711c23c8149cd421e523bcb7a6856437a2f62d3db6",
+        "7116f6ee2be30b1fbfa3fa38b7676b63f05f0a513fab44b7164b877646a9ad90",
+        "f2890fab2b7088862ed02f38205c8bc458f4c1e860cb325ad5cfd44d4cd7d013",
+        "8d4fe5e114f5d35d820f52e27d79872001fe8493cddfe53df4c96158f4a9ab96",
+        "6b17491653bd8f2d1b5321798e87771a5af60564b4419f5885f457fd73951b79",
+        "e964247f33bd05b3c7489d5bb71bb095e7a492794ed6fa1ab340fe1a9e5f5325"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.105031083890376,
+          "initial_pair": 0.105031083890376,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.09411380363459876,
+          "initial_pair": 0.09411380363459876,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.07473355559484159,
+          "initial_pair": 0.07473355559484159,
+          "view": "u16le",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.11907506851055591,
+          "initial_pair": 0.11907506851055591,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.08075751148762603,
+          "initial_pair": 0.08075751148762603,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.08012983018744475,
+          "initial_pair": 0.08012983018744475,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.09036231755702044,
+          "initial_pair": 0.09036231755702044,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.10204913037937953,
+          "initial_pair": 0.10204913037937953,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.08974649589724697,
+          "initial_pair": 0.08974649589724697,
+          "view": "u16be",
+          "offset": 8,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.08867173501662082,
+          "initial_pair": 0.08867173501662082,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.07399253564593689,
+          "initial_pair": 0.07399253564593689,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.09053165551208989,
+          "initial_pair": 0.09053165551208989,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.08747000658123356,
+          "initial_pair": 0.08747000658123356,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.05694928173429315,
+          "initial_pair": 0.05694928173429315,
+          "view": "u16le",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.09849376980342012,
+          "initial_pair": 0.09849376980342012,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.09734099161359257,
+          "initial_pair": 0.09734099161359257,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.08573613809860813,
+          "initial_pair": 0.08573613809860813,
+          "view": "u16be",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.07839212883772102,
+          "initial_pair": 0.07839212883772102,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.11814510204219524,
+          "initial_pair": 0.11814510204219524,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.09980972445813929,
+          "initial_pair": 0.09980972445813929,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.09008236367734258,
+          "initial_pair": 0.09008236367734258,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.08572396575756126,
+          "initial_pair": 0.08572396575756126,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.10238429455684174,
+          "initial_pair": 0.10238429455684174,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.08221534410090124,
+          "initial_pair": 0.08221534410090124,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.10360543126047127,
+          "initial_pair": 0.10360543126047127,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.09431271930068603,
+          "initial_pair": 0.09431271930068603,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        }
+      ],
+      "random_key_scores": [
+        0.06718320200595983,
+        0.0728837390098916,
+        0.07844923310905841,
+        0.10672076012521292,
+        0.08013814041969934,
+        0.10286233855467872,
+        0.09150583940196753,
+        0.10171267463477358,
+        0.10809100732538687,
+        0.0872129972205693,
+        0.09146483448977583,
+        0.08282481829410174
+      ],
+      "screen_hits_at_0_5": []
+    },
+    "fw138/cap/gradient": {
+      "blob_sha256": [
+        "fcdf3b9992ea25a75a60f917d1ba2bcb683b05f5fae15d5689b629ff201994a7",
+        "c6a4ec17ea35a02f071ba8cf2b5d299976d1360da00ca221f09d73143252f4c5",
+        "07102eba81cb71aece64e7512471b40ac30b897d5c531ecf50ad3db60228c03b",
+        "cf97dd937310fd05c046fcd1d2b7bcfdd963a8b8dbb897443516895c0e1d3a14",
+        "b66b1f27da131ba8d436ba084bfec8449e6dbd6a95bb692f4d16083f654f2b90",
+        "2718f76f3c5b3195a66c0e8adfc191299ea5c211fb2c3cb0a34551192046da1f",
+        "34a6e0d4f07952956121aef4d52cba1f36347392ad31174ddac3af0d6b666e90",
+        "893a5ef3af6326cf84ef22e76c84d86e16e70ecd618e6221a8150d391fbe532a"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.10218587680776738,
+          "initial_pair": 0.10218587680776738,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.10389771280085301,
+          "initial_pair": 0.10389771280085301,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.09852974992619176,
+          "initial_pair": 0.09852974992619176,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.10720288364611236,
+          "initial_pair": 0.10720288364611236,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.11541813134775597,
+          "initial_pair": 0.11541813134775597,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.09402010852392381,
+          "initial_pair": 0.09402010852392381,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.11213298987693285,
+          "initial_pair": 0.11213298987693285,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.08725793799852802,
+          "initial_pair": 0.08725793799852802,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.10873434602187955,
+          "initial_pair": 0.10873434602187955,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.08405415493330468,
+          "initial_pair": 0.08405415493330468,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.09585046599698793,
+          "initial_pair": 0.09585046599698793,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.08644731771005812,
+          "initial_pair": 0.08644731771005812,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.11523091835893015,
+          "initial_pair": 0.11523091835893015,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.07128145600431383,
+          "initial_pair": 0.07128145600431383,
+          "view": "u16le",
+          "offset": 8,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.08904634583113695,
+          "initial_pair": 0.08904634583113695,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.06903177402568765,
+          "initial_pair": 0.06903177402568765,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.11281820860600916,
+          "initial_pair": 0.11281820860600916,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.10288174415785442,
+          "initial_pair": 0.10288174415785442,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.10688717874022191,
+          "initial_pair": 0.10688717874022191,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.09394267037031465,
+          "initial_pair": 0.09394267037031465,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "CFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.10154853798468721,
+          "initial_pair": 0.10154853798468721,
+          "view": "u16le",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.11069369001246313,
+          "initial_pair": 0.11069369001246313,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.08463879277576818,
+          "initial_pair": 0.08463879277576818,
+          "view": "u16be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.11263742917383142,
+          "initial_pair": 0.11263742917383142,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.09263019535389938,
+          "initial_pair": 0.09263019535389938,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.08717371206844954,
+          "initial_pair": 0.08717371206844954,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        }
+      ],
+      "random_key_scores": [
+        0.09410225041923251,
+        0.0873886408929595,
+        0.1141553796537384,
+        0.10375110863962282,
+        0.08601133037093335,
+        0.08640703682314013,
+        0.10795138476125017,
+        0.10714997436555979,
+        0.07222039102999667,
+        0.11959762385881534,
+        0.0946808492795241,
+        0.1040340325016897
+      ],
+      "screen_hits_at_0_5": []
+    },
+    "fw138/wood/sample": {
+      "blob_sha256": [
+        "7716172c2bbb246c6fa0d21e55fadfd03834fccedc5866be9fedc7e986a98004",
+        "eede92d2547f5c902153146a3274d5986ab3ef955b18f371d0311286122d4743",
+        "c2a444d2b231df72cbed922aebd08ad8e1b4f5278ca12676d3ec58f8e8f2524c",
+        "873abe3961d22ae20791125518377d5cf0df6f801269b6f94ef84010c375bce3",
+        "33ad886b520faf6419cb76c348b54568712e827ae741ef734850d532570ac40b",
+        "4cc8a89a7e3949f4ddd750f626453f4af902043623b34cc95e9248d6cfdf5ac3",
+        "dc40a4b7dbf73b028764d72612e8d728829e6363768acd43b6ffd795d2f8e697",
+        "ac0f583d1192bd455e055194cd1820a69212763c8afd860d93047c7fc43f9310"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.11541281470138533,
+          "initial_pair": 0.11541281470138533,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.11737547084955534,
+          "initial_pair": 0.11737547084955534,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.11981272470444233,
+          "initial_pair": 0.11981272470444233,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "CFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.10301916856023871,
+          "initial_pair": 0.10301916856023871,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.09767177706583831,
+          "initial_pair": 0.09767177706583831,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.08595463130512049,
+          "initial_pair": 0.08595463130512049,
+          "view": "u16be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.0596069272215916,
+          "initial_pair": 0.0596069272215916,
+          "view": "u16be",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.08974619105412278,
+          "initial_pair": 0.08974619105412278,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.0707240119218812,
+          "initial_pair": 0.0707240119218812,
+          "view": "u16le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.09146596085799003,
+          "initial_pair": 0.09146596085799003,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.09154211444091345,
+          "initial_pair": 0.09154211444091345,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.10027185812680273,
+          "initial_pair": 0.10027185812680273,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.07812274409356822,
+          "initial_pair": 0.07812274409356822,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.10018319269814387,
+          "initial_pair": 0.10018319269814387,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.07037400357792047,
+          "initial_pair": 0.07037400357792047,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.07726936288297569,
+          "initial_pair": 0.07726936288297569,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.09863227847201239,
+          "initial_pair": 0.09863227847201239,
+          "view": "u16le",
+          "offset": 4,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.0756124885308778,
+          "initial_pair": 0.0756124885308778,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "CFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.0881907611447524,
+          "initial_pair": 0.0881907611447524,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.05489466940591171,
+          "initial_pair": 0.05489466940591171,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.05691250826634415,
+          "initial_pair": 0.05691250826634415,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.093204836799712,
+          "initial_pair": 0.093204836799712,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.09138681303850593,
+          "initial_pair": 0.09138681303850593,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.07440977189444574,
+          "initial_pair": 0.07440977189444574,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.09327183661683848,
+          "initial_pair": 0.09327183661683848,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.08081840149081954,
+          "initial_pair": 0.08081840149081954,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        }
+      ],
+      "random_key_scores": [
+        0.07243273712920738,
+        0.0745219156560207,
+        0.09570991096016768,
+        0.08720399531494442,
+        0.09570807420553436,
+        0.11802205815845962,
+        0.06725780632797265,
+        0.08228425172473904,
+        0.07686468769400724,
+        0.08464683686744819,
+        0.09024209786361993,
+        0.0715527912376934
+      ],
+      "screen_hits_at_0_5": []
+    },
+    "fw138/wood/dark": {
+      "blob_sha256": [
+        "2dd58f41c92585daaa96d7b84b2c42f69a21e086a023762beb2a4e98276e0ce6",
+        "fa5dbb7a052d1506ff79a6d4befeea1870610f4b4eb9557609abc7ce1268225f",
+        "b8ffb9ff2366daba67d1caed5e8f8bc316b6cac4513851d2d74b53988d0fb43d",
+        "6116f5d121a3ff7a21b223809bf8dd042eea0e093024eef01d596ee24cc66b1d",
+        "1b652351422a39b15e6c0ded7a56e3748c9a69617b01999653359e0d221ef504",
+        "c375e7de07b383ef1f9bb7e945deb85e389b263ff8a7947ce1f80eabe5f4c69e",
+        "cfccad358b7482f48156c52de9a10f85052bffdd4dffd7643bbccdb9c47cfc21",
+        "8a207da3a662288e36674f8204a0bf60c20248379b138b174d9570e22cf3ac6c"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.10404844635861862,
+          "initial_pair": 0.10404844635861862,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.09850645632393916,
+          "initial_pair": 0.09850645632393916,
+          "view": "u16le",
+          "offset": 0,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.10812392002883284,
+          "initial_pair": 0.10812392002883284,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.08902879187799335,
+          "initial_pair": 0.08902879187799335,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.11893720061122055,
+          "initial_pair": 0.11893720061122055,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.10543626317900903,
+          "initial_pair": 0.10543626317900903,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.09012446520178712,
+          "initial_pair": 0.09012446520178712,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "CFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.07541257049155248,
+          "initial_pair": 0.07541257049155248,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.07444635899865122,
+          "initial_pair": 0.07444635899865122,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.056056783791199556,
+          "initial_pair": 0.056056783791199556,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.05332117191897772,
+          "initial_pair": 0.05332117191897772,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.06801630255363857,
+          "initial_pair": 0.06801630255363857,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.08727715860618937,
+          "initial_pair": 0.08727715860618937,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.09014534914528628,
+          "initial_pair": 0.09014534914528628,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.059140543303459484,
+          "initial_pair": 0.059140543303459484,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.11931057095156415,
+          "initial_pair": 0.11931057095156415,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.09086382118666646,
+          "initial_pair": 0.09086382118666646,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.08110278813159356,
+          "initial_pair": 0.08110278813159356,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.0724487493909231,
+          "initial_pair": 0.0724487493909231,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.11881101179967259,
+          "initial_pair": 0.11881101179967259,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.09309554951754243,
+          "initial_pair": 0.09309554951754243,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.10426865010950037,
+          "initial_pair": 0.10426865010950037,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.08353357110918706,
+          "initial_pair": 0.08353357110918706,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.08227309217517359,
+          "initial_pair": 0.08227309217517359,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.11914047533067006,
+          "initial_pair": 0.11914047533067006,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.07691068288563382,
+          "initial_pair": 0.07691068288563382,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        }
+      ],
+      "random_key_scores": [
+        0.09329146975415285,
+        0.08590304558615394,
+        0.07006934041928509,
+        0.05799222192781673,
+        0.11779703351792557,
+        0.08247186478879577,
+        0.07141845910114682,
+        0.06394160680875127,
+        0.1019978911331341,
+        0.08643347112909594,
+        0.09228981018697081,
+        0.10291209289736981
+      ],
+      "screen_hits_at_0_5": []
+    },
+    "fw138/wood/gradient": {
+      "blob_sha256": [
+        "a41bedd509dafe28ea542b484b3ad59a42c91fdcc136bc7b46a8539ef7a6e8d2",
+        "024137a973ad3b8503b9269e27f2954579ffec87f0a294ba88b978a83b6dfd80",
+        "732e2e2895380667f9ce6088494c4069b73d9103ac37ce6bcd872776e565282a",
+        "b2bea33e68956026a4b1d446f141044c2fee3ca78e8272cb148d9cb54e6e3972",
+        "21eecffc6b15679da26dec3bef44816b906a940d9f0e5ff254d78b1be06ea2cf",
+        "61f2f4dd02edcd6f5d30a3ca35aa52ff0102f2884fc0506f1638def5315ea61f",
+        "9f7da085bc591739c9f0689da234b214be3f9c000b5d4dd87450a11f3c24942f",
+        "7895fe4e1377dd7738cb1c0247a7214ac56a2d1afc3a730205ce8a8b8c6aa5ea"
+      ],
+      "candidates": [
+        {
+          "labels": [
+            "binary_zero_16",
+            "zero_uuid.binary.direct",
+            "zero_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.09481835129879924,
+          "initial_pair": 0.09481835129879924,
+          "view": "u32be",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "ascii_zero_16"
+          ],
+          "repeatability": 0.09136472984480037,
+          "initial_pair": 0.09136472984480037,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "binary_zero_24"
+          ],
+          "repeatability": 0.08569040539219291,
+          "initial_pair": 0.08569040539219291,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "ascii_zero_24"
+          ],
+          "repeatability": 0.11768236291198587,
+          "initial_pair": 0.11768236291198587,
+          "view": "u16le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "binary_zero_32",
+            "zero_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.06805139812697401,
+          "initial_pair": 0.06805139812697401,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "ascii_zero_32",
+            "zero_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.08576163983830021,
+          "initial_pair": 0.08576163983830021,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.direct"
+          ],
+          "repeatability": 0.09571179661362714,
+          "initial_pair": 0.09571179661362714,
+          "view": "u16be",
+          "offset": 4,
+          "mode": "CFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.md5"
+          ],
+          "repeatability": 0.09048132281169638,
+          "initial_pair": 0.09048132281169638,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.sha256"
+          ],
+          "repeatability": 0.08580963232294658,
+          "initial_pair": 0.08580963232294658,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.direct"
+          ],
+          "repeatability": 0.09905549606896573,
+          "initial_pair": 0.09905549606896573,
+          "view": "u16be",
+          "offset": 16,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.09849561611163948,
+          "initial_pair": 0.09849561611163948,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "ECB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.0767255283860512,
+          "initial_pair": 0.0767255283860512,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero8_header8"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.md5"
+          ],
+          "repeatability": 0.09998560733352509,
+          "initial_pair": 0.09998560733352509,
+          "view": "u32le",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "sample_uuid.text.sha256"
+          ],
+          "repeatability": 0.08063140486551792,
+          "initial_pair": 0.08063140486551792,
+          "view": "u32be",
+          "offset": 0,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.direct"
+          ],
+          "repeatability": 0.09099418576966897,
+          "initial_pair": 0.09099418576966897,
+          "view": "u32be",
+          "offset": 8,
+          "mode": "OFB",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.09801947596698331,
+          "initial_pair": 0.09801947596698331,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "sample_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.09452515918125054,
+          "initial_pair": 0.09452515918125054,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "sample_uuid.binary.repeat32"
+          ],
+          "repeatability": 0.096197914452664,
+          "initial_pair": 0.096197914452664,
+          "view": "u32be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.md5",
+            "zero_uuid.guid_le.md5"
+          ],
+          "repeatability": 0.09539607621166213,
+          "initial_pair": 0.09539607621166213,
+          "view": "u32le",
+          "offset": 4,
+          "mode": "CFB",
+          "iv": "header8_x2"
+        },
+        {
+          "labels": [
+            "zero_uuid.binary.sha256",
+            "zero_uuid.guid_le.sha256"
+          ],
+          "repeatability": 0.10463698595070611,
+          "initial_pair": 0.10463698595070611,
+          "view": "u32le",
+          "offset": 16,
+          "mode": "CBC",
+          "iv": "zero"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.md5"
+          ],
+          "repeatability": 0.07122994752174032,
+          "initial_pair": 0.07122994752174032,
+          "view": "u16be",
+          "offset": 16,
+          "mode": "CTR",
+          "iv": "first_block"
+        },
+        {
+          "labels": [
+            "zero_uuid.text.sha256"
+          ],
+          "repeatability": 0.08455198479270179,
+          "initial_pair": 0.08455198479270179,
+          "view": "u32le",
+          "offset": 12,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.md5"
+          ],
+          "repeatability": 0.10186515478351583,
+          "initial_pair": 0.10186515478351583,
+          "view": "u16le",
+          "offset": 4,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "zero_uuid.hex_text.sha256"
+          ],
+          "repeatability": 0.09077682196958248,
+          "initial_pair": 0.09077682196958248,
+          "view": "u32be",
+          "offset": 4,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.md5"
+          ],
+          "repeatability": 0.07649157495488607,
+          "initial_pair": 0.07649157495488607,
+          "view": "u16le",
+          "offset": 12,
+          "mode": "CTR",
+          "iv": "header8_zero8"
+        },
+        {
+          "labels": [
+            "six_ascii_zeros.sha256"
+          ],
+          "repeatability": 0.06169207731257618,
+          "initial_pair": 0.06169207731257618,
+          "view": "u32le",
+          "offset": 0,
+          "mode": "OFB",
+          "iv": "header8_zero8"
+        }
+      ],
+      "random_key_scores": [
+        0.0783088524796302,
+        0.11348999188933726,
+        0.09740106072113519,
+        0.0732846818191756,
+        0.09538178562932004,
+        0.10076702619139763,
+        0.10266670708805922,
+        0.06423982358608948,
+        0.1004312652395073,
+        0.0936621753892879,
+        0.07836280990784503,
+        0.11335007060957639
+      ],
+      "screen_hits_at_0_5": []
+    }
+  },
+  "limits": "Eight fw138 same-target captures per group; integer correlation screen with adaptive expansion, not a key proof. Compression can defeat this detector. No fitted spectrum decoder."
+}

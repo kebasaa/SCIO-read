@@ -1,0 +1,21 @@
+{
+  "unique_focused_tests_passed": 17,
+  "socket_connect_disabled_for_pytest": true,
+  "test_files": [
+    "dev/tests/test_application_zero_keys.py",
+    "dev/tests/test_verify_research_summary.py",
+    "dev/tests/test_cipher_gap.py"
+  ],
+  "source_hashes": {
+    "dev/scripts/probe_application_zero_keys.py": "6781a85c3e42c00c264e1960c466ea7595c83e9e123be25d7666ce1f2511f96f",
+    "dev/scripts/verify_research_summary.py": "d4bd85592d7ac932ba94845980873923af1e9a57dcbc4ab6a54c83dc43150d1f",
+    "dev/scripts/ingest_fw151_captures.py": "704602ba8696b914d45fbcc4570087dd657ac058dc85b13e77c8302e439e634e",
+    "dev/scripts/ingest_fw138_batches.py": "05929cf2a9da4a375243180822f1b2011643c269d6c3cce785202b8dbd2c030f",
+    "dev/scripts/probe_aptina_decrypt.py": "3489f9bf1148117073791b7c6f175384dbf32627bd8a2624f8915626d44f1d5e",
+    "dev/scio_offline/decode.py": "9485df56774c7de2595f686bee1e5fb14f63301f8d5fa9f0b7133c2f988ea55d",
+    "dev/scio_offline/repeatability.py": "ec1293b420b717a7bdf7d4850c15993616af34a5ac46878bb2b0843e9b4c3585",
+    "dev/tests/test_application_zero_keys.py": "6a1f7ee0f13f57fce587cde53fcab4c4203e408173ce7e527d19d78e7bf23d49"
+  },
+  "production_modified": false,
+  "live_device_or_cloud_used": false
+}

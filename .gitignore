@@ -43,3 +43,7 @@ CLAUDE.md
 # contributor bundles (python -m scio contribute); import them, do not commit the zips
 scio_contrib_*/
 scio_contrib_*.zip
+
+# Scratch area for downloaded third-party packages (e.g. the Consumer Physics
+# SCiO SDK, licensed under their Developer Terms). Never commit or redistribute.
+/dev/temp/

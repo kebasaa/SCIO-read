@@ -532,3 +532,103 @@ v2.018.029.1 release notes and mentions logging levels. It does not establish th
 library's exact function, plaintext logs or legacy-device compatibility.
 See the [verification report](analysis_output/github_research_20261028/TRIAGE.md)
 and [hashed public-source manifest](analysis_output/summary_verification_20261029/public_evidence.json).
+
+## Application key is a cloud client identifier (checked 2026-10-29)
+
+The [issue #1 comment](https://github.com/kebasaa/SCIO-read/issues/1#issuecomment-6482085109)
+passes its sample `APPLICATION_KEY` to `ScioLoginActivity.INTENT_APPLICATION_ID`.
+The exact MyScioApp sample and claimed latest SDK binary were not supplied locally.
+The same receiving API was traced in three local Java source packages: the
+historical consumer tree, Lab 1.3.12 and Analyzer 1.5.6 (labels describe local
+artifacts, not a verification of their release chronology).
+
+1. `ScioLoginActivity.handleIntentData()` reads the application ID from the Intent.
+2. The login request includes `response_type=token`, `client_id`, a redirect URI
+   and scopes. Later SDK code builds this URL in `ScioInternalCloud.postLogin()`.
+3. `ScioCloudPreferences` stores the ID as `AppID` in Android SharedPreferences;
+   it stores `AccessToken` separately. Logout also submits `client_id`.
+4. `SCiOBLeService.performSpectrum()` submits opcode 2. Its command builder uses
+   command ID, request data and sequence; no application-ID dependency was found
+   in the inspected transport/device source. Scan handlers read response data
+   as Base64 for `ScioInternalReading`, rather than decrypting it with the app ID.
+
+Thus this value serves as a cloud application/client identifier in the inspected
+paths. Changing it to an all-zero UUID changes the login parameter; it does not
+write zero bytes to an on-device scrambling key. Whether the server rejects that
+identifier was not tested. A UUID's 16-byte representation is not evidence of an
+AES key, and an all-zero AES key would not disable encryption in any case.
+Application/account authorization may affect cloud access independently of the
+device's opaque transform. This trace does not settle device-specific keys,
+server-side processing, historical provisioning or uninspected firmware behavior.
+
+The [audit JSON](analysis_output/application_key_20261029/audit.json) records
+340 Java files searched across the three trees, source hashes, reference line
+numbers and eight passing checks per tree. `scripts/audit_application_key.py`
+reproduces the bounded static checks with explicit source roots. Named-reference
+search is not whole-program data-flow proof; no Android APK was executed.
+The initial source audit performed no live login, device write, key experiment or
+GitHub reply. It cannot exclude the same value being independently hard-coded in
+firmware. The separate offline key experiment below addresses that possibility
+under explicit assumptions; an SDK transmission path is not a prerequisite.
+
+## Hard-coded UUID or zero-key follow-up (2026-10-29)
+
+**Result: no decryption found under the tested hypotheses.** This does not
+establish what key, if any, exists in firmware. The source audit above only
+describes the application's use of its identifier.
+
+The [test plan](analysis_output/application_zero_keys_20261029/plan.json) enumerates
+26 unique AES keys with labels, lengths and hashes: all-zero binary keys of
+128/192/256 bits; ASCII `0` repeated to those lengths; the public sample UUID in
+binary, GUID mixed-endian and ASCII-hex forms; repeated binary UUID; and named
+MD5/SHA256 derivations of UUID representations, the zero UUID and literal `000000`.
+These derivations are hypotheses, not evidence of the actual key derivation.
+
+The inputs are 621 distinct blobs: 603 sample/dark/gradient and white-reference
+blobs from 197 paired records at Git revision
+`135d8915388ae64f9c6ba90bb7fdd753d21323f7`, and 18 from the supplied fw-151 capture
+set (whose device identity remains unverified). Every input is hashed and linked
+to its source in the plan. AES modes are ECB, CBC, CTR (big-endian counter), CFB
+(full-block feedback) and OFB. Ciphertext starts at offset 0 or 8; IV candidates
+are zero, header8+zero8, zero8+header8, header8 repeated and a consumed first block.
+The second header word is not assumed to be a proven nonce.
+
+The [codec results](analysis_output/application_zero_keys_20261029/codec_results.json)
+record 581,256 successful decryptions and 3,487,536 zlib/gzip/raw-deflate checks,
+with **zero hits**. Another 96,876 block-mode configurations were skipped for
+misalignment; ciphertext was never silently truncated. The decoder checks offsets
+0 and 8 in candidate plaintext, requires stream EOF and at least 64 output bytes,
+caps output at 1 MiB, and allows only absent, zero or valid PKCS7 trailing padding.
+Identity/no-decryption checks also yielded no codec hits. Raw deflate/zero-padding
+matches would still require independent confirmation, not count as a recovered spectrum.
+
+All 120 end-to-end compressed positive controls recovered their original bytes,
+covering binary zero keys at all three AES lengths, the UUID key and every tested
+mode/IV scheme. Offset-zero header-derived configurations have no end-to-end
+fixture because encryption would require the ciphertext prefix to construct its
+own IV; those cases were searched but are not covered by these fixtures.
+
+The separate [repeatability screen](analysis_output/application_zero_keys_20261029/repeatability.json)
+uses eight available fw-138 captures in each of six cap/wood × sample/dark/gradient
+groups. The existing adaptive detector screens two captures first and only expands
+above 0.12. Best scores were 0.1154–0.1198, below its 0.5 candidate threshold;
+group maxima for 12 random control keys were 0.1081–0.1196. This is a screening
+heuristic, not statistical proof of key exclusion. Correct zero/UUID keys pass
+synthetic uncompressed-signal controls; compressed plaintext can fail this screen
+even with the correct key, as the earlier counterexample demonstrates.
+
+Reproduce entirely offline with:
+
+```text
+python dev/scripts/probe_application_zero_keys.py --output dev/analysis_output/application_zero_keys_REPLAY
+```
+
+Use a new output directory; existing reports are not overwritten. This test does
+not cover all ciphers, IV/counter conventions, KDFs, layouts, authenticated modes
+or unknown intermediate representations, and does not fit a spectrum decoder.
+A zero key is not an encryption bypass. Determining whether such a key is actually
+stored on the device still requires firmware or another direct source of evidence.
+No device experiment, cloud submission or production-code change was made.
+Seventeen distinct focused tests passed with socket connections disabled,
+including known-key recovery, wrong-key rejection, stream truncation/trailer
+rejection, expansion limits and the compressed-plaintext counterexample.

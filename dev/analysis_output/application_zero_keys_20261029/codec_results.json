@@ -1,0 +1,21 @@
+{
+  "positive_controls": {
+    "configurations_recovered": 120,
+    "keys": [
+      "zero128",
+      "zero192",
+      "zero256",
+      "public_uuid128"
+    ],
+    "note": "All modes/key sizes/IV schemes covered. Offset-zero header-derived cases lack end-to-end controls because IV would depend on ciphertext prefix."
+  },
+  "counts": {
+    "unaligned_block_configurations_skipped": 96876,
+    "decryptions": 581256,
+    "codec_checks": 3487536
+  },
+  "hits": [],
+  "distinct_blobs": 621,
+  "unique_keys": 26,
+  "interpretation": "Codec hits are provisional, not spectrum recovery. No hit does not reject other codecs, IVs or transforms."
+}

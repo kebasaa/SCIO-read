@@ -1,0 +1,179 @@
+{
+  "schema": "scio-application-key-audit/1",
+  "checked_on": "2026-10-29",
+  "comment": "https://github.com/kebasaa/SCIO-read/issues/1#issuecomment-6482085109",
+  "sources": [
+    {
+      "label": "consumer_local",
+      "java_files_searched": 108,
+      "checks": {
+        "intent_reads_application_id": true,
+        "login_client_id_parameter": true,
+        "phone_preferences_store_app_id": true,
+        "phone_preferences_store_token_separately": true,
+        "app_id_used_for_logout": true,
+        "spectrum_command_is_opcode_2": true,
+        "reading_uses_base64_response": true,
+        "no_named_app_id_reference_in_transport_or_device": true
+      },
+      "all_checks_pass": true,
+      "application_id_references": [
+        {
+          "file": "config/Config.java",
+          "lines": [
+            50
+          ]
+        },
+        {
+          "file": "sdk/config/ScioCloudPreferences.java",
+          "lines": [
+            53,
+            62
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioInternalCloud.java",
+          "lines": [
+            126
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioLoginActivity.java",
+          "lines": [
+            34,
+            41,
+            74,
+            78,
+            86,
+            114
+          ]
+        }
+      ],
+      "source_hashes": {
+        "sdk/sciosdk/ScioLoginActivity.java": "d0730ad3172d249a472f758826c396dd01f9090c1c33a74853a2741c0f0f0333",
+        "sdk/sciosdk/ScioInternalCloud.java": "3a7944a2607a247cef8ca68e4d60505a771baf367c8f6565fa87f14eab795f07",
+        "sdk/config/ScioCloudPreferences.java": "2f0e1796a4e4bb0a140344ec4ecbc5ae52b55099cb1cb4863cd0478b18a9cf56",
+        "scioconnection/services/SCiOBLeService.java": "67d625ec0752fc5b359ee70c9a34f830bec90bd8c4fa508955a17c6f26ffcb88",
+        "sdk/sciosdk/ScioInternalDevice.java": "78f86aef20449c96d92e1e79780ed2560c199ddcc8a44f478498ae4c438bb186"
+      }
+    },
+    {
+      "label": "lab_1_3_12",
+      "java_files_searched": 116,
+      "checks": {
+        "intent_reads_application_id": true,
+        "login_client_id_parameter": true,
+        "phone_preferences_store_app_id": true,
+        "phone_preferences_store_token_separately": true,
+        "app_id_used_for_logout": true,
+        "spectrum_command_is_opcode_2": true,
+        "reading_uses_base64_response": true,
+        "no_named_app_id_reference_in_transport_or_device": true
+      },
+      "all_checks_pass": true,
+      "application_id_references": [
+        {
+          "file": "config/Config.java",
+          "lines": [
+            51
+          ]
+        },
+        {
+          "file": "sdk/config/ScioCloudPreferences.java",
+          "lines": [
+            74,
+            83
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioInternalCloud.java",
+          "lines": [
+            219,
+            221,
+            231,
+            315
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioLoginActivity.java",
+          "lines": [
+            23,
+            30,
+            108,
+            219,
+            223
+          ]
+        }
+      ],
+      "source_hashes": {
+        "sdk/sciosdk/ScioLoginActivity.java": "e7b23d912d3a7905b5f173ffcc7a6ff447c3162d0d1060b8db352bc9d3ff175b",
+        "sdk/sciosdk/ScioInternalCloud.java": "4f29dcb7a48f173a1311094cd236143a535bfb92d8092905ff4e7e7120264e9e",
+        "sdk/config/ScioCloudPreferences.java": "28208ac38c515bdd23695f6f1117fde66c25cab051ca4f9e99e6bd87fb225ca2",
+        "scioconnection/services/SCiOBLeService.java": "85c788a43dbee04aeb7c3ab0e08f05bf3f7f9c9ee9e397494ed38f9751342a1e",
+        "sdk/sciosdk/ScioInternalDevice.java": "408840550722004fb67bc68fba3deb4dcb251b88f951c3af63efbd479c25e11b"
+      }
+    },
+    {
+      "label": "analyzer_1_5_6",
+      "java_files_searched": 116,
+      "checks": {
+        "intent_reads_application_id": true,
+        "login_client_id_parameter": true,
+        "phone_preferences_store_app_id": true,
+        "phone_preferences_store_token_separately": true,
+        "app_id_used_for_logout": true,
+        "spectrum_command_is_opcode_2": true,
+        "reading_uses_base64_response": true,
+        "no_named_app_id_reference_in_transport_or_device": true
+      },
+      "all_checks_pass": true,
+      "application_id_references": [
+        {
+          "file": "config/Config.java",
+          "lines": [
+            51
+          ]
+        },
+        {
+          "file": "sdk/config/ScioCloudPreferences.java",
+          "lines": [
+            74,
+            83
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioInternalCloud.java",
+          "lines": [
+            220,
+            222,
+            232,
+            316
+          ]
+        },
+        {
+          "file": "sdk/sciosdk/ScioLoginActivity.java",
+          "lines": [
+            23,
+            30,
+            108,
+            219,
+            223
+          ]
+        }
+      ],
+      "source_hashes": {
+        "sdk/sciosdk/ScioLoginActivity.java": "fa593409f4bd65fcd902503e5cf04a9f9ae84bee915818b06875195a616c79c4",
+        "sdk/sciosdk/ScioInternalCloud.java": "e7d95dbc3e52629770e1d914118a10fb143d93bb5cb724eb72281d297dae83a4",
+        "sdk/config/ScioCloudPreferences.java": "6936d5222c65fccde77d0d443e29e71e7cdd188b3f6fe694a6c36df2240c94e7",
+        "scioconnection/services/SCiOBLeService.java": "74a04166d7c12b43a5ea661e211c62cb7050165a00d9a5657b0026a2e8ca152d",
+        "sdk/sciosdk/ScioInternalDevice.java": "f43b451d112f786a190890c5c1a8529f2e14772afca977beb3687cc0abeed8e2"
+      }
+    }
+  ],
+  "limits": [
+    "Exact MyScioApp sample/latest SDK artifact from the comment was not supplied.",
+    "Named-reference search plus manual path tracing is not exhaustive data-flow analysis.",
+    "No server response to an all-zero client ID was tested.",
+    "No device key-setting command or key material was recovered."
+  ]
+}

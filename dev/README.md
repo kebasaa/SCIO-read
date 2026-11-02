@@ -294,6 +294,64 @@ foreign blob fails. Whether the device holds one secret, two (transform and inte
 none of its own is not established. The class stays `undetermined`; the most informative
 remaining route is the firmware, which needs a hardware read.
 
+## Vendor Mobile SDK downloads (2026-11-02)
+
+The developer site's "Mobile SDK" page (`https://dev.scionir.com/download`) gates two zips
+behind a terms checkbox in page script only; the files themselves are public:
+
+| file | sha256 | contents |
+|---|---|---|
+| `SDK_Android.zip` (440,719 B) | `bc8bd80b…876674b04` | `SCiOSDK_Android.aar` **v1.3.7.0, 2024-03-21**, plus the `MyScioApp` sample |
+| `SDK_iOS.zip` (1,192,616 B) | `342c564b…680d08fc` | `ScioSDK.xcframework` (arm64 + simulator; changelog to **V2.8**, built 2025-12) plus an Objective-C sample app |
+
+Both are licensed under the Consumer Physics Developer Terms. Local copies live in `dev/temp/`,
+which is git-ignored. **Never commit or redistribute the SDK or decompiled code from it**;
+record findings here instead.
+
+**Android: nothing new.** Decompiled with the local jadx 1.5.6 and diffed against
+`dev/private/lab_1_3_12_java`, it is the same SDK the Lab 1.3.12 app embeds. GATT UUIDs, the
+`0xBA` framing, `CommandIDs` and the `FirmwareFiles` IDs 89-103 are identical to the root README.
+The remaining diffs are member order, constants the DEX compiler inlined, and an OAuth scope that
+is now a parameter. The scan path still only Base64-forwards raw responses to the cloud.
+
+**iOS: a separate implementation, with three facts the Android code does not show.** These come
+from the Mach-O's command-name table, symbols, and arm64 disassembly of the named methods (no
+decompiler), and **none has been tried on hardware yet**:
+
+1. **`ReadEEPROMField`, opcode `0x17`.** This is the last entry of the iOS command-name table,
+   which follows the opcode order `DeviceStatus` (0x00) ... `ReadBleParams` (0x9B).
+   `-[SCDeviceAccessManager readEEPROMField:completion:]` passes `0x17` to
+   `requestWithCommand:` the same way `readFileList` passes `0x94`. The field number is boxed
+   into a **1-byte** `NSData` and sent as raw payload, the same path as `0x91`/`0x9A`. So the
+   request is `[seq] BA 17 01 00 <field>`. Response layout:
+   `-[SCDeviceService handleReadEEPROMFiledWithMessageReader:commandRequest:]`, not yet traced.
+   `readHMMVoltagesArrayWithCompletion:` chains reads of **fields 4, 5, 6, 7** (one
+   per block). What "HMM" means is unknown. `0x17` is absent from `src/scio/protocol.py`.
+2. **The scan request carries a payload on iOS.** `-[SCCommandRequest
+   setParametersToMessageBuilder:]` builds `SAMPLE_SPECTRUM` (0x02) as `u32 0x01020304` then
+   `u8 1`, i.e. payload `04 03 02 01 01`. Android's `performSpectrum` sends an empty payload
+   (`01ba020000`, as in the root README); both evidently work against the same firmware family.
+   Other payloads from the same method: `SetIndicationLed` (0x0B) is 9 zero bytes;
+   `FileHeader` (0x87) is a `u32` file ID; `FileDownload` (0x81) splits the file into 192-byte
+   messages.
+3. **`supportLegacySampleBehavior` is a firmware-version switch for 2-frame scans.**
+   `-[SCDeviceAccessManager setFwVersion:]` sets it when
+   `fwVersion < 0x88` (136) **or** `fwVersion == 0x501` (1281) **or** `fwVersion == 0x529` (1321).
+   With it set, `setParametersToMessageBuilder:` expects **2** response messages for 0x02 instead
+   of 3. `deviceService:didReceiveSample:request:` then stores message 1 as dark and message 2 as
+   the light sample and completes without a gradient. `takeSampleWithOptions:` and
+   `takeWhiteReferenceWithOptions:` copy the flag onto their requests, so white references
+   follow the same rule. This matches Android's `DeviceInfo` (`< 136` -> 2 frames), but
+   iOS adds the two exact versions 1281/1321. These look like a different version series, so
+   unrelated to the 138/151 units here. iOS has no counterpart to Android's
+   "`>= 153` with gradient disabled" case. Both local units (fw 138, fw 151) are non-legacy,
+   which agrees with the 3-frame triplets we capture.
+
+The iOS "self test" (`selfTestWithCompletion:`, changelog V2.7) is **not** `BIST (0x09)`. It
+is `calibrateWithSelfTest:`, a normal calibration scan validated by the cloud at
+`/v1/sdk/device/{id}/self_test`. That endpoint is already listed in
+`analysis_output/sdk_endpoints_20261004/sdk_endpoints.json`, so BIST's lack of a reply stands.
+
 ## Layout
 
 ```
@@ -307,6 +365,7 @@ dev/
   tests/                 pytest for this strand only
   analysis_output/       saved evidence, including live server/device runs that cannot be
                          regenerated - treat as append-only; write new runs to new paths
+  temp/                  git-ignored downloads of licensed third-party packages (vendor SDKs)
   HANDOVER.md            current state and ranked next tasks (keep it current)
   RECOVERY_STATUS.md     chronological research log
   DEVICE_FUNCTION_REFERENCE.md, NATIVE_ANALYSIS.md   device facts; native-tooling notes

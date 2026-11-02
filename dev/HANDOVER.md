@@ -13,6 +13,49 @@ how to work in this repository is in
 
 ## Current state
 
+**Vendor Mobile SDKs downloaded and inspected, 2026-11-02:** the developer site
+serves Android SDK v1.3.7.0 (2024) and iOS SDK V2.8 (built 2025-12). Both are kept
+git-ignored in `dev/temp/` under the Developer Terms. The Android AAR is the SDK
+already embedded in Lab 1.3.12; nothing new. The iOS framework adds an undocumented
+read command **`ReadEEPROMField` = `0x17`** (1-byte field number; "HMM voltages" =
+fields 4-7). It also sends the scan as `02` with payload `04 03 02 01 01`, where
+Android sends no payload. Its `supportLegacySampleBehavior` gives 2-frame scans
+(no gradient) for fw < 136 or fw 1281/1321. The iOS "self test" is a
+cloud-validated calibration, not BIST. Static analysis only; nothing sent to a
+device or server. [Details](README.md#vendor-mobile-sdk-downloads-2026-11-02).
+
+**Hard-coded application/zero-key follow-up completed, 2026-10-29:** the login
+trace does not exclude a separately hard-coded matching key in firmware. Tested
+26 explicit AES keys (binary/ASCII zeros, public UUID representations and named
+MD5/SHA256 derivations) on 621 distinct saved blobs: 581,256 decryptions and
+3,487,536 codec checks, no complete zlib/gzip/raw-deflate stream hits. The 120
+known-key positive controls recovered their original compressed data. Six fw-138
+same-target groups yielded best integer-repeatability scores 0.1154..0.1198,
+below the 0.5 screen threshold; the existing adaptive screen can stop at two
+captures despite eight being available. This is a bounded negative, not proof
+that no zero/UUID key exists on the device. Firmware remains unavailable; other
+ciphers, IV/KDF rules, layouts and unknown plaintext formats remain untested.
+[Scope and reproducer](DEVICE_FUNCTION_REFERENCE.md#hard-coded-uuid-or-zero-key-follow-up-2026-10-29),
+[hashed input/key plan](analysis_output/application_zero_keys_20261029/plan.json),
+[codec results](analysis_output/application_zero_keys_20261029/codec_results.json),
+[repeatability results](analysis_output/application_zero_keys_20261029/repeatability.json).
+Seventeen distinct focused tests passed with socket connections disabled.
+No device writes or server requests occurred.
+
+**Application-key hypothesis checked, 2026-10-29:** the issue #1 comment's
+`APPLICATION_KEY` is passed as `INTENT_APPLICATION_ID`. Across three inspected
+Java SDK trees, this flows to login `client_id`, phone-side `AppID` preferences,
+and logout; no named application-ID reference appears in device/transport code.
+The scan path sends opcode 2 and forwards opaque responses as Base64. There is
+no demonstrated device key-setting operation here. Replacing the UUID with zeros
+would change the login identifier, not set a zero device key through this path;
+server handling of that ID was not tested. Exact commenter SDK/sample unavailable;
+this is bounded source evidence, not a claim about all firmware or future SDKs.
+[Hashed audit](analysis_output/application_key_20261029/audit.json),
+[trace and limits](DEVICE_FUNCTION_REFERENCE.md#application-key-is-a-cloud-client-identifier-checked-2026-10-29).
+Validation: 24 source checks passed across 340 Java files; three audit regression
+tests and nine existing fake-USB tests passed (12 total). No device was needed.
+
 **Independent claim verification completed, 2026-10-29:** verified all 266 Git
 JSON objects at the cited commit, 197 paired records (94/103 by tag), 1,182 blob
 encoding/size checks and 402 distinct analysis blobs. Zero complete-stream hits
@@ -519,6 +562,20 @@ corrections and independently supplied firmware artifacts remain non-teardown ro
 Nothing below may write, erase,
 reset or change straps or protection.
 
+### 0d. Probe `ReadEEPROMField` (0x17) on a unit (deferred by the owner, 2026-11-02)
+
+- **Not yet.** The owner asked to document first and probe later.
+- **Goal:** find out what the EEPROM fields hold, starting with the iOS SDK's "HMM voltages"
+  (fields 4-7). It may also show whether any field carries per-device calibration or key
+  material.
+- **How:** add `0x17` as a read-only probe in `src/scio/probe.py` with a 1-byte field payload
+  (`[seq] BA 17 01 00 <field>`). Sweep low field numbers one at a time, power-cycling if the
+  unit goes silent. Trace
+  `-[SCDeviceService handleReadEEPROMFiledWithMessageReader:commandRequest:]` in the iOS
+  binary first so the response can be parsed.
+- **Guard:** iOS only exposes this as a read, but that is not proof it has no side effects on
+  every firmware. Stop at the first unexpected status, and never pair it with `0x9A`/`0x91`.
+
 ### 1. Passive boot-traffic capture
 
 - **Goal:** record the DSP's boot stream as it crosses a bus at power-on. Whatever
@@ -568,6 +625,7 @@ hypothesis that the earlier run could not have seen.
 | Supervised leakage, fixed-position linear (bits/bytes/u16) | [leakage](analysis_output/leakage_20261003/leakage.json) |
 | Gradient as a weaker or derived blob | [gradient](analysis_output/gradient_20261004/gradient.json) |
 | Size-only layout fitting (12 receptors, 331 bands) | [size constraints](analysis_output/size_constraints_20261004/size_constraints.json) |
+| Android Mobile SDK v1.3.7.0 (developer-site download) as a new source: same SDK as Lab 1.3.12, no decoder | [vendor SDKs](README.md#vendor-mobile-sdk-downloads-2026-11-02) |
 | `intermediate_scan` as a decoding endpoint | [sdk endpoints](analysis_output/sdk_endpoints_20261004/sdk_endpoints.json) |
 | Looking for a standalone flash chip in the teardown photos | [teardown markings](../documentation/teardown/README.md#markings-read-from-these-photos-2026-10-04) |
 | Firmware offer as a firmware-135/136 device; 2-frame scan with the 1.2.6.476 client (null; spectrum identical) | [old-firmware probe](analysis_output/firmware_old_version_20261004/campaign_summary.json) |
